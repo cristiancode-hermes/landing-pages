@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="doc-title">CITA — Booking &amp; scheduling, without the back-and-forth</title>
+<meta id="meta-desc" name="description" content="CITA is a scheduling platform for teams. Share your link, get booked in seconds, and cut the back-and-forth.">
+<link rel="canonical" href="https://proyectos.cristiancode.dev/landings/2026-08-19-cita.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="CITA — Booking &amp; scheduling, without the back-and-forth">
+<meta property="og:description" content="A scheduling platform for teams. Share your link, get booked in seconds.">
+<meta property="og:url" content="https://proyectos.cristiancode.dev/landings/2026-08-19-cita.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CITA — Booking &amp; scheduling">
+<meta name="twitter:description" content="A scheduler for teams. One link, rules you set, slots fill themselves.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23242424'/><rect x='24' y='22' width='11' height='26' rx='3' fill='%23ffffff'/><rect x='42' y='22' width='11' height='26' rx='3' fill='%23ffffff'/><rect x='24' y='56' width='52' height='8' rx='3' fill='%23ffffff' opacity='.85'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   DESIGN SYSTEM — CITA
+   Surface: Decide/Learn (landing)
+   Derived from: Cal.com (popular-web-designs) — monochrome scheduling
+   Family: SaaS / Scheduling
+   Style: Grayscale precision, high-contrast on white, shadow depth
+   Strategy: Restrained (neutrals + blue link accent, blue badge)
+   Type: Archivo (Cal Sans substitute) — one family, tight tracking
+   ============================================================ */
+
+:root{
+  --bg:#ffffff; --surface:#ffffff; --ink:#242424; --muted:#616161; --line:#ececec;
+  --cta:#242424; --cta-hover:#111111; --cta-ink:#ffffff;
+  --blue:#0057e0; --focus:#3b82f6; --stage:#f5f5f5;
+  --shadow:0 1px 5px -4px rgba(19,19,22,.6), 0 0 0 1px rgba(34,42,53,.07), 0 8px 24px rgba(0,0,0,.05);
+  --sans:'Archivo',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --display:'Archivo',system-ui,sans-serif;
+  --ease:cubic-bezier(.2,.6,.2,1); --r:8px; --pill:9999px;
+}
+[data-theme="dark"]{
+  --bg:#0e0e0f; --surface:#161618; --ink:#f5f5f4; --muted:#9b9b9b; --line:#26262a;
+  --cta:#f5f5f4; --cta-hover:#ffffff; --cta-ink:#111111;
+  --blue:#7aa2ff; --focus:#3b82f6; --stage:#161618;
+  --shadow:0 1px 5px -4px rgba(0,0,0,.6), 0 0 0 1px rgba(255,255,255,.06), 0 8px 24px rgba(0,0,0,.4);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+html.no-js .reveal{opacity:1;transform:none}
+@media print{.reveal{opacity:1;transform:none}}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit}
+img,svg{display:block;max-width:100%}
+.container{width:min(1120px,92%);margin-inline:auto}
+.skip{position:absolute;left:-999px;top:0;background:var(--cta);color:var(--cta-ink);padding:.6rem 1rem;z-index:100}
+.skip:focus{left:1rem;top:1rem}
+.nav{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1px solid var(--line)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.8rem 0}
+.logo{font-weight:700;letter-spacing:-.04em;font-size:1.18rem;display:flex;align-items:center;gap:.5rem}
+.logo-mark{width:24px;height:24px;border-radius:6px;background:var(--cta);color:var(--cta-ink);display:grid;place-items:center;font-size:.72rem;font-weight:800}
+.nav-links{display:flex;align-items:center;gap:1.4rem}
+.nav-links a{font-size:.95rem;color:var(--ink)}
+.nav-links a:hover{color:var(--blue)}
+.nav-actions{display:flex;align-items:center;gap:.6rem}
+.icon-btn{width:40px;height:40px;border-radius:var(--pill);border:1px solid var(--line);background:var(--surface);color:var(--ink);display:grid;place-items:center}
+.icon-btn:hover{border-color:var(--blue);color:var(--blue)}
+.burger{display:none}
+.nav-desktop-only{display:contents}
+@media (max-width:900px){.nav-desktop-only{display:none!important}}
+.mobile-menu{display:none;border-top:1px solid var(--line);padding:1rem 0 1.25rem}
+.mobile-menu.open{display:block}
+.mobile-menu a{display:block;padding:.65rem 0;color:var(--ink)}
+.mobile-menu a.btn{display:inline-flex;padding:.72rem 1.15rem;width:100%;justify-content:center}
+.mobile-menu a.btn-primary{color:var(--cta-ink);background:var(--cta)}
+.mobile-menu a.btn-primary:hover{background:var(--cta-hover);color:var(--cta-ink)}
+.mobile-menu .nav-actions{margin-top:.75rem;flex-wrap:wrap;flex-direction:column;align-items:stretch}
+.lang-select{position:relative}
+.lang-select__btn{display:inline-flex;align-items:center;gap:.35rem;padding:.45rem .7rem;border-radius:var(--pill);border:1px solid var(--line);background:var(--surface);color:var(--ink);font-size:.85rem;cursor:pointer}
+.lang-select__btn[aria-expanded="true"]{border-color:var(--blue);color:var(--blue)}
+.lang-select__menu{position:absolute;right:0;top:calc(100% + 6px);min-width:148px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:.35rem;list-style:none;z-index:60;box-shadow:var(--shadow)}
+.lang-select__menu[hidden]{display:none!important}
+.lang-select__menu li{padding:.5rem .65rem;border-radius:6px;cursor:pointer;font-size:.9rem;color:var(--ink)}
+.lang-select__menu li:hover,.lang-select__menu li[aria-selected="true"]{background:var(--stage);color:var(--ink)}
+.chev{transition:transform .2s var(--ease)}
+.lang-select__btn[aria-expanded="true"] .chev{transform:rotate(180deg)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.72rem 1.15rem;border-radius:var(--r);border:1px solid transparent;font-weight:600;font-size:.95rem;cursor:pointer;transition:opacity .15s ease,background .15s ease,color .15s ease}
+.btn-primary{background:var(--cta);color:var(--cta-ink)}
+.btn-primary:hover{background:var(--cta-hover)}
+.btn-ghost{background:var(--surface);color:var(--ink);border-color:var(--line);box-shadow:var(--shadow)}
+.btn-ghost:hover{border-color:var(--blue);color:var(--blue)}
+.pill{border-radius:var(--pill)}
+.hero{padding:clamp(3rem,7vw,6rem) 0 0;position:relative;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
+.hero-copy{max-width:560px}
+.kicker{display:inline-flex;align-items:center;gap:.5rem;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:1.1rem}
+.hero h1{font-family:var(--display);font-weight:700;font-size:clamp(2.3rem,5vw,3.6rem);line-height:1.06;letter-spacing:-.035em;margin-bottom:1.2rem;text-wrap:balance}
+.hero p.lead{font-size:clamp(1.05rem,1.6vw,1.22rem);color:var(--muted);max-width:48ch;margin-bottom:1.7rem}
+.hero-cta{display:flex;gap:.7rem;flex-wrap:wrap;margin-bottom:2.2rem}
+.hero-trust{font-size:.85rem;color:var(--muted);display:flex;align-items:center;gap:.6rem}
+.avatars{display:flex}
+.avatars span{width:26px;height:26px;border-radius:50%;border:2px solid var(--bg);display:grid;place-items:center;background:var(--stage);font-size:.6rem;font-weight:700}
+.avatars span+span{margin-left:-8px}
+.hero-art{position:relative}
+.sched{background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:1.4rem;max-width:400px;margin-left:auto;transform:rotate(-1deg)}
+.sched-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem}
+.sched-head b{font-size:1rem}
+.sched-head span{font-size:.78rem;color:var(--muted)}
+.sched-row{display:flex;align-items:center;gap:.7rem;padding:.7rem .8rem;border-radius:10px;border:1px solid var(--line);margin-bottom:.55rem}
+.sched-row .d{width:44px;height:44px;border-radius:10px;background:var(--stage);display:grid;place-items:center;text-align:center;font-weight:700;font-size:.72rem;line-height:1.05}
+.sched-row .t b{display:block;font-size:.9rem}
+.sched-row .t span{font-size:.78rem;color:var(--muted)}
+.sched-row .book{margin-left:auto;background:var(--cta);color:var(--cta-ink);font-size:.72rem;font-weight:600;padding:.35rem .6rem;border-radius:var(--pill);border:0;font-family:inherit;cursor:pointer;line-height:1.2;flex:none}
+.sched-row .book:hover{background:var(--cta-hover)}
+.sched-row .book:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.sched-row.booked{border-color:var(--blue)}
+.sched-row.booked .book{background:#0f6a32;color:#fff}
+.badge{position:absolute;top:-12px;left:-10px;background:var(--blue);color:#fff;font-size:.72rem;font-weight:700;padding:.35rem .7rem;border-radius:var(--pill);box-shadow:var(--shadow)}
+.section{padding:clamp(3.5rem,7vw,6rem) 0}
+.sec-head{max-width:640px;margin-bottom:2.8rem}
+.kicker-2{font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:.8rem}
+.sec-head h2{font-family:var(--display);font-weight:700;font-size:clamp(1.8rem,3.4vw,2.6rem);line-height:1.12;letter-spacing:-.03em;margin-bottom:.9rem;text-wrap:balance}
+.sec-head p{color:var(--muted);font-size:1.05rem;max-width:52ch}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem}
+.step{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1.4rem}
+.step .n{font-family:var(--display);font-weight:700;font-size:.86rem;color:var(--blue);margin-bottom:.7rem}
+.step h3{font-weight:700;font-size:1.05rem;margin-bottom:.45rem;letter-spacing:-.01em}
+.step p{font-size:.92rem;color:var(--muted)}
+.feat{display:grid;grid-template-columns:repeat(2,1fr);gap:1.1rem}
+.feat-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1.5rem;display:flex;gap:1rem;align-items:flex-start}
+.feat-card svg{flex:none;margin-top:2px}
+.feat-card h3{font-weight:700;font-size:1.05rem;margin-bottom:.4rem;letter-spacing:-.01em}
+.feat-card p{font-size:.93rem;color:var(--muted)}
+.stats{background:var(--stage);border:1px solid var(--line);border-radius:18px;padding:2.2rem 1.6rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;text-align:center}
+.stat b{font-family:var(--display);font-weight:700;font-size:clamp(2rem,4vw,2.8rem);letter-spacing:-.04em;display:block}
+.stat span{font-size:.9rem;color:var(--muted)}
+.plans{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem;align-items:start}
+.plan{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:1.8rem;display:flex;flex-direction:column}
+.plan h3{font-weight:700;font-size:1.1rem;margin-bottom:.2rem}
+.plan .p{font-size:.92rem;color:var(--muted);margin-bottom:1.1rem}
+.plan .price{font-family:var(--display);font-weight:700;font-size:2rem;letter-spacing:-.03em;margin-bottom:1.2rem}
+.plan ul{list-style:none;margin-bottom:1.5rem}
+.plan li{display:flex;align-items:center;gap:.55rem;font-size:.95rem;padding:.32rem 0;color:var(--ink)}
+.plan li svg{flex:none}
+.plan .btn{margin-top:auto}
+.plan.featured{border-color:var(--blue);box-shadow:var(--shadow)}
+.plan.featured h3{color:var(--blue)}
+.faq-list{max-width:720px}
+.faq-item{border:1px solid var(--line);border-radius:12px;margin-bottom:.7rem;overflow:hidden;background:var(--surface)}
+.faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:1rem;background:none;border:none;text-align:left;padding:1.05rem 1.2rem;font-weight:600;font-size:1rem;cursor:pointer;color:var(--ink)}
+.faq-q .ic{font-size:1.2rem;transition:transform .2s var(--ease);color:var(--blue)}
+.faq-item.open .faq-q .ic{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s var(--ease)}
+.faq-a p{padding:0 1.2rem 1.1rem;color:var(--muted);font-size:.95rem}
+.news{background:var(--stage);border:1px solid var(--line);border-radius:18px;padding:2.4rem;text-align:center}
+.news h2{font-family:var(--display);font-weight:700;font-size:clamp(1.5rem,3vw,2.1rem);letter-spacing:-.02em;margin-bottom:.9rem}
+.news p{color:var(--muted);margin-bottom:1.4rem}
+.news form{display:flex;gap:.6rem;max-width:420px;margin-inline:auto}
+.news input{flex:1;padding:.72rem 1rem;border-radius:var(--r);border:1px solid var(--line);background:var(--bg);color:var(--ink)}
+.news input:focus{outline:none;border-color:var(--blue)}
+.nl-msg{display:none;margin-top:.8rem;font-size:.88rem}
+.nl-msg.ok{display:block;color:#0f7a34}
+.nl-msg.err{display:block;color:#c23b32}
+.cookie{position:fixed;right:1rem;bottom:1rem;left:auto;width:min(420px,calc(100vw - 2rem));max-width:420px;margin:0;background:var(--cta);color:var(--cta-ink);border-radius:14px;padding:.75rem 1rem;display:flex;align-items:center;gap:.7rem;box-shadow:var(--shadow);transform:translateY(calc(100% + 1.5rem));transition:transform .35s var(--ease);z-index:90}
+.cookie.show{transform:translateY(0)}
+.cookie p{font-size:.86rem;flex:1;line-height:1.35}
+.cookie .btn{padding:.4rem .8rem;font-size:.82rem}
+.cookie .btn-primary{background:var(--cta-ink);color:var(--cta)}
+.cookie .btn-ghost{background:transparent;color:var(--cta-ink);border-color:rgba(255,255,255,.35);box-shadow:none}
+[data-theme="dark"] .cookie .btn-ghost{border-color:rgba(0,0,0,.25);color:var(--cta-ink)}
+@media (max-width:700px){
+  .cookie{top:calc(var(--nav-h,56px) + .5rem);bottom:auto;left:.75rem;right:.75rem;width:auto;max-width:none;transform:translateY(calc(-100% - 8rem))}
+  .cookie.show{transform:translateY(0)}
+}
+.footer{border-top:1px solid var(--line);padding:2rem 0 3rem}
+.footer-inner{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;align-items:center;font-size:.88rem;color:var(--muted)}
+.footer-links{display:flex;gap:1.2rem}
+.footer-links a:hover{color:var(--blue)}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}}
+@media (max-width:900px){
+  .burger{display:grid;width:40px;height:40px;place-items:center;border:1px solid var(--line);border-radius:var(--pill);background:var(--surface);color:var(--ink)}
+  .hero-grid{grid-template-columns:1fr}
+  .hero-art{order:-1}
+  .sched{margin-inline:auto;transform:none}
+  .steps{grid-template-columns:1fr 1fr}
+  .feat{grid-template-columns:1fr}
+  .stats{grid-template-columns:1fr}
+  .plans{grid-template-columns:1fr}
+}
+@media (max-width:540px){.steps{grid-template-columns:1fr}.news form{flex-direction:column}}
+
+</style>
+</head>
+<body>
+<a class="skip" href="#main" data-i18n="skip">Skip to content</a>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="logo" href="#main"><span class="logo-mark">C</span>CITA</a>
+    <nav class="nav-links nav-desktop-only" aria-label="Primary">
+      <a href="#product" data-i18n="nav_product">Product</a>
+      <a href="#features" data-i18n="nav_why">Why CITA</a>
+      <a href="#pricing" data-i18n="nav_pricing">Pricing</a>
+      <a href="#faq" data-i18n="nav_faq">FAQ</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="icon-btn" type="button" data-theme-toggle data-i18n-aria="nav_theme" aria-label="Toggle theme">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+      <div class="lang-select">
+        <button class="lang-select__btn" type="button" aria-haspopup="listbox" aria-expanded="false" data-i18n-aria="nav_lang" aria-label="Language">
+          <span class="lang-select__cur">EN</span><svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <ul class="lang-select__menu" role="listbox" hidden>
+          <li role="option" data-lang="en" aria-selected="true">English</li>
+          <li role="option" data-lang="es" aria-selected="false">Español</li>
+          <li role="option" data-lang="fr" aria-selected="false">Français</li>
+          <li role="option" data-lang="de" aria-selected="false">Deutsch</li>
+          <li role="option" data-lang="it" aria-selected="false">Italiano</li>
+          <li role="option" data-lang="pt" aria-selected="false">Português</li>
+        </ul>
+      </div>
+      <a class="btn btn-primary pill nav-desktop-only" href="#pricing" data-i18n="nav_cta">Start scheduling</a>
+      <button class="burger" id="burger" type="button" data-i18n-aria="nav_menu" aria-label="Open menu" aria-expanded="false">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="container">
+      <a href="#product" data-i18n="nav_product">Product</a>
+      <a href="#features" data-i18n="nav_why">Why CITA</a>
+      <a href="#pricing" data-i18n="nav_pricing">Pricing</a>
+      <a href="#faq" data-i18n="nav_faq">FAQ</a>
+      <div class="nav-actions">
+        <div class="lang-select">
+          <button class="lang-select__btn" type="button" aria-haspopup="listbox" aria-expanded="false" data-i18n-aria="nav_lang" aria-label="Language">
+            <span class="lang-select__cur">EN</span><svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <ul class="lang-select__menu" role="listbox" hidden>
+            <li role="option" data-lang="en" aria-selected="true">English</li>
+            <li role="option" data-lang="es" aria-selected="false">Español</li>
+            <li role="option" data-lang="fr" aria-selected="false">Français</li>
+            <li role="option" data-lang="de" aria-selected="false">Deutsch</li>
+            <li role="option" data-lang="it" aria-selected="false">Italiano</li>
+            <li role="option" data-lang="pt" aria-selected="false">Português</li>
+          </ul>
+        </div>
+        <a class="btn btn-primary pill" href="#pricing" data-i18n="nav_cta">Start scheduling</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero" id="hero">
+  <div class="container hero-grid">
+    <div class="hero-copy reveal">
+      <span class="kicker" data-i18n="hero_kicker">TEAM SCHEDULING</span>
+      <h1 data-i18n="hero_title">Stop emailing &ldquo;what time works for you?&rdquo;</h1>
+      <p class="lead" data-i18n="hero_sub">CITA is a scheduler for teams. One link, rules you set, and every slot fills itself — so your calendar does the talking.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#pricing" data-i18n="hero_cta">Get started</a>
+        <a class="btn btn-ghost" href="#product" data-i18n="hero_alt">Start free</a>
+      </div>
+      <div class="hero-trust">
+        <div class="avatars"><span>JB</span><span>Am</span><span>RK</span></div>
+        <span data-i18n="trust">Trusted by modern teams</span>
+      </div>
+    </div>
+    <div class="hero-art reveal">
+      <span class="badge">2 invites</span>
+      <div class="sched">
+        <div class="sched-head"><b>Mon · 14 Sep</b><span>GMT+2</span></div>
+        <div class="sched-row"><div class="d">09<br>00</div><div class="t"><b>Discovery call</b><span>30 min · You</span></div><button type="button" class="book" aria-pressed="false">Book</button></div>
+        <div class="sched-row"><div class="d">10<br>30</div><div class="t"><b>Product demo</b><span>45 min · Alex R.</span></div><button type="button" class="book" aria-pressed="false">Book</button></div>
+        <div class="sched-row"><div class="d">13<br>00</div><div class="t"><b>Design review</b><span>60 min · Team</span></div><button type="button" class="book" aria-pressed="false">Book</button></div>
+        <div class="sched-row"><div class="d">15<br>30</div><div class="t"><b>1:1 check-in</b><span>20 min · Sam</span></div><button type="button" class="book" aria-pressed="false">Book</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="product">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="kicker-2" data-i18n="sec_how">How it works</div>
+      <h2 data-i18n="how_ttl_placeholder">Scheduling that runs itself.</h2>
+      <p data-i18n="how_sub_placeholder">Set rules once; CITA handles the rest.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><div class="n">01</div><h3 data-i18n="how_1t">Set your availability</h3><p data-i18n="how_1">Tell CITA your working hours once. Recurring rules, buffer time and timezones just work.</p></div>
+      <div class="step reveal"><div class="n">02</div><h3 data-i18n="how_2t">Share one link</h3><p data-i18n="how_2">Drop your CITA link anywhere — email sig, Slack, your site. No apps for the person booking.</p></div>
+      <div class="step reveal"><div class="n">03</div><h3 data-i18n="how_3t">Get booked, automatically</h3><p data-i18n="how_3">Invitees pick a slot that respects your rules. Double-bookings are impossible, reminders are sent for you.</p></div>
+      <div class="step reveal"><div class="n">04</div><h3 data-i18n="how_4t">Own your calendar</h3><p data-i18n="how_4">Two-way sync with Google and Outlook. Data lives with you, not a black box.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="features">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="kicker-2" data-i18n="sec_feat">Built for the way teams actually work</div>
+      <h2 data-i18n="feat_ttl_placeholder">Less back-and-forth. More booked time.</h2>
+    </div>
+    <div class="feat">
+      <div class="feat-card reveal"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/></svg><div><h3 data-i18n="feat_1t">Time zones, handled</h3><p data-i18n="feat_1">Every invitee sees slots in their own zone. Nobody does mental math at 2am.</p></div></div>
+      <div class="feat-card reveal"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg><div><h3 data-i18n="feat_2t">Round-robin routing</h3><p data-i18n="feat_2">Distribute incoming meetings across the team fairly, with weights and exclusions.</p></div></div>
+      <div class="feat-card reveal"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg><div><h3 data-i18n="feat_3t">Confirmation on autopilot</h3><p data-i18n="feat_3">Emails, reminders, reschedules and cancellations without a single manual send.</p></div></div>
+      <div class="feat-card reveal"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><h3 data-i18n="feat_4t">Rules that protect your time</h3><p data-i18n="feat_4">Buffers, limits, lead time and daily caps — enforced before a slot is ever shown.</p></div></div>
+    </div>
+    <div class="stats reveal" style="margin-top:2.4rem">
+      <div><b data-i18n="stat_1">40%</b><span data-i18n="stat_1l">less scheduling email</span></div>
+      <div><b data-i18n="stat_2">12 h</b><span data-i18n="stat_2l">saved per person, monthly</span></div>
+      <div><b data-i18n="stat_3">99.9%</b><span data-i18n="stat_3l">uptime SLA</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="pricing" style="background:var(--stage)">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="kicker-2" data-i18n="sec_pricing">Pricing</div>
+      <h2 data-i18n="price_ttl_placeholder">Simple, transparent pricing.</h2>
+    </div>
+    <div class="plans">
+      <div class="plan reveal">
+        <h3 data-i18n="plan_free">Free</h3><div class="p" data-i18n="plan_free_p">For trying CITA out</div>
+        <div class="price">€0</div>
+        <ul>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="plan_free_1">1 calendar</span></li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="plan_free_2">Unlimited event types</span></li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="plan_free_3">Up to 5 team members</span></li>
+        </ul>
+        <a class="btn btn-ghost" href="#signup" data-i18n="cta_start">Start free</a>
+      </div>
+      <div class="plan featured reveal">
+        <h3 data-i18n="plan_pro">Pro</h3><div class="p" data-i18n="plan_pro_p">For busy professionals</div>
+        <div class="price">€12<span style="font-size:1rem;color:var(--muted)">/month</span></div>
+        <ul>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="plan_pro_1">Unlimited calendars</span></li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="plan_pro_2">Round-robin &amp; routing</span></li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="plan_pro_3">Custom reminders</span></li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="plan_pro_4">Zoom, Meet &amp; Teams</span></li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="plan_pro_5">No branding</span></li>
+        </ul>
+        <a class="btn btn-primary" href="#signup" data-i18n="hero_cta">Get started</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="faq">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="kicker-2" data-i18n="sec_faq">Frequently asked questions</div>
+      <h2 data-i18n="faq_ttl_placeholder">Questions, answered.</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <button class="faq-q" type="button" aria-expanded="false"><span data-i18n="faq_1q">Will CITA move my existing calendar?</span><span class="ic">+</span></button>
+        <div class="faq-a"><p data-i18n="faq_1a">No. CITA syncs with your Google or Outlook calendar in place — you can keep every event you already have, and go back to your old tool any time.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q" type="button" aria-expanded="false"><span data-i18n="faq_2q">Can invitees book without an account?</span><span class="ic">+</span></button>
+        <div class="faq-a"><p data-i18n="faq_2a">Yes. Anyone can book from your public link using only their email; they never need a CITA account.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q" type="button" aria-expanded="false"><span data-i18n="faq_3q">What happens if two people grab the same slot?</span><span class="ic">+</span></button>
+        <div class="faq-a"><p data-i18n="faq_3a">It cannot happen. Slots are locked the instant one invitee confirms, so double-bookings are impossible by construction.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q" type="button" aria-expanded="false"><span data-i18n="faq_4q">Is my data portable?</span><span class="ic">+</span></button>
+        <div class="faq-a"><p data-i18n="faq_4a">Always. You can export everything, remove your data, and cancel at any time. Your calendar stays yours.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="signup">
+  <div class="container">
+    <div class="news reveal">
+      <h2 data-i18n="sec_news">Get the launch notes, monthly.</h2>
+      <form id="nlForm" novalidate>
+        <input id="nlEmail" type="email" placeholder="you@example.com" data-i18n-ph="news_email" aria-label="Email">
+        <button class="btn btn-primary" type="submit" data-i18n="news_sub">Subscribe</button>
+      </form>
+      <div class="nl-msg" id="nlOk" data-i18n="news_ok" role="status" aria-live="polite">Thanks — you're on the list.</div>
+      <div class="nl-msg" id="nlErr" data-i18n="news_err" role="status" aria-live="polite">Please enter a valid email.</div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <span data-i18n="footer">© 2026 CITA Labs — scheduling for teams.</span>
+    <div class="footer-links"><span data-i18n="footer_links">Product · Pricing · FAQ</span></div>
+    <span data-i18n="footer_legal">Privacy · Terms</span>
+  </div>
+</footer>
+
+<div class="cookie" id="cookieBanner">
+  <p data-i18n="cookie_txt">We use cookies to keep CITA working and improve the product.</p>
+  <button class="btn btn-primary" id="cookieOk" type="button" data-i18n="cookie_ok">Accept</button>
+  <button class="btn btn-ghost" id="cookieNo" type="button" data-i18n="cookie_no">Decline</button>
+</div>
+
+<script>
+var TRANSLATIONS = {
+  en: { meta_title:"CITA — Booking & scheduling, without the back-and-forth", meta_desc:"CITA is a scheduling platform for teams. Share your link, get booked in seconds, and cut the 'when are you free?' email ping-pong.", skip:"Skip to content", nav_product:"Product", nav_why:"Why CITA", nav_pricing:"Pricing", nav_faq:"FAQ", nav_cta:"Start scheduling", nav_theme:"Toggle theme", nav_menu:"Open menu", nav_lang:"Language", hero_kicker:"TEAM SCHEDULING", hero_title:"Stop emailing “what time works for you?”", hero_sub:"CITA is a scheduler for teams. One link, rules you set, and every slot fills itself — so your calendar does the talking.", hero_cta:"Get started", hero_alt:"Start free", trust:"Trusted by modern teams", sec_how:"How it works", how_ttl_placeholder:"Scheduling that runs itself.", how_sub_placeholder:"Set rules once; CITA handles the rest.", how_1t:"Set your availability", how_1:"Tell CITA your working hours once. Recurring rules, buffer time and timezones just work.", how_2t:"Share one link", how_2:"Drop your CITA link anywhere — email sig, Slack, your site. No apps for the person booking.", how_3t:"Get booked, automatically", how_3:"Invitees pick a slot that respects your rules. Double-bookings are impossible, reminders are sent for you.", how_4t:"Own your calendar", how_4:"Two-way sync with Google and Outlook. Data lives with you, not a black box.", sec_feat:"Built for the way teams actually work", feat_ttl_placeholder:"Less back-and-forth. More booked time.", feat_1t:"Time zones, handled", feat_1:"Every invitee sees slots in their own zone. Nobody does mental math at 2am.", feat_2t:"Round-robin routing", feat_2:"Distribute incoming meetings across the team fairly, with weights and exclusions.", feat_3t:"Confirmation on autopilot", feat_3:"Emails, reminders, reschedules and cancellations without a single manual send.", feat_4t:"Rules that protect your time", feat_4:"Buffers, limits, lead time and daily caps — enforced before a slot is ever shown.", stat_1:"40%", stat_1l:"less scheduling email", stat_2:"12 h", stat_2l:"saved per person, monthly", stat_3:"99.9%", stat_3l:"uptime SLA", sec_pricing:"Pricing", price_ttl_placeholder:"Simple, transparent pricing.", plan_free:"Free", plan_free_p:"For trying CITA out", plan_free_1:"1 calendar", plan_free_2:"Unlimited event types", plan_free_3:"Up to 5 team members", plan_pro:"Pro", plan_pro_p:"For busy professionals", plan_pro_1:"Unlimited calendars", plan_pro_2:"Round-robin & routing", plan_pro_3:"Custom reminders", plan_pro_4:"Zoom, Meet & Teams", plan_pro_5:"No branding", cta_start:"Start free", cta_more:"More details", sec_faq:"Frequently asked questions", faq_ttl_placeholder:"Questions, answered.", faq_1q:"Will CITA move my existing calendar?", faq_1a:"No. CITA syncs with your Google or Outlook calendar in place — you can keep every event you already have, and go back to your old tool any time.", faq_2q:"Can invitees book without an account?", faq_2a:"Yes. Anyone can book from your public link using only their email; they never need a CITA account.", faq_3q:"What happens if two people grab the same slot?", faq_3a:"It cannot happen. Slots are locked the instant one invitee confirms, so double-bookings are impossible by construction.", faq_4q:"Is my data portable?", faq_4a:"Always. You can export everything, remove your data, and cancel at any time. Your calendar stays yours.", sec_news:"Get the launch notes, monthly.", news_email:"you@example.com", news_sub:"Subscribe", news_ok:"Thanks — you're on the list.", news_err:"Please enter a valid email.", cookie_txt:"We use cookies to keep CITA working and improve the product.", cookie_ok:"Accept", cookie_no:"Decline", footer:"© 2026 CITA Labs — scheduling for teams.", footer_links:"Product · Pricing · FAQ", footer_legal:"Privacy · Terms", book:"Book", booked:"Booked" },
+  es: { meta_title:"CITA — Agendamiento sin ir y venir", meta_desc:"CITA es una plataforma de agendamiento para equipos. Comparte tu enlace, recibe reservas en segundos y elimina el ida y vuelta de correos.", skip:"Saltar al contenido", nav_product:"Producto", nav_why:"Por qué CITA", nav_pricing:"Precios", nav_faq:"FAQ", nav_cta:"Empezar", nav_theme:"Cambiar tema", nav_menu:"Abrir menú", nav_lang:"Idioma", hero_kicker:"AGENDAMIENTO EN EQUIPO", hero_title:"Deja de preguntar «¿qué hora te viene bien?»", hero_sub:"CITA es un agendador para equipos. Un enlace, reglas que tú defines y cada hueco se llena solo.", hero_cta:"Comenzar", hero_alt:"Empieza gratis", trust:"Con la confianza de equipos modernos", sec_how:"Cómo funciona", how_ttl_placeholder:"Agendamiento que se maneja solo.", how_sub_placeholder:"Define las reglas una vez; CITA hace el resto.", how_1t:"Define tu disponibilidad", how_1:"Indica tus horas de trabajo una vez. Reglas recurrentes, tiempos de margen y zonas horarias funcionan solos.", how_2t:"Comparte un enlace", how_2:"Pega tu enlace CITA en cualquier lugar: firma, Slack, tu web. La otra persona no necesita apps.", how_3t:"Que te reserven al instante", how_3:"Los invitados eligen un hueco según tus reglas. No hay dobles reservas y los recordatorios salen solos.", how_4t:"Tu agenda, tuya", how_4:"Sincronización bidireccional con Google y Outlook. Tus datos son tuyos.", sec_feat:"Hecho para cómo trabajan los equipos", feat_ttl_placeholder:"Menos idas y vueltas. Más tiempo reservado.", feat_1t:"Zonas horarias, resueltas", feat_1:"Cada invitado ve sus huecos en su zona. Nadie calcula a las 2 de la madrugada.", feat_2t:"Enrutado round-robin", feat_2:"Distribuye reuniones entrantes entre el equipo de forma justa.", feat_3t:"Confirmación en piloto automático", feat_3:"Correos, recordatorios, reprogramaciones y cancelaciones sin un envío manual.", feat_4t:"Reglas que protegen tu tiempo", feat_4:"Margen, límites, antelación y topes diarios: aplicados antes de mostrar un hueco.", stat_1:"40%", stat_1l:"menos correos de agenda", stat_2:"12 h", stat_2l:"ahorradas por persona al mes", stat_3:"99,9%", stat_3l:"SLA de disponibilidad", sec_pricing:"Precios", price_ttl_placeholder:"Precios simples y transparentes.", plan_free:"Gratis", plan_free_p:"Para probar CITA", plan_free_1:"1 calendario", plan_free_2:"Tipos de evento ilimitados", plan_free_3:"Hasta 5 miembros", plan_pro:"Pro", plan_pro_p:"Para profesionales ocupados", plan_pro_1:"Calendarios ilimitados", plan_pro_2:"Round-robin y enrutado", plan_pro_3:"Recordatorios personalizados", plan_pro_4:"Zoom, Meet y Teams", plan_pro_5:"Sin marca de CITA", cta_start:"Comenzar gratis", cta_more:"Más detalles", sec_faq:"Preguntas frecuentes", faq_ttl_placeholder:"Preguntas, respondidas.", faq_1q:"¿CITA moverá mi calendario actual?", faq_1a:"No. CITA se sincroniza con tu Google u Outlook sin mover nada — conservas todos tus eventos y puedes volver a tu otra herramienta cuando quieras.", faq_2q:"¿Los invitados pueden reservar sin cuenta?", faq_2a:"Sí. Cualquiera puede reservar desde tu enlace público con solo su correo; nunca necesitan una cuenta.", faq_3q:"¿Y si dos personas toman el mismo hueco?", faq_3a:"No puede pasar. El hueco se bloquea en el instante en que un invitado confirma, así que las dobles reservas son imposibles.", faq_4q:"¿Mis datos son portables?", faq_4a:"Siempre. Puedes exportarlo todo, borrar tus datos y cancelar cuando quieras.", sec_news:"Novedades de lanzamiento, cada mes.", news_email:"tu@ejemplo.com", news_sub:"Suscribirse", news_ok:"Gracias, ya estás en la lista.", news_err:"Introduce un correo válido.", cookie_txt:"Usamos cookies para que CITA funcione bien.", cookie_ok:"Aceptar", cookie_no:"Rechazar", footer:"© 2026 CITA Labs — agendamiento para equipos.", footer_links:"Producto · Precios · FAQ", footer_legal:"Privacidad · Términos", book:"Reservar", booked:"Reservado" },
+  fr: { meta_title:"CITA — Planification sans aller-retour", meta_desc:"CITA est une plateforme de planification pour les équipes. Partagez votre lien, réservez en secondes, fini les allers-retours d'e-mails.", skip:"Aller au contenu", nav_product:"Produit", nav_why:"Pourquoi CITA", nav_pricing:"Tarifs", nav_faq:"FAQ", nav_cta:"Commencer", nav_theme:"Changer le thème", nav_menu:"Ouvrir le menu", nav_lang:"Langue", hero_kicker:"PLANIFICATION D'ÉQUIPE", hero_title:"Arrêtez d'écrire « cela vous va à quelle heure ? »", hero_sub:"CITA est un agenda pour les équipes. Un lien, vos règles, et chaque créneau se remplit seul.", hero_cta:"C'est parti", hero_alt:"Essai gratuit", trust:"La confiance des équipes modernes", sec_how:"Comment ça marche", how_ttl_placeholder:"Une planification qui se gère seule.", how_sub_placeholder:"Définissez vos règles une fois ; CITA s'occupe du reste.", how_1t:"Définissez vos disponibilités", how_1:"Indiquez vos horaires une fois pour toutes. Règles récurrentes, tampons et fuseaux horaires gérés.", how_2t:"Partagez un lien", how_2:"Placez votre lien CITA partout : signature, Slack, votre site. Aucune app pour la personne qui réserve.", how_3t:"Soyez réservé automatiquement", how_3:"Les invités choisissent un créneau selon vos règles. Pas de double réservation, rappels envoyés.", how_4t:"Votre agenda vous appartient", how_4:"Synchronisation bidirectionnelle Google et Outlook. Vos données restent vôtres.", sec_feat:"Conçu pour la façon dont les équipes travaillent", feat_ttl_placeholder:"Moins d'allers-retours. Plus de temps réservé.", feat_1t:"Fuseaux horaires gérés", feat_1:"Chaque invité voit ses créneaux dans sa zone. Plus de calcul mental à 2 h du matin.", feat_2t:"Routage round-robin", feat_2:"Répartissez équitablement les réunions entrantes au sein de l'équipe.", feat_3t:"Confirmation en pilote automatique", feat_3:"E-mails, rappels, reports et annulations sans envoi manuel.", feat_4t:"Des règles qui protègent votre temps", feat_4:"Tampons, limites, délai et plafonds quotidiens appliqués avant d'afficher un créneau.", stat_1:"40 %", stat_1l:"moins d'e-mails d'agenda", stat_2:"12 h", stat_2l:"gagnées par personne et par mois", stat_3:"99,9 %", stat_3l:"SLA de disponibilité", sec_pricing:"Tarifs", price_ttl_placeholder:"Des tarifs simples et transparents.", plan_free:"Gratuit", plan_free_p:"Pour essayer CITA", plan_free_1:"1 agenda", plan_free_2:"Types d'événements illimités", plan_free_3:"Jusqu'à 5 membres", plan_pro:"Pro", plan_pro_p:"Pour les pros occupés", plan_pro_1:"Agendas illimités", plan_pro_2:"Round-robin et routage", plan_pro_3:"Rappels personnalisés", plan_pro_4:"Zoom, Meet et Teams", plan_pro_5:"Sans marque", cta_start:"Commencer gratuitement", cta_more:"Plus de détails", sec_faq:"Questions fréquentes", faq_ttl_placeholder:"Des questions, des réponses.", faq_1q:"CITA va-t-il déplacer mon agenda actuel ?", faq_1a:"Non. CITA se synchronise avec Google ou Outlook sans rien bouger — vous gardez tous vos rendez-vous et pouvez revenir à votre ancien outil.", faq_2q:"Les invités peuvent-ils réserver sans compte ?", faq_2a:"Oui. N'importe qui réserve depuis votre lien public avec son e-mail ; aucun compte requis.", faq_3q:"Et si deux personnes prennent le même créneau ?", faq_3a:"Impossible. Le créneau se verrouille dès qu'un invité confirme, donc pas de double réservation.", faq_4q:"Mes données sont-elles portables ?", faq_4a:"Toujours. Exportez tout, supprimez vos données et annulez à tout moment. Votre agenda reste vôtre.", sec_news:"Les nouveautés, chaque mois.", news_email:"vous@exemple.com", news_sub:"S'abonner", news_ok:"Merci, vous êtes inscrit.", news_err:"Entrez un e-mail valide.", cookie_txt:"Nous utilisons des cookies pour faire fonctionner CITA.", cookie_ok:"Accepter", cookie_no:"Refuser", footer:"© 2026 CITA Labs — planification pour équipes.", footer_links:"Produit · Tarifs · FAQ", footer_legal:"Confidentialité · Mentions", book:"Réserver", booked:"Réservé" },
+  de: { meta_title:"CITA — Terminfindung ohne Hin und Her", meta_desc:"CITA ist eine Terminplanungs-Plattform für Teams. Teilen Sie Ihren Link, buchen Sie in Sekunden, Schluss mit der E-Mail-Pingpong-Frage.", skip:"Zum Inhalt springen", nav_product:"Produkt", nav_why:"Warum CITA", nav_pricing:"Preise", nav_faq:"FAQ", nav_cta:"Loslegen", nav_theme:"Design wechseln", nav_menu:"Menü öffnen", nav_lang:"Sprache", hero_kicker:"TEAM-TERMINFINDUNG", hero_title:"Schluss mit „Welche Zeit passt dir?“", hero_sub:"CITA ist ein Terminplaner für Teams. Ein Link, Ihre Regeln, und jeder Slot füllt sich von selbst.", hero_cta:"Jetzt starten", hero_alt:"Kostenlos starten", trust:"Vertraut von modernen Teams", sec_how:"So funktioniert's", how_ttl_placeholder:"Terminfindung, die sich selbst verwaltet.", how_sub_placeholder:"Regeln einmal setzen — CITA erledigt den Rest.", how_1t:"Verfügbarkeit festlegen", how_1:"Geben Sie Ihre Arbeitszeiten einmal an. Wiederkehrende Regeln, Puffer und Zeitzonen funktionieren automatisch.", how_2t:"Einen Link teilen", how_2:"CITA-Link überall hin: Signatur, Slack, Ihre Website. Keine App für die Buchung.", how_3t:"Automatisch gebucht werden", how_3:"Einladende wählen einen Slot nach Ihren Regeln. Doppelbuchungen unmöglich, Erinnerungen automatisch.", how_4t:"Eigener Kalender", how_4:"Zwei-Wege-Sync mit Google und Outlook. Die Daten gehören Ihnen.", sec_feat:"Gemacht für Teams", feat_ttl_placeholder:"Weniger Hin und Her. Mehr gebuchte Zeit.", feat_1t:"Zeitzonen, erledigt", feat_1:"Jeder Besucher sieht Slots in seiner Zone. Kein Kopfrechnen um 2 Uhr nachts.", feat_2t:"Round-Robin-Routing", feat_2:"Verteilen Sie eingehende Meetings fair über das Team.", feat_3t:"Autopilot-Bestätigung", feat_3:"E-Mails, Erinnerungen, Verschiebungen und Stornierungen ohne manuellen Aufwand.", feat_4t:"Regeln schützen Ihre Zeit", feat_4:"Puffer, Limits, Vorlauf und Tagesobergrenzen werden vor der Anzeige erzwungen.", stat_1:"40 %", stat_1l:"weniger Termin-E-Mails", stat_2:"12 h", stat_2l:"pro Person und Monat gespart", stat_3:"99,9 %", stat_3l:"Uptime-SLA", sec_pricing:"Preise", price_ttl_placeholder:"Einfache, transparente Preise.", plan_free:"Kostenlos", plan_free_p:"Zum Ausprobieren", plan_free_1:"1 Kalender", plan_free_2:"Unbegrenzte Event-Typen", plan_free_3:"Bis zu 5 Teammitglieder", plan_pro:"Pro", plan_pro_p:"Für viel beschäftigte Profis", plan_pro_1:"Unbegrenzte Kalender", plan_pro_2:"Round-Robin & Routing", plan_pro_3:"Individuelle Erinnerungen", plan_pro_4:"Zoom, Meet & Teams", plan_pro_5:"Ohne Branding", cta_start:"Kostenlos starten", cta_more:"Mehr Details", sec_faq:"Häufige Fragen", faq_ttl_placeholder:"Fragen, beantwortet.", faq_1q:"Verschiebt CITA meinen bestehenden Kalender?", faq_1a:"Nein. CITA synchronisiert sich mit Google oder Outlook — Sie behalten alle Termine und können jederzeit zurück.", faq_2q:"Können Einladende ohne Konto buchen?", faq_2a:"Ja. Jeder kann über Ihren öffentlichen Link nur mit E-Mail buchen; kein Konto nötig.", faq_3q:"Was, wenn zwei denselben Slot buchen?", faq_3a:"Unmöglich. Der Slot sperrt sich sofort bei Bestätigung — Doppelbuchungen sind konstruktionsbedingt ausgeschlossen.", faq_4q:"Sind meine Daten portabel?", faq_4a:"Immer. Sie können alles exportieren, Daten löschen und jederzeit kündigen. Ihr Kalender bleibt Ihrer.", sec_news:"Launch-News, jeden Monat.", news_email:"sie@beispiel.de", news_sub:"Abonnieren", news_ok:"Danke, Sie sind dabei.", news_err:"Bitte eine gültige E-Mail eingeben.", cookie_txt:"Wir verwenden Cookies, damit CITA funktioniert.", cookie_ok:"Annehmen", cookie_no:"Ablehnen", footer:"© 2026 CITA Labs — Terminfindung für Teams.", footer_links:"Produkt · Preise · FAQ", footer_legal:"Datenschutz · AGB", book:"Buchen", booked:"Gebucht" },
+  it: { meta_title:"CITA — Prenotazione senza andirivieni", meta_desc:"CITA è una piattaforma di pianificazione per team. Condividi il tuo link, prenota in secondi e basta con il ping-pong delle email.", skip:"Salta al contenuto", nav_product:"Prodotto", nav_why:"Perché CITA", nav_pricing:"Prezzi", nav_faq:"FAQ", nav_cta:"Inizia", nav_theme:"Cambia tema", nav_menu:"Apri menu", nav_lang:"Lingua", hero_kicker:"PIANIFICAZIONE DI TEAM", hero_title:"Basta chiedere «che ora ti va bene?»", hero_sub:"CITA è un programmatore per team. Un link, le tue regole, e ogni slot si riempie da solo.", hero_cta:"Inizia ora", hero_alt:"Inizia gratis", trust:"Scelto da team moderni", sec_how:"Come funziona", how_ttl_placeholder:"Pianificazione che si gestisce da sola.", how_sub_placeholder:"Imposta le regole una volta; CITA fa il resto.", how_1t:"Imposta la disponibilità", how_1:"Indica i tuoi orari una volta. Regole ricorrenti, buffer e fusi orari funzionano da soli.", how_2t:"Condividi un link", how_2:"Metti il tuo link CITA ovunque: firma, Slack, il sito. Nessuna app per chi prenota.", how_3t:"Vieni prenotato, automaticamente", how_3:"Gli invitati scelgono uno slot secondo le tue regole. Niente doppie prenotazioni, promemoria inviati al posto tuo.", how_4t:"Il tuo calendario, tuo", how_4:"Sincronizzazione bidirezionale con Google e Outlook. I dati restano tuoi.", sec_feat:"Pensato per il lavoro di squadra", feat_ttl_placeholder:"Meno andirivieni. Più tempo prenotato.", feat_1t:"Fusi orari, risolti", feat_1:"Ogni invitato vede gli slot nel proprio fuso. Nessun calcolo alle 2 di notte.", feat_2t:"Routing round-robin", feat_2:"Distribuisci equamente le riunioni in arrivo tra il team.", feat_3t:"Conferma in pilota automatico", feat_3:"Email, promemoria, spostamenti e annullamenti senza invii manuali.", feat_4t:"Regole che proteggono il tuo tempo", feat_4:"Buffer, limiti, preavviso e tetti giornalieri applicati prima di mostrare uno slot.", stat_1:"40%", stat_1l:"meno email d'agenda", stat_2:"12 h", stat_2l:"risparmiate a persona al mese", stat_3:"99,9%", stat_3l:"SLA di disponibilità", sec_pricing:"Prezzi", price_ttl_placeholder:"Prezzi semplici e trasparenti.", plan_free:"Gratis", plan_free_p:"Per provare CITA", plan_free_1:"1 calendario", plan_free_2:"Tipi di evento illimitati", plan_free_3:"Fino a 5 membri", plan_pro:"Pro", plan_pro_p:"Per professionisti impegnati", plan_pro_1:"Calendari illimitati", plan_pro_2:"Round-robin e routing", plan_pro_3:"Promemoria personalizzati", plan_pro_4:"Zoom, Meet e Teams", plan_pro_5:"Senza branding", cta_start:"Inizia gratis", cta_more:"Più dettagli", sec_faq:"Domande frequenti", faq_ttl_placeholder:"Domande, risposte.", faq_1q:"CITA sposterà il mio calendario?", faq_1a:"No. CITA si sincronizza con Google o Outlook senza spostare nulla — mantieni tutti i tuoi eventi e puoi tornare quando vuoi.", faq_2q:"Gli invitati possono prenotare senza account?", faq_2a:"Sì. Chiunque prenota dal tuo link pubblico con solo la propria email; nessun account necessario.", faq_3q:"E se due prendono lo stesso slot?", faq_3a:"Impossibile. Lo slot si blocca all'istante in cui un invitato conferma, quindi le doppie prenotazioni non esistono.", faq_4q:"I miei dati sono portabili?", faq_4a:"Sempre. Puoi esportare tutto, eliminare i dati e annullare quando vuoi. Il calendario resta tuo.", sec_news:"Novità di lancio, ogni mese.", news_email:"tu@esempio.it", news_sub:"Iscriviti", news_ok:"Grazie, sei in lista.", news_err:"Inserisci una email valida.", cookie_txt:"Usiamo i cookie per far funzionare CITA.", cookie_ok:"Accetta", cookie_no:"Rifiuta", footer:"© 2026 CITA Labs — pianificazione per team.", footer_links:"Prodotto · Prezzi · FAQ", footer_legal:"Privacy · Termini", book:"Prenota", booked:"Prenotato" },
+  pt: { meta_title:"CITA — Agendamento sem idas e vindas", meta_desc:"CITA é uma plataforma de agendamento para equipes. Compartilhe seu link, agende em segundos e acabe com o ping-pong de e-mails.", skip:"Pular para o conteúdo", nav_product:"Produto", nav_why:"Por que a CITA", nav_pricing:"Preços", nav_faq:"FAQ", nav_cta:"Começar", nav_theme:"Alterar tema", nav_menu:"Abrir menu", nav_lang:"Idioma", hero_kicker:"AGENDAMENTO EM EQUIPE", hero_title:"Pare de perguntar «que horas te serve?»", hero_sub:"CITA é um agendador para equipes. Um link, as suas regras, e cada vaga se preenche sozinha.", hero_cta:"Começar", hero_alt:"Comece grátis", trust:"A confiança de equipes modernas", sec_how:"Como funciona", how_ttl_placeholder:"Agendamento que se resolve sozinho.", how_sub_placeholder:"Defina as regras uma vez; a CITA faz o resto.", how_1t:"Defina sua disponibilidade", how_1:"Informe seus horários uma vez. Regras recorrentes, intervalos e fusos horários funcionam sozinhos.", how_2t:"Compartilhe um link", how_2:"Coloque seu link CITA em qualquer lugar: assinatura, Slack, seu site. Sem apps para quem agenda.", how_3t:"Seja agendado automaticamente", how_3:"Os convidados escolhem uma vaga de acordo com suas regras. Sem duplas reservas, lembretes enviados por você.", how_4t:"Sua agenda é sua", how_4:"Sincronização bidirecional com Google e Outlook. Seus dados são seus.", sec_feat:"Feito para o jeito que as equipes trabalham", feat_ttl_placeholder:"Menos idas e vindas. Mais tempo agendado.", feat_1t:"Fusos horários, resolvidos", feat_1:"Cada convidado vê as vagas no seu fuso. Ninguém calcula às 2 da manhã.", feat_2t:"Roteamento round-robin", feat_2:"Distribua reuniões recebidas entre a equipe de forma justa.", feat_3t:"Confirmação no piloto automático", feat_3:"E-mails, lembretes, reagendamentos e cancelamentos sem envio manual.", feat_4t:"Regras que protegem seu tempo", feat_4:"Intervalos, limites, antecedência e tetos diários aplicados antes de mostrar uma vaga.", stat_1:"40%", stat_1l:"menos e-mails de agenda", stat_2:"12 h", stat_2l:"economizadas por pessoa ao mês", stat_3:"99,9%", stat_3l:"SLA de disponibilidade", sec_pricing:"Preços", price_ttl_placeholder:"Preços simples e transparentes.", plan_free:"Grátis", plan_free_p:"Para experimentar a CITA", plan_free_1:"1 calendário", plan_free_2:"Tipos de evento ilimitados", plan_free_3:"Até 5 membros", plan_pro:"Pro", plan_pro_p:"Para profissionais ocupados", plan_pro_1:"Calendários ilimitados", plan_pro_2:"Round-robin e roteamento", plan_pro_3:"Lembretes personalizados", plan_pro_4:"Zoom, Meet e Teams", plan_pro_5:"Sem marca", cta_start:"Comece grátis", cta_more:"Mais detalhes", sec_faq:"Perguntas frequentes", faq_ttl_placeholder:"Perguntas, respondidas.", faq_1q:"A CITA vai mover meu calendário atual?", faq_1a:"Não. A CITA sincroniza com Google ou Outlook sem mover nada — você mantém todos os eventos e pode voltar à outra ferramenta quando quiser.", faq_2q:"Convidados podem agendar sem conta?", faq_2a:"Sim. Qualquer pessoa agenda pelo seu link público só com o e-mail; nunca precisa de conta.", faq_3q:"E se duas pessoas pegarem a mesma vaga?", faq_3a:"Impossível. A vaga trava no instante em que um convidado confirma, então não existem duplas reservas.", faq_4q:"Meus dados são portáveis?", faq_4a:"Sempre. Você exporta tudo, apaga seus dados e cancela quando quiser. Seu calendário continua seu.", sec_news:"Novidades de lançamento, todo mês.", news_email:"voce@exemplo.com", news_sub:"Assinar", news_ok:"Obrigado, você está na lista.", news_err:"Digite um e-mail válido.", cookie_txt:"Usamos cookies para a CITA funcionar.", cookie_ok:"Aceitar", cookie_no:"Recusar", footer:"© 2026 CITA Labs — agendamento para equipes.", footer_links:"Produto · Preços · FAQ", footer_legal:"Privacidade · Termos", book:"Agendar", booked:"Agendado" },
+};
+(function(){
+"use strict";
+document.documentElement.classList.remove("no-js");
+var LANGS=["en","es","fr","de","it","pt"];
+var KEYS=Object.keys(TRANSLATIONS.en);
+function getLang(){
+  try{var s=localStorage.getItem("cita-lang"); if(s&&TRANSLATIONS[s]) return s;}catch(e){}
+  var n=(navigator.language||"en").slice(0,2).toLowerCase();
+  return TRANSLATIONS[n]?n:"en";
+}
+function applyLang(lang){
+  if(!TRANSLATIONS[lang]) lang="en";
+  var t=TRANSLATIONS[lang];
+  document.documentElement.lang=lang;
+  KEYS.forEach(function(k){
+    var val=t[k]; if(val==null) return;
+    document.querySelectorAll("[data-i18n]").forEach(function(el){
+      if(el.getAttribute("data-i18n")===k) el.textContent=val;
+    });
+  });
+  document.querySelectorAll("[data-i18n-ph]").forEach(function(el){
+    var ph=t[el.getAttribute("data-i18n-ph")]; if(ph) el.setAttribute("placeholder",ph);
+  });
+  document.querySelectorAll("[data-i18n-aria]").forEach(function(el){
+    var a=t[el.getAttribute("data-i18n-aria")]; if(a) el.setAttribute("aria-label",a);
+  });
+  var title=document.getElementById("doc-title");
+  var meta=document.getElementById("meta-desc");
+  if(title&&t.meta_title) title.textContent=t.meta_title;
+  if(meta&&t.meta_desc) meta.setAttribute("content",t.meta_desc);
+  var ogt=document.querySelector('meta[property="og:title"]');
+  var ogd=document.querySelector('meta[property="og:description"]');
+  if(ogt&&t.meta_title) ogt.setAttribute("content",t.meta_title);
+  if(ogd&&t.meta_desc) ogd.setAttribute("content",t.meta_desc);
+  document.querySelectorAll(".lang-select__cur").forEach(function(el){ el.textContent=lang.toUpperCase(); });
+  document.querySelectorAll(".lang-select__menu [data-lang]").forEach(function(opt){
+    opt.setAttribute("aria-selected", opt.getAttribute("data-lang")===lang ? "true":"false");
+  });
+  try{localStorage.setItem("cita-lang",lang);}catch(e){}
+  syncBookLabels();
+}
+function tKey(k, fallback){
+  var lang=document.documentElement.lang||"en";
+  var t=TRANSLATIONS[lang]||TRANSLATIONS.en;
+  return (t&&t[k])||fallback;
+}
+function syncBookLabels(){
+  document.querySelectorAll(".sched-row .book").forEach(function(btn){
+    var on=btn.getAttribute("aria-pressed")==="true";
+    btn.textContent=on?tKey("booked","Booked"):tKey("book","Book");
+  });
+}
+document.querySelectorAll(".lang-select").forEach(function(root){
+  var btn=root.querySelector(".lang-select__btn");
+  var menu=root.querySelector(".lang-select__menu");
+  if(!btn||!menu) return;
+  btn.addEventListener("click",function(e){
+    e.stopPropagation();
+    var open=menu.hasAttribute("hidden");
+    document.querySelectorAll(".lang-select__menu").forEach(function(m){ m.setAttribute("hidden",""); });
+    document.querySelectorAll(".lang-select__btn").forEach(function(b){ b.setAttribute("aria-expanded","false"); });
+    if(open){ menu.removeAttribute("hidden"); btn.setAttribute("aria-expanded","true"); }
+  });
+  menu.querySelectorAll("[data-lang]").forEach(function(opt){
+    opt.addEventListener("click",function(){
+      applyLang(opt.getAttribute("data-lang"));
+      menu.setAttribute("hidden","");
+      btn.setAttribute("aria-expanded","false");
+    });
+  });
+});
+document.addEventListener("click",function(){
+  document.querySelectorAll(".lang-select__menu").forEach(function(m){ m.setAttribute("hidden",""); });
+  document.querySelectorAll(".lang-select__btn").forEach(function(b){ b.setAttribute("aria-expanded","false"); });
+});
+document.addEventListener("keydown",function(e){
+  if(e.key==="Escape"){
+    document.querySelectorAll(".lang-select__menu").forEach(function(m){ m.setAttribute("hidden",""); });
+  }
+});
+function getTheme(){ try{return localStorage.getItem("kairos-theme")==="dark"?"dark":"light";}catch(e){return "light";} }
+function setTheme(th){ document.documentElement.setAttribute("data-theme",th); try{localStorage.setItem("kairos-theme",th);}catch(e){} }
+setTheme(getTheme());
+document.querySelectorAll("[data-theme-toggle]").forEach(function(b){
+  b.addEventListener("click",function(){ setTheme(document.documentElement.getAttribute("data-theme")==="dark"?"light":"dark"); });
+});
+var burger=document.getElementById("burger");
+var mobile=document.getElementById("mobileMenu");
+if(burger&&mobile){
+  burger.addEventListener("click",function(){
+    var open=mobile.classList.toggle("open");
+    burger.setAttribute("aria-expanded",open?"true":"false");
+  });
+  mobile.querySelectorAll("a").forEach(function(a){ a.addEventListener("click",function(){ mobile.classList.remove("open"); }); });
+}
+document.querySelectorAll(".faq-item").forEach(function(item){
+  var q=item.querySelector(".faq-q"); var a=item.querySelector(".faq-a");
+  q.addEventListener("click",function(){
+    var open=item.classList.contains("open");
+    document.querySelectorAll(".faq-item").forEach(function(i){
+      i.classList.remove("open"); i.querySelector(".faq-q").setAttribute("aria-expanded","false");
+      i.querySelector(".faq-a").style.maxHeight=null;
+    });
+    if(!open){ item.classList.add("open"); q.setAttribute("aria-expanded","true"); a.style.maxHeight=a.scrollHeight+"px"; }
+  });
+});
+document.querySelectorAll(".sched-row .book").forEach(function(btn){
+  btn.addEventListener("click",function(){
+    var row=btn.closest(".sched-row");
+    var on=btn.getAttribute("aria-pressed")!=="true";
+    btn.setAttribute("aria-pressed", on?"true":"false");
+    if(row) row.classList.toggle("booked", on);
+    btn.textContent=on?tKey("booked","Booked"):tKey("book","Book");
+  });
+});
+var form=document.getElementById("nlForm");
+if(form){
+  form.addEventListener("submit",function(e){
+    e.preventDefault();
+    var email=document.getElementById("nlEmail");
+    var ok=/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test((email.value||"").trim());
+    document.getElementById("nlOk").className="nl-msg"+(ok?" ok":"");
+    document.getElementById("nlErr").className="nl-msg"+(!ok?" err":"");
+    if(ok) email.value="";
+  });
+}
+var reveals=document.querySelectorAll(".reveal");
+function revealTick(){
+  var vh=window.innerHeight||800;
+  reveals.forEach(function(el){
+    if(el.classList.contains("in")) return;
+    if(el.getBoundingClientRect().top < vh*0.92) el.classList.add("in");
+  });
+}
+if(window.matchMedia("(prefers-reduced-motion: reduce)").matches){
+  reveals.forEach(function(el){ el.classList.add("in"); });
+}else{
+  var ticking=false;
+  window.addEventListener("scroll",function(){
+    if(!ticking){ requestAnimationFrame(function(){ revealTick(); ticking=false; }); ticking=true; }
+  },{passive:true});
+  revealTick();
+}
+var cookie=document.getElementById("cookieBanner");
+var acc=null; try{acc=localStorage.getItem("cita-cookie");}catch(e){}
+if(cookie && acc!=="1" && acc!=="0"){
+  function placeCookie(){
+    var nav=document.querySelector(".nav");
+    if(nav) document.documentElement.style.setProperty("--nav-h", Math.ceil(nav.getBoundingClientRect().height)+"px");
+    cookie.classList.add("show");
+  }
+  var timer=setTimeout(placeCookie,2500);
+  function dismiss(v){ try{localStorage.setItem("cita-cookie",v);}catch(e){} cookie.classList.remove("show"); clearTimeout(timer); }
+  var okb=document.getElementById("cookieOk"); var nob=document.getElementById("cookieNo");
+  if(okb) okb.addEventListener("click",function(){ dismiss("1"); });
+  if(nob) nob.addEventListener("click",function(){ dismiss("0"); });
+}
+applyLang(getLang());
+})();
+</script>
+</body>
+</html>

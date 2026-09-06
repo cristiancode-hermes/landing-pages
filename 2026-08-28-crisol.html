@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="es" class="no-js" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="doc-title">CRISOL · Fundición tipográfica e imprenta · Madrid</title>
+<meta id="meta-desc" name="description" content="Fundición tipográfica e imprenta en Madrid: familias de letra talladas a partir de matrices, encargos de plomo, grabado al ácido y papel de tina. Talleres, catálogo y pedidos bajo petición.">
+<link rel="canonical" href="https://proyectos.cristiancode.dev/landings/2026-08-28-crisol.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="CRISOL · Relieve, plomo y tinta">
+<meta property="og:description" content="Fundición tipográfica e imprenta en Madrid. Del boceto a la matriz, de la matriz al plomo, del plomo al papel.">
+<meta property="og:url" content="https://proyectos.cristiancode.dev/landings/2026-08-28-crisol.html">
+<meta property="og:image" content="https://cristiancode.dev/assets/landing-2026-08-28-crisol.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CRISOL · Fundición tipográfica">
+<meta name="twitter:description" content="Del boceto a la matriz, de la matriz al plomo, del plomo al papel.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#0A0A0A">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230A0A0A'/%3E%3Ctext x='16' y='23' text-anchor='middle' font-family='Georgia,serif' font-size='17' fill='%230099FF' font-style='italic'%3ECr%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   DESIGN SYSTEM — CRISOL · Fundición tipográfica
+   Surface: Decide/Learn (landing; hero correct). Secondary
+            Operate in the cipher/ledger widget (Monotype keys
+            that really turn a brass mold), Compare across the
+            price band.
+   Derived from: Framer (popular-web-designs template) — void
+            black canvas, ONE cold electric accent (Framer Blue
+            #0099ff) used only on interactive accents + rings,
+            pill CTAs, compressed display tracking, rigorous
+            single-accent discipline. Sensibly diverged: the
+            hero object is the STUDIO'S OWN WORK (a brass
+            matrix + a monotype caster), not a software UI shot.
+   Family: Print / Type foundry
+   Style: Foundry precision — void black, warm paper stage,
+          punch/letterpress rules, monotype cipher keyboard,
+          blueprint grid + counter hairlines.
+   Strategy: Drenched (near-black canvas IS the identity ~80%)
+          + one electric accent ≤8%; paper as the reveal.
+   Type: Instrument Serif (display, editorial italic for the
+         wordmark) + Manrope (body, humanist sans, contrast
+         axis serif/sans) + Azeret Mono (specimen readouts).
+   Impeccable: no gradient text, no glassmorphism (frost is
+         solid rgba fills, no backdrop blur), no side-stripe,
+         no 3 equal feature tiles, no hero-metrics, no
+         uppercase eyebrow on every section, no 01/02/03
+         except where frames ARE a sequence.
+   ============================================================ */
+:root{
+  --z-nav:30; --z-banner:40; --z-menu:45; --z-modal:50; --z-toast:60;
+  --ink:#FFFFFF; --muted:#C8C8C8; --faint:#A6A6A6;
+  --line:rgba(255,255,255,.14); --line-strong:rgba(255,255,255,.28);
+  --acc:#0099FF; --acc-ring:rgba(0,153,255,.18); --acc-soft:rgba(0,153,255,.10);
+  --cta:#0099FF; --cta-hover:#33B3FF; --cta-ink:#0A0A0A;
+  --bg:#0A0A0A; --bg-2:#111114; --bg-3:#17171B; --hole:#000000;
+  --paper:#F2EDE3; --paper-2:#E7E0D1; --paper-ink:#1A1508; --paper-muted:#57503C;
+  --ok:#24A148; --err:#F68484;
+  --disp:'Instrument Serif',Georgia,'Times New Roman',serif;
+  --sans:'Manrope',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --mono:'Azeret Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --r:12px; --r-sm:7px; --pill:999px;
+  --ease:cubic-bezier(.2,.65,.3,1);
+  --nav-h:68px;
+  --shadow:rgba(0,0,0,.45) 0 20px 60px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+html.no-js .rv, html.reduced .rv{opacity:1!important;transform:none!important}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:1.0625rem;line-height:1.6;font-weight:500;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img,svg{display:block;max-width:100%}
+a{color:var(--acc);text-decoration:none}
+h1,h2,h3{line-height:1.02;text-wrap:balance;color:var(--ink);margin:0;font-family:var(--disp);font-weight:400;letter-spacing:-0.01em}
+p,li{text-wrap:pretty}
+.visually-hidden{position:absolute;width:1px;height:1px;margin:-1px;padding:0;border:0;clip:rect(0 0 0 0);overflow:hidden;white-space:nowrap}
+.container{width:100%;max-width:1200px;margin:0 auto;padding:0 22px}
+section{scroll-margin-top:calc(var(--nav-h) + 12px)}
+.acc{color:var(--acc)}
+.serif{font-family:var(--disp)}
+.pills,.pill{display:inline-flex;align-items:center;gap:.5rem}
+.pill{height:30px;padding:0 .7rem;border:1px solid var(--line);border-radius:var(--pill);font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);background:rgba(255,255,255,.03)}
+.pill--acc{border-color:var(--acc);color:var(--acc)}
+/* ---------- NAV ---------- */
+.nav{position:fixed;inset:0 0 auto 0;z-index:var(--z-nav);height:var(--nav-h);display:flex;align-items:center;transition:background .3s var(--ease),border-color .3s var(--ease);border-bottom:1px solid transparent}
+.nav.scrolled{background:rgba(10,10,10,.92);border-bottom-color:var(--line);}
+.nav-inner{display:flex;align-items:center;gap:1.25rem;height:100%}
+.logo{display:inline-flex;align-items:center;gap:.6rem;color:var(--ink);font-weight:700;font-size:1rem}
+.logo .logomark{width:34px;height:34px;border:1px solid var(--line-strong);border-radius:9px;display:grid;place-items:center;background:rgba(255,255,255,.03)}
+.logo .logomark span{font-family:var(--disp);font-style:italic;font-size:1.25rem;color:var(--ink);line-height:1}
+.logo em{font-style:normal;font-family:var(--disp);font-style:italic;font-weight:400;color:var(--ink)}
+.nav-links{display:flex;gap:1.6rem;margin-left:1rem}
+.nav-links a{color:var(--muted);font-size:.92rem;font-weight:600;position:relative;padding:.35rem 0}
+.nav-links a::after{content:'';position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--acc);transition:width .25s var(--ease)}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a:hover::after{width:100%}
+.nav-actions{margin-left:auto;display:flex;align-items:center;gap:.8rem}
+.lang-select{position:relative}
+.lang-select__btn{display:inline-flex;align-items:center;gap:.5rem;height:38px;padding:0 .8rem;border:1px solid var(--line);border-radius:var(--pill);background:transparent;color:var(--ink);font-family:var(--mono);font-size:.75rem;letter-spacing:.05em;cursor:pointer;transition:border-color .2s var(--ease)}
+.lang-select__btn:hover,.lang-select__btn[aria-expanded="true"]{border-color:var(--acc)}
+.lang-select__chev{transition:transform .2s var(--ease)}
+.lang-select__btn[aria-expanded="true"] .lang-select__chev{transform:rotate(180deg)}
+.lang-select__menu{position:absolute;top:calc(100% + 8px);right:0;z-index:100;min-width:176px;padding:.4rem;background:var(--bg-3);border:1px solid var(--line);border-radius:12px;box-shadow:0 24px 60px rgba(0,0,0,.5);opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .18s var(--ease),transform .18s var(--ease),visibility .18s}
+.lang-select__menu.open{opacity:1;visibility:visible;transform:translateY(0)}
+.lang-select__opt{display:flex;align-items:center;gap:.5rem;width:100%;padding:.55rem .7rem;border:none;background:none;font-size:.85rem;color:var(--ink);text-align:left;border-radius:8px;cursor:pointer;transition:background .15s var(--ease)}
+.lang-select__opt:hover{background:rgba(255,255,255,.06)}
+.lang-select__opt[aria-selected="true"]{color:var(--acc);font-weight:700}
+.lang-select__opt[aria-selected="true"]::after{content:'\2713';margin-left:auto}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;height:42px;padding:0 1.3rem;border-radius:var(--pill);border:1px solid transparent;font-size:.9rem;font-weight:700;cursor:pointer;transition:transform .18s var(--ease),background .2s var(--ease),border-color .2s var(--ease);white-space:nowrap}
+.btn:active{transform:scale(.96)}
+.btn--primary{background:var(--cta);color:var(--cta-ink)}
+.btn--primary:hover{background:var(--cta-hover)}
+.btn--ghost{background:transparent;border-color:var(--line-strong);color:var(--ink)}
+.btn--ghost:hover{border-color:var(--acc);color:var(--acc)}
+.btn--sm{height:36px;padding:0 1rem;font-size:.85rem}
+.theme-toggle,.burger{width:38px;height:38px;border:1px solid var(--line);border-radius:var(--pill);background:transparent;color:var(--ink);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:border-color .2s var(--ease)}
+.theme-toggle:hover,.burger:hover{border-color:var(--acc)}
+.burger{display:none}
+.mobile-menu{position:fixed;top:0;left:0;right:0;bottom:0;z-index:var(--z-menu);background:rgba(10,10,10,.98);padding:calc(var(--nav-h) + 10px) 24px 24px;display:flex;flex-direction:column;gap:2px;opacity:0;visibility:hidden;transform:translateY(-14px);transition:opacity .22s var(--ease),transform .22s var(--ease),visibility .22s}
+.mobile-menu.open{opacity:1;visibility:visible;transform:translateY(0)}
+.mobile-menu a{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.95rem 0;border-bottom:1px solid var(--line);color:var(--ink);font-size:1.15rem;font-weight:700}
+.mobile-menu a::after{content:'\2197';color:var(--faint);font-size:.9rem}
+.mobile-menu .m-bottom{margin-top:auto;display:flex;flex-direction:column;gap:.9rem}
+.mobile-menu .m-bottom .btn{width:100%}
+.mobile-menu a.btn--primary{color:var(--cta-ink);background:var(--cta);padding:.85rem 1.4rem;justify-content:center;border-radius:var(--pill);border:none;font-size:1rem}
+.mobile-menu a.btn--primary::after{display:none}
+.mobile-menu a.btn--primary:hover{background:var(--cta-hover)}
+/* ---------- HERO ---------- */
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:calc(var(--nav-h) + 28px) 0 48px;overflow:hidden;background:var(--bg)}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:64px 64px;opacity:.5;-webkit-mask-image:radial-gradient(circle at 50% 40%,#000 0%,rgba(0,0,0,.4) 55%,transparent 78%);mask-image:radial-gradient(circle at 50% 40%,#000 0%,rgba(0,0,0,.4) 55%,transparent 78%)}
+.hero-glow{position:absolute;top:-180px;left:50%;transform:translateX(-50%);width:900px;height:560px;background:radial-gradient(closest-side,var(--acc-soft),transparent 70%);pointer-events:none}
+.hero-top{display:flex;align-items:center;gap:.9rem;margin-bottom:26px;flex-wrap:wrap;animation:fadeDown .8s var(--ease) both}
+.hero-title{font-size:clamp(2.5rem,5.2vw,4.4rem);line-height:1;letter-spacing:-0.02em;max-width:16ch;animation:fadeUp .9s var(--ease) .06s both}
+.hero-title em{font-style:italic;color:var(--acc)}
+.hero-title .brk{display:block}
+.hero-sub{max-width:56ch;color:var(--muted);font-size:1.05rem;margin:18px 0 0;animation:fadeUp .9s var(--ease) .14s both}
+.hero-sub strong{color:var(--ink);font-weight:700}
+.hero-cta{display:flex;gap:1rem;margin-top:26px;flex-wrap:wrap;animation:fadeUp .9s var(--ease) .22s both}
+/* Foundry machine (hero object) */
+.foundry{position:relative;margin-top:34px;animation:fadeUp 1s var(--ease) .3s both}
+.foundry-frame{border:1px solid var(--line-strong);border-radius:16px;background:var(--bg-2);overflow:hidden;box-shadow:var(--shadow)}
+.foundry-bar{display:flex;align-items:center;gap:.6rem;padding:.7rem 1rem;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+.foundry-bar .dot{width:9px;height:9px;border-radius:50%;background:var(--line-strong)}
+.foundry-bar .dot.on{background:var(--ok)}
+.foundry-body{display:grid;grid-template-columns:1.1fr .9fr;gap:0}
+.caster{padding:22px;display:flex;flex-direction:column;gap:14px}
+.caster-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.caster-head h3{font-family:var(--disp);font-size:1.4rem}
+.spec-inline{font-family:var(--mono);font-size:.7rem;color:var(--faint);letter-spacing:.06em}
+.caster-art{position:relative;aspect-ratio:16/9;border:1px solid var(--line);border-radius:10px;background:var(--hole);overflow:hidden;display:flex;align-items:center;justify-content:center}
+.caster-art .hairs{position:absolute;inset:0;background-image:linear-gradient(to right,var(--line) 1px,transparent 1px),linear-gradient(to bottom,var(--line) 1px,transparent 1px);background-size:1px 1px;background-position:0 0;opacity:.22}
+.matrix{position:relative;width:132px;height:132px;z-index:2}
+.matrix circle{transition:stroke-dashoffset 1.6s var(--ease)}
+.caster-art.doing .matrix circle{stroke-dashoffset:8}
+.caster-art.doing .matrix .type-body{opacity:1}
+.matrix .type-body{opacity:.25;transition:opacity .7s var(--ease)}
+.caster-foot{display:flex;justify-content:space-between;gap:1rem;font-family:var(--mono);font-size:.7rem;color:var(--faint);border-top:1px solid var(--line);padding-top:14px}
+.readout{display:inline-flex;align-items:center;gap:.5rem}
+.readout .spark{width:7px;height:7px;border-radius:50%;background:var(--ok);animation:pulse 1.6s ease-in-out infinite}
+.readout .spark.off{background:var(--line-strong);animation:none}
+/* Monotype cipher keyboard */
+.cipher{padding:30px;border-left:1px solid var(--line);display:flex;flex-direction:column;gap:22px}
+.cipher h3{font-family:var(--mono);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600;display:flex;align-items:center;gap:.6rem}
+.cipher h3 .srv{height:8px;width:8px;border-radius:50%;background:var(--acc);box-shadow:0 0 0 3px var(--acc-soft)}
+.monokb{display:grid;grid-template-columns:repeat(10,1fr);gap:5px}
+.mk{aspect-ratio:1;display:grid;place-items:center;border-radius:5px;border:1px solid var(--line);background:var(--bg-3);font-family:var(--mono);font-size:.62rem;color:var(--faint);cursor:pointer;transition:border-color .15s var(--ease),color .15s var(--ease),background .15s var(--ease);user-select:none}
+.mk:hover{border-color:var(--acc);color:var(--ink)}
+.mk.dep{color:#6B6B70;pointer-events:none}
+.mk.dep::after{content:'';position:absolute;display:none}
+.mk.hot{background:var(--acc);border-color:var(--acc);color:var(--cta-ink);font-weight:600}
+.cipher-line{font-family:var(--mono);font-size:.72rem;color:var(--muted);letter-spacing:.05em;min-height:1.6em}
+.cipher-line b{color:var(--ink);font-weight:600}
+.mold{margin-top:auto;display:flex;align-items:center;gap:.9rem;border:1px dashed var(--line-strong);border-radius:10px;padding:.85rem 1rem}
+.mold .cast{width:26px;height:26px;border:1.5px solid var(--acc);border-radius:5px;display:grid;place-items:center;color:var(--acc);font-family:var(--mono);font-size:.7rem;flex:none;background:rgba(0,153,255,.08)}
+.mold p{font-family:var(--mono);font-size:.68rem;color:var(--faint);line-height:1.4;margin:0}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:none}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+/* ---------- MARQUEE ---------- */
+.marquee{position:relative;z-index:2;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg-2);overflow:hidden;padding:1.1rem 0}
+.marquee-track{display:flex;width:max-content;gap:3.5rem;animation:marquee 30s linear infinite}
+.marquee-track span{font-family:var(--disp);font-style:italic;font-size:1.45rem;color:var(--faint);white-space:nowrap}
+.marquee-track .m-acc{color:var(--acc)}
+@keyframes marquee{to{transform:translateX(-50%)}}
+/* ---------- SECTIONS ---------- */
+.section{padding:110px 0}
+.section--alt{background:var(--bg-2)}
+.kicker{display:inline-flex;align-items:center;gap:.65rem;font-family:var(--mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--acc);margin-bottom:20px;font-weight:500}
+.kicker::before{content:'';width:26px;height:1px;background:var(--acc)}
+.sec-head{max-width:720px;margin-bottom:46px}
+.sec-head h2{font-size:clamp(2rem,4vw,3.1rem);margin-bottom:18px}
+.sec-head p{color:var(--muted);font-size:1.1rem;max-width:62ch}
+/* Foundry principles — split rows, not identical cards */
+.rows{display:flex;flex-direction:column}
+.row{display:grid;grid-template-columns:1fr 1.4fr;gap:44px;padding:36px 0;border-bottom:1px solid var(--line);align-items:start}
+.row:last-child{border-bottom:none}
+.row .r-num{font-family:var(--mono);font-size:.78rem;color:var(--acc);letter-spacing:.08em;display:flex;align-items:baseline;gap:1rem}
+.row .r-num b{color:var(--ink);font-family:var(--disp);font-size:2.2rem;font-weight:400}
+.row .r-body h3{font-family:var(--disp);font-size:1.85rem;margin-bottom:14px}
+.row .r-body p{color:var(--muted);max-width:56ch;margin:0 0 16px}
+.row .r-body .r-tags{display:flex;flex-wrap:wrap;gap:.5rem}
+/* Casting steps — real sequential process, numbers justified */
+.steps{display:flex;flex-direction:column;gap:0;max-width:820px}
+.step{display:grid;grid-template-columns:auto 1fr;gap:26px;padding:26px 0;border-bottom:1px solid var(--line)}
+.step:last-child{border-bottom:none}
+.step .s-ndx{font-family:var(--mono);font-size:.8rem;color:var(--acc);letter-spacing:.1em;padding-top:.35rem}
+.step .s-body h3{font-family:var(--disp);font-size:1.5rem;margin-bottom:8px}
+.step .s-body p{color:var(--muted);max-width:52ch;margin:0}
+.step .s-body .mono{font-family:var(--mono);font-size:.74rem;color:var(--faint);letter-spacing:.04em;margin-top:10px}
+/* Pricing / encargos — Compare surface */
+.price-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:stretch}
+.price{background:var(--bg-3);border:1px solid var(--line);border-radius:16px;padding:34px 30px;display:flex;flex-direction:column;gap:22px;position:relative}
+.price .p-name{font-family:var(--disp);font-size:1.7rem;display:flex;align-items:baseline;gap:.7rem}
+.price .p-name small{font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
+.price .p-price{font-family:var(--mono);font-size:.82rem;color:var(--faint);letter-spacing:.05em}
+.price .p-price b{color:var(--acc);font-size:1rem}
+.price ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.85rem;flex:1}
+.price li{display:flex;gap:.7rem;color:var(--muted);font-size:.95rem;line-height:1.45}
+.price li::before{content:'\2713';color:var(--acc);font-weight:700;flex:none}
+.price .btn{width:100%;margin-top:6px}
+.price--paper{background:var(--paper);border-color:var(--paper-2);color:var(--paper-ink)}
+.price--paper .p-name{color:var(--paper-ink)}
+.price--paper .p-price{color:var(--paper-muted)}
+.price--paper .p-price b{color:#0057C2}
+.price--paper ul{color:var(--paper-muted)}
+.price--paper li::before{color:#0057C2}
+.price--paper .btn--primary{background:#0A0A0A;color:var(--ink)}
+.price--paper .btn--primary:hover{background:#2A2A2A}
+.price--paper .pill{border-color:rgba(0,0,0,.2);color:var(--paper-muted);background:rgba(0,0,0,.04)}
+.price-tag{position:absolute;top:16px;right:18px}
+/* FAQ */
+.faq{max-width:760px}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;gap:1.2rem;padding:26px 2px;background:none;border:none;color:var(--ink);font-size:1.18rem;font-weight:700;text-align:left;cursor:pointer;font-family:var(--sans)}
+.faq-q .fi-ic{width:30px;height:30px;border:1px solid var(--line-strong);border-radius:50%;display:grid;place-items:center;flex:none;transition:transform .3s var(--ease),background .2s var(--ease),color .2s var(--ease)}
+.faq-item.open .fi-ic{transform:rotate(45deg);border-color:var(--acc);color:var(--acc);background:var(--acc-soft)}
+.faq-a{overflow:hidden;max-height:0;transition:max-height .35s var(--ease)}
+.faq-a p{padding:0 2px 24px;color:var(--muted);max-width:60ch;margin:0}
+/* Newsletter — paper band */
+.newsletter.section{padding:84px 0}
+.news-wrap{background:var(--paper);border-radius:20px;padding:clamp(32px,5vw,64px);color:var(--paper-ink)}
+.news-wrap h2{color:var(--paper-ink);font-size:clamp(1.9rem,3.6vw,2.8rem);margin-bottom:14px}
+.news-wrap p{color:var(--paper-muted);max-width:62ch;font-size:1.05rem}
+.news-form{display:flex;gap:.7rem;margin-top:26px;flex-wrap:wrap;max-width:520px}
+.news-form input{flex:1;min-width:220px;height:46px;padding:0 16px;border:1.6px solid rgba(0,0,0,.22);border-radius:var(--pill);background:rgba(0,0,0,.03);font-size:.95rem;color:var(--paper-ink);outline:none;transition:border-color .2s var(--ease)}
+.news-form input:focus{border-color:#0057C2}
+.news-form input::placeholder{color:var(--paper-muted)}
+.news-form input:-webkit-autofill{-webkit-text-fill-color:var(--paper-ink);-webkit-box-shadow:0 0 0 60px var(--paper) inset}
+.news-form .btn{height:46px;background:#0A0A0A;color:var(--ink);border:none}
+.news-form .btn:hover{background:#2A2A2A}
+.nl-msg{margin:.9rem 0 0;font-size:.9rem;font-weight:600;min-height:1.2em}
+.nl-msg.ok{color:var(--ok)}
+.nl-msg.err{color:var(--err)}
+.news-ok-dot{color:#0A0A0A}
+.news-hint{margin-top:14px;font-family:var(--mono);font-size:.7rem;color:var(--paper-muted);line-height:1.5}
+/* Footer */
+.footer{border-top:1px solid var(--line);padding:64px 0 40px;background:var(--bg-2)}
+.footer-top{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:36px;padding-bottom:36px;border-bottom:1px solid var(--line)}
+.f-brand .logo{margin-bottom:14px}
+.f-brand p{color:var(--faint);font-size:.92rem;max-width:34ch;margin:10px 0 0}
+.footer-col h4{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:0 0 16px;font-weight:600}
+.footer-col a{display:block;color:var(--muted);font-size:.95rem;padding:.3rem 0;transition:color .2s var(--ease)}
+.footer-col a:hover{color:var(--ink)}
+.footer-col .addr{color:var(--faint);font-size:.92rem;margin:0 0 6px;line-height:1.5}
+.footer-bottom{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding-top:24px;font-family:var(--mono);font-size:.72rem;color:var(--faint);letter-spacing:.04em}
+/* Cookie */
+.cookie{position:fixed;right:1.25rem;bottom:1.25rem;z-index:var(--z-banner);max-width:340px;background:var(--bg-3);border:1px solid var(--line-strong);border-radius:14px;padding:1.1rem 1.2rem;box-shadow:var(--shadow);opacity:0;visibility:hidden;transform:translateY(calc(100% + 2rem));transition:opacity .3s var(--ease),transform .3s var(--ease),visibility .3s;color:var(--ink)}
+.cookie.show{opacity:1;visibility:visible;transform:none}
+.cookie p{margin:0 0 14px;font-size:.88rem;color:var(--muted)}
+.cookie-actions{display:flex;gap:.6rem}
+.cookie-actions .ck{flex:1;height:38px;border-radius:var(--pill);border:1px solid var(--line-strong);background:transparent;color:var(--ink);font-size:.85rem;font-weight:600;cursor:pointer;transition:background .2s var(--ease),border-color .2s var(--ease)}
+.cookie-actions .ck:hover{border-color:var(--acc)}
+.cookie-actions .ck-ok{background:var(--acc);border-color:var(--acc);color:var(--cta-ink)}
+.cookie-actions .ck-ok:hover{background:var(--cta-hover)}
+/* Reveal */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.rv.in{opacity:1;transform:none}
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:900px){
+  .nav-links{display:none}
+  .burger{display:inline-flex}
+  .nav-actions .btn--primary.nav-desktop{display:none}
+  .foundry-body{grid-template-columns:1fr}
+  .cipher{border-left:none;border-top:1px solid var(--line)}
+  .row{grid-template-columns:1fr;gap:16px}
+  .price-grid{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr}
+  .section{padding:80px 0}
+}
+@media (max-width:520px){
+  .hero-title{font-size:clamp(2.2rem,13.5vw,2.9rem)}
+  .monokb{grid-template-columns:repeat(6,1fr)}
+  .hero-cta .btn{width:100%}
+  .cookie{left:1rem;right:1rem;bottom:1rem;max-width:none}
+  .hero{padding-top:calc(var(--nav-h) + 26px)}
+  .hero-top{margin-bottom:22px}
+  .hero-sub{margin:18px 0 0;font-size:1.03rem}
+  .hero-cta{margin-top:24px}
+  .foundry{margin-top:26px}
+  .caster,.cipher{padding:20px}
+  .caster-head h3{font-size:1.3rem}
+  .caster-foot,.spec-inline{font-size:.62rem}
+  .mk{font-size:.58rem;border-radius:4px}
+  .monokb{gap:4px}
+  .cipher-line{font-size:.66rem}
+  .mold{padding:.65rem .8rem}
+  .mold p{font-size:.62rem}
+}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.001s!important;animation-iteration-count:1!important;transition-duration:.001s!important}
+  html{scroll-behavior:auto}
+  .marquee-track{animation:none}
+}
+@media print{
+  .nav,.footer,.cookie,.marquee,.newsletter{display:none!important}
+  body{background:#fff;color:#000}
+}
+</style>
+</head>
+<body>
+<a class="visually-hidden" href="#main" data-i18n="skip">Saltar al contenido</a>
+<header class="nav" id="siteNav">
+  <div class="container nav-inner">
+    <a class="logo" href="#main" aria-label="CRISOL — inicio">
+      <span class="logomark" aria-hidden="true"><span>Cr</span></span>
+      <em>CRISOL</em>
+    </a>
+    <nav class="nav-links" aria-label="Principal">
+      <a href="#oficio" data-i18n="nav.craft">El oficio</a>
+      <a href="#fundicion" data-i18n="nav.cast">La fundición</a>
+      <a href="#encargos" data-i18n="nav.prices">Encargos</a>
+      <a href="#preguntas" data-i18n="nav.faq">Preguntas</a>
+    </nav>
+    <div class="nav-actions">
+      <div class="lang-select">
+        <button class="lang-select__btn" type="button" aria-haspopup="listbox" aria-expanded="false" data-i18n-aria="lang.aria">
+          <span class="lang-select__cur">ES</span>
+          <svg class="lang-select__chev" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="lang-select__menu" role="listbox" aria-label="Elige idioma">
+          <button class="lang-select__opt" role="option" data-lang="es" aria-selected="false">Español</button>
+          <button class="lang-select__opt" role="option" data-lang="en" aria-selected="false">English</button>
+          <button class="lang-select__opt" role="option" data-lang="fr" aria-selected="false">Français</button>
+          <button class="lang-select__opt" role="option" data-lang="de" aria-selected="false">Deutsch</button>
+          <button class="lang-select__opt" role="option" data-lang="it" aria-selected="false">Italiano</button>
+          <button class="lang-select__opt" role="option" data-lang="pt" aria-selected="false">Português</button>
+        </div>
+      </div>
+      <button class="theme-toggle" type="button" id="themeToggle" data-i18n-aria="theme.aria" aria-label="Cambiar a modo oscuro">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M5.3 5.3l1.7 1.7M17 17l1.7 1.7M18.7 5.3L17 7M7 17l-1.7 1.7"/></svg>
+      </button>
+      <a class="btn btn--primary nav-desktop" href="#encargos" data-i18n="nav.cta">Pedir un encargo</a>
+      <button class="burger" type="button" id="burger" aria-expanded="false" data-i18n-aria="menu.aria" aria-label="Abrir menú">
+        <svg width="19" height="15" viewBox="0 0 19 15" fill="none" aria-hidden="true"><path d="M1 1h17M1 7.5h17M1 14h17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <a href="#oficio" data-i18n="nav.craft">El oficio</a>
+  <a href="#fundicion" data-i18n="nav.cast">La fundición</a>
+  <a href="#encargos" data-i18n="nav.prices">Encargos</a>
+  <a href="#preguntas" data-i18n="nav.faq">Preguntas</a>
+  <div class="m-bottom">
+    <div class="lang-select">
+      <button class="lang-select__btn" type="button" aria-haspopup="listbox" aria-expanded="false" data-i18n-aria="lang.aria">
+        <span class="lang-select__cur">ES</span>
+        <svg class="lang-select__chev" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="lang-select__menu" role="listbox" aria-label="Elige idioma">
+        <button class="lang-select__opt" role="option" data-lang="es" aria-selected="false">Español</button>
+        <button class="lang-select__opt" role="option" data-lang="en" aria-selected="false">English</button>
+        <button class="lang-select__opt" role="option" data-lang="fr" aria-selected="false">Français</button>
+        <button class="lang-select__opt" role="option" data-lang="de" aria-selected="false">Deutsch</button>
+        <button class="lang-select__opt" role="option" data-lang="it" aria-selected="false">Italiano</button>
+        <button class="lang-select__opt" role="option" data-lang="pt" aria-selected="false">Português</button>
+      </div>
+    </div>
+    <button class="theme-toggle" type="button" id="themeToggleM" data-i18n-aria="theme.aria" aria-label="Cambiar a modo oscuro">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M5.3 5.3l1.7 1.7M17 17l1.7 1.7M18.7 5.3L17 7M7 17l-1.7 1.7"/></svg>
+    </button>
+    <a class="btn btn--primary" href="#encargos" data-i18n="nav.cta">Pedir un encargo</a>
+  </div>
+</div>
+
+<main id="main">
+  <section class="hero" id="hero">
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="container">
+      <div class="hero-top">
+        <span class="pill pill--acc" data-i18n="hero.badge">Fundición tipográfica · Madrid · est. 1963</span>
+        <span class="pill" data-i18n="hero.mono">plomo 11pt · imprenta manual</span>
+      </div>
+      <h1 class="hero-title" data-i18n-html="hero.title">El carácter se <em>funde</em>,<span class="brk"></span> no se imprime.</h1>
+      <p class="hero-sub" data-i18n-html="hero.sub">Del boceto a la matriz, de la matriz al <strong>plomo</strong>, del plomo al papel. En el taller CRISOL dibujamos, tallamos y fundimos las letras que resisten al algoritmo: cada familia vive primero en latón y ácido antes de rozar una pantalla.</p>
+      <div class="hero-cta">
+        <a class="btn btn--primary" href="#encargos" data-i18n="hero.cta1">Pedir un encargo</a>
+        <a class="btn btn--ghost" href="#oficio" data-i18n="hero.cta2">Conocer el oficio</a>
+      </div>
+
+      <div class="foundry rv" id="foundry">
+        <div class="foundry-frame">
+          <div class="foundry-bar">
+            <span class="dot on" aria-hidden="true"></span>
+            <span data-i18n="foundry.bar">crisol.v – monotype caster</span>
+            <span style="margin-left:auto" class="spec-inline" data-i18n="foundry.spec">matriz 13 ·6 mm · plomo 70% / estaño 20% / antimonio 10%</span>
+          </div>
+          <div class="foundry-body">
+            <div class="caster" id="caster" aria-live="polite">
+              <div class="caster-head">
+                <h3 data-i18n="foundry.now">Fundiendo ahora</h3>
+                <span class="spec-inline" data-i18n="foundry.moldName">A · brillante</span>
+              </div>
+              <div class="caster-art" id="casterArt" aria-hidden="true">
+                <div class="hairs"></div>
+                <svg class="matrix" viewBox="0 0 150 150" fill="none" role="img" aria-label="Matriz de latón grabada al ácido">
+                  <rect class="type-body" x="28" y="38" width="94" height="78" rx="6" fill="#F2EDE3"/>
+                  <text class="type-body" x="75" y="95" text-anchor="middle" font-family="'Instrument Serif',serif" font-style="italic" font-size="52" fill="#1A1508">Cr</text>
+                  <circle cx="75" cy="75" r="56" stroke="#0099FF" stroke-width="1.4" stroke-dasharray="3.4 5.4" stroke-dashoffset="352"/>
+                  <circle cx="75" cy="75" r="41" stroke="#0099FF" stroke-width=".8" stroke-dasharray="1.6 3.2" stroke-dashoffset="258"/>
+                  <path d="M75 10v18M75 122v18M8 75h18M124 75h18" stroke="#0099FF" stroke-width="1" opacity=".6"/>
+                  <text x="75" y="22" text-anchor="middle" font-family="Azeret Mono,monospace" font-size="8" fill="#A6A6A6">CENTER 75·75</text>
+                  <text x="75" y="141" text-anchor="middle" font-family="Azeret Mono,monospace" font-size="8" fill="#A6A6A6">CAST 13·6</text>
+                </svg>
+              </div>
+              <div class="caster-foot">
+                <span class="readout"><span class="spark" aria-hidden="true"></span><span data-i18n="foundry.molten">plomo a 280 °C</span></span>
+                <span class="readout"><span class="spark off" aria-hidden="true"></span><span data-i18n="foundry.punch">grabado · 42 h</span></span>
+              </div>
+            </div>
+            <div class="cipher">
+              <h3><span class="srv" aria-hidden="true"></span><span data-i18n="cipher.title">Teclado de la monotipia</span></h3>
+              <div class="monokb" id="monokb" role="group" aria-label="Teclado de caja">
+                <button class="mk" type="button" data-key="h" data-i18n-aria="cipher.aria">H</button>
+                <button class="mk" type="button" data-key="o" data-i18n-aria="cipher.aria">O</button>
+                <button class="mk" type="button" data-key="l" data-i18n-aria="cipher.aria">L</button>
+                <button class="mk" type="button" data-key="a" data-i18n-aria="cipher.aria">A</button>
+                <button class="mk" type="button" data-key="m" data-i18n-aria="cipher.aria">M</button>
+                <button class="mk dep" type="button" tabindex="-1" aria-hidden="true">·</button>
+                <button class="mk" type="button" data-key="b" data-i18n-aria="cipher.aria">B</button>
+                <button class="mk" type="button" data-key="r" data-i18n-aria="cipher.aria">R</button>
+                <button class="mk" type="button" data-key="i" data-i18n-aria="cipher.aria">I</button>
+                <button class="mk" type="button" data-key="l2" data-i18n-aria="cipher.aria">L</button>
+                <button class="mk" type="button" data-key="l3" data-i18n-aria="cipher.aria">L</button>
+                <button class="mk dep" type="button" tabindex="-1" aria-hidden="true">á</button>
+                <button class="mk" type="button" data-key="n" data-i18n-aria="cipher.aria">N</button>
+                <button class="mk" type="button" data-key="t" data-i18n-aria="cipher.aria">T</button>
+                <button class="mk" type="button" data-key="e" data-i18n-aria="cipher.aria">E</button>
+                <button class="mk" type="button" data-key="c" data-i18n-aria="cipher.aria">C</button>
+                <button class="mk" type="button" data-key="s" data-i18n-aria="cipher.aria">S</button>
+                <button class="mk" type="button" data-key="f" data-i18n-aria="cipher.aria">F</button>
+                <button class="mk" type="button" data-key="u" data-i18n-aria="cipher.aria">U</button>
+                <button class="mk" type="button" data-key="n2" data-i18n-aria="cipher.aria">N</button>
+                <button class="mk" type="button" data-key="d" data-i18n-aria="cipher.aria">D</button>
+                <button class="mk dep" type="button" tabindex="-1" aria-hidden="true">i</button>
+                <button class="mk" type="button" data-key="c2" data-i18n-aria="cipher.aria">C</button>
+                <button class="mk" type="button" data-key="i2" data-i18n-aria="cipher.aria">I</button>
+                <button class="mk" type="button" data-key="o2" data-i18n-aria="cipher.aria">O</button>
+                <button class="mk" type="button" data-key="n3" data-i18n-aria="cipher.aria">N</button>
+              </div>
+              <p class="cipher-line" id="cipherOut"><b data-i18n="cipher.prompt">Pulse las teclas</b><span aria-hidden="true">:</span> <span id="cipherWord">HO LAMBRILANTE CONCION</span></p>
+              <p class="cipher-line"><span data-i18n="cipher.ledger">Cada pulsación perfora la cinta de papel. La matriz espera su turno en el almacén.</span></p>
+              <div class="mold">
+                <span class="cast" aria-hidden="true">A</span>
+                <p data-i18n="cipher.mold">51 × 25 mm · latón · contraforma al ácido · 42 horas de grabado</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track" id="marqueeTrack">
+      <span>plomo fundido</span><span class="m-acc">matriz de latón</span><span>contraforma</span><span class="m-acc">cuerpo 11</span><span>tinta de tina</span><span class="m-acc">interletra</span><span>mano de impresor</span><span class="m-acc">grabado al ácido</span>
+    </div>
+  </div>
+
+  <section class="section" id="oficio">
+    <div class="container">
+      <div class="sec-head rv">
+        <span class="kicker" data-i18n="craft.kicker">El oficio</span>
+        <h2 data-i18n="craft.title">Cuatro gestos que la impresión digital olvidó.</h2>
+        <p data-i18n="craft.lead">Cada letra CRISOL nace en la mesa de dibujo y muere solo cuando el papel lo decide. Este es el camino que recorre un carácter antes de ser suyo.</p>
+      </div>
+      <div class="rows">
+        <div class="row rv">
+          <div class="r-num"><b>1</b><span data-i18n="craft.r1n">Dibujo</span></div>
+          <div class="r-body">
+            <h3 data-i18n="craft.r1t">Tinta china sobre papel de dibujo</h3>
+            <p data-i18n="craft.r1b">Partimos de un plumín y una regla, nunca de una curva nodal. El dibujo se corrige en papel, contra unas contraformas impresas, hasta que la o de cada cuerpo parece respirar.</p>
+            <div class="r-tags"><span class="pill" data-i18n="craft.r1t1">plumín 0·5</span><span class="pill" data-i18n="craft.r1t2">cuerpo óptico</span></div>
+          </div>
+        </div>
+        <div class="row rv">
+          <div class="r-num"><b>2</b><span data-i18n="craft.r2n">Matriz</span></div>
+          <div class="r-body">
+            <h3 data-i18n="craft.r2t">Grabado al ácido sobre latón</h3>
+            <p data-i18n="craft.r2b">El dibujo pasa a una placa de latón bañada en barniz. El ácido muerde la contraforma durante horas; la matriz resultante es la única prueba del carácter que no se puede falsificar.</p>
+            <div class="r-tags"><span class="pill" data-i18n="craft.r2t1">ÁCIDO NÍTRICO</span><span class="pill" data-i18n="craft.r2t2">42 h</span></div>
+          </div>
+        </div>
+        <div class="row rv">
+          <div class="r-num"><b>3</b><span data-i18n="craft.r3n">Plomo</span></div>
+          <div class="r-body">
+            <h3 data-i18n="craft.r3t">La caja caliente</h3>
+            <p data-i18n="craft.r3b">La monotipia inyecta una aleación de plomo, estaño y antimonio a 280 °C. Cada matriz funde una letra lista para componer: dura, pesada, y del tamaño exacto que prometió el dibujo.</p>
+            <div class="r-tags"><span class="pill" data-i18n="craft.r3t1">70/20/10</span><span class="pill" data-i18n="craft.r3t2">380 letras/min</span></div>
+          </div>
+        </div>
+        <div class="row rv">
+          <div class="r-num"><b>4</b><span data-i18n="craft.r4n">Papel</span></div>
+          <div class="r-body">
+            <h3 data-i18n="craft.r4t">La prensa y la mano</h3>
+            <p data-i18n="craft.r4b">El golpe de la platina es el instante en que el relieve entrega su prueba. Tinta de tina, papel verjurado y la presión justa: ni una décima más, ni una menos.</p>
+            <div class="r-tags"><span class="pill" data-i18n="craft.r4t1">prueba de galera</span><span class="pill" data-i18n="craft.r4t2">tirage 400</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="fundicion">
+    <div class="container">
+      <div class="sec-head rv">
+        <span class="kicker" data-i18n="steps.kicker">La fundición</span>
+        <h2 data-i18n="steps.title">Lo que se compra es la matriz, no la licencia.</h2>
+        <p data-i18n="steps.lead">Nadie lee nuestros contratos de uso; las matrices se compran y el plomo es suyo. Tres encargos para tres modos de trabajar con el carácter.</p>
+      </div>
+      <div class="steps">
+        <div class="step rv">
+          <div class="s-ndx">EST.1963</div>
+          <div class="s-body">
+            <h3 data-i18n="steps.s1t">El taller que sobrevivió al offset</h3>
+            <p data-i18n="steps.s1b">CRISOL nació en 1963 en el barrio de las Letras y fue una de las pocas fundiciones que guardó sus cajas de matrices cuando el offset cerró las demás. Tres generaciones, el mismo banco de fundición y un archivo de 2 400 matrices.</p>
+            <p class="mono" data-i18n="steps.s1m">Calle de la Imprenta 11 · desde 1963</p>
+          </div>
+        </div>
+        <div class="step rv">
+          <div class="s-ndx">MATRIZ-BASE</div>
+          <div class="s-body">
+            <h3 data-i18n="steps.s2t">De la rotulación a la serie</h3>
+            <p data-i18n="steps.s2b">Trabajamos por encargo: usted trae una rotulación, un titular histórico o una ambición tipográfica, y nosotros la convertimos en una familia. Dibujo, matrices, fundición de prueba y manual de muestras.</p>
+            <p class="mono" data-i18n="steps.s2m">entrega 6–10 semanas · incluye 4 grosores</p>
+          </div>
+        </div>
+        <div class="step rv">
+          <div class="s-ndx">FUNDICIÓN</div>
+          <div class="s-body">
+            <h3 data-i18n="steps.s3t">De vuelta al plomo para siempre</h3>
+            <p data-i18n="steps.s3b">Cuando la familia está aprobada, fundimos el juego completo en plomo tipográfico: cuerpo 11 con interletra, versalitas y ligaduras. Es un objeto físico que no se actualiza nunca y no caduca nunca.</p>
+            <p class="mono" data-i18n="steps.s3m">juego completo · 2 400 matrices · estuche de roble</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="encargos">
+    <div class="container">
+      <div class="sec-head rv">
+        <span class="kicker" data-i18n="prices.kicker">Encargos</span>
+        <h2 data-i18n="prices.title">Tres formas de encargar un carácter.</h2>
+        <p data-i18n="prices.lead">Precios de referencia para encargos con entrega en Madrid. Cada proyecto es distinto: el presupuesto final sale de una conversación y de ver el dibujo en la mesa.</p>
+      </div>
+      <div class="price-grid">
+        <div class="price rv">
+          <span class="pill p-tag" data-i18n="prices.p1t">Encuentro</span>
+          <div class="p-name"><span>Rotulación a medida</span></div>
+          <div class="p-price"><b>1 200 €</b> · <span data-i18n="prices.p1from">desde</span></div>
+          <ul>
+            <li data-i18n="prices.p1f1">Dibujo a tinta de una rotulación o logo de tapa</li>
+            <li data-i18n="prices.p1f2">Matriz numerada de latón grabada al ácido</li>
+            <li data-i18n="prices.p1f3">Prueba de galera en plomo y 25 impresiones</li>
+            <li data-i18n="prices.p1f4">Manual de uso en papel verjurado</li>
+          </ul>
+          <a class="btn btn--primary" href="mailto:fundicion@crisol.madrid?subject=Rotulaci%C3%B3n%20a%20medida" data-i18n="prices.p1cta">Encargar rotulación</a>
+        </div>
+        <div class="price price--paper rv">
+          <span class="pill p-tag" data-i18n="prices.p2t">Serie</span>
+          <div class="p-name"><span>Familia tipográfica</span></div>
+          <div class="p-price"><b>4 800 €</b> · <span data-i18n="prices.p2from">desde</span></div>
+          <ul>
+            <li data-i18n="prices.p2f1">Familia de 4 grosores con cursivas y versalitas</li>
+            <li data-i18n="prices.p2f2">Juego completo de matrices para caja caliente</li>
+            <li data-i18n="prices.p2f3">Fundición de prueba y ajuste de contraformas</li>
+            <li data-i18n="prices.p2f4">Manual de muestras impreso a una tinta</li>
+          </ul>
+          <a class="btn btn--primary" href="mailto:fundicion@crisol.madrid?subject=Familia%20tipogr%C3%A1fica" data-i18n="prices.p2cta">Encargar la serie</a>
+        </div>
+      </div>
+      <p class="news-hint" style="color:var(--faint);margin-top:26px;font-family:var(--mono)" data-i18n="prices.note">documentación y archivo digital del dibujo incluidos en ambos encargos · pago por fases</p>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="preguntas">
+    <div class="container">
+      <div class="sec-head rv">
+        <span class="kicker" data-i18n="faq.kicker">Preguntas</span>
+        <h2 data-i18n="faq.title">Lo que nos preguntan antes de encargar.</h2>
+      </div>
+      <div class="faq rv">
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false"><span data-i18n="faq.q1">¿Puedo usar la letra en pantalla?</span><span class="fi-ic" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span></button>
+          <div class="faq-a"><p data-i18n="faq.a1">La matriz es suya, y con ella la libertad de uso. Si un día quiere digitalizarla para pantalla, le entregamos los trazados — pero el 90% de nuestros clientes la pide para papel porque ahí es donde el relieve se nota.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false"><span data-i18n="faq.q2">¿Qué incluye «manual de uso»?</span><span class="fi-ic" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span></button>
+          <div class="faq-a"><p data-i18n="faq.a2">Un cuaderno de 48 páginas impreso en el taller: historia del dibujo, álgebra de contraformas, la tabla de interletra para cada cuerpo, y — lo importante — las dos maneras de morder el ácido para que la letra pequeña no se cierre.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false"><span data-i18n="faq.q3">¿Aceptan encargos fuera de Madrid?</span><span class="fi-ic" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span></button>
+          <div class="faq-a"><p data-i18n="faq.a3">Sí. El plomo viaja bien embalado y la prueba de galera se manda por correo ordinario. Para familias completas concertamos una visita al taller — la mitad del encargo es ver la caja fundiendo.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false"><span data-i18n="faq.q4">¿Puedo visitar el taller?</span><span class="fi-ic" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span></button>
+          <div class="faq-a"><p data-i18n="faq.a4">Los viernes de 11:00 a 14:00 la puerta está abierta y el horno encendido. Sin cita previa: dos sillas junto a la platina y el café de siempre.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="newsletter section">
+    <div class="container">
+      <div class="news-wrap rv">
+        <h2 data-i18n="news.title">Una carta al mes, impresa y franqueada.</h2>
+        <p data-i18n="news.sub">El muestrario nuevo, una rotulación que nos marcó y la fecha del próximo taller de fundición. Sin listas de marketing: es una carta real que se envía por correo ordinario, y la escribe el mismo que funde.</p>
+        <form class="news-form" id="newsForm" novalidate>
+          <label class="visually-hidden" for="newsEmail" data-i18n="news.ph">Tu dirección postal</label>
+          <input type="email" id="newsEmail" name="email" required inputmode="email" autocomplete="email" data-i18n-ph="news.ph" placeholder="tu@correo.es">
+          <button class="btn" type="submit" data-i18n="news.cta">Quiero la carta</button>
+        </form>
+        <p class="nl-msg" id="nlMsg" role="status"></p>
+        <p class="news-hint" data-i18n="news.hint">No hay lista automática: abrimos tu correo un viernes y te enviamos la carta. Escríbenos directo a fundicion@crisol.madrid si prefieres no dejar tu dirección.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="f-brand">
+        <a class="logo" href="#main"><span class="logomark" aria-hidden="true"><span>Cr</span></span><em>CRISOL</em></a>
+        <p data-i18n="footer.tagline">Fundición tipográfica e imprenta manual. Del dibujo a la matriz, de la matriz al plomo, del plomo al papel.</p>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.taller">Taller</h4>
+        <p class="addr" data-i18n="footer.address">C. de la Imprenta 11 · 28012 Madrid</p>
+        <a class="maps" href="https://www.google.com/maps/search/?api=1&amp;query=Calle+de+la+Imprenta+11+Madrid" target="_blank" rel="noopener" data-i18n="footer.maps">Abrir en el mapa</a>
+        <a data-i18n="footer.mail" href="mailto:fundicion@crisol.madrid">fundicion@crisol.madrid</a>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.hours">Puerta abierta</h4>
+        <a data-i18n="footer.hoursVal" href="mailto:fundicion@crisol.madrid?subject=Visita">viernes 11:00 – 14:00</a>
+        <a data-i18n="footer.hoursSub" href="#encargos">encargos con cita</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span data-i18n="footer.rights">© 2026 CRISOL · Madrid · plomo, latón y tinta.</span>
+      <span data-i18n="footer.made">Compuesto a mano, cuerpo 11, una letra cada vez.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="cookie" id="cookieBanner" role="region" aria-label="Aviso de cookies">
+  <p data-i18n="cookie.msg">Solo recordamos idioma, tema y carta pedida en este dispositivo. Sin rastreo.</p>
+  <div class="cookie-actions">
+    <button class="ck ck-ok" id="cookieOk" type="button" data-i18n="cookie.ok">De acuerdo</button>
+    <button class="ck ck-no" id="cookieNo" type="button" data-i18n="cookie.no">No</button>
+  </div>
+</div>
+<script>
+var I18N = {es: {"skip": "Saltar al contenido","nav.craft": "El oficio","nav.cast": "La fundici\u00f3n","nav.prices": "Encargos","nav.faq": "Preguntas","nav.cta": "Pedir un encargo","theme.aria": "Cambiar a modo oscuro","theme.light": "Cambiar a modo claro","menu.aria": "Abrir men\u00fa","lang.aria": "Elegir idioma","hero.badge": "Fundici\u00f3n tipogr\u00e1fica \u00b7 Madrid \u00b7 est. 1963","hero.mono": "plomo 11pt \u00b7 imprenta manual","hero.title": "El car\u00e1cter se <em>funde</em>,<span class=\"brk\"></span> no se imprime.","hero.sub": "Del boceto a la matriz, de la matriz al <strong>plomo</strong>, del plomo al papel. En el taller CRISOL dibujamos, tallamos y fundimos las letras que resisten al algoritmo: cada familia vive primero en lat\u00f3n y \u00e1cido antes de rozar una pantalla.","hero.cta1": "Pedir un encargo","hero.cta2": "Conocer el oficio","foundry.bar": "crisol.v \u2013 monotype caster","foundry.spec": "matriz 13\u00b76 mm \u00b7 plomo 70% / esta\u00f1o 20% / antimonio 10%","foundry.now": "Fundiendo ahora","foundry.moldName": "A \u00b7 brillante","foundry.molten": "plomo a 280 \u00b0C","foundry.punch": "grabado \u00b7 42 h","cipher.title": "Teclado de la monotipia","cipher.aria": "Pulsar tecla de composici\u00f3n","cipher.prompt": "Pulse las teclas","cipher.ledger": "Cada pulsaci\u00f3n perfora la cinta de papel. La matriz espera su turno en el almac\u00e9n.","cipher.mold": "51 \u00d7 25 mm \u00b7 lat\u00f3n \u00b7 contraforma al \u00e1cido \u00b7 42 horas de grabado","craft.kicker": "El oficio","craft.title": "Cuatro gestos que la impresi\u00f3n digital olvid\u00f3.","craft.lead": "Cada letra CRISOL nace en la mesa de dibujo y muere solo cuando el papel lo decide. Este es el camino que recorre un car\u00e1cter antes de ser suyo.","craft.r1n": "Dibujo","craft.r1t": "Tinta china sobre papel de dibujo","craft.r1b": "Partimos de un plum\u00edn y una regla, nunca de una curva nodal. El dibujo se corrige en papel, contra unas contraformas impresas, hasta que la o de cada cuerpo parece respirar.","craft.r1t1": "plum\u00edn 0\u00b75","craft.r1t2": "cuerpo \u00f3ptico","craft.r2n": "Matriz","craft.r2t": "Grabado al \u00e1cido sobre lat\u00f3n","craft.r2b": "El dibujo pasa a una placa de lat\u00f3n ba\u00f1ada en barniz. El \u00e1cido muerde la contraforma durante horas; la matriz resultante es la \u00fanica prueba del car\u00e1cter que no se puede falsificar.","craft.r2t1": "\u00c1CIDO N\u00cdTRICO","craft.r2t2": "42 h","craft.r3n": "Plomo","craft.r3t": "La caja caliente","craft.r3b": "La monotipia inyecta una aleaci\u00f3n de plomo, esta\u00f1o y antimonio a 280 \u00b0C. Cada matriz funde una letra lista para componer: dura, pesada, y del tama\u00f1o exacto que prometi\u00f3 el dibujo.","craft.r3t1": "70/20/10","craft.r3t2": "380 letras/min","craft.r4n": "Papel","craft.r4t": "La prensa y la mano","craft.r4b": "El golpe de la platina es el instante en que el relieve entrega su prueba. Tinta de tina, papel verjurado y la presi\u00f3n justa: ni una d\u00e9cima m\u00e1s, ni una menos.","craft.r4t1": "prueba de galera","craft.r4t2": "tirage 400","steps.kicker": "La fundici\u00f3n","steps.title": "Lo que se compra es la matriz, no la licencia.","steps.lead": "Nadie lee nuestros contratos de uso; las matrices se compran y el plomo es suyo. Tres encargos para tres modos de trabajar con el car\u00e1cter.","steps.s1t": "El taller que sobrevivi\u00f3 al offset","steps.s1b": "CRISOL naci\u00f3 en 1963 en el barrio de las Letras y fue una de las pocas fundiciones que guard\u00f3 sus cajas de matrices cuando el offset cerr\u00f3 las dem\u00e1s. Tres generaciones, el mismo banco de fundici\u00f3n y un archivo de 2 400 matrices.","steps.s1m": "Calle de la Imprenta 11 \u00b7 desde 1963","steps.s2t": "De la rotulaci\u00f3n a la serie","steps.s2b": "Trabajamos por encargo: usted trae una rotulaci\u00f3n, un titular hist\u00f3rico o una ambici\u00f3n tipogr\u00e1fica, y nosotros la convertimos en una familia. Dibujo, matrices, fundici\u00f3n de prueba y manual de muestras.","steps.s2m": "entrega 6\u201310 semanas \u00b7 incluye 4 grosores","steps.s3t": "De vuelta al plomo para siempre","steps.s3b": "Cuando la familia est\u00e1 aprobada, fundimos el juego completo en plomo tipogr\u00e1fico: cuerpo 11 con interletra, versalitas y ligaduras. Es un objeto f\u00edsico que no se actualiza nunca y no caduca nunca.","steps.s3m": "juego completo \u00b7 2 400 matrices \u00b7 estuche de roble","prices.kicker": "Encargos","prices.title": "Tres formas de encargar un car\u00e1cter.","prices.lead": "Precios de referencia para encargos con entrega en Madrid. Cada proyecto es distinto: el presupuesto final sale de una conversaci\u00f3n y de ver el dibujo en la mesa.","prices.p1t": "Encuentro","prices.p1from": "desde","prices.p1f1": "Dibujo a tinta de una rotulaci\u00f3n o logo de tapa","prices.p1f2": "Matriz numerada de lat\u00f3n grabada al \u00e1cido","prices.p1f3": "Prueba de galera en plomo y 25 impresiones","prices.p1f4": "Manual de uso en papel verjurado","prices.p1cta": "Encargar rotulaci\u00f3n","prices.p2t": "Serie","prices.p2from": "desde","prices.p2f1": "Familia de 4 grosores con cursivas y versalitas","prices.p2f2": "Juego completo de matrices para caja caliente","prices.p2f3": "Fundici\u00f3n de prueba y ajuste de contraformas","prices.p2f4": "Manual de muestras impreso a una tinta","prices.p2cta": "Encargar la serie","prices.note": "documentaci\u00f3n y archivo digital del dibujo incluidos en ambos encargos \u00b7 pago por fases","faq.kicker": "Preguntas","faq.title": "Lo que nos preguntan antes de encargar.","faq.q1": "\u00bfPuedo usar la letra en pantalla?","faq.a1": "La matriz es suya, y con ella la libertad de uso. Si un d\u00eda quiere digitalizarla para pantalla, le entregamos los trazados \u2014 pero el 90% de nuestros clientes la pide para papel porque ah\u00ed es donde el relieve se nota.","faq.q2": "\u00bfQu\u00e9 incluye \u00abmanual de uso\u00bb?","faq.a2": "Un cuaderno de 48 p\u00e1ginas impreso en el taller: historia del dibujo, \u00e1lgebra de contraformas, la tabla de interletra para cada cuerpo, y \u2014 lo importante \u2014 las dos maneras de morder el \u00e1cido para que la letra peque\u00f1a no se cierre.","faq.q3": "\u00bfAceptan encargos fuera de Madrid?","faq.a3": "S\u00ed. El plomo viaja bien embalado y la prueba de galera se manda por correo ordinario. Para familias completas concertamos una visita al taller \u2014 la mitad del encargo es ver la caja fundiendo.","faq.q4": "\u00bfPuedo visitar el taller?","faq.a4": "Los viernes de 11:00 a 14:00 la puerta est\u00e1 abierta y el horno encendido. Sin cita previa: dos sillas junto a la platina y el caf\u00e9 de siempre.","news.title": "Una carta al mes, impresa y franqueada.","news.sub": "El muestrario nuevo, una rotulaci\u00f3n que nos marc\u00f3 y la fecha del pr\u00f3ximo taller de fundici\u00f3n. Sin listas de marketing: es una carta real que se env\u00eda por correo ordinario, y la escribe el mismo que funde.","news.ph": "Tu direcci\u00f3n postal","news.cta": "Quiero la carta","news.thanks": "Gracias: recibir\u00e1s la carta el primer viernes de mes.","news.err": "Escribe un correo v\u00e1lido para que podamos responderte.","news.hint": "No hay lista autom\u00e1tica: abrimos tu correo un viernes y te enviamos la carta. Escr\u00edbenos directo a fundicion@crisol.madrid si prefieres no dejar tu direcci\u00f3n.","footer.tagline": "Fundici\u00f3n tipogr\u00e1fica e imprenta manual. Del dibujo a la matriz, de la matriz al plomo, del plomo al papel.","footer.taller": "Taller","footer.address": "C. de la Imprenta 11 \u00b7 28012 Madrid","footer.maps": "Abrir en el mapa","footer.mail": "fundicion@crisol.madrid","footer.hours": "Puerta abierta","footer.hoursVal": "viernes 11:00 \u2013 14:00","footer.hoursSub": "encargos con cita","footer.rights": "\u00a9 2026 CRISOL \u00b7 Madrid \u00b7 plomo, lat\u00f3n y tinta.","footer.made": "Compuesto a mano, cuerpo 11, una letra cada vez.","cookie.msg": "Solo recordamos idioma, tema y carta pedida en este dispositivo. Sin rastreo.","cookie.ok": "De acuerdo","cookie.no": "No","meta.title": "CRISOL \u00b7 Fundici\u00f3n tipogr\u00e1fica e imprenta \u00b7 Madrid","meta.desc": "Fundici\u00f3n tipogr\u00e1fica e imprenta en Madrid: familias de letra talladas a partir de matrices, encargos de plomo, grabado al \u00e1cido y papel de tina. Talleres, cat\u00e1logo y pedidos bajo petici\u00f3n.","og.title": "CRISOL \u00b7 Relieve, plomo y tinta","og.desc": "Del boceto a la matriz, de la matriz al plomo, del plomo al papel.","tw.title": "CRISOL \u00b7 Fundici\u00f3n tipogr\u00e1fica","tw.desc": "Del boceto a la matriz, de la matriz al plomo, del plomo al papel."},en: {"skip": "Skip to content","nav.craft": "The craft","nav.cast": "The foundry","nav.prices": "Commissions","nav.faq": "Questions","nav.cta": "Commission a type","theme.aria": "Switch to dark mode","theme.light": "Switch to light mode","menu.aria": "Open menu","lang.aria": "Choose language","hero.badge": "Type foundry \u00b7 Madrid \u00b7 est. 1963","hero.mono": "11pt lead \u00b7 hand press","hero.title": "Character is <em>cast</em>,<span class=\"brk\"></span> not printed.","hero.sub": "From sketch to matrix, from matrix to <strong>lead</strong>, from lead to paper. At the CRISOL workshop we draw, carve and cast letters that resist the algorithm: every family lives first in brass and acid before it ever touches a screen.","hero.cta1": "Commission a type","hero.cta2": "Explore the craft","foundry.bar": "crisol.v \u2013 monotype caster","foundry.spec": "matrix 13\u00b76 mm \u00b7 lead 70% / tin 20% / antimony 10%","foundry.now": "Casting right now","foundry.moldName": "A \u00b7 bright","foundry.molten": "lead at 280 \u00b0C","foundry.punch": "engraving \u00b7 42 h","cipher.title": "Monotype keyboard","cipher.aria": "Press composition key","cipher.prompt": "Press the keys","cipher.ledger": "Every keypress punches the paper tape. The matrix waits its turn in the store.","cipher.mold": "51 \u00d7 25 mm \u00b7 brass \u00b7 counter punched in acid \u00b7 42 hours of engraving","craft.kicker": "The craft","craft.title": "Four gestures that digital printing forgot.","craft.lead": "Every CRISOL letter is born on the drawing board and dies only when the paper decides. This is the path a character walks before it becomes yours.","craft.r1n": "Drawing","craft.r1t": "Indian ink on drawing paper","craft.r1b": "We start with a nib and a rule, never a nodal curve. The drawing is corrected on paper, against printed counters, until the o of every size seems to breathe.","craft.r1t1": "nib 0\u00b75","craft.r1t2": "optical size","craft.r2n": "Matrix","craft.r2t": "Acid engraving on brass","craft.r2b": "The drawing moves to a brass plate coated in varnish. The acid bites the counter for hours; the resulting matrix is the only proof of the character that cannot be faked.","craft.r2t1": "NITRIC ACID","craft.r2t2": "42 h","craft.r3n": "Lead","craft.r3t": "The hot metal","craft.r3b": "The monotype machine injects an alloy of lead, tin and antimony at 280 \u00b0C. Each matrix casts a letter ready to set: hard, heavy, and exactly the size the drawing promised.","craft.r3t1": "70/20/10","craft.r3t2": "380 letters/min","craft.r4n": "Paper","craft.r4t": "The press and the hand","craft.r4b": "The platen strike is the moment the relief delivers its proof. Vat ink, laid paper and exactly the right pressure: not a tenth more, not a tenth less.","craft.r4t1": "galley proof","craft.r4t2": "tirage 400","steps.kicker": "The foundry","steps.title": "What you buy is the matrix, not the licence.","steps.lead": "Nobody reads our usage contracts; the matrices are bought and the lead is yours. Three commissions for three ways of working with the character.","steps.s1t": "The workshop that outlived offset","steps.s1b": "CRISOL was founded in 1963 in the Letras quarter and was one of the few foundries that kept its matrix cases when offset shut the rest. Three generations, the same casting bench and an archive of 2,400 matrices.","steps.s1m": "Calle de la Imprenta 11 \u00b7 since 1963","steps.s2t": "From lettering to a full series","steps.s2b": "We work on commission: bring a lettering, a historical headline or a typographic ambition, and we turn it into a family. Drawing, matrices, trial casting and a specimen book.","steps.s2m": "delivery 6\u201310 weeks \u00b7 includes 4 weights","steps.s3t": "Back into lead, for good","steps.s3b": "Once the family is approved, we cast the complete set in type metal: 11pt body with spacing, small caps and ligatures. It is a physical object that never updates and never expires.","steps.s3m": "full set \u00b7 2,400 matrices \u00b7 oak case","prices.kicker": "Commissions","prices.title": "Three ways to commission a character.","prices.lead": "Reference prices for commissions delivered in Madrid. Every project is different: the final quote comes from a conversation and from seeing the drawing on the bench.","prices.p1t": "One-off","prices.p1from": "from","prices.p1f1": "Ink drawing of a lettering or book-cover logo","prices.p1f2": "Numbered brass matrix engraved in acid","prices.p1f3": "Galley proof in lead and 25 prints","prices.p1f4": "Usage book on laid paper","prices.p1cta": "Commission the lettering","prices.p2t": "Series","prices.p2from": "from","prices.p2f1": "Family of 4 weights with italics and small caps","prices.p2f2": "Complete matrix set for hot metal","prices.p2f3": "Trial casting and counter adjustment","prices.p2f4": "Specimen book printed in one ink","prices.p2cta": "Commission the series","prices.note": "documentation and digital archive of the drawing included in both commissions \u00b7 payment in stages","faq.kicker": "Questions","faq.title": "What they ask us before commissioning.","faq.q1": "Can I use the type on screen?","faq.a1": "The matrix is yours, and with it the freedom to use it. If one day you want to digitise it for screen, we hand over the outlines \u2014 but 90% of our clients want it on paper because that is where the relief shows.","faq.q2": "What is in the \u00abusage book\u00bb?","faq.a2": "A 48-page notebook printed in the workshop: the story of the drawing, the counter algebra, the spacing table for every body size, and \u2014 the important part \u2014 the two ways of biting the acid so small type does not close up.","faq.q3": "Do you take commissions outside Madrid?","faq.a3": "Yes. Lead travels well packed and the galley proof goes by ordinary post. For full families we arrange a visit to the workshop \u2014 half the commission is watching the caster run.","faq.q4": "Can I visit the workshop?","faq.a4": "Fridays from 11:00 to 14:00 the door is open and the furnace is lit. No appointment needed: two chairs by the platen and the usual coffee.","news.title": "One letter a month, printed and stamped.","news.sub": "The new specimen, a lettering that marked us and the date of the next casting workshop. No marketing lists: it is a real letter sent by ordinary post, written by the same person who casts.","news.ph": "Your postal address","news.cta": "Send me the letter","news.thanks": "Thank you: the letter arrives the first Friday of the month.","news.err": "Enter a valid email so we can reply.","news.hint": "There is no automatic list: we open your email on a Friday and post the letter. Write to fundicion@crisol.madrid if you prefer not to leave your address.","footer.tagline": "Type foundry and hand printing. From drawing to matrix, from matrix to lead, from lead to paper.","footer.taller": "Workshop","footer.address": "C. de la Imprenta 11 \u00b7 28012 Madrid","footer.maps": "Open in the map","footer.mail": "fundicion@crisol.madrid","footer.hours": "Open door","footer.hoursVal": "Fri 11:00 \u2013 14:00","footer.hoursSub": "commissions by appointment","footer.rights": "\u00a9 2026 CRISOL \u00b7 Madrid \u00b7 lead, brass and ink.","footer.made": "Set by hand, 11pt body, one letter at a time.","cookie.msg": "We only remember language, theme and requested letter on this device. No tracking.","cookie.ok": "Agreed","cookie.no": "No","meta.title": "CRISOL \u00b7 Type foundry and printing \u00b7 Madrid","meta.desc": "Type foundry and print shop in Madrid: letter families carved from matrices, lead commissions, acid engraving and vat paper. Workshops, catalogue and bespoke orders.","og.title": "CRISOL \u00b7 Relief, lead and ink","og.desc": "From sketch to matrix, from matrix to lead, from lead to paper.","tw.title": "CRISOL \u00b7 Type foundry","tw.desc": "From sketch to matrix, from matrix to lead, from lead to paper."},fr: {"skip": "Passer au contenu","nav.craft": "Le m\u00e9tier","nav.cast": "La fonderie","nav.prices": "Commandes","nav.faq": "Questions","nav.cta": "Commander un caract\u00e8re","theme.aria": "Passer en mode sombre","theme.light": "Passer en mode clair","menu.aria": "Ouvrir le menu","lang.aria": "Choisir la langue","hero.badge": "Fonderie typographique \u00b7 Madrid \u00b7 est. 1963","hero.mono": "plomb 11pt \u00b7 presse manuelle","hero.title": "Le caract\u00e8re se <em>fond</em>,<span class=\"brk\"></span> il ne s'imprime pas.","hero.sub": "De l'esquisse \u00e0 la matrice, de la matrice au <strong>plomb</strong>, du plomb au papier. Dans l'atelier CRISOL nous dessinons, taillons et fondons les lettres qui r\u00e9sistent \u00e0 l'algorithme : chaque famille vit d'abord dans le laiton et l'acide avant de fr\u00f4ler un \u00e9cran.","hero.cta1": "Commander un caract\u00e8re","hero.cta2": "D\u00e9couvrir le m\u00e9tier","foundry.bar": "crisol.v \u2013 monotype caster","foundry.spec": "matrice 13\u00b76 mm \u00b7 plomb 70% / \u00e9tain 20% / antimoine 10%","foundry.now": "Fonte en cours","foundry.moldName": "A \u00b7 brillant","foundry.molten": "plomb \u00e0 280 \u00b0C","foundry.punch": "gravure \u00b7 42 h","cipher.title": "Clavier de la monotype","cipher.aria": "Presser une touche de composition","cipher.prompt": "Pressez les touches","cipher.ledger": "Chaque pression perfore la bande de papier. La matrice attend son tour dans le magasin.","cipher.mold": "51 \u00d7 25 mm \u00b7 laiton \u00b7 contrepoin\u00e7on \u00e0 l'acide \u00b7 42 heures de gravure","craft.kicker": "Le m\u00e9tier","craft.title": "Quatre gestes que l'impression num\u00e9rique a oubli\u00e9s.","craft.lead": "Chaque lettre CRISOL na\u00eet sur la planche \u00e0 dessin et ne meurt que lorsque le papier le d\u00e9cide. Voici le chemin que parcourt un caract\u00e8re avant d'\u00eatre \u00e0 vous.","craft.r1n": "Dessin","craft.r1t": "Encre de Chine sur papier \u00e0 dessin","craft.r1b": "Nous partons d'une plume et d'une r\u00e8gle, jamais d'une courbe nodale. Le dessin se corrige sur papier, contre des contreformes imprim\u00e9es, jusqu'\u00e0 ce que le o de chaque corps semble respirer.","craft.r1t1": "plume 0\u00b75","craft.r1t2": "corps optique","craft.r2n": "Matrice","craft.r2t": "Gravure \u00e0 l'acide sur laiton","craft.r2b": "Le dessin passe sur une plaque de laiton vernie. L'acide mord la contreforme pendant des heures ; la matrice obtenue est la seule preuve du caract\u00e8re que l'on ne puisse pas falsifier.","craft.r2t1": "ACIDE NITRIQUE","craft.r2t2": "42 h","craft.r3n": "Plomb","craft.r3t": "La caisse chaude","craft.r3b": "La monotype injecte un alliage de plomb, d'\u00e9tain et d'antimoine \u00e0 280 \u00b0C. Chaque matrice fond une lettre pr\u00eate \u00e0 composer : dure, lourde, et exactement de la taille promise par le dessin.","craft.r3t1": "70/20/10","craft.r3t2": "380 lettres/min","craft.r4n": "Papier","craft.r4t": "La presse et la main","craft.r4b": "Le coup de platine est l'instant o\u00f9 le relief livre son \u00e9preuve. Encre de cuve, papier verg\u00e9 et la pression juste : pas un dixi\u00e8me de plus, pas un dixi\u00e8me de moins.","craft.r4t1": "\u00e9preuve de gal\u00e9e","craft.r4t2": "tirage 400","steps.kicker": "La fonderie","steps.title": "Ce que l'on ach\u00e8te, c'est la matrice, pas la licence.","steps.lead": "Personne ne lit nos contrats d'usage ; les matrices s'ach\u00e8tent et le plomb est \u00e0 vous. Trois commandes pour trois fa\u00e7ons de travailler le caract\u00e8re.","steps.s1t": "L'atelier qui a surv\u00e9cu \u00e0 l'offset","steps.s1b": "CRISOL est n\u00e9 en 1963 dans le quartier des Lettres et fut l'une des rares fonderies \u00e0 garder ses casiers de matrices quand l'offset a ferm\u00e9 les autres. Trois g\u00e9n\u00e9rations, le m\u00eame banc de fonte et un fonds de 2 400 matrices.","steps.s1m": "Calle de la Imprenta 11 \u00b7 depuis 1963","steps.s2t": "De la lettrine \u00e0 la s\u00e9rie","steps.s2b": "Nous travaillons sur commande : apportez une lettrine, un titre historique ou une ambition typographique, et nous la transformons en famille. Dessin, matrices, fonte d'essai et manuel d'\u00e9chantillons.","steps.s2m": "livraison 6\u201310 semaines \u00b7 4 graisses incluses","steps.s3t": "Retour au plomb, pour toujours","steps.s3b": "Une fois la famille approuv\u00e9e, nous fondons le jeu complet en caract\u00e8res de plomb : corps 11 avec interlignes, petites capitales et ligatures. C'est un objet physique qui ne se met jamais \u00e0 jour et n'expire jamais.","steps.s3m": "jeu complet \u00b7 2 400 matrices \u00b7 coffret en ch\u00eane","prices.kicker": "Commandes","prices.title": "Trois fa\u00e7ons de commander un caract\u00e8re.","prices.lead": "Prix de r\u00e9f\u00e9rence pour des commandes livr\u00e9es \u00e0 Madrid. Chaque projet est diff\u00e9rent : le devis final na\u00eet d'une conversation et de la vue du dessin sur la table.","prices.p1t": "Pi\u00e8ce","prices.p1from": "d\u00e8s","prices.p1f1": "Dessin \u00e0 l'encre d'une lettrine ou d'un logo de couverture","prices.p1f2": "Matrice num\u00e9rot\u00e9e en laiton grav\u00e9e \u00e0 l'acide","prices.p1f3": "\u00c9preuve de gal\u00e9e en plomb et 25 tirages","prices.p1f4": "Manuel d'usage sur papier verg\u00e9","prices.p1cta": "Commander la lettrine","prices.p2t": "S\u00e9rie","prices.p2from": "d\u00e8s","prices.p2f1": "Famille de 4 graisses avec italiques et petites capitales","prices.p2f2": "Jeu complet de matrices pour caisse chaude","prices.p2f3": "Fonte d'essai et ajustement des contreformes","prices.p2f4": "Manuel d'\u00e9chantillons imprim\u00e9 \u00e0 une encre","prices.p2cta": "Commander la s\u00e9rie","prices.note": "documentation et archive num\u00e9rique du dessin incluses dans les deux commandes \u00b7 paiement par \u00e9tapes","faq.kicker": "Questions","faq.title": "Ce qu'on nous demande avant de commander.","faq.q1": "Puis-je utiliser la lettre \u00e0 l'\u00e9cran ?","faq.a1": "La matrice est \u00e0 vous, et avec elle la libert\u00e9 d'usage. Si un jour vous voulez la num\u00e9riser pour l'\u00e9cran, nous remettons les trac\u00e9s \u2014 mais 90% de nos clients la veulent sur papier parce que c'est l\u00e0 que le relief se voit.","faq.q2": "Que contient le \u00ab manuel d'usage \u00bb ?","faq.a2": "Un carnet de 48 pages imprim\u00e9 \u00e0 l'atelier : histoire du dessin, alg\u00e8bre des contreformes, table d'interlettrage pour chaque corps, et \u2014 l'important \u2014 les deux fa\u00e7ons de mordre l'acide pour que la petite graisse ne se referme pas.","faq.q3": "Acceptez-vous les commandes hors de Madrid ?","faq.a3": "Oui. Le plomb voyage bien emball\u00e9 et l'\u00e9preuve de gal\u00e9e part par la poste ordinaire. Pour les familles compl\u00e8tes, nous convenons d'une visite \u00e0 l'atelier \u2014 la moiti\u00e9 de la commande, c'est voir fondre la caisse.","faq.q4": "Puis-je visiter l'atelier ?","faq.a4": "Les vendredis de 11h00 \u00e0 14h00, la porte est ouverte et le four allum\u00e9. Sans rendez-vous : deux chaises pr\u00e8s de la platine et le caf\u00e9 habituel.","news.title": "Une lettre par mois, imprim\u00e9e et affranchie.","news.sub": "Le nouvel \u00e9chantillonnier, une lettrine qui nous a marqu\u00e9s et la date du prochain atelier de fonte. Pas de listes marketing : c'est une vraie lettre envoy\u00e9e par la poste ordinaire, \u00e9crite par celui qui fond.","news.ph": "Votre adresse postale","news.cta": "Je veux la lettre","news.thanks": "Merci : la lettre arrive le premier vendredi du mois.","news.err": "Entrez un courriel valide pour que nous puissions r\u00e9pondre.","news.hint": "Pas de liste automatique : nous ouvrons votre courriel un vendredi et postons la lettre. \u00c9crivez-nous \u00e0 fundicion@crisol.madrid si vous pr\u00e9f\u00e9rez ne pas laisser votre adresse.","footer.tagline": "Fonderie typographique et imprimerie manuelle. Du dessin \u00e0 la matrice, de la matrice au plomb, du plomb au papier.","footer.taller": "Atelier","footer.address": "C. de la Imprenta 11 \u00b7 28012 Madrid","footer.maps": "Ouvrir dans la carte","footer.mail": "fundicion@crisol.madrid","footer.hours": "Porte ouverte","footer.hoursVal": "vendredi 11:00 \u2013 14:00","footer.hoursSub": "commandes sur rendez-vous","footer.rights": "\u00a9 2026 CRISOL \u00b7 Madrid \u00b7 plomb, laiton et encre.","footer.made": "Compos\u00e9 \u00e0 la main, corps 11, une lettre \u00e0 la fois.","cookie.msg": "Nous ne retenons que la langue, le th\u00e8me et la lettre demand\u00e9e sur cet appareil. Sans tra\u00e7age.","cookie.ok": "D'accord","cookie.no": "Non","meta.title": "CRISOL \u00b7 Fonderie typographique et imprimerie \u00b7 Madrid","meta.desc": "Fonderie typographique et imprimerie \u00e0 Madrid : familles de lettres taill\u00e9es \u00e0 partir de matrices, commandes en plomb, gravure \u00e0 l'acide et papier de cuve. Ateliers, catalogue et commandes sur demande.","og.title": "CRISOL \u00b7 Relief, plomb et encre","og.desc": "De l'esquisse \u00e0 la matrice, de la matrice au plomb, du plomb au papier.","tw.title": "CRISOL \u00b7 Fonderie typographique","tw.desc": "De l'esquisse \u00e0 la matrice, de la matrice au plomb, du plomb au papier."},de: {"skip": "Zum Inhalt springen","nav.craft": "Das Handwerk","nav.cast": "Die Gie\u00dferei","nav.prices": "Auftr\u00e4ge","nav.faq": "Fragen","nav.cta": "Schrift in Auftrag geben","theme.aria": "Zum dunklen Modus wechseln","theme.light": "Zum hellen Modus wechseln","menu.aria": "Men\u00fc \u00f6ffnen","lang.aria": "Sprache w\u00e4hlen","hero.badge": "Schriftgie\u00dferei \u00b7 Madrid \u00b7 gegr. 1963","hero.mono": "Bleisatz 11pt \u00b7 Handpresse","hero.title": "Der Charakter wird <em>gegossen</em>,<span class=\"brk\"></span> nicht gedruckt.","hero.sub": "Von der Skizze zur Matrize, von der Matrize zum <strong>Blei</strong>, vom Blei zum Papier. In der Werkstatt CRISOL zeichnen, schneiden und gie\u00dfen wir Buchstaben, die dem Algorithmus widerstehen: jede Familie lebt zuerst in Messing und S\u00e4ure, bevor sie je einen Bildschirm ber\u00fchrt.","hero.cta1": "Schrift in Auftrag geben","hero.cta2": "Das Handwerk kennenlernen","foundry.bar": "crisol.v \u2013 monotype caster","foundry.spec": "Matrize 13\u00b76 mm \u00b7 Blei 70% / Zinn 20% / Antimon 10%","foundry.now": "Gerade im Guss","foundry.moldName": "A \u00b7 helle Schrift","foundry.molten": "Blei bei 280 \u00b0C","foundry.punch": "Gravur \u00b7 42 h","cipher.title": "Monotype-Tastatur","cipher.aria": "Setz-Taste dr\u00fccken","cipher.prompt": "Dr\u00fccken Sie die Tasten","cipher.ledger": "Jeder Tastendruck stanzt das Papierband. Die Matrize wartet im Magazin auf ihren Einsatz.","cipher.mold": "51 \u00d7 25 mm \u00b7 Messing \u00b7 Gegenstempel in S\u00e4ure \u00b7 42 Stunden Gravur","craft.kicker": "Das Handwerk","craft.title": "Vier Gesten, die der Digitaldruck vergessen hat.","craft.lead": "Jeder CRISOL-Buchstabe entsteht am Zeichentisch und stirbt nur, wenn das Papier es entscheidet. Das ist der Weg, den ein Zeichen geht, bevor es Ihnen geh\u00f6rt.","craft.r1n": "Zeichnung","craft.r1t": "Tusche auf Zeichenpapier","craft.r1b": "Wir beginnen mit einer Feder und einem Lineal, nie mit einer Nodal-Kurve. Die Zeichnung wird auf Papier korrigiert, gegen gedruckte Punzen, bis das o jeder Gr\u00f6\u00dfe zu atmen scheint.","craft.r1t1": "Feder 0\u00b75","craft.r1t2": "optische Gr\u00f6\u00dfe","craft.r2n": "Matrize","craft.r2t": "S\u00e4uregravur auf Messing","craft.r2b": "Die Zeichnung wandert auf eine lackierte Messingplatte. Die S\u00e4ure bei\u00dft die Punze \u00fcber Stunden; die entstehende Matrize ist der einzige Beweis des Zeichens, der sich nicht f\u00e4lschen l\u00e4sst.","craft.r2t1": "SALPETERS\u00c4URE","craft.r2t2": "42 h","craft.r3n": "Blei","craft.r3t": "Die hei\u00dfe Kasse","craft.r3b": "Die Monotype spritzt eine Legierung aus Blei, Zinn und Antimon bei 280 \u00b0C. Jede Matrize gie\u00dft einen buchstabenfertigen Typen: hart, schwer und exakt in der Gr\u00f6\u00dfe, die die Zeichnung versprach.","craft.r3t1": "70/20/10","craft.r3t2": "380 Zeichen/min","craft.r4n": "Papier","craft.r4t": "Presse und Hand","craft.r4b": "Der Plattenschlag ist der Moment, in dem das Relief seinen Beweis liefert. B\u00fcttenfarbe, B\u00fcttenpapier und der richtige Druck: kein Zehntel mehr, kein Zehntel weniger.","craft.r4t1": "Korrekturabzug","craft.r4t2": "Auflage 400","steps.kicker": "Die Gie\u00dferei","steps.title": "Gekauft wird die Matrize, nicht die Lizenz.","steps.lead": "Niemand liest unsere Nutzungsvertr\u00e4ge; die Matrizen werden gekauft und das Blei geh\u00f6rt Ihnen. Drei Auftr\u00e4ge f\u00fcr drei Arten, mit dem Zeichen zu arbeiten.","steps.s1t": "Die Werkstatt, die den Offset \u00fcberlebte","steps.s1b": "CRISOL wurde 1963 im Letras-Viertel gegr\u00fcndet und war eine der wenigen Gie\u00dfereien, die ihre Matrizenk\u00e4sten behielt, als der Offset die anderen schloss. Drei Generationen, dieselbe Gie\u00dfbank und ein Archiv von 2 400 Matrizen.","steps.s1m": "Calle de la Imprenta 11 \u00b7 seit 1963","steps.s2t": "Von der Schriftzeichnung zur Serie","steps.s2b": "Wir arbeiten auf Bestellung: Sie bringen eine Schriftzeichnung, einen historischen Titel oder einen typografischen Ehrgeiz, und wir machen daraus eine Familie. Zeichnung, Matrizen, Probeguss und Musterbuch.","steps.s2m": "Lieferung 6\u201310 Wochen \u00b7 inklusive 4 Strichst\u00e4rken","steps.s3t": "Zur\u00fcck ins Blei, f\u00fcr immer","steps.s3b": "Ist die Familie freigegeben, gie\u00dfen wir den kompletten Satz in Schriftmetall: K\u00f6rper 11 mit Spationierung, Kapit\u00e4lchen und Ligaturen. Ein physisches Objekt, das nie aktualisiert wird und nie verf\u00e4llt.","steps.s3m": "kompletter Satz \u00b7 2 400 Matrizen \u00b7 Eichenholzkasten","prices.kicker": "Auftr\u00e4ge","prices.title": "Drei Wege, ein Zeichen in Auftrag zu geben.","prices.lead": "Richtpreise f\u00fcr Auftr\u00e4ge mit Lieferung in Madrid. Jedes Projekt ist anders: Das endg\u00fcltige Angebot entsteht aus einem Gespr\u00e4ch und aus dem Anblick der Zeichnung auf dem Tisch.","prices.p1t": "Einzelst\u00fcck","prices.p1from": "ab","prices.p1f1": "Tuschezeichnung einer Schrift oder eines Umschlaglogos","prices.p1f2": "Nummerierte Messingmatrize, in S\u00e4ure graviert","prices.p1f3": "Korrekturabzug in Blei und 25 Drucke","prices.p1f4": "Gebrauchsbuch auf B\u00fcttenpapier","prices.p1cta": "Schriftzeichnung bestellen","prices.p2t": "Serie","prices.p2from": "ab","prices.p2f1": "Familie mit 4 Strichst\u00e4rken, Kursiven und Kapit\u00e4lchen","prices.p2f2": "Kompletter Matrizensatz f\u00fcr hei\u00dfe Kasse","prices.p2f3": "Probeguss und Punzenabgleich","prices.p2f4": "Musterbuch, ein Farbig gedruckt","prices.p2cta": "Die Serie bestellen","prices.note": "Dokumentation und digitales Archiv der Zeichnung in beiden Auftr\u00e4gen enthalten \u00b7 Zahlung in Raten","faq.kicker": "Fragen","faq.title": "Was man uns vor dem Auftrag fragt.","faq.q1": "Kann ich die Schrift am Bildschirm nutzen?","faq.a1": "Die Matrize geh\u00f6rt Ihnen, und mit ihr die Nutzungsfreiheit. Wollen Sie sie eines Tages f\u00fcr den Bildschirm digitalisieren, \u00fcbergeben wir die Konturen \u2014 aber 90% unserer Kunden wollen sie auf Papier, weil man dort das Relief sp\u00fcrt.","faq.q2": "Was enth\u00e4lt das \u00abGebrauchsbuch\u00bb?","faq.a2": "Ein 48-seitiges, in der Werkstatt gedrucktes Heft: die Geschichte der Zeichnung, die Punzen-Algebra, die Spationierungstabelle f\u00fcr jeden K\u00f6rper und \u2014 das Wichtigste \u2014 die zwei Arten, die S\u00e4ure bei\u00dfen zu lassen, damit kleine Schriften nicht zulaufen.","faq.q3": "Nehmen Sie Auftr\u00e4ge au\u00dferhalb Madrids an?","faq.a3": "Ja. Blei reist gut verpackt und der Korrekturabzug geht per normaler Post. F\u00fcr komplette Familien vereinbaren wir einen Werkstattbesuch \u2014 die halbe Freude ist, die Gie\u00dfmaschine laufen zu sehen.","faq.q4": "Kann ich die Werkstatt besuchen?","faq.a4": "Freitags von 11:00 bis 14:00 Uhr ist die T\u00fcr offen und der Ofen an. Ohne Termin: zwei St\u00fchle an der Presse und der \u00fcbliche Kaffee.","news.title": "Ein Brief im Monat, gedruckt und frankiert.","news.sub": "Das neue Musterbuch, eine Schriftzeichnung, die uns gepr\u00e4gt hat, und das Datum des n\u00e4chsten Gie\u00dfkurses. Keine Marketinglisten: ein echter Brief per normaler Post, geschrieben von dem, der auch gie\u00dft.","news.ph": "Ihre Postanschrift","news.cta": "Ich will den Brief","news.thanks": "Danke: Der Brief kommt am ersten Freitag des Monats.","news.err": "Bitte eine g\u00fcltige E-Mail, damit wir antworten k\u00f6nnen.","news.hint": "Keine automatische Liste: Wir \u00f6ffnen Ihre E-Mail an einem Freitag und schicken den Brief. Schreiben Sie direkt an fundicion@crisol.madrid, wenn Sie keine Adresse hinterlassen m\u00f6chten.","footer.tagline": "Schriftgie\u00dferei und Handdruckerei. Von der Zeichnung zur Matrize, von der Matrize zum Blei, vom Blei zum Papier.","footer.taller": "Werkstatt","footer.address": "C. de la Imprenta 11 \u00b7 28012 Madrid","footer.maps": "Auf der Karte \u00f6ffnen","footer.mail": "fundicion@crisol.madrid","footer.hours": "Offene T\u00fcr","footer.hoursVal": "Fr 11:00 \u2013 14:00","footer.hoursSub": "Auftr\u00e4ge nach Termin","footer.rights": "\u00a9 2026 CRISOL \u00b7 Madrid \u00b7 Blei, Messing und Tinte.","footer.made": "Von Hand gesetzt, K\u00f6rper 11, ein Zeichen nach dem anderen.","cookie.msg": "Wir merken uns nur Sprache, Thema und angeforderte Letter auf diesem Ger\u00e4t. Kein Tracking.","cookie.ok": "Einverstanden","cookie.no": "Nein","meta.title": "CRISOL \u00b7 Schriftgie\u00dferei und Druckerei \u00b7 Madrid","meta.desc": "Schriftgie\u00dferei und Druckerei in Madrid: aus Matrizen geschnittene Schriftfamilien, Bleiauftr\u00e4ge, S\u00e4uregravur und B\u00fcttenpapier. Kurse, Katalog und Auftragsarbeiten.","og.title": "CRISOL \u00b7 Relief, Blei und Tinte","og.desc": "Von der Skizze zur Matrize, von der Matrize zum Blei, vom Blei zum Papier.","tw.title": "CRISOL \u00b7 Schriftgie\u00dferei","tw.desc": "Von der Skizze zur Matrize, von der Matrize zum Blei, vom Blei zum Papier."},it: {"skip": "Salta al contenuto","nav.craft": "Il mestiere","nav.cast": "La fonderia","nav.prices": "Commissioni","nav.faq": "Domande","nav.cta": "Commissiona un carattere","theme.aria": "Passa alla modalit\u00e0 scura","theme.light": "Passa alla modalit\u00e0 chiara","menu.aria": "Apri il menu","lang.aria": "Scegli la lingua","hero.badge": "Fonderia tipografica \u00b7 Madrid \u00b7 fond. 1963","hero.mono": "piombo 11pt \u00b7 torchio a mano","hero.title": "Il carattere si <em>fonde</em>,<span class=\"brk\"></span> non si stampa.","hero.sub": "Dallo schizzo alla matrice, dalla matrice al <strong>piombo</strong>, dal piombo alla carta. Nell'officina CRISOL disegniamo, incidiamo e fondiamo le lettere che resistono all'algoritmo: ogni famiglia vive prima nell'ottone e nell'acido, prima di sfiorare uno schermo.","hero.cta1": "Commissiona un carattere","hero.cta2": "Scopri il mestiere","foundry.bar": "crisol.v \u2013 monotype caster","foundry.spec": "matrice 13\u00b76 mm \u00b7 piombo 70% / stagno 20% / antimonio 10%","foundry.now": "Fusione in corso","foundry.moldName": "A \u00b7 brillante","foundry.molten": "piombo a 280 \u00b0C","foundry.punch": "incisione \u00b7 42 h","cipher.title": "Tastiera della monotype","cipher.aria": "Premi un tasto di composizione","cipher.prompt": "Premi i tasti","cipher.ledger": "Ogni pressione perfora il nastro di carta. La matrice attende il suo turno nel magazzino.","cipher.mold": "51 \u00d7 25 mm \u00b7 ottone \u00b7 contropunzone all'acido \u00b7 42 ore di incisione","craft.kicker": "Il mestiere","craft.title": "Quattro gesti che la stampa digitale ha dimenticato.","craft.lead": "Ogni lettera CRISOL nasce sul tavolo da disegno e muore solo quando lo decide la carta. Questo \u00e8 il percorso che un carattere compie prima di diventare vostro.","craft.r1n": "Disegno","craft.r1t": "Inchiostro di china su carta da disegno","craft.r1b": "Partiamo da un pennino e una riga, mai da una curva nodale. Il disegno si corregge su carta, contro controforme stampate, finch\u00e9 la o di ogni corpo sembra respirare.","craft.r1t1": "pennino 0\u00b75","craft.r1t2": "corpo ottico","craft.r2n": "Matrice","craft.r2t": "Incisione all'acido sull'ottone","craft.r2b": "Il disegno passa su una placca di ottone verniciata. L'acido morde la controforma per ore; la matrice risultante \u00e8 l'unica prova del carattere che non si pu\u00f2 falsificare.","craft.r2t1": "ACIDO NITRICO","craft.r2t2": "42 h","craft.r3n": "Piombo","craft.r3t": "La cassa calda","craft.r3b": "La monotype inietta una lega di piombo, stagno e antimonio a 280 \u00b0C. Ogni matrice fonde una lettera pronta per la composizione: dura, pesante, e della misura esatta promessa dal disegno.","craft.r3t1": "70/20/10","craft.r3t2": "380 lettere/min","craft.r4n": "Carta","craft.r4t": "Il torchio e la mano","craft.r4b": "Il colpo di platina \u00e8 l'istante in cui il rilievo consegna la sua prova. Inchiostro di tino, carta vergata e la pressione giusta: non un decimo in pi\u00f9, non un decimo in meno.","craft.r4t1": "bozza di galera","craft.r4t2": "tiratura 400","steps.kicker": "La fonderia","steps.title": "Si compra la matrice, non la licenza.","steps.lead": "Nessuno legge i nostri contratti d'uso; le matrici si comprano e il piombo \u00e8 vostro. Tre commissioni per tre modi di lavorare il carattere.","steps.s1t": "L'officina sopravvissuta all'offset","steps.s1b": "CRISOL nacque nel 1963 nel quartiere delle Lettere e fu una delle poche fonderie che conserv\u00f2 i cassetti di matrici quando l'offset chiuse le altre. Tre generazioni, lo stesso banco di fusione e un archivio di 2 400 matrici.","steps.s1m": "Calle de la Imprenta 11 \u00b7 dal 1963","steps.s2t": "Dalla scritta alla serie","steps.s2b": "Lavoriamo su commissione: portate una scritta, un titolo storico o un'ambizione tipografica, e noi la trasformiamo in una famiglia. Disegno, matrici, fusione di prova e manuale di campioni.","steps.s2m": "consegna 6\u201310 settimane \u00b7 include 4 spessori","steps.s3t": "Di nuovo nel piombo, per sempre","steps.s3b": "Approvata la famiglia, fondiamo l'intera serie in caratteri di piombo: corpo 11 con spaziature, maiuscoletto e legature. \u00c8 un oggetto fisico che non si aggiorna mai e non scade mai.","steps.s3m": "serie completa \u00b7 2 400 matrici \u00b7 custodia in rovere","prices.kicker": "Commissioni","prices.title": "Tre modi di commissionare un carattere.","prices.lead": "Prezzi di riferimento per commissioni consegnate a Madrid. Ogni progetto \u00e8 diverso: il preventivo finale nasce da una conversazione e dalla vista del disegno sul tavolo.","prices.p1t": "Pezzo","prices.p1from": "da","prices.p1f1": "Disegno a china di una scritta o di un logo di copertina","prices.p1f2": "Matrice numerata in ottone incisa all'acido","prices.p1f3": "Bozza di galera in piombo e 25 stampe","prices.p1f4": "Manuale d'uso su carta vergata","prices.p1cta": "Commissiona la scritta","prices.p2t": "Serie","prices.p2from": "da","prices.p2f1": "Famiglia di 4 spessori con corsivi e maiuscoletto","prices.p2f2": "Serie completa di matrici per cassa calda","prices.p2f3": "Fusione di prova e regolazione delle controforme","prices.p2f4": "Manuale di campioni stampato a un colore","prices.p2cta": "Commissiona la serie","prices.note": "documentazione e archivio digitale del disegno inclusi in entrambe le commissioni \u00b7 pagamento a rate","faq.kicker": "Domande","faq.title": "Quello che ci chiedono prima di commissionare.","faq.q1": "Posso usare la lettera sullo schermo?","faq.a1": "La matrice \u00e8 vostra, e con essa la libert\u00e0 d'uso. Se un giorno vorrete digitalizzarla per lo schermo, consegniamo i tracciati \u2014 ma il 90% dei nostri clienti la vuole su carta, perch\u00e9 \u00e8 l\u00ec che il rilievo si sente.","faq.q2": "Cosa contiene il \u00abmanuale d'uso\u00bb?","faq.a2": "Un quaderno di 48 pagine stampato in officina: la storia del disegno, l'algebra delle controforme, la tabella di spaziatura per ogni corpo e \u2014 la parte importante \u2014 i due modi di mordere l'acido perch\u00e9 la lettera piccola non si chiuda.","faq.q3": "Accettate commissioni fuori Madrid?","faq.a3": "S\u00ec. Il piombo viaggia ben imballato e la bozza di galera parte per posta ordinaria. Per le famiglie complete concordiamo una visita all'officina \u2014 met\u00e0 della commissione \u00e8 vedere fondere la cassa.","faq.q4": "Posso visitare l'officina?","faq.a4": "Il venerd\u00ec dalle 11:00 alle 14:00 la porta \u00e8 aperta e il forno acceso. Senza appuntamento: due sedie vicino alla platina e il solito caff\u00e8.","news.title": "Una lettera al mese, stampata e affrancata.","news.sub": "Il nuovo campionario, una scritta che ci ha segnati e la data del prossimo corso di fusione. Niente liste di marketing: \u00e8 una vera lettera spedita per posta ordinaria, scritta da chi fonde.","news.ph": "Il vostro indirizzo postale","news.cta": "Voglio la lettera","news.thanks": "Grazie: la lettera arriva il primo venerd\u00ec del mese.","news.err": "Inserisci un'email valida perch\u00e9 possiamo risponderti.","news.hint": "Nessuna lista automatica: apriamo la vostra email un venerd\u00ec e spediamo la lettera. Scriveteci direttamente a fundicion@crisol.madrid se preferite non lasciare il vostro indirizzo.","footer.tagline": "Fonderia tipografica e tipografia a mano. Dal disegno alla matrice, dalla matrice al piombo, dal piombo alla carta.","footer.taller": "Officina","footer.address": "C. de la Imprenta 11 \u00b7 28012 Madrid","footer.maps": "Apri nella mappa","footer.mail": "fundicion@crisol.madrid","footer.hours": "Porta aperta","footer.hoursVal": "ven 11:00 \u2013 14:00","footer.hoursSub": "commissioni su appuntamento","footer.rights": "\u00a9 2026 CRISOL \u00b7 Madrid \u00b7 piombo, ottone e inchiostro.","footer.made": "Composto a mano, corpo 11, una lettera alla volta.","cookie.msg": "Ricordiamo solo lingua, tema e lettera richiesta su questo dispositivo. Nessun tracciamento.","cookie.ok": "D'accordo","cookie.no": "No","meta.title": "CRISOL \u00b7 Fonderia tipografica e tipografia \u00b7 Madrid","meta.desc": "Fonderia tipografica e tipografia a Madrid: famiglie di lettere incise da matrici, commissioni in piombo, incisione all'acido e carta di tino. Corsi, catalogo e ordini su richiesta.","og.title": "CRISOL \u00b7 Rilievo, piombo e inchiostro","og.desc": "Dallo schizzo alla matrice, dalla matrice al piombo, dal piombo alla carta.","tw.title": "CRISOL \u00b7 Fonderia tipografica","tw.desc": "Dallo schizzo alla matrice, dalla matrice al piombo, dal piombo alla carta."},pt: {"skip": "Saltar para o conte\u00fado","nav.craft": "O of\u00edcio","nav.cast": "A fundi\u00e7\u00e3o","nav.prices": "Encomendas","nav.faq": "Perguntas","nav.cta": "Encomendar um car\u00e1cter","theme.aria": "Mudar para o modo escuro","theme.light": "Mudar para o modo claro","menu.aria": "Abrir menu","lang.aria": "Escolher idioma","hero.badge": "Fundi\u00e7\u00e3o tipogr\u00e1fica \u00b7 Madrid \u00b7 est. 1963","hero.mono": "chumbo 11pt \u00b7 prensa manual","hero.title": "O car\u00e1cter <em>funde-se</em>,<span class=\"brk\"></span> n\u00e3o se imprime.","hero.sub": "Do esbo\u00e7o \u00e0 matriz, da matriz ao <strong>chumbo</strong>, do chumbo ao papel. Na oficina CRISOL desenhamos, gravamos e fundimos as letras que resistem ao algoritmo: cada fam\u00edlia vive primeiro em lat\u00e3o e \u00e1cido antes de tocar um ecr\u00e3.","hero.cta1": "Encomendar um car\u00e1cter","hero.cta2": "Conhecer o of\u00edcio","foundry.bar": "crisol.v \u2013 monotype caster","foundry.spec": "matriz 13\u00b76 mm \u00b7 chumbo 70% / estanho 20% / antim\u00f3nio 10%","foundry.now": "A fundir agora","foundry.moldName": "A \u00b7 brilhante","foundry.molten": "chumbo a 280 \u00b0C","foundry.punch": "grava\u00e7\u00e3o \u00b7 42 h","cipher.title": "Teclado da monotipia","cipher.aria": "Carregar tecla de composi\u00e7\u00e3o","cipher.prompt": "Carregue nas teclas","cipher.ledger": "Cada toque perfura a fita de papel. A matriz espera a sua vez no armaz\u00e9m.","cipher.mold": "51 \u00d7 25 mm \u00b7 lat\u00e3o \u00b7 contrafirma ao \u00e1cido \u00b7 42 horas de grava\u00e7\u00e3o","craft.kicker": "O of\u00edcio","craft.title": "Quatro gestos que a impress\u00e3o digital esqueceu.","craft.lead": "Cada letra CRISOL nasce na mesa de desenho e morre s\u00f3 quando o papel o decide. Este \u00e9 o caminho que um car\u00e1cter percorre antes de ser seu.","craft.r1n": "Desenho","craft.r1t": "Tinta-da-china sobre papel de desenho","craft.r1b": "Partimos de uma pena e uma r\u00e9gua, nunca de uma curva nodal. O desenho corrige-se em papel, contra contrafirmas impressas, at\u00e9 o o de cada corpo parecer respirar.","craft.r1t1": "pena 0\u00b75","craft.r1t2": "corpo \u00f3tico","craft.r2n": "Matriz","craft.r2t": "Gravura a \u00e1cido sobre lat\u00e3o","craft.r2b": "O desenho passa para uma placa de lat\u00e3o envernizada. O \u00e1cido morde a contrafirma durante horas; a matriz resultante \u00e9 a \u00fanica prova do car\u00e1cter que n\u00e3o se pode falsificar.","craft.r2t1": "\u00c1CIDO N\u00cdTRICO","craft.r2t2": "42 h","craft.r3n": "Chumbo","craft.r3t": "A caixa quente","craft.r3b": "A monotipia injeta uma liga de chumbo, estanho e antim\u00f3nio a 280 \u00b0C. Cada matriz funde uma letra pronta a compor: dura, pesada, e do tamanho exato prometido pelo desenho.","craft.r3t1": "70/20/10","craft.r3t2": "380 letras/min","craft.r4n": "Papel","craft.r4t": "A prensa e a m\u00e3o","craft.r4b": "O golpe da platina \u00e9 o instante em que o relevo entrega a sua prova. Tinta de tina, papel verg\u00e9 e a press\u00e3o certa: nem um d\u00e9cimo a mais, nem um d\u00e9cimo a menos.","craft.r4t1": "prova de gal\u00e9","craft.r4t2": "tiragem 400","steps.kicker": "A fundi\u00e7\u00e3o","steps.title": "O que se compra \u00e9 a matriz, n\u00e3o a licen\u00e7a.","steps.lead": "Ningu\u00e9m l\u00ea os nossos contratos de uso; as matrizes compram-se e o chumbo \u00e9 seu. Tr\u00eas encomendas para tr\u00eas modos de trabalhar o car\u00e1cter.","steps.s1t": "A oficina que sobreviveu ao offset","steps.s1b": "A CRISOL nasceu em 1963 no bairro das Letras e foi uma das poucas fundi\u00e7\u00f5es que guardou as caixas de matrizes quando o offset fechou as outras. Tr\u00eas gera\u00e7\u00f5es, a mesma bancada de fundi\u00e7\u00e3o e um arquivo de 2 400 matrizes.","steps.s1m": "Calle de la Imprenta 11 \u00b7 desde 1963","steps.s2t": "Da rotula\u00e7\u00e3o \u00e0 s\u00e9rie","steps.s2b": "Trabalhamos por encomenda: traz uma rotula\u00e7\u00e3o, um t\u00edtulo hist\u00f3rico ou uma ambi\u00e7\u00e3o tipogr\u00e1fica, e n\u00f3s transformamo-la numa fam\u00edlia. Desenho, matrizes, fundi\u00e7\u00e3o de prova e manual de amostras.","steps.s2m": "entrega 6\u201310 semanas \u00b7 inclui 4 espessuras","steps.s3t": "De volta ao chumbo, para sempre","steps.s3b": "Quando a fam\u00edlia est\u00e1 aprovada, fundimos o conjunto completo em chumbo tipogr\u00e1fico: corpo 11 com espa\u00e7amento, versaletes e ligaduras. \u00c9 um objeto f\u00edsico que nunca se atualiza e nunca caduca.","steps.s3m": "conjunto completo \u00b7 2 400 matrizes \u00b7 estojo de carvalho","prices.kicker": "Encomendas","prices.title": "Tr\u00eas formas de encomendar um car\u00e1cter.","prices.lead": "Pre\u00e7os de refer\u00eancia para encomendas entregues em Madrid. Cada projeto \u00e9 diferente: o or\u00e7amento final nasce de uma conversa e de ver o desenho na mesa.","prices.p1t": "Pe\u00e7a","prices.p1from": "desde","prices.p1f1": "Desenho a tinta de uma rotula\u00e7\u00e3o ou log\u00f3tipo de capa","prices.p1f2": "Matriz numerada de lat\u00e3o gravada a \u00e1cido","prices.p1f3": "Prova de gal\u00e9 em chumbo e 25 impress\u00f5es","prices.p1f4": "Manual de uso em papel verg\u00e9","prices.p1cta": "Encomendar rotula\u00e7\u00e3o","prices.p2t": "S\u00e9rie","prices.p2from": "desde","prices.p2f1": "Fam\u00edlia de 4 espessuras com it\u00e1licos e versaletes","prices.p2f2": "Conjunto completo de matrizes para caixa quente","prices.p2f3": "Fundi\u00e7\u00e3o de prova e ajuste de contrafirmas","prices.p2f4": "Manual de amostras impresso a uma tinta","prices.p2cta": "Encomendar a s\u00e9rie","prices.note": "documenta\u00e7\u00e3o e arquivo digital do desenho inclu\u00eddos em ambas as encomendas \u00b7 pagamento por fases","faq.kicker": "Perguntas","faq.title": "O que nos perguntam antes de encomendar.","faq.q1": "Posso usar a letra no ecr\u00e3?","faq.a1": "A matriz \u00e9 sua, e com ela a liberdade de uso. Se um dia quiser digitaliz\u00e1-la para o ecr\u00e3, entregamos os tra\u00e7ados \u2014 mas 90% dos nossos clientes pedem-na para papel porque \u00e9 a\u00ed que o relevo se nota.","faq.q2": "O que inclui o \u00abmanual de uso\u00bb?","faq.a2": "Um caderno de 48 p\u00e1ginas impresso na oficina: a hist\u00f3ria do desenho, a \u00e1lgebra das contrafirmas, a tabela de espa\u00e7amento para cada corpo e \u2014 o importante \u2014 as duas maneiras de morder o \u00e1cido para a letra pequena n\u00e3o fechar.","faq.q3": "Aceitam encomendas fora de Madrid?","faq.a3": "Sim. O chumbo viaja bem embalado e a prova de gal\u00e9 vai por correio normal. Para fam\u00edlias completas marcamos uma visita \u00e0 oficina \u2014 metade da encomenda \u00e9 ver a caixa a fundir.","faq.q4": "Posso visitar a oficina?","faq.a4": "\u00c0s sextas das 11:00 \u00e0s 14:00 a porta est\u00e1 aberta e o forno aceso. Sem marca\u00e7\u00e3o: duas cadeiras junto \u00e0 platina e o caf\u00e9 de sempre.","news.title": "Uma carta por m\u00eas, impressa e selada.","news.sub": "O novo mostru\u00e1rio, uma rotula\u00e7\u00e3o que nos marcou e a data da pr\u00f3xima oficina de fundi\u00e7\u00e3o. Sem listas de marketing: \u00e9 uma carta verdadeira enviada por correio normal, escrita por quem funde.","news.ph": "O seu endere\u00e7o postal","news.cta": "Quero a carta","news.thanks": "Obrigado: a carta chega na primeira sexta do m\u00eas.","news.err": "Escreva um email v\u00e1lido para podermos responder.","news.hint": "N\u00e3o h\u00e1 lista autom\u00e1tica: abrimos o seu email numa sexta e enviamos a carta. Escreva-nos direto para fundicion@crisol.madrid se preferir n\u00e3o deixar o seu endere\u00e7o.","footer.tagline": "Fundi\u00e7\u00e3o tipogr\u00e1fica e tipografia manual. Do desenho \u00e0 matriz, da matriz ao chumbo, do chumbo ao papel.","footer.taller": "Oficina","footer.address": "C. de la Imprenta 11 \u00b7 28012 Madrid","footer.maps": "Abrir no mapa","footer.mail": "fundicion@crisol.madrid","footer.hours": "Porta aberta","footer.hoursVal": "sex 11:00 \u2013 14:00","footer.hoursSub": "encomendas com marca\u00e7\u00e3o","footer.rights": "\u00a9 2026 CRISOL \u00b7 Madrid \u00b7 chumbo, lat\u00e3o e tinta.","footer.made": "Composto \u00e0 m\u00e3o, corpo 11, uma letra de cada vez.","cookie.msg": "S\u00f3 recordamos idioma, tema e carta pedida neste dispositivo. Sem rastreio.","cookie.ok": "De acordo","cookie.no": "N\u00e3o","meta.title": "CRISOL \u00b7 Fundi\u00e7\u00e3o tipogr\u00e1fica e tipografia \u00b7 Madrid","meta.desc": "Fundi\u00e7\u00e3o tipogr\u00e1fica e tipografia em Madrid: fam\u00edlias de letras gravadas a partir de matrizes, encomendas em chumbo, grava\u00e7\u00e3o a \u00e1cido e papel de tina. Oficinas, cat\u00e1logo e pedidos sob consulta.","og.title": "CRISOL \u00b7 Relevo, chumbo e tinta","og.desc": "Do esbo\u00e7o \u00e0 matriz, da matriz ao chumbo, do chumbo ao papel.","tw.title": "CRISOL \u00b7 Fundi\u00e7\u00e3o tipogr\u00e1fica","tw.desc": "Do esbo\u00e7o \u00e0 matriz, da matriz ao chumbo, do chumbo ao papel."}};
+function $(s, c) { return (c || document).querySelector(s); }
+function $$(s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); }
+var LANGS = ['es','en','fr','de','it','pt'];
+var LANG_KEY = 'crisol-lang';
+function getLang() {
+  var saved = null;
+  try { saved = localStorage.getItem(LANG_KEY); } catch (e) {}
+  if (saved && I18N[saved]) return saved;
+  var nav = (navigator.language || navigator.userLanguage || 'es').toLowerCase();
+  for (var i = 0; i < LANGS.length; i++) {
+    if (nav.indexOf(LANGS[i]) === 0) return LANGS[i];
+  }
+  return 'es';
+}
+var THEME_KEY = 'kairos-theme';
+function getTheme() {
+  var saved = null;
+  try { saved = localStorage.getItem(THEME_KEY); } catch (e) {}
+  return saved === 'dark' ? 'dark' : 'light';
+}
+function applyTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  try { localStorage.setItem(THEME_KEY, theme); } catch (e) {}
+  var label = theme === 'dark' ? I18N[getLang()]['theme.light'] : I18N[getLang()]['theme.aria'];
+  $$('#themeToggle, #themeToggleM').forEach(function (t) { if (t) t.setAttribute('aria-label', label); });
+}
+$$('#themeToggle, #themeToggleM').forEach(function (t) {
+  if (t) t.addEventListener('click', function () { applyTheme(getTheme() === 'dark' ? 'light' : 'dark'); });
+});
+function applyLang(lang) {
+  if (!I18N[lang]) lang = 'es';
+  var dict = I18N[lang];
+  try { localStorage.setItem(LANG_KEY, lang); } catch (e) {}
+  $$('[data-i18n]').forEach(function (el) {
+    var val = dict[el.getAttribute('data-i18n')];
+    if (val !== undefined) el.textContent = val;
+  });
+  $$('[data-i18n-html]').forEach(function (el) {
+    var val = dict[el.getAttribute('data-i18n-html')];
+    if (val !== undefined) el.innerHTML = val;
+  });
+  $$('[data-i18n-aria]').forEach(function (el) {
+    var val = dict[el.getAttribute('data-i18n-aria')];
+    if (val !== undefined) el.setAttribute('aria-label', val);
+  });
+  $$('[data-i18n-ph]').forEach(function (el) {
+    var val = dict[el.getAttribute('data-i18n-ph')];
+    if (val !== undefined) el.setAttribute('placeholder', val);
+  });
+  var mt = $('#doc-title');
+  if (mt && dict['meta.title']) mt.textContent = dict['meta.title'];
+  var md = $('#meta-desc');
+  if (md && dict['meta.desc']) md.setAttribute('content', dict['meta.desc']);
+  var ogt = $('meta[property="og:title"]');
+  if (ogt && dict['og.title']) ogt.setAttribute('content', dict['og.title']);
+  var ogd = $('meta[property="og:description"]');
+  if (ogd && dict['og.desc']) ogd.setAttribute('content', dict['og.desc']);
+  var twt = $('meta[name="twitter:title"]');
+  if (twt && dict['tw.title']) twt.setAttribute('content', dict['tw.title']);
+  var twd = $('meta[name="twitter:description"]');
+  if (twd && dict['tw.desc']) twd.setAttribute('content', dict['tw.desc']);
+  document.documentElement.setAttribute('lang', lang);
+  $$('.lang-select__cur').forEach(function (el) { el.textContent = lang.toUpperCase(); });
+  $$('.lang-select__opt').forEach(function (opt) {
+    opt.setAttribute('aria-selected', opt.getAttribute('data-lang') === lang ? 'true' : 'false');
+  });
+  applyTheme(getTheme());
+}
+function closeLangMenus() {
+  $$('.lang-select').forEach(function (sel) {
+    var menu = $('.lang-select__menu', sel), btn = $('.lang-select__btn', sel);
+    if (menu) menu.classList.remove('open');
+    if (btn) btn.setAttribute('aria-expanded', 'false');
+  });
+}
+$$('.lang-select').forEach(function (sel) {
+  var btn = $('.lang-select__btn', sel), menu = $('.lang-select__menu', sel);
+  if (!btn || !menu) return;
+  btn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    var open = menu.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (open) {
+      $$('.lang-select').forEach(function (other) {
+        if (other !== sel) {
+          var om = $('.lang-select__menu', other), ob = $('.lang-select__btn', other);
+          if (om) om.classList.remove('open');
+          if (ob) ob.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+  });
+  $$('.lang-select__opt', sel).forEach(function (opt) {
+    opt.addEventListener('click', function () {
+      applyLang(opt.getAttribute('data-lang'));
+      closeLangMenus();
+    });
+  });
+});
+document.addEventListener('click', function (e) {
+  var inside = false;
+  $$('.lang-select').forEach(function (sel) { if (sel.contains(e.target)) inside = true; });
+  if (!inside) closeLangMenus();
+});
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape') { closeLangMenus(); closeMobile(); }
+});
+var burger = $('#burger'), mobileMenu = $('#mobileMenu');
+function closeMobile() {
+  if (!mobileMenu) return;
+  mobileMenu.classList.remove('open');
+  mobileMenu.setAttribute('aria-hidden', 'true');
+  if (burger) burger.setAttribute('aria-expanded', 'false');
+}
+if (burger && mobileMenu) {
+  burger.addEventListener('click', function () {
+    var open = mobileMenu.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    mobileMenu.setAttribute('aria-hidden', open ? 'false' : 'true');
+  });
+  $$('a', mobileMenu).forEach(function (a) { a.addEventListener('click', closeMobile); });
+}
+var nav = $('#siteNav');
+if (nav) {
+  var navTick = false;
+  function navCheck() {
+    nav.classList.toggle('scrolled', (window.pageYOffset || document.documentElement.scrollTop) > 10);
+  }
+  function navOnScroll() {
+    if (navTick) return;
+    navTick = true;
+    window.requestAnimationFrame(function () { navCheck(); navTick = false; });
+  }
+  window.addEventListener('scroll', navOnScroll, { passive: true });
+  navCheck();
+}
+applyLang(getLang());
+try {
+  var rvEls = $$('.rv');
+  function revealCheck() {
+    var vh = window.innerHeight || document.documentElement.clientHeight;
+    rvEls.forEach(function (el) {
+      if (el.classList.contains('in')) return;
+      var r = el.getBoundingClientRect();
+      if (r.top < vh * 0.92) el.classList.add('in');
+    });
+  }
+  var ticking = false;
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(function () { revealCheck(); ticking = false; });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+  revealCheck();
+  document.documentElement.classList.remove('no-js');
+  setTimeout(revealCheck, 600);
+  setTimeout(function () {
+    var vh = window.innerHeight || document.documentElement.clientHeight;
+    var missed = false;
+    rvEls.forEach(function (el) {
+      var r = el.getBoundingClientRect();
+      if (r.top < vh * 0.92 && r.bottom > 0 && !el.classList.contains('in')) missed = true;
+    });
+    if (missed) rvEls.forEach(function (el) { el.classList.add('in'); });
+  }, 1800);
+} catch (e) {
+  $$('.rv').forEach(function (el) { el.classList.add('in'); });
+  document.documentElement.classList.remove('no-js');
+}
+$$('.faq-item').forEach(function (item) {
+  var q = $('.faq-q', item), a = $('.faq-a', item);
+  if (!q || !a) return;
+  q.addEventListener('click', function () {
+    var isOpen = item.classList.contains('open');
+    $$('.faq-item.open').forEach(function (other) {
+      if (other !== item) {
+        other.classList.remove('open');
+        var oq = $('.faq-q', other), oa = $('.faq-a', other);
+        if (oq) oq.setAttribute('aria-expanded', 'false');
+        if (oa) oa.style.maxHeight = '0px';
+      }
+    });
+    item.classList.toggle('open', !isOpen);
+    q.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+    a.style.maxHeight = isOpen ? '0px' : a.scrollHeight + 'px';
+  });
+});
+var cookieBanner = $('#cookieBanner');
+var COOKIE_KEY = 'crisol-cookie';
+function hideCookie() {
+  if (!cookieBanner) return;
+  cookieBanner.classList.remove('show');
+  try { localStorage.setItem(COOKIE_KEY, '1'); } catch (e) {}
+}
+var ckOk = $('#cookieOk'), ckNo = $('#cookieNo');
+if (ckOk) ckOk.addEventListener('click', hideCookie);
+if (ckNo) ckNo.addEventListener('click', hideCookie);
+(function () {
+  var done = false;
+  try { done = localStorage.getItem(COOKIE_KEY) === '1'; } catch (e) {}
+  if (done || !cookieBanner) return;
+  setTimeout(function () { cookieBanner.classList.add('show'); }, 3200);
+})();
+var newsForm = $('#newsForm');
+if (newsForm) {
+  var nlMsg = $('#nlMsg');
+  newsForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var email = ($('#newsEmail') || {}).value || '';
+    var lang = getLang();
+    if (!email || email.indexOf('@') < 1) {
+      if (nlMsg) { nlMsg.textContent = I18N[lang]['news.err']; nlMsg.className = 'nl-msg err'; }
+      return;
+    }
+    var subject = 'La carta del mes — CRISOL';
+    var body = 'Hola CRISOL, quiero recibir la carta impresa del mes.\nMi correo: ' + email;
+    window.location.href = 'mailto:fundicion@crisol.madrid?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    if (nlMsg) { nlMsg.textContent = I18N[lang]['news.thanks']; nlMsg.className = 'nl-msg ok'; }
+  });
+}
+/* Monotype cipher — each key press punches the tape and the matrix spins */
+var caster = $('#casterArt');
+var outSpan = $('#cipherWord');
+var SEQUENCE = ['h','o','l','a','m','b','r','i','l','l','a','n','t','e','c','o','n','c','i','o','n'];
+var seqIdx = 0;
+function punch(key) {
+  var expected = SEQUENCE[seqIdx % SEQUENCE.length];
+  $$('#monokb .mk:not(.dep)').forEach(function (k) {
+    if (k.getAttribute('data-key') === key) {
+      k.classList.remove('hot');
+      void k.offsetWidth;
+      k.classList.add('hot');
+      setTimeout(function () { k.classList.remove('hot'); }, 380);
+    }
+  });
+  if (key === expected) {
+    seqIdx++;
+  } else {
+    seqIdx = 0;
+  }
+  var word = 'HO LAMBRILANTE CONCION';
+  if (outSpan) {
+    outSpan.textContent = word.slice(0, seqIdx) + (seqIdx < word.length ? word.charAt(seqIdx) : '');
+  }
+  if (caster && !caster.classList.contains('doing')) caster.classList.add('doing');
+}
+$$('#monokb .mk:not(.dep)').forEach(function (k) {
+  k.addEventListener('click', function () { punch(k.getAttribute('data-key')); });
+});
+/* duplicate marquee content for a seamless loop */
+var mq = $('#marqueeTrack');
+if (mq) {
+  mq.innerHTML += mq.innerHTML;
+}</script>
+</body>
+</html>

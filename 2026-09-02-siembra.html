@@ -1,0 +1,1493 @@
+<!DOCTYPE html>
+<html lang="es" class="no-js" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="doc-title">SIEMBRA · Biblioteca comunitaria de semillas · Madrid</title>
+<meta id="meta-desc" name="description" content="Biblioteca de semillas del barrio: pide un sobre, siembra, cosecha y devuelve semillas al final del ciclo. Trueque de semillas los viernes en el Centro Cívico 14.">
+<link rel="canonical" href="https://proyectos.cristiancode.dev/landings/2026-09-02-siembra.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="SIEMBRA · Lo que guardas hoy se come mañana">
+<meta property="og:description" content="Biblioteca comunitaria de semillas en Madrid. Pide un sobre, siembra, cosecha y devuelve. Trueque de semillas cada viernes.">
+<meta property="og:url" content="https://proyectos.cristiancode.dev/landings/2026-09-02-siembra.html">
+<meta property="og:image" content="https://cristiancode.dev/assets/landing-2026-09-02-siembra.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SIEMBRA · Biblioteca comunitaria de semillas">
+<meta name="twitter:description" content="Pide un sobre, siembra, cosecha y devuelve semillas al final del ciclo.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#0E0F0C">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230E0F0C'/%3E%3Ccircle cx='16' cy='16' r='9' fill='%239FE870'/%3E%3Cpath d='M16 10 C19 13 19 19 16 22 C13 19 13 13 16 10 Z' fill='%23163300'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   DESIGN SYSTEM — SIEMBRA · Biblioteca comunitaria de semillas
+   Surface: Decide/Learn (landing; hero correct). Secondary
+            Operate inside the catalogue (real seed loans with
+            a working toggle), Compare across the seed table,
+            Configure in the 4-step process.
+   Derived from: Wise (popular-web-designs template) — lime
+            green #9FE870 as the ONLY committed accent, dark
+            green ink #163300 on lime (never white), near-black
+            #0E0F0C ink, ring shadows instead of drop shadows,
+            weight-900 display at 0.85 line-height, scale(1.05)
+            button hovers. Diverged: no Inter — display is
+            Archivo Black (900 only, squarer counterforms) +
+            Source Sans 3 humanist body; cards 16-40px rounded,
+            no glass, no gradients; the hero object is a drawn
+            SEED PACKET (the product itself), not a stock photo.
+   Family: Sostenibilidad / Huertos urbanos y semillas
+   Style: Botanical protest — off-white stage, lime punctuation,
+          stamp/no-compra imagery, mono labels in the catalogue
+   Strategy: Committed (lime 20-30% on white, black bands 30%)
+   Type: Archivo Black (display, 900) + Source Sans 3 (body,
+         600 default emphasis), ui-monospace for data labels
+   Impeccable: no gradient text, no glass, no side-stripe,
+         no hero-metrics (the 4 facts are a manifesto line,
+         not a stat wall), no identical 3-card grid (catalogue
+         is a TABLE, process is a numbered sequence — numbers
+         earn their place), no per-section eyebrows (one mono
+         label only where data lives), no Inter, no indigo.
+         Contrast verified >=4.5:1 in both themes.
+   ============================================================ */
+:root{
+  --z-nav:30; --z-banner:40; --z-menu:45; --z-toast:60; --z-fab:70;
+  --bg:#FFFFFF; --paper:#F4F6F1; --card:#FFFFFF;
+  --ink:#0E0F0C; --muted:#454745; --faint:#5A5C58;
+  --line:#DCE0D3; --line-strong:#C2C8B4;
+  --cta:#9FE870; --cta-hover:#7BC44E; --cta-ink:#163300;
+  --accent-text:#217A18; --accent-soft:#EDF6E2;
+  --ok:#054D28; --err:#D03238;
+  --stage:#0E0F0C; --stage-2:#17190F; --stage-ink:#F0F3E9; --stage-muted:#C6CABD;
+  --disp:'Archivo Black','Arial Black',system-ui,sans-serif;
+  --body:'Source Sans 3',system-ui,'Segoe UI',Roboto,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --r:16px; --r-lg:28px; --r-xl:40px;
+  --shadow:0 0 0 1px rgba(14,15,12,.10);
+  --ease:cubic-bezier(.22,1,.36,1);
+  --nav-h:66px;
+}
+[data-theme="dark"]{
+  --bg:#0E0F0C; --paper:#161811; --card:#1A1D14;
+  --ink:#F0F3E9; --muted:#C6CABD; --faint:#9AA08C;
+  --line:#2B2E21; --line-strong:#3B3F2E;
+  --cta:#9FE870; --cta-hover:#B2F287; --cta-ink:#163300;
+  --accent-text:#B6E87A; --accent-soft:#1C2312;
+  --ok:#5FBF6F; --err:#E0667A;
+  --stage-muted:#9AA08C;
+  --shadow:0 0 0 1px rgba(240,243,233,.08);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:var(--body); font-size:1.0625rem; line-height:1.55;
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+}
+img,svg{display:block}
+a{color:var(--accent-text)}
+h1,h2,h3{margin:0;font-family:var(--disp);font-weight:400;line-height:.96;letter-spacing:-.01em;text-wrap:balance}
+p{margin:0}
+ul{margin:0;padding:0;list-style:none}
+button{font-family:inherit}
+.container{max-width:1180px;margin:0 auto;padding:0 24px}
+.visually-hidden{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);border:0;white-space:nowrap}
+.skip-link{position:absolute;left:-999px;top:8px;z-index:var(--z-toast);background:var(--cta);color:var(--cta-ink);padding:.6rem 1.1rem;border-radius:999px;font-weight:700;text-decoration:none}
+.skip-link:focus{left:8px}
+:focus-visible{outline:3px solid var(--accent-text);outline-offset:2px;border-radius:4px}
+
+/* ---------- nav ---------- */
+.nav{position:sticky;top:0;z-index:var(--z-nav);height:var(--nav-h);display:flex;align-items:center;background:rgba(255,255,255,.97);border-bottom:1px solid var(--line)}
+[data-theme="dark"] .nav{background:rgba(14,15,12,.97);border-bottom-color:var(--line)}
+.nav-inner{display:flex;align-items:center;gap:1.4rem;width:100%}
+.nav-logo{display:inline-flex;align-items:center;gap:.55rem;color:var(--ink);text-decoration:none;font-family:var(--disp);font-size:1.15rem;letter-spacing:.01em}
+.nav-logo .seed-mark{display:inline-flex}
+.nav-links{display:flex;gap:1.3rem;margin:0 0 0 auto}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:.975rem;font-weight:600;transition:color .2s var(--ease)}
+.nav-links a:hover{color:var(--accent-text)}
+.nav-actions{display:flex;align-items:center;gap:.7rem}
+
+.lang-select{position:relative;display:inline-block}
+.lang-select__btn{display:inline-flex;align-items:center;gap:.5rem;height:40px;padding:0 .85rem;border:1px solid var(--line-strong);border-radius:999px;background:transparent;color:var(--ink);font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:border-color .2s var(--ease),background .2s var(--ease)}
+.lang-select__btn:hover,.lang-select__btn[aria-expanded="true"]{border-color:var(--ink);background:var(--paper)}
+.lang-select__chev{transition:transform .2s var(--ease)}
+.lang-select__btn[aria-expanded="true"] .lang-select__chev{transform:rotate(180deg)}
+.lang-select__menu{position:absolute;top:calc(100% + 8px);right:0;z-index:var(--z-menu);min-width:176px;padding:.4rem;background:var(--card);border:1px solid var(--line-strong);border-radius:14px;box-shadow:var(--shadow),0 18px 44px -20px rgba(0,0,0,.25);opacity:0;visibility:hidden;transform:translateY(-5px);transition:opacity .2s var(--ease),transform .2s var(--ease),visibility .2s}
+.lang-select__menu.open{opacity:1;visibility:visible;transform:translateY(0)}
+.lang-select__opt{display:flex;align-items:center;gap:.5rem;width:100%;padding:.55rem .75rem;border:0;background:none;border-radius:10px;font-size:.895rem;color:var(--ink);text-align:left;cursor:pointer;transition:background .15s var(--ease)}
+.lang-select__opt:hover{background:var(--paper)}
+.lang-select__opt[aria-selected="true"]{color:var(--accent-text);font-weight:700}
+.lang-select__opt[aria-selected="true"]::after{content:'\2713';margin-left:auto}
+
+.theme-toggle{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border:1px solid var(--line-strong);border-radius:999px;background:transparent;color:var(--ink);cursor:pointer;transition:border-color .2s var(--ease),background .2s var(--ease)}
+.theme-toggle:hover{border-color:var(--ink);background:var(--paper)}
+.theme-toggle .ico-moon{display:none}
+[data-theme="dark"] .theme-toggle .ico-sun{display:none}
+[data-theme="dark"] .theme-toggle .ico-moon{display:block}
+.menu-toggle{display:none;align-items:center;justify-content:center;width:40px;height:40px;border:1px solid var(--line-strong);border-radius:999px;background:transparent;color:var(--ink);cursor:pointer}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;border:0;border-radius:999px;padding:.85rem 1.6rem;font-size:1rem;font-weight:700;text-decoration:none;cursor:pointer;transition:transform .25s var(--ease),background .25s var(--ease),color .25s var(--ease)}
+.btn:hover{transform:scale(1.04)}
+.btn:active{transform:scale(.96)}
+.btn-primary{background:var(--cta);color:var(--cta-ink)}
+.btn-primary:hover{background:var(--cta-hover)}
+.btn-ghost{background:transparent;color:var(--ink);box-shadow:0 0 0 2px var(--ink) inset}
+.btn-ghost:hover{background:var(--ink);color:var(--bg)}
+.btn-dark{background:var(--stage);color:var(--stage-ink);box-shadow:0 0 0 2px var(--stage-ink) inset}
+.btn-dark:hover{background:var(--stage-ink);color:var(--stage)}
+.nav .btn{padding:.6rem 1.2rem;font-size:.9rem}
+
+/* ---------- mobile menu ---------- */
+.mobile-menu{position:fixed;inset:0;z-index:var(--z-banner);display:flex;flex-direction:column;gap:1.2rem;padding:calc(var(--nav-h) + 20px) 28px 32px;background:var(--bg);transform:translateX(100%);visibility:hidden;transition:transform .45s var(--ease),visibility .45s}
+.mobile-menu.open{transform:translateX(0);visibility:visible}
+.mobile-menu nav{display:flex;flex-direction:column;gap:.4rem}
+.mobile-menu nav a{color:var(--ink);text-decoration:none;font-family:var(--disp);font-size:1.7rem;padding:.5rem 0;border-bottom:1px solid var(--line)}
+.mobile-menu .m-utils{display:flex;align-items:center;gap:.7rem;margin-top:auto}
+.mobile-menu .lang-select{width:100%}
+.mobile-menu .lang-select__btn{width:100%;justify-content:center}
+.mobile-menu .lang-select__menu{right:auto;left:0;top:calc(100% + 8px)}
+.mobile-menu a.btn-primary{color:var(--cta-ink);background:var(--cta);padding:.85rem 1.4rem;margin-top:.6rem}
+body.no-scroll{overflow:hidden}
+
+/* ---------- hero ---------- */
+.hero{position:relative;overflow:hidden;background:var(--bg)}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:3.2rem;align-items:center;padding-top:4.4rem;padding-bottom:4.8rem}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;padding:.4rem .95rem;border:1px solid var(--line-strong);border-radius:999px;font-family:var(--mono);font-size:.72rem;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.hero-badge .dot{width:8px;height:8px;border-radius:50%;background:var(--cta);box-shadow:0 0 0 3px var(--accent-soft)}
+.hero h1{font-size:clamp(1.9rem,4.6vw,3.4rem);line-height:.98;margin:1.3rem 0 1.2rem;max-width:12ch}
+.hero-sub{color:var(--muted);font-size:1.13rem;line-height:1.6;max-width:44ch}
+.hero-cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.7rem}
+.hero-note{margin-top:1.1rem;font-family:var(--mono);font-size:.78rem;letter-spacing:.05em;color:var(--faint)}
+
+/* hero packet card */
+.packet-wrap{position:relative;padding:1.6rem}
+.packet-card{position:relative;border-radius:var(--r-xl);background:var(--paper);border:1px solid var(--line);box-shadow:var(--shadow);padding:1rem 1rem 1.6rem;transform:rotate(-1.5deg);transition:transform .4s var(--ease)}
+.packet-card:hover{transform:rotate(0deg) translateY(-4px)}
+.packet-svg{width:100%;height:auto}
+.packet-card figcaption{display:flex;gap:.6rem;align-items:baseline;justify-content:space-between;padding:.9rem 1.1rem .1rem}
+.packet-card figcaption > span:first-child{min-width:0;flex:1 1 auto;font-family:var(--mono);font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.packet-card figcaption > span:last-child{flex:none;white-space:nowrap;font-family:var(--mono);font-size:.74rem;color:var(--faint)}
+.packet-stamp{position:absolute;left:1.1rem;bottom:.6rem;width:118px;height:118px;transform:rotate(-16deg);opacity:0;animation:stampIn .5s var(--ease) .9s forwards}
+@keyframes stampIn{from{opacity:0;transform:rotate(-16deg) scale(1.6)}to{opacity:1;transform:rotate(-16deg) scale(1)}}
+
+/* falling seeds */
+.seed-fall{opacity:0;animation:seedFall 2.6s var(--ease) infinite}
+.seed-fall:nth-child(2){animation-delay:.5s}
+.seed-fall:nth-child(3){animation-delay:1.1s}
+.seed-fall:nth-child(4){animation-delay:1.7s}
+@keyframes seedFall{0%{opacity:0;transform:translateY(-6px)}18%{opacity:1}70%{opacity:.9}100%{opacity:0;transform:translateY(46px)}}
+
+/* sprout draw on load */
+.sprout-stem{stroke-dasharray:120;stroke-dashoffset:120;animation:dash 1s var(--ease) .2s forwards}
+.sprout-leaf-l{transform-origin:60px 40px;opacity:0;animation:leafIn .5s var(--ease) .8s forwards}
+.sprout-leaf-r{transform-origin:74px 44px;opacity:0;animation:leafIn .5s var(--ease) 1s forwards}
+@keyframes dash{to{stroke-dashoffset:0}}
+@keyframes leafIn{from{opacity:0;transform:scale(.2) rotate(-24deg)}to{opacity:1;transform:scale(1) rotate(0deg)}}
+
+/* ---------- marquee ---------- */
+.marquee{background:var(--stage);color:var(--stage-ink);overflow:hidden;padding:1rem 0;border-block:1px solid var(--line-strong)}
+.marquee-track{display:flex;gap:2.5rem;width:max-content;animation:marquee 34s linear infinite;font-family:var(--mono);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--stage-muted)}
+.marquee-track span{white-space:nowrap}
+.marquee-track b{color:var(--cta);font-weight:400}
+@keyframes marquee{to{transform:translateX(-50%)}}
+
+/* ---------- sections ---------- */
+.section{padding:5.6rem 0}
+.section-head{max-width:46rem}
+.kicker{font-family:var(--mono);font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-text);margin:0 0 1rem;font-weight:700}
+.section-head h2{font-size:clamp(1.75rem,3.6vw,2.9rem);line-height:1.0;margin-bottom:1.1rem}
+.section-head p{color:var(--muted);font-size:1.08rem;max-width:58ch}
+
+/* manifesto */
+.manifesto-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:3.4rem;align-items:start}
+.manifesto h2{font-size:clamp(1.9rem,4.2vw,3.3rem);line-height:1.0;max-width:14ch}
+.manifesto-copy{margin-top:1.6rem;display:grid;gap:1rem;max-width:60ch}
+.manifesto-copy p{color:var(--muted);font-size:1.1rem;line-height:1.65}
+.manifesto-facts{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem;margin-top:2.4rem;padding-top:1.7rem;border-top:2px solid var(--ink)}
+.manifesto-facts b{display:block;font-family:var(--disp);font-size:1.9rem;color:var(--ink);margin-bottom:.35rem}
+.manifesto-facts span{font-size:.9rem;color:var(--muted);line-height:1.4;max-width:7ch}
+.manifesto-side{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-lg);padding:2.1rem 2.2rem;box-shadow:var(--shadow)}
+.manifesto-side h3{font-size:1.65rem;line-height:1.05;margin:.4rem 0 1rem}
+.manifesto-side p{color:var(--muted);font-size:1rem;line-height:1.6}
+.rule-line{font-family:var(--mono);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cta-ink);background:var(--cta);display:inline-block;margin-bottom:1.1rem;padding:.3rem .7rem;border-radius:6px}
+
+/* how — real 4-step process (numbered = real sequence) */
+.how-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;margin-top:2.6rem;counter-reset:step}
+.step{position:relative;background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:1.7rem 1.5rem 1.6rem;box-shadow:var(--shadow);transition:transform .3s var(--ease),border-color .3s var(--ease)}
+.step:hover{transform:translateY(-4px);border-color:var(--accent-text)}
+.step::before{counter-increment:step;content:counter(step,decimal-leading-zero);font-family:var(--mono);font-size:.78rem;letter-spacing:.06em;color:var(--faint);display:block;margin-bottom:1.4rem}
+.step .step-ic{width:44px;height:44px;border-radius:50%;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;margin-bottom:1rem;color:var(--accent-text)}
+.step h3{font-size:1.22rem;line-height:1.05;margin-bottom:.65rem}
+.step p{color:var(--muted);font-size:.94rem;line-height:1.55}
+
+/* catalogue table */
+.cat-shell{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-lg);padding:1.6rem;box-shadow:var(--shadow);margin-top:2.6rem}
+.cat-tabs{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.4rem}
+.cat-tab{border:1px solid var(--line-strong);background:transparent;color:var(--muted);border-radius:999px;padding:.5rem 1.1rem;font-size:.9rem;font-weight:600;cursor:pointer;transition:background .2s var(--ease),color .2s var(--ease),border-color .2s var(--ease)}
+.cat-tab:hover{border-color:var(--ink);color:var(--ink)}
+.cat-tab.active{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+[data-theme="dark"] .cat-tab.active{background:var(--cta);color:var(--cta-ink);border-color:var(--cta)}
+.cat-table{display:grid;gap:.5rem}
+.cat-row{display:grid;grid-template-columns:1.35fr .95fr 1.1fr .8fr auto;gap:.9rem;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:.9rem 1.1rem;transition:opacity .35s var(--ease),border-color .2s var(--ease)}
+.cat-row.hide{display:none}
+.cat-row:hover{border-color:var(--accent-text)}
+.cat-name{font-weight:700;font-size:1.02rem}
+.cat-fam{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--faint)}
+.cat-meta{font-family:var(--mono);font-size:.8rem;color:var(--muted)}
+.cat-code{font-family:var(--mono);font-size:.78rem;color:var(--faint)}
+.cat-borrow{border:0;border-radius:999px;padding:.5rem 1.05rem;font-size:.88rem;font-weight:700;cursor:pointer;background:var(--cta);color:var(--cta-ink);transition:transform .2s var(--ease),background .2s var(--ease)}
+.cat-borrow:hover{transform:scale(1.05)}
+.cat-borrow[aria-pressed="true"]{background:transparent;box-shadow:0 0 0 2px var(--accent-text) inset;color:var(--accent-text)}
+.cat-legend{margin-top:1.1rem;font-family:var(--mono);font-size:.75rem;letter-spacing:.04em;color:var(--faint)}
+
+/* trade (dark stage — fixed tokens) */
+.trade{background:var(--stage);color:var(--stage-ink)}
+.trade-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:3.4rem;align-items:center}
+.trade .kicker{color:var(--cta)}
+.trade h2{font-size:clamp(1.8rem,3.8vw,3rem);line-height:1.0;margin-bottom:1.2rem;color:var(--stage-ink)}
+.trade p{color:var(--stage-muted);font-size:1.06rem;max-width:54ch;line-height:1.62}
+.trade-lists{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:2rem}
+.trade-lists h3{font-family:var(--mono);font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;color:var(--cta);margin-bottom:.9rem}
+.trade-lists li{display:flex;gap:.6rem;align-items:baseline;color:var(--stage-ink);font-size:.98rem;padding:.3rem 0}
+.trade-lists li::before{content:'+';color:var(--cta);font-family:var(--mono);font-weight:700}
+.trade-lists .take li::before{content:'//';color:var(--cta)}
+.trade-meta{margin-top:2rem;display:flex;flex-wrap:wrap;gap:1.4rem;font-family:var(--mono);font-size:.8rem;letter-spacing:.05em;color:var(--stage-muted)}
+.trade-meta b{color:var(--stage-ink);font-weight:400;text-transform:uppercase;letter-spacing:.1em}
+.jar-card{background:var(--stage-2);border:1px solid #2B2E21;border-radius:var(--r-xl);padding:2rem;display:grid;gap:1.4rem;justify-items:center}
+.jar-title{font-family:var(--mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--stage-muted)}
+.gardens{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;width:100%}
+.gardens li{background:#1F2316;border:1px solid #2B2E21;border-radius:12px;padding:.8rem 1rem;font-family:var(--mono);font-size:.8rem;letter-spacing:.03em;color:var(--stage-ink)}
+.gardens li b{color:var(--cta);font-weight:400}
+
+/* faq */
+.faq-grid{max-width:46rem;margin-top:2.4rem}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-q{width:100%;display:flex;align-items:center;gap:1rem;padding:1.3rem 0;background:none;border:0;text-align:left;cursor:pointer;font-size:1.06rem;font-weight:700;color:var(--ink)}
+.faq-q .ic{margin-left:auto;flex:none;width:34px;height:34px;border-radius:50%;border:1px solid var(--line-strong);display:flex;align-items:center;justify-content:center;color:var(--accent-text);transition:transform .3s var(--ease),background .3s var(--ease)}
+.faq-item.open .faq-q .ic{transform:rotate(45deg);background:var(--cta);color:var(--cta-ink);border-color:var(--cta)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .45s var(--ease)}
+.faq-a p{padding:0 0 1.4rem;color:var(--muted);line-height:1.62;max-width:58ch}
+
+/* newsletter (lime band, fixed tokens) */
+.newsletter{background:var(--cta);color:var(--cta-ink);border-radius:var(--r-xl);padding:3rem 3.2rem;position:relative;overflow:hidden}
+.newsletter::after{content:'';position:absolute;right:-60px;top:-60px;width:220px;height:220px;border-radius:50%;border:26px solid rgba(22,51,0,.08)}
+.newsletter-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:2.6rem;align-items:center;position:relative;z-index:1}
+.newsletter h2{font-size:clamp(1.6rem,3vw,2.4rem);margin-bottom:.8rem;color:var(--cta-ink)}
+.newsletter p{color:#234A0B;font-size:1.02rem;max-width:44ch}
+.nl-form{display:flex;gap:.6rem;flex-wrap:wrap}
+.nl-form input{flex:1 1 220px;border:2px solid rgba(22,51,0,.25);background:#F4FBDC;color:var(--cta-ink);border-radius:999px;padding:.85rem 1.3rem;font-size:1rem;font-family:inherit}
+.nl-form input::placeholder{color:#3E6B1E}
+.nl-form input:focus{outline:none;border-color:var(--cta-ink)}
+.nl-form .btn{background:var(--cta-ink);color:var(--cta);flex:none}
+.nl-form .btn:hover{background:#0E1D00;color:var(--cta)}
+.news-msg{margin-top:.8rem;font-weight:700;font-size:.95rem;display:none}
+.news-msg.ok{display:block}
+.news-msg.err{display:block;color:#7A1F14}
+
+/* footer (dark stage — fixed tokens) */
+.footer{background:var(--stage);color:var(--stage-muted)}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2.6rem;padding:4rem 0 2.6rem}
+.footer .brand{display:inline-flex;align-items:center;gap:.55rem;font-family:var(--disp);font-size:1.2rem;color:var(--stage-ink);text-decoration:none;margin-bottom:1rem}
+.footer-tag{max-width:34ch;font-size:.95rem;line-height:1.6}
+.footer h3{font-family:var(--mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cta);margin-bottom:1rem}
+.footer-col ul{display:grid;gap:.55rem}
+.footer-col a{color:var(--stage-muted);text-decoration:none;font-size:.95rem}
+.footer-col a:hover{color:var(--stage-ink)}
+.footer-col li{font-size:.95rem;line-height:1.5}
+.footer-bottom{border-top:1px solid #26291C;padding:1.4rem 0;display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;font-family:var(--mono);font-size:.75rem;letter-spacing:.05em;color:var(--stage-muted)}
+.footer .email{color:var(--stage-muted)}
+.footer .email:hover{color:var(--stage-ink)}
+
+/* cookie banner — compact bottom-right */
+.cookie{position:fixed;right:14px;bottom:14px;z-index:var(--z-toast);max-width:min(340px,calc(100vw - 28px));display:flex;flex-direction:column;gap:.7rem;background:var(--stage);color:var(--stage-ink);border:1px solid #2B2E21;border-radius:16px;padding:1.1rem 1.2rem;box-shadow:0 22px 60px -18px rgba(0,0,0,.5);transform:translateY(calc(100% + 2rem));opacity:0;pointer-events:none;transition:transform .5s var(--ease),opacity .5s var(--ease)}
+.cookie.show{transform:translateY(0);opacity:1;pointer-events:auto}
+.cookie p{margin:0;font-size:.86rem;line-height:1.5;color:var(--stage-muted)}
+.cookie .btn{padding:.55rem 1.2rem;font-size:.88rem;align-self:flex-start}
+
+/* fab */
+.fab{position:fixed;right:18px;bottom:18px;z-index:var(--z-fab);width:48px;height:48px;border-radius:50%;border:1px solid var(--line-strong);background:var(--card);color:var(--ink);display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 14px 38px -14px rgba(0,0,0,.35);opacity:0;visibility:hidden;transform:translateY(14px);transition:opacity .3s var(--ease),transform .3s var(--ease),visibility .3s}
+.fab.show{opacity:1;visibility:visible;transform:translateY(0)}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(20px);transition:opacity .75s var(--ease),transform .75s var(--ease)}
+.rv.in{opacity:1;transform:none}
+html.no-js .rv{opacity:1;transform:none}
+
+/* ---------- responsive ---------- */
+@media (max-width: 980px){
+  .hero-grid{grid-template-columns:1fr;gap:2.2rem;padding-top:3rem}
+  .packet-wrap{max-width:560px;margin:0 auto}
+  .manifesto-grid{grid-template-columns:1fr;gap:2.2rem}
+  .how-grid{grid-template-columns:repeat(2,1fr)}
+  .trade-grid{grid-template-columns:1fr;gap:2.4rem}
+  .nav-links{display:none}
+  .menu-toggle{display:inline-flex}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width: 640px){
+  .section{padding:4rem 0}
+  .nav-logo span{display:none}
+  .how-grid{grid-template-columns:1fr}
+  .manifesto-facts{grid-template-columns:repeat(2,1fr);gap:1.4rem}
+  .cat-row{grid-template-columns:1fr auto;gap:.5rem .9rem}
+  .cat-name{grid-column:1 / -1}
+  .cat-borrow{grid-column:1 / -1}
+  .cat-fam{grid-column:1}
+  .cat-meta{grid-column:2;text-align:right}
+  .cat-code{display:none}
+  .trade-lists{grid-template-columns:1fr}
+  .newsletter{padding:2.4rem 1.6rem}
+  .newsletter-grid{grid-template-columns:1fr;gap:1.6rem}
+  .footer-grid{grid-template-columns:1fr;gap:2rem}
+  .gardens{grid-template-columns:1fr}
+  .hero-cta .btn{width:auto}
+  .cat-shell{padding:1rem}
+}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.001s !important;animation-iteration-count:1 !important;transition-duration:.001s !important}
+  html{scroll-behavior:auto}
+  .rv{opacity:1;transform:none}
+  .seed-fall,.packet-stamp,.sprout-stem,.sprout-leaf-l,.sprout-leaf-r,.marquee-track{animation:none!important;opacity:1}
+  .marquee-track{animation:none;width:auto;flex-wrap:wrap;gap:1rem}
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main" data-i18n="skip.goto">Saltar al contenido</a>
+
+<header class="nav" id="nav">
+  <div class="container nav-inner">
+    <a class="nav-logo" href="#main" aria-label="SIEMBRA — inicio">
+      <svg class="seed-mark" width="26" height="26" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="9" fill="#9FE870"/><path d="M16 10 C19 13 19 19 16 22 C13 19 13 13 16 10 Z" fill="#163300"/></svg>
+      <span>SIEMBRA</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#como" data-i18n="nav.how">Cómo funciona</a></li>
+      <li><a href="#catalogo" data-i18n="nav.cat">Catálogo</a></li>
+      <li><a href="#trueque" data-i18n="nav.trade">Trueque</a></li>
+      <li><a href="#faq" data-i18n="nav.faq">Preguntas</a></li>
+    </ul>
+    <div class="nav-actions">
+      <div class="lang-select">
+        <button class="lang-select__btn" type="button" aria-haspopup="listbox" aria-expanded="false" data-i18n-aria="lang.aria">
+          <span class="lang-select__cur">ES</span>
+          <svg class="lang-select__chev" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="lang-select__menu" role="listbox" aria-label="Idioma">
+          <button class="lang-select__opt" role="option" data-lang="es" aria-selected="false">Español</button>
+          <button class="lang-select__opt" role="option" data-lang="en" aria-selected="false">English</button>
+          <button class="lang-select__opt" role="option" data-lang="fr" aria-selected="false">Français</button>
+          <button class="lang-select__opt" role="option" data-lang="de" aria-selected="false">Deutsch</button>
+          <button class="lang-select__opt" role="option" data-lang="it" aria-selected="false">Italiano</button>
+          <button class="lang-select__opt" role="option" data-lang="pt" aria-selected="false">Português</button>
+        </div>
+      </div>
+      <button class="theme-toggle" type="button" data-i18n-aria="theme.toggle">
+        <svg class="ico-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="ico-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobileMenu" data-i18n-aria="menu.open">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <nav>
+    <a href="#como" data-i18n="nav.how">Cómo funciona</a>
+    <a href="#catalogo" data-i18n="nav.cat">Catálogo</a>
+    <a href="#trueque" data-i18n="nav.trade">Trueque</a>
+    <a href="#faq" data-i18n="nav.faq">Preguntas</a>
+  </nav>
+  <div class="m-utils">
+    <div class="lang-select">
+      <button class="lang-select__btn" type="button" aria-haspopup="listbox" aria-expanded="false" data-i18n-aria="lang.aria">
+        <span class="lang-select__cur">ES</span>
+        <svg class="lang-select__chev" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="lang-select__menu" role="listbox" aria-label="Idioma">
+        <button class="lang-select__opt" role="option" data-lang="es" aria-selected="false">Español</button>
+        <button class="lang-select__opt" role="option" data-lang="en" aria-selected="false">English</button>
+        <button class="lang-select__opt" role="option" data-lang="fr" aria-selected="false">Français</button>
+        <button class="lang-select__opt" role="option" data-lang="de" aria-selected="false">Deutsch</button>
+        <button class="lang-select__opt" role="option" data-lang="it" aria-selected="false">Italiano</button>
+        <button class="lang-select__opt" role="option" data-lang="pt" aria-selected="false">Português</button>
+      </div>
+    </div>
+    <button class="theme-toggle" type="button" data-i18n-aria="theme.toggle">
+      <svg class="ico-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      <svg class="ico-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    </button>
+  </div>
+  <a class="btn btn-primary" href="#catalogo" data-i18n="nav.join">Pedir mi primer sobre</a>
+</div>
+
+<main id="main">
+  <section class="hero" id="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <span class="hero-badge"><span class="dot"></span><span data-i18n="hero.badge">Biblioteca de semillas · Barrio de La Latina · Madrid</span></span>
+        <h1 data-i18n-html="hero.title">Lo que guardas hoy <br>se come mañana.</h1>
+        <p class="hero-sub" data-i18n="hero.sub">SIEMBRA es la biblioteca de semillas de tu barrio. Pide un sobre, siembra en tu balcón o en el huerto comunitario y devuelve semillas al cerrar el ciclo. Sin pagar nada, salvo una cosecha para el vecino de al lado.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#catalogo" data-i18n="hero.cta1">Pedir mi primer sobre</a>
+          <a class="btn btn-ghost" href="#como" data-i18n="hero.cta2">Ver cómo funciona</a>
+        </div>
+        <p class="hero-note" data-i18n="hero.note">Sobres gratis · Trueque cada viernes · 17:00</p>
+      </div>
+      <div class="packet-wrap rv">
+        <figure class="packet-card">
+          <svg class="packet-svg" viewBox="0 0 460 340" role="img" aria-label="Sobre de semillas de la biblioteca SIEMBRA, con semillas de tomate cayendo y un brote">
+            <!-- packet body -->
+            <rect x="40" y="36" width="300" height="232" rx="18" fill="#FCFDF8" stroke="#DCE0D3" stroke-width="2"/>
+            <!-- top flap (open) -->
+            <path d="M40 86 L190 150 L340 86 L340 54 L40 54 Z" fill="#EDF6E2" stroke="#DCE0D3" stroke-width="2" stroke-linejoin="round"/>
+            <!-- seeds spilling from the top -->
+            <g><ellipse class="seed-fall" cx="150" cy="30" rx="7" ry="9" fill="#6B4A22"/><ellipse class="seed-fall" cx="200" cy="22" rx="6" ry="8" fill="#0E0F0C"/><ellipse class="seed-fall" cx="260" cy="34" rx="7" ry="9" fill="#6B4A22"/><ellipse class="seed-fall" cx="230" cy="14" rx="6" ry="8" fill="#0E0F0C"/></g>
+            <!-- label -->
+            <rect x="70" y="108" width="240" height="128" rx="14" fill="#FFFFFF" stroke="#C2C8B4" stroke-width="1.5"/>
+            <text x="190" y="140" text-anchor="middle" font-family="monospace,ui-monospace" font-size="13" letter-spacing="4" fill="#454745">SIEMBRA</text>
+            <text x="190" y="170" text-anchor="middle" font-family="Archivo Black,sans-serif" font-size="20" fill="#0E0F0C">Tomate corazón</text>
+            <text x="190" y="192" text-anchor="middle" font-family="monospace,ui-monospace" font-size="10" letter-spacing="2" fill="#5A5C58">SOLANUM LYCOPERSICUM</text>
+            <rect x="122" y="204" width="136" height="22" rx="11" fill="#9FE870"/><text x="190" y="219" text-anchor="middle" font-family="monospace,ui-monospace" font-size="11" fill="#163300">REF. TOM-014</text>
+            <!-- sprout climbing out of the front (leaf stays RIGHT of label text — never cover variety name) -->
+            <g>
+              <path class="sprout-stem" d="M300 300 C296 264 306 232 300 196 C312 180 324 172 332 166" fill="none" stroke="#3E7C34" stroke-width="5" stroke-linecap="round"/>
+              <ellipse class="sprout-leaf-l" cx="332" cy="164" rx="28" ry="15" fill="#6BBF4A" transform="rotate(-38 332 164)"/>
+              <ellipse class="sprout-leaf-r" cx="300" cy="250" rx="24" ry="13" fill="#8BD565" transform="rotate(22 300 250)"/>
+              <path d="M300 300 l10 12 M300 300 l-12 6" stroke="#8A5A28" stroke-width="4" stroke-linecap="round"/>
+            </g>
+            <!-- voucher / no compra stamp -->
+            <rect class="packet-stamp" x="0" y="0" width="118" height="118" rx="12" fill="none" stroke="#D03238" stroke-width="3"/>
+            <g class="packet-stamp"><text x="59" y="52" text-anchor="middle" font-family="monospace,ui-monospace" font-size="13" letter-spacing="1" fill="#D03238">NO SE</text><text x="59" y="70" text-anchor="middle" font-family="monospace,ui-monospace" font-size="13" letter-spacing="1" fill="#D03238">COMPRA</text><text x="59" y="92" text-anchor="middle" font-family="monospace,ui-monospace" font-size="10" fill="#D03238">SE PRESTA</text></g>
+          </svg>
+          <figcaption>
+            <span data-i18n="packet.lane">Sobres de semillas · Tomate corazón</span>
+            <span data-i18n="packet.meta">Ed. 12 · Gratis</span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track"><span>TOMATES · RUCA · ACELGAS · ALBAHACA · JUDÍAS · LECHUGAS · CALABACINES · PERIFOLLO · <b>NO SE COMPRA · SE PRESTA</b> · </span><span>TOMATES · RUCA · ACELGAS · ALBAHACA · JUDÍAS · LECHUGAS · CALABACINES · PERIFOLLO · <b>NO SE COMPRA · SE PRESTA</b> · </span><span>TOMATES · RUCA · ACELGAS · ALBAHACA · JUDÍAS · LECHUGAS · CALABACINES · PERIFOLLO · <b>NO SE COMPRA · SE PRESTA</b> · </span></div>
+  </div>
+
+  <section class="section" id="como">
+    <div class="container">
+      <div class="section-head rv">
+        <p class="kicker" data-i18n="how.kicker">El ciclo · en cuatro pasos</p>
+        <h2 data-i18n-html="how.title">Pides un sobre. <br>Devuelves un ciclo.</h2>
+        <p data-i18n="how.lead">El préstamo no es de polen ni de plantas: es de semillas. Por eso el paso de vuelta importa tanto como el de ida.</p>
+      </div>
+      <div class="how-grid">
+        <article class="step rv">
+          <span class="step-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
+          <h3 data-i18n="how.s1.title">Pide un sobre</h3>
+          <p data-i18n="how.s1.desc">Cada cataloguista te presta entre una y tres variedades de la temporada. Un carné de socia, un sobre, cero dinero.</p>
+        </article>
+        <article class="step rv rv-d1">
+          <span class="step-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v11"/><path d="M12 14c-3 0-4-2-4-3"/><path d="M16 11c0 2-2 3-4 3"/><path d="M2 20h20"/></svg></span>
+          <h3 data-i18n="how.s2.title">Siembra y cuida</h3>
+          <p data-i18n="how.s2.desc">En maceta, en tu hueco del huerto comunitario o en un tiesto de la ventana. Apunta la fecha y riega sin ahogar.</p>
+        </article>
+        <article class="step rv rv-d2">
+          <span class="step-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h10"/></svg></span>
+          <h3 data-i18n="how.s3.title">Cosecha y guarda</h3>
+          <p data-i18n="how.s3.desc">Deja madurar la planta hasta la semilla, seca el fruto y guarda la cosecha en un sobre limpio, con nombre y fecha.</p>
+        </article>
+        <article class="step rv rv-d3">
+          <span class="step-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 18 0"/><path d="M3 12h4l2-3 3 5 2-2h7"/></svg></span>
+          <h3 data-i18n="how.s4.title">Devuelve el doble</h3>
+          <p data-i18n="how.s4.desc">Lleva la mitad de tus semillas de vuelta a la biblioteca. Así el préstamo del vecino que viene detrás nunca se agota.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="catalogo">
+    <div class="container">
+      <div class="section-head rv">
+        <p class="kicker" data-i18n="cat.kicker">Catálogo · temporada de otoño</p>
+        <h2 data-i18n-html="cat.title">Lo que ahora <br>se presta.</h2>
+        <p data-i18n="cat.lead">Elige variedad, filtra por familia y pulsa «Pedir» para apartar tu sobre. Todo es con devolución: la regla de la biblioteca.</p>
+      </div>
+      <div class="cat-shell rv">
+        <div class="cat-tabs" role="tablist" aria-label="Filtro por familia">
+          <button class="cat-tab active" type="button" data-filter="all" data-i18n="cat.f_all">Todas</button>
+          <button class="cat-tab" type="button" data-filter="HORT" data-i18n="cat.f_hort">Hortaliza</button>
+          <button class="cat-tab" type="button" data-filter="LEG" data-i18n="cat.f_leg">Legumbre</button>
+          <button class="cat-tab" type="button" data-filter="ARO" data-i18n="cat.f_aro">Aromática</button>
+        </div>
+        <div class="cat-table">
+          <div class="cat-row" data-group="HORT">
+            <span class="cat-name">Tomate corazón</span>
+            <span class="cat-fam">Hortaliza</span>
+            <span class="cat-meta">sembrar · primavera</span>
+            <span class="cat-code">TOM-014</span>
+            <button class="cat-borrow" type="button" aria-pressed="false" data-i18n="cat.borrow">Pedir</button>
+          </div>
+          <div class="cat-row" data-group="LEG">
+            <span class="cat-name">Judía «Gold Marie»</span>
+            <span class="cat-fam">Legumbre</span>
+            <span class="cat-meta">sembrar · mayo</span>
+            <span class="cat-code">JUD-021</span>
+            <button class="cat-borrow" type="button" aria-pressed="false" data-i18n="cat.borrow">Pedir</button>
+          </div>
+          <div class="cat-row" data-group="HORT">
+            <span class="cat-name">Acelga arcoíris</span>
+            <span class="cat-fam">Hortaliza</span>
+            <span class="cat-meta">sembrar · otoño</span>
+            <span class="cat-code">ACE-008</span>
+            <button class="cat-borrow" type="button" aria-pressed="false" data-i18n="cat.borrow">Pedir</button>
+          </div>
+          <div class="cat-row" data-group="ARO">
+            <span class="cat-name">Albahaca genovesa</span>
+            <span class="cat-fam">Aromática</span>
+            <span class="cat-meta">sembrar · todo el año</span>
+            <span class="cat-code">ALB-005</span>
+            <button class="cat-borrow" type="button" aria-pressed="false" data-i18n="cat.borrow">Pedir</button>
+          </div>
+          <div class="cat-row" data-group="LEG">
+            <span class="cat-name">Guisante «reina»</span>
+            <span class="cat-fam">Legumbre</span>
+            <span class="cat-meta">sembrar · enero</span>
+            <span class="cat-code">GUI-011</span>
+            <button class="cat-borrow" type="button" aria-pressed="false" data-i18n="cat.borrow">Pedir</button>
+          </div>
+          <div class="cat-row" data-group="HORT">
+            <span class="cat-name">Calabacín verde</span>
+            <span class="cat-fam">Hortaliza</span>
+            <span class="cat-meta">sembrar · abril</span>
+            <span class="cat-code">CAL-017</span>
+            <button class="cat-borrow" type="button" aria-pressed="false" data-i18n="cat.borrow">Pedir</button>
+          </div>
+        </div>
+        <p class="cat-legend" data-i18n="cat.legend">Los sobres apartados se recogen en el trueque del viernes · 17:00 · Centro Cívico 14</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section trade" id="trueque">
+    <div class="container trade-grid">
+      <div class="rv">
+        <p class="kicker" data-i18n="trade.kicker">El trueque · viernes 17:00</p>
+        <h2 data-i18n-html="trade.title">Trae lo que sobra. <br>Lleva lo que falta.</h2>
+        <p data-i18n="trade.p">Cada viernes abrimos la mesa en el patio del Centro Cívico 14. Traes semillas, esquejes, bulbos o libros de huerto y te llevas lo que otro vecino dejó. No hay moneda: hay buena fe y etiquetas que se leen.</p>
+        <div class="trade-lists">
+          <div>
+            <h3 data-i18n="trade.bring">Suelen traer</h3>
+            <ul>
+              <li data-i18n="trade.i1">Semillas secas en sobres firmados</li>
+              <li data-i18n="trade.i2">Esquejes de aromáticas en agua</li>
+              <li data-i18n="trade.i3">Bulbos y patatas de siembra</li>
+              <li data-i18n="trade.i4">Revistas viejas de jardinería</li>
+            </ul>
+          </div>
+          <div class="take">
+            <h3 data-i18n="trade.take">Suelen faltar</h3>
+            <ul>
+              <li data-i18n="trade.t1">Tomates que den en balcón</li>
+              <li data-i18n="trade.t2">Judías de mata baja</li>
+              <li data-i18n="trade.t3">Albahaca resistente a oídio</li>
+              <li data-i18n="trade.t4">Voluntarios para regar en agosto</li>
+            </ul>
+          </div>
+        </div>
+        <div class="trade-meta">
+          <span><b data-i18n="trade.when">Todos los viernes</b> · 17:00–19:00</span>
+          <span><b data-i18n="trade.where">Patio</b> · Centro Cívico 14</span>
+          <span><b data-i18n="trade.entry">Entrada</b> · gratuita y sin carné</span>
+        </div>
+      </div>
+      <aside class="jar-card rv rv-d1">
+        <p class="jar-title" data-i18n="trade.jarTitle">Huertos donde florecen los préstamos</p>
+        <ul class="gardens">
+          <li><b>Latina</b> · huerto comunitario del paseo</li>
+          <li><b>Lavapiés</b> · azotea del mercado</li>
+          <li><b>Embajadores</b> · patio del cole</li>
+          <li><b>Acacias</b> · balcones de la calle 30</li>
+        </ul>
+        <p style="font-family:var(--mono);font-size:.8rem;letter-spacing:.04em;color:var(--stage-muted);text-align:left;align-self:stretch" data-i18n="trade.jarNote">Cada punto es una socia con llave del armario de sobres. Sin ella, no hay biblioteca.</p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="section-head rv">
+        <p class="kicker" data-i18n="faq.kicker">Preguntas frecuentes</p>
+        <h2 data-i18n-html="faq.title">Lo que la gente <br>suele preguntar.</h2>
+      </div>
+      <div class="faq-grid">
+        <div class="faq-item rv">
+          <button class="faq-q" type="button" aria-expanded="false"><span data-i18n="faq.q1">¿Son gratis de verdad o hay letra pequeña?</span><span class="ic">+</span></button>
+          <div class="faq-a"><p data-i18n="faq.a1">Gratis, de verdad. El único «precio» es devolver la mitad de tu cosecha de semillas al final del ciclo. Si algo no germina, no pasa nada: se anota y se intenta con otra variedad la próxima temporada.</p></div>
+        </div>
+        <div class="faq-item rv">
+          <button class="faq-q" type="button" aria-expanded="false"><span data-i18n="faq.q2">¿Y si no tengo balcón ni terraza?</span><span class="ic">+</span></button>
+          <div class="faq-a"><p data-i18n="faq.a2">Puedes pedir una maceta de alquiler en el huerto comunitario de La Latina o sembrar variedades de ventana (albahaca, perifollo, lechuga baby) que crecen en un tiesto del alféizar.</p></div>
+        </div>
+        <div class="faq-item rv">
+          <button class="faq-q" type="button" aria-expanded="false"><span data-i18n="faq.q3">¿Qué hago si no sé cultivar nada?</span><span class="ic">+</span></button>
+          <div class="faq-a"><p data-i18n="faq.a3">Justo para eso sirve la biblioteca. Cada sobre lleva una tarjeta de siembra con fechas, riego y cuándo esperar la cosecha. Y los viernes hay una socia de guardia que resuelve dudas sobre la marcha.</p></div>
+        </div>
+        <div class="faq-item rv">
+          <button class="faq-q" type="button" aria-expanded="false"><span data-i18n="faq.q4">¿Las semillas están registradas o son las de siempre?</span><span class="ic">+</span></button>
+          <div class="faq-a"><p data-i18n="faq.a4">Trabajamos casi siempre con variedades locales y de polinización abierta, no híbridas: esas sí se pueden guardar y volver a sembrar generación tras generación. Es el corazón de la biblioteca.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="apuntarse">
+    <div class="container">
+      <div class="newsletter rv">
+        <div class="newsletter-grid">
+          <div>
+            <h2 data-i18n="news.title">Un correo cada lunes con la cosecha del barrio.</h2>
+            <p data-i18n="news.p">El boletín de SIEMBRA avisa cuando abre el catálogo, qué variedades se agotaron y qué se está sembrando en cada huerto. Sin spam: un correo, cada lunes.</p>
+          </div>
+          <form class="nl-form" id="newsForm" novalidate>
+            <label class="visually-hidden" for="newsEmail" data-i18n="news.emailLabel">Tu correo</label>
+            <input type="email" id="newsEmail" name="email" autocomplete="email" placeholder="tu@correo.es" data-i18n-ph="news.placeholder">
+            <button class="btn" type="submit" data-i18n="news.btn">Apuntarme</button>
+          </form>
+          <p class="news-msg" id="newsMsg" role="status"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="#main" aria-label="SIEMBRA — inicio">
+          <svg width="24" height="24" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="9" fill="#9FE870"/><path d="M16 10 C19 13 19 19 16 22 C13 19 13 13 16 10 Z" fill="#163300"/></svg>
+          SIEMBRA
+        </a>
+        <p class="footer-tag" data-i18n="footer.tag">Biblioteca comunitaria de semillas del barrio de La Latina. Lo que prestamos hoy, vuelve mañana como cosecha.</p>
+      </div>
+      <div class="footer-col">
+        <h3 data-i18n="footer.col1">Visítanos</h3>
+        <ul>
+          <li data-i18n="footer.addr">Centro Cívico 14</li>
+          <li data-i18n="footer.addr2">Patio de entrada · La Latina</li>
+          <li><a class="email" href="mailto:hola@cristiancode.dev" data-i18n="footer.mail">hola@cristiancode.dev</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3 data-i18n="footer.col2">Enlaces</h3>
+        <ul>
+          <li><a href="#como" data-i18n="footer.l1">Cómo funciona el ciclo</a></li>
+          <li><a href="#catalogo" data-i18n="footer.l2">Catálogo de semillas</a></li>
+          <li><a href="#trueque" data-i18n="footer.l3">Trueque del viernes</a></li>
+          <li><a href="#faq" data-i18n="footer.l4">Preguntas frecuentes</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span data-i18n="footer.cr">© 2026 SIEMBRA · vecinas que se prestan</span>
+      <span data-i18n="footer.made">Hecho a mano, sin compra · La Latina, Madrid</span>
+    </div>
+  </div>
+</footer>
+
+<!-- cookie banner -->
+<div class="cookie" id="cookieBanner" role="dialog" aria-live="polite" aria-label="Aviso de cookies">
+  <p data-i18n="cookie.msg">Usamos una cookie para recordar tu idioma y tu tema. No rastreamos visitas ni vendemos datos.</p>
+  <button class="btn btn-primary" id="cookieOk" type="button" data-i18n="cookie.ok">Entendido</button>
+</div>
+
+<button class="fab" id="fab" type="button" aria-label="Volver arriba">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V6"/><path d="M5 12l7-7 7 7"/></svg>
+</button>
+
+<script>
+(function () {
+  'use strict';
+  var $ = function (s) { return document.querySelector(s); };
+  var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
+  var LANGS = ['es', 'en', 'fr', 'de', 'it', 'pt'];
+  var COOKIE_KEY = 'siembra-cookie';
+  var LANG_KEY = 'siembra-lang';
+
+  var I18N = {
+    es: {
+      "meta.title": "SIEMBRA · Biblioteca comunitaria de semillas · Madrid",
+      "meta.desc": "Biblioteca de semillas del barrio: pide un sobre, siembra, cosecha y devuelve semillas al final del ciclo. Trueque de semillas los viernes en el Centro Cívico 14.",
+      "skip.goto": "Saltar al contenido",
+      "nav.how": "Cómo funciona",
+      "nav.cat": "Catálogo",
+      "nav.trade": "Trueque",
+      "nav.faq": "Preguntas",
+      "nav.join": "Pedir mi primer sobre",
+      "lang.aria": "Seleccionar idioma",
+      "theme.toggle": "Cambiar tema claro u oscuro",
+      "menu.open": "Abrir menú",
+      "menu.close": "Cerrar menú",
+      "hero.badge": "Biblioteca de semillas · Barrio de La Latina · Madrid",
+      "hero.title": "Lo que guardas hoy <br>se come mañana.",
+      "hero.sub": "SIEMBRA es la biblioteca de semillas de tu barrio. Pide un sobre, siembra en tu balcón o en el huerto comunitario y devuelve semillas al cerrar el ciclo. Sin pagar nada, salvo una cosecha para el vecino de al lado.",
+      "hero.cta1": "Pedir mi primer sobre",
+      "hero.cta2": "Ver cómo funciona",
+      "hero.note": "Sobres gratis · Trueque cada viernes · 17:00",
+      "packet.lane": "Sobres de semillas · Tomate corazón",
+      "packet.meta": "Ed. 12 · Gratis",
+      "how.kicker": "El ciclo · en cuatro pasos",
+      "how.title": "Pides un sobre. <br>Devuelves un ciclo.",
+      "how.lead": "El préstamo no es de polen ni de plantas: es de semillas. Por eso el paso de vuelta importa tanto como el de ida.",
+      "how.s1.title": "Pide un sobre",
+      "how.s1.desc": "Cada cataloguista te presta entre una y tres variedades de la temporada. Un carné de socia, un sobre, cero dinero.",
+      "how.s2.title": "Siembra y cuida",
+      "how.s2.desc": "En maceta, en tu hueco del huerto comunitario o en un tiesto de la ventana. Apunta la fecha y riega sin ahogar.",
+      "how.s3.title": "Cosecha y guarda",
+      "how.s3.desc": "Deja madurar la planta hasta la semilla, seca el fruto y guarda la cosecha en un sobre limpio, con nombre y fecha.",
+      "how.s4.title": "Devuelve el doble",
+      "how.s4.desc": "Lleva la mitad de tus semillas de vuelta a la biblioteca. Así el préstamo del vecino que viene detrás nunca se agota.",
+      "cat.kicker": "Catálogo · temporada de otoño",
+      "cat.title": "Lo que ahora <br>se presta.",
+      "cat.lead": "Elige variedad, filtra por familia y pulsa «Pedir» para apartar tu sobre. Todo es con devolución: la regla de la biblioteca.",
+      "cat.f_all": "Todas",
+      "cat.f_hort": "Hortaliza",
+      "cat.f_leg": "Legumbre",
+      "cat.f_aro": "Aromática",
+      "cat.borrow": "Pedir",
+      "cat.legend": "Los sobres apartados se recogen en el trueque del viernes · 17:00 · Centro Cívico 14",
+      "trade.kicker": "El trueque · viernes 17:00",
+      "trade.title": "Trae lo que sobra. <br>Lleva lo que falta.",
+      "trade.p": "Cada viernes abrimos la mesa en el patio del Centro Cívico 14. Traes semillas, esquejes, bulbos o libros de huerto y te llevas lo que otro vecino dejó. No hay moneda: hay buena fe y etiquetas que se leen.",
+      "trade.bring": "Suelen traer",
+      "trade.i1": "Semillas secas en sobres firmados",
+      "trade.i2": "Esquejes de aromáticas en agua",
+      "trade.i3": "Bulbos y patatas de siembra",
+      "trade.i4": "Revistas viejas de jardinería",
+      "trade.take": "Suelen faltar",
+      "trade.t1": "Tomates que den en balcón",
+      "trade.t2": "Judías de mata baja",
+      "trade.t3": "Albahaca resistente a oídio",
+      "trade.t4": "Voluntarios para regar en agosto",
+      "trade.when": "Todos los viernes",
+      "trade.where": "Patio",
+      "trade.entry": "Entrada",
+      "trade.jarTitle": "Huertos donde florecen los préstamos",
+      "trade.jarNote": "Cada punto es una socia con llave del armario de sobres. Sin ella, no hay biblioteca.",
+      "faq.kicker": "Preguntas frecuentes",
+      "faq.title": "Lo que la gente <br>suele preguntar.",
+      "faq.q1": "¿Son gratis de verdad o hay letra pequeña?",
+      "faq.a1": "Gratis, de verdad. El único «precio» es devolver la mitad de tu cosecha de semillas al final del ciclo. Si algo no germina, no pasa nada: se anota y se intenta con otra variedad la próxima temporada.",
+      "faq.q2": "¿Y si no tengo balcón ni terraza?",
+      "faq.a2": "Puedes pedir una maceta de alquiler en el huerto comunitario de La Latina o sembrar variedades de ventana (albahaca, perifollo, lechuga baby) que crecen en un tiesto del alféizar.",
+      "faq.q3": "¿Qué hago si no sé cultivar nada?",
+      "faq.a3": "Justo para eso sirve la biblioteca. Cada sobre lleva una tarjeta de siembra con fechas, riego y cuándo esperar la cosecha. Y los viernes hay una socia de guardia que resuelve dudas sobre la marcha.",
+      "faq.q4": "¿Las semillas están registradas o son las de siempre?",
+      "faq.a4": "Trabajamos casi siempre con variedades locales y de polinización abierta, no híbridas: esas sí se pueden guardar y volver a sembrar generación tras generación. Es el corazón de la biblioteca.",
+      "news.title": "Un correo cada lunes con la cosecha del barrio.",
+      "news.p": "El boletín de SIEMBRA avisa cuando abre el catálogo, qué variedades se agotaron y qué se está sembrando en cada huerto. Sin spam: un correo, cada lunes.",
+      "news.emailLabel": "Tu correo",
+      "news.placeholder": "tu@correo.es",
+      "news.btn": "Apuntarme",
+      "news.ok": "¡Listo! Te llegará el primer correo el lunes.",
+      "news.err": "Escribe un correo válido, por favor.",
+      "news.mail_subject": "Alta en el boletín de SIEMBRA",
+      "news.mail_body": "Hola, quiero apuntarme a la lista de correo de SIEMBRA. Mi correo es {email}.",
+      "footer.tag": "Biblioteca comunitaria de semillas del barrio de La Latina. Lo que prestamos hoy, vuelve mañana como cosecha.",
+      "footer.col1": "Visítanos",
+      "footer.addr": "Centro Cívico 14",
+      "footer.addr2": "Patio de entrada · La Latina",
+      "footer.mail": "hola@cristiancode.dev",
+      "footer.col2": "Enlaces",
+      "footer.l1": "Cómo funciona el ciclo",
+      "footer.l2": "Catálogo de semillas",
+      "footer.l3": "Trueque del viernes",
+      "footer.l4": "Preguntas frecuentes",
+      "footer.cr": "© 2026 SIEMBRA · vecinas que se prestan",
+      "footer.made": "Hecho a mano, sin compra · La Latina, Madrid",
+      "cookie.msg": "Usamos una cookie para recordar tu idioma y tu tema. No rastreamos visitas ni vendemos datos.",
+      "cookie.ok": "Entendido"
+    },
+    en: {
+      "meta.title": "SIEMBRA · Community seed library · Madrid",
+      "meta.desc": "Neighbourhood seed library: take an envelope, plant, harvest and return seeds at the end of the cycle. Seed swap every Friday at Centro Cívico 14.",
+      "skip.goto": "Skip to content",
+      "nav.how": "How it works",
+      "nav.cat": "Catalogue",
+      "nav.trade": "Swap",
+      "nav.faq": "FAQ",
+      "nav.join": "Get my first envelope",
+      "lang.aria": "Select language",
+      "theme.toggle": "Toggle light or dark theme",
+      "menu.open": "Open menu",
+      "menu.close": "Close menu",
+      "hero.badge": "Seed library · La Latina neighbourhood · Madrid",
+      "hero.title": "What you save today <br>gets eaten tomorrow.",
+      "hero.sub": "SIEMBRA is your neighbourhood's seed library. Take an envelope, sow it on your balcony or in the community garden, and return seeds at the end of the cycle. You pay nothing, except a harvest for the neighbour next door.",
+      "hero.cta1": "Get my first envelope",
+      "hero.cta2": "See how it works",
+      "hero.note": "Free envelopes · Swap every Friday · 5 PM",
+      "packet.lane": "Seed envelopes · Heart tomato",
+      "packet.meta": "Ed. 12 · Free",
+      "how.kicker": "The cycle · in four steps",
+      "how.title": "You take an envelope. <br>You give back a cycle.",
+      "how.lead": "The loan isn't pollen or plants: it's seeds. That's why the return step matters as much as the one out.",
+      "how.s1.title": "Take an envelope",
+      "how.s1.desc": "Each catalogue loan gives you one to three seasonal varieties. A member card, an envelope, zero money.",
+      "how.s2.title": "Sow and tend",
+      "how.s2.desc": "In a pot, in your plot at the community garden, or in a windowsill pot. Note the date and water without drowning it.",
+      "how.s3.title": "Harvest and store",
+      "how.s3.desc": "Let the plant ripen to seed, dry the fruit and keep your harvest in a clean envelope, with name and date.",
+      "how.s4.title": "Give back double",
+      "how.s4.desc": "Bring half your seeds back to the library. That way the next neighbour's loan never runs out.",
+      "cat.kicker": "Catalogue · autumn season",
+      "cat.title": "What's on loan <br>right now.",
+      "cat.lead": "Pick a variety, filter by family and tap “Request” to set aside your envelope. Everything is on loan: that's the library's rule.",
+      "cat.f_all": "All",
+      "cat.f_hort": "Vegetable",
+      "cat.f_leg": "Legume",
+      "cat.f_aro": "Herb",
+      "cat.borrow": "Request",
+      "cat.legend": "Set-aside envelopes are collected at Friday's swap · 5 PM · Centro Cívico 14",
+      "trade.kicker": "The swap · Friday 5 PM",
+      "trade.title": "Bring what's left. <br>Take what's missing.",
+      "trade.p": "Every Friday we open the table in the courtyard of Centro Cívico 14. You bring seeds, cuttings, bulbs or gardening books and take what another neighbour left. There's no currency: just good faith and readable labels.",
+      "trade.bring": "People usually bring",
+      "trade.i1": "Dry seeds in signed envelopes",
+      "trade.i2": "Herb cuttings in water",
+      "trade.i3": "Bulbs and seed potatoes",
+      "trade.i4": "Old gardening magazines",
+      "trade.take": "People usually miss",
+      "trade.t1": "Tomatoes that fruit on a balcony",
+      "trade.t2": "Bush beans",
+      "trade.t3": "Basil resistant to mildew",
+      "trade.t4": "Volunteers to water in August",
+      "trade.when": "Every Friday",
+      "trade.where": "Courtyard",
+      "trade.entry": "Entry",
+      "trade.jarTitle": "Gardens where loans bloom",
+      "trade.jarNote": "Each point is a member with the key to the envelope cupboard. Without them, there is no library.",
+      "faq.kicker": "Frequently asked questions",
+      "faq.title": "What people often <br>ask us.",
+      "faq.q1": "Is it really free, or is there small print?",
+      "faq.a1": "Really free. The only “price” is returning half your seed harvest at the end of the cycle. If something fails to germinate, no problem: we note it and try another variety next season.",
+      "faq.q2": "What if I don't have a balcony or terrace?",
+      "faq.a2": "You can rent a pot at the La Latina community garden or sow windowsill varieties (basil, chervil, baby lettuce) that grow in a sill pot.",
+      "faq.q3": "What if I don't know how to grow anything?",
+      "faq.a3": "That's exactly what the library is for. Every envelope has a sowing card with dates, watering and when to expect a harvest. And on Fridays there's a volunteer on duty who answers questions on the spot.",
+      "faq.q4": "Are the seeds registered, or the usual ones?",
+      "faq.a4": "We mostly work with local, open-pollinated varieties rather than hybrids: those can be saved and re-sown generation after generation. That's the heart of the library.",
+      "news.title": "An email every Monday with the neighbourhood's harvest.",
+      "news.p": "The SIEMBRA bulletin warns when the catalogue opens, which varieties sold out and what's being sown in each garden. No spam: one email, every Monday.",
+      "news.emailLabel": "Your email",
+      "news.placeholder": "you@email.com",
+      "news.btn": "Sign me up",
+      "news.ok": "Done! Your first email will arrive on Monday.",
+      "news.err": "Please enter a valid email.",
+      "news.mail_subject": "Signing up for the SIEMBRA newsletter",
+      "news.mail_body": "Hello, I'd like to join the SIEMBRA mailing list. My email is {email}.",
+      "footer.tag": "Community seed library of the La Latina neighbourhood. What we lend today comes back tomorrow as a harvest.",
+      "footer.col1": "Visit us",
+      "footer.addr": "Centro Cívico 14",
+      "footer.addr2": "Entrance courtyard · La Latina",
+      "footer.mail": "hola@cristiancode.dev",
+      "footer.col2": "Links",
+      "footer.l1": "How the cycle works",
+      "footer.l2": "Seed catalogue",
+      "footer.l3": "Friday swap",
+      "footer.l4": "Frequently asked questions",
+      "footer.cr": "© 2026 SIEMBRA · neighbours who lend",
+      "footer.made": "Handmade, not bought · La Latina, Madrid",
+      "cookie.msg": "We use one cookie to remember your language and theme. We don't track visits or sell data.",
+      "cookie.ok": "Got it"
+    },
+    fr: {
+      "meta.title": "SIEMBRA · Grainothèque de quartier · Madrid",
+      "meta.desc": "Grainothèque de quartier : prenez une enveloppe, semez, récoltez et rapportez des graines à la fin du cycle. Troc de graines chaque vendredi au Centre Civique 14.",
+      "skip.goto": "Aller au contenu",
+      "nav.how": "Comment ça marche",
+      "nav.cat": "Catalogue",
+      "nav.trade": "Troc",
+      "nav.faq": "Questions",
+      "nav.join": "Recevoir ma première enveloppe",
+      "lang.aria": "Choisir la langue",
+      "theme.toggle": "Basculer thème clair ou sombre",
+      "menu.open": "Ouvrir le menu",
+      "menu.close": "Fermer le menu",
+      "hero.badge": "Grainothèque · Quartier de La Latina · Madrid",
+      "hero.title": "Ce que tu gardes aujourd'hui <br>se mange demain.",
+      "hero.sub": "SIEMBRA est la grainothèque de ton quartier. Prends une enveloppe, sème sur ton balcon ou au jardin communautaire et rapporte des graines à la fin du cycle. Rien à payer, sauf une récolte pour le voisin d'à côté.",
+      "hero.cta1": "Recevoir ma première enveloppe",
+      "hero.cta2": "Voir comment ça marche",
+      "hero.note": "Enveloppes gratuites · Troc chaque vendredi · 17 h",
+      "packet.lane": "Enveloppes de graines · Tomate cœur",
+      "packet.meta": "Éd. 12 · Gratuit",
+      "how.kicker": "Le cycle · en quatre étapes",
+      "how.title": "Tu prends une enveloppe. <br>Tu rends un cycle.",
+      "how.lead": "Le prêt ne porte ni sur le pollen ni sur les plants : il porte sur les graines. Voilà pourquoi l'étape du retour compte autant que l'aller.",
+      "how.s1.title": "Prends une enveloppe",
+      "how.s1.desc": "Chaque prêt du catalogue donne une à trois variétés de saison. Une carte de membre, une enveloppe, zéro argent.",
+      "how.s2.title": "Sème et prends soin",
+      "how.s2.desc": "Dans un pot, dans ta parcelle du jardin communautaire ou sur le rebord de la fenêtre. Note la date et arrose sans noyer.",
+      "how.s3.title": "Récolte et conserve",
+      "how.s3.desc": "Laisse la plante mûrir jusqu'à la graine, sèche le fruit et garde ta récolte dans une enveloppe propre, avec nom et date.",
+      "how.s4.title": "Rends le double",
+      "how.s4.desc": "Rapporte la moitié de tes graines à la grainothèque. Ainsi, le prêt du voisin suivant ne s'épuise jamais.",
+      "cat.kicker": "Catalogue · saison d'automne",
+      "cat.title": "Ce qui se prête <br>en ce moment.",
+      "cat.lead": "Choisis une variété, filtre par famille et appuie sur « Demander » pour mettre ton enveloppe de côté. Tout est un prêt : c'est la règle de la grainothèque.",
+      "cat.f_all": "Toutes",
+      "cat.f_hort": "Légume",
+      "cat.f_leg": "Légumineuse",
+      "cat.f_aro": "Aromatique",
+      "cat.borrow": "Demander",
+      "cat.legend": "Les enveloppes mises de côté se récupèrent au troc du vendredi · 17 h · Centre Civique 14",
+      "trade.kicker": "Le troc · vendredi 17 h",
+      "trade.title": "Apporte ce qui reste. <br>Emporte ce qui manque.",
+      "trade.p": "Chaque vendredi, on installe la table dans la cour du Centre Civique 14. Tu apportes graines, boutures, bulbes ou livres de jardin et tu repars avec ce qu'un voisin a laissé. Pas de monnaie : juste la confiance et des étiquettes lisibles.",
+      "trade.bring": "On amène souvent",
+      "trade.i1": "Graines sèches en enveloppes signées",
+      "trade.i2": "Boutures d'aromates dans l'eau",
+      "trade.i3": "Bulbes et pommes de terre de semence",
+      "trade.i4": "Vieilles revues de jardinage",
+      "trade.take": "Il manque souvent",
+      "trade.t1": "Tomates qui poussent sur un balcon",
+      "trade.t2": "Haricots nains",
+      "trade.t3": "Basilic résistant à l'oïdium",
+      "trade.t4": "Volontaires pour arroser en août",
+      "trade.when": "Chaque vendredi",
+      "trade.where": "La cour",
+      "trade.entry": "Entrée",
+      "trade.jarTitle": "Les jardins où les prêts fleurissent",
+      "trade.jarNote": "Chaque lieu est une adhérente qui garde la clé de l'armoire aux enveloppes. Sans elle, pas de grainothèque.",
+      "faq.kicker": "Questions fréquentes",
+      "faq.title": "Ce qu'on nous <br>demande souvent.",
+      "faq.q1": "C'est vraiment gratuit, ou il y a des petites lignes ?",
+      "faq.a1": "Vraiment gratuit. L'unique « prix » est de rendre la moitié de ta récolte de graines à la fin du cycle. Si ça ne germe pas, pas de souci : on le note et on essaie une autre variété la saison suivante.",
+      "faq.q2": "Et si je n'ai ni balcon ni terrasse ?",
+      "faq.a2": "Tu peux louer une jardinière au jardin communautaire de La Latina ou semer des variétés de rebord (basilic, cerfeuil, laitue baby) qui poussent dans un pot de fenêtre.",
+      "faq.q3": "Et si je ne sais pas cultiver ?",
+      "faq.a3": "C'est exactement à ça que sert la grainothèque. Chaque enveloppe contient une fiche de semis avec les dates, l'arrosage et quand attendre la récolte. Et le vendredi, une adhérente de garde répond aux questions sur place.",
+      "faq.q4": "Les graines sont-elles enregistrées ou classiques ?",
+      "faq.a4": "On travaille presque toujours avec des variétés locales à pollinisation libre, pas des hybrides : celles-ci peuvent se garder et se ressemer génération après génération. C'est le cœur de la grainothèque.",
+      "news.title": "Un e-mail chaque lundi avec la récolte du quartier.",
+      "news.p": "Le bulletin de SIEMBRA prévient quand le catalogue ouvre, quelles variétés sont épuisées et ce qui se sème dans chaque jardin. Pas de spam : un e-mail, chaque lundi.",
+      "news.emailLabel": "Votre e-mail",
+      "news.placeholder": "vous@courriel.fr",
+      "news.btn": "Je m'inscris",
+      "news.ok": "C'est fait ! Le premier e-mail arrivera lundi.",
+      "news.err": "Veuillez saisir un e-mail valide.",
+      "news.mail_subject": "Inscription au bulletin de SIEMBRA",
+      "news.mail_body": "Bonjour, je souhaite m'inscrire à la liste de diffusion de SIEMBRA. Mon e-mail est {email}.",
+      "footer.tag": "Grainothèque communautaire du quartier de La Latina. Ce qu'on prête aujourd'hui revient demain en récolte.",
+      "footer.col1": "Nous rendre visite",
+      "footer.addr": "Centre Civique 14",
+      "footer.addr2": "Cour d'entrée · La Latina",
+      "footer.mail": "hola@cristiancode.dev",
+      "footer.col2": "Liens",
+      "footer.l1": "Comment fonctionne le cycle",
+      "footer.l2": "Catalogue de graines",
+      "footer.l3": "Troc du vendredi",
+      "footer.l4": "Questions fréquentes",
+      "footer.cr": "© 2026 SIEMBRA · des voisines qui se prêtent",
+      "footer.made": "Fait main, sans achat · La Latina, Madrid",
+      "cookie.msg": "Nous utilisons un cookie pour mémoriser votre langue et votre thème. Nous ne traquons pas les visites et ne vendons aucune donnée.",
+      "cookie.ok": "Compris"
+    },
+    de: {
+      "meta.title": "SIEMBRA · Gemeinschaftliche Saatgutbibliothek · Madrid",
+      "meta.desc": "Saatgutbibliothek im Viertel: nimm ein Tütchen, säe, ernte und gib am Ende des Zyklus Samen zurück. Saatguttausch jeden Freitag im Centro Cívico 14.",
+      "skip.goto": "Zum Inhalt springen",
+      "nav.how": "So funktioniert's",
+      "nav.cat": "Katalog",
+      "nav.trade": "Tausch",
+      "nav.faq": "Fragen",
+      "nav.join": "Mein erstes Tütchen holen",
+      "lang.aria": "Sprache wählen",
+      "theme.toggle": "Helles oder dunkles Thema umschalten",
+      "menu.open": "Menü öffnen",
+      "menu.close": "Menü schließen",
+      "hero.badge": "Saatgutbibliothek · Viertel La Latina · Madrid",
+      "hero.title": "Was du heute bewahrst, <br>wird morgen gegessen.",
+      "hero.sub": "SIEMBRA ist die Saatgutbibliothek deines Viertels. Hol dir ein Tütchen, säe auf dem Balkon oder im Gemeinschaftsgarten und bring am Ende des Zyklus Samen zurück. Du zahlst nichts, außer einer Ernte für den Nachbarn von nebenan.",
+      "hero.cta1": "Mein erstes Tütchen holen",
+      "hero.cta2": "Sehen, wie es funktioniert",
+      "hero.note": "Tütchen gratis · Tausch jeden Freitag · 17 Uhr",
+      "packet.lane": "Saatguttütchen · Herz-Tomate",
+      "packet.meta": "Ausg. 12 · Gratis",
+      "how.kicker": "Der Kreislauf · in vier Schritten",
+      "how.title": "Du holst ein Tütchen. <br>Du gibst einen Kreislauf zurück.",
+      "how.lead": "Der Verleih betrifft weder Pollen noch Pflanzen: er betrifft Samen. Deshalb zählt der Rückweg genauso viel wie der Hinweg.",
+      "how.s1.title": "Hol dir ein Tütchen",
+      "how.s1.desc": "Jeder Katalog-Verleih gibt dir ein bis drei Sorten der Saison. Ein Mitgliedsausweis, ein Tütchen, null Geld.",
+      "how.s2.title": "Säe und pflege",
+      "how.s2.desc": "Im Topf, in deinem Beet im Gemeinschaftsgarten oder im Fensterbrett-Topf. Notier das Datum und gieße, ohne zu ertränken.",
+      "how.s3.title": "Ernte und verwahre",
+      "how.s3.desc": "Lass die Pflanze bis zum Samen ausreifen, trockne die Frucht und bewahre die Ernte in einem sauberen Tütchen mit Name und Datum auf.",
+      "how.s4.title": "Gib das Doppelte zurück",
+      "how.s4.desc": "Bring die Hälfte deiner Samen zurück in die Bibliothek. So geht dem nächsten Nachbarn nie der Verleih aus.",
+      "cat.kicker": "Katalog · Herbstsaison",
+      "cat.title": "Was gerade <br>verliehen wird.",
+      "cat.lead": "Wähl eine Sorte, filtere nach Familie und tippe auf „Bestellen“, um dein Tütchen zurückzulegen. Alles ist ein Verleih: das ist die Regel der Bibliothek.",
+      "cat.f_all": "Alle",
+      "cat.f_hort": "Gemüse",
+      "cat.f_leg": "Hülsenfrucht",
+      "cat.f_aro": "Kraut",
+      "cat.borrow": "Bestellen",
+      "cat.legend": "Zurückgelegte Tütchen werden beim Freitags-Tausch abgeholt · 17 Uhr · Centro Cívico 14",
+      "trade.kicker": "Der Tausch · Freitag 17 Uhr",
+      "trade.title": "Bring mit, was übrig ist. <br>Nimm mit, was fehlt.",
+      "trade.p": "Jeden Freitag bauen wir den Tisch im Hof des Centro Cívico 14 auf. Du bringst Samen, Stecklinge, Zwiebeln oder Gartenbücher und nimmst das mit, was ein anderer Nachbar dagelassen hat. Keine Währung: nur gutes Vertrauen und lesbare Etiketten.",
+      "trade.bring": "Meist mitgebracht wird",
+      "trade.i1": "Getrocknete Samen in signierten Tütchen",
+      "trade.i2": "Kräuterstecklinge im Wasser",
+      "trade.i3": "Zwiebeln und Pflanzkartoffeln",
+      "trade.i4": "Alte Gartenzeitschriften",
+      "trade.take": "Meist fehlt",
+      "trade.t1": "Tomaten, die am Balkon tragen",
+      "trade.t2": "Buschbohnen",
+      "trade.t3": "Basilikum mit Mehltau-Resistenz",
+      "trade.t4": "Freiwillige zum Gießen im August",
+      "trade.when": "Jeden Freitag",
+      "trade.where": "Hof",
+      "trade.entry": "Eintritt",
+      "trade.jarTitle": "Gärten, in denen Verleihe blühen",
+      "trade.jarNote": "Jeder Ort ist eine Mitglied mit dem Schlüssel zum Tütchen-Schrank. Ohne sie gibt es keine Bibliothek.",
+      "faq.kicker": "Häufige Fragen",
+      "faq.title": "Was die Leute uns <br>oft fragen.",
+      "faq.q1": "Ist es wirklich gratis, oder gibt es Kleingedrucktes?",
+      "faq.a1": "Wirklich gratis. Der einzige „Preis“ ist, die Hälfte deiner Samenternte am Ende des Zyklus zurückzugeben. Wenn etwas nicht keimt, ist es kein Problem: wir notieren es und probieren nächste Saison eine andere Sorte.",
+      "faq.q2": "Und wenn ich weder Balkon noch Terrasse habe?",
+      "faq.a2": "Du kannst einen Topf im Gemeinschaftsgarten von La Latina mieten oder Fensterbank-Sorten säen (Basilikum, Kerbel, Baby-Blattlattich), die im Fensterbrett-Topf wachsen.",
+      "faq.q3": "Was mache ich, wenn ich nichts anbauen kann?",
+      "faq.a3": "Genau dafür gibt es die Bibliothek. Jedes Tütchen enthält eine Saatkarte mit Terminen, Bewässerung und wann die Ernte zu erwarten ist. Und freitags ist eine Mitglied im Dienst, die Fragen vor Ort beantwortet.",
+      "faq.q4": "Sind die Samen registriert oder die üblichen?",
+      "faq.a4": "Wir arbeiten fast immer mit lokalen, offen bestäubten Sorten statt Hybriden: die kann man bewahren und Generation für Generation neu säen. Das ist das Herz der Bibliothek.",
+      "news.title": "Jeden Montag eine E-Mail mit der Ernte des Viertels.",
+      "news.p": "Das SIEMBRA-Bulletin meldet, wann der Katalog öffnet, welche Sorten vergriffen sind und was in jedem Garten gesät wird. Kein Spam: eine E-Mail, jeden Montag.",
+      "news.emailLabel": "Deine E-Mail",
+      "news.placeholder": "du@email.de",
+      "news.btn": "Anmelden",
+      "news.ok": "Erledigt! Die erste E-Mail kommt am Montag.",
+      "news.err": "Bitte gib eine gültige E-Mail ein.",
+      "news.mail_subject": "Anmeldung zum SIEMBRA-Newsletter",
+      "news.mail_body": "Hallo, ich möchte mich in die SIEMBRA-Mailingliste eintragen. Meine E-Mail ist {email}.",
+      "footer.tag": "Gemeinschaftliche Saatgutbibliothek des Viertels La Latina. Was wir heute verleihen, kommt morgen als Ernte zurück.",
+      "footer.col1": "Besuch uns",
+      "footer.addr": "Centro Cívico 14",
+      "footer.addr2": "Eingangshof · La Latina",
+      "footer.mail": "hola@cristiancode.dev",
+      "footer.col2": "Links",
+      "footer.l1": "So funktioniert der Kreislauf",
+      "footer.l2": "Saatgutkatalog",
+      "footer.l3": "Freitags-Tausch",
+      "footer.l4": "Häufige Fragen",
+      "footer.cr": "© 2026 SIEMBRA · Nachbarinnen, die verleihen",
+      "footer.made": "Handgemacht, nicht gekauft · La Latina, Madrid",
+      "cookie.msg": "Wir verwenden ein Cookie, um Sprache und Thema zu merken. Wir verfolgen keine Besuche und verkaufen keine Daten.",
+      "cookie.ok": "Verstanden"
+    },
+    it: {
+      "meta.title": "SIEMBRA · Biblioteca di semi di quartiere · Madrid",
+      "meta.desc": "Biblioteca di semi del quartiere: prendi una bustina, semina, raccogli e restituisci semi alla fine del ciclo. Scambio di semi ogni venerdì al Centro Cívico 14.",
+      "skip.goto": "Vai al contenuto",
+      "nav.how": "Come funziona",
+      "nav.cat": "Catalogo",
+      "nav.trade": "Scambio",
+      "nav.faq": "Domande",
+      "nav.join": "Prendi la mia prima bustina",
+      "lang.aria": "Scegli la lingua",
+      "theme.toggle": "Passa al tema chiaro o scuro",
+      "menu.open": "Apri il menu",
+      "menu.close": "Chiudi il menu",
+      "hero.badge": "Biblioteca di semi · Quartiere di La Latina · Madrid",
+      "hero.title": "Quello che custodisci oggi <br>domani si mangia.",
+      "hero.sub": "SIEMBRA è la biblioteca di semi del tuo quartiere. Prendi una bustina, semina sul balcone o nell'orto comunitario e restituisci semi alla fine del ciclo. Non paghi nulla, solo un raccolto per il vicino accanto.",
+      "hero.cta1": "Prendi la mia prima bustina",
+      "hero.cta2": "Guarda come funziona",
+      "hero.note": "Bustine gratis · Scambio ogni venerdì · 17:00",
+      "packet.lane": "Bustine di semi · Pomodoro cuore",
+      "packet.meta": "Ed. 12 · Gratis",
+      "how.kicker": "Il ciclo · in quattro passi",
+      "how.title": "Prendi una bustina. <br>Restituisci un ciclo.",
+      "how.lead": "Il prestito non riguarda il polline né le piante: riguarda i semi. Per questo il passo di ritorno conta quanto quello di andata.",
+      "how.s1.title": "Prendi una bustina",
+      "how.s1.desc": "Ogni prestito del catalogo dà da una a tre varietà di stagione. Una tessera da socia, una bustina, zero euro.",
+      "how.s2.title": "Semina e cura",
+      "how.s2.desc": "In vaso, nel tuo riquadro dell'orto comunitario o in un vasetto sul davanzale. Segna la data e innaffia senza annegare.",
+      "how.s3.title": "Raccogli e conserva",
+      "how.s3.desc": "Lascia maturare la pianta fino al seme, asciuga il frutto e conserva il raccolto in una bustina pulita, con nome e data.",
+      "how.s4.title": "Restituisci il doppio",
+      "how.s4.desc": "Riporta metà dei tuoi semi in biblioteca. Così il prestito del vicino che arriva dopo non si esaurisce mai.",
+      "cat.kicker": "Catalogo · stagione autunnale",
+      "cat.title": "Quello che ora <br>si presta.",
+      "cat.lead": "Scegli la varietà, filtra per famiglia e tocca «Chiedi» per mettere da parte la tua bustina. Tutto è a prestito: è la regola della biblioteca.",
+      "cat.f_all": "Tutte",
+      "cat.f_hort": "Ortaggio",
+      "cat.f_leg": "Legume",
+      "cat.f_aro": "Aromatica",
+      "cat.borrow": "Chiedi",
+      "cat.legend": "Le bustine messe da parte si ritirano allo scambio del venerdì · 17:00 · Centro Cívico 14",
+      "trade.kicker": "Lo scambio · venerdì 17:00",
+      "trade.title": "Porta ciò che avanza. <br>Prendi ciò che manca.",
+      "trade.p": "Ogni venerdì apriamo il tavolo nel cortile del Centro Cívico 14. Porti semi, talee, bulbi o libri di orto e porti via quello che un altro vicino ha lasciato. Niente moneta: solo buona fede ed etichette leggibili.",
+      "trade.bring": "Di solito portano",
+      "trade.i1": "Semi secchi in bustine firmate",
+      "trade.i2": "Talee di aromatiche in acqua",
+      "trade.i3": "Bulbi e patate da semina",
+      "trade.i4": "Vecchie riviste di giardinaggio",
+      "trade.take": "Di solito manca",
+      "trade.t1": "Pomodori che fruttificano sul balcone",
+      "trade.t2": "Fagioli nani",
+      "trade.t3": "Basilico resistente all'oidio",
+      "trade.t4": "Volontari per innaffiare in agosto",
+      "trade.when": "Ogni venerdì",
+      "trade.where": "Cortile",
+      "trade.entry": "Ingresso",
+      "trade.jarTitle": "Gli orti dove fioriscono i prestiti",
+      "trade.jarNote": "Ogni punto è un socio con la chiave dell'armadietto delle bustine. Senza di loro, non c'è biblioteca.",
+      "faq.kicker": "Domande frequenti",
+      "faq.title": "Quello che ci <br>chiedono spesso.",
+      "faq.q1": "È davvero gratis, o c'è la lettera piccola?",
+      "faq.a1": "Gratis davvero. L'unico «prezzo» è restituire metà del tuo raccolto di semi alla fine del ciclo. Se qualcosa non germina, nessun problema: si annota e si prova un'altra varietà la stagione dopo.",
+      "faq.q2": "E se non ho né balcone né terrazza?",
+      "faq.a2": "Puoi noleggiare un vaso nell'orto comunitario di La Latina o seminare varietà da davanzale (basilico, cerfoglio, lattuga baby) che crescono in un vaso sul davanzale.",
+      "faq.q3": "E se non so coltivare nulla?",
+      "faq.a3": "È esattamente a questo che serve la biblioteca. Ogni bustina contiene una scheda di semina con date, annaffiatura e quando aspettare il raccolto. E il venerdì c'è una socia di turno che risponde ai dubbi sul momento.",
+      "faq.q4": "I semi sono registrati o sono quelli di sempre?",
+      "faq.a4": "Lavoriamo quasi sempre con varietà locali a impollinazione libera, non ibride: quelle si possono conservare e riseminare generazione dopo generazione. È il cuore della biblioteca.",
+      "news.title": "Una mail ogni lunedì con il raccolto del quartiere.",
+      "news.p": "Il bollettino di SIEMBRA avvisa quando apre il catalogo, quali varietà sono esaurite e cosa si semina in ogni orto. Niente spam: una mail, ogni lunedì.",
+      "news.emailLabel": "La tua email",
+      "news.placeholder": "tu@email.it",
+      "news.btn": "Iscrivimi",
+      "news.ok": "Fatto! La prima mail arriverà lunedì.",
+      "news.err": "Inserisci un'email valida, per favore.",
+      "news.mail_subject": "Iscrizione al bollettino di SIEMBRA",
+      "news.mail_body": "Ciao, vorrei iscrivermi alla mailing list di SIEMBRA. La mia email è {email}.",
+      "footer.tag": "Biblioteca di semi comunitaria del quartiere di La Latina. Quello che prestiamo oggi, torna domani come raccolto.",
+      "footer.col1": "Vienici a trovare",
+      "footer.addr": "Centro Cívico 14",
+      "footer.addr2": "Cortile d'ingresso · La Latina",
+      "footer.mail": "hola@cristiancode.dev",
+      "footer.col2": "Link",
+      "footer.l1": "Come funziona il ciclo",
+      "footer.l2": "Catalogo di semi",
+      "footer.l3": "Scambio del venerdì",
+      "footer.l4": "Domande frequenti",
+      "footer.cr": "© 2026 SIEMBRA · vicine che si prestano",
+      "footer.made": "Fatto a mano, senza acquisti · La Latina, Madrid",
+      "cookie.msg": "Usiamo un cookie per ricordare lingua e tema. Non tracciamo visite né vendiamo dati.",
+      "cookie.ok": "Ho capito"
+    },
+    pt: {
+      "meta.title": "SIEMBRA · Biblioteca comunitária de sementes · Madrid",
+      "meta.desc": "Biblioteca de sementes do bairro: pega um envelope, semeia, colhe e devolve sementes no fim do ciclo. Troca de sementes toda sexta-feira no Centro Cívico 14.",
+      "skip.goto": "Ir para o conteúdo",
+      "nav.how": "Como funciona",
+      "nav.cat": "Catálogo",
+      "nav.trade": "Troca",
+      "nav.faq": "Perguntas",
+      "nav.join": "Pegar meu primeiro envelope",
+      "lang.aria": "Selecionar idioma",
+      "theme.toggle": "Alternar tema claro ou escuro",
+      "menu.open": "Abrir menu",
+      "menu.close": "Fechar menu",
+      "hero.badge": "Biblioteca de sementes · Bairro de La Latina · Madrid",
+      "hero.title": "O que guardas hoje <br>come-se amanhã.",
+      "hero.sub": "SIEMBRA é a biblioteca de sementes do teu bairro. Pega um envelope, semeia na varanda ou na horta comunitária e devolve sementes no fim do ciclo. Não pagas nada, só uma colheita para o vizinho do lado.",
+      "hero.cta1": "Pegar meu primeiro envelope",
+      "hero.cta2": "Ver como funciona",
+      "hero.note": "Envelopes grátis · Troca toda sexta · 17:00",
+      "packet.lane": "Envelopes de sementes · Tomate-coração",
+      "packet.meta": "Ed. 12 · Grátis",
+      "how.kicker": "O ciclo · em quatro passos",
+      "how.title": "Pegas um envelope. <br>Devolves um ciclo.",
+      "how.lead": "O empréstimo não é de pólen nem de plantas: é de sementes. Por isso o passo de volta conta tanto quanto o de ida.",
+      "how.s1.title": "Pega um envelope",
+      "how.s1.desc": "Cada empréstimo do catálogo dá uma a três variedades da estação. Um cartão de sócia, um envelope, zero dinheiro.",
+      "how.s2.title": "Semeia e cuida",
+      "how.s2.desc": "Num vaso, no teu canteiro da horta comunitária ou num vaso da janela. Anota a data e rega sem afogar.",
+      "how.s3.title": "Colhe e guarda",
+      "how.s3.desc": "Deixa a planta amadurecer até à semente, seca o fruto e guarda a colheita num envelope limpo, com nome e data.",
+      "how.s4.title": "Devolve o dobro",
+      "how.s4.desc": "Leva metade das tuas sementes de volta à biblioteca. Assim o empréstimo do vizinho que vem a seguir nunca se esgota.",
+      "cat.kicker": "Catálogo · época de outono",
+      "cat.title": "O que agora <br>se empresta.",
+      "cat.lead": "Escolhe a variedade, filtra por família e toca em «Pedir» para reservar o teu envelope. Tudo é com devolução: a regra da biblioteca.",
+      "cat.f_all": "Todas",
+      "cat.f_hort": "Hortaliça",
+      "cat.f_leg": "Leguminosa",
+      "cat.f_aro": "Aromática",
+      "cat.borrow": "Pedir",
+      "cat.legend": "Os envelopes reservados levantam-se na troca de sexta-feira · 17:00 · Centro Cívico 14",
+      "trade.kicker": "A troca · sexta-feira 17:00",
+      "trade.title": "Traz o que sobra. <br>Leva o que falta.",
+      "trade.p": "Toda sexta-feira abrimos a mesa no pátio do Centro Cívico 14. Trazes sementes, estacas, bolbos ou livros de horta e levas o que outro vizinho deixou. Não há moeda: há boa fé e etiquetas que se leem.",
+      "trade.bring": "Costumam trazer",
+      "trade.i1": "Sementes secas em envelopes assinados",
+      "trade.i2": "Estacas de aromáticas em água",
+      "trade.i3": "Bolbos e batatas de semente",
+      "trade.i4": "Revistas velhas de jardinagem",
+      "trade.take": "Costuma faltar",
+      "trade.t1": "Tomates que deem na varanda",
+      "trade.t2": "Feijões de rama baixa",
+      "trade.t3": "Manjericão resistente ao oídio",
+      "trade.t4": "Voluntários para regar em agosto",
+      "trade.when": "Toda sexta-feira",
+      "trade.where": "Pátio",
+      "trade.entry": "Entrada",
+      "trade.jarTitle": "As hortas onde florescem os empréstimos",
+      "trade.jarNote": "Cada ponto é um sócio com a chave do armário dos envelopes. Sem eles, não há biblioteca.",
+      "faq.kicker": "Perguntas frequentes",
+      "faq.title": "O que as pessoas <br>costumam perguntar.",
+      "faq.q1": "É mesmo grátis, ou há letra pequena?",
+      "faq.a1": "Grátis, mesmo. O único «preço» é devolver metade da tua colheita de sementes no fim do ciclo. Se algo não germinar, sem problema: anota-se e tenta-se outra variedade na próxima época.",
+      "faq.q2": "E se eu não tiver varanda nem terraço?",
+      "faq.a2": "Podes alugar um vaso na horta comunitária de La Latina ou semear variedades de janela (manjericão, cerefólio, alface baby) que crescem num vaso do peitoril.",
+      "faq.q3": "O que faço se não sei cultivar nada?",
+      "faq.a3": "É exatamente para isso que serve a biblioteca. Cada envelope traz um cartão de sementeira com datas, rega e quando esperar a colheita. E às sextas há um sócio de serviço que resolve dúvidas na hora.",
+      "faq.q4": "As sementes são registadas ou as de sempre?",
+      "faq.a4": "Trabalhamos quase sempre com variedades locais de polinização aberta, não híbridas: essas sim podem guardar-se e voltar a semear-se geração após geração. É o coração da biblioteca.",
+      "news.title": "Um e-mail toda segunda com a colheita do bairro.",
+      "news.p": "O boletim da SIEMBRA avisa quando abre o catálogo, que variedades se esgotaram e o que se semeia em cada horta. Sem spam: um e-mail, toda segunda.",
+      "news.emailLabel": "O teu e-mail",
+      "news.placeholder": "tu@email.pt",
+      "news.btn": "Inscrever-me",
+      "news.ok": "Pronto! O primeiro e-mail chega na segunda.",
+      "news.err": "Escreve um e-mail válido, por favor.",
+      "news.mail_subject": "Inscrição no boletim da SIEMBRA",
+      "news.mail_body": "Olá, quero inscrever-me na lista de correio da SIEMBRA. O meu e-mail é {email}.",
+      "footer.tag": "Biblioteca comunitária de sementes do bairro de La Latina. O que emprestamos hoje volta amanhã como colheita.",
+      "footer.col1": "Visita-nos",
+      "footer.addr": "Centro Cívico 14",
+      "footer.addr2": "Pátio de entrada · La Latina",
+      "footer.mail": "hola@cristiancode.dev",
+      "footer.col2": "Ligações",
+      "footer.l1": "Como funciona o ciclo",
+      "footer.l2": "Catálogo de sementes",
+      "footer.l3": "Troca de sexta-feira",
+      "footer.l4": "Perguntas frequentes",
+      "footer.cr": "© 2026 SIEMBRA · vizinhas que se emprestam",
+      "footer.made": "Feito à mão, sem compra · La Latina, Madrid",
+      "cookie.msg": "Usamos um cookie para lembrar o teu idioma e tema. Não rastreamos visitas nem vendemos dados.",
+      "cookie.ok": "Entendido"
+    }
+  };
+
+  var HTML_KEYS = {
+    "hero.title": 1, "how.title": 1, "cat.title": 1, "trade.title": 1, "faq.title": 1
+  };
+
+  function getLang() {
+    var saved = null;
+    try { saved = localStorage.getItem(LANG_KEY); } catch (e) {}
+    if (saved && LANGS.indexOf(saved) > -1) return saved;
+    var nav = (navigator.languages || [navigator.language || 'es']).map(function (l) { return l.split('-')[0].toLowerCase(); });
+    for (var i = 0; i < nav.length; i++) { if (LANGS.indexOf(nav[i]) > -1) return nav[i]; }
+    return 'es';
+  }
+  function getTheme() {
+    var t = 'light';
+    try { t = localStorage.getItem('kairos-theme') || 'light'; } catch (e) {}
+    return (t === 'dark') ? 'dark' : 'light';
+  }
+  function setTheme(t) {
+    document.documentElement.setAttribute('data-theme', t);
+    try { localStorage.setItem('kairos-theme', t); } catch (e) {}
+    $$('.theme-toggle').forEach(function (b) {
+      var D = I18N[getLang()] || I18N.es;
+      b.setAttribute('aria-label', D['theme.toggle'] || '');
+    });
+  }
+  function applyLang(lang) {
+    if (LANGS.indexOf(lang) === -1) lang = 'es';
+    try { localStorage.setItem(LANG_KEY, lang); } catch (e) {}
+    var D = I18N[lang] || I18N.es;
+    document.documentElement.setAttribute('lang', lang);
+    $$('[data-i18n]').forEach(function (el) {
+      var k = el.getAttribute('data-i18n');
+      if (D[k] !== undefined) el.textContent = D[k];
+    });
+    $$('[data-i18n-html]').forEach(function (el) {
+      var k = el.getAttribute('data-i18n-html');
+      if (D[k] !== undefined && HTML_KEYS[k]) el.innerHTML = D[k];
+    });
+    $$('[data-i18n-ph]').forEach(function (el) {
+      var k = el.getAttribute('data-i18n-ph');
+      if (D[k] !== undefined) el.setAttribute('placeholder', D[k]);
+    });
+    $$('[data-i18n-aria]').forEach(function (el) {
+      var k = el.getAttribute('data-i18n-aria');
+      if (D[k] !== undefined) el.setAttribute('aria-label', D[k]);
+    });
+    $$('.lang-select__cur').forEach(function (el) { el.textContent = lang.toUpperCase(); });
+    $$('.lang-select__opt').forEach(function (opt) {
+      opt.setAttribute('aria-selected', opt.getAttribute('data-lang') === lang ? 'true' : 'false');
+    });
+    var mt = document.getElementById('meta-desc');
+    if (mt) mt.setAttribute('content', D['meta.desc'] || mt.getAttribute('content'));
+    var dt = document.getElementById('doc-title');
+    if (dt) dt.textContent = D['meta.title'] || dt.textContent;
+  }
+
+  /* language dropdowns (desktop + mobile) */
+  function closeLangMenus() {
+    $$('.lang-select').forEach(function (sel) {
+      var m = sel.querySelector('.lang-select__menu');
+      var b = sel.querySelector('.lang-select__btn');
+      if (m) m.classList.remove('open');
+      if (b) b.setAttribute('aria-expanded', 'false');
+    });
+  }
+  $$('.lang-select').forEach(function (sel) {
+    var btn = sel.querySelector('.lang-select__btn');
+    var menu = sel.querySelector('.lang-select__menu');
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var open = menu.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    menu.querySelectorAll('.lang-select__opt').forEach(function (opt) {
+      opt.addEventListener('click', function () { applyLang(opt.getAttribute('data-lang')); closeLangMenus(); });
+    });
+  });
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('.lang-select')) closeLangMenus();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') { closeLangMenus(); closeMenu(); }
+  });
+
+  /* mobile menu */
+  var menuToggle = $('.menu-toggle');
+  var mobileMenu = $('#mobileMenu');
+  function menuOpen() {
+    mobileMenu.classList.add('open');
+    mobileMenu.setAttribute('aria-hidden', 'false');
+    menuToggle.setAttribute('aria-expanded', 'true');
+    document.body.classList.add('no-scroll');
+    var D = I18N[getLang()] || I18N.es;
+    menuToggle.setAttribute('aria-label', D['menu.close'] || '');
+  }
+  function closeMenu() {
+    mobileMenu.classList.remove('open');
+    mobileMenu.setAttribute('aria-hidden', 'true');
+    menuToggle.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('no-scroll');
+    var D = I18N[getLang()] || I18N.es;
+    menuToggle.setAttribute('aria-label', D['menu.open'] || '');
+  }
+  menuToggle.addEventListener('click', function () {
+    if (mobileMenu.classList.contains('open')) closeMenu(); else menuOpen();
+  });
+  $$('#mobileMenu nav a').forEach(function (a) { a.addEventListener('click', closeMenu); });
+
+  /* theme — bind ALL toggles (desktop + mobile) */
+  $$('.theme-toggle').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      setTheme(getTheme() === 'dark' ? 'light' : 'dark');
+    });
+  });
+
+  /* catalogue filters */
+  $$('.cat-tab').forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      $$('.cat-tab').forEach(function (t) { t.classList.remove('active'); });
+      tab.classList.add('active');
+      var f = tab.getAttribute('data-filter');
+      $$('.cat-row').forEach(function (row) {
+        if (f === 'all' || row.getAttribute('data-group') === f) row.classList.remove('hide');
+        else row.classList.add('hide');
+      });
+    });
+  });
+
+  /* catalogue borrow toggle */
+  $$('.cat-borrow').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var pressed = btn.getAttribute('aria-pressed') === 'true';
+      btn.setAttribute('aria-pressed', pressed ? 'false' : 'true');
+    });
+  });
+
+  /* faq accordion */
+  $$('.faq-item').forEach(function (item) {
+    var q = item.querySelector('.faq-q');
+    var a = item.querySelector('.faq-a');
+    q.addEventListener('click', function () {
+      var open = item.classList.toggle('open');
+      q.setAttribute('aria-expanded', open ? 'true' : 'false');
+      a.style.maxHeight = open ? a.scrollHeight + 'px' : '0px';
+    });
+  });
+
+  /* reveal on scroll */
+  function initReveal() {
+    var items = $$('.rv');
+    if (!('IntersectionObserver' in window)) { items.forEach(function (el) { el.classList.add('in'); }); return; }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+    items.forEach(function (el) { io.observe(el); });
+  }
+
+  /* newsletter — honest mailto, never a fake success */
+  var newsForm = $('#newsForm');
+  var newsMsg = $('#newsMsg');
+  if (newsForm) newsForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var email = $('#newsEmail').value.trim();
+    var D = I18N[getLang()] || I18N.es;
+    var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
+    if (!emailOk) {
+      newsMsg.className = 'news-msg err';
+      newsMsg.textContent = D['news.err'] || '';
+      return;
+    }
+    var body = (D['news.mail_body'] || '').replace('{email}', email);
+    window.location.href = 'mailto:hola@cristiancode.dev?subject=' + encodeURIComponent(D['news.mail_subject'] || '') + '&body=' + encodeURIComponent(body);
+    newsMsg.className = 'news-msg ok';
+    newsMsg.textContent = D['news.ok'] || '';
+  });
+
+  /* cookie banner — bottom-right, delayed, never over the hero CTAs */
+  var cookieBanner = $('#cookieBanner');
+  var cookieAccepted = false;
+  try { cookieAccepted = localStorage.getItem(COOKIE_KEY) === 'accepted'; } catch (e) {}
+  if (!cookieAccepted) {
+    setTimeout(function () { cookieBanner.classList.add('show'); }, 3000);
+  }
+  $('#cookieOk').addEventListener('click', function () {
+    try { localStorage.setItem(COOKIE_KEY, 'accepted'); } catch (e) {}
+    cookieBanner.classList.remove('show');
+  });
+
+  /* fab back-to-top */
+  var fab = $('#fab');
+  window.addEventListener('scroll', function () {
+    var y = window.scrollY || document.documentElement.scrollTop;
+    if (y > 480) fab.classList.add('show'); else fab.classList.remove('show');
+  }, { passive: true });
+  fab.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  /* boot */
+  try {
+    document.documentElement.classList.remove('no-js');
+    setTheme(getTheme());
+    applyLang(getLang());
+    initReveal();
+  } catch (err) {
+    $$('.rv').forEach(function (el) { el.classList.add('in'); });
+  }
+})();
+</script>
+</body>
+</html>

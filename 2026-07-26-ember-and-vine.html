@@ -1,0 +1,3177 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="meta-title">Ember & Vine — Modern European Restaurant | Farm-to-Table Fine Dining</title>
+  <meta name="description" id="meta-desc" content="Ember & Vine is a modern European restaurant rooted in the seasons. Wood-fired cuisine, natural wines, and an atmosphere that feels like coming home.">
+  <link rel="canonical" href="https://emberandvine.com/">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23C9A84C'/%3E%3Cpath d='M16 6c-2 3-4 5-3 9 0 2 1 4 3 5 2-1 3-3 3-5 1-4-1-6-3-9z' fill='%23120A08'/%3E%3C/svg%3E">
+  <meta name="theme-color" content="#120A08">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Ember & Vine">
+  <meta property="og:title" id="og-title" content="Ember & Vine — Modern European Restaurant | Farm-to-Table Fine Dining">
+  <meta property="og:description" id="og-desc" content="Modern European restaurant rooted in the seasons. Wood-fired cuisine, natural wines, and an atmosphere that feels like coming home.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&q=80">
+  <meta property="og:url" content="https://emberandvine.com/">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" id="tw-title" content="Ember & Vine — Modern European Restaurant | Farm-to-Table Fine Dining">
+  <meta name="twitter:description" id="tw-desc" content="Modern European restaurant rooted in the seasons. Wood-fired cuisine, natural wines, and an atmosphere that feels like coming home.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&q=80">
+
+  <!-- Fonts: Cormorant Garamond (headings — dramatic serif) + Raleway (body — clean geometric sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============================================================
+       DESIGN TOKENS — Ember & Vine
+       Surface: Decide/Learn (landing page — fine dining restaurant)
+       Derived from: Original editorial luxury theme
+       Family: Restaurant / Fine Dining
+       Style: Editorial Luxury — dramatic serif headings, moody atmosphere
+       Strategy: Drenched (the surface IS the color — deep warm tones)
+       ============================================================ */
+    :root {
+      /* Colors — Dark Mode (default) */
+      --color-bg: #120A08;
+      --color-surface: #1E1210;
+      --color-surface-alt: #2A1C18;
+      --color-elevated: #332420;
+      --color-accent: #C9A84C;
+      --color-accent-hover: #DDBF6B;
+      --color-accent-subtle: rgba(201, 168, 76, 0.12);
+      --color-accent-dim: #8A7230;
+      --color-text-primary: #F0EAE0;
+      --color-text-secondary: #B8A898;
+      --color-text-tertiary: #7A6A5A;
+      --color-border: #332420;
+      --color-border-light: #443330;
+      --color-success: #7BA05B;
+      --color-error: #C44A4A;
+      --color-overlay: rgba(18, 10, 8, 0.65);
+      --color-overlay-heavy: rgba(18, 10, 8, 0.85);
+
+      /* Colors — Light Mode */
+      --color-bg-light: #F5F0E8;
+      --color-surface-light: #FFFFFF;
+      --color-surface-alt-light: #EDE6DC;
+      --color-elevated-light: #FFFFFF;
+      --color-accent-light: #8A7230;
+      --color-accent-hover-light: #6B5A25;
+      --color-accent-subtle-light: rgba(138, 114, 48, 0.10);
+      --color-text-primary-light: #1A1210;
+      --color-text-secondary-light: #6A5A4A;
+      --color-text-tertiary-light: #A09080;
+      --color-border-light: #D8D0C4;
+      --color-border-light2: #E8E0D8;
+
+      /* Typography */
+      --font-heading: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+      --font-body: 'Raleway', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+      /* Spacing */
+      --space-xs: 0.375rem;
+      --space-sm: 0.75rem;
+      --space-md: 1.25rem;
+      --space-lg: 2rem;
+      --space-xl: 3rem;
+      --space-2xl: 4.5rem;
+      --space-3xl: 6.5rem;
+      --space-4xl: 9rem;
+      --space-5xl: 12rem;
+
+      /* Layout */
+      --content-max: 78rem;
+      --content-narrow: 44rem;
+      --content-wide: 90rem;
+      --nav-height: 4.5rem;
+
+      /* Z-index scale — semantic */
+      --z-sticky: 100;
+      --z-nav: 200;
+      --z-modal-backdrop: 300;
+      --z-modal: 400;
+      --z-toast: 500;
+      --z-cookie: 600;
+      --z-language-menu: 250;
+
+      /* Misc */
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --transition: 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      --transition-slow: 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    /* ============================================================
+       THEME APPLICATION
+       ============================================================ */
+    [data-theme="dark"] {
+      --bg: var(--color-bg);
+      --surface: var(--color-surface);
+      --surface-alt: var(--color-surface-alt);
+      --elevated: var(--color-elevated);
+      --accent: var(--color-accent);
+      --accent-hover: var(--color-accent-hover);
+      --accent-subtle: var(--color-accent-subtle);
+      --accent-dim: var(--color-accent-dim);
+      --text-primary: var(--color-text-primary);
+      --text-secondary: var(--color-text-secondary);
+      --text-tertiary: var(--color-text-tertiary);
+      --border: var(--color-border);
+      --border-light: var(--color-border-light);
+    }
+    [data-theme="light"] {
+      --bg: var(--color-bg-light);
+      --surface: var(--color-surface-light);
+      --surface-alt: var(--color-surface-alt-light);
+      --elevated: var(--color-elevated-light);
+      --accent: var(--color-accent-light);
+      --accent-hover: var(--color-accent-hover-light);
+      --accent-subtle: var(--color-accent-subtle-light);
+      --accent-dim: var(--color-accent-hover-light);
+      --text-primary: var(--color-text-primary-light);
+      --text-secondary: var(--color-text-secondary-light);
+      --text-tertiary: var(--color-text-tertiary-light);
+      --border: var(--color-border-light);
+      --border-light: var(--color-border-light2);
+    }
+
+    /* ============================================================
+       RESET & BASE
+       ============================================================ */
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: 1.0625rem;
+      line-height: 1.7;
+      color: var(--text-primary);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      transition: background var(--transition), color var(--transition);
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color var(--transition);
+    }
+    a:hover {
+      color: var(--accent-hover);
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+      color: inherit;
+    }
+
+    input,
+    textarea,
+    select {
+      font-family: inherit;
+      font-size: inherit;
+      color: inherit;
+      border: none;
+      outline: none;
+      background: none;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    /* ============================================================
+       TYPOGRAPHY
+       ============================================================ */
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: var(--font-heading);
+      font-weight: 500;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      text-wrap: balance;
+    }
+
+    h1 {
+      font-size: clamp(2.8rem, 6.5vw, 5.5rem);
+      font-weight: 600;
+      letter-spacing: -0.03em;
+    }
+
+    h2 {
+      font-size: clamp(2.2rem, 4.5vw, 3.75rem);
+      font-weight: 500;
+      letter-spacing: -0.025em;
+    }
+
+    h3 {
+      font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+      font-weight: 500;
+    }
+
+    p {
+      max-width: 65ch;
+      color: var(--text-secondary);
+      line-height: 1.75;
+      text-wrap: pretty;
+    }
+
+    .section-label {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--accent);
+      margin-bottom: var(--space-sm);
+      display: inline-block;
+    }
+
+    /* ============================================================
+       UTILITY CLASSES
+       ============================================================ */
+    .container {
+      width: 100%;
+      max-width: var(--content-max);
+      margin: 0 auto;
+      padding: 0 var(--space-lg);
+    }
+
+    .container-narrow {
+      max-width: var(--content-narrow);
+    }
+
+    .container-wide {
+      max-width: var(--content-wide);
+    }
+
+    .section-padding {
+      padding: var(--space-3xl) 0;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-sm);
+      padding: 0.875rem 2rem;
+      font-family: var(--font-body);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      border-radius: 0;
+      transition: all var(--transition);
+      position: relative;
+      overflow: hidden;
+      border: 2px solid transparent;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--bg);
+      border-color: var(--accent);
+    }
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      border-color: var(--accent-hover);
+      color: var(--bg);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text-primary);
+      border-color: var(--text-primary);
+    }
+    .btn-outline:hover {
+      background: var(--text-primary);
+      color: var(--bg);
+    }
+
+    .btn-accent-outline {
+      background: transparent;
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+    .btn-accent-outline:hover {
+      background: var(--accent);
+      color: var(--bg);
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
+    }
+
+    .gold-divider {
+      width: 3rem;
+      height: 2px;
+      background: var(--accent);
+      margin: var(--space-md) 0;
+    }
+
+    /* ============================================================
+       NAVIGATION
+       ============================================================ */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: var(--z-nav);
+      padding: 0 var(--space-lg);
+      height: var(--nav-height);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background var(--transition), box-shadow var(--transition);
+    }
+    .nav.scrolled {
+      background: var(--surface);
+      box-shadow: 0 1px 0 var(--border);
+    }
+
+    .nav-logo {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+    .nav-logo svg {
+      width: 1.75rem;
+      height: 1.75rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: var(--space-lg);
+    }
+    .nav-links a {
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width var(--transition);
+    }
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+    }
+
+    .lang-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.375rem;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      padding: 0.375rem 0.75rem;
+      border: 1px solid var(--border);
+      transition: all var(--transition);
+      position: relative;
+    }
+    .lang-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .lang-btn svg {
+      width: 0.875rem;
+      height: 0.875rem;
+    }
+
+    .lang-dropdown {
+      position: absolute;
+      top: calc(100% + 0.5rem);
+      right: 0;
+      background: var(--elevated);
+      border: 1px solid var(--border);
+      min-width: 10rem;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-0.5rem);
+      transition: all 0.2s ease;
+      z-index: var(--z-language-menu);
+    }
+    .lang-dropdown.open {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    .lang-dropdown button {
+      display: block;
+      width: 100%;
+      text-align: left;
+      padding: 0.75rem 1rem;
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      transition: all 0.15s ease;
+    }
+    .lang-dropdown button:hover {
+      background: var(--accent-subtle);
+      color: var(--accent);
+    }
+    .lang-dropdown button.active {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .theme-toggle {
+      width: 2.5rem;
+      height: 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-secondary);
+      border: 1px solid var(--border);
+      transition: all var(--transition);
+    }
+    .theme-toggle:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .theme-toggle svg {
+      width: 1.125rem;
+      height: 1.125rem;
+    }
+
+    .nav-reserve {
+      display: none;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      padding: 0.5rem;
+    }
+    .mobile-menu-btn span {
+      display: block;
+      width: 1.5rem;
+      height: 2px;
+      background: var(--text-primary);
+      transition: all 0.3s ease;
+      transform-origin: center;
+    }
+    .mobile-menu-btn.open span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .mobile-menu-btn.open span:nth-child(2) {
+      opacity: 0;
+    }
+    .mobile-menu-btn.open span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    .mobile-menu {
+      display: none;
+    }
+
+    /* ============================================================
+       HERO
+       ============================================================ */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: var(--bg);
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+      filter: brightness(0.35) saturate(1.2);
+      transform: scale(1.05);
+      animation: heroZoom 12s ease-out forwards;
+    }
+    @keyframes heroZoom {
+      to {
+        transform: scale(1);
+      }
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(18, 10, 8, 0.5) 0%,
+        rgba(18, 10, 8, 0.7) 50%,
+        var(--bg) 100%
+      );
+      z-index: 1;
+    }
+    [data-theme="light"] .hero-overlay {
+      background: linear-gradient(
+        to bottom,
+        rgba(245, 240, 232, 0.3) 0%,
+        rgba(245, 240, 232, 0.6) 50%,
+        var(--color-bg-light) 100%
+      );
+    }
+    [data-theme="light"] .hero-bg img {
+      filter: brightness(0.55) saturate(1.1);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: var(--content-narrow);
+      padding: 0 var(--space-lg);
+      padding-top: var(--nav-height);
+    }
+
+    .hero-tagline {
+      font-family: var(--font-body);
+      font-size: 0.8125rem;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: var(--space-md);
+      opacity: 0;
+      animation: fadeUp 0.8s ease-out 0.3s forwards;
+    }
+
+    .hero h1 {
+      margin-bottom: var(--space-md);
+      opacity: 0;
+      animation: fadeUp 0.8s ease-out 0.5s forwards;
+    }
+
+    .hero p {
+      margin: 0 auto var(--space-lg);
+      font-size: 1.125rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease-out 0.7s forwards;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: var(--space-md);
+      justify-content: center;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.8s ease-out 0.9s forwards;
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: var(--space-lg);
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-xs);
+      color: var(--text-tertiary);
+      font-size: 0.6875rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      animation: fadeUp 0.8s ease-out 1.2s forwards;
+      opacity: 0;
+    }
+    .hero-scroll-line {
+      width: 1px;
+      height: 2.5rem;
+      background: var(--text-tertiary);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.3; transform: scaleY(1); }
+      50% { opacity: 1; transform: scaleY(0.6); }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(1.5rem); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ============================================================
+       PHILOSOPHY SECTION
+       ============================================================ */
+    .philosophy {
+      position: relative;
+    }
+    .philosophy-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-2xl);
+      align-items: center;
+    }
+    .philosophy-text .gold-divider {
+      margin-top: var(--space-md);
+      margin-bottom: var(--space-lg);
+    }
+    .philosophy-text p + p {
+      margin-top: var(--space-md);
+    }
+    .philosophy-image {
+      position: relative;
+      overflow: hidden;
+    }
+    .philosophy-image img {
+      width: 100%;
+      height: 28rem;
+      object-fit: cover;
+      filter: brightness(0.85) saturate(1.05);
+    }
+    .philosophy-image::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 2px solid var(--accent);
+      margin: 1rem;
+      pointer-events: none;
+    }
+
+    /* ============================================================
+       SEASONAL MENU
+       ============================================================ */
+    .menu {
+      background: var(--surface);
+    }
+    .menu-header {
+      text-align: center;
+      margin-bottom: var(--space-2xl);
+    }
+    .menu-header .gold-divider {
+      margin: var(--space-md) auto;
+    }
+
+    .menu-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      margin-bottom: var(--space-2xl);
+      border-bottom: 1px solid var(--border);
+    }
+    .menu-tab {
+      padding: var(--space-md) var(--space-lg);
+      font-family: var(--font-heading);
+      font-size: 1.125rem;
+      font-weight: 500;
+      color: var(--text-tertiary);
+      border-bottom: 2px solid transparent;
+      transition: all var(--transition);
+      margin-bottom: -1px;
+    }
+    .menu-tab:hover {
+      color: var(--text-primary);
+    }
+    .menu-tab.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    .menu-panel {
+      display: none;
+      max-width: var(--content-narrow);
+      margin: 0 auto;
+    }
+    .menu-panel.active {
+      display: block;
+      animation: fadeIn 0.4s ease-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(0.5rem); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .menu-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: var(--space-md) 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .menu-item:last-child {
+      border-bottom: none;
+    }
+    .menu-item-info h4 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+    .menu-item-info p {
+      font-size: 0.9375rem;
+      color: var(--text-tertiary);
+      max-width: 40ch;
+    }
+    .menu-item-price {
+      font-family: var(--font-heading);
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--accent);
+      white-space: nowrap;
+      margin-left: var(--space-md);
+    }
+
+    /* ============================================================
+       CHEF SECTION
+       ============================================================ */
+    .chef {
+      position: relative;
+    }
+    .chef-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-2xl);
+      align-items: center;
+    }
+    .chef-image {
+      position: relative;
+      overflow: hidden;
+    }
+    .chef-image img {
+      width: 100%;
+      height: 32rem;
+      object-fit: cover;
+      filter: brightness(0.8) saturate(1.05);
+    }
+    .chef-image::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 2px solid var(--accent);
+      margin: 1rem;
+      pointer-events: none;
+    }
+    .chef-text .gold-divider {
+      margin-top: var(--space-md);
+      margin-bottom: var(--space-lg);
+    }
+    .chef-name {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-style: italic;
+      color: var(--accent);
+      margin-top: var(--space-md);
+    }
+    .chef-role {
+      font-family: var(--font-body);
+      font-size: 0.8125rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-tertiary);
+    }
+
+    /* ============================================================
+       TESTIMONIALS
+       ============================================================ */
+    .testimonials {
+      background: var(--surface);
+      text-align: center;
+    }
+    .testimonials h2 {
+      margin-bottom: var(--space-lg);
+    }
+    .testimonials .gold-divider {
+      margin: var(--space-md) auto var(--space-2xl);
+    }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-lg);
+      max-width: var(--content-max);
+      margin: 0 auto;
+    }
+
+    .testimonial-card {
+      background: var(--elevated);
+      padding: var(--space-xl) var(--space-lg);
+      text-align: left;
+      border: 1px solid var(--border);
+      transition: border-color var(--transition), transform var(--transition);
+    }
+    .testimonial-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+    }
+
+    .testimonial-stars {
+      display: flex;
+      gap: 2px;
+      margin-bottom: var(--space-md);
+    }
+    .testimonial-stars svg {
+      width: 1rem;
+      height: 1rem;
+      fill: var(--accent);
+      color: var(--accent);
+    }
+
+    .testimonial-card blockquote {
+      font-size: 0.9375rem;
+      line-height: 1.7;
+      color: var(--text-secondary);
+      margin-bottom: var(--space-md);
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+    .testimonial-author img {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .testimonial-author-info strong {
+      display: block;
+      font-size: 0.875rem;
+      color: var(--text-primary);
+    }
+    .testimonial-author-info span {
+      font-size: 0.75rem;
+      color: var(--text-tertiary);
+    }
+
+    /* ============================================================
+       GALLERY
+       ============================================================ */
+    .gallery {
+      overflow: hidden;
+    }
+    .gallery h2 {
+      text-align: center;
+      margin-bottom: var(--space-sm);
+    }
+    .gallery .gold-divider {
+      margin: var(--space-md) auto var(--space-2xl);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(2, 16rem);
+      gap: var(--space-sm);
+    }
+    .gallery-grid figure {
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+    }
+    .gallery-grid figure:nth-child(1) {
+      grid-column: 1 / 3;
+      grid-row: 1 / 3;
+    }
+    .gallery-grid figure:nth-child(2) {
+      grid-column: 3 / 5;
+    }
+    .gallery-grid figure:nth-child(3) {
+      grid-column: 3 / 4;
+    }
+    .gallery-grid figure:nth-child(4) {
+      grid-column: 4 / 5;
+    }
+    .gallery-grid figure:nth-child(5) {
+      grid-column: 1 / 3;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease-out, filter 0.6s ease-out;
+      filter: brightness(0.75) saturate(1.05);
+    }
+    .gallery-grid figure:hover img {
+      transform: scale(1.08);
+      filter: brightness(1) saturate(1.1);
+    }
+
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: var(--z-modal);
+      background: rgba(0, 0, 0, 0.92);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    .lightbox.open {
+      opacity: 1;
+      visibility: visible;
+    }
+    .lightbox img {
+      max-width: 90vw;
+      max-height: 85vh;
+      object-fit: contain;
+      transform: scale(0.9);
+      transition: transform 0.3s ease;
+    }
+    .lightbox.open img {
+      transform: scale(1);
+    }
+    .lightbox-close {
+      position: absolute;
+      top: var(--space-lg);
+      right: var(--space-lg);
+      width: 3rem;
+      height: 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* ============================================================
+       RESERVATION
+       ============================================================ */
+    .reservation {
+      background: var(--surface);
+    }
+    .reservation-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-2xl);
+      align-items: start;
+    }
+    .reservation-info .gold-divider {
+      margin-top: var(--space-md);
+      margin-bottom: var(--space-lg);
+    }
+    .reservation-info p {
+      margin-bottom: var(--space-lg);
+    }
+    .reservation-detail {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-md);
+      margin-bottom: var(--space-md);
+    }
+    .reservation-detail svg {
+      width: 1.25rem;
+      height: 1.25rem;
+      color: var(--accent);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .reservation-detail strong {
+      display: block;
+      font-size: 0.9375rem;
+      color: var(--text-primary);
+    }
+    .reservation-detail span {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+    }
+
+    .reservation-form {
+      background: var(--elevated);
+      padding: var(--space-xl);
+      border: 1px solid var(--border);
+    }
+    .reservation-form h3 {
+      margin-bottom: var(--space-lg);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-md);
+      margin-bottom: var(--space-md);
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.375rem;
+    }
+    .form-group label {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-tertiary);
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      padding: 0.75rem 1rem;
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      color: var(--text-primary);
+      font-size: 0.9375rem;
+      transition: border-color var(--transition);
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--accent);
+      outline: none;
+    }
+    .form-group.full {
+      grid-column: 1 / -1;
+    }
+    .form-group textarea {
+      min-height: 5rem;
+      resize: vertical;
+    }
+
+    .form-submit {
+      width: 100%;
+      margin-top: var(--space-md);
+      padding: 1rem;
+      background: var(--accent);
+      color: var(--bg);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      transition: background var(--transition);
+      border: none;
+    }
+    .form-submit:hover {
+      background: var(--accent-hover);
+    }
+
+    /* ============================================================
+       LOCATION & HOURS
+       ============================================================ */
+    .location-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-2xl);
+      align-items: start;
+    }
+    .location-info .gold-divider {
+      margin-top: var(--space-md);
+      margin-bottom: var(--space-lg);
+    }
+
+    .hours-table {
+      margin-top: var(--space-lg);
+    }
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      padding: var(--space-sm) 0;
+      border-bottom: 1px solid var(--border-light);
+      font-size: 0.9375rem;
+    }
+    .hours-row:last-child {
+      border-bottom: none;
+    }
+    .hours-row .day {
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+    .hours-row .time {
+      color: var(--text-secondary);
+    }
+
+    .location-map {
+      width: 100%;
+      height: 24rem;
+      background: var(--surface-alt);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--border);
+      color: var(--text-tertiary);
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+    .location-map svg {
+      width: 2.5rem;
+      height: 2.5rem;
+      color: var(--accent);
+    }
+
+    /* ============================================================
+       NEWSLETTER
+       ============================================================ */
+    .newsletter {
+      background: var(--surface);
+      text-align: center;
+    }
+    .newsletter h2 {
+      margin-bottom: var(--space-sm);
+    }
+    .newsletter p {
+      margin: 0 auto var(--space-lg);
+    }
+
+    .newsletter-form {
+      display: flex;
+      gap: var(--space-sm);
+      max-width: 32rem;
+      margin: 0 auto;
+    }
+    .newsletter-form input {
+      flex: 1;
+      padding: 0.875rem 1.25rem;
+      background: var(--elevated);
+      border: 1px solid var(--border);
+      color: var(--text-primary);
+      font-size: 0.9375rem;
+    }
+    .newsletter-form input:focus {
+      border-color: var(--accent);
+      outline: none;
+    }
+    .newsletter-form button {
+      padding: 0.875rem 1.75rem;
+      background: var(--accent);
+      color: var(--bg);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-size: 0.8125rem;
+      white-space: nowrap;
+      transition: background var(--transition);
+    }
+    .newsletter-form button:hover {
+      background: var(--accent-hover);
+    }
+
+    .newsletter-message {
+      margin-top: var(--space-md);
+      font-size: 0.9375rem;
+      min-height: 1.5rem;
+    }
+    .newsletter-message.success {
+      color: var(--color-success);
+    }
+    .newsletter-message.error {
+      color: var(--color-error);
+    }
+
+    /* ============================================================
+       FOOTER
+       ============================================================ */
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: var(--space-2xl) 0 var(--space-lg);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: var(--space-2xl);
+      margin-bottom: var(--space-2xl);
+    }
+
+    .footer-brand .nav-logo {
+      margin-bottom: var(--space-md);
+    }
+    .footer-brand p {
+      font-size: 0.875rem;
+    }
+
+    .footer-col h4 {
+      font-family: var(--font-body);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: var(--space-md);
+    }
+    .footer-col a {
+      display: block;
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      margin-bottom: var(--space-sm);
+    }
+    .footer-col a:hover {
+      color: var(--accent);
+    }
+
+    .footer-social {
+      display: flex;
+      gap: var(--space-sm);
+      margin-top: var(--space-md);
+    }
+    .footer-social a {
+      width: 2.5rem;
+      height: 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      transition: all var(--transition);
+      margin-bottom: 0;
+    }
+    .footer-social a:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .footer-social svg {
+      width: 1.125rem;
+      height: 1.125rem;
+    }
+
+    .footer-bottom {
+      padding-top: var(--space-lg);
+      border-top: 1px solid var(--border-light);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--space-md);
+      font-size: 0.8125rem;
+      color: var(--text-tertiary);
+    }
+
+    /* ============================================================
+       COOKIE CONSENT
+       ============================================================ */
+    .cookie-consent {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: var(--z-cookie);
+      background: var(--elevated);
+      border-top: 1px solid var(--border);
+      padding: var(--space-md) var(--space-lg);
+      display: none;
+      transform: translateY(100%);
+      transition: transform 0.4s ease-out;
+    }
+    .cookie-consent.show {
+      display: block;
+      transform: translateY(0);
+    }
+    .cookie-inner {
+      max-width: var(--content-max);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-lg);
+      flex-wrap: wrap;
+    }
+    .cookie-inner p {
+      font-size: 0.875rem;
+      max-width: 48ch;
+    }
+    .cookie-inner .btn {
+      font-size: 0.8125rem;
+      padding: 0.625rem 1.5rem;
+    }
+
+    /* ============================================================
+       SCROLL REVEAL (Intersection Observer)
+       ============================================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(2rem);
+      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-2rem);
+      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    }
+    .reveal-left.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(2rem);
+      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    }
+    .reveal-right.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal,
+      .reveal-left,
+      .reveal-right {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+      .hero-tagline,
+      .hero h1,
+      .hero p,
+      .hero-actions,
+      .hero-scroll {
+        opacity: 1;
+        animation: none;
+      }
+      .hero-bg img {
+        transform: none;
+        animation: none;
+      }
+      .gallery-grid img {
+        transition: none;
+      }
+      .testimonial-card:hover {
+        transform: none;
+      }
+      html {
+        scroll-behavior: auto;
+      }
+    }
+
+    /* ============================================================
+       RESPONSIVE
+       ============================================================ */
+    @media (max-width: 1024px) {
+      .philosophy-grid,
+      .chef-grid,
+      .reservation-grid,
+      .location-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-xl);
+      }
+      .philosophy-image img,
+      .chef-image img {
+        height: 20rem;
+      }
+      .testimonial-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-xl);
+      }
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+      }
+      .gallery-grid figure:nth-child(1),
+      .gallery-grid figure:nth-child(2),
+      .gallery-grid figure:nth-child(3),
+      .gallery-grid figure:nth-child(4),
+      .gallery-grid figure:nth-child(5) {
+        grid-column: auto;
+        grid-row: auto;
+      }
+      .gallery-grid figure {
+        height: 14rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 var(--space-md);
+      }
+      .section-padding {
+        padding: var(--space-2xl) 0;
+      }
+
+      .nav-links,
+      .nav-actions {
+        display: none;
+      }
+
+      .mobile-menu-btn {
+        display: flex;
+      }
+
+      .mobile-menu {
+        display: block;
+        position: fixed;
+        top: var(--nav-height);
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--surface);
+        z-index: var(--z-nav);
+        padding: var(--space-xl) var(--space-lg);
+        transform: translateX(100%);
+        transition: transform 0.35s ease-out;
+        overflow-y: auto;
+      }
+      .mobile-menu.open {
+        transform: translateX(0);
+      }
+      .mobile-menu a {
+        display: block;
+        padding: var(--space-md) 0;
+        font-family: var(--font-heading);
+        font-size: 1.75rem;
+        color: var(--text-primary);
+        border-bottom: 1px solid var(--border-light);
+      }
+      .mobile-menu a:hover {
+        color: var(--accent);
+      }
+      .mobile-menu .mobile-actions {
+        display: flex;
+        gap: var(--space-sm);
+        margin-top: var(--space-xl);
+        flex-direction: column;
+      }
+      .mobile-menu .mobile-actions .btn {
+        width: 100%;
+        text-align: center;
+      }
+
+      h1 {
+        font-size: clamp(2.2rem, 10vw, 3.5rem);
+      }
+      h2 {
+        font-size: clamp(1.8rem, 7vw, 2.5rem);
+      }
+
+      .hero {
+        min-height: 90vh;
+      }
+      .hero p {
+        font-size: 1rem;
+      }
+      .hero-actions {
+        flex-direction: column;
+        align-items: center;
+      }
+      .hero-actions .btn {
+        width: 100%;
+        max-width: 18rem;
+      }
+
+      .testimonial-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .menu-tabs {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        justify-content: flex-start;
+        padding-bottom: 0;
+      }
+      .menu-tab {
+        white-space: nowrap;
+        padding: var(--space-md) var(--space-md);
+        font-size: 1rem;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-xl);
+      }
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .newsletter-form {
+        flex-direction: column;
+      }
+      .newsletter-form button {
+        width: 100%;
+      }
+
+      .cookie-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+      .gallery-grid figure {
+        height: 12rem;
+      }
+      .reservation-form {
+        padding: var(--space-lg) var(--space-md);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ============================================================
+       NAVIGATION
+       ============================================================ -->
+  <header class="nav" role="banner" id="navbar">
+    <a href="#" class="nav-logo" aria-label="Ember & Vine home">
+      <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="28" height="28" rx="6" fill="currentColor"/>
+        <path d="M14 5c-2 3-4 5-3 9 0 2 1 4 3 5 2-1 3-3 3-5 1-4-1-6-3-9z" fill="var(--bg)"/>
+      </svg>
+      Ember & Vine
+    </a>
+
+    <nav class="nav-links" role="navigation" aria-label="Main navigation">
+      <a href="#philosophy" data-i18n="nav.philosophy">Philosophy</a>
+      <a href="#menu" data-i18n="nav.menu">Menu</a>
+      <a href="#chef" data-i18n="nav.chef">Chef</a>
+      <a href="#gallery" data-i18n="nav.gallery">Gallery</a>
+      <a href="#reservation" data-i18n="nav.reservation">Reserve</a>
+      <a href="#location" data-i18n="nav.location">Location</a>
+    </nav>
+
+    <div class="nav-actions">
+      <div style="position:relative">
+        <button class="lang-btn" id="langBtn" aria-haspopup="true" aria-expanded="false" aria-label="Select language">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="2" y1="12" x2="22" y2="12"/>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          </svg>
+          <span id="langLabel">EN</span>
+        </button>
+        <div class="lang-dropdown" id="langDropdown" role="menu">
+          <button role="menuitem" data-lang="en" class="active">English</button>
+          <button role="menuitem" data-lang="es">Español</button>
+          <button role="menuitem" data-lang="fr">Français</button>
+          <button role="menuitem" data-lang="de">Deutsch</button>
+          <button role="menuitem" data-lang="it">Italiano</button>
+          <button role="menuitem" data-lang="pt">Português</button>
+        </div>
+      </div>
+
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark and light mode">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="themeIcon">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle mobile menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobile navigation">
+    <a href="#philosophy" data-i18n="nav.philosophy">Philosophy</a>
+    <a href="#menu" data-i18n="nav.menu">Menu</a>
+    <a href="#chef" data-i18n="nav.chef">Chef</a>
+    <a href="#gallery" data-i18n="nav.gallery">Gallery</a>
+    <a href="#reservation" data-i18n="nav.reservation">Reserve</a>
+    <a href="#location" data-i18n="nav.location">Location</a>
+    <div class="mobile-actions">
+      <a href="#reservation" class="btn btn-primary" data-i18n="nav.book">Book a Table</a>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <section class="hero" id="hero" aria-label="Welcome to Ember & Vine">
+    <div class="hero-bg">
+      <picture>
+        <source srcset="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1920&q=80 1920w,
+                        https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&q=80 1200w,
+                        https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80 800w"
+                sizes="100vw">
+        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1600&q=80"
+             alt="Warm interior of a fine dining restaurant with candlelit tables and exposed brick"
+             loading="eager"
+             fetchpriority="high">
+      </picture>
+    </div>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <p class="hero-tagline" data-i18n="hero.tagline">Est. 2022</p>
+      <h1 data-i18n="hero.title">Ember & Vine</h1>
+      <p data-i18n="hero.subtitle">Where the earth meets the table. Seasonal ingredients, wood-fired craft, and wines that tell a story.</p>
+      <div class="hero-actions">
+        <a href="#reservation" class="btn btn-primary" data-i18n="hero.cta.primary">Reserve a Table</a>
+        <a href="#menu" class="btn btn-outline" data-i18n="hero.cta.secondary">Explore the Menu</a>
+      </div>
+    </div>
+
+    <div class="hero-scroll" aria-hidden="true">
+      <span data-i18n="hero.scroll">Scroll</span>
+      <div class="hero-scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PHILOSOPHY
+       ============================================================ -->
+  <section class="philosophy section-padding" id="philosophy">
+    <div class="container philosophy-grid">
+      <div class="philosophy-text reveal-left">
+        <span class="section-label" data-i18n="philosophy.label">Our Ethos</span>
+        <h2 data-i18n="philosophy.title">Rooted in the Seasons</h2>
+        <div class="gold-divider"></div>
+        <p data-i18n="philosophy.p1">Every dish at Ember & Vine begins with the land. We work directly with small farms, foragers, and fisheries who share our reverence for ingredient integrity. Our menu changes with the rhythm of the seasons — not out of trend, but out of respect.</p>
+        <p data-i18n="philosophy.p2">The hearth is our heart. Wood-fire cooking imparts a depth that gas cannot replicate — a primal connection to the element that has gathered humans around meals for millennia. Each ember, each vine, carries the memory of the sun that grew it.</p>
+      </div>
+      <div class="philosophy-image reveal-right">
+        <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=800&q=80"
+             alt="Fresh seasonal vegetables and herbs arranged on a wooden table in a rustic kitchen"
+             loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SEASONAL MENU
+       ============================================================ -->
+  <section class="menu section-padding" id="menu">
+    <div class="container">
+      <div class="menu-header reveal">
+        <span class="section-label" data-i18n="menu.label">The Menu</span>
+        <h2 data-i18n="menu.title">Seasonal Offerings</h2>
+        <div class="gold-divider"></div>
+      </div>
+
+      <div class="menu-tabs" role="tablist" aria-label="Menu courses">
+        <button class="menu-tab active" role="tab" aria-selected="true" data-tab="starters" data-i18n="menu.tab1">Starters</button>
+        <button class="menu-tab" role="tab" aria-selected="false" data-tab="mains" data-i18n="menu.tab2">Mains</button>
+        <button class="menu-tab" role="tab" aria-selected="false" data-tab="desserts" data-i18n="menu.tab3">Desserts</button>
+        <button class="menu-tab" role="tab" aria-selected="false" data-tab="wines" data-i18n="menu.tab4">Wines</button>
+      </div>
+
+      <!-- Starters -->
+      <div class="menu-panel active" id="panel-starters" role="tabpanel" aria-label="Starters">
+        <div class="menu-item reveal">
+          <div class="menu-item-info">
+            <h4 data-i18n="menu.starters.1.name">Burrata & Heirloom Tomatoes</h4>
+            <p data-i18n="menu.starters.1.desc">Creamy burrata, vine-ripened heirloom tomatoes, basil oil, aged balsamic, toasted sourdough</p>
+          </div>
+          <span class="menu-item-price">€18</span>
+        </div>
+        <div class="menu-item reveal">
+          <div class="menu-item-info">
+            <h4 data-i18n="menu.starters.2.name">Charred Octopus</h4>
+            <p data-i18n="menu.starters.2.desc">Wood-grilled octopus, smoked paprika aioli, pickled fennel, micro greens, lemon</p>
+          </div>
+          <span class="menu-item-price">€22</span>
+        </div>
+        <div class="menu-item reveal">
+          <div class="menu-item-info">
+            <h4 data-i18n="menu.starters.3.name">Wild Mushroom Tart</h4>
+            <p data-i18n="menu.starters.3.desc">Chanterelle, porcini & shiitake, thyme custard, parmesan crisp, truffle oil</p>
+          </div>
+          <span class="menu-item-price">€19</span>
+        </div>
+        <div class="menu-item reveal">
+          <div class="menu-item-info">
+            <h4 data-i18n="menu.starters.4.name">Roasted Beetroot Salad</h4>
+            <p data-i18n="menu.starters.4.desc">Honey-roasted beets, whipped goat cheese, candied walnuts, sorrel, cider vinaigrette</p>
+          </div>
+          <span class="menu-item-price">€16</span>
+        </div>
+      </div>
+
+      <!-- Mains -->
+      <div class="menu-panel" id="panel-mains" role="tabpanel" aria-label="Mains">
+        <div class="menu-item reveal">
+          <div class="menu-item-info">
+            <h4 data-i18n="menu.mains.1.name">Wood-Fired Ribeye</h4>
+            <p data-i18n="menu.mains.1.desc">350g dry-aged ribeye, charred spring onions, roasted bone marrow butter, hand-cut chips</p>
+          </div>
+          <span class="menu-item-price">€42</span>
+        </div>
+        <div class="menu-item reveal">
+          <div class="menu-item-info">
+            <h4 data-i18n="menu.mains.2.name">Pan-Seared Sea Bass</h4>
+            <p data-i18n="menu.mains.2.desc">Line-caught sea bass, saffron beurre blanc, samphire, crushed new potatoes, caper berries</p>
+          </div>
+          <span class="menu-item-price">€34</span>
+        </div>
+        <div class="menu-item reveal">
+          <div class="menu-item-info">
+            <h4 data-i18n="menu.mains.3.name">Herb-Roasted Lamb Rack</h4>
+            <p data-i18n="menu.mains.3.desc">New Zealand lamb, rosemary & garlic crust, confit tomatoes, olive-oil mashed potatoes</p>
+          </div>
+          <span class="menu-item-price">€38</span>
+        </div>
+        <div class="menu-item reveal">
+          <div class="menu-item-info">
+            <h4 data-i18n="menu.mains.4.name">Roasted Pumpkin Risotto</h4>
+            <p data-i18n="menu.mains.4.desc">Carnaroli rice, roasted butternut squash, sage brown butter, aged pecorino, hazelnuts</p>
+          </div>
+          <span class="menu-item-price">€24</span>
+        </div>
+      </div>
+
+      <!-- Desserts -->
+      <div class="menu-panel" id="panel-desserts" role="tabpanel" aria-label="Desserts">
+        <div class="menu-item reveal">
+          <div class="menu-item-info">
+            <h4 data-i18n="menu.desserts.1.name">Dark Chocolate Fondant</h4>
+            <p data-i18n="menu.desserts.1.desc">Valrhona 70% chocolate, vanilla bean ice cream, salted caramel, cocoa crumb</p>
+          </div>
+          <span class="menu-item-price">€16</span>
+        </div>
+        <div class="menu-item reveal">
+          <div class="menu-item-info">
+            <h4 data-i18n="menu.desserts.2.name">Lemon & Thyme Panna Cotta</h4>
+            <p data-i18n="menu.desserts.2.desc">Silky panna cotta, roasted lemon gel, thyme shortbread, wild berry compote</p>
+          </div>
+          <span class="menu-item-price">€14</span>
+        </div>
+        <div class="menu-item reveal">
+          <div class="menu-item-info">
+            <h4 data-i18n="menu.desserts.3.name">Baked Fig & Honey</h4>
+            <p data-i18n="menu.desserts.3.desc">Warm baked figs, local wildflower honey, mascarpone cream, pistachio brittle</p>
+          </div>
+          <span class="menu-item-price">€15</span>
+        </div>
+        <div class="menu-item reveal">
+          <div class="menu-item-info">
+            <h4 data-i18n="menu.desserts.4.name">Artisan Cheese Board</h4>
+            <p data-i18n="menu.desserts.4.desc">Selection of Irish & French cheeses, quince paste, walnut bread, honeycomb</p>
+          </div>
+          <span class="menu-item-price">€18</span>
+        </div>
+      </div>
+
+      <!-- Wines -->
+      <div class="menu-panel" id="panel-wines" role="tabpanel" aria-label="Wines">
+        <div class="menu-item reveal">
+          <div class="menu-item-info">
+            <h4 data-i18n="menu.wines.1.name">Chablis Premier Cru 2021</h4>
+            <p data-i18n="menu.wines.1.desc">Domaine Pattes Loup, Burgundy — mineral-driven, citrus & wet stone, elegant finish</p>
+          </div>
+          <span class="menu-item-price">€68</span>
+        </div>
+        <div class="menu-item reveal">
+          <div class="menu-item-info">
+            <h4 data-i18n="menu.wines.2.name">Barolo DOCG 2018</h4>
+            <p data-i18n="menu.wines.2.desc">Cascina delle Rose, Piedmont — rose, cherry, tar, full-bodied with silky tannins</p>
+          </div>
+          <span class="menu-item-price">€85</span>
+        </div>
+        <div class="menu-item reveal">
+          <div class="menu-item-info">
+            <h4 data-i18n="menu.wines.3.name">Sancerre Rouge 2022</h4>
+            <p data-i18n="menu.wines.3.desc">Domaine Vacheron, Loire — pinot noir, bright red fruit, flinty, chillable</p>
+          </div>
+          <span class="menu-item-price">€54</span>
+        </div>
+        <div class="menu-item reveal">
+          <div class="menu-item-info">
+            <h4 data-i18n="menu.wines.4.name">Vin de Constance 2016</h4>
+            <p data-i18n="menu.wines.4.desc">Klein Constantia, South Africa — legendary sweet wine, apricot, honey, 500ml</p>
+          </div>
+          <span class="menu-item-price">€45</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CHEF
+       ============================================================ -->
+  <section class="chef section-padding" id="chef">
+    <div class="container chef-grid">
+      <div class="chef-image reveal-left">
+        <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=800&q=80"
+             alt="Chef Elena Voss in the restaurant kitchen, preparing a dish with fresh ingredients"
+             loading="lazy">
+      </div>
+      <div class="chef-text reveal-right">
+        <span class="section-label" data-i18n="chef.label">The Visionary</span>
+        <h2 data-i18n="chef.title">Chef Elena Voss</h2>
+        <div class="gold-divider"></div>
+        <p data-i18n="chef.p1">Elena Voss learned the language of ingredients on her grandmother's farm in Tuscany and refined her craft in Michelin-starred kitchens across Copenhagen, San Sebastian, and Melbourne. At Ember & Vine, she brings that global perspective to a single, essential question: what does this season taste like?</p>
+        <p data-i18n="chef.p2">Her cooking is intuitive yet precise — each plate a quiet composition of texture, temperature, and memory. She believes the best meals are the ones that make you pause, breathe, and notice the world around you.</p>
+        <p class="chef-name" data-i18n="chef.signoff">— Elena Voss</p>
+        <p class="chef-role" data-i18n="chef.role">Executive Chef & Founder</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       TESTIMONIALS
+       ============================================================ -->
+  <section class="testimonials section-padding" id="testimonials">
+    <div class="container">
+      <div class="reveal">
+        <h2 data-i18n="testimonials.title">What They Say</h2>
+        <div class="gold-divider"></div>
+      </div>
+      <div class="testimonial-grid">
+        <div class="testimonial-card reveal">
+          <div class="testimonial-stars" aria-label="5 out of 5 stars">
+            <svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.44.91-5.32L2.27 6.6l5.34-.78L10 1z"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.44.91-5.32L2.27 6.6l5.34-.78L10 1z"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.44.91-5.32L2.27 6.6l5.34-.78L10 1z"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.44.91-5.32L2.27 6.6l5.34-.78L10 1z"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.44.91-5.32L2.27 6.6l5.34-.78L10 1z"/></svg>
+          </div>
+          <blockquote data-i18n="testimonials.1.quote">"Ember & Vine redefines what farm-to-table can mean. The wood-fired ribeye alone is worth the journey — deep, smoky, impossibly tender."</blockquote>
+          <div class="testimonial-author">
+            <img src="https://ui-avatars.com/api/?name=Clara+M&background=C9A84C&color=120A08&size=80&font-size=0.35" alt="Clara M" loading="lazy">
+            <div class="testimonial-author-info">
+              <strong data-i18n="testimonials.1.name">Clara M.</strong>
+              <span data-i18n="testimonials.1.source">Financial Times</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card reveal">
+          <div class="testimonial-stars" aria-label="5 out of 5 stars">
+            <svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.44.91-5.32L2.27 6.6l5.34-.78L10 1z"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.44.91-5.32L2.27 6.6l5.34-.78L10 1z"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.44.91-5.32L2.27 6.6l5.34-.78L10 1z"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.44.91-5.32L2.27 6.6l5.34-.78L10 1z"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.44.91-5.32L2.27 6.6l5.34-.78L10 1z"/></svg>
+          </div>
+          <blockquote data-i18n="testimonials.2.quote">"The wine list reads like a love letter to small producers. Every pour has a story, and the sommelier tells it without pretension."</blockquote>
+          <div class="testimonial-author">
+            <img src="https://ui-avatars.com/api/?name=Marcus+W&background=C9A84C&color=120A08&size=80&font-size=0.35" alt="Marcus W" loading="lazy">
+            <div class="testimonial-author-info">
+              <strong data-i18n="testimonials.2.name">Marcus W.</strong>
+              <span data-i18n="testimonials.2.source">The World's 50 Best</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card reveal">
+          <div class="testimonial-stars" aria-label="5 out of 5 stars">
+            <svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.44.91-5.32L2.27 6.6l5.34-.78L10 1z"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.44.91-5.32L2.27 6.6l5.34-.78L10 1z"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.44.91-5.32L2.27 6.6l5.34-.78L10 1z"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.44.91-5.32L2.27 6.6l5.34-.78L10 1z"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.44.91-5.32L2.27 6.6l5.34-.78L10 1z"/></svg>
+          </div>
+          <blockquote data-i18n="testimonials.3.quote">"I have dined in forty-three countries. The chocolate fondant at Ember & Vine is the best dessert I have had in a decade."</blockquote>
+          <div class="testimonial-author">
+            <img src="https://ui-avatars.com/api/?name=Yuki+T&background=C9A84C&color=120A08&size=80&font-size=0.35" alt="Yuki T" loading="lazy">
+            <div class="testimonial-author-info">
+              <strong data-i18n="testimonials.3.name">Yuki T.</strong>
+              <span data-i18n="testimonials.3.source">Michelin Guide Inspector (ret.)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       GALLERY
+       ============================================================ -->
+  <section class="gallery section-padding" id="gallery">
+    <div class="container">
+      <div class="reveal">
+        <h2 data-i18n="gallery.title">The Ember & Vine Experience</h2>
+        <div class="gold-divider" style="margin:var(--space-md) auto var(--space-2xl)"></div>
+      </div>
+    </div>
+    <div class="gallery-grid container-wide" style="padding:0 var(--space-lg)">
+      <figure class="reveal" data-src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=1200&q=80">
+        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&q=60"
+             alt="Beautifully plated salad with edible flowers on a dark plate"
+             loading="lazy">
+      </figure>
+      <figure class="reveal" data-src="https://images.unsplash.com/photo-1476124369491-e7addf5db371?w=1200&q=80">
+        <img src="https://images.unsplash.com/photo-1476124369491-e7addf5db371?w=600&q=60"
+             alt="Glass of natural wine being poured at a candlelit table"
+             loading="lazy">
+      </figure>
+      <figure class="reveal" data-src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=1200&q=80">
+        <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=600&q=60"
+             alt="Open kitchen with wood-fired oven glowing warmly"
+             loading="lazy">
+      </figure>
+      <figure class="reveal" data-src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1200&q=80">
+        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=60"
+             alt="Elegant dining room with warm lighting and natural decor"
+             loading="lazy">
+      </figure>
+      <figure class="reveal" data-src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1200&q=80">
+        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=60"
+             alt="Wood-fired steak being carved at the table"
+             loading="lazy">
+      </figure>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+      <button class="lightbox-close" id="lightboxClose" aria-label="Close image viewer">&times;</button>
+      <img src="" alt="" id="lightboxImg">
+    </div>
+  </section>
+
+  <!-- ============================================================
+       RESERVATION
+       ============================================================ -->
+  <section class="reservation section-padding" id="reservation">
+    <div class="container reservation-grid">
+      <div class="reservation-info reveal-left">
+        <span class="section-label" data-i18n="reservation.label">Reservations</span>
+        <h2 data-i18n="reservation.title">Book Your Evening</h2>
+        <div class="gold-divider"></div>
+        <p data-i18n="reservation.p">We welcome guests for dinner Wednesday through Monday. For parties larger than eight, please contact us directly and we will curate a bespoke experience for your group.</p>
+
+        <div class="reservation-detail">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+            <line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/>
+            <line x1="3" y1="10" x2="21" y2="10"/>
+          </svg>
+          <div>
+            <strong data-i18n="reservation.hours.title">Opening Hours</strong>
+            <span data-i18n="reservation.hours.text">Wednesday — Monday · 18:00 — 23:00</span>
+          </div>
+        </div>
+
+        <div class="reservation-detail">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+          <div>
+            <strong data-i18n="reservation.email.title">Email</strong>
+            <span>reservations@emberandvine.com</span>
+          </div>
+        </div>
+
+        <div class="reservation-detail">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          <div>
+            <strong data-i18n="reservation.phone.title">Phone</strong>
+            <span>+353 1 234 5678</span>
+          </div>
+        </div>
+      </div>
+
+      <form class="reservation-form reveal-right" id="reservationForm" novalidate>
+        <h3 data-i18n="reservation.form.title">Make a Reservation</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="resName" data-i18n="reservation.form.name">Full Name</label>
+            <input type="text" id="resName" name="name" required placeholder="e.g. Alex Rivera" data-i18n-placeholder="reservation.form.namePlaceholder">
+          </div>
+          <div class="form-group">
+            <label for="resEmail" data-i18n="reservation.form.email">Email</label>
+            <input type="email" id="resEmail" name="email" required placeholder="alex@example.com">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="resDate" data-i18n="reservation.form.date">Date</label>
+            <input type="date" id="resDate" name="date" required min="">
+          </div>
+          <div class="form-group">
+            <label for="resTime" data-i18n="reservation.form.time">Time</label>
+            <select id="resTime" name="time" required>
+              <option value="18:00">18:00</option>
+              <option value="18:30">18:30</option>
+              <option value="19:00">19:00</option>
+              <option value="19:30">19:30</option>
+              <option value="20:00">20:00</option>
+              <option value="20:30">20:30</option>
+              <option value="21:00">21:00</option>
+              <option value="21:30">21:30</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="resGuests" data-i18n="reservation.form.guests">Guests</label>
+            <select id="resGuests" name="guests" required>
+              <option value="1">1</option>
+              <option value="2" selected>2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="resPhone" data-i18n="reservation.form.phone">Phone</label>
+            <input type="tel" id="resPhone" name="phone" placeholder="+353 87 123 4567">
+          </div>
+        </div>
+        <div class="form-group full">
+          <label for="resNotes" data-i18n="reservation.form.notes">Special Requests</label>
+          <textarea id="resNotes" name="notes" data-i18n-placeholder="reservation.form.notesPlaceholder" placeholder="Allergies, celebrations, seating preferences…"></textarea>
+        </div>
+        <button type="submit" class="form-submit" data-i18n="reservation.form.submit">Confirm Reservation</button>
+        <p style="text-align:center;margin-top:var(--space-sm);font-size:0.8125rem;color:var(--text-tertiary)" data-i18n="reservation.form.note">We will confirm your reservation within 2 hours.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       LOCATION & HOURS
+       ============================================================ -->
+  <section class="section-padding" id="location">
+    <div class="container location-grid">
+      <div class="location-info reveal-left">
+        <span class="section-label" data-i18n="location.label">Find Us</span>
+        <h2 data-i18n="location.title">Visit Ember & Vine</h2>
+        <div class="gold-divider"></div>
+        <p data-i18n="location.p">Nestled in the heart of Dublin's creative quarter, our dining room seats forty-eight guests around tables made from reclaimed Irish oak. The open hearth anchors the space — a reminder that fire, food, and fellowship are among humanity's oldest pleasures.</p>
+
+        <div class="reservation-detail" style="margin-top:var(--space-lg)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+          <div>
+            <strong data-i18n="location.address.title">Address</strong>
+            <span data-i18n="location.address.text">42 Wellington Quay, Dublin 2, D02 YX63, Ireland</span>
+          </div>
+        </div>
+
+        <div class="hours-table">
+          <div class="hours-row">
+            <span class="day" data-i18n="location.hours.mon">Monday</span>
+            <span class="time">18:00 — 23:00</span>
+          </div>
+          <div class="hours-row">
+            <span class="day" data-i18n="location.hours.tue">Tuesday</span>
+            <span class="time" data-i18n="location.hours.closed">Closed</span>
+          </div>
+          <div class="hours-row">
+            <span class="day" data-i18n="location.hours.wed">Wednesday</span>
+            <span class="time">18:00 — 23:00</span>
+          </div>
+          <div class="hours-row">
+            <span class="day" data-i18n="location.hours.thu">Thursday</span>
+            <span class="time">18:00 — 23:00</span>
+          </div>
+          <div class="hours-row">
+            <span class="day" data-i18n="location.hours.fri">Friday</span>
+            <span class="time">18:00 — 23:30</span>
+          </div>
+          <div class="hours-row">
+            <span class="day" data-i18n="location.hours.sat">Saturday</span>
+            <span class="time">17:30 — 23:30</span>
+          </div>
+          <div class="hours-row">
+            <span class="day" data-i18n="location.hours.sun">Sunday</span>
+            <span class="time">17:30 — 22:00</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal-right">
+        <div class="location-map" role="img" aria-label="Map showing Ember & Vine at 42 Wellington Quay, Dublin 2">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+          <span data-i18n="location.map">42 Wellington Quay, Dublin 2</span>
+          <span style="font-size:0.8125rem;color:var(--text-tertiary)" data-i18n="location.mapHint">Map loading — interactive directions available on request</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       NEWSLETTER
+       ============================================================ -->
+  <section class="newsletter section-padding" id="newsletter">
+    <div class="container container-narrow reveal">
+      <h2 data-i18n="newsletter.title">The Seasonal Table</h2>
+      <div class="gold-divider" style="margin:var(--space-md) auto"></div>
+      <p data-i18n="newsletter.p">Subscribe to receive our monthly menu preview, wine pairings from our sommelier, and invitations to exclusive chef's table evenings.</p>
+      <form class="newsletter-form" id="newsletterForm">
+        <input type="email" id="newsletterEmail" placeholder="your@email.com" required aria-label="Email address">
+        <button type="submit" data-i18n="newsletter.cta">Subscribe</button>
+      </form>
+      <div class="newsletter-message" id="newsletterMessage" role="status"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="nav-logo" aria-label="Ember & Vine home">
+            <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="28" height="28" rx="6" fill="currentColor"/>
+              <path d="M14 5c-2 3-4 5-3 9 0 2 1 4 3 5 2-1 3-3 3-5 1-4-1-6-3-9z" fill="var(--bg)"/>
+            </svg>
+            Ember & Vine
+          </a>
+          <p data-i18n="footer.tagline">Seasonal ingredients, wood-fired craft, and wines that tell a story — since 2022.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Instagram" title="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+              </svg>
+            </a>
+            <a href="#" aria-label="Twitter / X" title="Twitter / X">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4l11.733 16h4.267l-11.733 -16zM4 20l6.768 -6.768M17.232 6.232l-3.696 5.4"/>
+              </svg>
+            </a>
+            <a href="#" aria-label="Facebook" title="Facebook">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+              </svg>
+            </a>
+            <a href="#" aria-label="TripAdvisor" title="TripAdvisor">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="5" cy="12" r="3"/><circle cx="19" cy="12" r="3"/>
+                <path d="M12 10c-2 0-4 2-4 4s2 4 4 4 4-2 4-4-2-4-4-4z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4 data-i18n="footer.nav.title">Navigation</h4>
+          <a href="#philosophy" data-i18n="nav.philosophy">Philosophy</a>
+          <a href="#menu" data-i18n="nav.menu">Menu</a>
+          <a href="#chef" data-i18n="nav.chef">Chef</a>
+          <a href="#gallery" data-i18n="nav.gallery">Gallery</a>
+          <a href="#reservation" data-i18n="nav.reservation">Reserve</a>
+        </div>
+
+        <div class="footer-col">
+          <h4 data-i18n="footer.contact.title">Contact</h4>
+          <a href="mailto:reservations@emberandvine.com">reservations@emberandvine.com</a>
+          <a href="tel:+35312345678">+353 1 234 5678</a>
+          <a href="#location" data-i18n="footer.contact.address">42 Wellington Quay, Dublin 2</a>
+        </div>
+
+        <div class="footer-col">
+          <h4 data-i18n="footer.info.title">Info</h4>
+          <a href="#" data-i18n="footer.info.privacy">Privacy Policy</a>
+          <a href="#" data-i18n="footer.info.careers">Careers</a>
+          <a href="#" data-i18n="footer.info.press">Press</a>
+          <a href="#" data-i18n="footer.info.gift">Gift Vouchers</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 Ember & Vine. <span data-i18n="footer.copyright">All rights reserved.</span></span>
+        <span data-i18n="footer.credit">Built with care, from our hearth to yours.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       COOKIE CONSENT
+       ============================================================ -->
+  <div class="cookie-consent" id="cookieConsent" role="dialog" aria-label="Cookie consent">
+    <div class="cookie-inner">
+      <p data-i18n="cookie.text">We use essential cookies to ensure the best experience on our website. By continuing, you agree to our use of cookies.</p>
+      <div style="display:flex;gap:var(--space-sm);flex-shrink:0">
+        <button class="btn btn-primary" id="cookieAccept" data-i18n="cookie.accept">Accept</button>
+        <button class="btn btn-outline" id="cookieDecline" data-i18n="cookie.decline">Decline</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    /* ============================================================
+       i18n — Translations (6 languages)
+       ============================================================ */
+    const TRANSLATIONS = {
+      en: {
+        nav: {
+          philosophy: 'Philosophy',
+          menu: 'Menu',
+          chef: 'Chef',
+          gallery: 'Gallery',
+          reservation: 'Reserve',
+          location: 'Location',
+          book: 'Book a Table'
+        },
+        hero: {
+          tagline: 'Est. 2022',
+          title: 'Ember & Vine',
+          subtitle: 'Where the earth meets the table. Seasonal ingredients, wood-fired craft, and wines that tell a story.',
+          cta: { primary: 'Reserve a Table', secondary: 'Explore the Menu' },
+          scroll: 'Scroll'
+        },
+        philosophy: {
+          label: 'Our Ethos',
+          title: 'Rooted in the Seasons',
+          p1: 'Every dish at Ember & Vine begins with the land. We work directly with small farms, foragers, and fisheries who share our reverence for ingredient integrity. Our menu changes with the rhythm of the seasons — not out of trend, but out of respect.',
+          p2: 'The hearth is our heart. Wood-fire cooking imparts a depth that gas cannot replicate — a primal connection to the element that has gathered humans around meals for millennia. Each ember, each vine, carries the memory of the sun that grew it.'
+        },
+        menu: {
+          label: 'The Menu',
+          title: 'Seasonal Offerings',
+          tab1: 'Starters',
+          tab2: 'Mains',
+          tab3: 'Desserts',
+          tab4: 'Wines',
+          starters: {
+            '1': { name: 'Burrata & Heirloom Tomatoes', desc: 'Creamy burrata, vine-ripened heirloom tomatoes, basil oil, aged balsamic, toasted sourdough' },
+            '2': { name: 'Charred Octopus', desc: 'Wood-grilled octopus, smoked paprika aioli, pickled fennel, micro greens, lemon' },
+            '3': { name: 'Wild Mushroom Tart', desc: 'Chanterelle, porcini & shiitake, thyme custard, parmesan crisp, truffle oil' },
+            '4': { name: 'Roasted Beetroot Salad', desc: 'Honey-roasted beets, whipped goat cheese, candied walnuts, sorrel, cider vinaigrette' }
+          },
+          mains: {
+            '1': { name: 'Wood-Fired Ribeye', desc: '350g dry-aged ribeye, charred spring onions, roasted bone marrow butter, hand-cut chips' },
+            '2': { name: 'Pan-Seared Sea Bass', desc: 'Line-caught sea bass, saffron beurre blanc, samphire, crushed new potatoes, caper berries' },
+            '3': { name: 'Herb-Roasted Lamb Rack', desc: 'New Zealand lamb, rosemary & garlic crust, confit tomatoes, olive-oil mashed potatoes' },
+            '4': { name: 'Roasted Pumpkin Risotto', desc: 'Carnaroli rice, roasted butternut squash, sage brown butter, aged pecorino, hazelnuts' }
+          },
+          desserts: {
+            '1': { name: 'Dark Chocolate Fondant', desc: 'Valrhona 70% chocolate, vanilla bean ice cream, salted caramel, cocoa crumb' },
+            '2': { name: 'Lemon & Thyme Panna Cotta', desc: 'Silky panna cotta, roasted lemon gel, thyme shortbread, wild berry compote' },
+            '3': { name: 'Baked Fig & Honey', desc: 'Warm baked figs, local wildflower honey, mascarpone cream, pistachio brittle' },
+            '4': { name: 'Artisan Cheese Board', desc: 'Selection of Irish & French cheeses, quince paste, walnut bread, honeycomb' }
+          },
+          wines: {
+            '1': { name: 'Chablis Premier Cru 2021', desc: 'Domaine Pattes Loup, Burgundy — mineral-driven, citrus & wet stone, elegant finish' },
+            '2': { name: 'Barolo DOCG 2018', desc: 'Cascina delle Rose, Piedmont — rose, cherry, tar, full-bodied with silky tannins' },
+            '3': { name: 'Sancerre Rouge 2022', desc: 'Domaine Vacheron, Loire — pinot noir, bright red fruit, flinty, chillable' },
+            '4': { name: 'Vin de Constance 2016', desc: 'Klein Constantia, South Africa — legendary sweet wine, apricot, honey, 500ml' }
+          }
+        },
+        chef: {
+          label: 'The Visionary',
+          title: 'Chef Elena Voss',
+          p1: 'Elena Voss learned the language of ingredients on her grandmother\'s farm in Tuscany and refined her craft in Michelin-starred kitchens across Copenhagen, San Sebastian, and Melbourne. At Ember & Vine, she brings that global perspective to a single, essential question: what does this season taste like?',
+          p2: 'Her cooking is intuitive yet precise — each plate a quiet composition of texture, temperature, and memory. She believes the best meals are the ones that make you pause, breathe, and notice the world around you.',
+          signoff: '— Elena Voss',
+          role: 'Executive Chef & Founder'
+        },
+        testimonials: {
+          title: 'What They Say',
+          '1': { quote: '"Ember & Vine redefines what farm-to-table can mean. The wood-fired ribeye alone is worth the journey — deep, smoky, impossibly tender."', name: 'Clara M.', source: 'Financial Times' },
+          '2': { quote: '"The wine list reads like a love letter to small producers. Every pour has a story, and the sommelier tells it without pretension."', name: 'Marcus W.', source: "The World's 50 Best" },
+          '3': { quote: '"I have dined in forty-three countries. The chocolate fondant at Ember & Vine is the best dessert I have had in a decade."', name: 'Yuki T.', source: 'Michelin Guide Inspector (ret.)' }
+        },
+        gallery: { title: 'The Ember & Vine Experience' },
+        reservation: {
+          label: 'Reservations',
+          title: 'Book Your Evening',
+          p: 'We welcome guests for dinner Wednesday through Monday. For parties larger than eight, please contact us directly and we will curate a bespoke experience for your group.',
+          hours: { title: 'Opening Hours', text: 'Wednesday — Monday · 18:00 — 23:00' },
+          email: { title: 'Email' },
+          phone: { title: 'Phone' },
+          form: {
+            title: 'Make a Reservation',
+            name: 'Full Name',
+            namePlaceholder: 'e.g. Alex Rivera',
+            email: 'Email',
+            date: 'Date',
+            time: 'Time',
+            guests: 'Guests',
+            phone: 'Phone',
+            notes: 'Special Requests',
+            notesPlaceholder: 'Allergies, celebrations, seating preferences…',
+            submit: 'Confirm Reservation',
+            note: 'We will confirm your reservation within 2 hours.'
+          }
+        },
+        location: {
+          label: 'Find Us',
+          title: 'Visit Ember & Vine',
+          p: 'Nestled in the heart of Dublin\'s creative quarter, our dining room seats forty-eight guests around tables made from reclaimed Irish oak. The open hearth anchors the space — a reminder that fire, food, and fellowship are among humanity\'s oldest pleasures.',
+          address: { title: 'Address', text: '42 Wellington Quay, Dublin 2, D02 YX63, Ireland' },
+          hours: { mon: 'Monday', tue: 'Tuesday', wed: 'Wednesday', thu: 'Thursday', fri: 'Friday', sat: 'Saturday', sun: 'Sunday', closed: 'Closed' },
+          map: '42 Wellington Quay, Dublin 2',
+          mapHint: 'Map loading — interactive directions available on request'
+        },
+        newsletter: {
+          title: 'The Seasonal Table',
+          p: 'Subscribe to receive our monthly menu preview, wine pairings from our sommelier, and invitations to exclusive chef\'s table evenings.',
+          cta: 'Subscribe'
+        },
+        footer: {
+          tagline: 'Seasonal ingredients, wood-fired craft, and wines that tell a story — since 2022.',
+          copyright: 'All rights reserved.',
+          credit: 'Built with care, from our hearth to yours.',
+          nav: { title: 'Navigation' },
+          contact: { title: 'Contact', address: '42 Wellington Quay, Dublin 2' },
+          info: { title: 'Info', privacy: 'Privacy Policy', careers: 'Careers', press: 'Press', gift: 'Gift Vouchers' }
+        },
+        cookie: {
+          text: 'We use essential cookies to ensure the best experience on our website. By continuing, you agree to our use of cookies.',
+          accept: 'Accept',
+          decline: 'Decline'
+        }
+      },
+
+      es: {
+        nav: { philosophy: 'Filosofía', menu: 'Menú', chef: 'Chef', gallery: 'Galería', reservation: 'Reservas', location: 'Ubicación', book: 'Reservar Mesa' },
+        hero: {
+          tagline: 'Desde 2022',
+          title: 'Ember & Vine',
+          subtitle: 'Donde la tierra se encuentra con la mesa. Ingredientes de temporada, cocina a leña y vinos que cuentan una historia.',
+          cta: { primary: 'Reservar Mesa', secondary: 'Explorar el Menú' },
+          scroll: 'Desplázate'
+        },
+        philosophy: {
+          label: 'Nuestro Espíritu',
+          title: 'Enraizados en las Estaciones',
+          p1: 'Cada plato en Ember & Vine comienza en la tierra. Trabajamos directamente con pequeños agricultores, recolectores y pescadores que comparten nuestro respeto por la integridad del ingrediente. Nuestro menú cambia al ritmo de las estaciones, no por moda, sino por respeto.',
+          p2: 'El hogar es nuestro corazón. La cocina a leña aporta una profundidad que el gas no puede replicar: una conexión primal con el elemento que ha reunido a los humanos alrededor de la comida durante milenios.'
+        },
+        menu: {
+          label: 'El Menú', title: 'Ofertas de Temporada', tab1: 'Entrantes', tab2: 'Platos Principales', tab3: 'Postres', tab4: 'Vinos',
+          starters: {
+            '1': { name: 'Burrata y Tomates Heritage', desc: 'Burrata cremosa, tomates heritage madurados al sol, aceite de albahaca, balsámico añejo, pan tostado' },
+            '2': { name: 'Pulpo Carbonizado', desc: 'Pulpo a la parrilla, alioli de pimentón ahumado, hinojo encurtido, microgreens, limón' },
+            '3': { name: 'Tarta de Setas Silvestres', desc: 'Chanterelle, porcini y shiitake, crema de tomillo, crujiente de parmesano, aceite de trufa' },
+            '4': { name: 'Ensalada de Remolacha Asada', desc: 'Remolacha asada con miel, queso de cabra batido, nueces caramelizadas, vinagreta de sidra' }
+          },
+          mains: {
+            '1': { name: 'Ribeye a la Leña', desc: 'Ribeye madurado de 350g, cebollas tiernas carbonizadas, mantequilla de médula ósea, patatas caseras' },
+            '2': { name: 'Lubina a la Plancha', desc: 'Lubina de línea, beurre blanc de azafrán, salicornia, patatas nuevas aplastadas, alcaparras' },
+            '3': { name: 'Cordero Asado con Hierbas', desc: 'Cordero de Nueva Zelanda, costra de romero y ajo, tomates confitados, puré de patatas con aceite de oliva' },
+            '4': { name: 'Risotto de Calabaza Asada', desc: 'Arroz carnaroli, calabaza asada, mantequilla dorada con salvia, pecorino añejo, avellanas' }
+          },
+          desserts: {
+            '1': { name: 'Fondant de Chocolate Negro', desc: 'Chocolate Valrhona 70%, helado de vainilla, caramelo salado, crujiente de cacao' },
+            '2': { name: 'Panna Cotta de Limón y Tomillo', desc: 'Panna cotta sedosa, gel de limón asado, galleta de tomillo, compota de bayas silvestres' },
+            '3': { name: 'Higos Asados con Miel', desc: 'Higos horneados, miel de flores silvestres local, crema de mascarpone, crujiente de pistacho' },
+            '4': { name: 'Tabla de Quesos Artesanos', desc: 'Selección de quesos irlandeses y franceses, membrillo, pan de nueces, panal de miel' }
+          },
+          wines: {
+            '1': { name: 'Chablis Premier Cru 2021', desc: 'Domaine Pattes Loup, Borgoña — mineral, cítricos y piedra mojada, final elegante' },
+            '2': { name: 'Barolo DOCG 2018', desc: 'Cascina delle Rose, Piamonte — rosa, cereza, alquitrán, cuerpo completo con taninos sedosos' },
+            '3': { name: 'Sancerre Rouge 2022', desc: 'Domaine Vacheron, Loira — pinot noir, frutos rojos brillantes, pedernal' },
+            '4': { name: 'Vin de Constance 2016', desc: 'Klein Constantia, Sudáfrica — vino dulce legendario, albaricoque, miel, 500ml' }
+          }
+        },
+        chef: {
+          label: 'La Visionaria', title: 'Chef Elena Voss',
+          p1: 'Elena Voss aprendió el lenguaje de los ingredientes en la granja de su abuela en la Toscana y refinó su oficio en cocinas con estrella Michelin en Copenhague, San Sebastián y Melbourne. En Ember & Vine, aporta esa perspectiva global a una pregunta esencial: ¿a qué sabe esta temporada?',
+          p2: 'Su cocina es intuitiva pero precisa — cada plato una composición silenciosa de textura, temperatura y memoria. Cree que las mejores comidas son las que te hacen pausar, respirar y notar el mundo a tu alrededor.',
+          signoff: '— Elena Voss', role: 'Chef Ejecutiva y Fundadora'
+        },
+        testimonials: {
+          title: 'Lo Que Dicen',
+          '1': { quote: '"Ember & Vine redefine lo que significa farm-to-table. El ribeye a la leña solo vale el viaje: profundo, ahumado, increíblemente tierno."', name: 'Clara M.', source: 'Financial Times' },
+          '2': { quote: '"La carta de vinos es una carta de amor a los pequeños productores. Cada copa tiene una historia."', name: 'Marcus W.', source: 'The World\'s 50 Best' },
+          '3': { quote: '"He cenado en cuarenta y tres países. El fondant de chocolate de Ember & Vine es el mejor postre que he probado en una década."', name: 'Yuki T.', source: 'Inspector Michelin (jubilado)' }
+        },
+        gallery: { title: 'La Experiencia Ember & Vine' },
+        reservation: {
+          label: 'Reservas', title: 'Reserva tu Velada',
+          p: 'Recibimos comensales para cenar de miércoles a lunes. Para grupos de más de ocho personas, por favor contáctenos directamente y crearemos una experiencia a medida.',
+          hours: { title: 'Horario', text: 'Miércoles — Lunes · 18:00 — 23:00' },
+          email: { title: 'Correo Electrónico' }, phone: { title: 'Teléfono' },
+          form: {
+            title: 'Hacer una Reserva', name: 'Nombre Completo', namePlaceholder: 'p.ej. Ana García',
+            email: 'Correo Electrónico', date: 'Fecha', time: 'Hora', guests: 'Comensales',
+            phone: 'Teléfono', notes: 'Peticiones Especiales',
+            notesPlaceholder: 'Alergias, celebraciones, preferencias de asiento…',
+            submit: 'Confirmar Reserva', note: 'Confirmaremos su reserva en un plazo de 2 horas.'
+          }
+        },
+        location: {
+          label: 'Encuéntranos', title: 'Visita Ember & Vine',
+          p: 'En el corazón del barrio creativo de Dublín, nuestro comedor tiene capacidad para cuarenta y ocho comensales en mesas de roble irlandés recuperado. El hogar abierto ancla el espacio — un recordatorio de que el fuego, la comida y la compañía se encuentran entre los placeres más antiguos de la humanidad.',
+          address: { title: 'Dirección', text: '42 Wellington Quay, Dublín 2, D02 YX63, Irlanda' },
+          hours: { mon: 'Lunes', tue: 'Martes', wed: 'Miércoles', thu: 'Jueves', fri: 'Viernes', sat: 'Sábado', sun: 'Domingo', closed: 'Cerrado' },
+          map: '42 Wellington Quay, Dublín 2',
+          mapHint: 'Mapa cargando — direcciones interactivas disponibles bajo petición'
+        },
+        newsletter: { title: 'La Mesa de Temporada', p: 'Suscríbase para recibir nuestro avance mensual del menú, maridajes de nuestra sommelier e invitaciones a cenas exclusivas en la mesa del chef.', cta: 'Suscribirse' },
+        footer: {
+          tagline: 'Ingredientes de temporada, cocina a leña y vinos que cuentan una historia — desde 2022.',
+          copyright: 'Todos los derechos reservados.', credit: 'Hecho con cariño, de nuestro hogar al suyo.',
+          nav: { title: 'Navegación' }, contact: { title: 'Contacto', address: '42 Wellington Quay, Dublín 2' },
+          info: { title: 'Información', privacy: 'Política de Privacidad', careers: 'Empleo', press: 'Prensa', gift: 'Tarjetas Regalo' }
+        },
+        cookie: { text: 'Utilizamos cookies esenciales para garantizar la mejor experiencia en nuestro sitio web. Al continuar, acepta el uso de cookies.', accept: 'Aceptar', decline: 'Rechazar' }
+      },
+
+      fr: {
+        nav: { philosophy: 'Philosophie', menu: 'Menu', chef: 'Chef', gallery: 'Galerie', reservation: 'Réservations', location: 'Accès', book: 'Réserver' },
+        hero: {
+          tagline: 'Depuis 2022',
+          title: 'Ember & Vine',
+          subtitle: 'Là où la terre rencontre la table. Ingrédients de saison, cuisine au feu de bois et vins qui racontent une histoire.',
+          cta: { primary: 'Réserver une Table', secondary: 'Découvrir le Menu' },
+          scroll: 'Défiler'
+        },
+        philosophy: {
+          label: 'Notre Philosophie', title: 'Ancrés dans les Saisons',
+          p1: 'Chaque plat d\'Ember & Vine commence par la terre. Nous travaillons directement avec de petites fermes, cueilleurs et pêcheries qui partagent notre respect pour l\'intégrité des ingrédients. Notre menu change au rythme des saisons — non par mode, mais par respect.',
+          p2: 'Le foyer est notre cœur. La cuisson au feu de bois apporte une profondeur que le gaz ne peut reproduire — une connexion primale avec l\'élément qui rassemble les humains autour des repas depuis des millénaires.'
+        },
+        menu: {
+          label: 'La Carte', title: 'Offres de Saison', tab1: 'Entrées', tab2: 'Plats', tab3: 'Desserts', tab4: 'Vins',
+          starters: {
+            '1': { name: 'Burrata et Tomates Anciennes', desc: 'Burrata crémeuse, tomates anciennes mûries au soleil, huile de basilic, vinaigre balsamique vieilli, pain toasté' },
+            '2': { name: 'Poulpe Grillé', desc: 'Poulpe grillé au bois, aïoli au paprika fumé, fenouil mariné, micro-pousses, citron' },
+            '3': { name: 'Tarte aux Champignons Sauvages', desc: 'Chanterelles, cèpes et shiitakés, crème au thym, croustillant de parmesan, huile de truffe' },
+            '4': { name: 'Salade de Betteraves Rôties', desc: 'Betteraves rôties au miel, fromage de chèvre fouetté, noix caramélisées, vinaigrette au cidre' }
+          },
+          mains: {
+            '1': { name: 'Entrecôte au Feu de Bois', desc: 'Entrecôte maturée de 350g, oignons nouveaux grillés, beurre à la moelle, frites maison' },
+            '2': { name: 'Bar Poêlé', desc: 'Bar de ligne, beurre blanc au safran, salicorne, pommes de terre écrasées, baies de câpres' },
+            '3': { name: 'Carré d\'Agneau Rôti', desc: 'Agneau de Nouvelle-Zélande, croûte au romarin et à l\'ail, tomates confites, purée à l\'huile d\'olive' },
+            '4': { name: 'Risotto de Potiron Rôti', desc: 'Riz carnaroli, courge butternut rôtie, beurre noisette à la sauge, pecorino vieilli, noisettes' }
+          },
+          desserts: {
+            '1': { name: 'Fondant au Chocolat Noir', desc: 'Chocolat Valrhona 70%, glace à la vanille, caramel salé, croustillant de cacao' },
+            '2': { name: 'Panna Cotta Citron-Thym', desc: 'Panna cotta soyeuse, gel de citron rôti, sablé au thym, compote de baies sauvages' },
+            '3': { name: 'Figues Rôties au Miel', desc: 'Figues chaudes, miel de fleurs sauvages local, crème de mascarpone, croustillant de pistache' },
+            '4': { name: 'Plateau de Fromages Artisanaux', desc: 'Sélection de fromages irlandais et français, pâte de coing, pain aux noix, rayon de miel' }
+          },
+          wines: {
+            '1': { name: 'Chablis Premier Cru 2021', desc: 'Domaine Pattes Loup, Bourgogne — minéral, agrumes et pierre mouillée, finale élégante' },
+            '2': { name: 'Barolo DOCG 2018', desc: 'Cascina delle Rose, Piémont — rose, cerise, goudron, corsé aux tanins soyeux' },
+            '3': { name: 'Sancerre Rouge 2022', desc: 'Domaine Vacheron, Loire — pinot noir, fruits rouges éclatants, silex' },
+            '4': { name: 'Vin de Constance 2016', desc: 'Klein Constantia, Afrique du Sud — vin doux légendaire, abricot, miel, 500ml' }
+          }
+        },
+        chef: {
+          label: 'La Visionnaire', title: 'Chef Elena Voss',
+          p1: 'Elena Voss a appris le langage des ingrédients dans la ferme de sa grand-mère en Toscane et a perfectionné son art dans des cuisines étoilées à Copenhague, Saint-Sébastien et Melbourne. Chez Ember & Vine, elle apporte cette perspective globale à une question essentielle : quel est le goût de cette saison ?',
+          p2: 'Sa cuisine est intuitive mais précise — chaque assiette une composition silencieuse de texture, température et mémoire.',
+          signoff: '— Elena Voss', role: 'Chef Exécutif & Fondatrice'
+        },
+        testimonials: {
+          title: 'Ce Qu\'ils Disent',
+          '1': { quote: '"Ember & Vine redéfinit ce que farm-to-table peut signifier. L\'entrecôte au feu de bois vaut à elle seule le voyage."', name: 'Clara M.', source: 'Financial Times' },
+          '2': { quote: '"La carte des vins est une lettre d\'amour aux petits producteurs. Chaque verre a une histoire."', name: 'Marcus W.', source: 'The World\'s 50 Best' },
+          '3': { quote: '"J\'ai dîné dans quarante-trois pays. Le fondant au chocolat d\'Ember & Vine est le meilleur dessert que j\'aie goûté en dix ans."', name: 'Yuki T.', source: 'Inspecteur Michelin (ret.)' }
+        },
+        gallery: { title: 'L\'Expérience Ember & Vine' },
+        reservation: {
+          label: 'Réservations', title: 'Réservez Votre Soirée',
+          p: 'Nous accueillons les convives pour le dîner du mercredi au lundi. Pour les groupes de plus de huit personnes, veuillez nous contacter directement.',
+          hours: { title: 'Horaires', text: 'Mercredi — Lundi · 18:00 — 23:00' },
+          email: { title: 'Email' }, phone: { title: 'Téléphone' },
+          form: {
+            title: 'Faire une Réservation', name: 'Nom Complet', namePlaceholder: 'p.ex. Marie Dubois',
+            email: 'Email', date: 'Date', time: 'Heure', guests: 'Convives',
+            phone: 'Téléphone', notes: 'Demandes Spéciales',
+            notesPlaceholder: 'Allergies, célébrations, préférences de table…',
+            submit: 'Confirmer la Réservation', note: 'Nous confirmons votre réservation sous 2 heures.'
+          }
+        },
+        location: {
+          label: 'Nous Trouver', title: 'Visitez Ember & Vine',
+          p: 'Au cœur du quartier créatif de Dublin, notre salle à manger accueille quarante-huit convives autour de tables en chêne irlandais recyclé.',
+          address: { title: 'Adresse', text: '42 Wellington Quay, Dublin 2, D02 YX63, Irlande' },
+          hours: { mon: 'Lundi', tue: 'Mardi', wed: 'Mercredi', thu: 'Jeudi', fri: 'Vendredi', sat: 'Samedi', sun: 'Dimanche', closed: 'Fermé' },
+          map: '42 Wellington Quay, Dublin 2',
+          mapHint: 'Carte en chargement — itinéraire disponible sur demande'
+        },
+        newsletter: { title: 'La Table de Saison', p: 'Abonnez-vous pour recevoir notre avant-première mensuelle du menu, les accords mets-vins de notre sommelière et les invitations aux soirées exclusives.', cta: 'S\'abonner' },
+        footer: {
+          tagline: 'Ingrédients de saison, cuisson au feu de bois et vins qui racontent une histoire — depuis 2022.',
+          copyright: 'Tous droits réservés.', credit: 'Réalisé avec soin, de notre foyer au vôtre.',
+          nav: { title: 'Navigation' }, contact: { title: 'Contact', address: '42 Wellington Quay, Dublin 2' },
+          info: { title: 'Infos', privacy: 'Politique de Confidentialité', careers: 'Carrières', press: 'Presse', gift: 'Chèques Cadeaux' }
+        },
+        cookie: { text: 'Nous utilisons des cookies essentiels pour garantir la meilleure expérience sur notre site. En continuant, vous acceptez notre utilisation des cookies.', accept: 'Accepter', decline: 'Refuser' }
+      },
+
+      de: {
+        nav: { philosophy: 'Philosophie', menu: 'Speisekarte', chef: 'Koch', gallery: 'Galerie', reservation: 'Reservierung', location: 'Standort', book: 'Tisch Reservieren' },
+        hero: {
+          tagline: 'Seit 2022', title: 'Ember & Vine',
+          subtitle: 'Wo die Erde auf den Tisch trifft. Saisonale Zutaten, Holzofenkunst und Weine, die Geschichten erzählen.',
+          cta: { primary: 'Tisch Reservieren', secondary: 'Speisekarte Entdecken' },
+          scroll: 'Scrollen'
+        },
+        philosophy: {
+          label: 'Unsere Philosophie', title: 'Verwurzelt in den Jahreszeiten',
+          p1: 'Jedes Gericht bei Ember & Vine beginnt mit dem Land. Wir arbeiten direkt mit kleinen Bauernhöfen, Sammlern und Fischereien zusammen, die unsere Ehrfurcht vor der Integrität der Zutaten teilen.',
+          p2: 'Der Herd ist unser Herz. Das Kochen mit Holz verleiht eine Tiefe, die Gas nicht reproduzieren kann — eine urzeitliche Verbindung zu dem Element, das Menschen seit Jahrtausenden um Mahlzeiten versammelt.'
+        },
+        menu: {
+          label: 'Die Karte', title: 'Saisonale Angebote', tab1: 'Vorspeisen', tab2: 'Hauptgerichte', tab3: 'Desserts', tab4: 'Weine',
+          starters: {
+            '1': { name: 'Burrata mit Erbstücktomaten', desc: 'Cremige Burrata, sonnengereifte Tomaten, Basilikumöl, gereifter Balsamico, geröstetes Sauerteigbrot' },
+            '2': { name: 'Gegrillter Oktopus', desc: 'Holzgegrillter Oktopus, Räucherpaprika-Aioli, eingelegter Fenchel, Mikrogrün, Zitrone' },
+            '3': { name: 'Wildpilz-Tarte', desc: 'Pfifferlinge, Steinpilze & Shiitake, Thymian-Creme, Parmesan-Crisp, Trüffelöl' },
+            '4': { name: 'Rote-Bete-Salat', desc: 'Honiggeröstete Rote Bete, Ziegenkäsecreme, karamellisierte Walnüsse, Apfelwein-Vinaigrette' }
+          },
+          mains: {
+            '1': { name: 'Ribeye vom Holzfeuer', desc: '350g trockengereiftes Ribeye, gegrillte Frühlingszwiebeln, Knochenmarkbutter, hausgemachte Pommes' },
+            '2': { name: 'Gebratener Wolfsbarsch', desc: 'Wild gefangener Wolfsbarsch, Safran-Beurre-Blanc, Queller, zerdrückte Kartoffeln, Kapernbeeren' },
+            '3': { name: 'Kräutergebratener Lammrücken', desc: 'Neuseeländisches Lamm, Rosmarin-Knoblauch-Kruste, konfierte Tomaten, Olivenöl-Kartoffelpüree' },
+            '4': { name: 'Kürbisrisotto', desc: 'Carnaroli-Reis, gerösteter Butternusskürbis, Salbeibutter, gereifter Pecorino, Haselnüsse' }
+          },
+          desserts: {
+            '1': { name: 'Dunkler Schokoladenfondant', desc: 'Valrhona 70% Schokolade, Vanilleeis, Salzkaramell, Kakaocrisp' },
+            '2': { name: 'Zitronen-Thymian-Panna-Cotta', desc: 'Seidige Panna Cotta, geröstetes Zitronengel, Thymian-Keks, Wildbeerenkompott' },
+            '3': { name: 'Gebackene Feigen mit Honig', desc: 'Warme Feigen, lokaler Wildblütenhonig, Mascarponecreme, Pistazien-Crisp' },
+            '4': { name: 'Käseplatte', desc: 'Auswahl irischer & französischer Käse, Quittenpaste, Walnussbrot, Honigwabe' }
+          },
+          wines: {
+            '1': { name: 'Chablis Premier Cru 2021', desc: 'Domaine Pattes Loup, Burgund — mineralisch, Zitrus & nasser Stein, elegantes Finish' },
+            '2': { name: 'Barolo DOCG 2018', desc: 'Cascina delle Rose, Piemont — Rose, Kirsche, Teer, vollmundig mit seidigen Tanninen' },
+            '3': { name: 'Sancerre Rouge 2022', desc: 'Domaine Vacheron, Loire — Pinot Noir, helle rote Früchte, Feuerstein' },
+            '4': { name: 'Vin de Constance 2016', desc: 'Klein Constantia, Südafrika — legendärer Süßwein, Aprikose, Honig, 500ml' }
+          }
+        },
+        chef: {
+          label: 'Die Visionärin', title: 'Chefköchin Elena Voss',
+          p1: 'Elena Voss lernte die Sprache der Zutaten auf dem Bauernhof ihrer Großmutter in der Toskana und verfeinerte ihr Handwerk in Michelin-Sterneküchen in Kopenhagen, San Sebastian und Melbourne.',
+          p2: 'Ihre Küche ist intuitiv und dennoch präzise — jeder Teller eine stille Komposition aus Textur, Temperatur und Erinnerung.',
+          signoff: '— Elena Voss', role: 'Executive Chef & Gründerin'
+        },
+        testimonials: {
+          title: 'Was Sie Sagen',
+          '1': { quote: '"Ember & Vine definiert neu, was Farm-to-Table bedeuten kann. Das Ribeye vom Holzfeuer allein ist die Reise wert."', name: 'Clara M.', source: 'Financial Times' },
+          '2': { quote: '"Die Weinkarte ist ein Liebesbrief an kleine Produzenten. Jeder pour hat eine Geschichte."', name: 'Marcus W.', source: 'The World\'s 50 Best' },
+          '3': { quote: '"Ich habe in 43 Ländern gespeist. Der Schokoladenfondant bei Ember & Vine ist das beste Dessert seit einem Jahrzehnt."', name: 'Yuki T.', source: 'Michelin-Inspektor (i.R.)' }
+        },
+        gallery: { title: 'Das Ember & Vine Erlebnis' },
+        reservation: {
+          label: 'Reservierungen', title: 'Buchen Sie Ihren Abend',
+          p: 'Wir begrüßen Gäste zum Abendessen von Mittwoch bis Montag. Für Gruppen über acht Personen kontaktieren Sie uns bitte direkt.',
+          hours: { title: 'Öffnungszeiten', text: 'Mittwoch — Montag · 18:00 — 23:00' },
+          email: { title: 'E-Mail' }, phone: { title: 'Telefon' },
+          form: {
+            title: 'Tisch Reservieren', name: 'Vollständiger Name', namePlaceholder: 'z.B. Anna Schmidt',
+            email: 'E-Mail', date: 'Datum', time: 'Uhrzeit', guests: 'Gäste',
+            phone: 'Telefon', notes: 'Besondere Wünsche',
+            notesPlaceholder: 'Allergien, Feierlichkeiten, Sitzplatzwünsche…',
+            submit: 'Reservierung Bestätigen', note: 'Wir bestätigen Ihre Reservierung innerhalb von 2 Stunden.'
+          }
+        },
+        location: {
+          label: 'Finden Sie Uns', title: 'Besuchen Sie Ember & Vine',
+          p: 'Im Herzen des Kreativviertels von Dublin bietet unser Speisesaal achtundvierzig Gästen Platz an Tischen aus recycelter irischer Eiche.',
+          address: { title: 'Adresse', text: '42 Wellington Quay, Dublin 2, D02 YX63, Irland' },
+          hours: { mon: 'Montag', tue: 'Dienstag', wed: 'Mittwoch', thu: 'Donnerstag', fri: 'Freitag', sat: 'Samstag', sun: 'Sonntag', closed: 'Geschlossen' },
+          map: '42 Wellington Quay, Dublin 2',
+          mapHint: 'Karte wird geladen — interaktive Wegbeschreibung auf Anfrage'
+        },
+        newsletter: { title: 'Der Saisonale Tisch', p: 'Abonnieren Sie unseren monatlichen Menü-Vorbericht, Weinempfehlungen unserer Sommelière und Einladungen zu exklusiven Chefkoch-Tafeln.', cta: 'Abonnieren' },
+        footer: {
+          tagline: 'Saisonale Zutaten, Holzofenkunst und Weine, die Geschichten erzählen — seit 2022.',
+          copyright: 'Alle Rechte vorbehalten.', credit: 'Mit Sorgfalt gemacht, von unserem Herd zu Ihrem.',
+          nav: { title: 'Navigation' }, contact: { title: 'Kontakt', address: '42 Wellington Quay, Dublin 2' },
+          info: { title: 'Info', privacy: 'Datenschutzrichtlinie', careers: 'Karriere', press: 'Presse', gift: 'Geschenkgutscheine' }
+        },
+        cookie: { text: 'Wir verwenden essentielle Cookies, um die beste Erfahrung auf unserer Website zu gewährleisten. Mit Ihrer Zustimmung akzeptieren Sie deren Verwendung.', accept: 'Akzeptieren', decline: 'Ablehnen' }
+      },
+
+      it: {
+        nav: { philosophy: 'Filosofia', menu: 'Menu', chef: 'Chef', gallery: 'Galleria', reservation: 'Prenotazioni', location: 'Dove Siamo', book: 'Prenota un Tavolo' },
+        hero: {
+          tagline: 'Dal 2022', title: 'Ember & Vine',
+          subtitle: 'Dove la terra incontra la tavola. Ingredienti di stagione, cucina a legna e vini che raccontano una storia.',
+          cta: { primary: 'Prenota un Tavolo', secondary: 'Esplora il Menu' },
+          scroll: 'Scorri'
+        },
+        philosophy: {
+          label: 'Il Nostro Credo', title: 'Radicati nelle Stagioni',
+          p1: 'Ogni piatto di Ember & Vine inizia dalla terra. Lavoriamo direttamente con piccole fattorie, raccoglitori e pescatori che condividono il nostro rispetto per l\'integrità degli ingredienti.',
+          p2: 'Il focolare è il nostro cuore. La cottura a legna dona una profondità che il gas non può replicare — un legame primordiale con l\'elemento che ha riunito gli esseri umani intorno al cibo per millenni.'
+        },
+        menu: {
+          label: 'Il Menu', title: 'Offerte Stagionali', tab1: 'Antipasti', tab2: 'Primi', tab3: 'Dolci', tab4: 'Vini',
+          starters: {
+            '1': { name: 'Burrata e Pomodori Antichi', desc: 'Burrata cremosa, pomodori antichi maturati al sole, olio al basilico, balsamico invecchiato, pane tostato' },
+            '2': { name: 'Polpo alla Griglia', desc: 'Polpo grigliato a legna, aioli al paprika affumicato, finocchio in salamoia, microgreens, limone' },
+            '3': { name: 'Torta ai Funghi Selvatici', desc: 'Finferli, porcini e shiitake, crema al timo, croccante di parmigiano, olio al tartufo' },
+            '4': { name: 'Insalata di Barbabietole Arrosto', desc: 'Barbabietole al miele, caprino montato, noci caramellate, vinaigrette al sidro' }
+          },
+          mains: {
+            '1': { name: 'Ribeye alla Legna', desc: 'Ribeye stagionato 350g, cipollotti grigliati, burro al midollo, patatine fatte in casa' },
+            '2': { name: 'Spigola in Padella', desc: 'Spigola selvatica, beurre blanc allo zafferano, salicornia, patate novelle schiacciate, capperi' },
+            '3': { name: 'Carré d\'Agnello alle Erbe', desc: 'Agnello neozelandese, crosta di rosmarino e aglio, pomodori confit, purè all\'olio d\'oliva' },
+            '4': { name: 'Risotto di Zucca Arrosto', desc: 'Riso carnaroli, zucca butternut arrosto, burro salvia, pecorino stagionato, nocciole' }
+          },
+          desserts: {
+            '1': { name: 'Fondant al Cioccolato Fondente', desc: 'Cioccolato Valrhona 70%, gelato alla vaniglia, caramello salato, crumble al cacao' },
+            '2': { name: 'Panna Cotta al Limone e Timo', desc: 'Panna cotta vellutata, gel di limone arrostito, biscotto al timo, composta di frutti di bosco' },
+            '3': { name: 'Fichi Cotti al Miele', desc: 'Fichi caldi, miele di fiori selvatici locale, crema di mascarpone, croccante al pistacchio' },
+            '4': { name: 'Tagliere di Formaggi Artigianali', desc: 'Selezione di formaggi irlandesi e francesi, mostarda di mele, pane alle noci, favo di miele' }
+          },
+          wines: {
+            '1': { name: 'Chablis Premier Cru 2021', desc: 'Domaine Pattes Loup, Borgogna — minerali, agrumi e pietra bagnata, finale elegante' },
+            '2': { name: 'Barolo DOCG 2018', desc: 'Cascina delle Rose, Piemonte — rosa, ciliegia, catrame, corposo con tannini setosi' },
+            '3': { name: 'Sancerre Rosso 2022', desc: 'Domaine Vacheron, Loira — pinot nero, frutti rossi brillanti, selce' },
+            '4': { name: 'Vin de Constance 2016', desc: 'Klein Constantia, Sudafrica — vino dolce leggendario, albicocca, miele, 500ml' }
+          }
+        },
+        chef: {
+          label: 'La Visionaria', title: 'Chef Elena Voss',
+          p1: 'Elena Voss ha imparato il linguaggio degli ingredienti nella fattoria di sua nonna in Toscana e ha perfezionato la sua arte in cucine stellate a Copenaghen, San Sebastian e Melbourne.',
+          p2: 'La sua cucina è intuitiva ma precisa — ogni piatto una composizione silenziosa di consistenza, temperatura e memoria.',
+          signoff: '— Elena Voss', role: 'Executive Chef & Fondatrice'
+        },
+        testimonials: {
+          title: 'Cosa Dicono',
+          '1': { quote: '"Ember & Vine ridefinisce cosa può significare farm-to-table. La ribeye alla legna da sola vale il viaggio."', name: 'Chiara M.', source: 'Financial Times' },
+          '2': { quote: '"La lista dei vini è una lettera d\'amore ai piccoli produttori. Ogni calice ha una storia."', name: 'Marco W.', source: 'The World\'s 50 Best' },
+          '3': { quote: '"Ho cenato in 43 paesi. Il fondant al cioccolato di Ember & Vine è il miglior dolce che abbia assaggiato in un decennio."', name: 'Yuki T.', source: 'Ispettore Michelin (rit.)' }
+        },
+        gallery: { title: 'L\'Esperienza Ember & Vine' },
+        reservation: {
+          label: 'Prenotazioni', title: 'Prenota la Tua Serata',
+          p: 'Accogliamo gli ospiti per cena da mercoledì a lunedì. Per gruppi superiori a otto persone, contattateci direttamente.',
+          hours: { title: 'Orari di Apertura', text: 'Mercoledì — Lunedì · 18:00 — 23:00' },
+          email: { title: 'Email' }, phone: { title: 'Telefono' },
+          form: {
+            title: 'Fai una Prenotazione', name: 'Nome Completo', namePlaceholder: 'es. Sofia Rossi',
+            email: 'Email', date: 'Data', time: 'Ora', guests: 'Ospiti',
+            phone: 'Telefono', notes: 'Richieste Speciali',
+            notesPlaceholder: 'Allergie, celebrazioni, preferenze di posto…',
+            submit: 'Conferma Prenotazione', note: 'Confermeremo la tua prenotazione entro 2 ore.'
+          }
+        },
+        location: {
+          label: 'Dove Siamo', title: 'Visita Ember & Vine',
+          p: 'Nel cuore del quartiere creativo di Dublino, la nostra sala da pranzo ospita quarantotto commensali attorno a tavoli in quercia irlandese recuperata.',
+          address: { title: 'Indirizzo', text: '42 Wellington Quay, Dublino 2, D02 YX63, Irlanda' },
+          hours: { mon: 'Lunedì', tue: 'Martedì', wed: 'Mercoledì', thu: 'Giovedì', fri: 'Venerdì', sat: 'Sabato', sun: 'Domenica', closed: 'Chiuso' },
+          map: '42 Wellington Quay, Dublino 2',
+          mapHint: 'Mappa in caricamento — indicazioni interattive disponibili su richiesta'
+        },
+        newsletter: { title: 'La Tavola Stagionale', p: 'Iscriviti per ricevere l\'anteprima mensile del menu, gli abbinamenti della nostra sommelier e gli inviti alle cene esclusive.', cta: 'Iscriviti' },
+        footer: {
+          tagline: 'Ingredienti di stagione, cucina a legna e vini che raccontano una storia — dal 2022.',
+          copyright: 'Tutti i diritti riservati.', credit: 'Fatto con cura, dal nostro focolare al vostro.',
+          nav: { title: 'Navigazione' }, contact: { title: 'Contatti', address: '42 Wellington Quay, Dublino 2' },
+          info: { title: 'Info', privacy: 'Privacy Policy', careers: 'Carriere', press: 'Stampa', gift: 'Buoni Regalo' }
+        },
+        cookie: { text: 'Utilizziamo cookie essenziali per garantire la migliore esperienza sul nostro sito. Continuando, accetti l\'uso dei cookie.', accept: 'Accetta', decline: 'Rifiuta' }
+      },
+
+      pt: {
+        nav: { philosophy: 'Filosofia', menu: 'Menu', chef: 'Chef', gallery: 'Galeria', reservation: 'Reservas', location: 'Localização', book: 'Reservar Mesa' },
+        hero: {
+          tagline: 'Desde 2022', title: 'Ember & Vine',
+          subtitle: 'Onde a terra encontra a mesa. Ingredientes sazonais, cozinha a lenha e vinhos que contam uma história.',
+          cta: { primary: 'Reservar Mesa', secondary: 'Explorar o Menu' },
+          scroll: 'Scroll'
+        },
+        philosophy: {
+          label: 'Nosso Espírito', title: 'Enraizados nas Estações',
+          p1: 'Cada prato no Ember & Vine começa na terra. Trabalhamos diretamente com pequenas fazendas, colhedores e pescarias que compartilham nosso respeito pela integridade dos ingredientes.',
+          p2: 'A lareira é nosso coração. A cozinha a lenha confere uma profundidade que o gás não consegue replicar — uma conexão primal com o elemento que reúne humanos em torno de refeições há milénios.'
+        },
+        menu: {
+          label: 'O Menu', title: 'Ofertas da Estação', tab1: 'Entradas', tab2: 'Pratos Principais', tab3: 'Sobremesas', tab4: 'Vinhos',
+          starters: {
+            '1': { name: 'Burrata com Tomates Antigos', desc: 'Burrata cremosa, tomates antigos ao sol, azeite de manjericão, balsâmico envelhecido, pão torrado' },
+            '2': { name: 'Polvo Grelhado', desc: 'Polvo grelhado a lenha, aioli de pimentão fumado, funcho em conserva, micro-verdes, limão' },
+            '3': { name: 'Tarte de Cogumelos Selvagens', desc: 'Chanterelles, porcini e shiitake, creme de tomilho, crocante de parmesão, óleo de trufa' },
+            '4': { name: 'Salada de Beterraba Assada', desc: 'Beterraba assada com mel, queijo de cabra batido, nozes caramelizadas, vinagrete de sidra' }
+          },
+          mains: {
+            '1': { name: 'Ribeye ao Fogo de Lenha', desc: 'Ribeye maturado 350g, cebolinhas grelhadas, manteiga de tutano, batatas fritas caseiras' },
+            '2': { name: 'Robalo Grelhado', desc: 'Robalo de linha, beurre blanc ao açafrão, salicórnia, batatas novas esmagadas, alcaparras' },
+            '3': { name: 'Lombo de Borrego Assado', desc: 'Borrego neozelandês, crosta de alecrim e alho, tomates confitados, puré de batata com azeite' },
+            '4': { name: 'Risoto de Abóbora Assada', desc: 'Arroz carnaroli, abóbora butternut assada, manteiga de sálvia, pecorino envelhecido, avelãs' }
+          },
+          desserts: {
+            '1': { name: 'Fondant de Chocolate Preto', desc: 'Chocolate Valrhona 70%, gelado de baunilha, caramelo salgado, crocante de cacau' },
+            '2': { name: 'Panna Cotta de Limão e Tomilho', desc: 'Panna cotta sedosa, gel de limão assado, bolacha de tomilho, compota de frutos silvestres' },
+            '3': { name: 'Figos Assados com Mel', desc: 'Figos quentes, mel de flores silvestres local, creme de mascarpone, crocante de pistáchio' },
+            '4': { name: 'Tábua de Queijos Artesanais', desc: 'Seleção de queijos irlandeses e franceses, pasta de marmelo, pão de nozes, favo de mel' }
+          },
+          wines: {
+            '1': { name: 'Chablis Premier Cru 2021', desc: 'Domaine Pattes Loup, Borgonha — mineral, citrinos e pedra molhada, final elegante' },
+            '2': { name: 'Barolo DOCG 2018', desc: 'Cascina delle Rose, Piemonte — rosa, cereja, alcatrão, encorpado com taninos sedosos' },
+            '3': { name: 'Sancerre Rouge 2022', desc: 'Domaine Vacheron, Loire — pinot noir, frutos vermelhos brilhantes, sílex' },
+            '4': { name: 'Vin de Constance 2016', desc: 'Klein Constantia, África do Sul — vinho doce lendário, damasco, mel, 500ml' }
+          }
+        },
+        chef: {
+          label: 'A Visionária', title: 'Chef Elena Voss',
+          p1: 'Elena Voss aprendeu a linguagem dos ingredientes na fazenda de sua avó na Toscana e aperfeiçoou sua arte em cozinhas com estrela Michelin em Copenhague, San Sebastián e Melbourne.',
+          p2: 'Sua cozinha é intuitiva e precisa — cada prato uma composição silenciosa de textura, temperatura e memória.',
+          signoff: '— Elena Voss', role: 'Chef Executiva & Fundadora'
+        },
+        testimonials: {
+          title: 'O Que Dizem',
+          '1': { quote: '"Ember & Vine redefine o significado de farm-to-table. O ribeye ao fogo de lenha por si só vale a viagem."', name: 'Clara M.', source: 'Financial Times' },
+          '2': { quote: '"A carta de vinhos é uma carta de amor aos pequenos produtores. Cada taça tem uma história."', name: 'Marcus W.', source: 'The World\'s 50 Best' },
+          '3': { quote: '"Já jantei em 43 países. O fondant de chocolate do Ember & Vine é a melhor sobremesa que comi numa década."', name: 'Yuki T.', source: 'Inspetor Michelin (apos.)' }
+        },
+        gallery: { title: 'A Experiência Ember & Vine' },
+        reservation: {
+          label: 'Reservas', title: 'Reserve a Sua Noite',
+          p: 'Recebemos convidados para jantar de quarta a segunda-feira. Para grupos com mais de oito pessoas, contacte-nos diretamente.',
+          hours: { title: 'Horário', text: 'Quarta — Segunda · 18:00 — 23:00' },
+          email: { title: 'Email' }, phone: { title: 'Telefone' },
+          form: {
+            title: 'Fazer uma Reserva', name: 'Nome Completo', namePlaceholder: 'ex. Maria Silva',
+            email: 'Email', date: 'Data', time: 'Hora', guests: 'Convidados',
+            phone: 'Telefone', notes: 'Pedidos Especiais',
+            notesPlaceholder: 'Alergias, celebrações, preferências de mesa…',
+            submit: 'Confirmar Reserva', note: 'Confirmaremos a sua reserva dentro de 2 horas.'
+          }
+        },
+        location: {
+          label: 'Encontre-nos', title: 'Visite o Ember & Vine',
+          p: 'No coração do bairro criativo de Dublin, nossa sala de jantar tem capacidade para 48 convidados em mesas de carvalho irlandês recuperado.',
+          address: { title: 'Morada', text: '42 Wellington Quay, Dublin 2, D02 YX63, Irlanda' },
+          hours: { mon: 'Segunda', tue: 'Terça', wed: 'Quarta', thu: 'Quinta', fri: 'Sexta', sat: 'Sábado', sun: 'Domingo', closed: 'Fechado' },
+          map: '42 Wellington Quay, Dublin 2',
+          mapHint: 'Mapa a carregar — direções interativas disponíveis mediante solicitação'
+        },
+        newsletter: { title: 'A Mesa Sazonal', p: 'Subscreva para receber a pré-visualização mensal do menu, sugestões de vinhos da nossa sommelier e convites para jantares exclusivos.', cta: 'Subscrever' },
+        footer: {
+          tagline: 'Ingredientes sazonais, cozinha a lenha e vinhos que contam uma história — desde 2022.',
+          copyright: 'Todos os direitos reservados.', credit: 'Feito com carinho, do nosso lar ao seu.',
+          nav: { title: 'Navegação' }, contact: { title: 'Contacto', address: '42 Wellington Quay, Dublin 2' },
+          info: { title: 'Info', privacy: 'Política de Privacidade', careers: 'Carreiras', press: 'Imprensa', gift: 'Vales Presente' }
+        },
+        cookie: { text: 'Utilizamos cookies essenciais para garantir a melhor experiência no nosso site. Ao continuar, aceita a nossa utilização de cookies.', accept: 'Aceitar', decline: 'Recusar' }
+      }
+    };
+
+    /* ============================================================
+       i18n Engine
+       ============================================================ */
+    let currentLang = 'en';
+
+    function getBrowserLang() {
+      const lang = (navigator.language || navigator.userLanguage || 'en').split('-')[0];
+      return ['en', 'es', 'fr', 'de', 'it', 'pt'].includes(lang) ? lang : 'en';
+    }
+
+    function getNested(obj, path) {
+      return path.split('.').reduce((acc, part) => acc && acc[part], obj);
+    }
+
+    function applyTranslations(lang) {
+      const t = TRANSLATIONS[lang];
+      if (!t) return;
+
+      currentLang = lang;
+      localStorage.setItem('ember-lang', lang);
+      document.documentElement.lang = lang;
+
+      // Update HTML meta title/description
+      document.getElementById('meta-title').textContent = getNested(t, 'hero.title') + ' — ' + getNested(t, 'hero.subtitle');
+      document.getElementById('meta-desc').content = getNested(t, 'hero.subtitle');
+      ['og-title', 'tw-title'].forEach(id => {
+        document.getElementById(id).textContent = getNested(t, 'hero.title') + ' — ' + getNested(t, 'hero.subtitle');
+      });
+      ['og-desc', 'tw-desc'].forEach(id => {
+        document.getElementById(id).content = getNested(t, 'hero.subtitle');
+      });
+
+      // Update elements with data-i18n
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        const val = getNested(t, key);
+        if (val !== undefined) {
+          el.textContent = val;
+        }
+      });
+
+      // Update placeholders
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        const val = getNested(t, key);
+        if (val !== undefined) {
+          el.placeholder = val;
+        }
+      });
+
+      // Update lang label button
+      document.getElementById('langLabel').textContent = lang.toUpperCase();
+
+      // Update active state in dropdown
+      document.querySelectorAll('.lang-dropdown button').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+      });
+    }
+
+    /* ============================================================
+       Theme Toggle
+       ============================================================ */
+    function initTheme() {
+      const stored = localStorage.getItem('ember-theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+      if (stored === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+      } else if (stored === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      } else if (prefersDark) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    }
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('ember-theme', next);
+    }
+
+    /* ============================================================
+       Navigation
+       ============================================================ */
+    function initNav() {
+      const navbar = document.getElementById('navbar');
+      let lastScroll = 0;
+
+      window.addEventListener('scroll', () => {
+        const y = window.scrollY;
+        if (y > 60) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+        lastScroll = y;
+      }, { passive: true });
+    }
+
+    /* ============================================================
+       Mobile Menu
+       ============================================================ */
+    function initMobileMenu() {
+      const btn = document.getElementById('mobileMenuBtn');
+      const menu = document.getElementById('mobileMenu');
+
+      btn.addEventListener('click', () => {
+        const open = menu.classList.toggle('open');
+        btn.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open);
+        document.body.style.overflow = open ? 'hidden' : '';
+      });
+
+      // Close menu on link click
+      menu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          menu.classList.remove('open');
+          btn.classList.remove('open');
+          btn.setAttribute('aria-expanded', 'false');
+          document.body.style.overflow = '';
+        });
+      });
+    }
+
+    /* ============================================================
+       Language Dropdown
+       ============================================================ */
+    function initLangSwitcher() {
+      const btn = document.getElementById('langBtn');
+      const dropdown = document.getElementById('langDropdown');
+
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const open = dropdown.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open);
+      });
+
+      dropdown.querySelectorAll('button').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const lang = btn.getAttribute('data-lang');
+          applyTranslations(lang);
+          dropdown.classList.remove('open');
+          document.getElementById('langBtn').setAttribute('aria-expanded', 'false');
+        });
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('#langBtn') && !e.target.closest('#langDropdown')) {
+          dropdown.classList.remove('open');
+          document.getElementById('langBtn').setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+
+    /* ============================================================
+       Menu Tabs
+       ============================================================ */
+    function initMenuTabs() {
+      document.querySelectorAll('.menu-tab').forEach(tab => {
+        tab.addEventListener('click', () => {
+          document.querySelectorAll('.menu-tab').forEach(t => {
+            t.classList.remove('active');
+            t.setAttribute('aria-selected', 'false');
+          });
+          tab.classList.add('active');
+          tab.setAttribute('aria-selected', 'true');
+
+          const target = tab.getAttribute('data-tab');
+          document.querySelectorAll('.menu-panel').forEach(p => {
+            p.classList.remove('active');
+          });
+          const panel = document.getElementById('panel-' + target);
+          if (panel) panel.classList.add('active');
+        });
+      });
+    }
+
+    /* ============================================================
+       Scroll Reveal (Intersection Observer)
+       ============================================================ */
+    function initScrollReveal() {
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReduced) return;
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => {
+        observer.observe(el);
+      });
+    }
+
+    /* ============================================================
+       Lightbox
+       ============================================================ */
+    function initLightbox() {
+      const lightbox = document.getElementById('lightbox');
+      const img = document.getElementById('lightboxImg');
+      const close = document.getElementById('lightboxClose');
+
+      document.querySelectorAll('.gallery-grid figure').forEach(fig => {
+        fig.addEventListener('click', () => {
+          const src = fig.getAttribute('data-src');
+          const alt = fig.querySelector('img').getAttribute('alt');
+          if (src) {
+            img.src = src;
+            img.alt = alt;
+            lightbox.classList.add('open');
+            document.body.style.overflow = 'hidden';
+          }
+        });
+      });
+
+      function closeLightbox() {
+        lightbox.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+
+      close.addEventListener('click', closeLightbox);
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) closeLightbox();
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeLightbox();
+      });
+    }
+
+    /* ============================================================
+       Cookie Consent
+       ============================================================ */
+    function initCookieConsent() {
+      if (localStorage.getItem('ember-cookie')) return;
+
+      const banner = document.getElementById('cookieConsent');
+      banner.classList.add('show');
+
+      document.getElementById('cookieAccept').addEventListener('click', () => {
+        localStorage.setItem('ember-cookie', 'accepted');
+        banner.classList.remove('show');
+      });
+
+      document.getElementById('cookieDecline').addEventListener('click', () => {
+        localStorage.setItem('ember-cookie', 'declined');
+        banner.classList.remove('show');
+      });
+    }
+
+    /* ============================================================
+       Reservation Form
+       ============================================================ */
+    function initReservationForm() {
+      const form = document.getElementById('reservationForm');
+
+      // Set min date to today
+      const dateInput = document.getElementById('resDate');
+      const today = new Date().toISOString().split('T')[0];
+      dateInput.setAttribute('min', today);
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const name = document.getElementById('resName').value.trim();
+        const email = document.getElementById('resEmail').value.trim();
+
+        if (!name || !email) {
+          alert('Please fill in all required fields.');
+          return;
+        }
+
+        const submitBtn = form.querySelector('.form-submit');
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = '✓ Reserved!';
+        submitBtn.style.background = 'var(--color-success)';
+        submitBtn.disabled = true;
+
+        setTimeout(() => {
+          submitBtn.textContent = originalText;
+          submitBtn.style.background = '';
+          submitBtn.disabled = false;
+          form.reset();
+        }, 3000);
+      });
+    }
+
+    /* ============================================================
+       Newsletter Form
+       ============================================================ */
+    function initNewsletterForm() {
+      const form = document.getElementById('newsletterForm');
+      const message = document.getElementById('newsletterMessage');
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = document.getElementById('newsletterEmail').value.trim();
+
+        if (!email || !email.includes('@')) {
+          message.textContent = 'Please enter a valid email address.';
+          message.className = 'newsletter-message error';
+          return;
+        }
+
+        message.textContent = 'Thank you! You are now subscribed to The Seasonal Table.';
+        message.className = 'newsletter-message success';
+        form.reset();
+
+        setTimeout(() => {
+          message.textContent = '';
+          message.className = 'newsletter-message';
+        }, 5000);
+      });
+    }
+
+    /* ============================================================
+       Smooth Scroll for anchor links
+       ============================================================ */
+    function initSmoothScroll() {
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', (e) => {
+          const target = document.querySelector(anchor.getAttribute('href'));
+          if (target) {
+            e.preventDefault();
+            const offset = 80; // nav height
+            const top = target.getBoundingClientRect().top + window.scrollY - offset;
+            window.scrollTo({ top, behavior: 'smooth' });
+          }
+        });
+      });
+    }
+
+    /* ============================================================
+       Initialize Everything
+       ============================================================ */
+    document.addEventListener('DOMContentLoaded', () => {
+      initTheme();
+      initNav();
+      initMobileMenu();
+      initLangSwitcher();
+      initMenuTabs();
+      initScrollReveal();
+      initLightbox();
+      initCookieConsent();
+      initReservationForm();
+      initNewsletterForm();
+      initSmoothScroll();
+
+      // Detect browser language and apply
+      const storedLang = localStorage.getItem('ember-lang');
+      if (storedLang && TRANSLATIONS[storedLang]) {
+        applyTranslations(storedLang);
+      } else {
+        applyTranslations(getBrowserLang());
+      }
+
+      // Theme toggle button
+      document.getElementById('themeToggle').addEventListener('click', toggleTheme);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,1290 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="meta-title">Meridian — Precision Horology, Handcrafted Since 1958</title>
+  <meta name="description" id="meta-desc" content="Meridian is an independent watchmaking atelier crafting precision mechanical timepieces. Swiss movements, hand-finished, built to last generations.">
+  <link rel="canonical" href="https://meridian-horology.com/">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%237a5c30'/%3E%3Ccircle cx='16' cy='16' r='12' fill='none' stroke='%23f5f2eb' stroke-width='1.5'/%3E%3Cline x1='16' y1='10' x2='16' y2='16' stroke='%23f5f2eb' stroke-width='2' stroke-linecap='round'/%3E%3Cline x1='16' y1='16' x2='22' y2='18' stroke='%23f5f2eb' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E">
+  <meta name="theme-color" content="#1C1915">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Meridian">
+  <meta property="og:title" id="og-title" content="Meridian — Precision Horology, Handcrafted Since 1958">
+  <meta property="og:description" id="og-desc" content="Independent watchmaking atelier crafting precision mechanical timepieces. Swiss movements, hand-finished, built to last generations.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=1200&q=80">
+  <meta property="og:url" content="https://meridian-horology.com/">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" id="tw-title" content="Meridian — Precision Horology, Handcrafted Since 1958">
+  <meta name="twitter:description" id="tw-desc" content="Independent watchmaking atelier crafting precision mechanical timepieces. Swiss movements, hand-finished, built to last generations.">
+  <meta name="twitter:site" content="@meridianhorology">
+
+  <!-- Fonts: Bitter (slab serif headings) + DM Sans (humanist sans body) — slab + sans contrast -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+
+  <style>
+    /* ================================================================
+       DESIGN TOKENS — Meridian Horology
+       Surface: Decide/Learn (landing page — luxury watchmaking atelier)
+       Derived from: Original editorial luxury theme
+       Family: Horology / Luxury Goods / Craftsmanship
+       Style: Editorial Luxury — slab serif headings, restrained elegance
+       Strategy: Restrained (tinted neutrals + brass accent ≤10%)
+       ================================================================ */
+    :root {
+      /* Colors — Light Mode */
+      --color-bg: #F5F2EB;
+      --color-surface: #FDFBF7;
+      --color-surface-alt: #EDE7DD;
+      --color-elevated: #FFFFFF;
+      --color-text-primary: #1C1915;
+      --color-text-secondary: #6B6256;
+      --color-text-tertiary: #A69A8A;
+      --color-accent: #7A5C30;
+      --color-accent-hover: #8C6E3E;
+      --color-accent-light: #F2ECE2;
+      --color-accent-ghost: rgba(122, 92, 48, 0.12);
+      --color-accent-text: #7A5C30;
+      --color-border: #E6DED0;
+      --color-border-light: #EFE9DE;
+      --color-overlay: rgba(28, 25, 21, 0.45);
+      --color-overlay-heavy: rgba(28, 25, 21, 0.75);
+      --color-success: #5A7D5A;
+      --color-error: #B84A3A;
+
+      /* Colors — Dark Mode */
+      --color-bg-dark: #161310;
+      --color-surface-dark: #1E1A16;
+      --color-surface-alt-dark: #28231D;
+      --color-elevated-dark: #221E19;
+      --color-text-primary-dark: #EBE3D9;
+      --color-text-secondary-dark: #9E9488;
+      --color-text-tertiary-dark: #706A5E;
+      --color-accent-dark: #C8A055;
+      --color-accent-hover-dark: #D8B46A;
+      --color-accent-light-dark: #2A241B;
+      --color-accent-ghost-dark: rgba(200, 160, 85, 0.12);
+      --color-accent-text-dark: #D4B060;
+      --color-border-dark: #352E26;
+      --color-border-light-dark: #423A30;
+
+      /* Typography */
+      --font-heading: 'Bitter', Georgia, 'Times New Roman', serif;
+      --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+      /* Spacing scale */
+      --space-xs: 0.375rem;
+      --space-sm: 0.75rem;
+      --space-md: 1.25rem;
+      --space-lg: 2rem;
+      --space-xl: 3rem;
+      --space-2xl: 4.5rem;
+      --space-3xl: 6.5rem;
+      --space-4xl: 9rem;
+
+      /* Layout */
+      --content-max: 80rem;
+      --content-narrow: 44rem;
+      --content-wide: 90rem;
+      --nav-height: 4rem;
+      --radius-sm: 0.25rem;
+      --radius-md: 0.5rem;
+      --radius-lg: 1rem;
+
+      /* Z-index scale */
+      --z-dropdown: 100;
+      --z-sticky: 200;
+      --z-nav: 300;
+      --z-modal-backdrop: 400;
+      --z-modal: 500;
+      --z-toast: 600;
+      --z-tooltip: 700;
+
+      /* Shadows */
+      --shadow-sm: 0 1px 2px rgba(28, 25, 21, 0.06);
+      --shadow-md: 0 4px 12px rgba(28, 25, 21, 0.08);
+      --shadow-lg: 0 8px 30px rgba(28, 25, 21, 0.12);
+    }
+
+    /* ── Reset ── */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-height) + 1rem); }
+    body {
+      font-family: var(--font-body);
+      background: var(--color-bg);
+      color: var(--color-text-primary);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+    [data-theme="dark"] body {
+      background: var(--color-bg-dark);
+      color: var(--color-text-primary-dark);
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: var(--color-accent); text-decoration: none; transition: color 0.25s ease; }
+    a:hover { color: var(--color-accent-hover); }
+    [data-theme="dark"] a { color: var(--color-accent-dark); }
+    [data-theme="dark"] a:hover { color: var(--color-accent-hover-dark); }
+
+    .container { max-width: var(--content-max); margin: 0 auto; padding: 0 var(--space-lg); }
+    .container-narrow { max-width: var(--content-narrow); margin: 0 auto; padding: 0 var(--space-lg); }
+    .container-wide { max-width: var(--content-wide); margin: 0 auto; padding: 0 var(--space-lg); }
+
+    /* ── Section headers (NO uppercase eyebrow on every section) ── */
+    .section-header {
+      text-align: center;
+      max-width: var(--content-narrow);
+      margin: 0 auto var(--space-2xl);
+    }
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 600;
+      color: var(--color-text-primary);
+      line-height: 1.2;
+      text-wrap: balance;
+      margin-bottom: var(--space-md);
+    }
+    [data-theme="dark"] .section-title { color: var(--color-text-primary-dark); }
+    .section-desc {
+      font-size: clamp(1rem, 1.4vw, 1.15rem);
+      color: var(--color-text-secondary);
+      max-width: 65ch;
+      line-height: 1.7;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    [data-theme="dark"] .section-desc { color: var(--color-text-secondary-dark); }
+
+    .accent-line {
+      width: 2.5rem;
+      height: 2px;
+      background: var(--color-accent);
+      margin: 0 auto var(--space-lg);
+    }
+    [data-theme="dark"] .accent-line { background: var(--color-accent-dark); }
+
+    /* ── Buttons ── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 2rem;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-body);
+      font-size: 0.9375rem;
+      font-weight: 500;
+      line-height: 1;
+      cursor: pointer;
+      border: none;
+      transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+      text-decoration: none;
+    }
+    .btn-primary {
+      background: var(--color-accent);
+      color: #fff;
+    }
+    .btn-primary:hover {
+      background: var(--color-accent-hover);
+      transform: translateY(-1px);
+      color: #fff;
+    }
+    [data-theme="dark"] .btn-primary {
+      background: var(--color-accent-dark);
+      color: #161310;
+    }
+    [data-theme="dark"] .btn-primary:hover {
+      background: var(--color-accent-hover-dark);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--color-accent);
+      border: 1.5px solid var(--color-accent);
+    }
+    .btn-outline:hover {
+      background: var(--color-accent);
+      color: #fff;
+      transform: translateY(-1px);
+    }
+    [data-theme="dark"] .btn-outline {
+      color: var(--color-accent-dark);
+      border-color: var(--color-accent-dark);
+    }
+    [data-theme="dark"] .btn-outline:hover {
+      background: var(--color-accent-dark);
+      color: #161310;
+    }
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-md);
+      align-items: center;
+    }
+
+    /* ── Navigation ── */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: var(--z-nav);
+      height: var(--nav-height);
+      background: rgba(245, 242, 235, 0.88);
+      backdrop-filter: blur(12px) saturate(180%);
+      -webkit-backdrop-filter: blur(12px) saturate(180%);
+      border-bottom: 1px solid var(--color-border-light);
+      transition: background 0.3s, border-color 0.3s;
+    }
+    [data-theme="dark"] .nav {
+      background: rgba(22, 19, 16, 0.88);
+      border-bottom-color: var(--color-border-dark);
+    }
+    .nav-inner {
+      max-width: var(--content-max);
+      margin: 0 auto;
+      padding: 0 var(--space-lg);
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+    [data-theme="dark"] .nav-brand { color: var(--color-text-primary-dark); }
+    .nav-brand:hover { color: var(--color-accent); }
+    .nav-brand-icon {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      background: var(--color-accent);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-heading);
+      font-size: 0.8125rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: var(--space-lg);
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--color-text-secondary);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    [data-theme="dark"] .nav-links a { color: var(--color-text-secondary-dark); }
+    .nav-links a:hover { color: var(--color-accent); }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+    }
+    .theme-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      width: 2.25rem;
+      height: 2.25rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-text-secondary);
+      transition: background 0.2s, color 0.2s;
+      font-size: 1.125rem;
+    }
+    [data-theme="dark"] .theme-btn { color: var(--color-text-secondary-dark); }
+    .theme-btn:hover {
+      background: var(--color-accent-ghost);
+      color: var(--color-accent);
+    }
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      width: 2.25rem;
+      height: 2.25rem;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      padding: 0;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: var(--color-text-primary);
+      border-radius: 1px;
+      transition: all 0.3s ease;
+    }
+    [data-theme="dark"] .nav-toggle span { background: var(--color-text-primary-dark); }
+    .nav-toggle.mobile-open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+    .nav-toggle.mobile-open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.mobile-open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+    /* ── Hero ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: var(--nav-height);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-3xl);
+      align-items: center;
+      width: 100%;
+      max-width: var(--content-max);
+      margin: 0 auto;
+      padding: var(--space-3xl) var(--space-lg);
+    }
+    .hero-content {
+      max-width: 42rem;
+    }
+    .hero-tag {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: var(--space-lg);
+    }
+    [data-theme="dark"] .hero-tag { color: var(--color-accent-dark); }
+    .hero-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2.5rem, 5.5vw, 5rem);
+      font-weight: 700;
+      line-height: 1.08;
+      color: var(--color-text-primary);
+      text-wrap: balance;
+      margin-bottom: var(--space-lg);
+      letter-spacing: -0.02em;
+    }
+    [data-theme="dark"] .hero-title { color: var(--color-text-primary-dark); }
+    .hero-sub {
+      font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+      color: var(--color-text-secondary);
+      line-height: 1.7;
+      max-width: 55ch;
+      margin-bottom: var(--space-xl);
+      text-wrap: pretty;
+    }
+    [data-theme="dark"] .hero-sub { color: var(--color-text-secondary-dark); }
+    .hero-divider {
+      width: 3rem;
+      height: 2px;
+      background: var(--color-accent);
+      margin-bottom: var(--space-xl);
+    }
+    [data-theme="dark"] .hero-divider { background: var(--color-accent-dark); }
+    .hero-image-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-image-wrap img {
+      width: 100%;
+      height: auto;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-lg);
+      object-fit: cover;
+      aspect-ratio: 3/4;
+    }
+    .hero-image-frame {
+      position: absolute;
+      top: -1.5rem;
+      right: -1.5rem;
+      width: 100%;
+      height: 100%;
+      border: 1.5px solid var(--color-accent);
+      border-radius: var(--radius-md);
+      z-index: -1;
+      opacity: 0.4;
+    }
+    [data-theme="dark"] .hero-image-frame { border-color: var(--color-accent-dark); }
+
+    /* ── Philosophy — split layout ── */
+    .philosophy {
+      padding: var(--space-4xl) 0;
+    }
+    .philosophy-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-3xl);
+      align-items: center;
+    }
+    .philosophy-image {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+    .philosophy-image img {
+      width: 100%;
+      height: 450px;
+      object-fit: cover;
+      border-radius: var(--radius-md);
+    }
+    .philosophy-content h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.75rem, 3vw, 2.5rem);
+      font-weight: 600;
+      line-height: 1.2;
+      text-wrap: balance;
+      margin-bottom: var(--space-md);
+    }
+    .philosophy-content p {
+      font-size: 1rem;
+      color: var(--color-text-secondary);
+      line-height: 1.75;
+      margin-bottom: var(--space-md);
+      max-width: 55ch;
+      text-wrap: pretty;
+    }
+    [data-theme="dark"] .philosophy-content p { color: var(--color-text-secondary-dark); }
+    .philosophy-signature {
+      font-family: var(--font-heading);
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--color-accent);
+      margin-top: var(--space-lg);
+    }
+    [data-theme="dark"] .philosophy-signature { color: var(--color-accent-dark); }
+
+    /* ── Collections — varied card layouts ── */
+    .collections {
+      padding: var(--space-4xl) 0;
+      background: var(--color-surface);
+    }
+    [data-theme="dark"] .collections { background: var(--color-surface-dark); }
+    .collection-item {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-2xl);
+      align-items: center;
+      margin-bottom: var(--space-2xl);
+      padding: var(--space-xl);
+      border-radius: var(--radius-md);
+      transition: background 0.3s;
+    }
+    .collection-item:hover { background: var(--color-accent-ghost); }
+    [data-theme="dark"] .collection-item:hover { background: var(--color-accent-ghost-dark); }
+    .collection-item:last-child { margin-bottom: 0; }
+    /* Alternate layout: reverse order for middle item */
+    .collection-item:nth-child(even) { direction: rtl; }
+    .collection-item:nth-child(even) > * { direction: ltr; }
+
+    .collection-image img {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+      border-radius: var(--radius-md);
+    }
+    .collection-tag {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: var(--space-sm);
+    }
+    [data-theme="dark"] .collection-tag { color: var(--color-accent-dark); }
+    .collection-name {
+      font-family: var(--font-heading);
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+      font-weight: 600;
+      line-height: 1.15;
+      text-wrap: balance;
+      margin-bottom: var(--space-sm);
+    }
+    .collection-desc {
+      font-size: 0.9375rem;
+      color: var(--color-text-secondary);
+      line-height: 1.65;
+      max-width: 45ch;
+      text-wrap: pretty;
+      margin-bottom: var(--space-md);
+    }
+    [data-theme="dark"] .collection-desc { color: var(--color-text-secondary-dark); }
+    .collection-specs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-lg);
+      margin-bottom: var(--space-lg);
+    }
+    .collection-spec {
+      display: flex;
+      flex-direction: column;
+    }
+    .collection-spec-label {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--color-text-tertiary);
+      margin-bottom: 0.125rem;
+    }
+    [data-theme="dark"] .collection-spec-label { color: var(--color-text-tertiary-dark); }
+    .collection-spec-value {
+      font-family: var(--font-body);
+      font-size: 0.9375rem;
+      font-weight: 500;
+      color: var(--color-text-primary);
+    }
+    [data-theme="dark"] .collection-spec-value { color: var(--color-text-primary-dark); }
+
+    /* ── Craftsmanship — 4 steps ── */
+    .craftsmanship {
+      padding: var(--space-4xl) 0;
+      position: relative;
+    }
+    .craftsmanship::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1px;
+      height: 100%;
+      background: linear-gradient(to bottom, transparent, var(--color-border), transparent);
+      display: none;
+    }
+    [data-theme="dark"] .craftsmanship::before { background: linear-gradient(to bottom, transparent, var(--color-border-dark), transparent); }
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-xl);
+      margin-top: var(--space-2xl);
+    }
+    .step-card {
+      text-align: center;
+      padding: var(--space-xl) var(--space-md);
+      border-radius: var(--radius-md);
+      background: var(--color-surface);
+      border: 1px solid var(--color-border-light);
+      transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s;
+    }
+    [data-theme="dark"] .step-card {
+      background: var(--color-surface-dark);
+      border-color: var(--color-border-dark);
+    }
+    .step-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+    .step-icon {
+      width: 3.5rem;
+      height: 3.5rem;
+      border-radius: 50%;
+      background: var(--color-accent-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto var(--space-md);
+      font-size: 1.25rem;
+    }
+    [data-theme="dark"] .step-icon { background: var(--color-accent-light-dark); }
+    .step-title {
+      font-family: var(--font-heading);
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin-bottom: var(--space-sm);
+      text-wrap: balance;
+    }
+    .step-desc {
+      font-size: 0.875rem;
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+      text-wrap: pretty;
+    }
+    [data-theme="dark"] .step-desc { color: var(--color-text-secondary-dark); }
+
+    /* ── Press — testimonial quotes ── */
+    .press {
+      padding: var(--space-4xl) 0;
+      background: var(--color-surface);
+    }
+    [data-theme="dark"] .press { background: var(--color-surface-dark); }
+    .press-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-xl);
+    }
+    .press-card {
+      padding: var(--space-xl);
+      border-radius: var(--radius-md);
+      background: var(--color-bg);
+      border: 1px solid var(--color-border-light);
+    }
+    [data-theme="dark"] .press-card {
+      background: var(--color-bg-dark);
+      border-color: var(--color-border-dark);
+    }
+    .press-card:first-child {
+      grid-column: 1 / -1;
+      padding: var(--space-2xl);
+    }
+    .press-quote-mark {
+      font-family: var(--font-heading);
+      font-size: 3rem;
+      line-height: 1;
+      color: var(--color-accent);
+      opacity: 0.3;
+      margin-bottom: -1rem;
+    }
+    [data-theme="dark"] .press-quote-mark { color: var(--color-accent-dark); }
+    .press-text {
+      font-family: var(--font-heading);
+      font-size: clamp(1.125rem, 1.8vw, 1.5rem);
+      font-style: italic;
+      line-height: 1.5;
+      color: var(--color-text-primary);
+      text-wrap: pretty;
+      margin-bottom: var(--space-md);
+    }
+    [data-theme="dark"] .press-text { color: var(--color-text-primary-dark); }
+    .press-card:first-child .press-text {
+      font-size: clamp(1.25rem, 2.2vw, 1.75rem);
+    }
+    .press-attribution {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--color-accent);
+    }
+    [data-theme="dark"] .press-attribution { color: var(--color-accent-dark); }
+    .press-source {
+      font-size: 0.75rem;
+      color: var(--color-text-tertiary);
+      margin-top: 0.125rem;
+    }
+    [data-theme="dark"] .press-source { color: var(--color-text-tertiary-dark); }
+
+    /* ── Contact ── */
+    .contact {
+      padding: var(--space-4xl) 0;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-3xl);
+    }
+    .contact-info h3 {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: var(--space-md);
+    }
+    .contact-detail {
+      display: flex;
+      gap: var(--space-md);
+      margin-bottom: var(--space-md);
+    }
+    .contact-detail-icon {
+      width: 1rem;
+      color: var(--color-accent);
+      flex-shrink: 0;
+      margin-top: 0.125rem;
+    }
+    [data-theme="dark"] .contact-detail-icon { color: var(--color-accent-dark); }
+    .contact-detail-text {
+      font-size: 0.9375rem;
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+    }
+    [data-theme="dark"] .contact-detail-text { color: var(--color-text-secondary-dark); }
+    .contact-detail-text strong { color: var(--color-text-primary); }
+    [data-theme="dark"] .contact-detail-text strong { color: var(--color-text-primary-dark); }
+
+    .newsletter-box {
+      padding: var(--space-xl);
+      border-radius: var(--radius-md);
+      background: var(--color-surface);
+      border: 1px solid var(--color-border-light);
+    }
+    [data-theme="dark"] .newsletter-box {
+      background: var(--color-surface-dark);
+      border-color: var(--color-border-dark);
+    }
+    .newsletter-box h3 {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: var(--space-sm);
+    }
+    .newsletter-box p {
+      font-size: 0.875rem;
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+      margin-bottom: var(--space-lg);
+    }
+    [data-theme="dark"] .newsletter-box p { color: var(--color-text-secondary-dark); }
+    .newsletter-form {
+      display: flex;
+      gap: var(--space-sm);
+    }
+    .newsletter-form input {
+      flex: 1;
+      padding: 0.75rem 1rem;
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-body);
+      font-size: 0.9375rem;
+      background: var(--color-bg);
+      color: var(--color-text-primary);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    [data-theme="dark"] .newsletter-form input {
+      background: var(--color-bg-dark);
+      color: var(--color-text-primary-dark);
+      border-color: var(--color-border-dark);
+    }
+    .newsletter-form input:focus { border-color: var(--color-accent); }
+    .newsletter-form input::placeholder { color: var(--color-text-tertiary); }
+
+    /* ── Footer ── */
+    .footer {
+      padding: var(--space-2xl) 0 var(--space-xl);
+      border-top: 1px solid var(--color-border-light);
+    }
+    [data-theme="dark"] .footer { border-top-color: var(--color-border-dark); }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--space-lg);
+    }
+    .footer-brand {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--color-text-primary);
+    }
+    [data-theme="dark"] .footer-brand { color: var(--color-text-primary-dark); }
+    .footer-links {
+      display: flex;
+      gap: var(--space-lg);
+      list-style: none;
+    }
+    .footer-links a {
+      font-size: 0.875rem;
+      color: var(--color-text-secondary);
+      transition: color 0.2s;
+    }
+    [data-theme="dark"] .footer-links a { color: var(--color-text-secondary-dark); }
+    .footer-links a:hover { color: var(--color-accent); }
+    .footer-copy {
+      font-size: 0.8125rem;
+      color: var(--color-text-tertiary);
+      width: 100%;
+      text-align: center;
+      margin-top: var(--space-lg);
+    }
+    [data-theme="dark"] .footer-copy { color: var(--color-text-tertiary-dark); }
+
+    /* ── Scroll Reveal ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-30px);
+      transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(30px);
+      transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal-scale {
+      opacity: 0;
+      transform: scale(0.95);
+      transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal.visible,
+    .reveal-left.visible,
+    .reveal-right.visible,
+    .reveal-scale.visible {
+      opacity: 1;
+      transform: translate(0) scale(1);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal, .reveal-left, .reveal-right, .reveal-scale {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+      html { scroll-behavior: auto; }
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 1024px) {
+      .hero-inner { grid-template-columns: 1fr; gap: var(--space-2xl); }
+      .hero-image-wrap { max-width: 28rem; margin: 0 auto; }
+      .hero-content { max-width: 100%; }
+      .hero-image-frame { display: none; }
+      .philosophy-grid { grid-template-columns: 1fr; gap: var(--space-2xl); }
+      .philosophy-image img { height: 320px; }
+      .steps-grid { grid-template-columns: repeat(2, 1fr); }
+      .press-grid { grid-template-columns: 1fr; }
+      .press-card:first-child { grid-column: 1; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .nav-toggle { display: flex; }
+      .nav-links.mobile-open {
+        display: flex;
+        position: fixed;
+        top: var(--nav-height);
+        left: 0;
+        right: 0;
+        background: var(--color-bg);
+        border-bottom: 1px solid var(--color-border-light);
+        flex-direction: column;
+        padding: var(--space-lg);
+        gap: var(--space-md);
+        box-shadow: var(--shadow-md);
+      }
+      [data-theme="dark"] .nav-links.mobile-open {
+        background: var(--color-bg-dark);
+        border-bottom-color: var(--color-border-dark);
+      }
+      .collection-item { grid-template-columns: 1fr; gap: var(--space-lg); }
+      .collection-item:nth-child(even) { direction: ltr; }
+      .collection-image img { height: 260px; }
+    }
+
+    @media (max-width: 640px) {
+      .hero { min-height: auto; }
+      .hero-inner { padding: var(--space-2xl) var(--space-lg); }
+      .hero-title { font-size: clamp(2rem, 10vw, 2.75rem); }
+      .steps-grid { grid-template-columns: 1fr; }
+      .steps-grid { gap: var(--space-md); }
+      .collection-item { padding: var(--space-md); }
+      .newsletter-form { flex-direction: column; }
+      .footer-inner { flex-direction: column; text-align: center; }
+      .container { padding: 0 var(--space-md); }
+      .container-wide { padding: 0 var(--space-md); }
+      .contact-grid { gap: var(--space-2xl); }
+      .philosophy-image img { height: 240px; }
+      .collection-image img { height: 220px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ════════════════════════════════════════════
+       NAVIGATION
+       ════════════════════════════════════════════ -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="#" class="nav-brand" aria-label="Meridian home">
+        <span class="nav-brand-icon">M</span>
+        Meridian
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#philosophy">Philosophy</a></li>
+        <li><a href="#collections">Collections</a></li>
+        <li><a href="#craftsmanship">Craftsmanship</a></li>
+        <li><a href="#press">Press</a></li>
+        <li><a href="#contact">Visit</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="theme-btn" id="themeToggle" aria-label="Toggle dark mode">
+          <span id="themeIcon">☀️</span>
+        </button>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ════════════════════════════════════════════
+       HERO
+       ════════════════════════════════════════════ -->
+  <section class="hero" id="hero">
+    <div class="hero-inner">
+      <div class="hero-content reveal-left">
+        <span class="hero-tag">Geneva — Since 1958</span>
+        <h1 class="hero-title">Where precision meets poetry</h1>
+        <div class="hero-divider"></div>
+        <p class="hero-sub">Meridian is an independent watchmaking atelier in the Swiss Jura. Every timepiece is conceived, machined, and assembled by hand — a marriage of centuries-old tradition and modern engineering.</p>
+        <div class="btn-group">
+          <a href="#collections" class="btn btn-primary">Discover collections</a>
+          <a href="#philosophy" class="btn btn-outline">Our approach</a>
+        </div>
+      </div>
+      <div class="hero-image-wrap reveal-right">
+        <div class="hero-image-frame" aria-hidden="true"></div>
+        <img src="https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=800&q=80" alt="Close-up of a mechanical watch movement showing intricate gears and springs" loading="eager">
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════
+       PHILOSOPHY
+       ════════════════════════════════════════════ -->
+  <section class="philosophy" id="philosophy">
+    <div class="container">
+      <div class="philosophy-grid">
+        <div class="philosophy-image reveal-left">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/ETA_2801_mechanical_watch_movement.jpg" alt="Close-up of a mechanical watch movement showing intricate gears and springs" loading="lazy">
+        </div>
+        <div class="philosophy-content reveal-right">
+          <h2>Time made tangible</h2>
+          <div class="accent-line" style="margin-left:0;"></div>
+          <p>In an age of disposable goods, we believe in permanence. Every Meridian watch carries the touch of the hand that assembled it — from the first gear to the final polish. Our movements are Swiss-made, our cases are machined from solid brass and stainless steel, and every dial is finished by hand.</p>
+          <p>We do not chase trends. We refine the essential: a mechanical movement that is accurate, robust, and beautiful; a case that sits naturally on the wrist; a design that speaks in whispers, not shouts. Each piece takes twelve to eighteen months from conception to delivery.</p>
+          <div class="philosophy-signature">— Founded by Henri Vallier, master watchmaker</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════
+       COLLECTIONS — Varied layouts
+       ════════════════════════════════════════════ -->
+  <section class="collections" id="collections">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2 class="section-title">Our collections</h2>
+        <p class="section-desc">Three distinct lines, each with its own character. From the dress watch to the field instrument, every Meridian shares the same commitment to mechanical integrity.</p>
+      </div>
+
+      <!-- Collection 1: The Meridian One — wide image, text beside -->
+      <div class="collection-item reveal">
+        <div class="collection-image">
+          <img src="https://images.unsplash.com/photo-1547996160-81dfa63595aa?w=800&q=80" alt="The Meridian One — classic dress watch with silver dial and brown leather strap" loading="lazy">
+        </div>
+        <div class="collection-info">
+          <span class="collection-tag">Dress watch</span>
+          <h3 class="collection-name">The Meridian One</h3>
+          <p class="collection-desc">The founding piece — a clean, restrained dress watch with a hand-finished silver opaline dial, dauphine hands, and a ultra-thin automatic movement visible through the sapphire caseback. Water resistant to 50 metres.</p>
+          <div class="collection-specs">
+            <div class="collection-spec">
+              <span class="collection-spec-label">Movement</span>
+              <span class="collection-spec-value">Calibre M-101 auto</span>
+            </div>
+            <div class="collection-spec">
+              <span class="collection-spec-label">Diameter</span>
+              <span class="collection-spec-value">39.5 mm</span>
+            </div>
+            <div class="collection-spec">
+              <span class="collection-spec-label">Power reserve</span>
+              <span class="collection-spec-value">70 hours</span>
+            </div>
+          </div>
+          <a href="#" class="btn btn-outline btn-sm">Explore the One</a>
+        </div>
+      </div>
+
+      <!-- Collection 2: The Chrono — wide (reversed direction handles alternating) -->
+      <div class="collection-item reveal">
+        <div class="collection-image">
+          <img src="https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg?auto=compress&cs=tinysrgb&w=800" alt="The Meridian Chrono — mechanical chronograph with tachymeter bezel" loading="lazy">
+        </div>
+        <div class="collection-info">
+          <span class="collection-tag">Chronograph</span>
+          <h3 class="collection-name">The Chrono</h3>
+          <p class="collection-desc">A modern mechanical chronograph inspired by motorsport instrumentation. Column-wheel actuation, vertical clutch, and a tachymeter bezel in ceramic. The Chrono is built for those who measure life in seconds.</p>
+          <div class="collection-specs">
+            <div class="collection-spec">
+              <span class="collection-spec-label">Movement</span>
+              <span class="collection-spec-value">Calibre M-201CH auto</span>
+            </div>
+            <div class="collection-spec">
+              <span class="collection-spec-label">Diameter</span>
+              <span class="collection-spec-value">42 mm</span>
+            </div>
+            <div class="collection-spec">
+              <span class="collection-spec-label">Water resistance</span>
+              <span class="collection-spec-value">100 metres</span>
+            </div>
+          </div>
+          <a href="#" class="btn btn-outline btn-sm">Explore the Chrono</a>
+        </div>
+      </div>
+
+      <!-- Collection 3: The Heritage — wide layout -->
+      <div class="collection-item reveal">
+        <div class="collection-image">
+          <img src="https://images.pexels.com/photos/277390/pexels-photo-277390.jpeg?auto=compress&cs=tinysrgb&w=800" alt="The Meridian Heritage — field watch with black dial and leather nato strap" loading="lazy">
+        </div>
+        <div class="collection-info">
+          <span class="collection-tag">Field watch</span>
+          <h3 class="collection-name">The Heritage</h3>
+          <p class="collection-desc">A robust field watch inspired by mid-century military timepieces. Luminous numerals, screw-down crown, and a softly radiused case that disappears under a shirt cuff. The Heritage is ready for any terrain.</p>
+          <div class="collection-specs">
+            <div class="collection-spec">
+              <span class="collection-spec-label">Movement</span>
+              <span class="collection-spec-value">Calibre M-301 hand-wind</span>
+            </div>
+            <div class="collection-spec">
+              <span class="collection-spec-label">Diameter</span>
+              <span class="collection-spec-value">40 mm</span>
+            </div>
+            <div class="collection-spec">
+              <span class="collection-spec-label">Water resistance</span>
+              <span class="collection-spec-value">200 metres</span>
+            </div>
+          </div>
+          <a href="#" class="btn btn-outline btn-sm">Explore the Heritage</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════
+       CRAFTSMANSHIP — 4 steps (NOT numbered)
+       ════════════════════════════════════════════ -->
+  <section class="craftsmanship" id="craftsmanship">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2 class="section-title">The art of making</h2>
+        <p class="section-desc">Every Meridian watch passes through four stages of creation, each one guided by a master artisan. No piece is assembled twice in the same way.</p>
+        <div class="accent-line"></div>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-card reveal-scale">
+          <div class="step-icon" aria-hidden="true">&#9881;</div>
+          <h3 class="step-title">Design & engineering</h3>
+          <p class="step-desc">Each calibre is designed in-house using parametric modelling. Gears, bridges, and mainplates are stress-tested before a single chip is cut.</p>
+        </div>
+        <div class="step-card reveal-scale">
+          <div class="step-icon" aria-hidden="true">&#9981;</div>
+          <h3 class="step-title">Machining & finishing</h3>
+          <p class="step-desc">Cases are turned from solid 316L stainless steel. Bridges are bevelled and perlage-finished by hand under a microscope. Every surface receives attention.</p>
+        </div>
+        <div class="step-card reveal-scale">
+          <div class="step-icon" aria-hidden="true">&#9880;</div>
+          <h3 class="step-title">Assembly & regulation</h3>
+          <p class="step-desc">A single watchmaker builds each movement from blank mainplate to ticking assembly — an intensive process that spans two to three weeks.</p>
+        </div>
+        <div class="step-card reveal-scale">
+          <div class="step-icon" aria-hidden="true">&#9734;</div>
+          <h3 class="step-title">Testing & certification</h3>
+          <p class="step-desc">Every watch is regulated in five positions over 48 hours, pressure-tested, and worn for seven days before it leaves the atelier.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════
+       PRESS — Magazine-style quotes
+       ════════════════════════════════════════════ -->
+  <section class="press" id="press">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2 class="section-title">What the press says</h2>
+      </div>
+
+      <div class="press-grid">
+        <div class="press-card reveal">
+          <div class="press-quote-mark" aria-hidden="true">&ldquo;</div>
+          <p class="press-text">Meridian has achieved something rare in contemporary watchmaking: a dress watch that is both technically serious and visually serene. The One is a triumph of restraint over ornament.</p>
+          <div class="press-attribution">Horological Quarterly</div>
+          <div class="press-source">Issue 47, pp. 62&ndash;68</div>
+        </div>
+        <div class="press-card reveal">
+          <div class="press-quote-mark" aria-hidden="true">&ldquo;</div>
+          <p class="press-text">The Chrono&rsquo;s column-wheel actuation at this price point is remarkable. Vallier has clearly prioritised mechanical integrity over marketing hype.</p>
+          <div class="press-attribution">Watch Journal</div>
+          <div class="press-source">Summer Collection Review</div>
+        </div>
+        <div class="press-card reveal">
+          <div class="press-quote-mark" aria-hidden="true">&ldquo;</div>
+          <p class="press-text">If you value the quiet poetry of a hand-finished movement, Meridian belongs on your shortlist. This is independent watchmaking done right.</p>
+          <div class="press-attribution">&Eacute;pure Magazine</div>
+          <div class="press-source">Independent Makers Report</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════
+       CONTACT
+       ════════════════════════════════════════════ -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2 class="section-title">Visit the atelier</h2>
+        <p class="section-desc">We welcome visitors by appointment. Come see where the watches are made — from raw brass to finished movement.</p>
+        <div class="accent-line"></div>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-info reveal-left">
+          <h3>Meridian Atelier</h3>
+          <div class="contact-detail">
+            <span class="contact-detail-icon" aria-hidden="true">&#9992;</span>
+            <div class="contact-detail-text">
+              <strong>Address</strong><br>
+              Rue de la Vallée 14<br>
+              2300 La Chaux-de-Fonds<br>
+              Switzerland
+            </div>
+          </div>
+          <div class="contact-detail">
+            <span class="contact-detail-icon" aria-hidden="true">&#9993;</span>
+            <div class="contact-detail-text">
+              <strong>Email</strong><br>
+              atelier@meridian-horology.com
+            </div>
+          </div>
+          <div class="contact-detail">
+            <span class="contact-detail-icon" aria-hidden="true">&#9742;</span>
+            <div class="contact-detail-text">
+              <strong>Phone</strong><br>
+              +41 32 123 45 67
+            </div>
+          </div>
+          <div class="contact-detail">
+            <span class="contact-detail-icon" aria-hidden="true">&#9200;</span>
+            <div class="contact-detail-text">
+              <strong>Visiting hours</strong><br>
+              Tuesday–Friday: 10:00–17:00<br>
+              Saturday: 10:00–15:00<br>
+              Sunday & Monday: Closed
+            </div>
+          </div>
+        </div>
+
+        <div class="newsletter-box reveal-right">
+          <h3>Stay in touch</h3>
+          <p>Subscribe to our journal for behind-the-scenes stories, new release announcements, and invitations to atelier events.</p>
+          <form class="newsletter-form" onsubmit="event.preventDefault(); this.querySelector('input').value=''; alert('Thank you for subscribing. You will hear from us soon.')">
+            <input type="email" placeholder="Your email address" required aria-label="Email address">
+            <button type="submit" class="btn btn-primary">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════
+       FOOTER
+       ════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">Meridian</div>
+        <ul class="footer-links">
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Pinterest</a></li>
+          <li><a href="#">YouTube</a></li>
+          <li><a href="#">Press kit</a></li>
+        </ul>
+        <div class="footer-copy">
+          &copy; 2026 Meridan Horlogerie SA. All rights reserved.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* ───────────────────────────────────────────────
+       THEME TOGGLE
+       ─────────────────────────────────────────────── */
+    (function() {
+      function getInitialTheme() {
+        const saved = localStorage.getItem('meridian-theme');
+        if (saved) return saved;
+        return 'light';
+      }
+
+      function applyTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('meridian-theme', theme);
+        document.getElementById('themeIcon').textContent = theme === 'dark' ? '☀️' : '☽';
+      }
+
+      document.getElementById('themeToggle').addEventListener('click', function() {
+        const current = document.documentElement.getAttribute('data-theme');
+        applyTheme(current === 'dark' ? 'light' : 'dark');
+      });
+
+      applyTheme(getInitialTheme());
+    })();
+
+    /* ───────────────────────────────────────────────
+       MOBILE NAV
+       ─────────────────────────────────────────────── */
+    (function() {
+      const toggle = document.getElementById('navToggle');
+      const nav = document.getElementById('navLinks');
+      toggle.addEventListener('click', function() {
+        nav.classList.toggle('mobile-open');
+        toggle.classList.toggle('mobile-open');
+      });
+      document.querySelectorAll('.nav-links a').forEach(function(a) {
+        a.addEventListener('click', function() {
+          nav.classList.remove('mobile-open');
+          toggle.classList.remove('mobile-open');
+        });
+      });
+    })();
+
+    /* ───────────────────────────────────────────────
+       INTERSECTION OBSERVER — Scroll Reveal
+       ─────────────────────────────────────────────── */
+    (function() {
+      var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReducedMotion) return;
+
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+      document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(function(el) {
+        observer.observe(el);
+      });
+    })();
+  </script>
+</body>
+</html>

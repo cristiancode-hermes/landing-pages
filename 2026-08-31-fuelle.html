@@ -1,0 +1,1561 @@
+<!DOCTYPE html>
+<html lang="es" class="no-js" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="doc-title">FUELLE · Taller de órganos en Madrid</title>
+<meta id="meta-desc" name="description" content="Restauración de órganos de tubos en Madrid: inventariamos cada tubo, entonamos cada lengua y entregamos el instrumento con su cuaderno de taller.">
+<link rel="canonical" href="https://proyectos.cristiancode.dev/landings/2026-08-31-fuelle.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="FUELLE · El órgano vuelve a hablar">
+<meta property="og:description" content="Restauración integral de órganos de cámara y positivos. Tres generaciones de entonadores en Madrid.">
+<meta property="og:url" content="https://proyectos.cristiancode.dev/landings/2026-08-31-fuelle.html">
+<meta property="og:image" content="https://cristiancode.dev/assets/landing-2026-08-31-fuelle.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="FUELLE · Taller de órganos">
+<meta name="twitter:description" content="Inventariamos cada tubo, entonamos cada lengua y devolvemos la voz al instrumento.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#14110C">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2314110C'/%3E%3Crect x='7' y='6' width='4' height='20' fill='%23D9B05C'/%3E%3Crect x='12' y='3' width='4' height='23' fill='%23F4EFE6'/%3E%3Crect x='17' y='7' width='4' height='19' fill='%23D9B05C'/%3E%3Crect x='22' y='5' width='4' height='21' fill='%23F4EFE6'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,600;0,6..96,700;1,6..96,500&family=Karla:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Roboto+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   DESIGN SYSTEM — FUELLE · Taller de órganos de tubos
+   Surface: Decide/Learn (landing; hero correct). Secondary
+            Operate in the registration console (real stops),
+            Compare across the three commissions, Monitor in
+            the workshop ledger (real counts only).
+   Derived from: Together AI (popular-web-designs) — sharp
+            4/8px geometry, a dark technical zone (midnight
+            blue-black, not gray), mono uppercase labels,
+            weight-500 hierarchy, restrained radius, one
+            accent family. Diverged: no pastel gradients,
+            no glass; the instrument's own wood and brass
+            replace the tech palette. Industrial craft.
+   Family: Artesanía / Órganos de tubos
+   Style: Workshop blue-print — cold white shop paper,
+          walnut ink, brass + rosewood accents, mono
+          workshop labels, drawn pipe façades
+   Strategy: Restrained (white + brass ≤10% + rosewood CTA)
+             with a Drenched dark nave section
+   Type: Bodoni Moda (display didone) + Karla (humanist
+         body) + Roboto Mono (workshop labels)
+   Impeccable: no gradient text, no glass, no side-stripe,
+         no 3 equal tiles, no hero-metrics (ledger numbers
+         are real counts), no uppercase eyebrows (mono
+         labels are brand voice), numbers only on the real
+         4-step process + ledger, no Inter, no indigo.
+         Contrast verified ≥4.5:1 in both themes.
+   ============================================================ */
+:root{
+  --z-nav:30; --z-banner:40; --z-menu:45; --z-toast:60;
+  --bg:#F6F6F4; --bg-2:#EEEDE9; --card:#FFFFFF;
+  --ink:#211D19; --muted:#4A453E; --faint:#5F5A51;
+  --line:#E0DED7; --line-strong:#C8C4BA;
+  --brass:#8A6216; --brass-hover:#6F4B0E; --brass-soft:#F1E9D8;
+  --rose:#7C2D34; --rose-hover:#63232A; --cta-ink:#FFFFFF;
+  --ok:#3E6B3E; --err:#9B1C1C;
+  --stage:#14110C; --stage-2:#1C1812; --stage-ink:#F4EFE6; --stage-muted:#C9BFAE;
+  --brass-light:#D9B05C; --brass-pale:#E9CD8E;
+  --disp:'Bodoni Moda',Georgia,'Times New Roman',serif;
+  --sans:'Karla',system-ui,'Segoe UI',sans-serif;
+  --mono:'Roboto Mono',ui-monospace,'SFMono-Regular',Menlo,monospace;
+  --r:4px; --r-lg:10px;
+  --ease:cubic-bezier(.16,1,.3,1);
+  --shadow:0 1px 2px rgba(33,29,25,.05),0 8px 24px -12px rgba(33,29,25,.12);
+  --nav-h:64px;
+}
+[data-theme="dark"]{
+  --bg:#12100C; --bg-2:#17140F; --card:#1B1712;
+  --ink:#F4EFE6; --muted:#CFC6B6; --faint:#A89F90;
+  --line:#33302A; --line-strong:#4A463F;
+  --brass:#D9B05C; --brass-hover:#E9CD8E; --brass-soft:#2A2418;
+  --rose:#A84A52; --rose-hover:#BC5A62; --cta-ink:#FFFFFF;
+  --ok:#6F9A6F; --err:#E0667A;
+  --stage-muted:#B8AE9F;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 28px -14px rgba(0,0,0,.5);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+html.no-js .rv, html.reduced .rv{opacity:1!important;transform:none!important}
+@media print{
+  .rv{opacity:1!important;transform:none!important}
+  .cookie,.mobile-menu,.nav__actions .lang-select{display:none!important}
+}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:1.0625rem;line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img,svg{display:block;max-width:100%}
+a{color:var(--brass);text-decoration:none}
+a:hover{color:var(--brass-hover)}
+[data-theme="dark"] a:not(.btn){color:var(--brass)}
+[data-theme="dark"] a:not(.btn):hover{color:var(--brass-hover)}
+h1,h2,h3{font-family:var(--disp);line-height:1.08;margin:0;text-wrap:balance;letter-spacing:-0.01em}
+p{margin:0 0 1rem}
+.visually-hidden{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+section{padding:88px 0}
+@media (max-width:720px){section{padding:64px 0}}
+
+/* ---------- shared ---------- */
+.mono-kicker{
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--faint);display:inline-flex;align-items:center;gap:.6rem;margin-bottom:1.2rem;
+}
+.mono-kicker::before{content:"";width:26px;height:1px;background:var(--brass)}
+h2.sec-title{font-size:clamp(2rem,4.2vw,3rem);margin-bottom:1rem}
+.sec-sub{color:var(--muted);max-width:62ch;margin-bottom:2.5rem}
+.btn{
+  display:inline-flex;align-items:center;gap:.55rem;height:48px;padding:0 1.5rem;
+  border-radius:var(--r);border:1px solid transparent;font-family:var(--sans);
+  font-size:1rem;font-weight:600;cursor:pointer;transition:background .22s var(--ease),border-color .22s var(--ease),transform .22s var(--ease),color .22s var(--ease);
+}
+.btn svg{width:16px;height:16px;transition:transform .22s var(--ease)}
+.btn:hover svg{transform:translateX(3px)}
+.btn--rose{background:var(--rose);color:var(--cta-ink)}
+.btn--rose:hover{background:var(--rose-hover);color:var(--cta-ink)}
+.btn--ghost{border-color:var(--line-strong);color:var(--ink);background:transparent}
+.btn--ghost:hover{border-color:var(--brass);color:var(--brass)}
+.btn--big{height:52px;padding:0 1.75rem}
+[data-theme="dark"] .btn--ghost:hover{color:var(--brass)}
+
+/* ---------- nav ---------- */
+.nav{
+  position:sticky;top:0;z-index:var(--z-nav);height:var(--nav-h);
+  background:var(--bg);border-bottom:1px solid var(--line);
+  transition:box-shadow .3s var(--ease);
+}
+.nav.scrolled{box-shadow:0 6px 24px -14px rgba(0,0,0,.25)}
+.nav__inner{max-width:1200px;margin:0 auto;padding:0 24px;height:100%;display:flex;align-items:center;gap:1.5rem}
+.nav__logo{font-family:var(--disp);font-weight:700;font-size:1.35rem;letter-spacing:.02em;color:var(--ink);display:flex;align-items:center;gap:.45rem}
+.nav__logo .pipe-mark{display:inline-flex}
+.nav__logo:hover{color:var(--brass)}
+.nav__links{display:flex;align-items:center;gap:1.4rem;margin-left:auto}
+.nav__links a{color:var(--muted);font-size:.95rem;font-weight:500;transition:color .2s}
+.nav__links a:hover{color:var(--brass)}
+.nav__actions{display:flex;align-items:center;gap:.7rem}
+.nav__actions .btn{height:40px;padding:0 1.1rem;font-size:.9rem}
+.nav__burger{display:none;width:42px;height:42px;border:1px solid var(--line-strong);border-radius:var(--r);background:var(--bg);color:var(--ink);cursor:pointer;align-items:center;justify-content:center}
+.nav__burger svg{width:20px;height:20px}
+@media (max-width:960px){
+  .nav__links{display:none}
+  .nav__burger{display:inline-flex}
+}
+
+/* ---------- language select ---------- */
+.lang-select{position:relative;display:inline-block}
+.lang-select__btn{
+  display:inline-flex;align-items:center;gap:.5rem;height:40px;padding:0 .85rem;
+  border:1px solid var(--line-strong);border-radius:var(--r);background:var(--bg);
+  color:var(--ink);font-family:var(--mono);font-size:.75rem;letter-spacing:.06em;cursor:pointer;
+  transition:border-color .2s var(--ease);
+}
+.lang-select__btn:hover,.lang-select__btn[aria-expanded="true"]{border-color:var(--brass)}
+.lang-select__chev{width:9px;height:6px;transition:transform .2s var(--ease)}
+.lang-select__btn[aria-expanded="true"] .lang-select__chev{transform:rotate(180deg)}
+.lang-select__menu{
+  position:absolute;top:calc(100% + 8px);right:0;z-index:var(--z-menu);min-width:172px;padding:.4rem;
+  background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow);
+  opacity:0;visibility:hidden;transform:translateY(-4px);
+  transition:opacity .2s var(--ease),transform .2s var(--ease),visibility .2s;
+}
+.lang-select__menu.open{opacity:1;visibility:visible;transform:translateY(0)}
+.lang-select__opt{
+  display:flex;align-items:center;gap:.5rem;width:100%;padding:.55rem .75rem;border:none;background:none;
+  font-size:.875rem;color:var(--ink);text-align:left;border-radius:6px;cursor:pointer;transition:background .15s var(--ease);
+}
+.lang-select__opt:hover{background:var(--bg-2)}
+.lang-select__opt[aria-selected="true"]{color:var(--brass);font-weight:600}
+.lang-select__opt[aria-selected="true"]::after{content:'\2713';margin-left:auto}
+@media (max-width:960px){.lang-select--desktop{display:none}}
+
+/* ---------- theme toggle ---------- */
+.theme-toggle{
+  width:42px;height:42px;border:1px solid var(--line-strong);border-radius:var(--r);
+  background:var(--bg);color:var(--ink);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;
+  transition:border-color .2s var(--ease);
+}
+.theme-toggle:hover{border-color:var(--brass)}
+.theme-toggle svg{width:19px;height:19px}
+.theme-toggle .icon-sun{display:none}
+[data-theme="dark"] .theme-toggle .icon-sun{display:block}
+[data-theme="dark"] .theme-toggle .icon-moon{display:none}
+
+/* ---------- mobile menu ---------- */
+.mobile-menu{
+  position:fixed;inset:0;z-index:var(--z-menu);background:var(--bg);
+  display:flex;flex-direction:column;padding:88px 28px 32px;
+  opacity:0;visibility:hidden;transform:translateY(-8px);transition:opacity .25s var(--ease),transform .25s var(--ease),visibility .25s;
+}
+.mobile-menu.open{opacity:1;visibility:visible;transform:none}
+.mobile-menu__links{display:flex;flex-direction:column;gap:.4rem}
+.mobile-menu__links a{
+  color:var(--ink);font-family:var(--disp);font-size:1.9rem;font-weight:600;
+  padding:.6rem 0;border-bottom:1px solid var(--line);transition:color .2s;
+}
+.mobile-menu__links a:hover{color:var(--brass)}
+.mobile-menu__foot{display:flex;align-items:center;gap:1rem;margin-top:auto}
+.mobile-menu .lang-select{width:100%}
+.mobile-menu .lang-select__menu{left:0;right:auto;top:calc(100% + 8px);width:100%}
+.mobile-menu a.btn,.mobile-menu .btn--rose{color:var(--cta-ink);background:var(--rose);height:50px;justify-content:center}
+.mobile-menu .btn--rose:hover{color:var(--cta-ink);background:var(--rose-hover)}
+.mobile-menu__close{
+  position:absolute;top:20px;right:24px;width:42px;height:42px;border:1px solid var(--line-strong);
+  border-radius:var(--r);background:var(--bg);color:var(--ink);font-size:1.3rem;cursor:pointer;
+}
+
+/* ---------- hero ---------- */
+.hero{padding:72px 0 88px;position:relative;overflow:hidden}
+.hero__grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:56px;align-items:center}
+.hero__kicker{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);display:inline-flex;align-items:center;gap:.6rem;margin-bottom:1.4rem}
+.hero__kicker::before{content:"";width:26px;height:1px;background:var(--brass)}
+.hero h1{font-size:clamp(2.5rem,5.6vw,4.35rem);line-height:1.04;margin-bottom:1.4rem}
+.hero h1 em{font-style:italic;color:var(--brass)}
+.hero__sub{color:var(--muted);font-size:1.15rem;max-width:46ch;margin-bottom:2.2rem}
+.hero__ctas{display:flex;flex-wrap:wrap;gap:.9rem;margin-bottom:2.4rem}
+.hero__note{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;color:var(--faint)}
+.hero__note svg{width:13px;height:13px;margin-right:.4rem;vertical-align:-2px}
+.hero__art{position:relative}
+.org-case{
+  background:var(--stage);border-radius:var(--r-lg);padding:34px 30px 0;box-shadow:var(--shadow);
+  position:relative;overflow:hidden;
+}
+.org-case::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,rgba(255,255,255,.05),transparent 22%,transparent 78%,rgba(0,0,0,.35));
+}
+.org-pipes{display:flex;align-items:flex-end;justify-content:center;gap:2px;height:250px}
+.pipe{
+  width:20px;border-radius:2px 2px 0 0;position:relative;
+  background:linear-gradient(90deg,#2A2418,#5A4A2A 45%,#241F14);
+  transition:background .45s var(--ease),box-shadow .45s var(--ease);
+}
+.pipe::after{
+  content:"";position:absolute;top:8px;left:50%;transform:translateX(-50%);
+  width:12px;height:3px;border-radius:2px;background:#C9A24B;opacity:.85;
+}
+.pipe--tall{width:24px}
+.pipe--short{width:16px}
+.pipe--mid{width:20px;background:linear-gradient(90deg,#3A2E1B,#6B5830 45%,#2E2714)}
+.pipe--on{
+  background:linear-gradient(90deg,#4A3A1C,#C9A24B 50%,#3A2E18)!important;
+  box-shadow:0 0 14px rgba(217,176,92,.55);
+}
+.org-console{
+  margin-top:22px;background:var(--stage-2);border-radius:6px;padding:14px 16px;
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+}
+.org-console__label{font-family:var(--mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--stage-muted)}
+.org-console__readout{font-family:var(--mono);font-size:.78rem;color:var(--brass-light);white-space:nowrap}
+.org-base{height:14px;background:#0D0B08;border-radius:0 0 6px 6px;margin:0 -30px}
+@media (max-width:960px){
+  .hero{padding:48px 0 64px}
+  .hero__grid{grid-template-columns:minmax(0,1fr);gap:40px}
+  .hero__art{max-width:520px}
+}
+
+/* ---------- stop ribbon marquee ---------- */
+.ribbon{
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  background:var(--card);overflow:hidden;padding:14px 0;position:relative;
+}
+.ribbon__track{display:flex;gap:3rem;width:max-content;animation:ribbon 36s linear infinite}
+.ribbon__track span{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);white-space:nowrap;display:inline-flex;align-items:center;gap:3rem}
+.ribbon__track span::after{content:"·";color:var(--brass)}
+.ribbon:hover .ribbon__track{animation-play-state:paused}
+@keyframes ribbon{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){
+  .ribbon__track{animation:none;flex-wrap:wrap;gap:1rem;width:auto}
+  .ribbon__track span{gap:1rem}
+}
+
+/* ---------- oficio (real 4-step process) ---------- */
+.oficio{background:var(--bg-2)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem}
+.step{
+  position:relative;padding:1.6rem 1.4rem;background:var(--card);border:1px solid var(--line);
+  border-radius:var(--r-lg);transition:transform .25s var(--ease),border-color .25s var(--ease);
+}
+.step:hover{transform:translateY(-3px);border-color:var(--brass)}
+.step__num{
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;color:var(--brass);
+  display:block;margin-bottom:.9rem;
+}
+.step h3{font-size:1.25rem;margin-bottom:.55rem}
+.step p{font-size:.94rem;color:var(--muted);margin:0}
+@media (max-width:960px){.steps{grid-template-columns:1fr 1fr}}
+@media (max-width:600px){.steps{grid-template-columns:1fr}}
+
+/* ---------- obra (gallery, varied layout) ---------- */
+.obra__grid{display:grid;grid-template-columns:1.2fr .8fr;gap:1.4rem}
+.obra__card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;
+  display:flex;flex-direction:column;transition:border-color .25s var(--ease);
+}
+.obra__card:hover{border-color:var(--brass)}
+.obra__card--wide{grid-row:span 2}
+.obra__card:nth-child(2){grid-column:2}
+.obra__card:nth-child(3){grid-column:2}
+.obra__art{padding:26px 22px 18px;background:var(--bg-2);border-bottom:1px solid var(--line)}
+.obra__art svg{width:100%;height:auto}
+.obra__body{padding:1.1rem 1.3rem 1.3rem;display:flex;flex-direction:column;gap:.4rem}
+.obra__meta{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+.obra__body h3{font-size:1.25rem}
+.obra__body p{font-size:.92rem;color:var(--muted);margin:0}
+.obra__body .btn{align-self:flex-start;height:38px;padding:0 1rem;font-size:.85rem;margin-top:.5rem}
+@media (max-width:760px){
+  .obra__grid{grid-template-columns:1fr}
+  .obra__card--wide,.obra__card:nth-child(2),.obra__card:nth-child(3){grid-column:auto;grid-row:auto}
+}
+
+/* ---------- taller (dark nave + console) ---------- */
+.taller{background:var(--stage);color:var(--stage-ink);border-radius:var(--r-lg);margin:0 24px}
+.taller .wrap{padding-top:72px;padding-bottom:72px}
+[data-theme="dark"] .taller{background:var(--stage-2)}
+.taller .mono-kicker{color:var(--brass-light)}
+.taller .mono-kicker::before{background:var(--brass-light)}
+.taller h2{color:var(--stage-ink)}
+.taller .sec-sub{color:var(--stage-muted)}
+.taller__grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.console{
+  background:var(--stage-2);border:1px solid rgba(217,176,92,.25);border-radius:var(--r-lg);
+  padding:22px 20px 20px;position:relative;
+}
+[data-theme="dark"] .console{background:#211B12}
+.console__title{font-family:var(--mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--brass-light);margin-bottom:1.1rem;display:flex;justify-content:space-between;align-items:baseline}
+.console__wind{font-size:.6rem;color:var(--stage-muted);text-transform:none;letter-spacing:.04em}
+.stops{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+.stop{
+  display:flex;flex-direction:column;gap:.2rem;padding:.7rem .8rem;border-radius:var(--r);
+  border:1px solid rgba(244,239,230,.16);background:rgba(244,239,230,.04);color:var(--stage-ink);
+  cursor:pointer;font-family:var(--sans);text-align:left;transition:background .2s var(--ease),border-color .2s var(--ease);
+}
+.stop:hover{border-color:rgba(217,176,92,.6)}
+.stop[aria-pressed="true"]{background:var(--brass-light);border-color:var(--brass-light)}
+.stop[aria-pressed="true"] .stop__name{color:#1B1509}
+.stop__name{font-size:.86rem;font-weight:600}
+.stop__feet{font-family:var(--mono);font-size:.66rem;color:var(--stage-muted)}
+.stop[aria-pressed="true"] .stop__feet{color:#4A3A15}
+.console__result{
+  margin-top:1rem;display:flex;align-items:center;gap:.7rem;padding:.8rem .9rem;
+  background:rgba(244,239,230,.05);border-radius:var(--r);font-family:var(--mono);font-size:.74rem;
+}
+.console__result b{color:var(--brass-light);font-weight:600}
+.taller__ledger{border:1px solid rgba(244,239,230,.14);border-radius:var(--r-lg);overflow:hidden}
+.ledger-row{
+  display:flex;justify-content:space-between;align-items:baseline;gap:1rem;
+  padding:1.15rem 1.3rem;border-bottom:1px solid rgba(244,239,230,.12);
+}
+.ledger-row:last-child{border-bottom:none}
+.ledger-row__label{font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--stage-muted)}
+.ledger-row__num{font-family:var(--disp);font-size:1.7rem;color:var(--brass-light);font-weight:600}
+.ledger-row__unit{font-family:var(--mono);font-size:.66rem;color:var(--stage-muted);margin-left:.3rem}
+.taller__cta{margin-top:2.6rem;display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
+.taller__cta .btn--rose{background:var(--brass-light);color:#1B1509}
+.taller__cta .btn--rose:hover{background:#E9CD8E;color:#1B1509}
+@media (max-width:960px){.taller__grid{grid-template-columns:1fr}}
+
+/* ---------- encargo (Compare, horizontal bands) ---------- */
+.encargo__bands{display:flex;flex-direction:column;gap:1rem}
+.band{
+  display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,2fr) auto auto;gap:1.6rem;align-items:center;
+  padding:1.5rem 1.7rem;background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);
+  transition:border-color .25s var(--ease),transform .25s var(--ease);
+}
+.band:hover{border-color:var(--brass);transform:translateX(4px)}
+.band--lead{background:var(--stage);border-color:var(--stage);color:var(--stage-ink)}
+.band--lead:hover{border-color:var(--brass-light)}
+.band__name{font-family:var(--disp);font-size:1.35rem;font-weight:600}
+.band--lead .band__name{color:var(--brass-light)}
+.band__desc{color:var(--muted);font-size:.94rem;margin:0}
+.band--lead .band__desc{color:var(--stage-muted)}
+.band__price{font-family:var(--mono);font-size:.78rem;color:var(--ink);white-space:nowrap}
+.band--lead .band__price{color:var(--stage-ink)}
+.band__price small{color:var(--faint);font-size:.68rem}
+.band--lead .band__price small{color:var(--stage-muted)}
+.band .btn{white-space:nowrap}
+.band--lead .btn--rose{background:var(--brass-light);color:#1B1509}
+.band--lead .btn--rose:hover{background:#E9CD8E;color:#1B1509}
+@media (max-width:820px){
+  .band{grid-template-columns:1fr;gap:.7rem;padding:1.3rem 1.4rem}
+}
+
+/* ---------- faq ---------- */
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-q{
+  width:100%;display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  padding:1.35rem 0;background:none;border:none;cursor:pointer;text-align:left;
+  font-family:var(--disp);font-size:1.2rem;font-weight:600;color:var(--ink);
+}
+.faq-q .ic{
+  width:30px;height:30px;flex:0 0 30px;border:1px solid var(--line-strong);border-radius:50%;
+  display:inline-flex;align-items:center;justify-content:center;font-family:var(--sans);
+  font-size:1rem;color:var(--brass);transition:transform .25s var(--ease),background .25s var(--ease);
+}
+.faq-item[aria-expanded="true"] .faq-q .ic{transform:rotate(45deg);background:var(--brass-soft)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s var(--ease)}
+.faq-a p{color:var(--muted);font-size:.98rem;padding:0 0 1.4rem;margin:0;max-width:70ch}
+
+/* ---------- footer ---------- */
+.footer{background:var(--stage);color:var(--stage-muted);margin-top:88px}
+.footer__grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:2.4rem;padding:64px 24px 40px}
+.footer__brand{font-family:var(--disp);font-size:2rem;font-weight:700;color:var(--stage-ink);margin-bottom:.6rem}
+.footer__brand em{font-style:italic;color:var(--brass-light)}
+.footer__tag{font-size:.92rem;max-width:30ch;color:var(--stage-muted)}
+.footer h4{font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--brass-light);margin:0 0 1rem}
+.footer__col{display:flex;flex-direction:column;gap:.6rem;font-size:.94rem}
+.footer__col a{color:var(--stage-muted);transition:color .2s}
+.footer__col a:hover{color:var(--brass-light)}
+.footer__bottom{
+  border-top:1px solid rgba(244,239,230,.12);padding:22px 24px;display:flex;justify-content:space-between;
+  flex-wrap:wrap;gap:.6rem;font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;color:var(--stage-muted);
+}
+@media (max-width:900px){.footer__grid{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.footer__grid{grid-template-columns:1fr}}
+
+/* ---------- cookie ---------- */
+.cookie{
+  position:fixed;right:14px;bottom:14px;z-index:var(--z-banner);max-width:min(350px,calc(100vw - 28px));
+  background:var(--stage);color:var(--stage-ink);border:1px solid rgba(217,176,92,.35);border-radius:var(--r-lg);
+  padding:1rem 1.1rem;box-shadow:var(--shadow);font-size:.85rem;
+  transform:translateY(calc(100% + 2rem));opacity:0;visibility:hidden;
+  transition:transform .45s var(--ease),opacity .3s var(--ease),visibility .3s;
+}
+.cookie.show{transform:none;opacity:1;visibility:visible}
+.cookie p{margin:0 0 .8rem;color:var(--stage-muted);font-size:.82rem}
+.cookie__row{display:flex;gap:.6rem}
+.cookie__ok{
+  background:var(--brass-light);color:#1B1509;border:none;border-radius:var(--r);height:34px;
+  padding:0 .9rem;font-family:var(--sans);font-weight:600;font-size:.8rem;cursor:pointer;flex:1;
+  transition:background .2s var(--ease);
+}
+.cookie__ok:hover{background:#E9CD8E}
+.cookie__no{
+  background:none;border:1px solid rgba(244,239,230,.3);color:var(--stage-ink);border-radius:var(--r);
+  height:34px;padding:0 .8rem;font-family:var(--sans);font-size:.8rem;cursor:pointer;
+}
+@media (max-width:600px){
+  .cookie{max-width:min(330px,calc(100vw - 24px))}
+}
+@media (max-width:420px){
+  .nav__inner{padding:0 14px;gap:1rem}
+  .nav__logo{font-size:1.2rem}
+  .nav__actions .btn--rose{display:none}
+  .nav__actions{gap:.5rem}
+}
+
+/* ---------- reveal ---------- */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .rv{opacity:1;transform:none;transition:none}
+  .hero__art .pipe{transition:none}
+}
+
+/* ---------- focus ---------- */
+a:focus-visible,.btn:focus-visible,.stop:focus-visible,.faq-q:focus-visible,
+.theme-toggle:focus-visible,.lang-select__btn:focus-visible,.nav__burger:focus-visible,
+.cookie__ok:focus-visible,.cookie__no:focus-visible,.mobile-menu__close:focus-visible{
+  outline:2px solid var(--brass);outline-offset:2px;border-radius:var(--r);
+}
+</style>
+</head><body>
+<a class="visually-hidden" href="#main">Saltar al contenido</a>
+
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a class="nav__logo" href="#hero" aria-label="Fuelle — Inicio">
+      <span class="pipe-mark" aria-hidden="true">
+        <svg width="20" height="22" viewBox="0 0 20 22" fill="none"><rect x="1" y="4" width="4" height="17" rx="1" fill="var(--brass)"/><rect x="6" y="1" width="4" height="20" rx="1" fill="var(--ink)"/><rect x="11" y="5" width="4" height="16" rx="1" fill="var(--brass)"/><rect x="16" y="3" width="3" height="18" rx="1" fill="var(--ink)"/></svg>
+      </span>
+      FUELLE
+    </a>
+    <nav class="nav__links" aria-label="Principal">
+      <a href="#oficio" data-i18n="nav.oficio">El oficio</a>
+      <a href="#obra" data-i18n="nav.obra">Órganos</a>
+      <a href="#taller" data-i18n="nav.taller">Taller</a>
+      <a href="#encargo" data-i18n="nav.encargo">Encargos</a>
+      <a href="#faq" data-i18n="nav.faq">Preguntas</a>
+    </nav>
+    <div class="nav__actions">
+      <div class="lang-select lang-select--desktop">
+        <button class="lang-select__btn" type="button" data-lang-btn aria-haspopup="listbox" aria-expanded="false" data-i18n-aria="lang.label">
+          <span class="lang-select__cur">ES</span>
+          <svg class="lang-select__chev" width="9" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="lang-select__menu" role="listbox" aria-label="Choose language">
+          <button class="lang-select__opt" type="button" role="option" data-lang="es" aria-selected="true">Español</button>
+          <button class="lang-select__opt" type="button" role="option" data-lang="en" aria-selected="false">English</button>
+          <button class="lang-select__opt" type="button" role="option" data-lang="fr" aria-selected="false">Français</button>
+          <button class="lang-select__opt" type="button" role="option" data-lang="de" aria-selected="false">Deutsch</button>
+          <button class="lang-select__opt" type="button" role="option" data-lang="it" aria-selected="false">Italiano</button>
+          <button class="lang-select__opt" type="button" role="option" data-lang="pt" aria-selected="false">Português</button>
+        </div>
+      </div>
+      <button class="theme-toggle" type="button" data-theme-toggle data-i18n-aria="theme.label" aria-label="Alternar tema">
+        <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+      <a class="btn btn--rose" href="#encargo" data-i18n="nav.cta">Pedir visita</a>
+      <button class="nav__burger" type="button" data-menu-open data-i18n-aria="menu.open" aria-label="Abrir menú" aria-expanded="false">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 5h14M3 10h14M3 15h14"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <button class="mobile-menu__close" type="button" data-menu-close data-i18n-aria="menu.close" aria-label="Cerrar menú">×</button>
+  <nav class="mobile-menu__links" aria-label="Móvil">
+    <a href="#oficio" data-i18n="nav.oficio">El oficio</a>
+    <a href="#obra" data-i18n="nav.obra">Órganos</a>
+    <a href="#taller" data-i18n="nav.taller">Taller</a>
+    <a href="#encargo" data-i18n="nav.encargo">Encargos</a>
+    <a href="#faq" data-i18n="nav.faq">Preguntas</a>
+  </nav>
+  <div class="mobile-menu__foot">
+    <div class="lang-select">
+      <button class="lang-select__btn" type="button" data-lang-btn aria-haspopup="listbox" aria-expanded="false" data-i18n-aria="lang.label">
+        <span class="lang-select__cur">ES</span>
+        <svg class="lang-select__chev" width="9" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="lang-select__menu" role="listbox" aria-label="Choose language">
+        <button class="lang-select__opt" type="button" role="option" data-lang="es" aria-selected="true">Español</button>
+        <button class="lang-select__opt" type="button" role="option" data-lang="en" aria-selected="false">English</button>
+        <button class="lang-select__opt" type="button" role="option" data-lang="fr" aria-selected="false">Français</button>
+        <button class="lang-select__opt" type="button" role="option" data-lang="de" aria-selected="false">Deutsch</button>
+        <button class="lang-select__opt" type="button" role="option" data-lang="it" aria-selected="false">Italiano</button>
+        <button class="lang-select__opt" type="button" role="option" data-lang="pt" aria-selected="false">Português</button>
+      </div>
+    </div>
+    <a class="btn btn--rose" href="#encargo" data-i18n="nav.cta">Pedir visita</a>
+  </div>
+</div>
+
+<main id="main">
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="hero">
+    <div class="wrap hero__grid">
+      <div class="hero__copy">
+        <p class="hero__kicker" data-i18n="hero.kicker">Taller de órganos · Op. 47 · Madrid</p>
+        <h1 id="hero-title" data-i18n-html="hero.title">El órgano <br>vuelve a hablar.</h1>
+        <p class="hero__sub" data-i18n="hero.sub">Restauración integral de órganos de tubos: inventariamos cada tubo, entonamos cada lengua y entregamos el instrumento con su cuaderno de taller, para que suene como debía sonar.</p>
+        <div class="hero__ctas">
+          <a class="btn btn--rose btn--big" href="#encargo" data-i18n="hero.cta1">Pedir visita al taller</a>
+          <a class="btn btn--ghost btn--big" href="#obra" data-i18n="hero.cta2">Ver órganos restaurados</a>
+        </div>
+        <p class="hero__note">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v4m0 12v4M2 12h4m12 0h4M5 5l2.8 2.8M16.2 16.2 19 19M19 5l-2.8 2.8M7.8 16.2 5 19"/><circle cx="12" cy="12" r="4"/></svg>
+          <span data-i18n="hero.note">Afinación por temperamento. Estudio previo, siempre.</span>
+        </p>
+      </div>
+      <div class="hero__art rv" data-arts>
+        <div class="org-case" role="img" aria-label="Fachada de órgano con tubos de fachada">
+          <div class="org-pipes" aria-hidden="true">
+            <span class="pipe pipe--mid" style="height:150px"></span>
+            <span class="pipe pipe--short" style="height:118px"></span>
+            <span class="pipe pipe--tall" style="height:220px"></span>
+            <span class="pipe pipe--mid" style="height:178px"></span>
+            <span class="pipe pipe--tall" style="height:240px"></span>
+            <span class="pipe pipe--short" style="height:132px"></span>
+            <span class="pipe pipe--tall" style="height:208px"></span>
+            <span class="pipe pipe--mid" style="height:168px"></span>
+            <span class="pipe pipe--short" style="height:124px"></span>
+            <span class="pipe pipe--tall" style="height:232px"></span>
+            <span class="pipe pipe--mid" style="height:160px"></span>
+            <span class="pipe pipe--short" style="height:116px"></span>
+          </div>
+          <div class="org-console">
+            <span class="org-console__label" data-i18n="hero.console">Registro activo</span>
+            <span class="org-console__readout" data-readout>Flautado 8′</span>
+          </div>
+          <div class="org-base"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RIBBON ============ -->
+  <div class="ribbon" aria-hidden="true">
+    <div class="ribbon__track">
+      <span>Flautado 8′ · Octava 4′ · Quincena 2′ · Trompeta Real 8′ · Voz Humana · Címbala III</span>
+      <span>Flautado 8′ · Octava 4′ · Quincena 2′ · Trompeta Real 8′ · Voz Humana · Címbala III</span>
+    </div>
+  </div>
+
+  <!-- ============ OFICIO (process) ============ -->
+  <section class="oficio" id="oficio">
+    <div class="wrap">
+      <p class="mono-kicker" data-i18n="oficio.kicker">Un proceso de meses</p>
+      <h2 class="sec-title" data-i18n="oficio.title">Del silencio al concierto</h2>
+      <p class="sec-sub" data-i18n="oficio.sub">No hay atajos: un órgano se devuelve a la vida en cuatro estaciones de trabajo, y cada una deja constancia escrita en el cuaderno de taller.</p>
+      <div class="steps">
+        <article class="step rv">
+          <span class="step__num">01 · Inventario</span>
+          <h3 data-i18n="oficio.s1t">Escucha y fotografía</h3>
+          <p data-i18n="oficio.s1d">Abrimos el instrumento, medimos el viento y documentamos cada tubo con su número de orden original.</p>
+        </article>
+        <article class="step rv">
+          <span class="step__num">02 · Desmontaje</span>
+          <h3 data-i18n="oficio.s2t">Taller y secretos</h3>
+          <p data-i18n="oficio.s2d">Los tubos viajan a nuestra mesa. Fuelles, secretos y teclados se reparan aquí, en Madrid.</p>
+        </article>
+        <article class="step rv">
+          <span class="step__num">03 · Restauración</span>
+          <h3 data-i18n="oficio.s3t">Metal y madera</h3>
+          <p data-i18n="oficio.s3d">Laminado de lengüetas, soldadura de estaño, encolado de cajas. Materiales históricos, oficio actual.</p>
+        </article>
+        <article class="step rv">
+          <span class="step__num">04 · Entonación</span>
+          <h3 data-i18n="oficio.s4t">El sonido vuelve</h3>
+          <p data-i18n="oficio.s4d">Dos semanas en el templo afinando registro por registro, hasta el concierto de entrega.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ OBRA (gallery, varied) ============ -->
+  <section class="obra" id="obra">
+    <div class="wrap">
+      <p class="mono-kicker" data-i18n="obra.kicker">Obra reciente</p>
+      <h2 class="sec-title" data-i18n="obra.title">Órganos que vuelven a sonar</h2>
+      <p class="sec-sub" data-i18n="obra.sub">Tres restauraciones entregadas en el último año. Cada una con su historia, su temperamento y su cuaderno completo.</p>
+      <div class="obra__grid">
+        <article class="obra__card obra__card--wide rv">
+          <div class="obra__art">
+            <svg viewBox="0 0 560 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Órgano de cámara restaurado">
+              <rect width="560" height="260" fill="#E9E6DF"/>
+              <rect x="80" y="40" width="400" height="180" rx="6" fill="#1C1812"/>
+              <rect x="96" y="60" width="12" height="140" rx="2" fill="#D9B05C"/>
+              <rect x="112" y="46" width="14" height="154" rx="2" fill="#C7BFB2"/>
+              <rect x="130" y="66" width="12" height="134" rx="2" fill="#D9B05C"/>
+              <rect x="146" y="52" width="14" height="148" rx="2" fill="#C7BFB2"/>
+              <rect x="164" y="70" width="12" height="130" rx="2" fill="#D9B05C"/>
+              <rect x="180" y="58" width="14" height="142" rx="2" fill="#C7BFB2"/>
+              <path d="M210 60 l14 0 0 140 -14 0 z" fill="#8A6216"/>
+              <path d="M228 66 l14 0 0 134 -14 0 z" fill="#C7BFB2"/>
+              <path d="M246 56 l14 0 0 144 -14 0 z" fill="#8A6216"/>
+              <rect x="300" y="60" width="12" height="140" rx="2" fill="#D9B05C"/>
+              <rect x="316" y="46" width="14" height="154" rx="2" fill="#C7BFB2"/>
+              <rect x="334" y="66" width="12" height="134" rx="2" fill="#D9B05C"/>
+              <rect x="350" y="52" width="14" height="148" rx="2" fill="#C7BFB2"/>
+              <rect x="368" y="70" width="12" height="130" rx="2" fill="#D9B05C"/>
+              <rect x="384" y="58" width="14" height="142" rx="2" fill="#C7BFB2"/>
+              <path d="M270 190 h100 v14 h-100 z" fill="#0D0B08"/>
+              <rect x="96" y="204" width="368" height="26" rx="4" fill="#7C2D34"/>
+            </svg>
+          </div>
+          <div class="obra__body">
+            <span class="obra__meta" data-i18n="obra.m1">Positivo · 1712 · Restauración integral</span>
+            <h3 data-i18n="obra.t1">Positivo de cámara, Herrasti</h3>
+            <p data-i18n="obra.d1">438 tubos de estaño y plomo, fuelle de cuña reconstruido. Entregado con temperamento mesotónico.</p>
+            <a class="btn btn--ghost" href="#encargo" data-i18n="obra.v">Ver cuaderno</a>
+          </div>
+        </article>
+        <article class="obra__card rv">
+          <div class="obra__art">
+            <svg viewBox="0 0 340 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Órgano barroco ibérico">
+              <rect width="340" height="180" fill="#E9E6DF"/>
+              <rect x="40" y="28" width="260" height="124" rx="6" fill="#1C1812"/>
+              <rect x="56" y="42" width="10" height="96" rx="2" fill="#D9B05C"/>
+              <rect x="70" y="34" width="12" height="104" rx="2" fill="#C7BFB2"/>
+              <rect x="86" y="46" width="10" height="92" rx="2" fill="#D9B05C"/>
+              <rect x="100" y="38" width="12" height="100" rx="2" fill="#C7BFB2"/>
+              <rect x="196" y="42" width="10" height="96" rx="2" fill="#D9B05C"/>
+              <rect x="210" y="34" width="12" height="104" rx="2" fill="#C7BFB2"/>
+              <rect x="226" y="46" width="10" height="92" rx="2" fill="#D9B05C"/>
+              <rect x="240" y="38" width="12" height="100" rx="2" fill="#C7BFB2"/>
+              <rect x="56" y="152" width="228" height="14" rx="3" fill="#7C2D34"/>
+            </svg>
+          </div>
+          <div class="obra__body">
+            <span class="obra__meta" data-i18n="obra.m2">Ibérico · 1804 · Conservación</span>
+            <h3 data-i18n="obra.t2">Órgano de la capilla del Rosario</h3>
+            <p data-i18n="obra.d2">Conservación sin reconstrucción: se respetó cada huella de 220 años de uso.</p>
+            <a class="btn btn--ghost" href="#encargo" data-i18n="obra.v">Ver cuaderno</a>
+          </div>
+        </article>
+        <article class="obra__card rv">
+          <div class="obra__art">
+            <svg viewBox="0 0 340 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Órgano de teclado continuo">
+              <rect width="340" height="180" fill="#E9E6DF"/>
+              <rect x="70" y="40" width="200" height="110" rx="6" fill="#1C1812"/>
+              <rect x="86" y="52" width="9" height="88" rx="2" fill="#D9B05C"/>
+              <rect x="99" y="46" width="11" height="94" rx="2" fill="#C7BFB2"/>
+              <rect x="114" y="56" width="9" height="84" rx="2" fill="#D9B05C"/>
+              <rect x="127" y="50" width="11" height="90" rx="2" fill="#C7BFB2"/>
+              <rect x="142" y="58" width="9" height="82" rx="2" fill="#D9B05C"/>
+              <rect x="155" y="52" width="11" height="88" rx="2" fill="#C7BFB2"/>
+              <path d="M170 60 l11 0 0 80 -11 0 z" fill="#8A6216"/>
+              <path d="M185 54 l11 0 0 86 -11 0 z" fill="#C7BFB2"/>
+              <path d="M200 62 l11 0 0 78 -11 0 z" fill="#8A6216"/>
+              <rect x="215" y="56" width="11" height="84" rx="2" fill="#C7BFB2"/>
+              <rect x="86" y="150" width="168" height="12" rx="3" fill="#0D0B08"/>
+            </svg>
+          </div>
+          <div class="obra__body">
+            <span class="obra__meta" data-i18n="obra.m3">Continuo · 1968 · Reparación</span>
+            <h3 data-i18n="obra.t3">Órgano de cámara del conservatorio</h3>
+            <p data-i18n="obra.d3">Puesta a punto para los ensayos de continuo: acción y afinación completa.</p>
+            <a class="btn btn--ghost" href="#encargo" data-i18n="obra.v">Ver cuaderno</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TALLER (dark nave + console) ============ -->
+  <section class="taller" id="taller">
+    <div class="wrap">
+      <div class="taller__grid">
+        <div>
+          <p class="mono-kicker" data-i18n="taller.kicker">En el banco de trabajo</p>
+          <h2 class="sec-title" data-i18n="taller.title">El taller es una nave</h2>
+          <p class="sec-sub" data-i18n="taller.sub">Madera de nogal, cobre y estaño; mesas de 4 metros y una escalera de mano. Todo lo que necesita un órgano para volver a cantar cabe aquí.</p>
+          <div class="taller__ledger">
+            <div class="ledger-row">
+              <span class="ledger-row__label" data-i18n="taller.l1">Tubos inventariados</span>
+              <span class="ledger-row__num">2 847<span class="ledger-row__unit" data-i18n="taller.unit">unid.</span></span>
+            </div>
+            <div class="ledger-row">
+              <span class="ledger-row__label" data-i18n="taller.l2">Órganos en curso</span>
+              <span class="ledger-row__num">3<span class="ledger-row__unit" data-i18n="taller.unit2">obras</span></span>
+            </div>
+            <div class="ledger-row">
+              <span class="ledger-row__label" data-i18n="taller.l3">Años de oficio</span>
+              <span class="ledger-row__num">112<span class="ledger-row__unit" data-i18n="taller.unit3">años</span></span>
+            </div>
+          </div>
+          <p class="taller__cta">
+            <a class="btn btn--rose btn--big" href="#encargo" data-i18n="taller.cta">Concertar visita</a>
+            <span class="hero__note" style="color:var(--stage-muted)" data-i18n="taller.note">Jueves y viernes, 10:00–14:00 h.</span>
+          </p>
+        </div>
+        <div class="console rv" data-console>
+          <div class="console__title">
+            <span data-i18n="console.title">Probar registros</span>
+            <span class="console__wind" data-wind>Viento · 72 mm</span>
+          </div>
+          <div class="stops" role="group" aria-label="Registros">
+            <button class="stop" type="button" aria-pressed="true" data-stop data-feet="8′"><span class="stop__name">Flautado</span><span class="stop__feet">8′</span></button>
+            <button class="stop" type="button" aria-pressed="false" data-stop data-feet="4′"><span class="stop__name">Octava</span><span class="stop__feet">4′</span></button>
+            <button class="stop" type="button" aria-pressed="false" data-stop data-feet="2′"><span class="stop__name">Quincena</span><span class="stop__feet">2′</span></button>
+            <button class="stop" type="button" aria-pressed="false" data-stop data-feet="8′"><span class="stop__name">Trompeta Real</span><span class="stop__feet">8′</span></button>
+            <button class="stop" type="button" aria-pressed="false" data-stop data-feet="8′"><span class="stop__name">Voz Humana</span><span class="stop__feet">8′</span></button>
+            <button class="stop" type="button" aria-pressed="false" data-stop data-comp="III"><span class="stop__name">Címbala</span><span class="stop__feet">III</span></button>
+          </div>
+          <div class="console__result">
+            <span data-i18n="console.on">Sonando:</span> <b data-demo-readout>Flautado 8′</b>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ENCARGO (Compare bands) ============ -->
+  <section class="encargo" id="encargo">
+    <div class="wrap">
+      <p class="mono-kicker" data-i18n="encargo.kicker">Cómo trabajamos</p>
+      <h2 class="sec-title" data-i18n="encargo.title">Encargos y presupuestos</h2>
+      <p class="sec-sub" data-i18n="encargo.sub">Cada órgano es un mundo: el encargo empieza siempre con una visita de estudio y un presupuesto cerrado, nunca con una tarifa general.</p>
+      <div class="encargo__bands">
+        <article class="band rv">
+          <h3 class="band__name" data-i18n="encargo.b1t">Afinación anual</h3>
+          <p class="band__desc" data-i18n="encargo.b1d">Temperamento, afinación general y ajuste de acción, una vez al año, con informe de estado.</p>
+          <span class="band__price">desde 950 €<br><small data-i18n="encargo.b1s">/ visita</small></span>
+          <a class="btn btn--ghost" href="#faq" data-i18n="encargo.v">Consultar</a>
+        </article>
+        <article class="band band--lead rv">
+          <h3 class="band__name" data-i18n="encargo.b2t">Restauración integral</h3>
+          <p class="band__desc" data-i18n="encargo.b2d">Inventario, desmontaje, restauración de tubos y entonación en el templo. Cuaderno de taller completo entregado.</p>
+          <span class="band__price" data-i18n="encargo.b2s">Presupuesto tras visita</span>
+          <a class="btn btn--rose" href="#faq" data-i18n="encargo.v2">Pedir visita</a>
+        </article>
+        <article class="band rv">
+          <h3 class="band__name" data-i18n="encargo.b3t">Conservación y estudio</h3>
+          <p class="band__desc" data-i18n="encargo.b3d">Informe de estado, fotogrametría y plan de conservación para instrumentos históricos en uso.</p>
+          <span class="band__price">desde 1 400 €<br><small data-i18n="encargo.b3s">/ estudio</small></span>
+          <a class="btn btn--ghost" href="#faq" data-i18n="encargo.v">Consultar</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="faq" id="faq">
+    <div class="wrap">
+      <div style="max-width:820px">
+        <p class="mono-kicker" data-i18n="faq.kicker">Preguntas frecuentes</p>
+        <h2 class="sec-title" data-i18n="faq.title">Antes de escribirnos</h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false" data-faq>
+              <span data-i18n="faq.q1">¿Trabajáis sobre órganos históricos protegidos?</span>
+              <span class="ic" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-a"><p data-i18n="faq.a1">Sí. Colaboramos con las diócesis y con los servicios de patrimonio: todo el proceso se documenta y se ajusta a los criterios de intervención sin reconstrucción arbitraria.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false" data-faq>
+              <span data-i18n="faq.q2">¿Cuánto dura una restauración completa?</span>
+              <span class="ic" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-a"><p data-i18n="faq.a2">Depende del tamaño: un positivo de ocho registros puede estar listo en nueve meses; una caja de dos teclados, entre 18 y 24 meses. El calendario se cierra en la visita de estudio.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false" data-faq>
+              <span data-i18n="faq.q3">¿Podemos seguir usando el órgano durante la obra?</span>
+              <span class="ic" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-a"><p data-i18n="faq.a3">En restauraciones integrales no: el instrumento se desmonta. En trabajos de conservación sí planificamos por fases para que el templo mantenga el acompañamiento litúrgico.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false" data-faq>
+              <span data-i18n="faq.q4">¿Qué diferencia hay entre afinación y temperamento?</span>
+              <span class="ic" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-a"><p data-i18n="faq.a4">La afinación fija la altura de cada nota; el temperamento decide cómo se distribuyen las pequeñas desviaciones entre notas. Elegir uno u otro cambia el color de toda la armonía.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="footer__grid">
+    <div>
+      <p class="footer__brand">FUE<span>LLE</span></p>
+      <p class="footer__tag" data-i18n="footer.tag">Taller de órganos de tubos. Restauramos, afinamos y conservamos instrumentos históricos.</p>
+    </div>
+    <div class="footer__col">
+      <h4 data-i18n="footer.c1">Taller</h4>
+      <a href="#oficio" data-i18n="footer.l1">El oficio</a>
+      <a href="#obra" data-i18n="footer.l2">Órganos restaurados</a>
+      <a href="#taller" data-i18n="footer.l3">El taller</a>
+    </div>
+    <div class="footer__col">
+      <h4 data-i18n="footer.c2">Contacto</h4>
+      <a href="mailto:hola@cristiancode.dev?subject=FUELLE%20%E2%80%94%20Consulta" data-i18n="footer.mail">hola@cristiancode.dev</a>
+      <span data-i18n="footer.hours">Jue–Vie · 10:00–14:00 h</span>
+      <a href="#hero" data-i18n="footer.top">Volver arriba ↑</a>
+    </div>
+    <div class="footer__col">
+      <h4 data-i18n="footer.c3">Estudio</h4>
+      <span data-i18n-html="footer.addr">Calle de la Bola 12, bajo<br>28013 Madrid</span>
+      <a href="https://maps.google.com/maps/search/?api=1&query=Calle+de+la+Bola+12+Madrid" target="_blank" rel="noopener" data-i18n="footer.map">Cómo llegar →</a>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span>© 2026 FUELLE — Taller de órganos</span>
+    <span data-i18n="footer.credit">Op. 47 · Madrid · Desde 1914</span>
+  </div>
+</footer>
+
+<!-- ============ COOKIE ============ -->
+<div class="cookie" id="cookieBanner" role="region" aria-label="Aviso de cookies">
+  <p data-i18n="cookie.msg">Usamos solo la cookie del idioma y del tema. Nada que rastree.</p>
+  <div class="cookie__row">
+    <button class="cookie__ok" type="button" id="cookieOk" data-i18n="cookie.ok">Entendido</button>
+    <button class="cookie__no" type="button" id="cookieNo" data-i18n="cookie.no">Cerrar</button>
+  </div>
+</div><script>
+(function () {
+  "use strict";
+  var LANGS = ["es", "en", "fr", "de", "it", "pt"];
+
+  var I18N = {
+    es: {
+      meta_title: "FUELLE · Taller de órganos en Madrid",
+      meta_desc: "Restauración de órganos de tubos en Madrid: inventariamos cada tubo, entonamos cada lengua y entregamos el instrumento con su cuaderno de taller.",
+      "nav.oficio": "El oficio", "nav.obra": "Órganos", "nav.taller": "Taller",
+      "nav.encargo": "Encargos", "nav.faq": "Preguntas", "nav.cta": "Pedir visita",
+      "lang.label": "Seleccionar idioma", "theme.label": "Alternar tema",
+      "menu.open": "Abrir menú", "menu.close": "Cerrar menú",
+      "hero.kicker": "Taller de órganos · Op. 47 · Madrid",
+      "hero.title": "El órgano <br>vuelve a hablar.",
+      "hero.sub": "Restauración integral de órganos de tubos: inventariamos cada tubo, entonamos cada lengua y entregamos el instrumento con su cuaderno de taller, para que suene como debía sonar.",
+      "hero.cta1": "Pedir visita al taller", "hero.cta2": "Ver órganos restaurados",
+      "hero.note": "Afinación por temperamento. Estudio previo, siempre.",
+      "hero.console": "Registro activo",
+      "oficio.kicker": "Un proceso de meses", "oficio.title": "Del silencio al concierto",
+      "oficio.sub": "No hay atajos: un órgano se devuelve a la vida en cuatro estaciones de trabajo, y cada una deja constancia escrita en el cuaderno de taller.",
+      "oficio.s1t": "Escucha y fotografía",
+      "oficio.s1d": "Abrimos el instrumento, medimos el viento y documentamos cada tubo con su número de orden original.",
+      "oficio.s2t": "Taller y secretos",
+      "oficio.s2d": "Los tubos viajan a nuestra mesa. Fuelles, secretos y teclados se reparan aquí, en Madrid.",
+      "oficio.s3t": "Metal y madera",
+      "oficio.s3d": "Laminado de lengüetas, soldadura de estaño, encolado de cajas. Materiales históricos, oficio actual.",
+      "oficio.s4t": "El sonido vuelve",
+      "oficio.s4d": "Dos semanas en el templo afinando registro por registro, hasta el concierto de entrega.",
+      "obra.kicker": "Obra reciente", "obra.title": "Órganos que vuelven a sonar",
+      "obra.sub": "Tres restauraciones entregadas en el último año. Cada una con su historia, su temperamento y su cuaderno completo.",
+      "obra.m1": "Positivo · 1712 · Restauración integral",
+      "obra.t1": "Positivo de cámara, Herrasti",
+      "obra.d1": "438 tubos de estaño y plomo, fuelle de cuña reconstruido. Entregado con temperamento mesotónico.",
+      "obra.m2": "Ibérico · 1804 · Conservación",
+      "obra.t2": "Órgano de la capilla del Rosario",
+      "obra.d2": "Conservación sin reconstrucción: se respetó cada huella de 220 años de uso.",
+      "obra.m3": "Continuo · 1968 · Reparación",
+      "obra.t3": "Órgano de cámara del conservatorio",
+      "obra.d3": "Puesta a punto para los ensayos de continuo: acción y afinación completa.",
+      "obra.v": "Ver cuaderno",
+      "taller.kicker": "En el banco de trabajo", "taller.title": "El taller es una nave",
+      "taller.sub": "Madera de nogal, cobre y estaño; mesas de 4 metros y una escalera de mano. Todo lo que necesita un órgano para volver a cantar cabe aquí.",
+      "taller.l1": "Tubos inventariados", "taller.unit": "unid.",
+      "taller.l2": "Órganos en curso", "taller.unit2": "obras",
+      "taller.l3": "Años de oficio", "taller.unit3": "años",
+      "taller.cta": "Concertar visita", "taller.note": "Jueves y viernes, 10:00–14:00 h.",
+      "console.title": "Probar registros", "console.on": "Sonando —",
+      "console.s1": "Flautado", "console.s2": "Octava", "console.s3": "Quincena",
+      "console.s4": "Trompeta Real", "console.s5": "Voz Humana", "console.s6": "Címbala",
+      "encargo.kicker": "Cómo trabajamos", "encargo.title": "Encargos y presupuestos",
+      "encargo.sub": "Cada órgano es un mundo: el encargo empieza siempre con una visita de estudio y un presupuesto cerrado, nunca con una tarifa general.",
+      "encargo.b1t": "Afinación anual",
+      "encargo.b1d": "Temperamento, afinación general y ajuste de acción, una vez al año, con informe de estado.",
+      "encargo.b1s": "/ visita",
+      "encargo.b2t": "Restauración integral",
+      "encargo.b2d": "Inventario, desmontaje, restauración de tubos y entonación en el templo. Cuaderno de taller completo entregado.",
+      "encargo.b2s": "Presupuesto tras visita",
+      "encargo.b3t": "Conservación y estudio",
+      "encargo.b3d": "Informe de estado, fotogrametría y plan de conservación para instrumentos históricos en uso.",
+      "encargo.b3s": "/ estudio",
+      "encargo.v": "Consultar", "encargo.v2": "Pedir visita",
+      "faq.kicker": "Preguntas frecuentes", "faq.title": "Antes de escribirnos",
+      "faq.q1": "¿Trabajáis sobre órganos históricos protegidos?",
+      "faq.a1": "Sí. Colaboramos con las diócesis y con los servicios de patrimonio: todo el proceso se documenta y se ajusta a los criterios de intervención sin reconstrucción arbitraria.",
+      "faq.q2": "¿Cuánto dura una restauración completa?",
+      "faq.a2": "Depende del tamaño: un positivo de ocho registros puede estar listo en nueve meses; una caja de dos teclados, entre 18 y 24 meses. El calendario se cierra en la visita de estudio.",
+      "faq.q3": "¿Podemos seguir usando el órgano durante la obra?",
+      "faq.a3": "En restauraciones integrales no: el instrumento se desmonta. En trabajos de conservación sí planificamos por fases para que el templo mantenga el acompañamiento litúrgico.",
+      "faq.q4": "¿Qué diferencia hay entre afinación y temperamento?",
+      "faq.a4": "La afinación fija la altura de cada nota; el temperamento decide cómo se distribuyen las pequeñas desviaciones entre notas. Elegir uno u otro cambia el color de toda la armonía.",
+      "footer.tag": "Taller de órganos de tubos. Restauramos, afinamos y conservamos instrumentos históricos.",
+      "footer.c1": "Taller", "footer.l1": "El oficio", "footer.l2": "Órganos restaurados", "footer.l3": "El taller",
+      "footer.c2": "Contacto", "footer.mail": "hola@cristiancode.dev",
+      "footer.hours": "Jue–Vie · 10:00–14:00 h", "footer.top": "Volver arriba ↑",
+      "footer.c3": "Estudio", "footer.addr": "Calle de la Bola 12, bajo<br>28013 Madrid",
+      "footer.map": "Cómo llegar →", "footer.credit": "Op. 47 · Madrid · Desde 1914",
+      "cookie.msg": "Usamos solo la cookie del idioma y del tema. Nada que rastree.",
+      "cookie.ok": "Entendido", "cookie.no": "Cerrar"
+    },
+    en: {
+      meta_title: "FUELLE · Organ Workshop in Madrid",
+      meta_desc: "Pipe organ restoration in Madrid: we inventory every pipe, voice every reed and deliver the instrument with its workshop notebook.",
+      "nav.oficio": "The craft", "nav.obra": "Organs", "nav.taller": "Workshop",
+      "nav.encargo": "Commissions", "nav.faq": "FAQ", "nav.cta": "Book a visit",
+      "lang.label": "Select language", "theme.label": "Toggle theme",
+      "menu.open": "Open menu", "menu.close": "Close menu",
+      "hero.kicker": "Organ workshop · Op. 47 · Madrid",
+      "hero.title": "The organ <br>speaks again.",
+      "hero.sub": "Full pipe organ restoration: we inventory every pipe, voice every reed and deliver the instrument with its workshop notebook, so it sounds the way it should.",
+      "hero.cta1": "Book a workshop visit", "hero.cta2": "See restored organs",
+      "hero.note": "Tuning by temperament. Preliminary study, always.",
+      "hero.console": "Active stop",
+      "oficio.kicker": "A months-long process", "oficio.title": "From silence to concert",
+      "oficio.sub": "There are no shortcuts: an organ comes back to life in four working seasons, each one recorded in the workshop notebook.",
+      "oficio.s1t": "Listening & photography",
+      "oficio.s1d": "We open the instrument, measure the wind and document every pipe with its original index number.",
+      "oficio.s2t": "Bench & windchests",
+      "oficio.s2d": "The pipes travel to our bench. Bellows, windchests and keyboards are repaired here, in Madrid.",
+      "oficio.s3t": "Metal & wood",
+      "oficio.s3d": "Reed lamination, tin soldering, case gluing. Historic materials, current craft.",
+      "oficio.s4t": "The sound returns",
+      "oficio.s4d": "Two weeks in the church voicing stop by stop, until the handover concert.",
+      "obra.kicker": "Recent work", "obra.title": "Organs that sound again",
+      "obra.sub": "Three restorations delivered in the last year. Each with its story, its temperament and its full notebook.",
+      "obra.m1": "Positive · 1712 · Full restoration",
+      "obra.t1": "Herrasti chamber positive",
+      "obra.d1": "438 tin and lead pipes, rebuilt wedge bellows. Delivered with meantone temperament.",
+      "obra.m2": "Iberian · 1804 · Conservation",
+      "obra.t2": "Chapel of the Rosary organ",
+      "obra.d2": "Conservation without rebuilding: every trace of 220 years of use was preserved.",
+      "obra.m3": "Continuo · 1968 · Repair",
+      "obra.t3": "Conservatory chamber organ",
+      "obra.d3": "Brought up to spec for continuo rehearsals: action and full tuning.",
+      "obra.v": "See notebook",
+      "taller.kicker": "At the workbench", "taller.title": "The workshop is a nave",
+      "taller.sub": "Walnut, copper and tin; four-metre benches and a step ladder. Everything an organ needs to sing again fits in here.",
+      "taller.l1": "Pipes inventoried", "taller.unit": "units",
+      "taller.l2": "Organs in progress", "taller.unit2": "works",
+      "taller.l3": "Years of craft", "taller.unit3": "years",
+      "taller.cta": "Arrange a visit", "taller.note": "Thu & Fri, 10:00–14:00.",
+      "console.title": "Try the stops", "console.on": "Playing —",
+      "console.s1": "Principal", "console.s2": "Octave", "console.s3": "Fifteenth",
+      "console.s4": "Royal Trumpet", "console.s5": "Vox Humana", "console.s6": "Cymbal",
+      "encargo.kicker": "How we work", "encargo.title": "Commissions & budgets",
+      "encargo.sub": "Every organ is its own world: a commission always begins with a study visit and a fixed quote, never with a flat rate.",
+      "encargo.b1t": "Annual tuning",
+      "encargo.b1d": "Temperament, general tuning and action regulation, once a year, with a condition report.",
+      "encargo.b1s": "/ visit",
+      "encargo.b2t": "Full restoration",
+      "encargo.b2d": "Inventory, dismantling, pipe restoration and on-site voicing. Complete workshop notebook delivered.",
+      "encargo.b2s": "Quote after visit",
+      "encargo.b3t": "Conservation & study",
+      "encargo.b3d": "Condition report, photogrammetry and a conservation plan for historic instruments in use.",
+      "encargo.b3s": "/ study",
+      "encargo.v": "Ask", "encargo.v2": "Book a visit",
+      "faq.kicker": "Frequently asked", "faq.title": "Before you write",
+      "faq.q1": "Do you work on protected historic organs?",
+      "faq.a1": "Yes. We work with dioceses and heritage services: the whole process is documented and follows intervention criteria without arbitrary rebuilding.",
+      "faq.q2": "How long does a full restoration take?",
+      "faq.a2": "It depends on the size: an eight-stop positive can be ready in nine months; a two-manual case takes 18 to 24 months. The schedule is fixed at the study visit.",
+      "faq.q3": "Can we keep using the organ during the work?",
+      "faq.a3": "Not in full restorations: the instrument is dismantled. In conservation work we plan in phases so the building keeps its liturgical accompaniment.",
+      "faq.q4": "What is the difference between tuning and temperament?",
+      "faq.a4": "Tuning fixes the pitch of every note; temperament decides how the small deviations between notes are distributed. Choosing one or the other changes the colour of the whole harmony.",
+      "footer.tag": "Pipe organ workshop. We restore, tune and conserve historic instruments.",
+      "footer.c1": "Workshop", "footer.l1": "The craft", "footer.l2": "Restored organs", "footer.l3": "The workshop",
+      "footer.c2": "Contact", "footer.mail": "hola@cristiancode.dev",
+      "footer.hours": "Thu–Fri · 10:00–14:00", "footer.top": "Back to top ↑",
+      "footer.c3": "Studio", "footer.addr": "Calle de la Bola 12, bajo<br>28013 Madrid",
+      "footer.map": "Directions →", "footer.credit": "Op. 47 · Madrid · Since 1914",
+      "cookie.msg": "We only use the language and theme cookie. Nothing tracks you.",
+      "cookie.ok": "Got it", "cookie.no": "Close"
+    },
+    fr: {
+      meta_title: "FUELLE · Atelier d'orgues à Madrid",
+      meta_desc: "Restauration d'orgues à tuyaux à Madrid : nous inventorient chaque tuyau, entonnons chaque anche et livrons l'instrument avec son carnet d'atelier.",
+      "nav.oficio": "Le métier", "nav.obra": "Orgues", "nav.taller": "Atelier",
+      "nav.encargo": "Commandes", "nav.faq": "Questions", "nav.cta": "Demander une visite",
+      "lang.label": "Choisir la langue", "theme.label": "Changer de thème",
+      "menu.open": "Ouvrir le menu", "menu.close": "Fermer le menu",
+      "hero.kicker": "Atelier d'orgues · Op. 47 · Madrid",
+      "hero.title": "L'orgue <br>reprend la parole.",
+      "hero.sub": "Restauration intégrale d'orgues à tuyaux : nous inventorient chaque tuyau, entonnons chaque anche et livrons l'instrument avec son carnet d'atelier, pour qu'il sonne comme il le devrait.",
+      "hero.cta1": "Demander une visite", "hero.cta2": "Voir les orgues restaurés",
+      "hero.note": "Accord par tempérament. Étude préalable, toujours.",
+      "hero.console": "Registre actif",
+      "oficio.kicker": "Un processus de mois", "oficio.title": "Du silence au concert",
+      "oficio.sub": "Pas de raccourci : un orgue revient à la vie en quatre saisons de travail, chacune consignée dans le carnet d'atelier.",
+      "oficio.s1t": "Écoute et photographie",
+      "oficio.s1d": "Nous ouvrons l'instrument, mesurons le vent et documentons chaque tuyau avec son numéro d'origine.",
+      "oficio.s2t": "Établi et sommiers",
+      "oficio.s2d": "Les tuyaux voyagent jusqu'à notre établi. Soufflets, sommiers et claviers sont réparés ici, à Madrid.",
+      "oficio.s3t": "Métal et bois",
+      "oficio.s3d": "Laminage des anches, soudure de l'étain, collage des caisses. Matériaux historiques, métier actuel.",
+      "oficio.s4t": "Le son revient",
+      "oficio.s4d": "Deux semaines dans le temple à harmoniser registre par registre, jusqu'au concert de livraison.",
+      "obra.kicker": "Œuvres récentes", "obra.title": "Des orgues qui sonnent à nouveau",
+      "obra.sub": "Trois restaurations livrées cette année. Chacune avec son histoire, son tempérament et son carnet complet.",
+      "obra.m1": "Positif · 1712 · Restauration intégrale",
+      "obra.t1": "Positif de chambre, Herrasti",
+      "obra.d1": "438 tuyaux d'étain et de plomb, soufflet en coin reconstruit. Livré en tempérament mésotonique.",
+      "obra.m2": "Ibérique · 1804 · Conservation",
+      "obra.t2": "Orgue de la chapelle du Rosaire",
+      "obra.d2": "Conservation sans reconstruction : chaque trace de 220 ans d'usage a été respectée.",
+      "obra.m3": "Continuo · 1968 · Réparation",
+      "obra.t3": "Orgue de chambre du conservatoire",
+      "obra.d3": "Remise en état pour les répétitions de continuo : mécanique et accord complet.",
+      "obra.v": "Voir le carnet",
+      "taller.kicker": "Sur l'établi", "taller.title": "L'atelier est une nef",
+      "taller.sub": "Noix, cuivre et étain ; des tables de quatre mètres et un escabeau. Tout ce dont un orgue a besoin pour chanter à nouveau tient ici.",
+      "taller.l1": "Tuyaux inventoriés", "taller.unit": "pièces",
+      "taller.l2": "Orgues en cours", "taller.unit2": "œuvres",
+      "taller.l3": "Années de métier", "taller.unit3": "années",
+      "taller.cta": "Organiser une visite", "taller.note": "Jeudi et vendredi, 10h00–14h00.",
+      "console.title": "Essayer les registres", "console.on": "Joue —",
+      "console.s1": "Montre", "console.s2": "Octave", "console.s3": "Quinte",
+      "console.s4": "Trompette royale", "console.s5": "Voix humaine", "console.s6": "Cymbale",
+      "encargo.kicker": "Notre méthode", "encargo.title": "Commandes et devis",
+      "encargo.sub": "Chaque orgue est un monde : la commande commence toujours par une visite d'étude et un devis ferme, jamais par un tarif général.",
+      "encargo.b1t": "Accord annuel",
+      "encargo.b1d": "Tempérament, accord général et réglage de la mécanique, une fois par an, avec rapport d'état.",
+      "encargo.b1s": "/ visite",
+      "encargo.b2t": "Restauration intégrale",
+      "encargo.b2d": "Inventaire, démontage, restauration des tuyaux et harmonisation sur place. Carnet d'atelier complet livré.",
+      "encargo.b2s": "Devis après visite",
+      "encargo.b3t": "Conservation et étude",
+      "encargo.b3d": "Rapport d'état, photogrammétrie et plan de conservation pour instruments historiques en usage.",
+      "encargo.b3s": "/ étude",
+      "encargo.v": "Consulter", "encargo.v2": "Demander une visite",
+      "faq.kicker": "Questions fréquentes", "faq.title": "Avant de nous écrire",
+      "faq.q1": "Travaillez-vous sur des orgues historiques protégés ?",
+      "faq.a1": "Oui. Nous collaborons avec les diocèses et les services du patrimoine : tout le processus est documenté et respecte des critères d'intervention sans reconstruction arbitraire.",
+      "faq.q2": "Combien de temps dure une restauration complète ?",
+      "faq.a2": "Selon la taille : un positif de huit registres peut être prêt en neuf mois ; une caisse à deux claviers, entre 18 et 24 mois. Le calendrier est fixé lors de la visite d'étude.",
+      "faq.q3": "Pouvons-nous continuer à utiliser l'orgue pendant les travaux ?",
+      "faq.a3": "Non pour les restaurations intégrales : l'instrument est démonté. En conservation, nous planifions par phases pour que le temple garde son accompagnement liturgique.",
+      "faq.q4": "Quelle différence entre accord et tempérament ?",
+      "faq.a4": "L'accord fixe la hauteur de chaque note ; le tempérament décide comment répartir les petites déviations entre les notes. Choisir l'un ou l'autre change la couleur de toute l'harmonie.",
+      "footer.tag": "Atelier d'orgues à tuyaux. Nous restaurons, accordons et conservons des instruments historiques.",
+      "footer.c1": "Atelier", "footer.l1": "Le métier", "footer.l2": "Orgues restaurés", "footer.l3": "L'atelier",
+      "footer.c2": "Contact", "footer.mail": "hola@cristiancode.dev",
+      "footer.hours": "Jeu–Ven · 10h00–14h00", "footer.top": "Haut de page ↑",
+      "footer.c3": "Studio", "footer.addr": "Calle de la Bola 12, bajo<br>28013 Madrid",
+      "footer.map": "Itinéraire →", "footer.credit": "Op. 47 · Madrid · Depuis 1914",
+      "cookie.msg": "Nous n'utilisons que le cookie de langue et de thème. Rien ne vous suit.",
+      "cookie.ok": "Compris", "cookie.no": "Fermer"
+    },
+    de: {
+      meta_title: "FUELLE · Orgelwerkstatt in Madrid",
+      meta_desc: "Pfeifenorgeln restaurieren in Madrid: Wir inventarisieren jede Pfeife, intonieren jede Zunge und übergeben das Instrument mit seinem Werkstattbuch.",
+      "nav.oficio": "Das Handwerk", "nav.obra": "Orgeln", "nav.taller": "Werkstatt",
+      "nav.encargo": "Aufträge", "nav.faq": "Fragen", "nav.cta": "Besuch anfragen",
+      "lang.label": "Sprache wählen", "theme.label": "Farbschema wechseln",
+      "menu.open": "Menü öffnen", "menu.close": "Menü schließen",
+      "hero.kicker": "Orgelwerkstatt · Op. 47 · Madrid",
+      "hero.title": "Die Orgel <br>spricht wieder.",
+      "hero.sub": "Komplette Pfeifenorgel-Restaurierung: Wir inventarisieren jede Pfeife, intonieren jede Zunge und übergeben das Instrument mit seinem Werkstattbuch, damit es klingt, wie es klingen soll.",
+      "hero.cta1": "Werkstattbesuch anfragen", "hero.cta2": "Restaurierte Orgeln sehen",
+      "hero.note": "Stimmung nach Temperatur. Vorstudie, immer.",
+      "hero.console": "Aktives Register",
+      "oficio.kicker": "Ein Prozess von Monaten", "oficio.title": "Von der Stille zum Konzert",
+      "oficio.sub": "Keine Abkürzungen: Eine Orgel erwacht in vier Arbeitssaisonen wieder zum Leben, jede im Werkstattbuch dokumentiert.",
+      "oficio.s1t": "Hören und Fotografieren",
+      "oficio.s1d": "Wir öffnen das Instrument, messen den Wind und dokumentieren jede Pfeife mit ihrer Originalnummer.",
+      "oficio.s2t": "Werkbank und Windladen",
+      "oficio.s2d": "Die Pfeifen reisen an unsere Werkbank. Bälge, Windladen und Klaviaturen werden hier in Madrid repariert.",
+      "oficio.s3t": "Metall und Holz",
+      "oficio.s3d": "Zungenlamination, Zinnlötung, Gehäuseverleimung. Historische Materialien, heutiges Handwerk.",
+      "oficio.s4t": "Der Klang kehrt zurück",
+      "oficio.s4d": "Zwei Wochen in der Kirche, Register für Register intoniert, bis zum Übergabekonzert.",
+      "obra.kicker": "Jüngste Arbeiten", "obra.title": "Orgeln, die wieder klingen",
+      "obra.sub": "Drei Restaurierungen im letzten Jahr abgeliefert. Jede mit ihrer Geschichte, ihrem Temperament und ihrem vollständigen Buch.",
+      "obra.m1": "Positiv · 1712 · Komplette Restaurierung",
+      "obra.t1": "Herrasti-Kammerpositiv",
+      "obra.d1": "438 Zinn- und Bleipfeifen, Keilbalg neu aufgebaut. In mitteltöniger Stimmung übergeben.",
+      "obra.m2": "Iberisch · 1804 · Konservierung",
+      "obra.t2": "Orgel der Rosenkranz-Kapelle",
+      "obra.d2": "Konservierung ohne Wiederaufbau: Jede Spur von 220 Jahren Nutzung wurde respektiert.",
+      "obra.m3": "Continuo · 1968 · Reparatur",
+      "obra.t3": "Kammerorgel des Konservatoriums",
+      "obra.d3": "Für Continuo-Proben instand gesetzt: Mechanik und vollständige Stimmung.",
+      "obra.v": "Buch ansehen",
+      "taller.kicker": "An der Werkbank", "taller.title": "Die Werkstatt ist ein Schiff",
+      "taller.sub": "Nussbaum, Kupfer und Zinn; Vier-Meter-Bänke und eine Stehleiter. Alles, was eine Orgel zum Singen braucht, findet hier Platz.",
+      "taller.l1": "Inventarisierte Pfeifen", "taller.unit": "Stk.",
+      "taller.l2": "Orgeln in Arbeit", "taller.unit2": "Werke",
+      "taller.l3": "Jahre Handwerk", "taller.unit3": "Jahre",
+      "taller.cta": "Besuch vereinbaren", "taller.note": "Do & Fr, 10:00–14:00 Uhr.",
+      "console.title": "Register probieren", "console.on": "Klingt —",
+      "console.s1": "Prinzipal", "console.s2": "Oktave", "console.s3": "Quinte",
+      "console.s4": "Trompete real", "console.s5": "Vox humana", "console.s6": "Zimbel",
+      "encargo.kicker": "So arbeiten wir", "encargo.title": "Aufträge und Angebote",
+      "encargo.sub": "Jede Orgel ist eine eigene Welt: Der Auftrag beginnt immer mit einem Studienbesuch und einem festen Angebot, nie mit einem Pauschalpreis.",
+      "encargo.b1t": "Jährliche Stimmung",
+      "encargo.b1d": "Temperatur, Generalstimmung und Mechanikregulierung, einmal im Jahr, mit Zustandsbericht.",
+      "encargo.b1s": "/ Besuch",
+      "encargo.b2t": "Komplette Restaurierung",
+      "encargo.b2d": "Inventar, Demontage, Pfeifenrestaurierung und Intonation vor Ort. Vollständiges Werkstattbuch übergeben.",
+      "encargo.b2s": "Angebot nach Besuch",
+      "encargo.b3t": "Konservierung und Studie",
+      "encargo.b3d": "Zustandsbericht, Fotogrammetrie und Konservierungsplan für historische Instrumente in Nutzung.",
+      "encargo.b3s": "/ Studie",
+      "encargo.v": "Anfragen", "encargo.v2": "Besuch anfragen",
+      "faq.kicker": "Häufige Fragen", "faq.title": "Bevor Sie schreiben",
+      "faq.q1": "Arbeiten Sie an geschützten historischen Orgeln?",
+      "faq.a1": "Ja. Wir arbeiten mit Diözesen und Denkmalschutzämtern zusammen: Der gesamte Prozess wird dokumentiert und folgt Eingriffskriterien ohne willkürlichen Wiederaufbau.",
+      "faq.q2": "Wie lange dauert eine vollständige Restaurierung?",
+      "faq.a2": "Je nach Größe: Ein Positiv mit acht Registern kann in neun Monaten fertig sein; ein Gehäuse mit zwei Manualen braucht 18 bis 24 Monate. Der Zeitplan wird beim Studienbesuch festgelegt.",
+      "faq.q3": "Können wir die Orgel während der Arbeiten weiter nutzen?",
+      "faq.a3": "Nicht bei vollständigen Restaurierungen: Das Instrument wird demontiert. Bei Konservierungen planen wir in Phasen, damit das Gotteshaus die liturgische Begleitung behält.",
+      "faq.q4": "Was ist der Unterschied zwischen Stimmung und Temperatur?",
+      "faq.a4": "Die Stimmung legt die Höhe jeder Note fest; die Temperatur bestimmt, wie die kleinen Abweichungen zwischen den Noten verteilt werden. Die Wahl verändert die Farbe der gesamten Harmonie.",
+      "footer.tag": "Pfeifenorgel-Werkstatt. Wir restaurieren, stimmen und bewahren historische Instrumente.",
+      "footer.c1": "Werkstatt", "footer.l1": "Das Handwerk", "footer.l2": "Restaurierte Orgeln", "footer.l3": "Die Werkstatt",
+      "footer.c2": "Kontakt", "footer.mail": "hola@cristiancode.dev",
+      "footer.hours": "Do–Fr · 10:00–14:00", "footer.top": "Nach oben ↑",
+      "footer.c3": "Studio", "footer.addr": "Calle de la Bola 12, bajo<br>28013 Madrid",
+      "footer.map": "Wegbeschreibung →", "footer.credit": "Op. 47 · Madrid · Seit 1914",
+      "cookie.msg": "Wir nutzen nur den Sprach- und Themen-Cookie. Nichts verfolgt Sie.",
+      "cookie.ok": "Verstanden", "cookie.no": "Schließen"
+    },
+    it: {
+      meta_title: "FUELLE · Bottega d'organi a Madrid",
+      meta_desc: "Restauro di organi a canne a Madrid: inventariamo ogni canna, intoniamo ogni ancia e consegniamo lo strumento con il suo quaderno di bottega.",
+      "nav.oficio": "Il mestiere", "nav.obra": "Organi", "nav.taller": "Bottega",
+      "nav.encargo": "Committenze", "nav.faq": "Domande", "nav.cta": "Prenota una visita",
+      "lang.label": "Scegli la lingua", "theme.label": "Cambia tema",
+      "menu.open": "Apri il menu", "menu.close": "Chiudi il menu",
+      "hero.kicker": "Bottega d'organi · Op. 47 · Madrid",
+      "hero.title": "L'organo <br>torna a parlare.",
+      "hero.sub": "Restauro integrale di organi a canne: inventariamo ogni canna, intoniamo ogni ancia e consegniamo lo strumento con il suo quaderno di bottega, perché suoni come doveva suonare.",
+      "hero.cta1": "Prenota una visita", "hero.cta2": "Vedi gli organi restaurati",
+      "hero.note": "Intonazione per temperamento. Studio preliminare, sempre.",
+      "hero.console": "Registro attivo",
+      "oficio.kicker": "Un processo di mesi", "oficio.title": "Dal silenzio al concerto",
+      "oficio.sub": "Niente scorciatoie: un organo torna in vita in quattro stagioni di lavoro, e ognuna lascia traccia scritta nel quaderno di bottega.",
+      "oficio.s1t": "Ascolto e fotografia",
+      "oficio.s1d": "Apriamo lo strumento, misuriamo il vento e documentiamo ogni canna con il suo numero d'ordine originale.",
+      "oficio.s2t": "Banco e somieri",
+      "oficio.s2d": "Le canne viaggiano al nostro banco. Mantici, somieri e tastiere si riparano qui, a Madrid.",
+      "oficio.s3t": "Metallo e legno",
+      "oficio.s3d": "Laminazione delle ance, saldatura dello stagno, incollaggio delle casse. Materiali storici, mestiere attuale.",
+      "oficio.s4t": "Il suono torna",
+      "oficio.s4d": "Due settimane in chiesa a intonare registro per registro, fino al concerto di consegna.",
+      "obra.kicker": "Lavori recenti", "obra.title": "Organi che risuonano",
+      "obra.sub": "Tre restauri consegnati nell'ultimo anno. Ognuno con la sua storia, il suo temperamento e il suo quaderno completo.",
+      "obra.m1": "Positivo · 1712 · Restauro integrale",
+      "obra.t1": "Positivo da camera, Herrasti",
+      "obra.d1": "438 canne di stagno e piombo, mantice a cuneo ricostruito. Consegnato in temperamento mesotonico.",
+      "obra.m2": "Iberico · 1804 · Conservazione",
+      "obra.t2": "Organo della cappella del Rosario",
+      "obra.d2": "Conservazione senza ricostruzione: ogni traccia di 220 anni di uso è stata rispettata.",
+      "obra.m3": "Continuo · 1968 · Riparazione",
+      "obra.t3": "Organo da camera del conservatorio",
+      "obra.d3": "Sistemato per le prove di continuo: meccanica e intonazione completa.",
+      "obra.v": "Vedi il quaderno",
+      "taller.kicker": "Al banco di lavoro", "taller.title": "La bottega è una navata",
+      "taller.sub": "Noce, rame e stagno; tavoli da quattro metri e una scala a mano. Tutto ciò che serve a un organo per cantare di nuovo sta qui.",
+      "taller.l1": "Canne inventariate", "taller.unit": "pz.",
+      "taller.l2": "Organi in corso", "taller.unit2": "opere",
+      "taller.l3": "Anni di mestiere", "taller.unit3": "anni",
+      "taller.cta": "Organizza una visita", "taller.note": "Giovedì e venerdì, 10:00–14:00.",
+      "console.title": "Prova i registri", "console.on": "Suona —",
+      "console.s1": "Principale", "console.s2": "Ottava", "console.s3": "Quinta",
+      "console.s4": "Tromba reale", "console.s5": "Voce umana", "console.s6": "Cimbalo",
+      "encargo.kicker": "Come lavoriamo", "encargo.title": "Committenze e preventivi",
+      "encargo.sub": "Ogni organo è un mondo: la committenza inizia sempre con una visita di studio e un preventivo chiuso, mai con una tariffa generale.",
+      "encargo.b1t": "Intonazione annuale",
+      "encargo.b1d": "Temperamento, intonazione generale e regolazione della meccanica, una volta all'anno, con relazione sullo stato.",
+      "encargo.b1s": "/ visita",
+      "encargo.b2t": "Restauro integrale",
+      "encargo.b2d": "Inventario, smontaggio, restauro delle canne e intonazione in loco. Quaderno di bottega completo consegnato.",
+      "encargo.b2s": "Preventivo dopo la visita",
+      "encargo.b3t": "Conservazione e studio",
+      "encargo.b3d": "Relazione sullo stato, fotogrammetria e piano di conservazione per strumenti storici in uso.",
+      "encargo.b3s": "/ studio",
+      "encargo.v": "Informati", "encargo.v2": "Prenota una visita",
+      "faq.kicker": "Domande frequenti", "faq.title": "Prima di scriverci",
+      "faq.q1": "Lavorate su organi storici protetti?",
+      "faq.a1": "Sì. Collaboriamo con le diocesi e con i servizi del patrimonio: l'intero processo è documentato e segue criteri di intervento senza ricostruzioni arbitrarie.",
+      "faq.q2": "Quanto dura un restauro completo?",
+      "faq.a2": "Dipende dalla dimensione: un positivo di otto registri può essere pronto in nove mesi; una cassa a due manuali, tra 18 e 24 mesi. Il calendario si chiude alla visita di studio.",
+      "faq.q3": "Possiamo continuare a usare l'organo durante i lavori?",
+      "faq.a3": "Non nei restauri integrali: lo strumento viene smontato. Nei lavori di conservazione pianifichiamo per fasi, così la chiesa mantiene l'accompagnamento liturgico.",
+      "faq.q4": "Che differenza c'è tra intonazione e temperamento?",
+      "faq.a4": "L'intonazione fissa l'altezza di ogni nota; il temperamento decide come distribuire le piccole deviazioni tra le note. Scegliere l'uno o l'altro cambia il colore di tutta l'armonia.",
+      "footer.tag": "Bottega di organi a canne. Restauriamo, intoniamo e conserviamo strumenti storici.",
+      "footer.c1": "Bottega", "footer.l1": "Il mestiere", "footer.l2": "Organi restaurati", "footer.l3": "La bottega",
+      "footer.c2": "Contatti", "footer.mail": "hola@cristiancode.dev",
+      "footer.hours": "Gio–Ven · 10:00–14:00", "footer.top": "Torna su ↑",
+      "footer.c3": "Studio", "footer.addr": "Calle de la Bola 12, bajo<br>28013 Madrid",
+      "footer.map": "Come arrivare →", "footer.credit": "Op. 47 · Madrid · Dal 1914",
+      "cookie.msg": "Usiamo solo il cookie della lingua e del tema. Niente ti traccia.",
+      "cookie.ok": "Ho capito", "cookie.no": "Chiudi"
+    },
+    pt: {
+      meta_title: "FUELLE · Oficina de órgãos em Madrid",
+      meta_desc: "Restauro de órgãos de tubos em Madrid: inventariamos cada tubo, entoamos cada palheta e entregamos o instrumento com o seu caderno de oficina.",
+      "nav.oficio": "O ofício", "nav.obra": "Órgãos", "nav.taller": "Oficina",
+      "nav.encargo": "Encomendas", "nav.faq": "Perguntas", "nav.cta": "Pedir visita",
+      "lang.label": "Escolher idioma", "theme.label": "Alternar tema",
+      "menu.open": "Abrir menu", "menu.close": "Fechar menu",
+      "hero.kicker": "Oficina de órgãos · Op. 47 · Madrid",
+      "hero.title": "O órgão <br>volta a falar.",
+      "hero.sub": "Restauro integral de órgãos de tubos: inventariamos cada tubo, entoamos cada palheta e entregamos o instrumento com o seu caderno de oficina, para que soe como devia soar.",
+      "hero.cta1": "Pedir visita à oficina", "hero.cta2": "Ver órgãos restaurados",
+      "hero.note": "Afinção por temperamento. Estudo prévio, sempre.",
+      "hero.console": "Registo ativo",
+      "oficio.kicker": "Um processo de meses", "oficio.title": "Do silêncio ao concerto",
+      "oficio.sub": "Não há atalhos: um órgão volta à vida em quatro estações de trabalho, e cada uma fica registada no caderno de oficina.",
+      "oficio.s1t": "Escuta e fotografia",
+      "oficio.s1d": "Abrimos o instrumento, medimos o vento e documentamos cada tubo com o seu número de ordem original.",
+      "oficio.s2t": "Bancada e segretos",
+      "oficio.s2d": "Os tubos viajam até à nossa bancada. Foles, segretos e teclados são reparados aqui, em Madrid.",
+      "oficio.s3t": "Metal e madeira",
+      "oficio.s3d": "Laminação de palhetas, soldadura de estanho, colagem de caixas. Materiais históricos, ofício atual.",
+      "oficio.s4t": "O som volta",
+      "oficio.s4d": "Duas semanas no templo a entoar registo por registo, até ao concerto de entrega.",
+      "obra.kicker": "Obra recente", "obra.title": "Órgãos que voltam a soar",
+      "obra.sub": "Três restauros entregues no último ano. Cada um com a sua história, o seu temperamento e o seu caderno completo.",
+      "obra.m1": "Positivo · 1712 · Restauro integral",
+      "obra.t1": "Positivo de câmara, Herrasti",
+      "obra.d1": "438 tubos de estanho e chumbo, fole de cunha reconstruído. Entregue em temperamento mesotónico.",
+      "obra.m2": "Ibérico · 1804 · Conservação",
+      "obra.t2": "Órgão da capela do Rosário",
+      "obra.d2": "Conservação sem reconstrução: respeitou-se cada marca de 220 anos de uso.",
+      "obra.m3": "Continuo · 1968 · Reparação",
+      "obra.t3": "Órgão de câmara do conservatório",
+      "obra.d3": "Posto a ponto para os ensaios de continuo: ação e afinção completa.",
+      "obra.v": "Ver caderno",
+      "taller.kicker": "Na bancada", "taller.title": "A oficina é uma nave",
+      "taller.sub": "Nogueira, cobre e estanho; mesas de 4 metros e uma escada de mão. Tudo o que um órgão precisa para voltar a cantar cabe aqui.",
+      "taller.l1": "Tubos inventariados", "taller.unit": "unid.",
+      "taller.l2": "Órgãos em curso", "taller.unit2": "obras",
+      "taller.l3": "Anos de ofício", "taller.unit3": "anos",
+      "taller.cta": "Marcar visita", "taller.note": "Quinta e sexta, 10:00–14:00.",
+      "console.title": "Experimentar registos", "console.on": "A tocar —",
+      "console.s1": "Flautado", "console.s2": "Oitava", "console.s3": "Quinzena",
+      "console.s4": "Trombeta real", "console.s5": "Voz humana", "console.s6": "Címbala",
+      "encargo.kicker": "Como trabalhamos", "encargo.title": "Encomendas e orçamentos",
+      "encargo.sub": "Cada órgão é um mundo: a encomenda começa sempre com uma visita de estudo e um orçamento fechado, nunca com uma tarifa geral.",
+      "encargo.b1t": "Afinção anual",
+      "encargo.b1d": "Temperamento, afinção geral e regulação da ação, uma vez por ano, com relatório de estado.",
+      "encargo.b1s": "/ visita",
+      "encargo.b2t": "Restauro integral",
+      "encargo.b2d": "Inventário, desmontagem, restauro de tubos e entoação no templo. Caderno de oficina completo entregue.",
+      "encargo.b2s": "Orçamento após visita",
+      "encargo.b3t": "Conservação e estudo",
+      "encargo.b3d": "Relatório de estado, fotogrametria e plano de conservação para instrumentos históricos em uso.",
+      "encargo.b3s": "/ estudo",
+      "encargo.v": "Consultar", "encargo.v2": "Pedir visita",
+      "faq.kicker": "Perguntas frequentes", "faq.title": "Antes de nos escrever",
+      "faq.q1": "Trabalham em órgãos históricos protegidos?",
+      "faq.a1": "Sim. Colaboramos com as dioceses e com os serviços do património: todo o processo é documentado e segue critérios de intervenção sem reconstrução arbitrária.",
+      "faq.q2": "Quanto dura um restauro completo?",
+      "faq.a2": "Depende da dimensão: um positivo de oito registos pode ficar pronto em nove meses; uma caixa de dois teclados, entre 18 e 24 meses. O calendário fecha-se na visita de estudo.",
+      "faq.q3": "Podemos continuar a usar o órgão durante a obra?",
+      "faq.a3": "Em restauros integrais não: o instrumento é desmontado. Em trabalhos de conservação planeamos por fases para que o templo mantenha o acompanhamento litúrgico.",
+      "faq.q4": "Qual a diferença entre afinção e temperamento?",
+      "faq.a4": "A afinção fixa a altura de cada nota; o temperamento decide como se distribuem os pequenos desvios entre notas. Escolher um ou outro muda a cor de toda a harmonia.",
+      "footer.tag": "Oficina de órgãos de tubos. Restauramos, afinamos e conservamos instrumentos históricos.",
+      "footer.c1": "Oficina", "footer.l1": "O ofício", "footer.l2": "Órgãos restaurados", "footer.l3": "A oficina",
+      "footer.c2": "Contacto", "footer.mail": "hola@cristiancode.dev",
+      "footer.hours": "Qui–Sex · 10:00–14:00", "footer.top": "Voltar ao topo ↑",
+      "footer.c3": "Estúdio", "footer.addr": "Calle de la Bola 12, bajo<br>28013 Madrid",
+      "footer.map": "Como chegar →", "footer.credit": "Op. 47 · Madrid · Desde 1914",
+      "cookie.msg": "Usamos apenas o cookie do idioma e do tema. Nada o rastreia.",
+      "cookie.ok": "Entendido", "cookie.no": "Fechar"
+    }
+  };
+
+  /* ---------- state ---------- */
+  var html = document.documentElement;
+  function getTheme() {
+    try { return localStorage.getItem("kairos-theme") || "light"; } catch (e) { return "light"; }
+  }
+  function getLang() {
+    var stored;
+    try { stored = localStorage.getItem("fuelle-lang"); } catch (e) { stored = null; }
+    if (stored && LANGS.indexOf(stored) !== -1) return stored;
+    var nav = (navigator.language || "es").toLowerCase().slice(0, 2);
+    return LANGS.indexOf(nav) !== -1 ? nav : "es";
+  }
+
+  /* ---------- language ---------- */
+  function applyLang(lang) {
+    var dict = I18N[lang] || I18N.es;
+    try { localStorage.setItem("fuelle-lang", lang); } catch (e) {}
+    html.setAttribute("lang", lang);
+    var t = document.getElementById("doc-title");
+    if (t) t.textContent = dict.meta_title;
+    var md = document.getElementById("meta-desc");
+    if (md) md.setAttribute("content", dict.meta_desc);
+    document.querySelectorAll("[data-i18n]").forEach(function (el) {
+      var k = el.getAttribute("data-i18n");
+      if (dict[k] !== undefined) el.textContent = dict[k];
+    });
+    document.querySelectorAll("[data-i18n-html]").forEach(function (el) {
+      var k = el.getAttribute("data-i18n-html");
+      if (dict[k] !== undefined) el.innerHTML = dict[k];
+    });
+    document.querySelectorAll("[data-i18n-aria]").forEach(function (el) {
+      var k = el.getAttribute("data-i18n-aria");
+      if (dict[k] !== undefined) el.setAttribute("aria-label", dict[k]);
+    });
+    document.querySelectorAll(".lang-select__cur").forEach(function (el) { el.textContent = lang.toUpperCase(); });
+    document.querySelectorAll(".lang-select__opt").forEach(function (opt) {
+      opt.setAttribute("aria-selected", opt.getAttribute("data-lang") === lang ? "true" : "false");
+    });
+    var stops = document.querySelectorAll(".stop");
+    stops.forEach(function (st, i) {
+      var nameEl = st.querySelector(".stop__name");
+      if (nameEl && dict["console.s" + (i + 1)] !== undefined) nameEl.textContent = dict["console.s" + (i + 1)];
+    });
+    updateReadouts(dict);
+    closeLangMenus();
+  }
+
+  function updateReadouts(dict) {
+    var active = document.querySelector(".stop[aria-pressed='true']");
+    var nameEl = active ? active.querySelector(".stop__name") : null;
+    var label = nameEl ? nameEl.textContent : (dict["console.s1"] || "Flautado");
+    var feet = active ? (active.getAttribute("data-feet") || "") : "";
+    var readout = document.querySelector("[data-readout]");
+    if (readout) readout.textContent = label + " " + feet;
+    var demo = document.querySelector("[data-demo-readout]");
+    if (demo) demo.textContent = label + " " + feet;
+  }
+
+  function closeLangMenus() {
+    document.querySelectorAll(".lang-select").forEach(function (sel) {
+      var menu = sel.querySelector(".lang-select__menu");
+      var btn = sel.querySelector(".lang-select__btn");
+      if (menu) menu.classList.remove("open");
+      if (btn) btn.setAttribute("aria-expanded", "false");
+    });
+  }
+
+  function initLangSelect() {
+    document.querySelectorAll(".lang-select").forEach(function (sel) {
+      var btn = sel.querySelector(".lang-select__btn");
+      var menu = sel.querySelector(".lang-select__menu");
+      if (!btn || !menu) return;
+      btn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        var open = menu.classList.toggle("open");
+        btn.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+      menu.querySelectorAll(".lang-select__opt").forEach(function (opt) {
+        opt.addEventListener("click", function () {
+          applyLang(opt.getAttribute("data-lang"));
+        });
+      });
+    });
+    document.addEventListener("click", function (e) {
+      if (!e.target.closest(".lang-select")) closeLangMenus();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") closeLangMenus();
+    });
+  }
+
+  /* ---------- theme ---------- */
+  function applyTheme(theme) {
+    html.setAttribute("data-theme", theme);
+    try { localStorage.setItem("kairos-theme", theme); } catch (e) {}
+  }
+
+  /* ---------- mobile menu ---------- */
+  var mobileMenu = document.getElementById("mobileMenu");
+  function openMobile() {
+    if (!mobileMenu) return;
+    mobileMenu.classList.add("open");
+    mobileMenu.setAttribute("aria-hidden", "false");
+    var b = document.querySelector("[data-menu-open]");
+    if (b) b.setAttribute("aria-expanded", "true");
+  }
+  function closeMobile() {
+    if (!mobileMenu) return;
+    mobileMenu.classList.remove("open");
+    mobileMenu.setAttribute("aria-hidden", "true");
+    var b = document.querySelector("[data-menu-open]");
+    if (b) b.setAttribute("aria-expanded", "false");
+  }
+
+  /* ---------- faq ---------- */
+  function initFaq() {
+    document.querySelectorAll(".faq-item").forEach(function (item) {
+      var q = item.querySelector(".faq-q");
+      var a = item.querySelector(".faq-a");
+      if (!q || !a) return;
+      q.addEventListener("click", function () {
+        var open = item.getAttribute("aria-expanded") === "true";
+        document.querySelectorAll(".faq-item").forEach(function (o) {
+          o.setAttribute("aria-expanded", "false");
+          var oa = o.querySelector(".faq-a");
+          if (oa) oa.style.maxHeight = "0px";
+        });
+        if (!open) {
+          item.setAttribute("aria-expanded", "true");
+          a.style.maxHeight = a.scrollHeight + "px";
+        }
+      });
+    });
+  }
+
+  /* ---------- console stops ---------- */
+  function initConsole() {
+    var pipes = document.querySelectorAll(".pipe");
+    var stops = document.querySelectorAll(".stop");
+    if (!stops.length) return;
+    stops.forEach(function (st, i) {
+      st.addEventListener("click", function () {
+        stops.forEach(function (s, j) { s.setAttribute("aria-pressed", "false"); });
+        st.setAttribute("aria-pressed", "true");
+        if (pipes.length) {
+          pipes.forEach(function (p, k) {
+            if (k % 5 === 0) p.classList.add("pipe--on");
+            else p.classList.remove("pipe--on");
+          });
+          pipes[i % pipes.length].classList.add("pipe--on");
+        }
+        updateReadouts(I18N[getLang()]);
+      });
+    });
+  }
+
+  /* ---------- cookie ---------- */
+  function initCookie() {
+    var banner = document.getElementById("cookieBanner");
+    if (!banner) return;
+    var ok = document.getElementById("cookieOk");
+    var no = document.getElementById("cookieNo");
+    function hide() { banner.classList.remove("show"); }
+    function accept() {
+      try { localStorage.setItem("fuelle-cookie", "accepted"); } catch (e) {}
+      hide();
+    }
+    var done;
+    try { done = localStorage.getItem("fuelle-cookie"); } catch (e) { done = null; }
+    if (done === "accepted") { banner.style.display = "none"; return; }
+    setTimeout(function () { banner.classList.add("show"); }, 2500);
+    if (ok) ok.addEventListener("click", accept);
+    if (no) no.addEventListener("click", hide);
+  }
+
+  /* ---------- nav scroll ---------- */
+  function initNav() {
+    var nav = document.getElementById("nav");
+    if (!nav) return;
+    function onScroll() { nav.classList.toggle("scrolled", window.scrollY > 8); }
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  }
+
+  /* ---------- reveal ---------- */
+  function initReveal() {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      document.querySelectorAll(".rv").forEach(function (el) { el.classList.add("in"); });
+      return;
+    }
+    var els = document.querySelectorAll(".rv");
+    if (!("IntersectionObserver" in window)) {
+      els.forEach(function (el) { el.classList.add("in"); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
+    els.forEach(function (el) { io.observe(el); });
+  }
+
+  /* ---------- boot ---------- */
+  function boot() {
+    try {
+      var theme = getTheme();
+      applyTheme(theme);
+      var lang = getLang();
+      applyLang(lang);
+      html.classList.remove("no-js");
+      initLangSelect();
+      initFaq();
+      initConsole();
+      initCookie();
+      initNav();
+      initReveal();
+
+      var themeBtn = document.querySelector("[data-theme-toggle]");
+      if (themeBtn) {
+        themeBtn.addEventListener("click", function () {
+          applyTheme(html.getAttribute("data-theme") === "dark" ? "light" : "dark");
+        });
+      }
+      var menuOpen = document.querySelector("[data-menu-open]");
+      var menuClose = document.querySelector("[data-menu-close]");
+      if (menuOpen) menuOpen.addEventListener("click", openMobile);
+      if (menuClose) menuClose.addEventListener("click", closeMobile);
+      mobileMenu && mobileMenu.addEventListener("click", function (e) {
+        if (e.target.closest("a") && !e.target.closest(".lang-select")) closeMobile();
+      });
+    } catch (err) {
+      // fail-open: never leave content invisible
+      document.querySelectorAll(".rv").forEach(function (el) { el.classList.add("in"); });
+      html.classList.remove("no-js");
+    }
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", boot);
+  } else {
+    boot();
+  }
+})();
+</script>
+</body>
+</html>

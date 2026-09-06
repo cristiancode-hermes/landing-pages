@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html lang="es" class="no-js" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="doc-title">TORNO · Taller de cerámica en Manises, València</title>
+<meta id="meta-desc" name="description" content="Escuela-taller de cerámica en Manises: torno, esmaltes y horno de leña en grupos pequeños. Reserva tu plaza y gira tu primera pieza.">
+<link rel="canonical" href="https://proyectos.cristiancode.dev/landings/2026-08-24-torno.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="TORNO · Taller de cerámica en Manises">
+<meta property="og:description" content="Torno, esmaltes y horno de leña en grupos pequeños, en la cuna del azulejo europeo.">
+<meta property="og:url" content="https://proyectos.cristiancode.dev/landings/2026-08-24-torno.html">
+<meta property="og:image" content="https://cristiancode.dev/assets/landing-2026-08-24-torno.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="TORNO · Taller de cerámica en Manises">
+<meta name="twitter:description" content="Escuela-taller de cerámica junto al río: torno, esmaltes y horno de leña.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%23024A2A'/%3E%3Cpath d='M36,40 L64,40 C68,52 63,62 66,70 C70,78 60,82 50,82 C40,82 30,78 34,70 C37,62 32,52 36,40 Z' fill='%23066A3F'/%3E%3Cellipse cx='50' cy='40' rx='14' ry='4' fill='%2384E7A5'/%3E%3Cellipse cx='50' cy='88' rx='30' ry='5' fill='%23141612'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   DESIGN SYSTEM — TORNO · Escuela-taller de cerámica
+   Surface: Decide/Learn (landing; hero correct). Secondary
+            Compare in pricing, Learn in process timeline.
+   Derived from: Clay (popular-web-designs template) — warm
+            neutral paper canvas, named swatch palette (matcha,
+            lemon, ube, pomegranate), hard offset shadows,
+            playful tilt-on-hover buttons, Space Mono labels.
+            NOTE: Clay's cream #faf9f7 swapped for neutral
+            off-white #F6F7F5 (chroma 0) per Impeccable.
+   Family: Artesanía / Cerámica y horno
+   Style: Studio clay — paper white, green-tinted ink, oat
+          borders, swatch "rooms" (deep matcha, ube, lemon),
+          a turning wheel in the hero that changes glaze.
+   Strategy: Committed (deep green 30-40% through
+             matcha-deep & stage) + playful swatch bands.
+   Type: Sora (geometric humanist display/body) + Space Mono
+         (technical labels) — geometric/mono contrast axis.
+   ============================================================ */
+:root{
+  --z-nav:30; --z-banner:40; --z-menu:45; --z-modal:50; --z-toast:60;
+  --bg:#F6F7F5; --surface:#FFFFFF; --surface-2:#EDEFE9;
+  --ink:#141612; --muted:#4A4843; --line:#DFE1D5; --line-strong:#C2C5B4;
+  --matcha:#066A3F; --matcha-hover:#055334; --matcha-deep:#02492A; --matcha-soft:#84E7A5;
+  --link:#02492A;
+  --lemon:#F7B733; --lemon-deep:#9D6A09; --lemon-ink:#141612;
+  --ube:#43089F; --ube-ink:#FFFFFF;
+  --pome:#FC7981; --pome-ink:#141612;
+  --blueberry:#01418D;
+  --stage:#13150F; --stage-ink:#EDEFE9; --stage-muted:#B9BBAF; --stage-line:#2C3023;
+  --focus:#3859F9; --focus-dark:#8B9BFF;
+  --sans:'Sora',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --mono:'Space Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  --r:16px; --r-sm:10px; --r-lg:26px; --pill:999px;
+  --ease:cubic-bezier(.22,1,.36,1);
+  --hard:6px 6px 0 rgba(19,21,15,.9);
+  --hard-white:6px 6px 0 rgba(20,22,18,.15);
+  --soft:0 1px 2px rgba(20,22,18,.06), 0 12px 30px -16px rgba(20,22,18,.25);
+}
+[data-theme="dark"]{
+  --bg:#151712; --surface:#1E211A; --surface-2:#262A21;
+  --ink:#EDEFE9; --muted:#B9BBAF; --line:#31352A; --line-strong:#464B3C;
+  --matcha:#066A3F; --matcha-hover:#055334; --matcha-deep:#02492A; --matcha-soft:#84E7A5;
+  --link:#6FCE97;
+  --lemon:#F7B733; --lemon-deep:#F7B733; --lemon-ink:#141612;
+  --ube:#43089F; --ube-ink:#FFFFFF;
+  --pome:#FC7981; --pome-ink:#141612;
+  --blueberry:#9DBFFF;
+  --stage:#0D0F0A; --stage-ink:#EDEFE9; --stage-muted:#A9AB9E; --stage-line:#262A1C;
+  --focus:#8B9BFF;
+  --hard:6px 6px 0 rgba(0,0,0,.65);
+  --soft:0 1px 2px rgba(0,0,0,.4), 0 14px 34px -18px rgba(0,0,0,.7);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+html.no-js .rv{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001s!important;animation-iteration-count:1!important;transition-duration:.001s!important}
+}
+@media print{.rv{opacity:1;transform:none}}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.62;-webkit-font-smoothing:antialiased;text-wrap:pretty}
+h1,h2,h3{line-height:1.08;letter-spacing:-.03em;text-wrap:balance;font-family:var(--sans);font-weight:700}
+p{max-width:68ch}
+a{color:var(--link);text-decoration:none}
+a:hover{text-decoration:underline}
+button,input{font:inherit;color:inherit}
+img,svg{display:block;max-width:100%}
+.container{width:min(1160px,92%);margin-inline:auto}
+.visually-hidden{position:absolute;width:1px;height:1px;margin:-1px;padding:0;border:0;clip:rect(0 0 0 0);overflow:hidden}
+:focus-visible{outline:2px solid var(--focus);outline-offset:3px;border-radius:4px}
+.skip{position:absolute;left:-999px;top:0;background:var(--matcha-deep);color:#fff;padding:.7rem 1.1rem;z-index:200;border-radius:0 0 var(--r-sm) 0;font-weight:600}
+.skip:focus{left:1rem;top:1rem}
+
+/* ---------- nav ---------- */
+.nav{position:sticky;top:0;z-index:var(--z-nav);background:var(--bg);border-bottom:1px solid var(--line)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.75rem 0}
+.logo{display:inline-flex;align-items:center;gap:.55rem;font-weight:700;letter-spacing:-.02em;font-size:1.12rem;color:var(--ink)}
+.logo:hover{text-decoration:none}
+.logo svg{width:30px;height:30px}
+.nav-links{display:flex;align-items:center;gap:1.4rem;list-style:none}
+.nav-links a{font-size:.92rem;color:var(--ink);font-weight:500}
+.nav-links a:hover{color:var(--link);text-decoration:none}
+.nav-actions{display:flex;align-items:center;gap:.55rem}
+.icon-btn{width:40px;height:40px;border-radius:var(--pill);border:1px solid var(--line);background:var(--surface);color:var(--ink);display:grid;place-items:center;cursor:pointer;transition:border-color .2s var(--ease),color .2s var(--ease),transform .2s var(--ease)}
+.icon-btn:hover{border-color:var(--matcha);color:var(--matcha)}
+.lang-select{position:relative;display:inline-block;flex:none}
+.lang-select__btn{display:inline-flex;align-items:center;gap:.4rem;height:40px;padding:0 .8rem;border-radius:var(--pill);border:1px solid var(--line);background:var(--surface);color:var(--ink);font-size:.8rem;font-weight:600;font-family:var(--mono);cursor:pointer;transition:border-color .2s var(--ease),color .2s var(--ease)}
+.lang-select__btn:hover,.lang-select__btn[aria-expanded="true"]{border-color:var(--matcha);color:var(--matcha)}
+.lang-select__chev{transition:transform .2s var(--ease)}
+.lang-select__btn[aria-expanded="true"] .lang-select__chev{transform:rotate(180deg)}
+.lang-select__menu{position:absolute;top:calc(100% + 8px);right:0;min-width:176px;padding:.45rem;background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:var(--hard-white),var(--soft);opacity:0;visibility:hidden;transform:translateY(-5px);transition:opacity .22s var(--ease),transform .22s var(--ease),visibility .22s;z-index:var(--z-menu)}
+.lang-select__menu.open{opacity:1;visibility:visible;transform:translateY(0)}
+.lang-select__opt{display:flex;align-items:center;justify-content:space-between;gap:.5rem;width:100%;padding:.5rem .7rem;border:none;background:none;font-size:.88rem;color:var(--ink);text-align:left;border-radius:8px;cursor:pointer;transition:background .15s ease}
+.lang-select__opt:hover{background:var(--surface-2)}
+.lang-select__opt[aria-selected="true"]{color:var(--matcha);font-weight:700}
+.lang-select__opt[aria-selected="true"]::after{content:'✓';font-family:var(--mono)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.8rem 1.35rem;border-radius:14px;border:1px solid transparent;font-weight:700;font-size:.95rem;cursor:pointer;transition:transform .18s var(--ease),box-shadow .18s var(--ease),background .18s var(--ease),color .18s var(--ease)}
+.btn:hover{text-decoration:none}
+.btn-primary{background:var(--matcha);color:#fff}
+.btn-primary:hover{background:var(--matcha-hover);transform:rotate(-2deg) translateY(-2px);box-shadow:var(--hard);color:#fff}
+.btn-primary:active{transform:translateY(2px);box-shadow:none}
+.btn-accent{background:var(--lemon);color:var(--lemon-ink)}
+.btn-accent:hover{background:var(--lemon);transform:rotate(-2deg) translateY(-2px);box-shadow:var(--hard);color:var(--lemon-ink)}
+.btn-ghost{background:var(--surface);color:var(--ink);border-color:var(--line-strong)}
+.btn-ghost:hover{border-color:var(--matcha);color:var(--matcha);transform:rotate(2deg) translateY(-2px);box-shadow:var(--hard-white),var(--soft)}
+.btn-sm{padding:.55rem 1rem;font-size:.85rem;border-radius:10px}
+.burger{display:none}
+nav.nav-desktop-only{display:contents}
+@media (max-width:900px){.nav-desktop-only{display:none!important}}
+.nav-actions > .btn-primary{flex:none;color:#fff;background:var(--matcha)}
+.mobile-menu{display:none;border-top:1px solid var(--line);padding:1rem 0 1.4rem}
+.mobile-menu.open{display:block}
+.mobile-menu a{display:block;padding:.7rem 0;color:var(--ink);font-weight:500}
+.mobile-menu a.btn{display:inline-flex;padding:.8rem 1.35rem;width:100%;justify-content:center}
+.mobile-menu a.btn-primary{color:#fff;background:var(--matcha)}
+.mobile-menu a.btn-primary:hover{background:var(--matcha-hover);color:#fff;transform:none;box-shadow:none}
+.mobile-menu .lang-select{width:100%}
+.mobile-menu .lang-select__btn{width:100%;justify-content:space-between;height:48px;border-radius:12px}
+.mobile-menu .lang-select__menu{right:auto;left:0;width:100%}
+.mobile-menu .nav-actions{margin-top:.85rem;flex-direction:column;align-items:stretch}
+
+/* ---------- hero ---------- */
+.hero{position:relative;overflow:hidden;padding:clamp(2.6rem,6vw,5.2rem) 0 0}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2rem,5vw,4.2rem);align-items:center}
+.hero-copy{max-width:600px}
+.hero-tag{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--mono);font-size:.74rem;letter-spacing:.04em;color:var(--muted);border:1px solid var(--line);background:var(--surface);padding:.42rem .85rem;border-radius:var(--pill);margin-bottom:1.4rem}
+.hero-tag::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--matcha)}
+.hero h1{font-size:clamp(2.5rem,5.4vw,4rem);line-height:1.02;margin-bottom:1.3rem}
+.hero h1 .acc{color:var(--matcha)}
+[data-theme="dark"] .hero h1 .acc{color:var(--matcha-soft)}
+.hero .lead{font-size:clamp(1.05rem,1.5vw,1.18rem);color:var(--muted);max-width:52ch;margin-bottom:1.8rem}
+.hero-cta{display:flex;gap:.8rem;flex-wrap:wrap;margin-bottom:1.6rem}
+.hero-chips{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none}
+.hero-chips li{font-family:var(--mono);font-size:.74rem;color:var(--muted);border:1px dashed var(--line-strong);padding:.35rem .7rem;border-radius:var(--pill)}
+.hero-art{position:relative}
+.vase-card{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--hard-white),var(--soft);padding:1.6rem 1.6rem 1.2rem;transform:rotate(-1.6deg);max-width:430px;margin-left:auto}
+.vase-card:hover{transform:rotate(0deg) translateY(-3px);transition:transform .35s var(--ease)}
+.vase-card .glaze-hint{display:flex;align-items:center;gap:.5rem;font-family:var(--mono);font-size:.72rem;letter-spacing:.03em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem}
+.vase-card .glaze-hint::before{content:'';width:14px;height:14px;border-radius:4px;background:var(--glaze-dot,#43856B);border:1px solid var(--line-strong)}
+.vase-wrap{position:relative;display:grid;place-items:center}
+.vase-wrap svg{width:min(340px,100%);height:auto}
+.vase-chip{position:absolute;font-family:var(--mono);font-size:.66rem;letter-spacing:.02em;color:var(--muted);background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:.28rem .55rem;white-space:nowrap;box-shadow:var(--soft)}
+.vase-chip.c1{top:6%;left:2%}
+.vase-chip.c2{top:30%;right:0}
+.vase-chip.c3{bottom:14%;left:8%}
+[data-theme="dark"] .vase-chip{color:var(--muted)}
+.swatches{display:flex;gap:.6rem;justify-content:center;margin-top:1.1rem;flex-wrap:wrap}
+.sw{width:34px;height:34px;border-radius:50%;border:2px solid var(--surface);box-shadow:0 0 0 1px var(--line-strong), var(--soft);cursor:pointer;transition:transform .18s var(--ease),box-shadow .18s var(--ease);position:relative}
+.sw:hover{transform:translateY(-3px) rotate(-8deg);box-shadow:var(--hard)}
+.sw[aria-pressed="true"]{box-shadow:0 0 0 3px var(--matcha);transform:translateY(-3px)}
+.sw-lbl{position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%) scale(.9);background:var(--stage);color:var(--stage-ink);font-family:var(--mono);font-size:.66rem;padding:.28rem .55rem;border-radius:8px;opacity:0;visibility:hidden;transition:opacity .18s ease,visibility .18s;white-space:nowrap;pointer-events:none}
+.sw:hover .sw-lbl{opacity:1;visibility:visible;transform:translateX(-50%) scale(1)}
+
+/* ---------- marquee ---------- */
+.marquee{background:var(--matcha-deep);color:var(--matcha-soft);overflow:hidden;padding:1rem 0;transform:rotate(-.6deg) scale(1.02);margin:clamp(2.8rem,6vw,4.5rem) 0 0;font-family:var(--mono);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;border-top:3px solid #141612;border-bottom:3px solid #141612}
+.marquee-track{display:flex;gap:2.6rem;width:max-content;animation:marquee 34s linear infinite}
+.marquee-track span{white-space:nowrap;display:flex;align-items:center;gap:2.6rem}
+.marquee-track span::after{content:'✦';color:var(--lemon)}
+@keyframes marquee{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.marquee-track{animation:none}}
+
+/* ---------- sections ---------- */
+.section{padding:clamp(3.6rem,7vw,5.8rem) 0}
+.sec-head{max-width:680px;margin-bottom:2.6rem}
+.sec-head h2{font-size:clamp(1.9rem,3.6vw,2.7rem);margin-bottom:.9rem}
+.sec-head p{color:var(--muted);font-size:1.03rem}
+.sec-center{margin-inline:auto;text-align:center}
+.sec-center p{margin-inline:auto}
+
+/* process */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem}
+.step{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:1.5rem 1.4rem;position:relative;box-shadow:var(--soft);transition:transform .25s var(--ease),box-shadow .25s var(--ease)}
+.step:hover{transform:translateY(-4px);box-shadow:var(--hard-white),var(--soft)}
+.step .n{font-family:var(--mono);font-size:.78rem;color:var(--matcha);display:inline-block;border:1px solid var(--line);border-radius:8px;padding:.22rem .5rem;margin-bottom:1rem}
+.step h3{font-size:1.14rem;margin-bottom:.5rem}
+.step p{font-size:.92rem;color:var(--muted)}
+
+/* courses band (drenched matcha-deep) */
+.band{padding:clamp(3.6rem,7vw,5.4rem) 0;color:#fff}
+.band-matcha{background:var(--matcha-deep);color:#fff}
+.band-matcha .sec-head h2{color:#fff}
+.band-matcha .sec-head p{color:var(--matcha-soft)}
+.band-ube{background:var(--ube);color:var(--ube-ink)}
+.band-ube .sec-head h2{color:#fff}
+.band-ube .sec-head p{color:#E4DBF7}
+.band-lemon{background:var(--lemon);color:var(--lemon-ink)}
+.band-lemon .sec-head h2{color:var(--lemon-ink)}
+.band-lemon .sec-head p{color:#4A422E}
+.courses{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;align-items:stretch}
+.course{background:var(--surface);color:var(--ink);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--soft);display:flex;flex-direction:column;transition:transform .25s var(--ease),box-shadow .25s var(--ease)}
+.course:hover{transform:rotate(-1deg) translateY(-5px);box-shadow:var(--hard-white),var(--soft)}
+.course-head{display:flex;align-items:center;justify-content:space-between;gap:.6rem;padding:.9rem 1.2rem;font-family:var(--mono);font-size:.74rem;letter-spacing:.04em;text-transform:uppercase}
+.course-head .d{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:rgba(20,22,18,.14);font-family:var(--mono);font-size:.78rem}
+.ch-ube{background:var(--ube);color:#fff}
+.ch-lemon{background:var(--lemon);color:var(--lemon-ink)}
+.ch-pome{background:var(--pome);color:var(--pome-ink)}
+.course-body{padding:1.4rem 1.4rem 1.6rem;display:flex;flex-direction:column;gap:.6rem;flex:1}
+.course-body h3{font-size:1.22rem}
+.course-body p{font-size:.93rem;color:var(--muted)}
+.course-avail{font-family:var(--mono);font-size:.72rem;color:var(--matcha);display:inline-flex;align-items:center;gap:.45rem;margin-top:auto;padding-top:1rem}
+.course-avail::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--matcha-soft);box-shadow:0 0 0 3px rgba(132,231,165,.25)}
+
+/* quote + testimonials */
+.quote-block{max-width:820px;margin:0 auto 3rem;text-align:center}
+.quote-block .mark{font-size:3.4rem;line-height:1;color:var(--lemon);font-family:var(--sans);font-weight:700;margin-bottom:.4rem}
+.quote-block blockquote{font-size:clamp(1.25rem,2.6vw,1.7rem);font-weight:600;line-height:1.28;letter-spacing:-.02em;color:#fff}
+.quote-block cite{display:block;margin-top:1.1rem;font-family:var(--mono);font-style:normal;font-size:.8rem;color:#E4DBF7;letter-spacing:.03em}
+.testis{display:grid;grid-template-columns:1fr 1fr;gap:1.3rem}
+.testi{background:#fff;color:var(--ink);border-radius:var(--r-lg);padding:1.6rem;box-shadow:0 6px 0 rgba(20,22,18,.16)}
+.testi p{font-size:1rem;color:#2A2C26;margin-bottom:1rem;font-weight:500}
+.testi footer{font-family:var(--mono);font-size:.76rem;color:#6B6E63;letter-spacing:.02em}
+
+/* pricing */
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;align-items:stretch}
+.plan{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:1.8rem 1.6rem;display:flex;flex-direction:column;box-shadow:var(--soft);position:relative}
+.plan h3{font-size:1.2rem;margin-bottom:.2rem}
+.plan .p{font-size:.9rem;color:var(--muted);margin-bottom:1.2rem}
+.plan .price{font-size:2.1rem;font-weight:700;letter-spacing:-.04em;margin-bottom:.15rem}
+.plan .per{font-family:var(--mono);font-size:.74rem;color:var(--muted);margin-bottom:1.3rem}
+.plan ul{list-style:none;margin-bottom:1.6rem}
+.plan li{display:flex;align-items:flex-start;gap:.6rem;font-size:.92rem;padding:.34rem 0}
+.plan li svg{flex:none;margin-top:3px;color:var(--matcha)}
+.plan .btn{margin-top:auto}
+.plan.featured{border:2px solid var(--matcha);box-shadow:var(--hard);transform:rotate(-1deg)}
+.plan.featured:hover{transform:rotate(0) translateY(-4px)}
+.plan-badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%) rotate(-3deg);background:var(--lemon);color:var(--lemon-ink);font-family:var(--mono);font-size:.7rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:.32rem .8rem;border-radius:8px;box-shadow:var(--hard)}
+.plan.featured h3{color:var(--matcha)}
+[data-theme="dark"] .plan.featured h3{color:var(--matcha-soft)}
+
+/* faq */
+.faq-list{max-width:760px}
+.faq-item{border:1px solid var(--line);border-radius:var(--r);margin-bottom:.7rem;background:var(--surface);overflow:hidden;box-shadow:var(--soft)}
+.faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:1rem;background:none;border:none;text-align:left;padding:1.05rem 1.25rem;font-weight:700;font-size:1rem;cursor:pointer;color:var(--ink)}
+.faq-q .ic{flex:none;width:28px;height:28px;border-radius:50%;border:1px solid var(--line-strong);display:grid;place-items:center;font-size:1rem;color:var(--matcha);transition:transform .25s var(--ease),background .25s var(--ease),color .25s var(--ease);font-family:var(--sans)}
+.faq-item.open .faq-q .ic{transform:rotate(135deg);background:var(--matcha);color:#fff;border-color:var(--matcha)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s var(--ease)}
+.faq-a p{padding:0 1.25rem 1.15rem;color:var(--muted);font-size:.95rem}
+
+/* newsletter */
+.news{max-width:760px;margin-inline:auto;text-align:center}
+.news h2{font-size:clamp(1.6rem,3vw,2.2rem);margin-bottom:.8rem}
+.news p.lead{color:#4A422E;max-width:56ch;margin:0 auto 1.5rem;font-size:1rem}
+.news form{display:flex;gap:.6rem;max-width:460px;margin:0 auto .9rem;text-align:left}
+.news input{flex:1;padding:.8rem 1.1rem;border-radius:12px;border:2px solid rgba(20,22,18,.35);background:#fff;color:#141612;font-size:.95rem}
+.news input:focus{outline:none;border-color:#141612}
+.news input::placeholder{color:#6B6450}
+.nl-msg{display:none;font-family:var(--mono);font-size:.78rem;color:#3A3420}
+.nl-msg.ok{display:block}
+.news .honest{font-family:var(--mono);font-size:.72rem;color:#4A422E;line-height:1.5}
+.news .honest a{color:#141612;font-weight:700}
+
+/* footer */
+.footer{background:var(--stage);color:var(--stage-ink);padding:3.4rem 0 2.2rem;border-top:6px solid var(--matcha)}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2.4rem;margin-bottom:2.6rem}
+.footer .logo{color:var(--stage-ink)}
+.footer-tagline{color:var(--stage-muted);font-size:.94rem;max-width:34ch;margin-top:1rem}
+.footer h4{font-family:var(--mono);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--matcha-soft);margin-bottom:1rem}
+.footer ul{list-style:none}
+.footer li{margin-bottom:.55rem;font-size:.92rem}
+.footer a{color:var(--stage-ink)}
+.footer a:hover{color:var(--matcha-soft)}
+.footer-bottom{border-top:1px solid var(--stage-line);padding-top:1.4rem;display:flex;flex-wrap:wrap;gap:.8rem;justify-content:space-between;color:var(--stage-muted);font-size:.84rem}
+.footer-bottom .made{font-family:var(--mono);font-size:.74rem}
+
+/* cookie */
+.cookie{position:fixed;right:1rem;bottom:1rem;left:auto;width:min(400px,calc(100vw - 2rem));background:var(--stage);color:var(--stage-ink);border-radius:16px;padding:.95rem 1.1rem;display:flex;align-items:center;gap:.9rem;box-shadow:var(--hard);border:1px solid var(--stage-line);transform:translateY(calc(100% + 1.6rem));transition:transform .4s var(--ease);z-index:var(--z-banner)}
+.cookie.show{transform:translateY(0)}
+.cookie p{font-size:.85rem;flex:1;line-height:1.4;color:var(--stage-ink)}
+.cookie .cookie-actions{display:flex;gap:.5rem;flex:none}
+.cookie .ck{font-family:var(--mono);font-size:.74rem;font-weight:700;border-radius:8px;padding:.5rem .8rem;cursor:pointer;border:1px solid transparent}
+.cookie .ck-ok{background:var(--matcha-soft);color:#13150F}
+.cookie .ck-ok:hover{background:#fff}
+.cookie .ck-no{background:transparent;color:var(--stage-ink);border-color:var(--stage-line)}
+.cookie .ck-no:hover{border-color:var(--stage-ink)}
+@media (max-width:700px){
+  .cookie{top:calc(var(--nav-h,60px) + .6rem);bottom:auto;left:.75rem;right:.75rem;width:auto;max-width:none;transform:translateY(calc(-100% - 9rem))}
+  .cookie.show{transform:translateY(0)}
+}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+
+/* responsive */
+@media (max-width:900px){
+  .burger{display:grid;width:40px;height:40px;place-items:center;border:1px solid var(--line);border-radius:var(--pill);background:var(--surface);color:var(--ink);cursor:pointer}
+  .hero-grid{grid-template-columns:1fr}
+  .vase-card{margin-inline:auto;transform:none}
+  .vase-card:hover{transform:translateY(-3px)}
+  .steps{grid-template-columns:1fr 1fr}
+  .courses{grid-template-columns:1fr}
+  .testis{grid-template-columns:1fr}
+  .plans{grid-template-columns:1fr;max-width:440px;margin-inline:auto}
+  .plan.featured{transform:none}
+  .plan.featured:hover{transform:translateY(-4px)}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:560px){
+  .steps{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .news form{flex-direction:column}
+  .hero-chips li{font-size:.7rem}
+  .vase-chip.c2{right:2%}
+  .vase-chip.c3{left:4%}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main" data-i18n="skip">Saltar al contenido</a>
+
+<header class="nav" id="nav">
+  <div class="container nav-inner">
+    <a class="logo" href="#main" aria-label="TORNO — home">
+      <svg viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" rx="24" fill="#02492A"/><path d="M36,40 L64,40 C68,52 63,62 66,70 C70,78 60,82 50,82 C40,82 30,78 34,70 C37,62 32,52 36,40 Z" fill="#066A3F"/><ellipse cx="50" cy="40" rx="14" ry="4" fill="#84E7A5"/><ellipse cx="50" cy="88" rx="30" ry="5" fill="#13150F"/></svg>
+      TORNO
+    </a>
+    <nav class="nav-desktop-only" aria-label="Principal">
+      <ul class="nav-links">
+        <li><a href="#oficio" data-i18n="nav.why">El oficio</a></li>
+        <li><a href="#talleres" data-i18n="nav.courses">Talleres</a></li>
+        <li><a href="#planes" data-i18n="nav.pricing">Planes</a></li>
+        <li><a href="#faq" data-i18n="nav.faq">Preguntas</a></li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <div class="lang-select nav-desktop-only">
+        <button class="lang-select__btn" type="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Select language">
+          <span class="lang-select__cur">ES</span>
+          <svg class="lang-select__chev" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="lang-select__menu" role="listbox" aria-label="Choose language">
+          <button class="lang-select__opt" role="option" data-lang="en" aria-selected="false">English</button>
+          <button class="lang-select__opt" role="option" data-lang="es" aria-selected="false">Español</button>
+          <button class="lang-select__opt" role="option" data-lang="fr" aria-selected="false">Français</button>
+          <button class="lang-select__opt" role="option" data-lang="de" aria-selected="false">Deutsch</button>
+          <button class="lang-select__opt" role="option" data-lang="it" aria-selected="false">Italiano</button>
+          <button class="lang-select__opt" role="option" data-lang="pt" aria-selected="false">Português</button>
+        </div>
+      </div>
+      <button class="icon-btn theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode" data-i18n-aria="theme.aria">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path class="sun" d="M12 3v2M12 19v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M3 12h2M19 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle class="sun" cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/><path class="moon" d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+      </button>
+      <a class="btn btn-primary btn-sm nav-desktop-only" href="#talleres" data-i18n="nav.cta">Reservar plaza</a>
+      <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="mobileMenu" data-i18n-aria="menu.aria">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="container mobile-menu" id="mobileMenu">
+    <a href="#oficio" data-i18n="nav.why">El oficio</a>
+    <a href="#talleres" data-i18n="nav.courses">Talleres</a>
+    <a href="#planes" data-i18n="nav.pricing">Planes</a>
+    <a href="#faq" data-i18n="nav.faq">Preguntas</a>
+    <div class="nav-actions">
+      <div class="lang-select">
+        <button class="lang-select__btn" type="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Select language">
+          <span class="lang-select__cur">ES</span>
+          <svg class="lang-select__chev" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="lang-select__menu" role="listbox" aria-label="Choose language">
+          <button class="lang-select__opt" role="option" data-lang="en" aria-selected="false">English</button>
+          <button class="lang-select__opt" role="option" data-lang="es" aria-selected="false">Español</button>
+          <button class="lang-select__opt" role="option" data-lang="fr" aria-selected="false">Français</button>
+          <button class="lang-select__opt" role="option" data-lang="de" aria-selected="false">Deutsch</button>
+          <button class="lang-select__opt" role="option" data-lang="it" aria-selected="false">Italiano</button>
+          <button class="lang-select__opt" role="option" data-lang="pt" aria-selected="false">Português</button>
+        </div>
+      </div>
+      <a class="btn btn-primary" href="#talleres" data-i18n="nav.cta">Reservar plaza</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <!-- ======== HERO ======== -->
+  <section class="hero" id="hero" aria-labelledby="hero-title">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <p class="hero-tag" data-i18n="hero.tag">Escuela-taller · Manises, València</p>
+        <h1 id="hero-title" data-i18n-html="hero.title">Gira el barro,<br>nace <span class="acc">la pieza</span>.</h1>
+        <p class="lead" data-i18n="hero.sub">Cerámica hecha a mano en la cuna del azulejo europeo. Torno, esmaltes y horno de leña en grupos pequeños, con todo el barro que quieras ensuciar.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#talleres" data-i18n="hero.cta1">Reservar plaza</a>
+          <a class="btn btn-ghost" href="#talleres" data-i18n="hero.cta2">Ver talleres</a>
+        </div>
+        <ul class="hero-chips" aria-label="Taller facts">
+          <li data-i18n="chip1">12 años de horno</li>
+          <li data-i18n="chip2">6 plazas por grupo</li>
+          <li data-i18n="chip3">1240 °C de cocción</li>
+        </ul>
+      </div>
+      <div class="hero-art">
+        <div class="vase-card">
+          <p class="glaze-hint" data-i18n="hero.glaze">Toca el esmalte, cambia la pieza</p>
+          <div class="vase-wrap">
+            <svg viewBox="0 0 360 400" role="img" aria-label="Vessel on a potter's wheel" aria-hidden="true">
+              <ellipse cx="180" cy="372" rx="130" ry="20" fill="rgba(19,21,15,.14)"/>
+              <g class="wheel">
+                <ellipse class="spin" cx="180" cy="352" rx="128" ry="19" fill="none" stroke="#C2C5B4" stroke-width="3" stroke-dasharray="12 16"/>
+                <ellipse cx="180" cy="352" rx="104" ry="14" fill="none" stroke="#C2C5B4" stroke-width="2"/>
+                <ellipse cx="180" cy="352" rx="78" ry="9" fill="none" stroke="#DFE1D5" stroke-width="2"/>
+              </g>
+              <path id="vaseBody" d="M158,118 L202,118 C211,152 199,192 207,224 C217,268 268,284 268,340 C268,372 232,384 180,384 C128,384 92,372 92,340 C92,284 143,268 153,224 C161,192 149,152 158,118 Z" fill="#43856B" stroke="#141612" stroke-width="3" stroke-linejoin="round"/>
+              <path d="M150,246 Q180,234 210,246" stroke="rgba(20,22,18,.4)" stroke-width="2" fill="none"/>
+              <path d="M140,278 Q180,264 220,278" stroke="rgba(20,22,18,.32)" stroke-width="2" fill="none"/>
+              <path d="M136,310 Q180,296 224,310" stroke="rgba(20,22,18,.24)" stroke-width="2" fill="none"/>
+              <ellipse cx="180" cy="128" rx="25" ry="6" fill="#141612" opacity=".85"/>
+            </svg>
+            <span class="vase-chip c1" data-i18n="vase.c1">barro de Manises</span>
+            <span class="vase-chip c2" data-i18n="vase.c2">esmalte de ceniza</span>
+            <span class="vase-chip c3" data-i18n="vase.c3">horno de leña</span>
+          </div>
+          <div class="swatches" role="group" aria-label="Glaze colours">
+            <button class="sw" type="button" data-color="#43856B" data-name="Ceniza de sarmiento" aria-pressed="true" style="background:#43856B"><span class="sw-lbl">Ceniza</span></button>
+            <button class="sw" type="button" data-color="#2A6B8F" data-name="Azulejo azul" aria-pressed="false" style="background:#2A6B8F"><span class="sw-lbl">Azulejo</span></button>
+            <button class="sw" type="button" data-color="#20241F" data-name="Raku negro" aria-pressed="false" style="background:#20241F"><span class="sw-lbl">Raku</span></button>
+            <button class="sw" type="button" data-color="#3E7C4F" data-name="Matcha" aria-pressed="false" style="background:#3E7C4F"><span class="sw-lbl">Matcha</span></button>
+            <button class="sw" type="button" data-color="#E4A828" data-name="Limón" aria-pressed="false" style="background:#E4A828"><span class="sw-lbl">Limón</span></button>
+            <button class="sw" type="button" data-color="#9E2F3F" data-name="Granate" aria-pressed="false" style="background:#9E2F3F"><span class="sw-lbl">Granate</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== MARQUEE ======== -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track" id="marqueeTrack">
+      <span>torno · barnices · raku · esmaltes · alquimia de ceniza · tercer fuego · torno · barnices · raku · esmaltes · alquimia de ceniza · tercer fuego ·</span>
+      <span>torno · barnices · raku · esmaltes · alquimia de ceniza · tercer fuego · torno · barnices · raku · esmaltes · alquimia de ceniza · tercer fuego ·</span>
+    </div>
+  </div>
+
+  <!-- ======== PROCESO ======== -->
+  <section class="section" id="oficio" aria-labelledby="process-title">
+    <div class="container">
+      <div class="sec-head rv">
+        <h2 id="process-title" data-i18n="process.title">Del barro a la hornada</h2>
+        <p data-i18n="process.sub">Cuatro pasos que aquí no se saltan. Cada uno tiene su tiempo y su temperatura, y aprenderlos en este orden es lo que separa a una pieza viva de un adorno.</p>
+      </div>
+      <ol class="steps">
+        <li class="step rv">
+          <span class="n">01</span>
+          <h3 data-i18n="s1.t">Amasar</h3>
+          <p data-i18n="s1.d">Aire fuera, cuerpo dentro. El barro se golpea, se dobla y se amasa hasta que no guarda ni una burbuja que pueda reventar en el horno.</p>
+        </li>
+        <li class="step rv">
+          <span class="n">02</span>
+          <h3 data-i18n="s2.t">Tornear</h3>
+          <p data-i18n="s2.d">El centro del plato es el centro del mundo. Se centra, se abre, se sube la pared: horas de dedos mojados hasta que la pieza nace sola.</p>
+        </li>
+        <li class="step rv">
+          <span class="n">03</span>
+          <h3 data-i18n="s3.t">Secar</h3>
+          <p data-i18n="s3.d">Despacio. Un secado torpe rompe lo que el torno hizo bien: la pieza se envuelve, se vigila y espera su punto de cuero.</p>
+        </li>
+        <li class="step rv">
+          <span class="n">04</span>
+          <h3 data-i18n="s4.t">Cocer</h3>
+          <p data-i18n="s4.d">Primera cocción a 1000 °C, esmalte al gusto, segunda a 1240. El fuego es el último autor y nunca firma igual.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ======== TALLERES (banda matcha-deep) ======== -->
+  <section class="band band-matcha" id="talleres" aria-labelledby="courses-title">
+    <div class="container">
+      <div class="sec-head rv">
+        <h2 id="courses-title" data-i18n="courses.title">Manos a la obra</h2>
+        <p data-i18n="courses.sub">Tres maneras de entrar. Todas empiezan sucias de barro y terminan con algo tuyo en la estantería.</p>
+      </div>
+      <div class="courses">
+        <article class="course rv">
+          <div class="course-head ch-ube"><span data-i18n="c1.meta">jueves · 19:00</span><span class="d">JU</span></div>
+          <div class="course-body">
+            <h3 data-i18n="c1.t">Torno semanal</h3>
+            <p data-i18n="c1.d">Una tarde por semana, un torno asignado y el barro pagado. Para quien quiere ritmo, no maratones.</p>
+            <p class="course-avail" data-i18n="courses.avail">Plazas limitadas a 6 por grupo</p>
+          </div>
+        </article>
+        <article class="course rv">
+          <div class="course-head ch-lemon"><span data-i18n="c2.meta">sábado · 10:00</span><span class="d">SA</span></div>
+          <div class="course-body">
+            <h3 data-i18n="c2.t">Raku de fin de semana</h3>
+            <p data-i18n="c2.d">Saca piezas al rojo vivo y míralas craquear en serrín. El fin de semana más ruidoso del taller.</p>
+            <p class="course-avail" data-i18n="courses.avail">Plazas limitadas a 6 por grupo</p>
+          </div>
+        </article>
+        <article class="course rv">
+          <div class="course-head ch-pome"><span data-i18n="c3.meta">martes · 20:00</span><span class="d">MA</span></div>
+          <div class="course-body">
+            <h3 data-i18n="c3.t">Esmaltes nocturnos</h3>
+            <p data-i18n="c3.d">Recetas de ceniza, óxidos y ensayos sobre probeta. La química del color, sin prisa y con café.</p>
+            <p class="course-avail" data-i18n="courses.avail">Plazas limitadas a 6 por grupo</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== CITA + TESTIMONIOS (banda ube) ======== -->
+  <section class="band band-ube" id="voces" aria-label="Testimonials">
+    <div class="container">
+      <div class="quote-block rv">
+        <div class="mark" aria-hidden="true">“</div>
+        <blockquote data-i18n="quote.text">Cada pieza del taller lleva dentro una semana entera de decisiones: el barro, el grosor, la espera, el fuego. Aquí nadie compra el resultado; se compra el proceso.</blockquote>
+        <cite data-i18n="quote.author">— Amparo Llopis, maestra del taller</cite>
+      </div>
+      <div class="testis">
+        <figure class="testi rv">
+          <p data-i18n="t1.text">Llegué sin haber tocado barro y el tercer jueves ya tenía una taza torneada por mis manos que no gotea. Hoy el esmalte de ceniza es mi religión.</p>
+          <figcaption><footer data-i18n="t1.who">Nuria · alumna desde enero</footer></figcaption>
+        </figure>
+        <figure class="testi rv">
+          <p data-i18n="t2.text">Llevo a mi hija los martes y nos vamos las dos con las manos verdes de arcilla. Es el único plan de la semana que no cancelamos nunca.</p>
+          <figcaption><footer data-i18n="t2.who">Carlos · padre en el taller de esmaltes</footer></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== PLANES ======== -->
+  <section class="section" id="planes" aria-labelledby="pricing-title">
+    <div class="container">
+      <div class="sec-head sec-center rv">
+        <h2 id="pricing-title" data-i18n="pricing.title">El plan según tu mancha de arcilla</h2>
+        <p data-i18n="pricing.sub">Sin permanencia, sin letra pequeña. El horno arde solo cuando hay piezas que merecen la pena.</p>
+      </div>
+      <div class="plans">
+        <article class="plan rv">
+          <h3 data-i18n="p1.name">Torneo libre</h3>
+          <p class="p" data-i18n="p1.desc">Para quien tiene más manos que tiempo.</p>
+          <p class="price"><span data-i18n="p1.price">30 €</span></p>
+          <p class="per" data-i18n="p1.per">al mes</p>
+          <ul>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="p1.f1">2 tardes de torno al mes</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="p1.f2">Barro y esmaltes incluidos</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="p1.f3">Horno compartido (2 hornadas/mes)</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="p1.f4">Acceso al grupo de alumnas</span></li>
+          </ul>
+          <a class="btn btn-ghost" href="#talleres" data-i18n="pricing.cta">Elegir plan</a>
+        </article>
+        <article class="plan featured rv">
+          <span class="plan-badge" data-i18n="pricing.badge">el más elegido</span>
+          <h3 data-i18n="p2.name">Taller completo</h3>
+          <p class="p" data-i18n="p2.desc">El camino entero, del amasado al horno.</p>
+          <p class="price"><span data-i18n="p2.price">85 €</span></p>
+          <p class="per" data-i18n="p2.per">al mes</p>
+          <ul>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="p2.f1">4 clases semanales</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="p2.f2">Torno asignado + taquilla</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="p2.f3">Horno prioritario (6 hornadas/mes)</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="p2.f4">Cursos de raku y esmaltes gratis</span></li>
+          </ul>
+          <a class="btn btn-primary" href="#talleres" data-i18n="pricing.cta">Elegir plan</a>
+        </article>
+        <article class="plan rv">
+          <h3 data-i18n="p3.name">Estudio y horno</h3>
+          <p class="p" data-i18n="p3.desc">Tu proyecto, nuestro fuego.</p>
+          <p class="price"><span data-i18n="p3.price">180 €</span></p>
+          <p class="per" data-i18n="p3.per">al mes</p>
+          <ul>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="p3.f1">12 h de estudio/mes</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="p3.f2">Horno bajo demanda</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="p3.f3">Esmaltes de autor incluidos</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="p3.f4">Asistencia de maestra en cada hornada</span></li>
+          </ul>
+          <a class="btn btn-ghost" href="#talleres" data-i18n="pricing.cta">Elegir plan</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== FAQ ======== -->
+  <section class="section" id="faq" aria-labelledby="faq-title" style="padding-top:0">
+    <div class="container">
+      <div class="sec-head rv">
+        <h2 id="faq-title" data-i18n="faq.title">Preguntas de taller</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item rv">
+          <button class="faq-q" type="button" aria-expanded="false"><span data-i18n="faq.q1">¿Puedo empezar sin haber tocado barro?</span><span class="ic" aria-hidden="true">+</span></button>
+          <div class="faq-a"><p data-i18n="faq.a1">Sí, es lo normal. El 80 % de quien llega no ha amasado nunca. La primera clase es mitad técnica: centrar, abrir, subir pared — con un torno para cada alumna y un video de cómo no hacerlo.</p></div>
+        </div>
+        <div class="faq-item rv">
+          <button class="faq-q" type="button" aria-expanded="false"><span data-i18n="faq.q2">¿Y si se me rompe una pieza en el horno?</span><span class="ic" aria-hidden="true">+</span></button>
+          <div class="faq-a"><p data-i18n="faq.a2">Nos ha pasado a todas. El barro se reutiliza: las piezas rotas se machacan y vuelven a ser barro. Si es tuya y se rompió, la primera sustitución de material es gratis.</p></div>
+        </div>
+        <div class="faq-item rv">
+          <button class="faq-q" type="button" aria-expanded="false"><span data-i18n="faq.q3">¿Cocéis piezas que no son del taller?</span><span class="ic" aria-hidden="true">+</span></button>
+          <div class="faq-a"><p data-i18n="faq.a3">Sí, el plan Estudio y horno incluye hornadas para proyectos propios. Las piezas se apilan por temperatura y se avisa con 48 h de antelación.</p></div>
+        </div>
+        <div class="faq-item rv">
+          <button class="faq-q" type="button" aria-expanded="false"><span data-i18n="faq.q4">¿Hay aparcamiento y acceso con movilidad reducida?</span><span class="ic" aria-hidden="true">+</span></button>
+          <div class="faq-a"><p data-i18n="faq.a4">El taller está en planta baja con acceso a pie de calle y hay un parking municipal a 200 m. Las mesas de trabajo son regulables en altura.</p></div>
+        </div>
+        <div class="faq-item rv">
+          <button class="faq-q" type="button" aria-expanded="false"><span data-i18n="faq.q5">¿Qué incluye la primera clase?</span><span class="ic" aria-hidden="true">+</span></button>
+          <div class="faq-a"><p data-i18n="faq.a5">Delantal, medio kilo de barro, un torno y la paciencia de la maestra. Te llevas tu pieza biscochada gratis como primer recuerdo.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== NEWSLETTER (banda limón) ======== -->
+  <section class="band band-lemon" id="cartas" aria-labelledby="news-title">
+    <div class="container">
+      <div class="news rv">
+        <h2 id="news-title" data-i18n="news.title">Cartas de barro</h2>
+        <p class="lead" data-i18n="news.sub">Una vez al mes, sin ruido: huecos de última hora, recetas de esmalte y ofertas de hornada. Escríbenos y te apuntamos.</p>
+        <form id="newsForm" novalidate>
+          <label class="visually-hidden" for="newsEmail" data-i18n="news.ph">tu correo</label>
+          <input type="email" id="newsEmail" name="email" required data-i18n-ph="news.ph" placeholder="tu@correo.es">
+          <button class="btn btn-primary" type="submit" data-i18n="news.cta">Suscribirme</button>
+        </form>
+        <p class="nl-msg" id="nlMsg" role="status"></p>
+        <p class="honest" data-i18n="news.honest">La confirmación llega por email. Preferimos un correo honesto a una promesa falsa: también puedes escribirnos a <a href="mailto:hola@tornoceramica.es">hola@tornoceramica.es</a></p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ======== FOOTER ======== -->
+<footer class="footer" id="contacto">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a class="logo" href="#main" aria-label="TORNO — home">
+          <svg viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" rx="24" fill="#02492A"/><path d="M36,40 L64,40 C68,52 63,62 66,70 C70,78 60,82 50,82 C40,82 30,78 34,70 C37,62 32,52 36,40 Z" fill="#066A3F"/><ellipse cx="50" cy="40" rx="14" ry="4" fill="#84E7A5"/><ellipse cx="50" cy="88" rx="30" ry="5" fill="#13150F"/></svg>
+          TORNO
+        </a>
+        <p class="footer-tagline" data-i18n="footer.tagline">Escuela-taller de cerámica junto al río, donde el azulejo europeo empezó hace seis siglos.</p>
+      </div>
+      <div>
+        <h4 data-i18n="footer.contact">Contacto</h4>
+        <ul>
+          <li data-i18n="footer.address">Carrer del Riu 14 · 46940 Manises</li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Carrer+del+Riu+14+Manises" target="_blank" rel="noopener" data-i18n="footer.maps">Cómo llegar</a></li>
+          <li><a href="mailto:hola@tornoceramica.es" data-i18n="footer.mail">hola@tornoceramica.es</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="footer.hours">Horario de taller</h4>
+        <ul>
+          <li data-i18n="footer.hoursVal">mar–sáb · 10:00–20:00</li>
+          <li data-i18n="footer.rest">cerrado domingo y lunes</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span data-i18n="footer.rights">© 2026 TORNO. Todos los derechos reservados.</span>
+      <span class="made" data-i18n="footer.made">Hecho a mano en Manises.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ======== COOKIE ======== -->
+<div class="cookie" id="cookieBanner" role="region" aria-label="Cookie notice">
+  <p data-i18n="cookie.msg">Usamos cookies solo para recordar tu idioma y tu tema. Nada de seguimiento.</p>
+  <div class="cookie-actions">
+    <button class="ck ck-ok" id="cookieOk" type="button" data-i18n="cookie.ok">Vale</button>
+    <button class="ck ck-no" id="cookieNo" type="button" data-i18n="cookie.no">No</button>
+  </div>
+</div>
+<script>
+(function () {
+'use strict';
+/* Keep html.no-js until reveal is wired — otherwise .rv stays opacity:0 forever. */
+try {
+
+/* ============ I18N ============ */
+var I18N = {
+  es: {
+    'skip':'Saltar al contenido',
+    'nav.why':'El oficio','nav.courses':'Talleres','nav.pricing':'Planes','nav.faq':'Preguntas','nav.cta':'Reservar plaza',
+    'theme.aria':'Cambiar a modo oscuro','menu.aria':'Abrir menú',
+    'hero.tag':'Escuela-taller · Manises, València',
+    'hero.title':'Gira el barro,<br>nace <span class="acc">la pieza</span>.',
+    'hero.sub':'Cerámica hecha a mano en la cuna del azulejo europeo. Torno, esmaltes y horno de leña en grupos pequeños, con todo el barro que quieras ensuciar.',
+    'hero.cta1':'Reservar plaza','hero.cta2':'Ver talleres',
+    'hero.glaze':'Toca el esmalte, cambia la pieza',
+    'chip1':'12 años de horno','chip2':'6 plazas por grupo','chip3':'1240 °C de cocción',
+    'vase.c1':'barro de Manises','vase.c2':'esmalte de ceniza','vase.c3':'horno de leña',
+    'process.title':'Del barro a la hornada',
+    'process.sub':'Cuatro pasos que aquí no se saltan. Cada uno tiene su tiempo y su temperatura, y aprenderlos en este orden es lo que separa a una pieza viva de un adorno.',
+    's1.t':'Amasar','s1.d':'Aire fuera, cuerpo dentro. El barro se golpea, se dobla y se amasa hasta que no guarda ni una burbuja que pueda reventar en el horno.',
+    's2.t':'Tornear','s2.d':'El centro del plato es el centro del mundo. Se centra, se abre, se sube la pared: horas de dedos mojados hasta que la pieza nace sola.',
+    's3.t':'Secar','s3.d':'Despacio. Un secado torpe rompe lo que el torno hizo bien: la pieza se envuelve, se vigila y espera su punto de cuero.',
+    's4.t':'Cocer','s4.d':'Primera cocción a 1000 °C, esmalte al gusto, segunda a 1240. El fuego es el último autor y nunca firma igual.',
+    'courses.title':'Manos a la obra',
+    'courses.sub':'Tres maneras de entrar. Todas empiezan sucias de barro y terminan con algo tuyo en la estantería.',
+    'courses.avail':'Plazas limitadas a 6 por grupo',
+    'c1.meta':'jueves · 19:00','c1.t':'Torno semanal','c1.d':'Una tarde por semana, un torno asignado y el barro pagado. Para quien quiere ritmo, no maratones.',
+    'c2.meta':'sábado · 10:00','c2.t':'Raku de fin de semana','c2.d':'Saca piezas al rojo vivo y míralas craquear en serrín. El fin de semana más ruidoso del taller.',
+    'c3.meta':'martes · 20:00','c3.t':'Esmaltes nocturnos','c3.d':'Recetas de ceniza, óxidos y ensayos sobre probeta. La química del color, sin prisa y con café.',
+    'quote.text':'Cada pieza del taller lleva dentro una semana entera de decisiones: el barro, el grosor, la espera, el fuego. Aquí nadie compra el resultado; se compra el proceso.',
+    'quote.author':'— Amparo Llopis, maestra del taller',
+    't1.text':'Llegué sin haber tocado barro y el tercer jueves ya tenía una taza torneada por mis manos que no gotea. Hoy el esmalte de ceniza es mi religión.',
+    't1.who':'Nuria · alumna desde enero',
+    't2.text':'Llevo a mi hija los martes y nos vamos las dos con las manos verdes de arcilla. Es el único plan de la semana que no cancelamos nunca.',
+    't2.who':'Carlos · padre en el taller de esmaltes',
+    'pricing.title':'El plan según tu mancha de arcilla',
+    'pricing.sub':'Sin permanencia, sin letra pequeña. El horno arde solo cuando hay piezas que merecen la pena.',
+    'p1.name':'Torneo libre','p1.desc':'Para quien tiene más manos que tiempo.','p1.price':'30 €','p1.per':'al mes',
+    'p1.f1':'2 tardes de torno al mes','p1.f2':'Barro y esmaltes incluidos','p1.f3':'Horno compartido (2 hornadas/mes)','p1.f4':'Acceso al grupo de alumnas',
+    'p2.name':'Taller completo','p2.desc':'El camino entero, del amasado al horno.','p2.price':'85 €','p2.per':'al mes',
+    'p2.f1':'4 clases semanales','p2.f2':'Torno asignado + taquilla','p2.f3':'Horno prioritario (6 hornadas/mes)','p2.f4':'Cursos de raku y esmaltes gratis',
+    'p3.name':'Estudio y horno','p3.desc':'Tu proyecto, nuestro fuego.','p3.price':'180 €','p3.per':'al mes',
+    'p3.f1':'12 h de estudio/mes','p3.f2':'Horno bajo demanda','p3.f3':'Esmaltes de autor incluidos','p3.f4':'Asistencia de maestra en cada hornada',
+    'pricing.cta':'Elegir plan','pricing.badge':'el más elegido',
+    'faq.title':'Preguntas de taller',
+    'faq.q1':'¿Puedo empezar sin haber tocado barro?','faq.a1':'Sí, es lo normal. El 80 % de quien llega no ha amasado nunca. La primera clase es mitad técnica: centrar, abrir, subir pared — con un torno para cada alumna y un video de cómo no hacerlo.',
+    'faq.q2':'¿Y si se me rompe una pieza en el horno?','faq.a2':'Nos ha pasado a todas. El barro se reutiliza: las piezas rotas se machacan y vuelven a ser barro. Si es tuya y se rompió, la primera sustitución de material es gratis.',
+    'faq.q3':'¿Cocéis piezas que no son del taller?','faq.a3':'Sí, el plan Estudio y horno incluye hornadas para proyectos propios. Las piezas se apilan por temperatura y se avisa con 48 h de antelación.',
+    'faq.q4':'¿Hay aparcamiento y acceso con movilidad reducida?','faq.a4':'El taller está en planta baja con acceso a pie de calle y hay un parking municipal a 200 m. Las mesas de trabajo son regulables en altura.',
+    'faq.q5':'¿Qué incluye la primera clase?','faq.a5':'Delantal, medio kilo de barro, un torno y la paciencia de la maestra. Te llevas tu pieza biscochada gratis como primer recuerdo.',
+    'news.title':'Cartas de barro',
+    'news.sub':'Una vez al mes, sin ruido: huecos de última hora, recetas de esmalte y ofertas de hornada. Escríbenos y te apuntamos.',
+    'news.ph':'tu@correo.es','news.cta':'Suscribirme',
+    'news.honest':'La confirmación llega por email. Preferimos un correo honesto a una promesa falsa: también puedes escribirnos a hola@tornoceramica.es',
+    'footer.tagline':'Escuela-taller de cerámica junto al río, donde el azulejo europeo empezó hace seis siglos.',
+    'footer.contact':'Contacto','footer.address':'Carrer del Riu 14 · 46940 Manises','footer.maps':'Cómo llegar','footer.mail':'hola@tornoceramica.es',
+    'footer.hours':'Horario de taller','footer.hoursVal':'mar–sáb · 10:00–20:00','footer.rest':'cerrado domingo y lunes',
+    'footer.rights':'© 2026 TORNO. Todos los derechos reservados.','footer.made':'Hecho a mano en Manises.',
+    'cookie.msg':'Usamos cookies solo para recordar tu idioma y tu tema. Nada de seguimiento.','cookie.ok':'Vale','cookie.no':'No',
+    'meta.title':'TORNO · Taller de cerámica en Manises, València',
+    'meta.desc':'Escuela-taller de cerámica en Manises: torno, esmaltes y horno de leña en grupos pequeños. Reserva tu plaza y gira tu primera pieza.',
+    'og.title':'TORNO · Taller de cerámica en Manises',
+    'og.desc':'Torno, esmaltes y horno de leña en grupos pequeños, en la cuna del azulejo europeo.',
+    'tw.title':'TORNO · Taller de cerámica en Manises',
+    'tw.desc':'Escuela-taller de cerámica junto al río: torno, esmaltes y horno de leña.'
+  },
+  en: {
+    'skip':'Skip to content',
+    'nav.why':'The craft','nav.courses':'Workshops','nav.pricing':'Plans','nav.faq':'FAQ','nav.cta':'Book a seat',
+    'theme.aria':'Switch to dark mode','menu.aria':'Open menu',
+    'hero.tag':'School-workshop · Manises, Valencia',
+    'hero.title':'Spin the clay,<br>let the <span class="acc">piece</span> be born.',
+    'hero.sub':'Handmade ceramics in the cradle of European tilework. Wheel, glazes and a wood-fired kiln in small groups — with as much clay as you are willing to get dirty.',
+    'hero.cta1':'Book a seat','hero.cta2':'See workshops',
+    'hero.glaze':'Touch a glaze, change the piece',
+    'chip1':'12 years of firing','chip2':'6 seats per group','chip3':'1240 °C firing',
+    'vase.c1':'Manises clay','vase.c2':'ash glaze','vase.c3':'wood kiln',
+    'process.title':'From clay to firing',
+    'process.sub':'Four steps we never skip. Each one has its own time and temperature, and learning them in this order is what separates a living piece from a keepsake.',
+    's1.t':'Wedging','s1.d':'Air out, body in. The clay is slapped, folded and wedged until it holds no bubble that could burst in the kiln.',
+    's2.t':'Throwing','s2.d':'The centre of the plate is the centre of the world. Centring, opening, pulling the wall: hours of wet fingers until the piece is born on its own.',
+    's3.t':'Drying','s3.d':'Slowly. A rushed dry breaks what the wheel did well: the piece is wrapped, watched and waits for its leather-hard point.',
+    's4.t':'Firing','s4.d':'First firing at 1000 °C, glaze to taste, a second at 1240. Fire is the last author and never signs twice the same.',
+    'courses.title':'Hands to work',
+    'courses.sub':'Three ways in. All of them start dirty with clay and end with something of yours on the shelf.',
+    'courses.avail':'Limited to 6 seats per group',
+    'c1.meta':'thursday · 7:00 pm','c1.t':'Weekly wheel','c1.d':'One evening a week, an assigned wheel and the clay paid for. For those who want rhythm, not marathons.',
+    'c2.meta':'saturday · 10:00 am','c2.t':'Weekend raku','c2.d':'Pull pieces out red-hot and watch them crackle in sawdust. The loudest weekend of the studio.',
+    'c3.meta':'tuesday · 8:00 pm','c3.t':'Night glazes','c3.d':'Ash recipes, oxides and test-tile trials. The chemistry of colour, unhurried, with coffee.',
+    'quote.text':'Every piece in the studio carries a whole week of decisions inside: the clay, the thickness, the wait, the fire. Nobody here buys the outcome; they buy the process.',
+    'quote.author':'— Amparo Llopis, studio master',
+    't1.text':'I arrived never having touched clay, and by the third Thursday I had a cup thrown by my own hands that does not drip. Today ash glaze is my religion.',
+    't1.who':'Nuria · student since January',
+    't2.text':'I bring my daughter on Tuesdays and we both leave with green clay hands. It is the only plan of the week we never cancel.',
+    't2.who':'Carlos · father in the glaze workshop',
+    'pricing.title':'The plan that matches your clay stain',
+    'pricing.sub':'No commitment, no fine print. The kiln only burns when there are pieces worth it.',
+    'p1.name':'Free wheel','p1.desc':'For those with more hands than time.','p1.price':'€30','p1.per':'per month',
+    'p1.f1':'2 wheel evenings a month','p1.f2':'Clay and glazes included','p1.f3':'Shared kiln (2 firings/month)','p1.f4':'Access to the students group',
+    'p2.name':'Full workshop','p2.desc':'The whole path, from wedging to kiln.','p2.price':'€85','p2.per':'per month',
+    'p2.f1':'4 weekly classes','p2.f2':'Assigned wheel + locker','p2.f3':'Priority kiln (6 firings/month)','p2.f4':'Free raku and glaze courses',
+    'p3.name':'Studio & kiln','p3.desc':'Your project, our fire.','p3.price':'€180','p3.per':'per month',
+    'p3.f1':'12 h studio/month','p3.f2':'Kiln on demand','p3.f3':'Signature glazes included','p3.f4':'Master support on every firing',
+    'pricing.cta':'Choose plan','pricing.badge':'most chosen',
+    'faq.title':'Workshop questions',
+    'faq.q1':'Can I start without ever touching clay?','faq.a1':'Yes, that is the norm. 80 % of newcomers have never wedged. The first class is half technique: centring, opening, pulling the wall — one wheel per student and a video of how not to do it.',
+    'faq.q2':'What if a piece breaks in the kiln?','faq.a2':'It happens to all of us. Clay is reused: broken pieces are crushed and become clay again. If it is yours and it broke, the first material replacement is free.',
+    'faq.q3':'Do you fire pieces from outside the studio?','faq.a3':'Yes, the Studio & kiln plan includes firings for your own projects. Pieces are stacked by temperature and you get 48 h notice.',
+    'faq.q4':'Is there parking and step-free access?','faq.a4':'The studio is on the ground floor with street-level access and there is a municipal car park 200 m away. Work tables are height-adjustable.',
+    'faq.q5':'What does the first class include?','faq.a5':'An apron, half a kilo of clay, a wheel and the patience of the master. You take your bisque-fired piece home free as a first keepsake.',
+    'news.title':'Letters of clay',
+    'news.sub':'Once a month, no noise: last-minute seats, glaze recipes and firing deals. Write to us and we will sign you up.',
+    'news.ph':'you@email.com','news.cta':'Subscribe',
+    'news.honest':'Confirmation arrives by email. We prefer an honest mail to a fake promise: you can also write to us at hola@tornoceramica.es',
+    'footer.tagline':'Ceramics school-workshop by the river, where European tilework began six centuries ago.',
+    'footer.contact':'Contact','footer.address':'Carrer del Riu 14 · 46940 Manises','footer.maps':'Get directions','footer.mail':'hola@tornoceramica.es',
+    'footer.hours':'Studio hours','footer.hoursVal':'Tue–Sat · 10:00–20:00','footer.rest':'closed Sundays and Mondays',
+    'footer.rights':'© 2026 TORNO. All rights reserved.','footer.made':'Handmade in Manises.',
+    'cookie.msg':'We use cookies only to remember your language and theme. No tracking.','cookie.ok':'OK','cookie.no':'No',
+    'meta.title':'TORNO · Pottery workshop in Manises, Valencia',
+    'meta.desc':'Ceramics school-workshop in Manises: wheel, glazes and wood-fired kiln in small groups. Book your seat and throw your first piece.',
+    'og.title':'TORNO · Pottery workshop in Manises',
+    'og.desc':'Wheel, glazes and a wood kiln in small groups, in the cradle of European tilework.',
+    'tw.title':'TORNO · Pottery workshop in Manises',
+    'tw.desc':'Ceramics school-workshop by the river: wheel, glazes and a wood-fired kiln.'
+  },
+  fr: {
+    'skip':'Aller au contenu',
+    'nav.why':'Le métier','nav.courses':'Ateliers','nav.pricing':'Formules','nav.faq':'Questions','nav.cta':'Réserver une place',
+    'theme.aria':'Passer en mode sombre','menu.aria':'Ouvrir le menu',
+    'hero.tag':'École-atelier · Manises, Valence',
+    'hero.title':'Fais tourner l\'argile,<br>que la <span class="acc">pièce</span> naisse.',
+    'hero.sub':'Céramique faite main au berceau du carreau européen. Tour, émaux et four à bois en petits groupes, avec autant d\'argile que tu veux en salir.',
+    'hero.cta1':'Réserver une place','hero.cta2':'Voir les ateliers',
+    'hero.glaze':'Touche un émail, change la pièce',
+    'chip1':'12 ans de four','chip2':'6 places par groupe','chip3':'1240 °C de cuisson',
+    'vase.c1':'argile de Manises','vase.c2':'émail de cendre','vase.c3':'four à bois',
+    'process.title':'De l\'argile à la cuisson',
+    'process.sub':'Quatre étapes qu\'on ne saute jamais ici. Chacune a son temps et sa température, et les apprendre dans cet ordre sépare une pièce vivante d\'un bibelot.',
+    's1.t':'Malaxer','s1.d':'L\'air dehors, le corps dedans. L\'argile se frappe, se plie et se malaxe jusqu\'à ne plus garder aucune bulle capable d\'éclater au four.',
+    's2.t':'Tourner','s2.d':'Le centre de l\'assiette est le centre du monde. Centrer, ouvrir, monter la paroi : des heures de doigts mouillés jusqu\'à ce que la pièce naisse seule.',
+    's3.t':'Sécher','s3.d':'Doucement. Un séchage brutal casse ce que le tour a bien fait : la pièce s\'emballe, se surveille et attend son point de cuir.',
+    's4.t':'Cuire','s4.d':'Première cuisson à 1000 °C, émail à volonté, seconde à 1240. Le feu est le dernier auteur et ne signe jamais deux fois pareil.',
+    'courses.title':'Les mains à l\'ouvrage',
+    'courses.sub':'Trois portes d\'entrée. Toutes commencent sales d\'argile et finissent avec quelque chose à toi sur l\'étagère.',
+    'courses.avail':'Places limitées à 6 par groupe',
+    'c1.meta':'jeudi · 19h00','c1.t':'Tour hebdomadaire','c1.d':'Un soir par semaine, un tour attitré et l\'argile payée. Pour qui veut du rythme, pas des marathons.',
+    'c2.meta':'samedi · 10h00','c2.t':'Raku du week-end','c2.d':'Sors des pièces au rouge vif et regarde-les craqueler dans la sciure. Le week-end le plus bruyant de l\'atelier.',
+    'c3.meta':'mardi · 20h00','c3.t':'Émaux de nuit','c3.d':'Recettes de cendre, oxydes et essais sur tesson. La chimie de la couleur, sans hâte et avec un café.',
+    'quote.text':'Chaque pièce de l\'atelier porte en elle une semaine entière de décisions : l\'argile, l\'épaisseur, l\'attente, le feu. Ici personne n\'achète le résultat ; on achète le processus.',
+    'quote.author':'— Amparo Llopis, maîtresse de l\'atelier',
+    't1.text':'Je suis arrivée sans avoir touché l\'argile et le troisième jeudi j\'avais déjà une tasse tournée de mes mains qui ne fuit pas. Aujourd\'hui l\'émail de cendre est ma religion.',
+    't1.who':'Nuria · élève depuis janvier',
+    't2.text':'J\'emmène ma fille les mardis et on repart toutes les deux avec les mains vertes d\'argile. C\'est le seul plan de la semaine qu\'on n\'annule jamais.',
+    't2.who':'Carlos · père à l\'atelier d\'émaux',
+    'pricing.title':'La formule selon ta tache d\'argile',
+    'pricing.sub':'Sans engagement, sans petits caractères. Le four ne brûle que quand il y a des pièces qui le méritent.',
+    'p1.name':'Tour libre','p1.desc':'Pour qui a plus de mains que de temps.','p1.price':'30 €','p1.per':'par mois',
+    'p1.f1':'2 soirées de tour par mois','p1.f2':'Argile et émaux inclus','p1.f3':'Four partagé (2 cuissons/mois)','p1.f4':'Accès au groupe d\'élèves',
+    'p2.name':'Atelier complet','p2.desc':'Le chemin entier, du malaxage au four.','p2.price':'85 €','p2.per':'par mois',
+    'p2.f1':'4 cours hebdomadaires','p2.f2':'Tour attitré + casier','p2.f3':'Four prioritaire (6 cuissons/mois)','p2.f4':'Cours de raku et d\'émaux gratuits',
+    'p3.name':'Studio & four','p3.desc':'Ton projet, notre feu.','p3.price':'180 €','p3.per':'par mois',
+    'p3.f1':'12 h de studio/mois','p3.f2':'Four à la demande','p3.f3':'Émaux d\'auteur inclus','p3.f4':'Assistance de la maîtresse à chaque cuisson',
+    'pricing.cta':'Choisir la formule','pricing.badge':'le plus choisi',
+    'faq.title':'Questions d\'atelier',
+    'faq.q1':'Puis-je commencer sans avoir touché l\'argile ?','faq.a1':'Oui, c\'est la norme. 80 % des arrivants n\'ont jamais malaxé. Le premier cours est moitié technique : centrer, ouvrir, monter la paroi — un tour par élève et une vidéo de comment ne pas faire.',
+    'faq.q2':'Et si une pièce casse au four ?','faq.a2':'Ça nous est arrivé à toutes. L\'argile se réutilise : les pièces cassées se concassent et redeviennent argile. Si c\'est la tienne et qu\'elle a cassé, le premier remplacement de matière est gratuit.',
+    'faq.q3':'Cuisez-vous des pièces hors atelier ?','faq.a3':'Oui, la formule Studio & four inclut des cuissons pour tes propres projets. Les pièces sont empilées par température et on prévient 48 h à l\'avance.',
+    'faq.q4':'Y a-t-il du parking et un accès sans marches ?','faq.a4':'L\'atelier est en rez-de-chaussée avec accès de plain-pied et il y a un parking municipal à 200 m. Les tables de travail sont réglables en hauteur.',
+    'faq.q5':'Que comprend le premier cours ?','faq.a5':'Un tablier, un demi-kilo d\'argile, un tour et la patience de la maîtresse. Tu repars avec ta pièce biscuitée offerte en premier souvenir.',
+    'news.title':'Lettres d\'argile',
+    'news.sub':'Une fois par mois, sans bruit : places de dernière minute, recettes d\'émail et offres de cuisson. Écris-nous et on t\'inscrit.',
+    'news.ph':'toi@email.fr','news.cta':'S\'inscrire',
+    'news.honest':'La confirmation arrive par email. On préfère un courrier honnête à une fausse promesse : tu peux aussi nous écrire à hola@tornoceramica.es',
+    'footer.tagline':'École-atelier de céramique au bord du fleuve, où le carreau européen a commencé il y a six siècles.',
+    'footer.contact':'Contact','footer.address':'Carrer del Riu 14 · 46940 Manises','footer.maps':'Itinéraire','footer.mail':'hola@tornoceramica.es',
+    'footer.hours':'Horaires de l\'atelier','footer.hoursVal':'mar–sam · 10h00–20h00','footer.rest':'fermé dimanche et lundi',
+    'footer.rights':'© 2026 TORNO. Tous droits réservés.','footer.made':'Fait main à Manises.',
+    'cookie.msg':'Nous utilisons des cookies uniquement pour mémoriser ta langue et ton thème. Aucun suivi.','cookie.ok':'D\'accord','cookie.no':'Non',
+    'meta.title':'TORNO · Atelier de poterie à Manises, Valence',
+    'meta.desc':'École-atelier de céramique à Manises : tour, émaux et four à bois en petits groupes. Réserve ta place et tourne ta première pièce.',
+    'og.title':'TORNO · Atelier de poterie à Manises',
+    'og.desc':'Tour, émaux et four à bois en petits groupes, au berceau du carreau européen.',
+    'tw.title':'TORNO · Atelier de poterie à Manises',
+    'tw.desc':'École-atelier de céramique au bord du fleuve : tour, émaux et four à bois.'
+  },
+  de: {
+    'skip':'Zum Inhalt springen',
+    'nav.why':'Das Handwerk','nav.courses':'Kurse','nav.pricing':'Tickets','nav.faq':'Fragen','nav.cta':'Platz reservieren',
+    'theme.aria':'Zum dunklen Modus wechseln','menu.aria':'Menü öffnen',
+    'hero.tag':'Schule-Werkstatt · Manises, Valencia',
+    'hero.title':'Lass den Ton kreisen,<br>aus dem <span class="acc">Stück</span> wird Sein.',
+    'hero.sub':'Handgemachte Keramik in der Wiege der europäischen Fliese. Drehscheibe, Glasuren und Holzofen in kleinen Gruppen — mit so viel Ton, wie du schmutzig machen willst.',
+    'hero.cta1':'Platz reservieren','hero.cta2':'Kurse ansehen',
+    'hero.glaze':'Berühre eine Glasur, verändere das Stück',
+    'chip1':'12 Jahre Brennen','chip2':'6 Plätze pro Gruppe','chip3':'1240 °C Brand',
+    'vase.c1':'Ton aus Manises','vase.c2':'Aschenglasur','vase.c3':'Holzofen',
+    'process.title':'Vom Ton zum Brand',
+    'process.sub':'Vier Schritte, die wir hier nie überspringen. Jeder hat seine Zeit und seine Temperatur, und sie in dieser Reihenfolge zu lernen trennt ein lebendiges Stück von einem Nippes.',
+    's1.t':'Kneten','s1.d':'Luft raus, Körper rein. Der Ton wird geschlagen, gefaltet und geknetet, bis keine Blase mehr übrig ist, die im Ofen platzen könnte.',
+    's2.t':'Drehen','s2.d':'Die Mitte des Tellers ist die Mitte der Welt. Zentrieren, öffnen, Wand ziehen: Stunden nasser Finger, bis das Stück von selbst entsteht.',
+    's3.t':'Trocknen','s3.d':'Langsam. Ein hastiges Trocknen zerstört, was die Scheibe gut gemacht hat: Das Stück wird eingewickelt, beobachtet und wartet auf seinen Lederhärtepunkt.',
+    's4.t':'Brennen','s4.d':'Erster Brand bei 1000 °C, Glasur nach Geschmack, ein zweiter bei 1240. Das Feuer ist der letzte Autor und signiert nie zweimal gleich.',
+    'courses.title':'Ran an den Ton',
+    'courses.sub':'Drei Wege herein. Alle beginnen schmutzig vom Ton und enden mit etwas Eigenem im Regal.',
+    'courses.avail':'Auf 6 Plätze pro Gruppe begrenzt',
+    'c1.meta':'donnerstags · 19 Uhr','c1.t':'Wöchentliche Drehscheibe','c1.d':'Ein Abend pro Woche, eine eigene Scheibe und der Ton bezahlt. Für Menschen, die Rhythmus wollen, keine Marathons.',
+    'c2.meta':'samstags · 10 Uhr','c2.t':'Raku-Wochenende','c2.d':'Hol Stücke glühend heraus und sieh sie im Sägemehl crazelen. Das lauteste Wochenende der Werkstatt.',
+    'c3.meta':'dienstags · 20 Uhr','c3.t':'Nachtglasuren','c3.d':'Aschenrezepte, Oxide und Probestichel-Tests. Die Chemie der Farbe, ohne Eile und mit Kaffee.',
+    'quote.text':'Jedes Stück der Werkstatt trägt eine ganze Woche Entscheidungen in sich: den Ton, die Wandstärke, das Warten, das Feuer. Niemand kauft hier das Ergebnis; man kauft den Prozess.',
+    'quote.author':'— Amparo Llopis, Meisterin der Werkstatt',
+    't1.text':'Ich kam ohne je Ton berührt zu haben, und am dritten Donnerstag hatte ich eine Tasse gedreht, die nicht tropft. Heute ist Aschenglasur meine Religion.',
+    't1.who':'Nuria · Schülerin seit Januar',
+    't2.text':'Ich bringe meine Tochter dienstags mit, und wir gehen beide mit grünen Tonhänden nach Hause. Es ist der einzige Termin der Woche, den wir nie absagen.',
+    't2.who':'Carlos · Vater im Glasurkurs',
+    'pricing.title':'Das Ticket zu deinem Tonfleck',
+    'pricing.sub':'Ohne Bindung, ohne Kleingedrucktes. Der Ofen brennt nur, wenn es Stücke gibt, die es verdienen.',
+    'p1.name':'Freie Scheibe','p1.desc':'Für alle mit mehr Händen als Zeit.','p1.price':'30 €','p1.per':'pro Monat',
+    'p1.f1':'2 Drehabende pro Monat','p1.f2':'Ton und Glasuren inklusive','p1.f3':'Gemeinschaftsofen (2 Brände/Monat)','p1.f4':'Zugang zur Schülergruppe',
+    'p2.name':'Kompletter Kurs','p2.desc':'Der ganze Weg, vom Kneten zum Ofen.','p2.price':'85 €','p2.per':'pro Monat',
+    'p2.f1':'4 Wochenstunden','p2.f2':'Eigene Scheibe + Spind','p2.f3':'Vorrangiger Ofen (6 Brände/Monat)','p2.f4':'Raku- und Glaskurs gratis',
+    'p3.name':'Studio & Ofen','p3.desc':'Dein Projekt, unser Feuer.','p3.price':'180 €','p3.per':'pro Monat',
+    'p3.f1':'12 h Studio/Monat','p3.f2':'Ofen auf Anfrage','p3.f3':'Signaturglasuren inklusive','p3.f4':'Meisterin bei jedem Brand dabei',
+    'pricing.cta':'Ticket wählen','pricing.badge':'am beliebtesten',
+    'faq.title':'Werkstatt-Fragen',
+    'faq.q1':'Kann ich ohne Tonerfahrung anfangen?','faq.a1':'Ja, das ist die Norm. 80 % der Neuen haben nie geknetet. Der erste Kurs ist halb Technik: zentrieren, öffnen, Wand ziehen — eine Scheibe pro Schüler und ein Video, wie man es nicht macht.',
+    'faq.q2':'Was, wenn ein Stück im Ofen bricht?','faq.a2':'Passiert uns allen. Ton wird wiederverwendet: Zerbrochenes wird zerkleinert und wieder Ton. Ist es deins und gebrochen, ist der erste Materialersatz gratis.',
+    'faq.q3':'Brennt ihr auch fremde Stücke?','faq.a3':'Ja, das Studio-&-Ofen-Ticket umfasst Brände für eigene Projekte. Die Stücke werden nach Temperatur gestapelt, Ankündigung 48 h vorher.',
+    'faq.q4':'Gibt es Parkplätze und barrierefreien Zugang?','faq.a4':'Die Werkstatt liegt ebenerdig mit Zugang von der Straße, 200 m entfernt gibt es einen kommunalen Parkplatz. Die Arbeitstische sind höhenverstellbar.',
+    'faq.q5':'Was beinhaltet die erste Stunde?','faq.a5':'Schürze, ein halbes Kilo Ton, eine Scheibe und die Geduld der Meisterin. Dein bisquit gebranntes Stück nimmst du gratis als erstes Andenken mit.',
+    'news.title':'Briefe aus Ton',
+    'news.sub':'Einmal im Monat, ohne Lärm: kurzfristige Plätze, Glasurrezepte und Brenn-Angebote. Schreib uns, wir tragen dich ein.',
+    'news.ph':'du@email.de','news.cta':'Anmelden',
+    'news.honest':'Die Bestätigung kommt per E-Mail. Wir bevorzugen eine ehrliche Nachricht vor einem falschen Versprechen: schreib uns auch an hola@tornoceramica.es',
+    'footer.tagline':'Keramik-Schule am Fluss, wo vor sechs Jahrhunderten die europäische Fliese begann.',
+    'footer.contact':'Kontakt','footer.address':'Carrer del Riu 14 · 46940 Manises','footer.maps':'Route','footer.mail':'hola@tornoceramica.es',
+    'footer.hours':'Werkstattzeiten','footer.hoursVal':'Di–Sa · 10–20 Uhr','footer.rest':'sonntags und montags geschlossen',
+    'footer.rights':'© 2026 TORNO. Alle Rechte vorbehalten.','footer.made':'Handgemacht in Manises.',
+    'cookie.msg':'Wir verwenden Cookies nur, um Sprache und Design zu merken. Kein Tracking.','cookie.ok':'OK','cookie.no':'Nein',
+    'meta.title':'TORNO · Töpferei-Werkstatt in Manises, Valencia',
+    'meta.desc':'Keramik-Schule in Manises: Drehscheibe, Glasuren und Holzofen in kleinen Gruppen. Reserviere deinen Platz und drehe dein erstes Stück.',
+    'og.title':'TORNO · Töpferei-Werkstatt in Manises',
+    'og.desc':'Drehscheibe, Glasuren und Holzofen in kleinen Gruppen, in der Wiege der europäischen Fliese.',
+    'tw.title':'TORNO · Töpferei-Werkstatt in Manises',
+    'tw.desc':'Keramik-Schule am Fluss: Drehscheibe, Glasuren und Holzofen.'
+  },
+  it: {
+    'skip':'Vai al contenuto',
+    'nav.why':'Il mestiere','nav.courses':'Corsi','nav.pricing':'Piani','nav.faq':'Domande','nav.cta':'Prenota un posto',
+    'theme.aria':'Passa alla modalità scura','menu.aria':'Apri il menu',
+    'hero.tag':'Scuola-laboratorio · Manises, Valencia',
+    'hero.title':'Fai girare l\'argilla,<br>nasce <span class="acc">il pezzo</span>.',
+    'hero.sub':'Ceramica fatta a mano nella culla della piastrella europea. Tornio, smalti e forno a legna in piccoli gruppi, con tutta l\'argilla che vuoi sporcare.',
+    'hero.cta1':'Prenota un posto','hero.cta2':'Vedi i corsi',
+    'hero.glaze':'Tocca uno smalto, cambia il pezzo',
+    'chip1':'12 anni di forno','chip2':'6 posti per gruppo','chip3':'1240 °C di cottura',
+    'vase.c1':'argilla di Manises','vase.c2':'smalto di cenere','vase.c3':'forno a legna',
+    'process.title':'Dall\'argilla alla cottura',
+    'process.sub':'Quattro passi che qui non si saltano mai. Ognuno ha il suo tempo e la sua temperatura, e impararli in quest\'ordine separa un pezzo vivo da un soprammobile.',
+    's1.t':'Impastare','s1.d':'Aria fuori, corpo dentro. L\'argilla si batte, si piega e si impasta finché non resta nemmeno una bolla che possa scoppiare nel forno.',
+    's2.t':'Tornire','s2.d':'Il centro del piatto è il centro del mondo. Si centra, si apre, si tira su la parete: ore di dita bagnate finché il pezzo nasce da solo.',
+    's3.t':'Essiccare','s3.d':'Piano. Un\'essiccazione frettolosa rompe ciò che il tornio ha fatto bene: il pezzo si avvolge, si sorveglia e attende il suo punto di cuoio.',
+    's4.t':'Cuocere','s4.d':'Prima cottura a 1000 °C, smalto a piacere, seconda a 1240. Il fuoco è l\'ultimo autore e non firma mai due volte uguale.',
+    'courses.title':'Mani in pasta',
+    'courses.sub':'Tre modi per entrare. Tutti iniziano sporchi d\'argilla e finiscono con qualcosa di tuo sullo scaffale.',
+    'courses.avail':'Posti limitati a 6 per gruppo',
+    'c1.meta':'giovedì · 19:00','c1.t':'Tornio settimanale','c1.d':'Un pomeriggio a settimana, un tornio assegnato e l\'argilla pagata. Per chi vuole ritmo, non maratone.',
+    'c2.meta':'sabato · 10:00','c2.t':'Raku del fine settimana','c2.d':'Tiri fuori i pezzi incandescenti e li guardi crepitare nella segatura. Il fine settimana più rumoroso del laboratorio.',
+    'c3.meta':'martedì · 20:00','c3.t':'Smalti notturni','c3.d':'Ricette di cenere, ossidi e prove su coccio. La chimica del colore, senza fretta e con un caffè.',
+    'quote.text':'Ogni pezzo del laboratorio porta dentro una settimana intera di decisioni: l\'argilla, lo spessore, l\'attesa, il fuoco. Qui nessuno compra il risultato; si compra il processo.',
+    'quote.author':'— Amparo Llopis, maestra del laboratorio',
+    't1.text':'Sono arrivata senza mai aver toccato l\'argilla e al terzo giovedì avevo già una tazza tornita dalle mie mani che non gocciola. Oggi lo smalto di cenere è la mia religione.',
+    't1.who':'Nuria · allieva da gennaio',
+    't2.text':'Porto mia figlia il martedì e ce ne andiamo entrambi con le mani verdi d\'argilla. È l\'unico impegno della settimana che non cancelliamo mai.',
+    't2.who':'Carlos · papà nel corso di smalti',
+    'pricing.title':'Il piano secondo la tua macchia d\'argilla',
+    'pricing.sub':'Senza vincoli, senza clausole in piccolo. Il forno brucia solo quando ci sono pezzi che lo meritano.',
+    'p1.name':'Tornio libero','p1.desc':'Per chi ha più mani che tempo.','p1.price':'30 €','p1.per':'al mese',
+    'p1.f1':'2 pomeriggi di tornio al mese','p1.f2':'Argilla e smalti inclusi','p1.f3':'Forno condiviso (2 cotture/mese)','p1.f4':'Accesso al gruppo delle allieve',
+    'p2.name':'Corso completo','p2.desc':'Il percorso intero, dall\'impasto al forno.','p2.price':'85 €','p2.per':'al mese',
+    'p2.f1':'4 lezioni settimanali','p2.f2':'Tornio assegnato + armadietto','p2.f3':'Forno prioritario (6 cotture/mese)','p2.f4':'Corsi di raku e smalti gratis',
+    'p3.name':'Studio & forno','p3.desc':'Il tuo progetto, il nostro fuoco.','p3.price':'180 €','p3.per':'al mese',
+    'p3.f1':'12 h di studio/mese','p3.f2':'Forno su richiesta','p3.f3':'Smalti d\'autore inclusi','p3.f4':'Assistenza della maestra a ogni cottura',
+    'pricing.cta':'Scegli il piano','pricing.badge':'il più scelto',
+    'faq.title':'Domande di laboratorio',
+    'faq.q1':'Posso iniziare senza mai aver toccato l\'argilla?','faq.a1':'Sì, è la norma. L\'80 % di chi arriva non ha mai impastato. La prima lezione è metà tecnica: centrare, aprire, tirare su la parete — un tornio per allieva e un video su come non farlo.',
+    'faq.q2':'E se un pezzo si rompe nel forno?','faq.a2':'È successo a tutte. L\'argilla si riusa: i pezzi rotti si frantumano e ridiventano argilla. Se è il tuo e si è rotto, il primo rimpiazzo di materiale è gratis.',
+    'faq.q3':'Cuocete anche pezzi esterni al corso?','faq.a3':'Sì, il piano Studio & forno include cotture per progetti propri. I pezzi si impilano per temperatura e si avvisa con 48 h di anticipo.',
+    'faq.q4':'C\'è parcheggio e accesso senza barriere?','faq.a4':'Il laboratorio è al piano terra con accesso dalla strada e c\'è un parcheggio comunale a 200 m. I tavoli di lavoro sono regolabili in altezza.',
+    'faq.q5':'Cosa include la prima lezione?','faq.a5':'Grembiule, mezzo chilo di argilla, un tornio e la pazienza della maestra. Porti a casa il tuo pezzo biscotto gratis come primo ricordo.',
+    'news.title':'Lettere d\'argilla',
+    'news.sub':'Una volta al mese, senza rumore: posti dell\'ultimo minuto, ricette di smalto e offerte di cottura. Scrivici e ti iscriviamo.',
+    'news.ph':'tu@email.it','news.cta':'Iscriviti',
+    'news.honest':'La conferma arriva via email. Preferiamo una mail sincera a una promessa falsa: puoi anche scriverci a hola@tornoceramica.es',
+    'footer.tagline':'Scuola-laboratorio di ceramica sul fiume, dove la piastrella europea è iniziata sei secoli fa.',
+    'footer.contact':'Contatti','footer.address':'Carrer del Riu 14 · 46940 Manises','footer.maps':'Come arrivare','footer.mail':'hola@tornoceramica.es',
+    'footer.hours':'Orari del laboratorio','footer.hoursVal':'mar–sab · 10:00–20:00','footer.rest':'chiuso la domenica e il lunedì',
+    'footer.rights':'© 2026 TORNO. Tutti i diritti riservati.','footer.made':'Fatto a mano a Manises.',
+    'cookie.msg':'Usiamo i cookie solo per ricordare lingua e tema. Nessun tracciamento.','cookie.ok':'Ok','cookie.no':'No',
+    'meta.title':'TORNO · Scuola di ceramica a Manises, Valencia',
+    'meta.desc':'Scuola-laboratorio di ceramica a Manises: tornio, smalti e forno a legna in piccoli gruppi. Prenota il tuo posto e gira il tuo primo pezzo.',
+    'og.title':'TORNO · Scuola di ceramica a Manises',
+    'og.desc':'Tornio, smalti e forno a legna in piccoli gruppi, nella culla della piastrella europea.',
+    'tw.title':'TORNO · Scuola di ceramica a Manises',
+    'tw.desc':'Scuola-laboratorio di ceramica sul fiume: tornio, smalti e forno a legna.'
+  },
+  pt: {
+    'skip':'Ir para o conteúdo',
+    'nav.why':'O ofício','nav.courses':'Oficinas','nav.pricing':'Planos','nav.faq':'Perguntas','nav.cta':'Reservar lugar',
+    'theme.aria':'Mudar para o modo escuro','menu.aria':'Abrir menu',
+    'hero.tag':'Escola-ateliê · Manises, Valência',
+    'hero.title':'Gira o barro,<br>nasce <span class="acc">a peça</span>.',
+    'hero.sub':'Cerâmica feita à mão no berço do azulejo europeu. Torno, esmaltes e forno a lenha em grupos pequenos, com todo o barro que quiseres sujar.',
+    'hero.cta1':'Reservar lugar','hero.cta2':'Ver oficinas',
+    'hero.glaze':'Toca num esmalte, muda a peça',
+    'chip1':'12 anos de forno','chip2':'6 lugares por grupo','chip3':'1240 °C de cozedura',
+    'vase.c1':'barro de Manises','vase.c2':'esmalte de cinza','vase.c3':'forno a lenha',
+    'process.title':'Do barro à fornada',
+    'process.sub':'Quatro passos que aqui não se saltam. Cada um tem o seu tempo e a sua temperatura, e aprendê-los nesta ordem é o que separa uma peça viva de um enfeite.',
+    's1.t':'Amassar','s1.d':'Ar fora, corpo dentro. O barro bate-se, dobra-se e amassa-se até não guardar nenhuma bolha que possa rebentar no forno.',
+    's2.t':'Tornear','s2.d':'O centro do prato é o centro do mundo. Centra-se, abre-se, sobe-se a parede: horas de dedos molhados até a peça nascer sozinha.',
+    's3.t':'Secar','s3.d':'Devagar. Uma secagem atrapalhada parte o que o torno fez bem: a peça embrulha-se, vigia-se e espera o seu ponto de couro.',
+    's4.t':'Cozer','s4.d':'Primeira cozedura a 1000 °C, esmalte a gosto, segunda a 1240. O fogo é o último autor e nunca assina duas vezes igual.',
+    'courses.title':'Mãos à obra',
+    'courses.sub':'Três maneiras de entrar. Todas começam sujas de barro e acabam com algo teu na prateleira.',
+    'courses.avail':'Lugares limitados a 6 por grupo',
+    'c1.meta':'quinta · 19:00','c1.t':'Torno semanal','c1.d':'Uma tarde por semana, um torno atribuído e o barro pago. Para quem quer ritmo, não maratonas.',
+    'c2.meta':'sábado · 10:00','c2.t':'Raku de fim de semana','c2.d':'Tira peças ao rubro e vê-as a craquelar na serradura. O fim de semana mais barulhento do ateliê.',
+    'c3.meta':'terça · 20:00','c3.t':'Esmaltes noturnos','c3.d':'Receitas de cinza, óxidos e ensaios em chazotas. A química da cor, sem pressa e com café.',
+    'quote.text':'Cada peça do ateliê carrega dentro uma semana inteira de decisões: o barro, a espessura, a espera, o fogo. Aqui ninguém compra o resultado; compra-se o processo.',
+    'quote.author':'— Amparo Llopis, mestra do ateliê',
+    't1.text':'Cheguei sem nunca ter tocado em barro e na terceira quinta já tinha uma chávena tornada pelas minhas mãos que não pinga. Hoje o esmalte de cinza é a minha religião.',
+    't1.who':'Nuria · aluna desde janeiro',
+    't2.text':'Levo a minha filha às terças e vamos as duas com as mãos verdes de argila. É o único plano da semana que nunca cancelamos.',
+    't2.who':'Carlos · pai na oficina de esmaltes',
+    'pricing.title':'O plano conforme a tua nódoa de barro',
+    'pricing.sub':'Sem permanência, sem letra pequena. O forno só arde quando há peças que merecem.',
+    'p1.name':'Torno livre','p1.desc':'Para quem tem mais mãos do que tempo.','p1.price':'30 €','p1.per':'por mês',
+    'p1.f1':'2 tardes de torno por mês','p1.f2':'Barro e esmaltes incluídos','p1.f3':'Forno partilhado (2 fornadas/mês)','p1.f4':'Acesso ao grupo de alunas',
+    'p2.name':'Oficina completa','p2.desc':'O caminho inteiro, do amassar ao forno.','p2.price':'85 €','p2.per':'por mês',
+    'p2.f1':'4 aulas semanais','p2.f2':'Torno atribuído + cacifo','p2.f3':'Forno prioritário (6 fornadas/mês)','p2.f4':'Cursos de raku e esmaltes grátis',
+    'p3.name':'Estúdio e forno','p3.desc':'O teu projeto, o nosso fogo.','p3.price':'180 €','p3.per':'por mês',
+    'p3.f1':'12 h de estúdio/mês','p3.f2':'Forno sob pedido','p3.f3':'Esmaltes de autor incluídos','p3.f4':'Apoio da mestra em cada fornada',
+    'pricing.cta':'Escolher plano','pricing.badge':'o mais escolhido',
+    'faq.title':'Perguntas de ateliê',
+    'faq.q1':'Posso começar sem nunca ter tocado em barro?','faq.a1':'Sim, é o normal. 80 % de quem chega nunca amassou. A primeira aula é metade técnica: centrar, abrir, subir parede — um torno para cada aluna e um vídeo de como não fazer.',
+    'faq.q2':'E se uma peça se partir no forno?','faq.a2':'Aconteceu a todas. O barro reutiliza-se: as peças partidas esmagam-se e voltam a ser barro. Se for tua e partiu, a primeira substituição de material é grátis.',
+    'faq.q3':'Cozem peças que não são do ateliê?','faq.a3':'Sim, o plano Estúdio e forno inclui fornadas para projetos próprios. As peças empilham-se por temperatura e avisa-se com 48 h de antecedência.',
+    'faq.q4':'Há estacionamento e acesso sem escadas?','faq.a4':'O ateliê fica no rés do chão com acesso da rua e há um parque municipal a 200 m. As mesas de trabalho são reguláveis em altura.',
+    'faq.q5':'O que inclui a primeira aula?','faq.a5':'Avental, meio quilo de barro, um torno e a paciência da mestra. Levas a tua peça em biscoito grátis como primeira recordação.',
+    'news.title':'Cartas de barro',
+    'news.sub':'Uma vez por mês, sem ruído: lugares de última hora, receitas de esmalte e ofertas de fornada. Escreve-nos e apontamos-te.',
+    'news.ph':'tu@email.pt','news.cta':'Subscrever',
+    'news.honest':'A confirmação chega por email. Preferimos um correio honesto a uma promessa falsa: também podes escrever-nos para hola@tornoceramica.es',
+    'footer.tagline':'Escola-ateliê de cerâmica junto ao rio, onde o azulejo europeu começou há seis séculos.',
+    'footer.contact':'Contacto','footer.address':'Carrer del Riu 14 · 46940 Manises','footer.maps':'Como chegar','footer.mail':'hola@tornoceramica.es',
+    'footer.hours':'Horário do ateliê','footer.hoursVal':'ter–sáb · 10:00–20:00','footer.rest':'fechado domingo e segunda',
+    'footer.rights':'© 2026 TORNO. Todos os direitos reservados.','footer.made':'Feito à mão em Manises.',
+    'cookie.msg':'Usamos cookies só para lembrar o teu idioma e tema. Sem rastreio.','cookie.ok':'Ok','cookie.no':'Não',
+    'meta.title':'TORNO · Oficina de cerâmica em Manises, Valência',
+    'meta.desc':'Escola-ateliê de cerâmica em Manises: torno, esmaltes e forno a lenha em grupos pequenos. Reserva o teu lugar e gira a tua primeira peça.',
+    'og.title':'TORNO · Oficina de cerâmica em Manises',
+    'og.desc':'Torno, esmaltes e forno a lenha em grupos pequenos, no berço do azulejo europeu.',
+    'tw.title':'TORNO · Oficina de cerâmica em Manises',
+    'tw.desc':'Escola-ateliê de cerâmica junto ao rio: torno, esmaltes e forno a lenha.'
+  }
+};
+
+/* ============ helpers ============ */
+function $(s, c) { return (c || document).querySelector(s); }
+function $$(s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); }
+var LANGS = ['en', 'es', 'fr', 'de', 'it', 'pt'];
+
+/* ============ theme ============ */
+var THEME_KEY = 'kairos-theme';
+function getTheme() {
+  var saved = null;
+  try { saved = localStorage.getItem(THEME_KEY); } catch (e) {}
+  return saved === 'dark' ? 'dark' : 'light';
+}
+function applyTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  try { localStorage.setItem(THEME_KEY, theme); } catch (e) {}
+  var t = $('.theme-toggle');
+  if (t) t.setAttribute('aria-label', theme === 'dark'
+    ? (I18N[getLang()] ? I18N[getLang()]['theme.light'] : 'Switch to light mode')
+    : (I18N[getLang()] ? I18N[getLang()]['theme.aria'] : 'Switch to dark mode'));
+}
+var themeToggle = $('#themeToggle');
+if (themeToggle) {
+  themeToggle.addEventListener('click', function () {
+    applyTheme(getTheme() === 'dark' ? 'light' : 'dark');
+  });
+}
+applyTheme(getTheme());
+
+/* ============ i18n apply ============ */
+var HTML_KEYS = { 'hero.title': true };
+function getLang() {
+  var saved = null;
+  try { saved = localStorage.getItem('torno-lang'); } catch (e) {}
+  if (saved && I18N[saved]) return saved;
+  var nav = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
+  var langs = LANGS || ['en', 'es', 'fr', 'de', 'it', 'pt'];
+  for (var i = 0; i < langs.length; i++) {
+    if (nav.indexOf(langs[i]) === 0) return langs[i];
+  }
+  return 'en';
+}
+function applyLang(lang) {
+  if (!I18N[lang]) lang = 'en';
+  var dict = I18N[lang];
+  try { localStorage.setItem('torno-lang', lang); } catch (e) {}
+  $$('[data-i18n]').forEach(function (el) {
+    var key = el.getAttribute('data-i18n');
+    var val = dict[key];
+    if (val === undefined) return;
+    if (HTML_KEYS[key]) { el.innerHTML = val; }
+    else { el.textContent = val; }
+  });
+  $$('[data-i18n-html]').forEach(function (el) {
+    var key = el.getAttribute('data-i18n-html');
+    var val = dict[key];
+    if (val !== undefined) el.innerHTML = val;
+  });
+  $$('[data-i18n-aria]').forEach(function (el) {
+    var key = el.getAttribute('data-i18n-aria');
+    var val = dict[key];
+    if (val !== undefined) el.setAttribute('aria-label', val);
+  });
+  $$('[data-i18n-ph]').forEach(function (el) {
+    var key = el.getAttribute('data-i18n-ph');
+    var val = dict[key];
+    if (val !== undefined) el.setAttribute('placeholder', val);
+  });
+  var mt = $('#doc-title');
+  if (mt && dict['meta.title']) mt.textContent = dict['meta.title'];
+  var md = $('#meta-desc');
+  if (md && dict['meta.desc']) md.setAttribute('content', dict['meta.desc']);
+  var ogt = $('meta[property="og:title"]');
+  if (ogt && dict['og.title']) ogt.setAttribute('content', dict['og.title']);
+  var ogd = $('meta[property="og:description"]');
+  if (ogd && dict['og.desc']) ogd.setAttribute('content', dict['og.desc']);
+  var twt = $('meta[name="twitter:title"]');
+  if (twt && dict['tw.title']) twt.setAttribute('content', dict['tw.title']);
+  var twd = $('meta[name="twitter:description"]');
+  if (twd && dict['tw.desc']) twd.setAttribute('content', dict['tw.desc']);
+  document.documentElement.setAttribute('lang', lang);
+  $$('.lang-select__cur').forEach(function (el) { el.textContent = lang.toUpperCase(); });
+  $$('.lang-select__opt').forEach(function (opt) {
+    opt.setAttribute('aria-selected', opt.getAttribute('data-lang') === lang ? 'true' : 'false');
+  });
+  applyTheme(getTheme());
+}
+
+/* ============ lang dropdowns (both copies) ============ */
+function closeLangMenus() {
+  $$('.lang-select').forEach(function (sel) {
+    var menu = $('.lang-select__menu', sel), btn = $('.lang-select__btn', sel);
+    if (!menu) return;
+    menu.classList.remove('open');
+    if (btn) btn.setAttribute('aria-expanded', 'false');
+  });
+}
+$$('.lang-select').forEach(function (sel) {
+  var btn = $('.lang-select__btn', sel), menu = $('.lang-select__menu', sel);
+  if (!btn || !menu) return;
+  btn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    var open = menu.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (open) {
+      $$('.lang-select').forEach(function (other) {
+        if (other !== sel) {
+          var om = $('.lang-select__menu', other), ob = $('.lang-select__btn', other);
+          if (om) om.classList.remove('open');
+          if (ob) ob.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+  });
+  $$('.lang-select__opt', sel).forEach(function (opt) {
+    opt.addEventListener('click', function () {
+      applyLang(opt.getAttribute('data-lang'));
+      closeLangMenus();
+    });
+  });
+});
+document.addEventListener('click', function (e) {
+  var inside = false;
+  $$('.lang-select').forEach(function (sel) { if (sel.contains(e.target)) inside = true; });
+  if (!inside) closeLangMenus();
+});
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape') { closeLangMenus(); closeMobile(); }
+});
+
+/* ============ mobile menu ============ */
+var burger = $('#burger'), mobileMenu = $('#mobileMenu');
+function closeMobile() {
+  if (!mobileMenu) return;
+  mobileMenu.classList.remove('open');
+  if (burger) burger.setAttribute('aria-expanded', 'false');
+}
+if (burger && mobileMenu) {
+  burger.addEventListener('click', function () {
+    var open = mobileMenu.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  $$('a', mobileMenu).forEach(function (a) {
+    a.addEventListener('click', closeMobile);
+  });
+}
+
+/* ============ glaze swatches ============ */
+var vaseBody = $('#vaseBody');
+var glazeDot = null;
+$$('.swatches .sw').forEach(function (sw) {
+  sw.addEventListener('click', function () {
+    var color = sw.getAttribute('data-color');
+    if (vaseBody) vaseBody.setAttribute('fill', color);
+    var hint = $('.glaze-hint');
+    if (hint) {
+      var dot = hint.querySelector('::before');
+      hint.style.setProperty('--glaze-dot', color);
+    }
+    $$('.swatches .sw').forEach(function (s) { s.setAttribute('aria-pressed', 'false'); });
+    sw.setAttribute('aria-pressed', 'true');
+  });
+  sw.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); sw.click(); }
+  });
+});
+
+/* ============ scroll reveal (rAF, geometry-safe) ============ */
+var rvEls = $$('.rv');
+function revealCheck() {
+  var vh = window.innerHeight || document.documentElement.clientHeight;
+  rvEls.forEach(function (el) {
+    if (el.classList.contains('in')) return;
+    var r = el.getBoundingClientRect();
+    if (r.top < vh * 0.92) el.classList.add('in');
+  });
+}
+var ticking = false;
+function onScroll() {
+  if (ticking) return;
+  ticking = true;
+  window.requestAnimationFrame(function () {
+    revealCheck();
+    ticking = false;
+  });
+}
+window.addEventListener('scroll', onScroll, { passive: true });
+window.addEventListener('resize', onScroll, { passive: true });
+if ('IntersectionObserver' in window) {
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (en.isIntersecting) en.target.classList.add('in');
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.01 });
+  rvEls.forEach(function (el) { io.observe(el); });
+}
+revealCheck();
+document.documentElement.classList.remove('no-js');
+setTimeout(revealCheck, 600);
+setTimeout(function () {
+  var vh = window.innerHeight || document.documentElement.clientHeight;
+  var missed = false;
+  rvEls.forEach(function (el) {
+    var r = el.getBoundingClientRect();
+    if (r.top < vh * 0.92 && r.bottom > 0 && !el.classList.contains('in')) missed = true;
+  });
+  if (missed) rvEls.forEach(function (el) { el.classList.add('in'); });
+}, 1800);
+
+/* ============ FAQ accordion ============ */
+$$('.faq-item').forEach(function (item) {
+  var q = $('.faq-q', item), a = $('.faq-a', item);
+  if (!q || !a) return;
+  q.addEventListener('click', function () {
+    var isOpen = item.classList.contains('open');
+    $$('.faq-item.open').forEach(function (other) {
+      if (other !== item) {
+        other.classList.remove('open');
+        var oq = $('.faq-q', other), oa = $('.faq-a', other);
+        if (oq) oq.setAttribute('aria-expanded', 'false');
+        if (oa) oa.style.maxHeight = '0px';
+      }
+    });
+    item.classList.toggle('open', !isOpen);
+    q.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+    a.style.maxHeight = isOpen ? '0px' : a.scrollHeight + 'px';
+  });
+});
+
+/* ============ cookie banner ============ */
+var cookieBanner = $('#cookieBanner');
+var COOKIE_KEY = 'torno-cookie';
+function hideCookie() {
+  if (!cookieBanner) return;
+  cookieBanner.classList.remove('show');
+  try { localStorage.setItem(COOKIE_KEY, '1'); } catch (e) {}
+}
+var ckOk = $('#cookieOk'), ckNo = $('#cookieNo');
+if (ckOk) ckOk.addEventListener('click', hideCookie);
+if (ckNo) ckNo.addEventListener('click', hideCookie);
+(function () {
+  var done = false;
+  try { done = localStorage.getItem(COOKIE_KEY) === '1'; } catch (e) {}
+  if (done || !cookieBanner) return;
+  setTimeout(function () { cookieBanner.classList.add('show'); }, 3200);
+})();
+
+/* ============ newsletter — honest mailto ============ */
+var newsForm = $('#newsForm');
+if (newsForm) {
+  var nlMsg = $('#nlMsg');
+  newsForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var email = ($('#newsEmail') || {}).value || '';
+    var subject = 'Cartas de barro — TORNO';
+    var body = 'Hola TORNO, quiero apuntarme a las cartas de barro.\nMi correo: ' + email;
+    window.location.href = 'mailto:hola@tornoceramica.es?subject='
+      + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    if (nlMsg) {
+      nlMsg.textContent = getLang() === 'es'
+        ? 'Te acabamos de abrir el correo para enviarnos tu dirección. ¡Gracias!'
+        : 'We just opened your mail client so you can send us your address. Thanks!';
+      nlMsg.classList.add('ok');
+    }
+  });
+}
+
+/* ============ boot ============ */
+applyLang(getLang());
+} catch (bootErr) {
+  document.documentElement.classList.add('no-js');
+  var stuck = document.querySelectorAll('.rv');
+  for (var i = 0; i < stuck.length; i++) stuck[i].classList.add('in');
+}
+})();
+</script>
+</body>
+</html>

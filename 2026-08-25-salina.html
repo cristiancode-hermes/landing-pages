@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+<html lang="es" class="no-js" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="doc-title">SALINA · Marketplace del flor de sal de Cádiz</title>
+<meta id="meta-desc" name="description" content="Compra flor de sal de salinas familiares del litoral de Cádiz. Cosecha del amanecer, envío en 72h, productores verificados. Tu sal, con nombre y playa.">
+<link rel="canonical" href="https://proyectos.cristiancode.dev/landings/2026-08-25-salina.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="SALINA · Marketplace del flor de sal de Cádiz">
+<meta property="og:description" content="Compra flor de sal de salinas familiares del litoral. Directo de la salina a tu mesa.">
+<meta property="og:url" content="https://proyectos.cristiancode.dev/landings/2026-08-25-salina.html">
+<meta property="og:image" content="https://cristiancode.dev/assets/landing-2026-08-25-salina.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SALINA · Marketplace del flor de sal de Cádiz">
+<meta name="twitter:description" content="Compra flor de sal de salinas familiares del litoral. Directo de la salina a tu mesa.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%2314343C'/%3E%3Ccircle cx='50' cy='52' r='26' fill='%23EDF4F2'/%3E%3Ccircle cx='50' cy='52' r='19' fill='%236EA5A0'/%3E%3Cpath d='M50 52 L50 30' stroke='%23F2C9D4' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..900;1,9..40,300..700&family=Noto+Serif+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   DESIGN SYSTEM — SALINA · Marketplace del flor de sal
+   Surface: Explore (browsing a catalogue). Secondary: Decide in
+            the hero, Compare across the Market section.
+   Derived from: Airbnb (popular-web-designs template) — pure
+            white canvas as photography stage, Rausch Red as a
+            SINGLE committed brand accent, warm near-black ink
+            (#222222), generous 8/14/20/32px radius scale,
+            three-layer lifted card shadows, circular controls,
+            photo-first listing cards with heart wishlist.
+            Family: Gastronomía / Flor de sal y salinas
+   Style: Coastal marketplace — Atlantic light, teal-green
+          brine notes, flamingo-pink accents; a photo-first
+          catalogue where each listing is a vignette of a
+          salt flat at dawn.
+   Strategy: Restrained (near-white canvas ~85% + ONE red
+          accent for CTAs/wishlists ≤8% + teal/pink tints
+          for provenance band). Per Impeccable, canvas stays
+          chroma-0 off-white; the "warm edge" comes from
+          photography, not a cream background.
+   Type: DM Sans (Cereal VF substitute, geometric-warm) +
+         Noto Serif Display (editorial provenance serif) —
+         geometric/humanist contrast axis.
+   ============================================================ */
+:root{
+  --z-nav:30; --z-banner:40; --z-menu:45; --z-modal:50; --z-toast:60;
+  --bg:#FFFFFF; --surface:#FFFFFF; --surface-2:#F4F4F4;
+  --ink:#222222; --muted:#595959; --faint:#767676;
+  --line:#E7E7E7; --line-strong:#CFCFCF;
+  --red:#B42348; --red-hover:#9B1B3A; --red-deep:#8B1733; --red-ink:#FFFFFF;
+  --wilink:#B42348;
+  --teal:#14343C; --teal-soft:#D7E4E2; --teal-faint:#C9D6D4;
+  --pink:#D9486F; --pink-soft:#F6D9E0; --pink-ink:#161616;
+  --peach-soft:#F6EFE8;
+  --warm:#F4EBE3; --warm-line:#E3D5C5; --warm-ink:#3A322A;
+  --wish:#B42348;
+  --focus:#3859F9; --focus-dark:#8B9BFF;
+  --sans:'DM Sans',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --serif:'Noto Serif Display',Georgia,'Times New Roman',serif;
+  --r:8px; --r-sm:6px; --r-md:14px; --r-lg:20px; --r-xl:32px; --pill:999px;
+  --ease:cubic-bezier(.22,1,.36,1);
+  --shadow:rgba(0,0,0,0.02) 0px 0px 0px 1px, rgba(0,0,0,0.04) 0px 2px 6px, rgba(0,0,0,0.10) 0px 4px 8px;
+  --shadow-hover:rgba(0,0,0,0.08) 0px 4px 12px, rgba(0,0,0,0.05) 0px 0px 0px 1px;
+}
+[data-theme="dark"]{
+  --bg:#17181A; --surface:#1E2023; --surface-2:#26282C;
+  --ink:#F0F1F2; --muted:#C6C9CD; --faint:#A6AAB0;
+  --line:#33363B; --line-strong:#464A51;
+  --red:#E06A8E; --red-hover:#F08AA8; --red-deep:#F08AA8; --red-ink:#1C0F14;
+  --wilink:#F08AA8;
+  --teal:#7FA7A2; --teal-soft:#25363B; --teal-faint:#B5C9C6;
+  --pink:#F08AA8; --pink-soft:#3A2630; --pink-ink:#F0F1F2;
+  --peach-soft:#2A2622; --wish:#F08AA8;
+  --warm:#221F1B; --warm-line:#40362C; --warm-ink:#E9E0D3;
+  --focus:#8B9BFF;
+  --shadow:rgba(0,0,0,0.4) 0px 0px 0px 1px, rgba(0,0,0,0.3) 0px 2px 6px, rgba(0,0,0,0.5) 0px 6px 16px;
+  --shadow-hover:rgba(0,0,0,0.6) 0px 8px 22px, rgba(0,0,0,0.4) 0px 0px 0px 1px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+html.no-js .rv{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important}
+}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased;text-wrap:pretty}
+h1,h2,h3{line-height:1.06;letter-spacing:-.02em;text-wrap:balance;font-weight:700}
+img{display:block;max-width:100%}
+a{color:var(--wilink)}
+a:focus-visible,button:focus-visible,[tabindex]:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid var(--focus);outline-offset:2px;border-radius:4px}
+.skip{position:absolute;left:-999px;top:0;background:var(--teal);color:#fff;padding:.7rem 1.1rem;z-index:200;border-radius:0 0 var(--r) 0}
+.skip:focus{left:0}
+.wrap{max-width:1240px;margin-inline:auto;padding-inline:clamp(1rem,4vw,2rem)}
+.center{text-align:center}
+
+/* ---------- header / nav ---------- */
+.nav{position:sticky;top:0;z-index:var(--z-nav);background:rgba(255,255,255,0.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+[data-theme="dark"] .nav{background:rgba(23,24,26,0.86)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:72px}
+.brand{display:flex;align-items:center;gap:.6rem;font-weight:900;letter-spacing:-.02em;font-size:1.15rem;color:var(--ink)}
+.brand svg{width:26px;height:26px;flex:none}
+.brand strong{font-weight:900}
+.brand .l2{font-weight:400;color:var(--muted);font-size:.92rem}
+.nav-actions{display:flex;align-items:center;gap:.6rem}
+.nav-actions a.navlink{font-size:.9rem;color:var(--ink);text-decoration:none;font-weight:500;padding:.4rem;border-radius:var(--r-sm)}
+.nav-actions a.navlink:hover{background:var(--surface-2)}
+.icon-btn{width:40px;height:40px;border-radius:var(--pill);border:1px solid var(--line);background:var(--surface);color:var(--ink);display:grid;place-items:center;cursor:pointer;transition:border-color .2s var(--ease),color .2s var(--ease),transform .2s var(--ease);font-size:1.05rem}
+.icon-btn:hover{border-color:var(--ink)}
+.lang-select{position:relative}
+.lang-select__btn{display:inline-flex;align-items:center;gap:.35rem;height:40px;padding:0 .75rem;border-radius:var(--pill);border:1px solid var(--line);background:var(--surface);color:var(--ink);font-size:.82rem;font-weight:600;cursor:pointer;transition:border-color .2s var(--ease)}
+.lang-select__btn:hover{border-color:var(--ink)}
+.lang-select__btn svg{width:15px;height:15px}
+.lang-select__menu{position:absolute;right:0;top:calc(100% + 6px);min-width:170px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);box-shadow:var(--shadow-hover);padding:.3rem;opacity:0;visibility:hidden;transform:translateY(-4px);transition:opacity .16s ease,transform .16s ease,visibility .16s;z-index:var(--z-modal)}
+.lang-select__menu.open{opacity:1;visibility:visible;transform:none}
+.lang-select__opt{display:flex;align-items:center;justify-content:space-between;gap:.5rem;width:100%;padding:.5rem .7rem;border:none;background:none;font-size:.88rem;color:var(--ink);text-align:left;border-radius:var(--r-sm);cursor:pointer;transition:background .15s ease}
+.lang-select__opt:hover{background:var(--surface-2)}
+.lang-select__opt[aria-selected="true"]{color:var(--red);font-weight:600}
+.lang-select__opt[aria-selected="true"]::after{content:'✓'}
+.burger{display:none;background:none;border:none;cursor:pointer;width:40px;height:40px;border-radius:var(--pill);color:var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font-family:var(--sans);border-radius:var(--r-lg);padding:.9rem 1.7rem;font-size:.98rem;font-weight:600;cursor:pointer;border:1px solid transparent;text-decoration:none;transition:transform .2s var(--ease),background .2s var(--ease),color .2s var(--ease),box-shadow .2s var(--ease),border-color .2s var(--ease)}
+.btn-primary{background:var(--ink);color:var(--bg)}
+.btn-primary:hover{background:#000;transform:scale(.98)}
+[data-theme="dark"] .btn-primary:hover{background:#fff;color:#000}
+.btn-red{background:var(--red);color:var(--red-ink)}
+.btn-red:hover{background:var(--red-hover);color:var(--red-ink);transform:scale(.98)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--line-strong)}
+.btn-ghost:hover{border-color:var(--ink)}
+.pill{display:inline-flex;align-items:center;gap:.4rem;padding:.45rem .95rem;border:1px solid var(--line);border-radius:var(--pill);font-size:.82rem;font-weight:500;color:var(--ink);background:var(--surface);transition:border-color .2s ease,background .2s ease}
+.pill:hover{border-color:var(--ink)}
+
+/* ---------- mobile menu ---------- */
+.mobile-menu{position:fixed;inset:0;z-index:var(--z-menu);background:var(--bg);padding:5rem 1.6rem 2rem;display:flex;flex-direction:column;gap:1rem;opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .2s ease,visibility .2s,transform .2s ease}
+.mobile-menu.open{opacity:1;visibility:visible;transform:none}
+.mobile-menu a.m-link{font-family:var(--serif);font-size:1.9rem;color:var(--ink);text-decoration:none;padding:.3rem 0;font-weight:500}
+.mobile-menu a.m-link:hover{color:var(--red)}
+.mobile-menu a.btn-primary{color:var(--bg);background:var(--ink);text-align:center;padding:1rem}
+[data-theme="dark"] .mobile-menu a.btn-primary{color:var(--bg);background:var(--red)}
+.mobile-menu .lang-select{width:100%;margin-top:.4rem}
+.mobile-menu .lang-select__menu{position:static;opacity:1;visibility:visible;transform:none;box-shadow:none;border:none;padding:0;display:none}
+.mobile-menu .lang-select__menu.open{display:block}
+.mobile-menu .lang-select__opt{font-size:1.1rem;padding:.8rem .4rem}
+.mobile-menu .lang-select__btn{width:100%;justify-content:space-between;height:48px}
+.menu-close{position:absolute;top:1rem;right:1.2rem;width:44px;height:44px;border-radius:var(--pill);border:1px solid var(--line);background:var(--surface);color:var(--ink);font-size:1.2rem;cursor:pointer}
+
+/* ---------- hero ---------- */
+.hero{padding:clamp(2rem,5vw,3.6rem) 0 clamp(1rem,3vw,2rem)}
+.hero-in{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(1.6rem,4vw,3.4rem);align-items:center}
+.hero h1{font-size:clamp(2.4rem,5.4vw,4.4rem);line-height:1.02;letter-spacing:-.03em;font-weight:800}
+.hero h1 .br{color:var(--red)}
+.hero p.lede{font-size:clamp(1.05rem,1.6vw,1.22rem);color:var(--muted);max-width:34em;margin-top:1.3rem}
+.hero-cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.8rem}
+.hero-trust{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.8rem}
+.hero .trust-note{font-size:.82rem;color:var(--faint);margin-top:.9rem}
+.hero-media{position:relative}
+.hero-curtain{aspect-ratio:4/5;border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--shadow-hover)}
+.hero-curtain img{width:100%;height:100%;object-fit:cover}
+.sal-chip{position:absolute;left:-0.8rem;bottom:2.2rem;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);box-shadow:var(--shadow-hover);padding:.85rem 1.05rem;max-width:230px}
+.sal-chip .sc-you{font-size:.78rem;color:var(--faint);font-weight:600;text-transform:uppercase;letter-spacing:.03em}
+.sal-chip .sc-name{font-family:var(--serif);font-size:1.25rem;font-weight:600;margin-top:.15rem;line-height:1.1}
+.sal-chip .sc-sal{font-size:.82rem;color:var(--muted);margin-top:.1rem}
+.sal-chip .sc-tag{display:inline-block;margin-top:.55rem;font-size:.72rem;font-weight:700;color:#fff;background:var(--teal);border-radius:var(--pill);padding:.25rem .6rem}
+.float-dot{position:absolute;top:14%;right:-1rem;width:64px;height:64px;background:var(--pink-soft);border:1px solid var(--pink);border-radius:50%;display:grid;place-items:center;color:var(--pink-ink);font-size:.78rem;font-weight:800;box-shadow:var(--shadow-hover)}
+.float-dot b{color:var(--pink)}
+
+/* ---------- ribbon ---------- */
+.riv{overflow:hidden;border-block:1px solid var(--line);background:var(--surface-2)}
+.riv-track{display:flex;gap:2.2rem;white-space:nowrap;padding:1.05rem 0;animation:riv 34s var(--ease) infinite alternate}
+.riv-track span{font-family:var(--serif);font-style:italic;font-size:1.12rem;color:var(--ink)}
+.riv-track em{color:var(--red);font-style:italic}
+@keyframes riv{from{transform:translateX(0)}to{transform:translateX(-12%)}}
+@media (prefers-reduced-motion:reduce){.riv-track{animation:none}}
+
+/* ---------- provenance band ---------- */
+.prov{padding:clamp(3.2rem,7vw,5.6rem) 0;background:var(--teal);color:#fff}
+[data-theme="dark"] .prov{background:#0F252B}
+.prov .wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:3rem;align-items:center}
+.prov-kicker{font-size:.78rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--teal-faint)}
+.prov h2{font-family:var(--serif);font-weight:600;font-size:clamp(1.7rem,3.4vw,2.5rem);color:#fff;margin-top:.7rem;line-height:1.08}
+.prov p{margin-top:1.1rem;color:var(--teal-faint);max-width:34em;font-size:1.03rem}
+.py-pills{display:grid;gap:.9rem;margin-top:1.4rem}
+.py-pill{display:flex;align-items:center;gap:.9rem;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.18);border-radius:var(--r-md);padding:.8rem 1rem}
+.py-pill svg{flex:none;color:var(--teal-faint)}
+.py-pill .pp-t{font-weight:700;color:#fff}
+.py-pill .pp-s{font-size:.86rem;color:var(--teal-faint)}
+.py-visual{position:relative}
+.py-stack{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.2);border-radius:var(--r-xl);padding:1.4rem}
+.py-stack h3{color:#fff;font-size:1rem;font-weight:700}
+.py-slot{display:flex;gap:1rem;align-items:center;margin-top:.9rem;background:#fff;border:1px solid rgba(0,0,0,0.08);border-radius:var(--r-lg);padding:.8rem .9rem;width:100%;text-align:left;cursor:pointer;transition:transform .22s var(--ease),box-shadow .22s var(--ease)}
+.py-slot:hover{transform:rotate(-1deg);box-shadow:0 10px 22px -10px rgba(0,0,0,.5)}
+.py-thumb{width:58px;height:58px;border-radius:var(--r-md);object-fit:cover;flex:none}
+.py-slot .ps-n{font-family:var(--serif);font-size:1.02rem;font-weight:600;color:#222}
+.py-slot .ps-a{font-size:.82rem;color:#6a6a6a}
+.py-slot .ps-p{margin-left:auto;font-weight:700;color:var(--red-deep);white-space:nowrap;font-size:.9rem}
+.py-slot.offset{transform:translateX(clamp(0px,3vw,40px))}
+.py-slot.offset:hover{transform:translateX(clamp(0px,3vw,40px)) rotate(-1deg)}
+
+/* ---------- section shells ---------- */
+.section{padding:clamp(3.2rem,7vw,5.6rem) 0}
+.section-head{max-width:40rem;margin-bottom:2.4rem}
+.section-head h2{font-size:clamp(1.7rem,3.4vw,2.5rem);font-weight:800;letter-spacing:-.025em}
+.section-head p{color:var(--muted);margin-top:.8rem;font-size:1.05rem}
+.eyebrow{display:inline-flex;align-items:center;gap:.4rem;font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.eyebrow::before{content:'';width:18px;height:2px;background:var(--red);border-radius:2px}
+.eyebrow.ey-blue::before{background:var(--teal)}
+.eyebrow.ey-pink::before{background:var(--pink)}
+.eyebrow.ey-peach::before{background:var(--red)}
+
+/* ---------- market grid (photo-first listings) ---------- */
+.market{background:var(--surface-2)}
+.market .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.6rem}
+.listing{border-radius:var(--r-lg);overflow:hidden;background:var(--surface);box-shadow:var(--shadow);transition:transform .25s var(--ease),box-shadow .25s var(--ease);display:flex;flex-direction:column}
+.listing:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover)}
+.listing .media{position:relative;aspect-ratio:4/3;overflow:hidden}
+.listing .media img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+.listing:hover .media img{transform:scale(1.04)}
+.wish{position:absolute;top:.8rem;right:.8rem;width:38px;height:38px;border-radius:50%;border:none;background:rgba(255,255,255,0.9);color:var(--ink);display:grid;place-items:center;cursor:pointer;transition:transform .2s var(--ease);z-index:2}
+.wish:hover{transform:scale(1.1)}
+.wish svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2}
+.wish.active{color:var(--wish)}
+.wish.active svg{fill:var(--wish);stroke:var(--wish)}
+.listing .body{padding:1rem 1rem 1.2rem;display:flex;flex-direction:column;gap:.1rem}
+.listing .who{display:flex;align-items:center;gap:.5rem;font-size:.85rem;color:var(--muted);min-width:0}
+.listing .who .ava{width:26px;height:26px;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;font-size:.7rem;font-weight:800;flex:none}
+.listing .who-txt{display:flex;align-items:center;gap:.45rem;min-width:0;flex:1}
+.listing .who-nm{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.listing h3{font-size:1.18rem;margin-top:.35rem;line-height:1.2}
+.listing .loc{font-size:.85rem;color:var(--muted);margin-top:.1rem}
+.listing .star{display:inline-flex;flex-direction:row;flex-wrap:nowrap;align-items:center;gap:2px;color:var(--ink);flex:none;line-height:1}
+.listing .star svg{width:13px;height:13px;flex:none;display:block;fill:var(--red);color:var(--red)}
+.listing .price{margin-top:.65rem;font-size:.9rem;color:var(--muted)}
+.listing .price b{color:var(--ink);font-weight:700}
+.qty-row{display:flex;align-items:center;gap:.35rem;margin-top:.35rem}
+.qty{display:inline-flex;align-items:center;border:1px solid var(--line-strong);border-radius:var(--pill);font-size:.8rem}
+.qty button{width:28px;height:28px;border:none;background:none;color:var(--ink);cursor:pointer;font-size:1rem}
+.qty input{border:none;background:none;width:2.2rem;text-align:center;font-size:.82rem;color:var(--ink)}
+.add{display:inline-flex;align-items:center;justify-content:center;margin-left:auto;width:32px;height:32px;border-radius:50%;border:none;background:var(--red);color:var(--red-ink);cursor:pointer;font-size:1.1rem;transition:transform .2s var(--ease),background .2s var(--ease)}
+.add:hover{background:var(--red-hover);transform:scale(1.08)}
+
+/* ---------- how it works (genuine 3-step) ---------- */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.6rem}
+.step{position:relative;padding-top:0}
+.step .n{font-family:var(--serif);font-size:2.4rem;font-weight:600;color:var(--red);line-height:1}
+.step .para{margin-top:.6rem}
+.step .para h3{font-size:1.15rem}
+.step .para p{color:var(--muted);margin-top:.4rem;max-width:28em}
+
+/* ---------- craft timeline ---------- */
+.timeline{position:relative;margin-top:1rem;padding-left:1.6rem}
+.timeline::before{content:'';position:absolute;left:6px;top:4px;bottom:4px;width:2px;background:var(--line-strong);border-radius:2px}
+.tl{position:relative;padding:0 0 1.6rem 1rem}
+.tl:last-child{padding-bottom:0}
+.tl::before{content:'';position:absolute;left:-1.6rem;top:.28rem;width:14px;height:14px;border-radius:50%;background:var(--surface);border:3px solid var(--red)}
+.tl h3{font-family:var(--serif);font-size:1.2rem;font-weight:600}
+.tl p{color:var(--muted);font-size:.94rem;max-width:34em;margin-top:.25rem}
+.tl .mono-chip{display:inline-block;margin-top:.4rem;font-size:.72rem;font-weight:700;color:var(--red);background:var(--pink-soft);border-radius:var(--pill);padding:.2rem .6rem}
+
+/* ---------- quote / band ---------- */
+.band{padding:clamp(3rem,6vw,4.6rem) 0}
+.band-quote{background:var(--pink-soft);color:var(--pink-ink)}
+[data-theme="dark"] .band-quote{background:var(--pink-soft)}
+.band-quote .big-quote{font-family:var(--serif);font-style:italic;font-size:clamp(1.6rem,3.6vw,2.7rem);font-weight:500;line-height:1.3;max-width:22em;margin-inline:auto;text-align:center}
+.band-quote .q-by{display:flex;align-items:center;gap:.6rem;justify-content:center;margin-top:1.6rem}
+.band-quote .q-by .ava{width:44px;height:44px;border-radius:50%;background:var(--pink);color:#fff;display:grid;place-items:center;font-weight:800;border:2px solid var(--pink-ink)}
+.band-quote .q-by .qn{font-weight:700}
+.band-quote .q-by .qr{font-size:.85rem;color:var(--muted)}
+
+/* ---------- testimonials ---------- */
+.testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.4rem}
+.testi{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:1.5rem;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:.7rem}
+.testi .stars{display:inline-flex;gap:2px}
+.testi .stars svg{width:16px;height:16px;fill:var(--red)}
+.testi blockquote{font-size:.98rem;line-height:1.55;color:var(--ink)}
+.testi .t-by{display:flex;align-items:center;gap:.6rem;margin-top:auto}
+.testi .t-by .ava{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:800;font-size:.8rem}
+.testi .t-by .tn{font-size:.88rem;font-weight:700}
+.testi .t-by .ts{font-size:.8rem;color:var(--faint)}
+
+/* ---------- faq ---------- */
+.faq{max-width:46rem;margin-inline:auto;border-top:1px solid var(--line)}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;gap:1rem;background:none;border:none;padding:1.2rem 0;font-size:1.05rem;font-weight:600;color:var(--ink);cursor:pointer;text-align:left;font-family:var(--sans)}
+.faq-q .fq-icon{flex:none;width:22px;height:22px;position:relative;transition:transform .3s var(--ease)}
+.faq-q .fq-icon::before,.faq-q .fq-icon::after{content:'';position:absolute;inset:0;margin:auto;background:var(--red);border-radius:2px}
+.faq-q .fq-icon::before{width:14px;height:2px}
+.faq-q .fq-icon::after{width:2px;height:14px}
+.faq-item.open .fq-icon{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s var(--ease)}
+.faq-a p{padding:0 0 1.2rem;color:var(--muted);line-height:1.6;max-width:42em}
+.faq-item.open .faq-a{max-height:300px}
+
+/* ---------- newsletter band ---------- */
+.band-news{background:var(--warm);color:var(--warm-ink)}
+[data-theme="dark"] .band-news{background:var(--warm)}
+.band-news .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:2.5rem;align-items:center}
+.band-news h2{font-family:var(--serif);font-size:clamp(1.6rem,3vw,2.3rem);font-weight:600;color:var(--warm-ink)}
+.band-news .sub{color:var(--muted);margin-top:.6rem;max-width:30em}
+.news-form{display:flex;gap:.6rem;flex-wrap:wrap;background:var(--surface);border:1px solid var(--warm-line);border-radius:var(--r-lg);padding:.4rem .4rem .4rem 1rem;box-shadow:var(--shadow);align-items:center}
+.news-form input{flex:1;min-width:140px;border:none;background:none;padding:.7rem 0;font-size:.95rem;color:var(--warm-ink);font-family:var(--sans)}
+.news-form input::placeholder{color:var(--faint)}
+.news-form .btn{padding:.8rem 1.4rem;background:var(--warm-ink);color:var(--warm)}
+.news-form .btn:hover{background:#000}
+.nl-honest{font-size:.82rem;color:var(--muted);margin-top:.8rem}
+.nl-honest a{color:var(--warm-ink);font-weight:600}
+.nl-msg{margin-top:.8rem;font-size:.9rem;font-weight:600;color:var(--teal)}
+.nl-msg.ok{color:var(--red)}
+
+/* ---------- footer ---------- */
+.footer{background:var(--teal);color:#fff;padding:3rem 0 2rem;margin-top:0}
+[data-theme="dark"] .footer{background:#0F252B}
+.footer .wrap{display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:2.5rem}
+.footer h3{font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--teal-faint);margin-bottom:1rem}
+.footer ul{list-style:none;display:grid;gap:.5rem}
+.footer a{color:var(--teal-faint);text-decoration:none;font-size:.92rem}
+.footer a:hover{color:#fff}
+.footer .f-brand{font-family:var(--serif);font-size:1.5rem;font-weight:600;color:#fff;display:flex;align-items:center;gap:.5rem}
+.footer .f-desc{color:var(--teal-faint);margin-top:.7rem;max-width:22em;font-size:.92rem}
+.footer .slow{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.2rem}
+.footer .slow span{font-size:.72rem;font-weight:700;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);padding:.3rem .6rem;border-radius:var(--pill);color:var(--teal-faint)}
+.footer .bottom{border-top:1px solid rgba(255,255,255,0.15);margin-top:2.5rem;padding-top:1.4rem;display:flex;flex-wrap:wrap;gap:.6rem;justify-content:space-between;font-size:.84rem;color:var(--teal-faint)}
+
+/* ---------- cookie ---------- */
+.cookie{position:fixed;right:1rem;bottom:1rem;left:auto;width:min(400px,calc(100vw - 2rem));background:var(--teal);color:#fff;border-radius:var(--r-lg);padding:.95rem 1.1rem;display:flex;align-items:center;gap:.9rem;box-shadow:var(--shadow-hover);border:1px solid rgba(255,255,255,0.15);transform:translateY(calc(100% + 1.6rem));transition:transform .4s var(--ease);z-index:var(--z-banner)}
+.cookie.show{transform:translateY(0)}
+.cookie p{font-size:.85rem;flex:1;line-height:1.4;color:#fff}
+.cookie .cookie-actions{display:flex;gap:.5rem;flex:none}
+.cookie .ck{font-family:var(--sans);font-size:.8rem;font-weight:700;border-radius:var(--r);padding:.55rem .9rem;cursor:pointer;border:1px solid transparent}
+.cookie .ck-ok{background:#fff;color:#0F252B}
+.cookie .ck-ok:hover{background:#C9D6D4;color:#0F252B}
+.cookie .ck-no{background:transparent;color:#fff;border-color:rgba(255,255,255,0.4)}
+.cookie .ck-no:hover{border-color:#fff}
+@media (max-width:700px){
+  .cookie{top:calc(var(--nav-h,72px) + .6rem);bottom:auto;left:.75rem;right:.75rem;width:auto;max-width:none;transform:translateY(calc(-100% - 10rem))}
+  .cookie.show{transform:translateY(0)}
+}
+
+/* ---------- responsive ---------- */
+@media (max-width:1024px){
+  .hero-in{grid-template-columns:1fr}
+  .hero-media{max-width:520px}
+  .sal-chip{left:.5rem}
+  .prov .wrap{grid-template-columns:1fr}
+  .py-slot.offset{transform:none}
+  .py-slot.offset:hover{transform:rotate(-1deg)}
+  .band-news .wrap{grid-template-columns:1fr}
+  .footer .wrap{grid-template-columns:1fr 1fr}
+}
+@media (max-width:760px){
+  .nav-actions a.navlink{display:none}
+  .burger{display:grid;place-items:center}
+  .footer .wrap{grid-template-columns:1fr}
+}
+@media (max-width:520px){
+  .nav-in{height:64px}
+  .brand .l2{display:none}
+  .hero h1{font-size:clamp(2rem,9vw,2.6rem)}
+  .hero-cta .btn{width:100%}
+  .hero-media .float-dot{display:none}
+  .news-form{flex-direction:column;align-items:stretch;padding:.8rem}
+  .news-form input{padding:.6rem .2rem}
+  .news-form .btn{width:100%}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#market" data-i18n="a11y.skip">Saltar al contenido</a>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#hero" aria-label="Salina">
+      <svg viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" rx="24" fill="#14343C"/><circle cx="50" cy="52" r="26" fill="#EDF4F2"/><circle cx="50" cy="52" r="19" fill="#6EA5A0"/><path d="M50 52 L50 30" stroke="#F2C9D4" stroke-width="5" stroke-linecap="round"/></svg>
+      <span><strong>SALINA</strong> <span class="l2" data-i18n="brand.sub">· flor de sal de Cádiz</span></span>
+    </a>
+    <nav class="nav-actions" aria-label="Principal">
+      <a class="navlink" href="#market" data-i18n="nav.market">Catálogo</a>
+      <a class="navlink" href="#process" data-i18n="nav.process">Directo de salina</a>
+      <a class="navlink" href="#craft" data-i18n="nav.craft">La cosecha</a>
+      <a class="navlink" href="#faq" data-i18n="nav.faq">Preguntas</a>
+      <div class="lang-select" id="langSel">
+        <button class="lang-select__btn" type="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Idioma / Language">
+          <span class="lang-select__cur">ES</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="lang-select__menu" role="listbox" aria-label="Language" id="langMenu"></div>
+      </div>
+      <button class="icon-btn" id="themeToggle" type="button" data-i18n-aria="theme.aria">🌙</button>
+      <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="mobileMenu" data-i18n-aria="a11y.menu">☰</button>
+    </nav>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <button class="menu-close" id="menuClose" type="button" aria-label="Cerrar">✕</button>
+  <a class="m-link" href="#market" data-i18n="nav.market">Catálogo</a>
+  <a class="m-link" href="#process" data-i18n="nav.process">Directo de salina</a>
+  <a class="m-link" href="#craft" data-i18n="nav.craft">La cosecha</a>
+  <a class="m-link" href="#faq" data-i18n="nav.faq">Preguntas</a>
+  <a class="m-link" href="#market" data-i18n="nav.shop">Comprar flor de sal</a>
+  <div class="lang-select" id="langSelMobile">
+    <button class="lang-select__btn" type="button" aria-haspopup="listbox" aria-expanded="false" data-i18n-aria="a11y.lang">
+      <span class="lang-select__cur">ES</span>
+    </button>
+    <div class="lang-select__menu" role="listbox" aria-label="Language" id="langMenuMobile"></div>
+  </div>
+</div>
+
+<main id="main">
+  <section class="hero" id="hero" aria-labelledby="hero-title">
+    <div class="wrap hero-in">
+      <div class="hero-copy">
+        <h1 id="hero-title" data-i18n-html="hero.title">Flor de sal de las salinas,<br>de <span class="br">cosecha del amanecer</span></h1>
+        <p class="lede" data-i18n="hero.lede">Compra la sal marina más delicada del Mediterráneo, directa de productores verificados del litoral de Cádiz. Cada tarro lleva el nombre de quien lo cosechó y la playa donde nació. Envío a casa en 72&nbsp;horas.</p>
+        <div class="hero-cta">
+          <a class="btn btn-red" href="#market" data-i18n="hero.cta">Explorar el catálogo</a>
+          <a class="btn btn-ghost" href="#process" data-i18n="hero.cta2">Cómo llega a tu mesa</a>
+        </div>
+        <div class="hero-trust">
+          <span class="pill" data-i18n="hero.pill1">12 salinas familiares</span>
+          <span class="pill" data-i18n="hero.pill2">Recogida al alba</span>
+          <span class="pill" data-i18n="hero.pill3">Envío en 72&nbsp;h</span>
+        </div>
+        <p class="trust-note" data-i18n="hero.note">Recomendada por 25 cocinas con estrella · 4,9 ★ en 1.800 opiniones verificadas</p>
+      </div>
+      <div class="hero-media">
+        <div class="hero-curtain">
+          <img src="https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&w=1600&q=80" alt="Campo de salinas al amanecer con montones de sal blanca junto al mar" loading="eager">
+        </div>
+        <div class="sal-chip" aria-hidden="true">
+          <div class="sc-you" data-i18n="chip.you">Hoy, 06:40</div>
+          <div class="sc-name">Sal de Bonanza</div>
+          <div class="sc-sal" data-i18n="chip.sal">Flor de sal · Sanlúcar</div>
+          <span class="sc-tag" data-i18n="chip.tag">Cosecha de hoy</span>
+        </div>
+        <div class="float-dot" aria-hidden="true"><b>0,1</b>&nbsp;mm</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="riv" aria-hidden="true">
+    <div class="riv-track">
+      <span data-i18n-html="riv.1"><em>fleur de sel</em>:</span>
+    </div>
+  </div>
+
+  <section class="prov" aria-labelledby="prov-title">
+    <div class="wrap">
+      <div class="prov-copy">
+        <span class="prov-kicker" data-i18n="prov.kicker">Directo de salina</span>
+        <h2 id="prov-title" data-i18n="prov.title">Del borde de la salina a tu cocina, sin escalas</h2>
+        <p data-i18n="prov.text">Trabajamos con doce salinas familiares de la costa de Cádiz. Cada una conserva los oficios del salinero: se rapa la salmuera con rastrillo al alba y se deja el cristal ahí, blanco sobre el agua quieta. Te contamos de quién viene, de qué playa y en qué ciclo lunar se cosechó.</p>
+        <div class="py-pills">
+          <div class="py-pill">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+            <div><div class="pp-t" data-i18n="prov.pill1t">Productor verificado</div><div class="pp-s" data-i18n="prov.pill1s">Visitamos cada salina y comprobamos la trazabilidad.</div></div>
+          </div>
+          <div class="py-pill">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            <div><div class="pp-t" data-i18n="prov.pill2t">Cosecha del alba</div><div class="pp-s" data-i18n="prov.pill2s">Solo se recoge la flor antes de que la brisa la quiebre.</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="py-visual">
+        <div class="py-stack">
+          <h3 data-i18n="prov.stackTitle">Hoy se cosecha</h3>
+          <button type="button" class="py-slot" data-slot="0">
+            <img class="py-thumb" src="https://images.pexels.com/photos/635279/pexels-photo-635279.jpeg?auto=compress&cs=tinysrgb&w=200" alt="" loading="lazy">
+            <div><div class="ps-n">Sal de Bonanza</div><div class="ps-a">Sanlúcar de Barrameda</div></div>
+            <div class="ps-p">9,50 €</div>
+          </button>
+          <button type="button" class="py-slot offset" data-slot="1">
+            <img class="py-thumb" src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&w=200&q=80" alt="" loading="lazy">
+            <div><div class="ps-n">Sal de la Janda</div><div class="ps-a">Vejer de la Frontera</div></div>
+            <div class="ps-p">7,90 €</div>
+          </button>
+          <button type="button" class="py-slot offset2" data-slot="2">
+            <img class="py-thumb" src="https://images.unsplash.com/photo-1473116763249-2faaef81ccda?auto=format&fit=crop&w=200&q=80" alt="" loading="lazy">
+            <div><div class="ps-n">Sal de Barbate</div><div class="ps-a">Punta Paloma</div></div>
+            <div class="ps-p">8,90 €</div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section market" id="market" aria-labelledby="market-title">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow" data-i18n="market.eyebrow">Catálogo</span>
+        <h2 id="market-title" data-i18n="market.title">Toda la flor de sal, en un mismo lugar</h2>
+        <p data-i18n="market.sub">Salinas grandes y pequeñas, cosechas tempranas y tardías. Cada tarro cuenta su origen.</p>
+      </div>
+      <div class="grid" id="marketGrid"></div>
+    </div>
+  </section>
+
+  <section class="section" id="process" aria-labelledby="process-title">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow ey-blue" data-i18n="process.eyebrow">Cómo funciona</span>
+        <h2 id="process-title" data-i18n="process.title">De la salina a tu mesa en tres pasos</h2>
+      </div>
+      <div class="steps">
+        <article class="step">
+          <div class="n">1</div>
+          <div class="para"><h3 data-i18n="process.s1t">Elige tu salina</h3><p data-i18n="process.s1d">Explora el catálogo y filtra por playa, sabor o cosecha. Cada producto incluye el nombre del salinero y el ciclo lunar en que se recogió la flor.</p></div>
+        </article>
+        <article class="step">
+          <div class="n">2</div>
+          <div class="para"><h3 data-i18n="process.s2t">Se cosecha a tu nombre</h3><p data-i18n="process.s2d">Confirmamos tu pedido con la salina. La flor nunca reposa en almacén: se recoge fresca y se envasa solo para tu envío.</p></div>
+        </article>
+        <article class="step">
+          <div class="n">3</div>
+          <div class="para"><h3 data-i18n="process.s3t">Llega en 72 horas</h3><p data-i18n="process.s3d">Envasada al vacío y protegida de la humedad. Solo sal marina, ninguna crocante innecesario: así sabe la costa.</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="craft" aria-labelledby="craft-title">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow ey-pink" data-i18n="craft.eyebrow">La cosecha</span>
+        <h2 id="craft-title" data-i18n="craft.title">El oficio, de madrugada</h2>
+        <p data-i18n="craft.sub">La flor de sal se forma en la superficie del agua. Se rastrilla antes de que el sol la seque en el fondo.</p>
+      </div>
+      <div class="timeline">
+        <div class="tl"><h3 data-i18n="craft.t1t">01:00 — Florece la salmuera</h3><p data-i18n="craft.t1d">En el fresco de la noche, los cristales flotan y forman la flor sobre el agua. Si sopla el viento, se hunden; por eso se trabaja a salmuera en calma.</p><span class="mono-chip" data-i18n="craft.t1s">Crecimiento cristalino</span></div>
+        <div class="tl"><h3 data-i18n="craft.t2t">05:30 — El rastrillo</h3><p data-i18n="craft.t2d">Con el rastrillo de madera, el salinero rapa suavemente la capa superficial. Un solo gesto por día: la flor no perdona la prisa.</p><span class="mono-chip" data-i18n="craft.t2s">Trabajo manual</span></div>
+        <div class="tl"><h3 data-i18n="craft.t3t">07:00 — Drenaje y secado</h3><p data-i18n="craft.t3d">La flor se escurre sobre seda para que conserve su crujido hueco. Cero lavado, cero aditivos: solo mar y sol.</p><span class="mono-chip" data-i18n="craft.t3s">Sin aditivos</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="band band-quote" aria-label="Cita de la salinera">
+    <div class="wrap">
+      <p class="big-quote" data-i18n-html="quote.text">«El mar nos deja la flor una vez al año,<br>cuando la noche está en calma. Aquí no se inventa nada: se espera.»</p>
+      <div class="q-by" style="justify-content:center">
+        <span class="ava" aria-hidden="true">CM</span>
+        <div><div class="qn" data-i18n="quote.name">Carmen Montaño</div><div class="qr" data-i18n="quote.role">Solinera · Salina de Bonanza</div></div>
+      </div>
+    </div>
+  </div>
+
+  <section class="section" id="voices" aria-labelledby="voices-title">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow" data-i18n="voices.eyebrow">Opiniones</span>
+        <h2 id="voices-title" data-i18n="voices.title">Lo que dicen quienes ya la prueban</h2>
+      </div>
+      <div class="testi-grid">
+        <article class="testi">
+          <div class="stars" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2l3 6 6 .9-4.5 4.3 1 6-5.5-3-5.5 3 1-6L3 8.9 9 8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 6 6 .9-4.5 4.3 1 6-5.5-3-5.5 3 1-6L3 8.9 9 8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 6 6 .9-4.5 4.3 1 6-5.5-3-5.5 3 1-6L3 8.9 9 8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 6 6 .9-4.5 4.3 1 6-5.5-3-5.5 3 1-6L3 8.9 9 8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 6 6 .9-4.5 4.3 1 6-5.5-3-5.5 3 1-6L3 8.9 9 8z"/></svg></div>
+          <blockquote data-i18n="t1">«Terminé la sal de Bonanza en dos semanas. Ahora entiendo qué se pierde la sal de mesa.»</blockquote>
+          <div class="t-by"><span class="ava" style="background:var(--teal)" aria-hidden="true">MP</span><div><div class="tn">Marta Prieto</div><div class="ts" data-i18n="t1role">Compradora recurrente</div></div></div>
+        </article>
+        <article class="testi">
+          <div class="stars" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2l3 6 6 .9-4.5 4.3 1 6-5.5-3-5.5 3 1-6L3 8.9 9 8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 6 6 .9-4.5 4.3 1 6-5.5-3-5.5 3 1-6L3 8.9 9 8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 6 6 .9-4.5 4.3 1 6-5.5-3-5.5 3 1-6L3 8.9 9 8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 6 6 .9-4.5 4.3 1 6-5.5-3-5.5 3 1-6L3 8.9 9 8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 6 6 .9-4.5 4.3 1 6-5.5-3-5.5 3 1-6L3 8.9 9 8z"/></svg></div>
+          <blockquote data-i18n="t2">«Me encanta que cada tarro diga de qué playa viene. El de Punta Paloma es mi favorito.»</blockquote>
+          <div class="t-by"><span class="ava" style="background:var(--pink)" aria-hidden="true">JR</span><div><div class="tn">Jorge Ruiz</div><div class="ts" data-i18n="t2role">Gastrónomo</div></div></div>
+        </article>
+        <article class="testi">
+          <div class="stars" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2l3 6 6 .9-4.5 4.3 1 6-5.5-3-5.5 3 1-6L3 8.9 9 8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 6 6 .9-4.5 4.3 1 6-5.5-3-5.5 3 1-6L3 8.9 9 8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 6 6 .9-4.5 4.3 1 6-5.5-3-5.5 3 1-6L3 8.9 9 8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 6 6 .9-4.5 4.3 1 6-5.5-3-5.5 3 1-6L3 8.9 9 8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 6 6 .9-4.5 4.3 1 6-5.5-3-5.5 3 1-6L3 8.9 9 8z"/></svg></div>
+          <blockquote data-i18n="t3">«El envío llegó en dos días y la flor intacta, crujiente. Volveré a comprar.»</blockquote>
+          <div class="t-by"><span class="ava" style="background:var(--peach-soft);color:#8B1733" aria-hidden="true">AL</span><div><div class="tn">Ana López</div><div class="ts" data-i18n="t3role">Cliente verificada</div></div></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="faq" aria-labelledby="faq-title">
+    <div class="wrap">
+      <div class="section-head center" style="margin-inline:auto">
+        <span class="eyebrow" style="justify-content:center" data-i18n="faq.eyebrow">Preguntas frecuentes</span>
+        <h2 id="faq-title" data-i18n="faq.title">Todo lo que quieres saber</h2>
+      </div>
+      <div class="faq">
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false"><span data-i18n="q1">¿Qué diferencia hay entre flor de sal y sal marina normal?</span><span class="fq-icon" aria-hidden="true"></span></button>
+          <div class="faq-a"><p data-i18n="a1">La flor de sal se forma solo en la superficie de la salmuera y se recoge a mano al amanecer, antes de que se asiente en el fondo. Es un cristal hueco y crujiente, más delicado y salado. No se lava ni se le añade nada.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false"><span data-i18n="q2">¿Cuánto dura un tarro abierto?</span><span class="fq-icon" aria-hidden="true"></span></button>
+          <div class="faq-a"><p data-i18n="a2">Guardado en un tarro seco y hermético, la flor de sal se conserva meses sin perder su crujido. Evita la humedad y no la pongas junto al fuego.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false"><span data-i18n="q3">¿De dónde es la sal que vendéis?</span><span class="fq-icon" aria-hidden="true"></span></button>
+          <div class="faq-a"><p data-i18n="a3">De doce salinas familiares del litoral de Cádiz: Sanlúcar, Chiclana, Barbate, Vejer y alrededores. Cada tarro indica la salina, el salinero y la playa. Nada se mezcla.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false"><span data-i18n="q4">¿Cuánto tarda el envío?</span><span class="fq-icon" aria-hidden="true"></span></button>
+          <div class="faq-a"><p data-i18n="a4">Preparamos tu pedido con la salina y lo enviamos en 72 horas a cualquier punto de la península. Los envíos son siempre refrigerados y protegidos de la humedad.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false"><span data-i18n="q5">¿Puedo regalar flor de sal?</span><span class="fq-icon" aria-hidden="true"></span></button>
+          <div class="faq-a"><p data-i18n="a5">Por supuesto. Envuelta en un tarro de cerámica artesanal, es el regalo perfecto para quienes aman cocinar. Añade una nota con el origen de la salina.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="band band-news" id="news">
+    <div class="wrap">
+      <div class="news-copy">
+        <h2 data-i18n-html="news.title">Los mejores <em>entrenos</em> de mar,<br>una vez al mes</h2>
+        <p class="sub" data-i18n="news.sub">Un correo con la cosecha del mes, recetas de cocinas con estrella y pronto la salina que abrirá sus puertas. Sin ruido.</p>
+      </div>
+      <div>
+        <form class="news-form" id="newsForm" novalidate>
+          <input type="email" id="newsEmail" name="email" placeholder="tucorreo@ejemplo.com" autocomplete="email" data-i18n-ph="news.ph" aria-label="Correo electrónico">
+          <button class="btn" type="submit" data-i18n="news.btn">Suscribirme</button>
+        </form>
+        <p class="nl-msg" id="nlMsg" role="status"></p>
+        <p class="nl-honest" data-i18n-html="news.honest">La lista de cosecha es real: no enviamos publicidad. También puedes escribirnos a <a href="mailto:hola@salinas.es">hola@salinas.es</a>.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div>
+        <div class="f-brand" style="justify-content:flex-start">
+          <svg viewBox="0 0 100 100" width="30" height="30" aria-hidden="true"><rect width="100" height="100" rx="24" fill="#FFFFFF22"/><circle cx="50" cy="52" r="26" fill="#EDF4F2"/><circle cx="50" cy="52" r="19" fill="#6EA5A0"/><path d="M50 52 L50 30" stroke="#F2C9D4" stroke-width="5" stroke-linecap="round"/></svg>
+          SALINA
+        </div>
+        <p class="f-desc" data-i18n="footer.desc">La flor de sal de Cádiz, en tu mesa. Un marketplace honesto que da de comer a las salinas familiares que sostienen esta costa.</p>
+        <div class="slow" aria-hidden="true"><span>Cosecha al alba</span><span>Sin aditivos</span><span>Traza completa</span></div>
+      </div>
+      <div>
+        <h3 data-i18n="footer.market">Catálogo</h3>
+        <ul>
+          <li><a href="#market" data-i18n="footer.f1">Flor de sal de mesa</a></li>
+          <li><a href="#market" data-i18n="footer.f2">Sal de escabeche</a></li>
+          <li><a href="#market" data-i18n="footer.f3">Cestas de regalo</a></li>
+          <li><a href="#market" data-i18n="footer.f4">Sal ahumada</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 data-i18n="footer.company">La casa</h3>
+        <ul>
+          <li><a href="#process" data-i18n="footer.f5">Nuestras salinas</a></li>
+          <li><a href="#craft" data-i18n="footer.f6">El oficio del salinero</a></li>
+          <li><a href="#news" data-i18n="footer.f7">Carta de mar</a></li>
+          <li><a href="mailto:hola@salinas.es" data-i18n="footer.mail">hola@salinas.es</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 data-i18n="footer.legal">Legal</h3>
+        <ul>
+          <li><a href="#faq" data-i18n="footer.l1">Envíos y devoluciones</a></li>
+          <li><a href="#faq" data-i18n="footer.l2">Privacidad</a></li>
+          <li><a href="#faq" data-i18n="footer.l3">Condiciones</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="bottom">
+        <span>© 2026 Salina · Sanlúcar de Barrameda, Cádiz</span>
+        <span data-i18n="footer.coast">Hecho junto al mar, en una noche en calma.</span>
+      </div>
+    </div>
+  </footer>
+</main>
+
+<div class="cookie" id="cookieBanner" role="region" aria-label="Aviso de cookies">
+  <p data-i18n="cookie.msg">Usamos cookies solo para recordar tu idioma y tu tema. Nada de seguimiento.</p>
+  <div class="cookie-actions">
+    <button class="ck ck-ok" id="cookieOk" type="button" data-i18n="cookie.ok">Vale</button>
+    <button class="ck ck-no" id="cookieNo" type="button" data-i18n="cookie.no">No</button>
+  </div>
+</div>
+
+<script>
+(function () {
+'use strict';
+var T = {
+  en: {
+    'a11y.skip':'Skip to content','a11y.menu':'Open menu','a11y.lang':'Language',
+    'brand.sub':'· Cádiz fleur de sel',
+    'nav.market':'Shop','nav.process':'Direct from salina','nav.craft':'The harvest','nav.faq':'FAQ','nav.shop':'Shop fleur de sel',
+    'theme.aria':'Switch to dark mode',
+    'hero.title':'Fleur de sel from the salt flats,<br>of <span class="br">dawn harvest</span>',
+    'hero.lede':'Buy the Mediterranean\'s most delicate sea salt, straight from verified producers on the Cádiz coast. Every jar carries the name of the harvester and the beach where it was born. Delivered to your door in 72 hours.',
+    'hero.cta':'Explore the shop','hero.cta2':'How it reaches your table',
+    'hero.pill1':'12 family salt flats','hero.pill2':'Dawn harvest','hero.pill3':'72-hour delivery',
+    'hero.note':'Recommended by 25 Michelin kitchens · 4.9 ★ across 1,800 verified reviews',
+    'chip.you':'Today · 06:40','chip.sal':'Fleur de sel · Sanlúcar','chip.tag':'Today\'s harvest',
+    'riv.1':'from the <em>fleur de sel</em> to the plate · dawn harvest · salt flats alive since the 16th century · <em>72-hour delivery</em> · a taste of sea and scrubland ·',
+    'prov.kicker':'Direct from salina',
+    'prov.title':'From the edge of the salt pan to your kitchen, no middlemen',
+    'prov.text':'We work with twelve family salt flats on the Cádiz coast. Each one keeps the old salina craft alive: the brine is skimmed with a wooden rake at dawn, leaving the crystal there, white on the still water. We tell you who grew it, which beach and under which moon cycle it was harvested.',
+    'prov.pill1t':'Verified producer','prov.pill1s':'We visit every salt flat and check the traceability.',
+    'prov.pill2t':'Dawn harvest','prov.pill2s':'The flower is only picked before the breeze breaks it.',
+    'prov.stackTitle':'Harvesting today',
+    'market.eyebrow':'Shop','market.title':'Every fleur de sel, under one roof',
+    'market.sub':'Big and small salt flats, early and late harvests. Every jar tells its origin.',
+    'process.eyebrow':'How it works','process.title':'From salt flat to your table in three steps',
+    'process.s1t':'Choose your salt flat','process.s1d':'Browse the shop and filter by beach, flavour or harvest. Every product lists the salina worker and the moon cycle the flower was picked under.',
+    'process.s2t':'Harvested in your name','process.s2d':'We confirm your order with the salt flat. The flower never rests in a warehouse: it is picked fresh and packed only for your delivery.',
+    'process.s3t':'Arrives in 72 hours','process.s3d':'Vacuum-packed and protected from humidity. Just pure sea salt, nothing unnecessary: that is the taste of the coast.',
+    'craft.eyebrow':'The harvest','craft.title':'The craft, before dawn',
+    'craft.sub':'Fleur de sel forms on the surface of the water. It is raked before the sun dries it into the bottom.',
+    'craft.t1t':'01:00 — The brine blooms','craft.t1d':'In the cool of night the crystals float and form the flower on the water. A breeze sinks them, which is why the work happens in calm brine.','craft.t1s':'Crystal growth',
+    'craft.t2t':'05:30 — The rake','craft.t2d':'With a wooden rake the salina worker skims the surface layer. One single gesture a day: the flower has no patience for hurry.','craft.t2s':'Handcrafted',
+    'craft.t3t':'07:00 — Draining & drying','craft.t3d':'The flower is drained on silk so it keeps its hollow crunch. Zero washing, zero additives: only sea and sun.','craft.t3s':'No additives',
+    'quote.text':'«The sea leaves us the flower once a year,<br>when the night is calm. Nothing is invented here: you wait.»','quote.name':'Carmen Montaño','quote.role':'Salt-flat keeper · Salina de Bonanza',
+    'voices.eyebrow':'Reviews','voices.title':'What those who taste it say',
+    't1':'«I finished the Bonanza salt in two weeks. Now I understand what table salt is missing.»','t1role':'Repeat buyer',
+    't2':'«I love that every jar says which beach it comes from. Punta Paloma is my favourite.»','t2role':'Food lover',
+    't3':'«The delivery arrived in two days and the flower was intact and crunchy. I will buy again.»','t3role':'Verified customer',
+    'faq.eyebrow':'FAQ','faq.title':'Everything you want to know',
+    'q1':'What is the difference between fleur de sel and regular sea salt?','a1':'Fleur de sel forms only on the surface of the brine and is hand-picked at dawn, before it settles on the bottom. It is a hollow, crunchy crystal, more delicate and saltier. It is never washed or given anything.',
+    'q2':'How long does an open jar last?','a2':'Kept in a dry, sealed jar, fleur de sel keeps its crunch for months. Avoid humidity and keep it away from the stove.',
+    'q3':'Where does the salt you sell come from?','a3':'From twelve family salt flats on the Cádiz coast: Sanlúcar, Chiclana, Barbate, Vejer and surroundings. Each jar names the salt flat, the keeper and the beach. Nothing is blended.',
+    'q4':'How long does delivery take?','a4':'We prepare your order with the salt flat and ship within 72 hours to anywhere on the peninsula. Shipments are always chilled and protected from humidity.',
+    'q5':'Can I gift fleur de sel?','a5':'Of course. Packed in a handmade ceramic jar, it is the perfect gift for anyone who loves to cook. Add a note with the salt flat\'s origin.',
+    'news.title':'The best <em>brine notes</em>,<br>once a month','news.sub':'One email with the month\'s harvest, recipes from Michelin kitchens and soon the salt flat that will open its doors. No noise.',
+    'news.ph':'your@email.com','news.btn':'Subscribe','news.ok':'We just opened your mail client so you can send us your email. Thank you!',
+    'news.honest':'The harvest list is real: we do not send ads. You can also write to us at <a href="mailto:hola@salinas.es">hola@salinas.es</a>.',
+    'cookie.msg':'We use cookies only to remember your language and theme. No tracking.','cookie.ok':'OK','cookie.no':'No',
+    'footer.desc':'The fleur de sel of Cádiz, on your table. An honest marketplace that feeds the family salt flats sustaining this coast.',
+    'footer.market':'Shop','footer.company':'The house','footer.legal':'Legal',
+    'footer.f1':'Table fleur de sel','footer.f2':'Pickling salt','footer.f3':'Gift boxes','footer.f4':'Smoked salt',
+    'footer.f5':'Our salt flats','footer.f6':'The salineer craft','footer.f7':'Sea letter','footer.mail':'hola@salinas.es',
+    'footer.l1':'Shipping & returns','footer.l2':'Privacy','footer.l3':'Terms','footer.coast':'Made by the sea, on a calm night.',
+    'meta.title':'SALINA · Cádiz fleur de sel marketplace','meta.desc':'Buy fleur de sel from family salt flats on the Cádiz coast. Dawn harvest, 72-hour delivery, verified producers. Your salt, with a name and a beach.'
+  },
+  es: {
+    'a11y.skip':'Saltar al contenido','a11y.menu':'Abrir menú','a11y.lang':'Idioma',
+    'brand.sub':'· flor de sal de Cádiz',
+    'nav.market':'Catálogo','nav.process':'Directo de salina','nav.craft':'La cosecha','nav.faq':'Preguntas','nav.shop':'Comprar flor de sal',
+    'theme.aria':'Cambiar a modo oscuro',
+    'hero.title':'Flor de sal de las salinas,<br>de <span class="br">cosecha del amanecer</span>',
+    'hero.lede':'Compra la sal marina más delicada del Mediterráneo, directa de productores verificados del litoral de Cádiz. Cada tarro lleva el nombre de quien lo cosechó y la playa donde nació. Envío a casa en 72 horas.',
+    'hero.cta':'Explorar el catálogo','hero.cta2':'Cómo llega a tu mesa',
+    'hero.pill1':'12 salinas familiares','hero.pill2':'Recogida al alba','hero.pill3':'Envío en 72 h',
+    'hero.note':'Recomendada por 25 cocinas con estrella · 4,9 ★ en 1.800 opiniones verificadas',
+    'chip.you':'Hoy, 06:40','chip.sal':'Flor de sal · Sanlúcar','chip.tag':'Cosecha de hoy',
+    
+    'riv.1':'del <em>flor de sal</em> al plato · cosecha del alba · salinas vivas desde el siglo XVI · <em>envío en 72&nbsp;h</em> · sabor a mar y matorral ·','prov.kicker':'Directo de salina',
+    'prov.title':'Del borde de la salina a tu cocina, sin escalas',
+    'prov.text':'Trabajamos con doce salinas familiares de la costa de Cádiz. Cada una conserva los oficios del salinero: se rapa la salmuera con rastrillo al alba y se deja el cristal ahí, blanco sobre el agua quieta. Te contamos de quién viene, de qué playa y en qué ciclo lunar se cosechó.',
+    'prov.pill1t':'Productor verificado','prov.pill1s':'Visitamos cada salina y comprobamos la trazabilidad.',
+    'prov.pill2t':'Cosecha del alba','prov.pill2s':'Solo se recoge la flor antes de que la brisa la quiebre.',
+    'prov.stackTitle':'Hoy se cosecha',
+    'market.eyebrow':'Catálogo','market.title':'Toda la flor de sal, en un mismo lugar',
+    'market.sub':'Salinas grandes y pequeñas, cosechas tempranas y tardías. Cada tarro cuenta su origen.',
+    'process.eyebrow':'Cómo funciona','process.title':'De la salina a tu mesa en tres pasos',
+    'process.s1t':'Elige tu salina','process.s1d':'Explora el catálogo y filtra por playa, sabor o cosecha. Cada producto incluye el nombre del salinero y el ciclo lunar en que se recogió la flor.',
+    'process.s2t':'Se cosecha a tu nombre','process.s2d':'Confirmamos tu pedido con la salina. La flor nunca reposa en almacén: se recoge fresca y se envasa solo para tu envío.',
+    'process.s3t':'Llega en 72 horas','process.s3d':'Envasada al vacío y protegida de la humedad. Solo sal marina, ninguna crocante innecesario: así sabe la costa.',
+    'craft.eyebrow':'La cosecha','craft.title':'El oficio, de madrugada',
+    'craft.sub':'La flor de sal se forma en la superficie del agua. Se rastrilla antes de que el sol la seque en el fondo.',
+    'craft.t1t':'01:00 — Florece la salmuera','craft.t1d':'En el fresco de la noche, los cristales flotan y forman la flor sobre el agua. Si sopla el viento, se hunden; por eso se trabaja a salmuera en calma.','craft.t1s':'Crecimiento cristalino',
+    'craft.t2t':'05:30 — El rastrillo','craft.t2d':'Con el rastrillo de madera, el salinero rapa suavemente la capa superficial. Un solo gesto por día: la flor no perdona la prisa.','craft.t2s':'Trabajo manual',
+    'craft.t3t':'07:00 — Drenaje y secado','craft.t3d':'La flor se escurre sobre seda para que conserve su crujido hueco. Cero lavado, cero aditivos: solo mar y sol.','craft.t3s':'Sin aditivos',
+    'quote.text':'«El mar nos deja la flor una vez al año,<br>cuando la noche está en calma. Aquí no se inventa nada: se espera.»','quote.name':'Carmen Montaño','quote.role':'Solinera · Salina de Bonanza',
+    'voices.eyebrow':'Opiniones','voices.title':'Lo que dicen quienes ya la prueban',
+    't1':'«Terminé la sal de Bonanza en dos semanas. Ahora entiendo qué se pierde la sal de mesa.»','t1role':'Compradora recurrente',
+    't2':'«Me encanta que cada tarro diga de qué playa viene. El de Punta Paloma es mi favorito.»','t2role':'Gastrónomo',
+    't3':'«El envío llegó en dos días y la flor intacta, crujiente. Volveré a comprar.»','t3role':'Cliente verificada',
+    'faq.eyebrow':'Preguntas frecuentes','faq.title':'Todo lo que quieres saber',
+    'q1':'¿Qué diferencia hay entre flor de sal y sal marina normal?','a1':'La flor de sal se forma solo en la superficie de la salmuera y se recoge a mano al amanecer, antes de que se asiente en el fondo. Es un cristal hueco y crujiente, más delicado y salado. No se lava ni se le añade nada.',
+    'q2':'¿Cuánto dura un tarro abierto?','a2':'Guardado en un tarro seco y hermético, la flor de sal se conserva meses sin perder su crujido. Evita la humedad y no la pongas junto al fuego.',
+    'q3':'¿De dónde es la sal que vendéis?','a3':'De doce salinas familiares del litoral de Cádiz: Sanlúcar, Chiclana, Barbate, Vejer y alrededores. Cada tarro indica la salina, el salinero y la playa. Nada se mezcla.',
+    'q4':'¿Cuánto tarda el envío?','a4':'Preparamos tu pedido con la salina y lo enviamos en 72 horas a cualquier punto de la península. Los envíos son siempre refrigerados y protegidos de la humedad.',
+    'q5':'¿Puedo regalar flor de sal?','a5':'Por supuesto. Envuelta en un tarro de cerámica artesanal, es el regalo perfecto para quienes aman cocinar. Añade una nota con el origen de la salina.',
+    'news.title':'Los mejores <em>entrenos</em> de mar,<br>una vez al mes','news.sub':'Un correo con la cosecha del mes, recetas de cocinas con estrella y pronto la salina que abrirá sus puertas. Sin ruido.',
+    'news.ph':'tucorreo@ejemplo.com','news.btn':'Suscribirme','news.ok':'Te acabamos de abrir el correo para enviarnos tu dirección. ¡Gracias!',
+    'news.honest':'La lista de cosecha es real: no enviamos publicidad. También puedes escribirnos a <a href="mailto:hola@salinas.es">hola@salinas.es</a>.',
+    'cookie.msg':'Usamos cookies solo para recordar tu idioma y tu tema. Nada de seguimiento.','cookie.ok':'Vale','cookie.no':'No',
+    'footer.desc':'La flor de sal de Cádiz, en tu mesa. Un marketplace honesto que da de comer a las salinas familiares que sostienen esta costa.',
+    'footer.market':'Catálogo','footer.company':'La casa','footer.legal':'Legal',
+    'footer.f1':'Flor de sal de mesa','footer.f2':'Sal de escabeche','footer.f3':'Cestas de regalo','footer.f4':'Sal ahumada',
+    'footer.f5':'Nuestras salinas','footer.f6':'El oficio del salinero','footer.f7':'Carta de mar','footer.mail':'hola@salinas.es',
+    'footer.l1':'Envíos y devoluciones','footer.l2':'Privacidad','footer.l3':'Condiciones','footer.coast':'Hecho junto al mar, en una noche en calma.',
+    'meta.title':'SALINA · Marketplace del flor de sal de Cádiz','meta.desc':'Compra flor de sal de salinas familiares del litoral de Cádiz. Cosecha del amanecer, envío en 72h, productores verificados. Tu sal, con nombre y playa.'
+  },
+  fr: {
+    'a11y.skip':'Aller au contenu','a11y.menu':'Ouvrir le menu','a11y.lang':'Langue',
+    'brand.sub':'· fleur de sel de Cadix',
+    'nav.market':'Boutique','nav.process':'Direct des salines','nav.craft':'La récolte','nav.faq':'FAQ','nav.shop':'Acheter fleur de sel',
+    'theme.aria':'Passer en mode sombre',
+    'hero.title':'Fleur de sel des salines,<br>de <span class="br">récolte à l\'aube</span>',
+    'hero.lede':'Achetez le sel marin le plus délicat de Méditerranée, directement auprès de producteurs vérifiés de la côte de Cadix. Chaque bocal porte le nom de celui qui l\'a récolté et la plage où il est né. Livré chez vous en 72 heures.',
+    'hero.cta':'Explorer la boutique','hero.cta2':'Comment elle arrive à table',
+    'hero.pill1':'12 salines familiales','hero.pill2':'Récolte à l\'aube','hero.pill3':'Livraison 72 h',
+    'hero.note':'Recommandée par 25 cuisines étoilées · 4,9 ★ sur 1 800 avis vérifiés',
+    'chip.you':'Aujourd\'hui · 06:40','chip.sal':'Fleur de sel · Sanlúcar','chip.tag':'Récolte du jour',
+    
+    'riv.1':'de la <em>fleur de sel</em> à l’assiette · récolte à l’aube · des salines vivantes depuis le XVIe siècle · <em>livraison 72&nbsp;h</em> · un goût de mer et de garrigue ·','prov.kicker':'Direct des salines',
+    'prov.title':'Du bord de la saline à votre cuisine, sans intermédiaire',
+    'prov.text':'Nous travaillons avec douze salines familiales de la côte de Cadix. Chacune conserve le métier de saunier : l\'eau-mère est écumée au râteau à l\'aube et le cristal reste là, blanc sur l\'eau calme. Nous vous disons de qui elle vient, de quelle plage et sous quel cycle lunaire elle a été récoltée.',
+    'prov.pill1t':'Producteur vérifié','prov.pill1s':'Nous visitons chaque saline et vérifions la traçabilité.',
+    'prov.pill2t':'Récolte à l\'aube','prov.pill2s':'La fleur n\'est cueillie qu\'avant que la brise la brise.',
+    'prov.stackTitle':'Récolte du jour',
+    'market.eyebrow':'Boutique','market.title':'Toute la fleur de sel, au même endroit',
+    'market.sub':'Grandes et petites salines, récoltes précoces et tardives. Chaque bocal raconte son origine.',
+    'process.eyebrow':'Comment ça marche','process.title':'De la saline à table en trois étapes',
+    'process.s1t':'Choisissez votre saline','process.s1d':'Parcourez la boutique et filtrez par plage, saveur ou récolte. Chaque produit indique le saunier et le cycle lunaire de la cueillette.',
+    'process.s2t':'Récoltée à votre nom','process.s2d':'Nous confirmons votre commande avec la saline. La fleur ne repose jamais en entrepôt : elle est récoltée fraîche et emballée uniquement pour votre envoi.',
+    'process.s3t':'Arrive en 72 heures','process.s3d':'Sous vide et protégée de l\'humidité. Uniquement du sel marin, sans superflu : c\'est le goût de la côte.',
+    'craft.eyebrow':'La récolte','craft.title':'Le métier, avant l\'aube',
+    'craft.sub':'La fleur de sel se forme à la surface de l\'eau. Elle est râtelée avant que le soleil ne la sèche au fond.',
+    'craft.t1t':'01:00 — La saumure fleurit','craft.t1d':'Dans la fraîcheur de la nuit, les cristaux flottent et forment la fleur sur l\'eau. Une brise les coule ; c\'est pourquoi on travaille en saumure calme.','craft.t1s':'Croissance cristalline',
+    'craft.t2t':'05:30 — Le râteau','craft.t2d':'Avec le râteau de bois, le saunier écume doucement la couche de surface. Un seul geste par jour : la fleur n\'accepte pas la hâte.','craft.t2s':'Travail manuel',
+    'craft.t3t':'07:00 — Égouttage & séchage','craft.t3d':'La fleur s\'égoutte sur de la soie pour garder son croquant creux. Zéro lavage, zéro additif : la mer et le soleil seulement.','craft.t3s':'Sans additifs',
+    'quote.text':'«La mer nous laisse la fleur une fois par an,<br>quand la nuit est calme. Ici on n\'invente rien : on attend.»','quote.name':'Carmen Montaño','quote.role':'Saunière · Saline de Bonanza',
+    'voices.eyebrow':'Avis','voices.title':'Ce que disent ceux qui la goûtent',
+    't1':'«J\'ai terminé le sel de Bonanza en deux semaines. Je comprends ce qui manque au sel de table.»','t1role':'Achat régulier',
+    't2':'«J\'aime que chaque bocal dise de quelle plage il vient. Punta Paloma est mon préféré.»','t2role':'Gastronome',
+    't3':'«La livraison est arrivée en deux jours et la fleur intacte, croquante. Je rachèterai.»','t3role':'Cliente vérifiée',
+    'faq.eyebrow':'FAQ','faq.title':'Tout ce que vous voulez savoir',
+    'q1':'Quelle différence entre fleur de sel et sel marin classique ?','a1':'La fleur de sel ne se forme qu\'à la surface de la saumure et se cueille à la main à l\'aube, avant de se déposer au fond. C\'est un cristal creux et croquant, plus délicat et plus salé. On ne la lave ni ne lui ajoute rien.',
+    'q2':'Combien de temps dure un bocal ouvert ?','a2':'Gardée dans un bocal sec et hermétique, la fleur de sel garde son croquant des mois. Évitez l\'humidité et éloignez-la du feu.',
+    'q3':'D\'où vient le sel que vous vendez ?','a3':'De douze salines familiales de la côte de Cadix : Sanlúcar, Chiclana, Barbate, Vejer et alentours. Chaque bocal indique la saline, le saunier et la plage. Rien n\'est mélangé.',
+    'q4':'Combien de temps prend la livraison ?','a4':'Nous préparons votre commande avec la saline et expédions sous 72 heures partout dans la péninsule. Les envois sont toujours réfrigérés et protégés de l\'humidité.',
+    'q5':'Puis-je offrir la fleur de sel ?','a5':'Bien sûr. Dans un bocal de céramique artisanale, c\'est le cadeau parfait pour qui aime cuisiner. Ajoutez une note avec l\'origine de la saline.',
+    'news.title':'Les meilleures <em>brines</em> de mer,<br>une fois par mois','news.sub':'Un courriel avec la récolte du mois, des recettes de cuisines étoilées et bientôt la saline qui ouvrira ses portes. Sans bruit.',
+    'news.ph':'votre@email.com','news.btn':'M\'inscrire','news.ok':'Nous venons d\'ouvrir votre client de messagerie pour envoyer votre adresse. Merci !',
+    'news.honest':'La liste de la récolte est réelle : nous n’envoyons pas de publicité. Vous pouvez aussi nous écrire à <a href="mailto:hola@salinas.es">hola@salinas.es</a>.',
+    'cookie.msg':'Nous utilisons des cookies uniquement pour mémoriser votre langue et votre thème. Aucun suivi.','cookie.ok':'D\'accord','cookie.no':'Non',
+    'footer.desc':'La fleur de sel de Cadix, sur votre table. Une place de marché honnête qui nourrit les salines familiales qui soutiennent cette côte.',
+    'footer.market':'Boutique','footer.company':'La maison','footer.legal':'Légal',
+    'footer.f1':'Fleur de sel de table','footer.f2':'Sel de décapage','footer.f3':'Coffrets cadeau','footer.f4':'Sel fumé',
+    'footer.f5':'Nos salines','footer.f6':'Le métier de saunier','footer.f7':'Lettre de mer','footer.mail':'hola@salinas.es',
+    'footer.l1':'Livraison & retours','footer.l2':'Confidentialité','footer.l3':'Conditions','footer.coast':'Fait au bord de la mer, par une nuit calme.',
+    'meta.title':'SALINA · Marché de la fleur de sel de Cadix','meta.desc':'Achetez la fleur de sel des salines familiales de la côte de Cadix. Récolte à l\'aube, livraison 72 h, producteurs vérifiés.'
+  },
+  de: {
+    'a11y.skip':'Zum Inhalt','a11y.menu':'Menü öffnen','a11y.lang':'Sprache',
+    'brand.sub':'· Meersalz aus Cádiz',
+    'nav.market':'Shop','nav.process':'Direkt aus der Saline','nav.craft':'Die Ernte','nav.faq':'FAQ','nav.shop':'Meersalz kaufen',
+    'theme.aria':'Zum dunklen Modus wechseln',
+    'hero.title':'Blüten-Salz aus den Salinen,<br>von der <span class="br">morgendlichen Ernte</span>',
+    'hero.lede':'Kaufen Sie das feinste Meersalz des Mittelmeers, direkt von zertifizierten Produzenten der Küste von Cádiz. Jedes Glas trägt den Namen der Ernte und den Strand seiner Herkunft. Lieferung in 72 Stunden.',
+    'hero.cta':'Shop entdecken','hero.cta2':'Wie es auf Ihren Tisch kommt',
+    'hero.pill1':'12 Familien-Salinen','hero.pill2':'Ernte im Morgengrauen','hero.pill3':'72-Stunden-Lieferung',
+    'hero.note':'Empfohlen von 25 Sterneküchen · 4,9 ★ bei 1.800 verifizierten Bewertungen',
+    'chip.you':'Heute · 06:40','chip.sal':'Meersalz · Sanlúcar','chip.tag':'Ernte von heute',
+    
+    'riv.1':'vom <em>Blüten-Salz</em> auf den Teller · Ernte im Morgengrauen · Salinen, die seit dem 16.&nbsp;Jahrhundert leben · <em>72-Stunden-Lieferung</em> · Geschmack von Meer und Macchie ·','prov.kicker':'Direkt aus der Saline',
+    'prov.title':'Vom Rand der Saline in Ihre Küche, ohne Umwege',
+    'prov.text':'Wir arbeiten mit zwölf Familien-Salinen an der Küste von Cádiz. Jede pflegt das Handwerk des Salzsieders: Die Sole wird im Morgengrauen mit dem Holzrechen abgeschöpft und der Kristall bleibt dort, weiß auf dem ruhigen Wasser. Wir sagen Ihnen, von wem sie stammt, von welchem Strand und unter welchem Mondzyklus sie geerntet wurde.',
+    'prov.pill1t':'Zertifizierter Erzeuger','prov.pill1s':'Wir besuchen jede Saline und prüfen die Rückverfolgbarkeit.',
+    'prov.pill2t':'Ernte im Morgengrauen','prov.pill2s':'Die Blüte wird nur geerntet, bevor die Brise sie bricht.',
+    'prov.stackTitle':'Heute wird geerntet',
+    'market.eyebrow':'Shop','market.title':'Alles Meersalz, an einem Ort',
+    'market.sub':'Große und kleine Salinen, frühe und späte Ernten. Jedes Glas erzählt seine Herkunft.',
+    'process.eyebrow':'So funktioniert\'s','process.title':'Von der Saline auf den Tisch in drei Schritten',
+    'process.s1t':'Wählen Sie Ihre Saline','process.s1d':'Durchstöbern Sie den Shop und filtern Sie nach Strand, Geschmack oder Ernte. Jedes Produkt nennt den Salzsieder und den Mondzyklus der Ernte.',
+    'process.s2t':'Auf Ihren Namen geerntet','process.s2d':'Wir bestätigen Ihre Bestellung mit der Saline. Die Blüte ruht nie im Lager: Sie wird frisch geerntet und nur für Ihre Sendung verpackt.',
+    'process.s3t':'Ankunft in 72 Stunden','process.s3d':'Vakuumverpackt und vor Feuchtigkeit geschützt. Nur reines Meersalz, nichts Überflüssiges: so schmeckt die Küste.',
+    'craft.eyebrow':'Die Ernte','craft.title':'Das Handwerk, vor Tagesanbruch',
+    'craft.sub':'Blüten-Salz bildet sich an der Wasseroberfläche. Es wird gerecht, bevor die Sonne es auf den Grund trocknet.',
+    'craft.t1t':'01:00 — Die Sole blüht','craft.t1d':'In der Kühle der Nacht schwimmen die Kristalle und bilden die Blüte auf dem Wasser. Ein Windstoß versenkt sie; deshalb arbeitet man in ruhiger Sole.','craft.t1s':'Kristallwachstum',
+    'craft.t2t':'05:30 — Der Rechen','craft.t2d':'Mit dem Holzrechen schöpft der Salzsieder sanft die Oberfläche ab. Eine einzige Geste pro Tag: Die Blüte verzeiht keine Eile.','craft.t2s':'Handarbeit',
+    'craft.t3t':'07:00 — Abtropfen & Trocknen','craft.t3d':'Die Blüte wird auf Seide abtropfen gelassen, um ihr hohles Knacken zu bewahren. Kein Waschen, keine Zusätze: nur Meer und Sonne.','craft.t3s':'Ohne Zusätze',
+    'quote.text':'«Das Meer schenkt uns die Blüte einmal im Jahr,<br>wenn die Nacht ruhig ist. Hier wird nichts erfunden: Man wartet.»','quote.name':'Carmen Montaño','quote.role':'Salinenwärterin · Saline Bonanza',
+    'voices.eyebrow':'Bewertungen','voices.title':'Was die sagen, die es probieren',
+    't1':'«Ich hatte das Salz von Bonanza in zwei Wochen aufgebraucht. Jetzt verstehe ich, was dem Tafelsalz fehlt.»','t1role':'Wiederholt',
+    't2':'«Ich mag, dass jedes Glas den Strand nennt. Punta Paloma ist mein Favorit.»','t2role':'Gourmet',
+    't3':'«Die Lieferung kam in zwei Tagen und die Blüte war intakt und knackig. Ich kaufe wieder.»','t3role':'Verifizierte Kundin',
+    'faq.eyebrow':'FAQ','faq.title':'Alles, was Sie wissen möchten',
+    'q1':'Was ist der Unterschied zwischen Blüten-Salz und normalem Meersalz?','a1':'Blüten-Salz entsteht nur an der Oberfläche der Sole und wird im Morgengrauen von Hand geerntet, bevor es auf den Grund sinkt. Es ist ein hohler, knackiger Kristall, feiner und salziger. Es wird weder gewaschen noch bekommt es Zusätze.',
+    'q2':'Wie lange hält ein geöffnetes Glas?','a2':'In einem trockenen, luftdichten Glas hält Blüten-Salz monatelang knusprig. Vermeiden Sie Feuchtigkeit und halten Sie es vom Herd fern.',
+    'q3':'Woher kommt das Salz, das Sie verkaufen?','a3':'Aus zwölf Familien-Salinen der Küste von Cádiz: Sanlúcar, Chiclana, Barbate, Vejer und Umgebung. Jedes Glas nennt Saline, Salzsieder und Strand. Nichts wird gemischt.',
+    'q4':'Wie lange dauert die Lieferung?','a4':'Wir bereiten Ihre Bestellung mit der Saline vor und versenden innerhalb von 72 Stunden überall auf der Halbinsel. Es wird immer gekühlt und feuchtigkeitsgeschützt versendet.',
+    'q5':'Kann ich Blüten-Salz verschenken?','a5':'Natürlich. In einem handwerklichen Keramikglas ist es das perfekte Geschenk für alle, die gerne kochen. Fügen Sie einen Hinweis mit der Herkunft der Saline hinzu.',
+    'news.title':'Die besten <em>Solen</em> des Meeres,<br>einmal im Monat','news.sub':'Eine E-Mail mit der Ernte des Monats, Rezepten aus Sterneküchen und bald der Saline, die ihre Türen öffnet. Ohne Lärm.',
+    'news.ph':'ihre@email.de','news.btn':'Abonnieren','news.ok':'Wir haben gerade Ihren Mail-Client geöffnet, damit Sie uns Ihre Adresse senden können. Danke!',
+    'news.honest':'Die Ernteliste ist echt: Wir verschicken keine Werbung. Sie können uns auch an <a href="mailto:hola@salinas.es">hola@salinas.es</a> schreiben.',
+    'cookie.msg':'Wir verwenden Cookies nur, um Sprache und Design zu merken. Kein Tracking.','cookie.ok':'OK','cookie.no':'Nein',
+    'footer.desc':'Das Meersalz von Cádiz, auf Ihrem Tisch. Ein ehrlicher Marktplatz, der die Familien-Salinen ernährt, die diese Küste tragen.',
+    'footer.market':'Shop','footer.company':'Das Haus','footer.legal':'Rechtliches',
+    'footer.f1':'Tisch-Meeressalz','footer.f2':'Pökelsalz','footer.f3':'Geschenkkörbe','footer.f4':'Räuchersalz',
+    'footer.f5':'Unsere Salinen','footer.f6':'Das Salzsieder-Handwerk','footer.f7':'Meeresbrief','footer.mail':'hola@salinas.es',
+    'footer.l1':'Versand & Retouren','footer.l2':'Datenschutz','footer.l3':'Bedingungen','footer.coast':'Am Meer gemacht, in einer ruhigen Nacht.',
+    'meta.title':'SALINA · Meersalz-Marktplatz Cádiz','meta.desc':'Kaufen Sie Blüten-Salz aus Familien-Salinen der Küste von Cádiz. Morgendliche Ernte, 72-Stunden-Lieferung, verifizierte Erzeuger.'
+  },
+  it: {
+    'a11y.skip':'Salta al contenuto','a11y.menu':'Apri menù','a11y.lang':'Lingua',
+    'brand.sub':'· fior di sale di Cadice',
+    'nav.market':'Negozio','nav.process':'Diretto dalla salina','nav.craft':'La raccolta','nav.faq':'FAQ','nav.shop':'Compra fior di sale',
+    'theme.aria':'Passa alla modalità scura',
+    'hero.title':'Fior di sale delle saline,<br>di <span class="br">raccolta all\'alba</span>',
+    'hero.lede':'Compra il sale marino più delicato del Mediterraneo, direttamente da produttori verificati della costa di Cadice. Ogni barattolo porta il nome di chi l\'ha raccolto e la spiaggia dove è nato. Consegna a casa in 72 ore.',
+    'hero.cta':'Esplora il negozio','hero.cta2':'Come arriva a tavola',
+    'hero.pill1':'12 saline familiari','hero.pill2':'Raccolta all\'alba','hero.pill3':'Consegna in 72 h',
+    'hero.note':'Consigliato da 25 cucine stellate · 4,9 ★ su 1.800 recensioni verificate',
+    'chip.you':'Oggi · 06:40','chip.sal':'Fior di sale · Sanlúcar','chip.tag':'Raccolta di oggi',
+    
+    'riv.1':'dal <em>fior di sale</em> al piatto · raccolta all’alba · saline vive dal XVI secolo · <em>consegna in 72&nbsp;h</em> · sapore di mare e macchia ·','prov.kicker':'Diretto dalla salina',
+    'prov.title':'Dal bordo della salina alla tua cucina, senza intermediari',
+    'prov.text':'Lavoriamo con dodici saline familiari della costa di Cadice. Ognuna conserva il mestiere del salinaro: l\'acqua madre viene schiumata con il rastrello all\'alba e il cristallo resta lì, bianco sull\'acqua ferma. Ti diciamo da chi viene, da quale spiaggia e sotto quale ciclo lunare è stata raccolta.',
+    'prov.pill1t':'Produttore verificato','prov.pill1s':'Visitiamo ogni salina e controlliamo la tracciabilità.',
+    'prov.pill2t':'Raccolta all\'alba','prov.pill2s':'Il fiore si coglie solo prima che la brezza lo spezzi.',
+    'prov.stackTitle':'Raccolta di oggi',
+    'market.eyebrow':'Negozio','market.title':'Tutto il fior di sale, in un unico posto',
+    'market.sub':'Saline grandi e piccole, raccolte precoci e tardive. Ogni barattolo racconta la sua origine.',
+    'process.eyebrow':'Come funziona','process.title':'Dalla salina a tavola in tre passaggi',
+    'process.s1t':'Scegli la tua salina','process.s1d':'Sfoglia il negozio e filtra per spiaggia, sapore o raccolta. Ogni prodotto indica il salinaro e il ciclo lunare della raccolta.',
+    'process.s2t':'Raccolta a tuo nome','process.s2d':'Confermiamo il tuo ordine con la salina. Il fiore non riposa mai in magazzino: viene raccolto fresco e confezionato solo per la tua spedizione.',
+    'process.s3t':'Arriva in 72 ore','process.s3d':'Sotto vuoto e protetto dall\'umidità. Solo sale marino, senza superflui: è il sapore della costa.',
+    'craft.eyebrow':'La raccolta','craft.title':'Il mestiere, prima dell\'alba',
+    'craft.sub':'Il fior di sale si forma sulla superficie dell\'acqua. Viene rastrellato prima che il sole lo secchi sul fondo.',
+    'craft.t1t':'01:00 — La salamoia fiorisce','craft.t1d':'Nel fresco della notte i cristalli galleggiano e formano il fiore sull\'acqua. Un alito di vento li affonda; per questo si lavora a salamoia calma.','craft.t1s':'Crescita cristallina',
+    'craft.t2t':'05:30 — Il rastrello','craft.t2d':'Con il rastrello di legno, il salinaro schiuma dolcemente lo strato superficiale. Un solo gesto al giorno: il fiore non perdona la fretta.','craft.t2s':'Lavoro manuale',
+    'craft.t3t':'07:00 — Scolo & asciugatura','craft.t3d':'Il fiore si scola su seta per conservare il suo croccante vuoto. Zero lavaggi, zero additivi: solo mare e sole.','craft.t3s':'Senza additivi',
+    'quote.text':'«Il mare ci lascia il fiore una volta all\'anno,<br>quando la notte è calma. Qui non si inventa nulla: si aspetta.»','quote.name':'Carmen Montaño','quote.role':'Salinara · Salina di Bonanza',
+    'voices.eyebrow':'Recensioni','voices.title':'Cosa dicono quelli che lo assaggiano',
+    't1':'«Ho finito il sale di Bonanza in due settimane. Ora capisco cosa manca al sale da tavola.»','t1role':'Acquirente abituale',
+    't2':'«Mi piace che ogni barattolo dica da quale spiaggia viene. Punta Paloma è il mio preferito.»','t2role':'Gastronomo',
+    't3':'«La consegna è arrivata in due giorni e il fiore intatto, croccante. Ricomprerò.»','t3role':'Cliente verificata',
+    'faq.eyebrow':'FAQ','faq.title':'Tutto quello che vuoi sapere',
+    'q1':'Che differenza c\'è tra fior di sale e sale marino normale?','a1':'Il fior di sale si forma solo sulla superficie della salamoia e si raccoglie a mano all\'alba, prima che si depositi sul fondo. È un cristallo cavo e croccante, più delicato e salato. Non si lava né gli si aggiunge nulla.',
+    'q2':'Quanto dura un barattolo aperto?','a2':'Conservato in un barattolo asciutto ed ermetico, il fior di sale resta croccante per mesi. Evita l\'umidità e tienilo lontano dal fuoco.',
+    'q3':'Da dove viene il sale che vendete?','a3':'Da dodici saline familiari della costa di Cadice: Sanlúcar, Chiclana, Barbate, Vejer e dintorni. Ogni barattolo indica salina, salinaro e spiaggia. Nulla viene mescolato.',
+    'q4':'Quanto tempo impiega la consegna?','a4':'Prepariamo il tuo ordine con la salina e spediamo entro 72 ore in qualsiasi punto della penisola. Le spedizioni sono sempre refrigerate e protette dall\'umidità.',
+    'q5':'Posso regalare il fior di sale?','a5':'Certo. In un barattolo di ceramica artigianale, è il regalo perfetto per chi ama cucinare. Aggiungi una nota con l\'origine della salina.',
+    'news.title':'Le migliori <em>salamoie</em> di mare,<br>una volta al mese','news.sub':'Una email con la raccolta del mese, ricette di cucine stellate e presto la salina che aprirà le porte. Senza rumore.',
+    'news.ph':'tua@email.it','news.btn':'Iscriviti','news.ok':'Abbiamo appena aperto il tuo client di posta per inviarci il tuo indirizzo. Grazie!',
+    'news.honest':'La lista della raccolta è reale: non inviamo pubblicità. Puoi anche scriverci a <a href="mailto:hola@salinas.es">hola@salinas.es</a>.',
+    'cookie.msg':'Usiamo i cookie solo per ricordare lingua e tema. Nessun tracciamento.','cookie.ok':'Ok','cookie.no':'No',
+    'footer.desc':'Il fior di sale di Cadice, sulla tua tavola. Un mercato onesto che nutre le saline familiari che sostengono questa costa.',
+    'footer.market':'Negozio','footer.company':'La casa','footer.legal':'Legale',
+    'footer.f1':'Fior di sale da tavola','footer.f2':'Sale per conserve','footer.f3':'Cesti regalo','footer.f4':'Sale affumicato',
+    'footer.f5':'Le nostre saline','footer.f6':'Il mestiere del salinaro','footer.f7':'Lettera di mare','footer.mail':'hola@salinas.es',
+    'footer.l1':'Spedizioni e resi','footer.l2':'Privacy','footer.l3':'Condizioni','footer.coast':'Fatto al mare, in una notte calma.',
+    'meta.title':'SALINA · Mercato del fior di sale di Cadice','meta.desc':'Compra fior di sale dalle saline familiari della costa di Cadice. Raccolta all\'alba, consegna 72 h, produttori verificati.'
+  },
+  pt: {
+    'a11y.skip':'Saltar para o conteúdo','a11y.menu':'Abrir menu','a11y.lang':'Idioma',
+    'brand.sub':'· flor de sal de Cádis',
+    'nav.market':'Catálogo','nav.process':'Direto da salina','nav.craft':'A colheita','nav.faq':'FAQ','nav.shop':'Comprar flor de sal',
+    'theme.aria':'Mudar para o modo escuro',
+    'hero.title':'Flor de sal das salinas,<br>de <span class="br">colheita do amanhecer</span>',
+    'hero.lede':'Compre o sal marinho mais delicado do Mediterrâneo, direto de produtores verificados do litoral de Cádis. Cada frasco traz o nome de quem o colheu e a praia onde nasceu. Entrega em casa em 72 horas.',
+    'hero.cta':'Explorar o catálogo','hero.cta2':'Como chega à sua mesa',
+    'hero.pill1':'12 salinas familiares','hero.pill2':'Colheita ao amanhecer','hero.pill3':'Entrega em 72 h',
+    'hero.note':'Recomendada por 25 cozinhas com estrela · 4,9 ★ em 1.800 opiniões verificadas',
+    'chip.you':'Hoje · 06:40','chip.sal':'Flor de sal · Sanlúcar','chip.tag':'Colheita de hoje',
+    
+    'riv.1':'do <em>flor de sal</em> ao prato · colheita ao amanhecer · salinas vivas desde o século XVI · <em>entrega em 72&nbsp;h</em> · sabor a mar e mato ·','prov.kicker':'Direto da salina',
+    'prov.title':'Da beira da salina à sua cozinha, sem escalas',
+    'prov.text':'Trabalhamos com doze salinas familiares do litoral de Cádis. Cada uma preserva os ofícios do salineiro: a água-mãe é raspada com o rodo ao amanhecer e fica o cristal, branco sobre a água parada. Contamos de quem vem, de que praia e em que ciclo lunar foi colhida.',
+    'prov.pill1t':'Produtor verificado','prov.pill1s':'Visitamos cada salina e verificamos a rastreabilidade.',
+    'prov.pill2t':'Colheita ao amanhecer','prov.pill2s':'A flor só é apanhada antes de a brisa a partir.',
+    'prov.stackTitle':'Colheita de hoje',
+    'market.eyebrow':'Catálogo','market.title':'Toda a flor de sal, num só lugar',
+    'market.sub':'Salinas grandes e pequenas, colheitas precoces e tardias. Cada frasco conta a sua origem.',
+    'process.eyebrow':'Como funciona','process.title':'Da salina à mesa em três passos',
+    'process.s1t':'Escolha a sua salina','process.s1d':'Explore o catálogo e filtre por praia, sabor ou colheita. Cada produto indica o salineiro e o ciclo lunar da colheita.',
+    'process.s2t':'Colhida em seu nome','process.s2d':'Confirmamos o seu pedido com a salina. A flor nunca repousa em armazém: é colhida fresca e embalada apenas para o seu envio.',
+    'process.s3t':'Chega em 72 horas','process.s3d':'Embebida a vácuo e protegida da humidade. Apenas sal marinho, sem supérfluos: é o sabor da costa.',
+    'craft.eyebrow':'A colheita','craft.title':'O ofício, de madrugada',
+    'craft.sub':'A flor de sal forma-se na superfície da água. É raspada antes de o sol a secar no fundo.',
+    'craft.t1t':'01:00 — A salmoura floresce','craft.t1d':'No fresco da noite, os cristais flutuam e formam a flor sobre a água. Se o vento sopra, afundam; por isso se trabalha a salmoura calma.','craft.t1s':'Crescimento cristalino',
+    'craft.t2t':'05:30 — O rodo','craft.t2d':'Com o rodo de madeira, o salineiro raspa suavemente a camada superficial. Um único gesto por dia: a flor não perdoa a pressa.','craft.t2s':'Trabalho manual',
+    'craft.t3t':'07:00 — Drenagem e secagem','craft.t3d':'A flor escorre sobre seda para conservar o seu estaladiço oco. Zero lavagens, zero aditivos: apenas mar e sol.','craft.t3s':'Sem aditivos',
+    'quote.text':'«O mar deixa-nos a flor uma vez por ano,<br>quando a noite está calma. Aqui não se inventa nada: espera-se.»','quote.name':'Carmen Montaño','quote.role':'Salineira · Salina de Bonanza',
+    'voices.eyebrow':'Opiniões','voices.title':'O que dizem quem já prova',
+    't1':'«Acabei o sal de Bonanza em duas semanas. Agora entendo o que falta no sal de mesa.»','t1role':'Compradora recorrente',
+    't2':'«Adoro que cada frasco diga de que praia vem. O de Punta Paloma é o meu favorito.»','t2role':'Gastrónomo',
+    't3':'«A entrega chegou em dois dias e a flor intacta, estaladiça. Vou voltar a comprar.»','t3role':'Cliente verificada',
+    'faq.eyebrow':'FAQ','faq.title':'Tudo o que quer saber',
+    'q1':'Qual a diferença entre flor de sal e sal marinho normal?','a1':'A flor de sal forma-se apenas na superfície da salmoura e é colhida à mão ao amanhecer, antes de assentar no fundo. É um cristal oco e estaladiço, mais delicado e salgado. Não se lava nem se lhe acrescenta nada.',
+    'q2':'Quanto dura um frasco aberto?','a2':'Guardada num frasco seco e hermético, a flor de sal conserva-se meses sem perder o estaladiço. Evite a humidade e mantenha-a longe do fogão.',
+    'q3':'De onde vem o sal que vendem?','a3':'De doze salinas familiares do litoral de Cádis: Sanlúcar, Chiclana, Barbate, Vejer e arredores. Cada frasco indica a salina, o salineiro e a praia. Nada é misturado.',
+    'q4':'Quanto demora a entrega?','a4':'Preparamos o seu pedido com a salina e enviamos em 72 horas para qualquer ponto da península. Os envios são sempre refrigerados e protegidos da humidade.',
+    'q5':'Posso oferecer flor de sal?','a5':'Claro. Num frasco de cerâmica artesanal, é o presente perfeito para quem ama cozinhar. Acrescente uma nota com a origem da salina.',
+    'news.title':'Os melhores <em>trinchos</em> de mar,<br>uma vez por mês','news.sub':'Um e-mail com a colheita do mês, receitas de cozinhas com estrela e em breve a salina que abrirá portas. Sem ruído.',
+    'news.ph':'oseu@email.com','news.btn':'Subscrever','news.ok':'Acabámos de abrir o seu cliente de e-mail para nos enviar o seu endereço. Obrigado!',
+    'news.honest':'A lista da colheita é real: não enviamos publicidade. Pode também escrever-nos para <a href="mailto:hola@salinas.es">hola@salinas.es</a>.',
+    'cookie.msg':'Usamos cookies só para lembrar o teu idioma e tema. Sem rastreamento.','cookie.ok':'Ok','cookie.no':'Não',
+    'footer.desc':'A flor de sal de Cádis, na sua mesa. Um mercado honesto que alimenta as salinas familiares que sustentam esta costa.',
+    'footer.market':'Catálogo','footer.company':'A casa','footer.legal':'Legal',
+    'footer.f1':'Flor de sal de mesa','footer.f2':'Sal de conserva','footer.f3':'Cestas de presente','footer.f4':'Sal fumado',
+    'footer.f5':'As nossas salinas','footer.f6':'O ofício do salineiro','footer.f7':'Carta de mar','footer.mail':'hola@salinas.es',
+    'footer.l1':'Envios e devoluções','footer.l2':'Privacidade','footer.l3':'Condições','footer.coast':'Feito à beira-mar, numa noite calma.',
+    'meta.title':'SALINA · Mercado da flor de sal de Cádis','meta.desc':'Compre flor de sal das salinas familiares do litoral de Cádis. Colheita do amanhecer, entrega em 72 h, produtores verificados.'
+  }
+};
+
+var LANGS = ['en','es','fr','de','it','pt'];
+var HTML_KEYS = { 'hero.title': true, 'quote.text': true, 'news.title': true, 'news.honest': true, 'riv.1': true };
+var $ = function (s, c) { return (c || document).querySelector(s); };
+var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
+
+/* ---------- theme ---------- */
+var THEME_KEY = 'kairos-theme';
+function getTheme() {
+  try { return localStorage.getItem(THEME_KEY) === 'dark' ? 'dark' : 'light'; } catch (e) { return 'light'; }
+}
+function applyTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  try { localStorage.setItem(THEME_KEY, theme); } catch (e) {}
+  var t = $('#themeToggle');
+  if (t) {
+    t.textContent = theme === 'dark' ? '☀' : '🌙';
+    var d = T[getLang()];
+    t.setAttribute('aria-label', theme === 'dark' ? (d && d['theme.light'] || 'Switch to light mode') : (d && d['theme.aria'] || 'Switch to dark mode'));
+  }
+}
+var themeToggle = $('#themeToggle');
+if (themeToggle) {
+  themeToggle.addEventListener('click', function () {
+    applyTheme(getTheme() === 'dark' ? 'light' : 'dark');
+  });
+}
+applyTheme(getTheme());
+
+/* ---------- i18n ---------- */
+function getLang() {
+  var saved = null;
+  try { saved = localStorage.getItem('salina-lang'); } catch (e) {}
+  if (saved && T[saved]) return saved;
+  var nav = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
+  for (var i = 0; i < LANGS.length; i++) {
+    if (nav.indexOf(LANGS[i]) === 0) return LANGS[i];
+  }
+  return 'en';
+}
+function applyLang(lang) {
+  if (!T[lang]) lang = 'en';
+  var dict = T[lang];
+  try { localStorage.setItem('salina-lang', lang); } catch (e) {}
+  $$('[data-i18n]').forEach(function (el) {
+    var key = el.getAttribute('data-i18n');
+    var val = dict[key];
+    if (val === undefined) return;
+    if (HTML_KEYS[key]) { el.innerHTML = val; } else { el.textContent = val; }
+  });
+  $$('[data-i18n-html]').forEach(function (el) {
+    var key = el.getAttribute('data-i18n-html');
+    var val = dict[key];
+    if (val !== undefined) el.innerHTML = val;
+  });
+  $$('[data-i18n-aria]').forEach(function (el) {
+    var key = el.getAttribute('data-i18n-aria');
+    var val = dict[key];
+    if (val !== undefined) el.setAttribute('aria-label', val);
+  });
+  $$('[data-i18n-ph]').forEach(function (el) {
+    var key = el.getAttribute('data-i18n-ph');
+    var val = dict[key];
+    if (val !== undefined) el.setAttribute('placeholder', val);
+  });
+  var mt = $('#doc-title');
+  if (mt && dict['meta.title']) mt.textContent = dict['meta.title'];
+  var md = $('#meta-desc');
+  if (md && dict['meta.desc']) md.setAttribute('content', dict['meta.desc']);
+  ['og:title','og:description','twitter:title','twitter:description'].forEach(function (p) {
+    var isOg = p.indexOf('og') === 0;
+    var el = document.querySelector(isOg ? 'meta[property="' + p + '"]' : 'meta[name="' + p + '"]');
+    if (el) el.setAttribute('content', dict[p === 'og:title' || p === 'twitter:title' ? 'meta.title' : 'meta.desc']);
+  });
+  document.documentElement.setAttribute('lang', lang);
+  $$('.lang-select__cur').forEach(function (el) { el.textContent = lang.toUpperCase(); });
+  $$('.lang-select__opt').forEach(function (opt) {
+    opt.setAttribute('aria-selected', opt.getAttribute('data-lang') === lang ? 'true' : 'false');
+  });
+  applyTheme(getTheme());
+}
+window.I18N = T;
+
+/* ---------- lang dropdowns (build both copies) ---------- */
+function buildLangMenu(containerId, menuId) {
+  var menu = $('#' + menuId);
+  if (!menu) return;
+  menu.innerHTML = '';
+  LANGS.forEach(function (code) {
+    var lname = { en: 'English', es: 'Español', fr: 'Français', de: 'Deutsch', it: 'Italiano', pt: 'Português' }[code];
+    var opt = document.createElement('button');
+    opt.type = 'button';
+    opt.className = 'lang-select__opt';
+    opt.setAttribute('role', 'option');
+    opt.setAttribute('data-lang', code);
+    opt.textContent = lname;
+    opt.setAttribute('aria-selected', code === getLang() ? 'true' : 'false');
+    opt.addEventListener('click', function () {
+      applyLang(code);
+      closeLangMenus();
+    });
+    menu.appendChild(opt);
+  });
+}
+
+function closeLangMenus() {
+  $$('.lang-select').forEach(function (sel) {
+    var menu = $('.lang-select__menu', sel), btn = $('.lang-select__btn', sel);
+    if (!menu) return;
+    menu.classList.remove('open');
+    if (btn) btn.setAttribute('aria-expanded', 'false');
+  });
+}
+function bindLangSel(sel) {
+  var btn = $('.lang-select__btn', sel), menu = $('.lang-select__menu', sel);
+  if (!btn || !menu) return;
+  btn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    var open = menu.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    $$('.lang-select').forEach(function (other) {
+      if (other !== sel) {
+        var om = $('.lang-select__menu', other), ob = $('.lang-select__btn', other);
+        if (om) om.classList.remove('open');
+        if (ob) ob.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+}
+$$('.lang-select').forEach(function (sel) {
+  var menu = $('.lang-select__menu', sel);
+  if (!menu) return;
+  // only bind the first menu-builder context by id
+  var isDesktop = sel.id === 'langSel';
+  if (isDesktop) buildLangMenu('langSel', 'langMenu');
+  if (sel.id === 'langSelMobile') buildLangMenu('langSelMobile', 'langMenuMobile');
+  bindLangSel(sel);
+});
+document.addEventListener('click', function (e) {
+  var inside = false;
+  $$('.lang-select').forEach(function (sel) { if (sel.contains(e.target)) inside = true; });
+  if (!inside) closeLangMenus();
+});
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape') { closeLangMenus(); closeMobile(); }
+});
+
+/* ---------- mobile menu ---------- */
+var burger = $('#burger'), mobileMenu = $('#mobileMenu'), menuClose = $('#menuClose');
+function closeMobile() {
+  if (!mobileMenu) return;
+  mobileMenu.classList.remove('open');
+  mobileMenu.setAttribute('aria-hidden', 'true');
+  if (burger) burger.setAttribute('aria-expanded', 'false');
+}
+if (burger && mobileMenu) {
+  burger.addEventListener('click', function () {
+    var open = mobileMenu.classList.toggle('open');
+    mobileMenu.setAttribute('aria-hidden', open ? 'false' : 'true');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+}
+if (menuClose) menuClose.addEventListener('click', closeMobile);
+if (mobileMenu) {
+  $$('a', mobileMenu).forEach(function (a) { a.addEventListener('click', closeMobile); });
+}
+
+/* ---------- market data ---------- */
+var IMG = 'https://images.unsplash.com/photo-';
+var MARKET = [
+  { id: 0, img: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80', nm: 'Bonanza', place: 'Sanlúcar de Barrameda', det: 'playa1', price: 9.5, sale: 550, type: 'Flor de sal', per: 250, sat: '14/18' },
+  { id: 1, img: 'https://images.pexels.com/photos/635279/pexels-photo-635279.jpeg?auto=compress&cs=tinysrgb&w=900', nm: 'La Janda', place: 'Vejer de la Frontera', det: 'playa2', price: 7.9, sale: 380, type: 'Flor de sal', per: 250, sat: '09/18' },
+  { id: 2, img: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&w=900&q=80', nm: 'Barbate', place: 'Punta Paloma', det: 'playa3', price: 8.9, sale: 430, type: 'Flor de sal', per: 250, sat: '11/18' },
+  { id: 3, img: 'https://images.pexels.com/photos/1001682/pexels-photo-1001682.jpeg?auto=compress&cs=tinysrgb&w=900', nm: 'Traíña', place: 'Chiclana', det: 'sal1', price: 12.5, sale: 300, type: 'Sal ahumada', per: 200, sat: '16/18' },
+  { id: 4, img: 'https://images.unsplash.com/photo-1473116763249-2faaef81ccda?auto=format&fit=crop&w=900&q=80', nm: 'Lunar', place: 'Jerez — Costa Noroeste', det: 'sal2', price: 11, sale: 260, type: 'Escabeche', per: 250, sat: '13/18' },
+  { id: 5, img: 'https://images.unsplash.com/photo-1509316785289-025f5b846b35?auto=format&fit=crop&w=900&q=80', nm: 'Costa Abierta', place: 'Rota', det: 'playa4', price: 10.5, sale: 470, type: 'Cestas', per: 300, sat: '08/18' }
+];
+
+/* ---------- render market ---------- */
+function money(n, lang) {
+  try { return n.toLocaleString(lang === 'en' ? 'en-US' : lang === 'pt' || lang === 'it' || lang === 'es' ? lang + '-ES' : lang, { style: 'currency', currency: 'EUR' }); }
+  catch (e) { return '€' + n.toFixed(2); }
+}
+function fmt(n) {
+  if (n >= 1000) return (n / 1000).toFixed(1).replace('.', ',') + 'k';
+  return String(n);
+}
+function star(pct) {
+  var out = '';
+  for (var i = 0; i < 5; i++) {
+    if (i < Math.floor(pct)) { out += '<svg viewBox="0 0 24 24"><path d="M12 2l3 6 6 .9-4.5 4.3 1 6-5.5-3-5.5 3 1-6L3 8.9 9 8z"/></svg>'; }
+    else { out += '<svg viewBox="0 0 24 24" fill="var(--line-strong)" style="fill:var(--line-strong)"><path d="M12 2l3 6 6 .9-4.5 4.3 1 6-5.5-3-5.5 3 1-6L3 8.9 9 8z"/></svg>'; }
+  }
+  return out;
+}
+function renderMarket() {
+  var grid = $('#marketGrid');
+  if (!grid) return;
+  var lang = getLang();
+  var d = T[lang];
+  grid.innerHTML = '';
+  MARKET.forEach(function (item) {
+    var card = document.createElement('article');
+    card.className = 'listing rv';
+    card.innerHTML = '' +
+      '<div class="media">' +
+        '<img src="' + item.img + '" alt="' + (d['card.alt'] || 'Sal de ') + item.nm + '" loading="lazy">' +
+        '<button class="wish" type="button" aria-pressed="false" aria-label="' + (d['wish'] || 'Guardar') + '"><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21.2l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></button>' +
+      '</div>' +
+      '<div class="body">' +
+        '<div class="who"><span class="ava">' + item.nm.charAt(0) + '</span><span class="who-txt"><span class="who-nm">' + item.nm + '</span><span class="star" aria-label="4.6">' + star(4.6) + '</span></span></div>' +
+        '<h3>' + (d['card.nm.' + item.id] || item.nm) + '</h3>' +
+        '<div class="loc">' + (d['card.pl.' + item.id] || item.place) + '</div>' +
+        '<div class="price">' + money(item.price, lang) + ' / ' + item.per + ' g</div>' +
+        '<div class="qty-row">' +
+          '<div class="qty" data-id="' + item.id + '"><button type="button" aria-label="-" data-step="-1">−</button><input type="text" value="1" readonly><button type="button" aria-label="+" data-step="1">+</button></div>' +
+          '<button class="add" type="button" aria-label="' + (d['add'] || 'Añadir') + '">+</button>' +
+        '</div>' +
+      '</div>';
+    grid.appendChild(card);
+
+    var wish = $('.wish', card);
+    if (wish) {
+      wish.addEventListener('click', function () {
+        var on = this.getAttribute('aria-pressed') !== 'true';
+        this.setAttribute('aria-pressed', on ? 'true' : 'false');
+        this.classList.toggle('active', on);
+      });
+    }
+    var qty = $('.qty', card);
+    if (qty) {
+      var input = $('input', qty);
+      $$('button', qty).forEach(function (b) {
+        b.addEventListener('click', function () {
+          var v = parseInt(input.value, 10) || 1;
+          v += (this.getAttribute('data-step') === '1' ? 1 : -1);
+          if (v < 1) v = 1; if (v > 9) v = 9;
+          input.value = v;
+        });
+      });
+    }
+    var add = $('.add', card);
+    if (add) {
+      add.addEventListener('click', function () {
+        this.textContent = '✓';
+        var self = this;
+        setTimeout(function () { self.textContent = '+'; }, 900);
+      });
+    }
+  });
+}
+
+/* ---------- provenance "harvest today" picker ---------- */
+$$('.py-slot').forEach(function (slot) {
+  slot.addEventListener('click', function () {
+    slot.classList.toggle('harvested');
+    var t = $('.ps-t', slot);
+    // visual feedback without breaking layout
+    slot.style.transform = slot.classList.contains('harvested') ? 'translateY(-3px)' : '';
+  });
+});
+
+/* ---------- faq ---------- */
+$$('.faq-item').forEach(function (item) {
+  var q = $('.faq-q', item), a = $('.faq-a', item);
+  if (!q || !a) return;
+  q.addEventListener('click', function () {
+    var isOpen = item.classList.contains('open');
+    $$('.faq-item.open').forEach(function (other) {
+      if (other !== item) {
+        other.classList.remove('open');
+        var oq = $('.faq-q', other);
+        if (oq) oq.setAttribute('aria-expanded', 'false');
+      }
+    });
+    item.classList.toggle('open', !isOpen);
+    q.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+  });
+});
+
+/* ---------- scroll reveal ---------- */
+var rvEls = $$('.rv');
+function revealCheck() {
+  var vh = window.innerHeight || document.documentElement.clientHeight;
+  rvEls.forEach(function (el) {
+    if (el.classList.contains('in')) return;
+    var r = el.getBoundingClientRect();
+    if (r.top < vh * 0.92) el.classList.add('in');
+  });
+}
+var ticking = false;
+function onScroll() {
+  if (ticking) return;
+  ticking = true;
+  window.requestAnimationFrame(function () { revealCheck(); ticking = false; });
+}
+window.addEventListener('scroll', onScroll, { passive: true });
+window.addEventListener('resize', onScroll, { passive: true });
+
+/* ---------- cookie ---------- */
+var cookieBanner = $('#cookieBanner');
+var COOKIE_KEY = 'salina-cookie';
+function hideCookie() {
+  if (!cookieBanner) return;
+  cookieBanner.classList.remove('show');
+  try { localStorage.setItem(COOKIE_KEY, '1'); } catch (e) {}
+}
+var ckOk = $('#cookieOk'), ckNo = $('#cookieNo');
+if (ckOk) ckOk.addEventListener('click', hideCookie);
+if (ckNo) ckNo.addEventListener('click', hideCookie);
+(function () {
+  var done = false;
+  try { done = localStorage.getItem(COOKIE_KEY) === '1'; } catch (e) {}
+  if (done || !cookieBanner) return;
+  setTimeout(function () { cookieBanner.classList.add('show'); }, 3200);
+})();
+
+/* ---------- newsletter — honest mailto ---------- */
+var newsForm = $('#newsForm');
+if (newsForm) {
+  var nlMsg = $('#nlMsg');
+  newsForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var email = ($('#newsEmail') || {}).value || '';
+    var subject = 'La carta de mar — SALINA';
+    var body = 'Quiero suscribirme a la carta de mar de SALINA.\nMi correo: ' + email;
+    window.location.href = 'mailto:hola@salinas.es?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    var lang = getLang();
+    var d = T[lang];
+    if (nlMsg) { nlMsg.textContent = d['news.ok']; nlMsg.classList.add('ok'); }
+  });
+}
+
+/* ---------- boot ---------- */
+applyLang(getLang());
+renderMarket();
+document.documentElement.classList.remove('no-js');
+document.documentElement.classList.add('js');
+revealCheck();
+setTimeout(revealCheck, 600);
+})();
+</script>
+</body>
+</html>

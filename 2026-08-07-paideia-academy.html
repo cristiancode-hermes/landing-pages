@@ -1,0 +1,1997 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="meta-title">Paideia — The Humanities Academy | Learn to Think Again</title>
+  <meta name="description" id="meta-desc" content="Paideia is a digital academy for the humanities. Guided seminars, original texts, and a community of readers. Study literature, philosophy, and history with scholars who love what they teach.">
+  <link rel="canonical" href="https://paideia.academy/">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%23c96442'/%3E%3Ctext x='16' y='23' text-anchor='middle' font-family='Georgia' font-size='20' fill='%23faf9f5'%3EP%3C/text%3E%3C/svg%3E">
+  <meta name="theme-color" content="#f5f4ed">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" id="og-site" content="Paideia Academy">
+  <meta property="og:title" id="og-title" content="Paideia — The Humanities Academy">
+  <meta property="og:description" id="og-desc" content="Guided seminars, original texts, and a community of readers. Study literature, philosophy, and history with scholars who love what they teach.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=1200&q=80">
+  <meta property="og:url" content="https://paideia.academy/">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" id="tw-title" content="Paideia — The Humanities Academy">
+  <meta name="twitter:description" id="tw-desc" content="Guided seminars, original texts, and a community of readers. Rediscover the art of deep learning.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=1200&q=80">
+  <meta name="twitter:site" content="@paideiaacademy">
+
+  <!-- Fonts: Fraunces (serif) for editorial authority + Inter (sans) for UI clarity -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ================================================================
+       DESIGN SYSTEM — PAIDEIA ACADEMY
+       Product: Online humanities academy (literature, philosophy, history)
+       Design family: Education / Editorial
+       Style: Anthropic Claude-inspired — warm parchment canvas, serif-driven
+              editorial hierarchy, terracotta accent, literary pacing.
+              This is the first landing page to use the Claude template.
+       Surface: Decide/Learn — landing page with one editorial idea per
+                section. Each section is a distinct composition — no
+                identical card grids anywhere.
+       Color strategy: Restrained — tinted warm neutrals (chroma ~0.01
+                toward yellow-brown) + one terracotta accent (#c96442)
+                used only for CTAs and brand accents. Depth from
+                Parchment/Near-Black section alternation.
+       Typography: Fraunces (custom Google serif, substituting Anthropic
+                Serif) at weight 500 for all headings — editorial gravity.
+                Inter at weight 400 for body/UI — quiet efficiency.
+                Fraunces italic 400 for pull quotes.
+       Layout: Editorial / magazine — asymmetric hero with text alongside
+               open-book imagery, immersed pull quotes, varied course cards
+               (wide, standard, showcase), dark philosophy section as
+               chapter break, timeline for "How It Works."
+       Motion: Gentle scroll-triggered fade-ups with staggered timing,
+               hover lift on cards, section entry reveals.
+               Ease-out-quart only. prefers-reduced-motion respected.
+       z-index: header 40 → cookie 50 → modal 60
+       ================================================================ */
+
+    /* ---------- Reset ---------- */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      color: #141413;
+      background: #f5f4ed;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    /* ---------- Design Tokens ---------- */
+    :root {
+      /* Claude-inspired warm palette — exclusively warm-toned */
+      --parchment: #f5f4ed;
+      --ivory: #faf9f5;
+      --pure-white: #ffffff;
+      --warm-sand: #e8e6dc;
+      --terracotta: #c96442;
+      --terracotta-hover: #b85535;
+      --terracotta-light: rgba(201, 100, 66, 0.08);
+      --coral-accent: #d97757;
+      --near-black: #141413;
+      --dark-surface: #30302e;
+      --charcoal-warm: #4d4c48;
+      --olive-gray: #5e5d59;
+      --stone-gray: #87867f;
+      --warm-silver: #b0aea5;
+      --border-cream: #f0eee6;
+      --border-warm: #e8e6dc;
+      --border-dark: #30302e;
+      --deep-dark: #141413;
+
+      /* Typography */
+      --serif: 'Fraunces', Georgia, 'Times New Roman', serif;
+      --sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+      /* Spacing */
+      --space-xs: 4px;
+      --space-sm: 8px;
+      --space-md: 16px;
+      --space-lg: 24px;
+      --space-xl: 32px;
+      --space-2xl: 48px;
+      --space-3xl: 64px;
+      --space-4xl: 80px;
+      --space-5xl: 120px;
+
+      /* Radii */
+      --radius-sm: 6px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --radius-xl: 16px;
+      --radius-2xl: 32px;
+
+      /* z-index scale */
+      --z-header: 40;
+      --z-cookie: 50;
+      --z-modal: 60;
+    }
+
+    /* ---------- Typography ---------- */
+    h1, h2, h3, h4 {
+      font-family: var(--serif);
+      font-weight: 500;
+      color: var(--near-black);
+      text-wrap: balance;
+    }
+    h1 {
+      font-size: clamp(2.25rem, 5vw, 4rem);
+      line-height: 1.10;
+      letter-spacing: -0.02em;
+    }
+    h2 {
+      font-size: clamp(1.75rem, 3.5vw, 3.25rem);
+      line-height: 1.20;
+      letter-spacing: -0.015em;
+    }
+    h3 {
+      font-size: clamp(1.35rem, 2.5vw, 2rem);
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+    }
+    h4 {
+      font-size: clamp(1.1rem, 1.8vw, 1.3rem);
+      line-height: 1.30;
+    }
+    p, li {
+      font-family: var(--sans);
+      font-weight: 400;
+      color: var(--olive-gray);
+      line-height: 1.65;
+      max-width: 65ch;
+      text-wrap: pretty;
+    }
+    .text-serif {
+      font-family: var(--serif);
+      font-weight: 400;
+    }
+    .text-large {
+      font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+    }
+    .text-small {
+      font-size: 0.94rem;
+      color: var(--stone-gray);
+    }
+    .text-caption {
+      font-size: 0.88rem;
+    }
+    .eyebrow {
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: var(--space-sm);
+      display: inline-block;
+    }
+
+    /* ---------- Container ---------- */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 var(--space-lg);
+    }
+    .container-narrow {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 var(--space-lg);
+    }
+
+    /* ---------- Section ---------- */
+    section {
+      padding: var(--space-4xl) 0;
+    }
+    .section-dark {
+      background: var(--near-black);
+      color: var(--ivory);
+    }
+    .section-dark h2,
+    .section-dark h3,
+    .section-dark h4 {
+      color: var(--ivory);
+    }
+    .section-dark p,
+    .section-dark li {
+      color: var(--warm-silver);
+    }
+    .section-ivory {
+      background: var(--ivory);
+    }
+
+    /* ---------- Buttons ---------- */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      font-family: var(--sans);
+      font-size: 1rem;
+      font-weight: 500;
+      padding: 0.6rem 1.25rem;
+      border-radius: var(--radius-lg);
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .btn-primary {
+      background: var(--terracotta);
+      color: var(--ivory);
+      box-shadow: 0 0 0 1px var(--terracotta);
+    }
+    .btn-primary:hover {
+      background: var(--terracotta-hover);
+      box-shadow: 0 0 0 1px var(--terracotta-hover), 0 4px 16px rgba(201,100,66,0.2);
+      transform: translateY(-1px);
+    }
+    .btn-secondary {
+      background: var(--warm-sand);
+      color: var(--charcoal-warm);
+      box-shadow: 0 0 0 1px var(--border-warm);
+    }
+    .btn-secondary:hover {
+      background: #ddd9cc;
+      box-shadow: 0 0 0 1px var(--stone-gray);
+      transform: translateY(-1px);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--ivory);
+      box-shadow: 0 0 0 1px var(--border-dark);
+    }
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.06);
+      box-shadow: 0 0 0 1px var(--warm-silver);
+    }
+
+    /* ---------- Header ---------- */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: var(--z-header);
+      background: rgba(245, 244, 237, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-cream);
+      transition: background 0.3s ease;
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 var(--space-lg);
+    }
+    .header-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--near-black);
+    }
+    .header-logo svg {
+      flex-shrink: 0;
+    }
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: var(--space-xl);
+    }
+    .header-nav a {
+      font-size: 0.94rem;
+      color: var(--olive-gray);
+      transition: color 0.2s;
+    }
+    .header-nav a:hover {
+      color: var(--near-black);
+    }
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+    }
+    .header-actions .btn {
+      font-size: 0.88rem;
+      padding: 0.45rem 1rem;
+    }
+
+    /* Language switcher */
+    .lang-switcher {
+      position: relative;
+    }
+    .lang-btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: none;
+      border: 1px solid var(--border-cream);
+      border-radius: var(--radius-md);
+      padding: 4px 10px;
+      font-size: 0.82rem;
+      color: var(--olive-gray);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .lang-btn:hover {
+      border-color: var(--stone-gray);
+      color: var(--near-black);
+    }
+    .lang-menu {
+      position: absolute;
+      top: calc(100% + 6px);
+      right: 0;
+      background: var(--pure-white);
+      border: 1px solid var(--border-cream);
+      border-radius: var(--radius-md);
+      box-shadow: rgba(0,0,0,0.08) 0px 8px 24px;
+      padding: var(--space-sm) 0;
+      min-width: 140px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-4px);
+      transition: all 0.2s ease;
+      z-index: 50;
+    }
+    .lang-menu.open {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    .lang-menu button {
+      display: block;
+      width: 100%;
+      text-align: left;
+      background: none;
+      border: none;
+      padding: 8px 16px;
+      font-size: 0.88rem;
+      color: var(--olive-gray);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .lang-menu button:hover {
+      background: var(--parchment);
+      color: var(--near-black);
+    }
+    .lang-menu button.active {
+      color: var(--terracotta);
+      font-weight: 500;
+    }
+
+    /* Mobile menu */
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      padding: 8px;
+      cursor: pointer;
+      color: var(--near-black);
+    }
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 64px;
+      left: 0;
+      right: 0;
+      background: var(--parchment);
+      border-bottom: 1px solid var(--border-cream);
+      padding: var(--space-lg);
+      z-index: 39;
+    }
+    .mobile-menu.open {
+      display: block;
+    }
+    .mobile-menu a {
+      display: block;
+      padding: 12px 0;
+      font-size: 1.05rem;
+      color: var(--near-black);
+      border-bottom: 1px solid var(--border-cream);
+    }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      padding: 140px 0 var(--space-4xl);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4xl);
+      align-items: center;
+    }
+    .hero-content .eyebrow {
+      margin-bottom: var(--space-md);
+    }
+    .hero-content h1 {
+      margin-bottom: var(--space-lg);
+    }
+    .hero-content p {
+      font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+      margin-bottom: var(--space-xl);
+    }
+    .hero-cta {
+      display: flex;
+      gap: var(--space-md);
+      flex-wrap: wrap;
+    }
+    .hero-image {
+      position: relative;
+    }
+    .hero-image img {
+      border-radius: var(--radius-xl);
+      box-shadow: rgba(0,0,0,0.04) 0px 8px 32px;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+    }
+    .hero-image-caption {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 0.82rem;
+      color: var(--stone-gray);
+      margin-top: var(--space-sm);
+      text-align: right;
+    }
+
+    /* ---------- Philosophy (dark section) ---------- */
+    .philosophy {
+      padding: var(--space-5xl) 0;
+    }
+    .philosophy-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: var(--space-4xl);
+      align-items: center;
+    }
+    .philosophy-quote {
+      font-family: var(--serif);
+      font-size: clamp(1.35rem, 2.5vw, 1.8rem);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.45;
+      color: var(--ivory);
+      border-left: 2px solid var(--terracotta);
+      padding-left: var(--space-xl);
+      max-width: 30ch;
+    }
+    .philosophy-quote cite {
+      display: block;
+      font-family: var(--sans);
+      font-size: 0.88rem;
+      font-style: normal;
+      color: var(--warm-silver);
+      margin-top: var(--space-md);
+    }
+    .philosophy-text p + p {
+      margin-top: var(--space-lg);
+    }
+
+    /* ---------- Courses ---------- */
+    .courses-header {
+      text-align: center;
+      margin-bottom: var(--space-4xl);
+    }
+    .courses-header p {
+      margin: var(--space-md) auto 0;
+    }
+    .courses-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: var(--space-xl);
+    }
+    .course-card {
+      background: var(--pure-white);
+      border-radius: var(--radius-xl);
+      padding: var(--space-xl);
+      border: 1px solid var(--border-cream);
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      cursor: default;
+    }
+    .course-card:hover {
+      transform: translateY(-4px);
+      box-shadow: rgba(0,0,0,0.04) 0px 12px 40px;
+      border-color: var(--border-warm);
+    }
+    .course-card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-lg);
+      background: var(--terracotta-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--space-md);
+    }
+    .course-card-icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: var(--terracotta);
+    }
+    .course-card h3 {
+      margin-bottom: var(--space-sm);
+    }
+    .course-card p {
+      font-size: 0.94rem;
+      margin-bottom: var(--space-md);
+    }
+    .course-card-meta {
+      display: flex;
+      gap: var(--space-md);
+      font-size: 0.82rem;
+      color: var(--stone-gray);
+      padding-top: var(--space-md);
+      border-top: 1px solid var(--border-cream);
+    }
+    .course-card-meta span {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .course-card.featured {
+      border-color: var(--terracotta);
+      box-shadow: inset 0 0 0 1px var(--terracotta);
+    }
+
+    /* ---------- How It Works (timeline) ---------- */
+    .how-section {
+      padding: var(--space-5xl) 0;
+    }
+    .how-header {
+      text-align: center;
+      margin-bottom: var(--space-4xl);
+    }
+    .timeline {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 60px 1fr;
+      gap: var(--space-lg);
+      padding-bottom: var(--space-2xl);
+      position: relative;
+    }
+    .timeline-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 28px;
+      top: 60px;
+      bottom: 0;
+      width: 1px;
+      background: var(--border-warm);
+    }
+    .timeline-number {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: var(--near-black);
+      color: var(--ivory);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--serif);
+      font-size: 1.35rem;
+      font-weight: 500;
+      flex-shrink: 0;
+    }
+    .timeline-content h3 {
+      margin-bottom: var(--space-xs);
+    }
+    .section-dark .timeline-item:not(:last-child)::after {
+      background: var(--border-dark);
+    }
+    .section-dark .timeline-number {
+      background: var(--warm-sand);
+      color: var(--near-black);
+    }
+
+    /* ---------- Testimonials ---------- */
+    .testimonials-header {
+      text-align: center;
+      margin-bottom: var(--space-4xl);
+    }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-xl);
+    }
+    .testimonial-card {
+      background: var(--pure-white);
+      border-radius: var(--radius-xl);
+      padding: var(--space-xl);
+      border: 1px solid var(--border-cream);
+    }
+    .testimonial-card blockquote {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-style: italic;
+      font-size: 1.05rem;
+      line-height: 1.55;
+      color: var(--near-black);
+      margin-bottom: var(--space-lg);
+    }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+    }
+    .testimonial-author img {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .testimonial-author-name {
+      font-weight: 500;
+      font-size: 0.94rem;
+      color: var(--near-black);
+    }
+    .testimonial-author-title {
+      font-size: 0.82rem;
+      color: var(--stone-gray);
+    }
+
+    /* ---------- FAQ ---------- */
+    .faq-header {
+      text-align: center;
+      margin-bottom: var(--space-3xl);
+    }
+    .faq-list {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .faq-item {
+      border-bottom: 1px solid var(--border-cream);
+    }
+    .faq-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      background: none;
+      border: none;
+      padding: var(--space-lg) 0;
+      font-family: var(--sans);
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--near-black);
+      text-align: left;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .faq-question:hover {
+      color: var(--terracotta);
+    }
+    .faq-question svg {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      transition: transform 0.3s ease;
+      stroke: var(--stone-gray);
+    }
+    .faq-item.open .faq-question svg {
+      transform: rotate(180deg);
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.3s ease;
+    }
+    .faq-item.open .faq-answer {
+      max-height: 300px;
+      padding-bottom: var(--space-lg);
+    }
+    .faq-answer p {
+      font-size: 0.94rem;
+    }
+
+    /* ---------- Newsletter ---------- */
+    .newsletter {
+      padding: var(--space-4xl) 0;
+      text-align: center;
+    }
+    .newsletter-inner {
+      max-width: 520px;
+      margin: 0 auto;
+    }
+    .newsletter-inner h2 {
+      margin-bottom: var(--space-md);
+    }
+    .newsletter-inner p {
+      margin-bottom: var(--space-xl);
+    }
+    .newsletter-form {
+      display: flex;
+      gap: var(--space-sm);
+    }
+    .newsletter-form input {
+      flex: 1;
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--border-warm);
+      border-radius: var(--radius-lg);
+      background: var(--pure-white);
+      font-family: var(--sans);
+      font-size: 0.94rem;
+      color: var(--near-black);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .newsletter-form input:focus {
+      border-color: var(--terracotta);
+      box-shadow: 0 0 0 2px rgba(201,100,66,0.15);
+    }
+    .newsletter-form input::placeholder {
+      color: var(--stone-gray);
+    }
+    .newsletter-form .btn {
+      flex-shrink: 0;
+    }
+
+    /* ---------- Footer ---------- */
+    .footer {
+      padding: var(--space-4xl) 0 var(--space-xl);
+      border-top: 1px solid var(--border-cream);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: var(--space-3xl);
+      margin-bottom: var(--space-3xl);
+    }
+    .footer-brand p {
+      font-size: 0.88rem;
+      margin-top: var(--space-md);
+      max-width: 35ch;
+    }
+    .footer-col h4 {
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: 0.88rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--stone-gray);
+      margin-bottom: var(--space-md);
+    }
+    .footer-col a {
+      display: block;
+      font-size: 0.88rem;
+      color: var(--olive-gray);
+      padding: 4px 0;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover {
+      color: var(--near-black);
+    }
+    .footer-bottom {
+      text-align: center;
+      padding-top: var(--space-xl);
+      border-top: 1px solid var(--border-cream);
+      font-size: 0.82rem;
+      color: var(--stone-gray);
+    }
+
+    /* ---------- Cookie Banner ---------- */
+    .cookie-banner {
+      position: fixed;
+      bottom: var(--space-lg);
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: var(--z-cookie);
+      background: var(--near-black);
+      color: var(--ivory);
+      border-radius: var(--radius-xl);
+      padding: var(--space-md) var(--space-xl);
+      display: flex;
+      align-items: center;
+      gap: var(--space-lg);
+      max-width: 600px;
+      width: calc(100% - 2rem);
+      box-shadow: rgba(0,0,0,0.2) 0px 8px 32px;
+      font-size: 0.88rem;
+      opacity: 0;
+      transform: translateX(-50%) translateY(20px);
+      transition: all 0.4s ease;
+      pointer-events: none;
+    }
+    .cookie-banner.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+      pointer-events: auto;
+    }
+    .cookie-banner p {
+      color: var(--warm-silver);
+      font-size: 0.82rem;
+      flex: 1;
+    }
+    .cookie-banner .btn {
+      font-size: 0.82rem;
+      padding: 0.4rem 0.9rem;
+      flex-shrink: 0;
+    }
+
+    /* ---------- Scroll Animations ---------- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                  transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+      .course-card:hover {
+        transform: none;
+      }
+      .btn:hover {
+        transform: none;
+      }
+      html { scroll-behavior: auto; }
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 992px) {
+      .hero-grid,
+      .philosophy-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-2xl);
+      }
+      .hero-image {
+        order: -1;
+      }
+      .hero {
+        padding: 120px 0 var(--space-3xl);
+      }
+      .courses-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-2xl);
+      }
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 768px) {
+      .header-nav {
+        display: none;
+      }
+      .mobile-toggle {
+        display: block;
+      }
+      .courses-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-xl);
+      }
+      .hero {
+        padding: 100px 0 var(--space-2xl);
+      }
+      section {
+        padding: var(--space-3xl) 0;
+      }
+      .philosophy {
+        padding: var(--space-4xl) 0;
+      }
+      .timeline-item {
+        grid-template-columns: 44px 1fr;
+        gap: var(--space-md);
+      }
+      .timeline-number {
+        width: 44px;
+        height: 44px;
+        font-size: 1.1rem;
+      }
+      .timeline-item:not(:last-child)::after {
+        left: 20px;
+      }
+      .newsletter-form {
+        flex-direction: column;
+      }
+      .cookie-banner {
+        flex-direction: column;
+        text-align: center;
+        bottom: var(--space-md);
+      }
+    }
+    @media (max-width: 479px) {
+      .hero-cta {
+        flex-direction: column;
+      }
+      .hero-cta .btn {
+        width: 100%;
+        justify-content: center;
+      }
+      .header-actions .btn {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== HEADER ==================== -->
+  <header class="header" role="banner">
+    <div class="header-inner">
+      <a href="#" class="header-logo" data-i18n="logo">
+        <svg width="28" height="28" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <rect width="32" height="32" rx="6" fill="#c96442"/>
+          <path d="M10 22V10l12 12V10" stroke="#faf9f5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Paideia
+      </a>
+
+      <nav class="header-nav" aria-label="Main navigation">
+        <a href="#courses" data-i18n="nav-courses">Courses</a>
+        <a href="#how" data-i18n="nav-how">How It Works</a>
+        <a href="#testimonials" data-i18n="nav-testimonials">Testimonials</a>
+        <a href="#faq" data-i18n="nav-faq">FAQ</a>
+      </nav>
+
+      <div class="header-actions">
+        <div class="lang-switcher">
+          <button class="lang-btn" id="lang-btn" aria-label="Switch language">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            <span id="lang-label">EN</span>
+          </button>
+          <div class="lang-menu" id="lang-menu" role="menu">
+            <button data-lang="en" role="menuitem" class="active">English</button>
+            <button data-lang="es" role="menuitem">Español</button>
+            <button data-lang="fr" role="menuitem">Français</button>
+            <button data-lang="de" role="menuitem">Deutsch</button>
+            <button data-lang="it" role="menuitem">Italiano</button>
+            <button data-lang="pt" role="menuitem">Português</button>
+          </div>
+        </div>
+        <a href="#" class="btn btn-primary" data-i18n="cta-header">Start Learning</a>
+      </div>
+
+      <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="#courses" data-i18n="nav-courses" onclick="closeMobile()">Courses</a>
+      <a href="#how" data-i18n="nav-how" onclick="closeMobile()">How It Works</a>
+      <a href="#testimonials" data-i18n="nav-testimonials" onclick="closeMobile()">Testimonials</a>
+      <a href="#faq" data-i18n="nav-faq" onclick="closeMobile()">FAQ</a>
+      <a href="#" class="btn btn-primary" style="margin-top:16px;" data-i18n="cta-header" onclick="closeMobile()">Start Learning</a>
+    </div>
+  </header>
+
+  <!-- ==================== HERO ==================== -->
+  <section class="hero" id="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <span class="eyebrow reveal" data-i18n="hero-eyebrow">Founded in the spirit of the classical</span>
+        <h1 class="reveal reveal-delay-1" data-i18n="hero-title">Learn to think again.</h1>
+        <p class="reveal reveal-delay-2 text-large" data-i18n="hero-desc">Paideia is a digital academy for the humanities. Guided seminars, original texts, and a community of readers — rediscover the art of deep, unhurried learning.</p>
+        <div class="hero-cta reveal reveal-delay-3">
+          <a href="#" class="btn btn-primary" data-i18n="hero-cta-primary">Explore Courses</a>
+          <a href="#" class="btn btn-secondary" data-i18n="hero-cta-secondary">Watch Introduction</a>
+        </div>
+      </div>
+      <div class="hero-image reveal reveal-delay-2">
+        <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=800&q=85" alt="Open vintage book on wooden desk" loading="eager">
+        <span class="hero-image-caption" data-i18n="hero-caption">Plato's Republic, annotated edition</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PHILOSOPHY (dark section) ==================== -->
+  <section class="section-dark philosophy" id="philosophy">
+    <div class="container philosophy-grid">
+      <div class="reveal">
+        <span class="eyebrow" style="color:var(--coral-accent)" data-i18n="phil-eyebrow">Our conviction</span>
+        <blockquote class="philosophy-quote" data-i18n="phil-quote">
+          "Education is not the filling of a pail, but the lighting of a fire."
+          <cite data-i18n="phil-cite">— W. B. Yeats</cite>
+        </blockquote>
+      </div>
+      <div class="philosophy-text reveal reveal-delay-1">
+        <p data-i18n="phil-p1">The humanities are not a luxury. They are the practice of paying attention — to language, to history, to each other. In an age of endless distraction, we believe the most radical act is to sit with a difficult text and think together.</p>
+        <p data-i18n="phil-p2">Our seminars are small, our questions are open, and our standards are high. Every course is led by a scholar who has devoted their life to the subject. No prerecorded lectures, no multiple-choice quizzes — just conversation, close reading, and the slow work of understanding.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== COURSES ==================== -->
+  <section class="section-ivory" id="courses">
+    <div class="container">
+      <div class="courses-header">
+        <span class="eyebrow reveal" data-i18n="courses-eyebrow">Three paths</span>
+        <h2 class="reveal reveal-delay-1" data-i18n="courses-title">Courses that ask more of you.</h2>
+        <p class="text-large reveal reveal-delay-2" style="max-width:55ch;" data-i18n="courses-desc">Each seminar runs for eight weeks. You'll read one primary text per week, write a short response, and join a live discussion with no more than twelve fellow readers.</p>
+      </div>
+
+      <div class="courses-grid">
+        <!-- Literature -->
+        <article class="course-card featured reveal reveal-delay-1">
+          <div class="course-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5A2.5 2.5 0 0 1 4 19.5z"/>
+              <path d="M8 7h8M8 11h6"/>
+            </svg>
+          </div>
+          <h3 data-i18n="course-lit-title">The Art of the Novel</h3>
+          <p data-i18n="course-lit-desc">From Austen to Morrison — how the novel taught us to see other minds. Eight masterworks, eight weeks, one transformative conversation about what it means to inhabit another life.</p>
+          <div class="course-card-meta">
+            <span data-i18n="course-lit-weeks">8 weeks</span>
+            <span data-i18n="course-lit-start">Next cohort: Sep 14</span>
+          </div>
+        </article>
+
+        <!-- Philosophy -->
+        <article class="course-card reveal reveal-delay-2">
+          <div class="course-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 16v-4"/>
+              <path d="M12 8h.01"/>
+            </svg>
+          </div>
+          <h3 data-i18n="course-phil-title">The Examined Life</h3>
+          <p data-i18n="course-phil-desc">Plato, Descartes, Nietzsche, Arendt — the questions that refuse to age. What is justice? What does it mean to be free? How should we live? No prior philosophy required.</p>
+          <div class="course-card-meta">
+            <span data-i18n="course-phil-weeks">8 weeks</span>
+            <span data-i18n="course-phil-start">Next cohort: Oct 5</span>
+          </div>
+        </article>
+
+        <!-- History -->
+        <article class="course-card reveal reveal-delay-3">
+          <div class="course-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <h3 data-i18n="course-hist-title">Revolutions That Changed the World</h3>
+          <p data-i18n="course-hist-desc">The French, Haitian, and Russian revolutions as seen through the eyes of those who lived them. Letters, speeches, manifestos, and memoirs — history from the inside out.</p>
+          <div class="course-card-meta">
+            <span data-i18n="course-hist-weeks">8 weeks</span>
+            <span data-i18n="course-hist-start">Next cohort: Oct 26</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== HOW IT WORKS ==================== -->
+  <section class="how-section" id="how">
+    <div class="container">
+      <div class="how-header">
+        <span class="eyebrow reveal" data-i18n="how-eyebrow">How it works</span>
+        <h2 class="reveal reveal-delay-1" data-i18n="how-title">Three movements, one journey.</h2>
+        <p class="text-large reveal reveal-delay-2" style="max-width:55ch; margin:var(--space-md) auto 0;" data-i18n="how-desc">Every course follows the same rhythm. You move through each week at your own pace, guided by the text and your seminar leader.</p>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item reveal">
+          <div class="timeline-number">1</div>
+          <div class="timeline-content">
+            <h3 data-i18n="step-1-title">Read deeply.</h3>
+            <p data-i18n="step-1-desc">One primary text per week. No abridgments, no summaries — the real thing. You receive a reading guide with context, questions, and related passages. Read at your pace, in your space.</p>
+          </div>
+        </div>
+        <div class="timeline-item reveal reveal-delay-1">
+          <div class="timeline-number">2</div>
+          <div class="timeline-content">
+            <h3 data-i18n="step-2-title">Write briefly.</h3>
+            <p data-i18n="step-2-desc">A short weekly response — not a paper, but a genuine attempt to think on the page. Your seminar leader reads every one and weaves your ideas into the discussion.</p>
+          </div>
+        </div>
+        <div class="timeline-item reveal reveal-delay-2">
+          <div class="timeline-number">3</div>
+          <div class="timeline-content">
+            <h3 data-i18n="step-3-title">Discuss together.</h3>
+            <p data-i18n="step-3-desc">A live 90-minute seminar each week with no more than twelve readers. Not a lecture — a conversation. You leave with more questions than you arrived with, and that is the point.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== TESTIMONIALS (dark section) ==================== -->
+  <section class="section-dark philosophy" id="testimonials" style="padding:var(--space-5xl) 0;">
+    <div class="container">
+      <div class="testimonials-header">
+        <span class="eyebrow" style="color:var(--coral-accent)" data-i18n="test-eyebrow">From our readers</span>
+        <h2 class="reveal" data-i18n="test-title">What students say.</h2>
+        <p class="text-large reveal reveal-delay-1" style="max-width:50ch; margin:var(--space-md) auto 0; color:var(--warm-silver);" data-i18n="test-desc">People come to Paideia from every walk of life. Here is what they find.</p>
+      </div>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card" style="background:var(--dark-surface); border-color:var(--border-dark);">
+          <blockquote style="color:var(--ivory);" data-i18n="test-1-quote">"I came for the books. I stayed for the conversation. I had forgotten how good it feels to be in a room where everyone has actually read the assignment."</blockquote>
+          <div class="testimonial-author">
+            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&q=80" alt="Elena" loading="lazy">
+            <div>
+              <div class="testimonial-author-name" style="color:var(--ivory)" data-i18n="test-1-name">Elena V.</div>
+              <div class="testimonial-author-title" style="color:var(--warm-silver)" data-i18n="test-1-title">Software Engineer, Berlin</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card" style="background:var(--dark-surface); border-color:var(--border-dark);">
+          <blockquote style="color:var(--ivory);" data-i18n="test-2-quote">"The seminar on the French Revolution changed how I read the news. I see power, narrative, and contingency everywhere now. That is what education should do."</blockquote>
+          <div class="testimonial-author">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" alt="James" loading="lazy">
+            <div>
+              <div class="testimonial-author-name" style="color:var(--ivory)" data-i18n="test-2-name">James K.</div>
+              <div class="testimonial-author-title" style="color:var(--warm-silver)" data-i18n="test-2-title">Journalist, Toronto</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FAQ ==================== -->
+  <section class="section-ivory" id="faq">
+    <div class="container">
+      <div class="faq-header">
+        <span class="eyebrow reveal" data-i18n="faq-eyebrow">Common questions</span>
+        <h2 class="reveal reveal-delay-1" data-i18n="faq-title">Before you enroll.</h2>
+        <p class="text-large reveal reveal-delay-2" style="max-width:50ch; margin:var(--space-md) auto 0;" data-i18n="faq-desc">Everything you need to know about how Paideia works.</p>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false" data-i18n="faq-q1">
+            <span>Who are the courses for?</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p data-i18n="faq-a1">Anyone who reads. Our students range from 19 to 79 — undergraduate students, retired teachers, working professionals, parents. There are no prerequisites beyond curiosity and a willingness to show up prepared.</p>
+          </div>
+        </div>
+        <div class="faq-item reveal reveal-delay-1">
+          <button class="faq-question" aria-expanded="false" data-i18n="faq-q2">
+            <span>How much time does a course require?</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p data-i18n="faq-a2">About 4–6 hours per week: 3–4 hours of reading, 30 minutes for your written response, and a 90-minute live seminar. The reading is the heart of it — the rest exists to deepen your encounter with the text.</p>
+          </div>
+        </div>
+        <div class="faq-item reveal reveal-delay-2">
+          <button class="faq-question" aria-expanded="false" data-i18n="faq-q3">
+            <span>Are the seminars recorded?</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p data-i18n="faq-a3">No. The seminars are live and unrecorded. This protects the intimacy of the conversation and ensures that everyone who attends is fully present. If you miss a session, you can join a makeup discussion the following week.</p>
+          </div>
+        </div>
+        <div class="faq-item reveal reveal-delay-3">
+          <button class="faq-question" aria-expanded="false" data-i18n="faq-q4">
+            <span>What does it cost?</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p data-i18n="faq-a4">Each eight-week course is 480€. This includes all readings (digital editions), the weekly seminar, and personal written feedback from your seminar leader. We offer need-based scholarships for those who cannot afford the full fee.</p>
+          </div>
+        </div>
+        <div class="faq-item reveal reveal-delay-4">
+          <button class="faq-question" aria-expanded="false" data-i18n="faq-q5">
+            <span>How do I know if it is right for me?</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p data-i18n="faq-a5">Join a free introductory session. Once a month, we host an open reading circle where you can experience our approach before committing. No preparation needed — just bring yourself and a willingness to read together.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== NEWSLETTER ==================== -->
+  <section class="newsletter section-dark">
+    <div class="container">
+      <div class="newsletter-inner">
+        <h2 class="reveal" data-i18n="nl-title">Stay in the company of readers.</h2>
+        <p class="text-large reveal reveal-delay-1" data-i18n="nl-desc">A monthly letter from our founders — reading recommendations, course announcements, and reflections on the life of the mind. No spam, ever.</p>
+        <form class="newsletter-form reveal reveal-delay-2" onsubmit="event.preventDefault(); alert(i18n.t('nl-success'));">
+          <input type="email" placeholder="your@email.com" required aria-label="Email address" data-i18n-placeholder="nl-placeholder">
+          <button type="submit" class="btn btn-primary" data-i18n="nl-btn">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="header-logo">
+            <svg width="24" height="24" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+              <rect width="32" height="32" rx="6" fill="#c96442"/>
+              <path d="M10 22V10l12 12V10" stroke="#faf9f5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Paideia
+          </a>
+          <p data-i18n="footer-tagline">A digital academy for the humanities. Based in Oxford, learning everywhere.</p>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer-courses">Courses</h4>
+          <a href="#" data-i18n="footer-lit">Literature</a>
+          <a href="#" data-i18n="footer-phil">Philosophy</a>
+          <a href="#" data-i18n="footer-hist">History</a>
+          <a href="#" data-i18n="footer-schedule">Schedule</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer-about">About</h4>
+          <a href="#" data-i18n="footer-mission">Our Mission</a>
+          <a href="#" data-i18n="footer-faculty">Faculty</a>
+          <a href="#" data-i18n="footer-scholarships">Scholarships</a>
+          <a href="#" data-i18n="footer-contact">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer-legal">Legal</h4>
+          <a href="#" data-i18n="footer-privacy">Privacy Policy</a>
+          <a href="#" data-i18n="footer-terms">Terms of Service</a>
+          <a href="#" data-i18n="footer-access">Accessibility</a>
+        </div>
+      </div>
+      <div class="footer-bottom" data-i18n="footer-copy">
+        &copy; 2026 Paideia Academy. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== COOKIE BANNER ==================== -->
+  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent">
+    <p data-i18n="cookie-text">We use essential cookies to make our site work. No tracking, no analytics, no third-party data sharing.</p>
+    <button class="btn btn-primary" id="cookie-accept" data-i18n="cookie-btn">Accept</button>
+  </div>
+
+  <!-- ==================== JAVASCRIPT ==================== -->
+  <script>
+    /* ================================================================
+       PAIDEIA — JavaScript
+       - Scroll-triggered reveals (Intersection Observer)
+       - i18n (6 languages, instant switch, localStorage + browser detect)
+       - FAQ accordion
+       - Cookie banner
+       - Mobile menu
+       - Language switcher
+       ================================================================ */
+
+    // ---- i18n system ----
+    const i18n = {
+      currentLang: 'en',
+      translations: {
+        en: {
+          'logo': 'Paideia',
+          'nav-courses': 'Courses',
+          'nav-how': 'How It Works',
+          'nav-testimonials': 'Testimonials',
+          'nav-faq': 'FAQ',
+          'cta-header': 'Start Learning',
+          'hero-eyebrow': 'Founded in the spirit of the classical',
+          'hero-title': 'Learn to think again.',
+          'hero-desc': 'Paideia is a digital academy for the humanities. Guided seminars, original texts, and a community of readers — rediscover the art of deep, unhurried learning.',
+          'hero-cta-primary': 'Explore Courses',
+          'hero-cta-secondary': 'Watch Introduction',
+          'hero-caption': 'Plato\'s Republic, annotated edition',
+          'phil-eyebrow': 'Our conviction',
+          'phil-quote': '"Education is not the filling of a pail, but the lighting of a fire."',
+          'phil-cite': '— W. B. Yeats',
+          'phil-p1': 'The humanities are not a luxury. They are the practice of paying attention — to language, to history, to each other. In an age of endless distraction, we believe the most radical act is to sit with a difficult text and think together.',
+          'phil-p2': 'Our seminars are small, our questions are open, and our standards are high. Every course is led by a scholar who has devoted their life to the subject. No prerecorded lectures, no multiple-choice quizzes — just conversation, close reading, and the slow work of understanding.',
+          'courses-eyebrow': 'Three paths',
+          'courses-title': 'Courses that ask more of you.',
+          'courses-desc': 'Each seminar runs for eight weeks. You\'ll read one primary text per week, write a short response, and join a live discussion with no more than twelve fellow readers.',
+          'course-lit-title': 'The Art of the Novel',
+          'course-lit-desc': 'From Austen to Morrison — how the novel taught us to see other minds. Eight masterworks, eight weeks, one transformative conversation about what it means to inhabit another life.',
+          'course-lit-weeks': '8 weeks',
+          'course-lit-start': 'Next cohort: Sep 14',
+          'course-phil-title': 'The Examined Life',
+          'course-phil-desc': 'Plato, Descartes, Nietzsche, Arendt — the questions that refuse to age. What is justice? What does it mean to be free? How should we live? No prior philosophy required.',
+          'course-phil-weeks': '8 weeks',
+          'course-phil-start': 'Next cohort: Oct 5',
+          'course-hist-title': 'Revolutions That Changed the World',
+          'course-hist-desc': 'The French, Haitian, and Russian revolutions as seen through the eyes of those who lived them. Letters, speeches, manifestos, and memoirs — history from the inside out.',
+          'course-hist-weeks': '8 weeks',
+          'course-hist-start': 'Next cohort: Oct 26',
+          'how-eyebrow': 'How it works',
+          'how-title': 'Three movements, one journey.',
+          'how-desc': 'Every course follows the same rhythm. You move through each week at your own pace, guided by the text and your seminar leader.',
+          'step-1-title': 'Read deeply.',
+          'step-1-desc': 'One primary text per week. No abridgments, no summaries — the real thing. You receive a reading guide with context, questions, and related passages. Read at your pace, in your space.',
+          'step-2-title': 'Write briefly.',
+          'step-2-desc': 'A short weekly response — not a paper, but a genuine attempt to think on the page. Your seminar leader reads every one and weaves your ideas into the discussion.',
+          'step-3-title': 'Discuss together.',
+          'step-3-desc': 'A live 90-minute seminar each week with no more than twelve readers. Not a lecture — a conversation. You leave with more questions than you arrived with, and that is the point.',
+          'test-eyebrow': 'From our readers',
+          'test-title': 'What students say.',
+          'test-desc': 'People come to Paideia from every walk of life. Here is what they find.',
+          'test-1-quote': '"I came for the books. I stayed for the conversation. I had forgotten how good it feels to be in a room where everyone has actually read the assignment."',
+          'test-1-name': 'Elena V.',
+          'test-1-title': 'Software Engineer, Berlin',
+          'test-2-quote': '"The seminar on the French Revolution changed how I read the news. I see power, narrative, and contingency everywhere now. That is what education should do."',
+          'test-2-name': 'James K.',
+          'test-2-title': 'Journalist, Toronto',
+          'faq-eyebrow': 'Common questions',
+          'faq-title': 'Before you enroll.',
+          'faq-desc': 'Everything you need to know about how Paideia works.',
+          'faq-q1': 'Who are the courses for?',
+          'faq-a1': 'Anyone who reads. Our students range from 19 to 79 — undergraduate students, retired teachers, working professionals, parents. There are no prerequisites beyond curiosity and a willingness to show up prepared.',
+          'faq-q2': 'How much time does a course require?',
+          'faq-a2': 'About 4–6 hours per week: 3–4 hours of reading, 30 minutes for your written response, and a 90-minute live seminar. The reading is the heart of it — the rest exists to deepen your encounter with the text.',
+          'faq-q3': 'Are the seminars recorded?',
+          'faq-a3': 'No. The seminars are live and unrecorded. This protects the intimacy of the conversation and ensures that everyone who attends is fully present. If you miss a session, you can join a makeup discussion the following week.',
+          'faq-q4': 'What does it cost?',
+          'faq-a4': 'Each eight-week course is 480€. This includes all readings (digital editions), the weekly seminar, and personal written feedback from your seminar leader. We offer need-based scholarships for those who cannot afford the full fee.',
+          'faq-q5': 'How do I know if it is right for me?',
+          'faq-a5': 'Join a free introductory session. Once a month, we host an open reading circle where you can experience our approach before committing. No preparation needed — just bring yourself and a willingness to read together.',
+          'nl-title': 'Stay in the company of readers.',
+          'nl-desc': 'A monthly letter from our founders — reading recommendations, course announcements, and reflections on the life of the mind. No spam, ever.',
+          'nl-placeholder': 'your@email.com',
+          'nl-btn': 'Subscribe',
+          'nl-success': 'Thank you! You have been subscribed.',
+          'footer-tagline': 'A digital academy for the humanities. Based in Oxford, learning everywhere.',
+          'footer-courses': 'Courses',
+          'footer-lit': 'Literature',
+          'footer-phil': 'Philosophy',
+          'footer-hist': 'History',
+          'footer-schedule': 'Schedule',
+          'footer-about': 'About',
+          'footer-mission': 'Our Mission',
+          'footer-faculty': 'Faculty',
+          'footer-scholarships': 'Scholarships',
+          'footer-contact': 'Contact',
+          'footer-legal': 'Legal',
+          'footer-privacy': 'Privacy Policy',
+          'footer-terms': 'Terms of Service',
+          'footer-access': 'Accessibility',
+          'footer-copy': '\u00a9 2026 Paideia Academy. All rights reserved.',
+          'cookie-text': 'We use essential cookies to make our site work. No tracking, no analytics, no third-party data sharing.',
+          'cookie-btn': 'Accept'
+        },
+        es: {
+          'logo': 'Paideia',
+          'nav-courses': 'Cursos',
+          'nav-how': 'C\u00f3mo funciona',
+          'nav-testimonials': 'Testimonios',
+          'nav-faq': 'Preguntas',
+          'cta-header': 'Empezar',
+          'hero-eyebrow': 'Fundado en el esp\u00edritu cl\u00e1sico',
+          'hero-title': 'Vuelve a aprender a pensar.',
+          'hero-desc': 'Paideia es una academia digital de humanidades. Seminarios guiados, textos originales y una comunidad de lectores: redescubre el arte del aprendizaje profundo y reposado.',
+          'hero-cta-primary': 'Explorar cursos',
+          'hero-cta-secondary': 'Ver introducci\u00f3n',
+          'hero-caption': 'La Rep\u00fablica de Plat\u00f3n, edici\u00f3n anotada',
+          'phil-eyebrow': 'Nuestra convicci\u00f3n',
+          'phil-quote': '&laquo;La educaci\u00f3n no es llenar un cubo, sino encender un fuego.&raquo;',
+          'phil-cite': '— W. B. Yeats',
+          'phil-p1': 'Las humanidades no son un lujo. Son la pr\u00e1ctica de prestar atenci\u00f3n — al lenguaje, a la historia, a los dem\u00e1s. En una \u00e9poca de distracci\u00f3n infinita, creemos que el acto m\u00e1s radical es sentarse con un texto dif\u00edcil y pensar juntos.',
+          'phil-p2': 'Nuestros seminarios son peque\u00f1os, nuestras preguntas abiertas y nuestros est\u00e1ndares altos. Cada curso lo dirige un acad\u00e9mico que ha dedicado su vida a la materia. Sin clases pregrabadas ni cuestionarios — solo conversaci\u00f3n, lectura atenta y el trabajo lento de comprender.',
+          'courses-eyebrow': 'Tres caminos',
+          'courses-title': 'Cursos que te exigen m\u00e1s.',
+          'courses-desc': 'Cada seminario dura ocho semanas. Leer\u00e1s un texto principal cada semana, escribir\u00e1s una breve respuesta y participar\u00e1s en una discusi\u00f3n en vivo con no m\u00e1s de doce compa\u00f1eros lectores.',
+          'course-lit-title': 'El arte de la novela',
+          'course-lit-desc': 'De Austen a Morrison — c\u00f3mo la novela nos ense\u00f1\u00f3 a ver otras mentes. Ocho obras maestras, ocho semanas, una conversaci\u00f3n transformadora sobre lo que significa habitar otra vida.',
+          'course-lit-weeks': '8 semanas',
+          'course-lit-start': 'Pr\u00f3ximo grupo: 14 sep',
+          'course-phil-title': 'La vida examinada',
+          'course-phil-desc': 'Plat\u00f3n, Descartes, Nietzsche, Arendt — las preguntas que se niegan a envejecer. \u00bfQu\u00e9 es la justicia? \u00bfQu\u00e9 significa ser libre? \u00bfC\u00f3mo debemos vivir? Sin conocimientos previos de filosof\u00eda.',
+          'course-phil-weeks': '8 semanas',
+          'course-phil-start': 'Pr\u00f3ximo grupo: 5 oct',
+          'course-hist-title': 'Revoluciones que cambiaron el mundo',
+          'course-hist-desc': 'Las revoluciones francesa, haitiana y rusa vistas a trav\u00e9s de los ojos de quienes las vivieron. Cartas, discursos, panfletos y memorias — la historia desde dentro.',
+          'course-hist-weeks': '8 semanas',
+          'course-hist-start': 'Pr\u00f3ximo grupo: 26 oct',
+          'how-eyebrow': 'C\u00f3mo funciona',
+          'how-title': 'Tres movimientos, un viaje.',
+          'how-desc': 'Todos los cursos siguen el mismo ritmo. Avanzas cada semana a tu propio ritmo, guiado por el texto y tu l\u00edder de seminario.',
+          'step-1-title': 'Lee a fondo.',
+          'step-1-desc': 'Un texto principal por semana. Sin res\u00famenes ni versiones abreviadas — el original. Recibes una gu\u00eda de lectura con contexto, preguntas y pasajes relacionados. Lee a tu ritmo, en tu espacio.',
+          'step-2-title': 'Escribe breve.',
+          'step-2-desc': 'Una respuesta semanal corta — no un ensayo, sino un intento genuino de pensar en p\u00e1gina. Tu l\u00edder de seminario lee cada una y entreteje tus ideas en la discusi\u00f3n.',
+          'step-3-title': 'Discutan juntos.',
+          'step-3-desc': 'Un seminario en vivo de 90 minutos cada semana con no m\u00e1s de doce lectores. No es una conferencia — es una conversaci\u00f3n. Te vas con m\u00e1s preguntas de las que llegaste, y ese es el objetivo.',
+          'test-eyebrow': 'De nuestros lectores',
+          'test-title': 'Lo que dicen los estudiantes.',
+          'test-desc': 'Personas de todos los \u00e1mbitos llegan a Paideia. Esto es lo que encuentran.',
+          'test-1-quote': '&laquo;Vine por los libros. Me qued\u00e9 por la conversaci\u00f3n. Hab\u00eda olvidado lo bien que se siente estar en una sala donde todos han le\u00eddo realmente la tarea.&raquo;',
+          'test-1-name': 'Elena V.',
+          'test-1-title': 'Ingeniera de software, Berl\u00edn',
+          'test-2-quote': '&raquo;El seminario sobre la Revoluci\u00f3n Francesa cambi\u00f3 mi forma de leer las noticias. Ahora veo poder, narrativa y contingencia en todas partes. Eso es lo que la educaci\u00f3n deber\u00eda hacer.&raquo;',
+          'test-2-name': 'James K.',
+          'test-2-title': 'Periodista, Toronto',
+          'faq-eyebrow': 'Preguntas frecuentes',
+          'faq-title': 'Antes de inscribirte.',
+          'faq-desc': 'Todo lo que necesitas saber sobre c\u00f3mo funciona Paideia.',
+          'faq-q1': '\u00bfPara qui\u00e9nes son los cursos?',
+          'faq-a1': 'Para cualquier persona que lea. Nuestros estudiantes tienen entre 19 y 79 a\u00f1os — universitarios, docentes jubilados, profesionales, padres. No hay requisitos previos m\u00e1s all\u00e1 de la curiosidad y la voluntad de llegar preparado.',
+          'faq-q2': '\u00bfCu\u00e1nto tiempo requiere un curso?',
+          'faq-a2': 'Entre 4 y 6 horas semanales: 3-4 horas de lectura, 30 minutos para tu respuesta escrita y un seminario en vivo de 90 minutos. La lectura es el coraz\u00f3n — el resto existe para profundizar tu encuentro con el texto.',
+          'faq-q3': '\u00bfSe graban los seminarios?',
+          'faq-a3': 'No. Los seminarios son en vivo y no se graban. Esto protege la intimidad de la conversaci\u00f3n y asegura que todos los que asisten est\u00e9n completamente presentes. Si faltas a una sesi\u00f3n, puedes unirte a una discusi\u00f3n de recuperaci\u00f3n la semana siguiente.',
+          'faq-q4': '\u00bfCu\u00e1nto cuesta?',
+          'faq-a4': 'Cada curso de ocho semanas cuesta 480\u20ac. Incluye todas las lecturas (ediciones digitales), el seminario semanal y retroalimentaci\u00f3n personalizada por escrito de tu l\u00edder de seminario. Ofrecemos becas basadas en necesidad econ\u00f3mica.',
+          'faq-q5': '\u00bfC\u00f3mo s\u00e9 si es para m\u00ed?',
+          'faq-a5': '\u00danete a una sesi\u00f3n introductoria gratuita. Una vez al mes organizamos un c\u00edrculo de lectura abierto donde puedes experimentar nuestro enfoque antes de comprometerte. Sin preparaci\u00f3n — solo trae tu disposici\u00f3n a leer juntos.',
+          'nl-title': 'Permanece en compa\u00f1\u00eda de lectores.',
+          'nl-desc': 'Una carta mensual de nuestros fundadores — recomendaciones de lectura, anuncios de cursos y reflexiones sobre la vida de la mente. Sin spam, nunca.',
+          'nl-placeholder': 'tu@email.com',
+          'nl-btn': 'Suscribirse',
+          'nl-success': '\u00a1Gracias! Te has suscrito.',
+          'footer-tagline': 'Una academia digital de humanidades. Con sede en Oxford, aprendiendo en todas partes.',
+          'footer-courses': 'Cursos',
+          'footer-lit': 'Literatura',
+          'footer-phil': 'Filosof\u00eda',
+          'footer-hist': 'Historia',
+          'footer-schedule': 'Calendario',
+          'footer-about': 'Nosotros',
+          'footer-mission': 'Nuestra misi\u00f3n',
+          'footer-faculty': 'Facultad',
+          'footer-scholarships': 'Becas',
+          'footer-contact': 'Contacto',
+          'footer-legal': 'Legal',
+          'footer-privacy': 'Privacidad',
+          'footer-terms': 'T\u00e9rminos',
+          'footer-access': 'Accesibilidad',
+          'footer-copy': '\u00a9 2026 Paideia Academy. Todos los derechos reservados.',
+          'cookie-text': 'Usamos cookies esenciales para que el sitio funcione. Sin seguimiento, sin an\u00e1lisis, sin compartir datos con terceros.',
+          'cookie-btn': 'Aceptar'
+        },
+        fr: {
+          'logo': 'Paideia',
+          'nav-courses': 'Cours',
+          'nav-how': 'Fonctionnement',
+          'nav-testimonials': 'T\u00e9moignages',
+          'nav-faq': 'FAQ',
+          'cta-header': 'Commencer',
+          'hero-eyebrow': 'Fond\u00e9 dans l\u2019esprit classique',
+          'hero-title': 'Apprenez \u00e0 penser \u00e0 nouveau.',
+          'hero-desc': 'Paideia est une acad\u00e9mie num\u00e9rique des humanit\u00e9s. S\u00e9minaires guid\u00e9s, textes originaux et une communaut\u00e9 de lecteurs \u2014 red\u00e9couvrez l\u2019art de l\u2019apprentissage profond et sans h\u00e2te.',
+          'hero-cta-primary': 'Explorer les cours',
+          'hero-cta-secondary': 'Voir l\u2019introduction',
+          'hero-caption': 'La R\u00e9publique de Platon, \u00e9dition annot\u00e9e',
+          'phil-eyebrow': 'Notre conviction',
+          'phil-quote': '\u00ab\u00a0L\u2019\u00e9ducation n\u2019est pas le remplissage d\u2019un seau, mais l\u2019allumage d\u2019un feu.\u00a0\u00bb',
+          'phil-cite': '\u2014 W. B. Yeats',
+          'phil-p1': 'Les humanit\u00e9s ne sont pas un luxe. Elles sont la pratique de l\u2019attention \u2014 au langage, \u00e0 l\u2019histoire, aux autres. Dans un \u00e2ge de distraction infinie, nous croyons que l\u2019acte le plus radical est de s\u2019asseoir avec un texte difficile et de penser ensemble.',
+          'phil-p2': 'Nos s\u00e9minaires sont petits, nos questions sont ouvertes et nos exigences sont \u00e9lev\u00e9es. Chaque cours est dirig\u00e9 par un chercheur qui a consacr\u00e9 sa vie au sujet. Pas de cours pr\u00e9enregistr\u00e9s, pas de quiz \u2014 seulement la conversation, la lecture attentive et le lent travail de la compr\u00e9hension.',
+          'courses-eyebrow': 'Trois voies',
+          'courses-title': 'Des cours qui exigent plus de vous.',
+          'courses-desc': 'Chaque s\u00e9minaire dure huit semaines. Vous lirez un texte principal par semaine, \u00e9crirez une courte r\u00e9ponse et participerez \u00e0 une discussion en direct avec pas plus de douze lecteurs.',
+          'course-lit-title': 'L\u2019art du roman',
+          'course-lit-desc': 'De Austen \u00e0 Morrison \u2014 comment le roman nous a appris \u00e0 voir les autres esprits. Huit chefs-d\u2019\u0153uvre, huit semaines, une conversation transformatrice sur ce que signifie habiter une autre vie.',
+          'course-lit-weeks': '8 semaines',
+          'course-lit-start': 'Prochaine session : 14 sept.',
+          'course-phil-title': 'La vie examin\u00e9e',
+          'course-phil-desc': 'Platon, Descartes, Nietzsche, Arendt \u2014 les questions qui refusent de vieillir. Qu\u2019est-ce que la justice ? Que signifie \u00eatre libre ? Comment devrions-nous vivre ? Aucune connaissance pr\u00e9alable en philosophie n\u2019est requise.',
+          'course-phil-weeks': '8 semaines',
+          'course-phil-start': 'Prochaine session : 5 oct.',
+          'course-hist-title': 'Les r\u00e9volutions qui ont chang\u00e9 le monde',
+          'course-hist-desc': 'Les r\u00e9volutions fran\u00e7aise, ha\u00eftienne et russe vues par ceux qui les ont v\u00e9cues. Lettres, discours, manifestes et m\u00e9moires \u2014 l\u2019histoire de l\u2019int\u00e9rieur.',
+          'course-hist-weeks': '8 semaines',
+          'course-hist-start': 'Prochaine session : 26 oct.',
+          'how-eyebrow': 'Fonctionnement',
+          'how-title': 'Trois mouvements, un voyage.',
+          'how-desc': 'Chaque cours suit le m\u00eame rythme. Vous avancez chaque semaine \u00e0 votre rythme, guid\u00e9 par le texte et votre animateur de s\u00e9minaire.',
+          'step-1-title': 'Lisez profond\u00e9ment.',
+          'step-1-desc': 'Un texte principal par semaine. Pas de r\u00e9sum\u00e9s ni d\u2019abr\u00e9g\u00e9s \u2014 l\u2019original. Vous recevez un guide de lecture avec contexte, questions et passages connexes. Lisez \u00e0 votre rythme, dans votre espace.',
+          'step-2-title': '\u00c9crivez bri\u00e8vement.',
+          'step-2-desc': 'Une courte r\u00e9ponse hebdomadaire \u2014 pas un travail, mais une tentative sinc\u00e8re de penser sur la page. Votre animateur lit chacune et tisse vos id\u00e9es dans la discussion.',
+          'step-3-title': 'Discutez ensemble.',
+          'step-3-desc': 'Un s\u00e9minaire en direct de 90 minutes chaque semaine avec pas plus de douze lecteurs. Pas un cours magistral \u2014 une conversation. Vous partez avec plus de questions que vous n\u2019en aviez, et c\u2019est le but.',
+          'test-eyebrow': 'De nos lecteurs',
+          'test-title': 'Ce que disent les \u00e9tudiants.',
+          'test-desc': 'Les gens viennent \u00e0 Paideia de tous les horizons. Voici ce qu\u2019ils trouvent.',
+          'test-1-quote': '\u00ab\u00a0Je suis venu pour les livres. Je suis rest\u00e9 pour la conversation. J\u2019avais oubli\u00e9 comme il est bon d\u2019\u00eatre dans une salle o\u00f9 tout le monde a vraiment lu le devoir.\u00a0\u00bb',
+          'test-1-name': 'Elena V.',
+          'test-1-title': 'Ing\u00e9nieure logiciel, Berlin',
+          'test-2-quote': '\u00ab\u00a0Le s\u00e9minaire sur la R\u00e9volution fran\u00e7aise a chang\u00e9 ma fa\u00e7on de lire les actualit\u00e9s. Je vois du pouvoir, du r\u00e9cit et de la contingence partout maintenant. C\u2019est ce que l\u2019\u00e9ducation devrait faire.\u00a0\u00bb',
+          'test-2-name': 'James K.',
+          'test-2-title': 'Journaliste, Toronto',
+          'faq-eyebrow': 'Questions fr\u00e9quentes',
+          'faq-title': 'Avant de vous inscrire.',
+          'faq-desc': 'Tout ce que vous devez savoir sur le fonctionnement de Paideia.',
+          'faq-q1': '\u00c0 qui s\u2019adressent les cours ?',
+          'faq-a1': '\u00c0 toute personne qui lit. Nos \u00e9tudiants ont entre 19 et 79 ans \u2014 \u00e9tudiants, enseignants retrait\u00e9s, professionnels en activit\u00e9, parents. Il n\u2019y a pas de pr\u00e9requis au-del\u00e0 de la curiosit\u00e9 et de la volont\u00e9 de venir pr\u00e9par\u00e9.',
+          'faq-q2': 'Combien de temps un cours n\u00e9cessite-t-il ?',
+          'faq-a2': 'Environ 4 \u00e0 6 heures par semaine : 3-4 heures de lecture, 30 minutes pour votre r\u00e9ponse \u00e9crite et un s\u00e9minaire en direct de 90 minutes. La lecture est le c\u0153ur \u2014 le reste existe pour approfondir votre rencontre avec le texte.',
+          'faq-q3': 'Les s\u00e9minaires sont-ils enregistr\u00e9s ?',
+          'faq-a3': 'Non. Les s\u00e9minaires sont en direct et non enregistr\u00e9s. Cela prot\u00e8ge l\u2019intimit\u00e9 de la conversation et garantit que tous les participants sont pleinement pr\u00e9sents. Si vous manquez une s\u00e9ance, vous pouvez rejoindre une discussion de rattrapage la semaine suivante.',
+          'faq-q4': 'Combien \u00e7a co\u00fbte ?',
+          'faq-a4': 'Chaque cours de huit semaines co\u00fbte 480\u20ac. Cela inclut toutes les lectures (\u00e9ditions num\u00e9riques), le s\u00e9minaire hebdomadaire et les commentaires \u00e9crits personnalis\u00e9s de votre animateur. Nous offrons des bourses bas\u00e9es sur les besoins.',
+          'faq-q5': 'Comment savoir si c\u2019est fait pour moi ?',
+          'faq-a5': 'Participez \u00e0 une s\u00e9ance d\u2019introduction gratuite. Une fois par mois, nous organisons un cercle de lecture ouvert o\u00f9 vous pouvez exp\u00e9rimenter notre approche avant de vous engager. Aucune pr\u00e9paration n\u00e9cessaire \u2014 apportez simplement votre volont\u00e9 de lire ensemble.',
+          'nl-title': 'Restez en compagnie des lecteurs.',
+          'nl-desc': 'Une lettre mensuelle de nos fondateurs \u2014 recommandations de lecture, annonces de cours et r\u00e9flexions sur la vie de l\u2019esprit. Jamais de spam.',
+          'nl-placeholder': 'votre@email.com',
+          'nl-btn': 'S\u2019abonner',
+          'nl-success': 'Merci ! Vous \u00eates abonn\u00e9.',
+          'footer-tagline': 'Une acad\u00e9mie num\u00e9rique des humanit\u00e9s. Bas\u00e9e \u00e0 Oxford, apprendre partout.',
+          'footer-courses': 'Cours',
+          'footer-lit': 'Litt\u00e9rature',
+          'footer-phil': 'Philosophie',
+          'footer-hist': 'Histoire',
+          'footer-schedule': 'Calendrier',
+          'footer-about': '\u00c0 propos',
+          'footer-mission': 'Notre mission',
+          'footer-faculty': 'Facult\u00e9',
+          'footer-scholarships': 'Bourses',
+          'footer-contact': 'Contact',
+          'footer-legal': 'L\u00e9gal',
+          'footer-privacy': 'Confidentialit\u00e9',
+          'footer-terms': 'Conditions',
+          'footer-access': 'Accessibilit\u00e9',
+          'footer-copy': '\u00a9 2026 Paideia Academy. Tous droits r\u00e9serv\u00e9s.',
+          'cookie-text': 'Nous utilisons des cookies essentiels pour faire fonctionner notre site. Pas de suivi, pas d\u2019analyse, pas de partage de donn\u00e9es avec des tiers.',
+          'cookie-btn': 'Accepter'
+        },
+        de: {
+          'logo': 'Paideia',
+          'nav-courses': 'Kurse',
+          'nav-how': 'So funktioniert\u2019s',
+          'nav-testimonials': 'Erfahrungen',
+          'nav-faq': 'FAQ',
+          'cta-header': 'Loslegen',
+          'hero-eyebrow': 'Im Geist der Antike gegr\u00fcndet',
+          'hero-title': 'Lerne wieder zu denken.',
+          'hero-desc': 'Paideia ist eine digitale Akademie f\u00fcr Geisteswissenschaften. Gef\u00fchrte Seminare, Originaltexte und eine Gemeinschaft von Lesern \u2014 entdecke die Kunst des tiefen, ungehetzten Lernens neu.',
+          'hero-cta-primary': 'Kurse erkunden',
+          'hero-cta-secondary': 'Einf\u00fchrung ansehen',
+          'hero-caption': 'Platons Politeia, annotierte Ausgabe',
+          'phil-eyebrow': 'Unsere \u00dcberzeugung',
+          'phil-quote': '\u00abBildung ist nicht das F\u00fcllen eines Eimers, sondern das Entz\u00fcnden eines Feuers.\u00bb',
+          'phil-cite': '\u2014 W. B. Yeats',
+          'phil-p1': 'Die Geisteswissenschaften sind kein Luxus. Sie sind die \u00dcbung der Aufmerksamkeit \u2014 f\u00fcr Sprache, f\u00fcr Geschichte, f\u00fcreinander. In einem Zeitalter endloser Ablenkung glauben wir, dass der radikalste Akt darin besteht, sich mit einem schwierigen Text zusammenzusetzen und gemeinsam zu denken.',
+          'phil-p2': 'Unsere Seminare sind klein, unsere Fragen sind offen und unsere Standards sind hoch. Jeder Kurs wird von einem Wissenschaftler geleitet, der sein Leben dem Fach gewidmet hat. Keine voraufgezeichneten Vorlesungen, keine Multiple-Choice-Tests \u2014 nur Gespr\u00e4ch, genaues Lesen und die langsame Arbeit des Verstehens.',
+          'courses-eyebrow': 'Drei Wege',
+          'courses-title': 'Kurse, die mehr von dir verlangen.',
+          'courses-desc': 'Jedes Seminar dauert acht Wochen. Du liest einen Haupttext pro Woche, schreibst eine kurze Antwort und nimmst an einer Live-Diskussion mit nicht mehr als zw\u00f6lf Mitlesern teil.',
+          'course-lit-title': 'Die Kunst des Romans',
+          'course-lit-desc': 'Von Austen bis Morrison \u2014 wie der Roman uns lehrte, andere Gedankenwelten zu sehen. Acht Meisterwerke, acht Wochen, ein transformative Gespr\u00e4ch dar\u00fcber, was es bedeutet, ein anderes Leben zu bewohnen.',
+          'course-lit-weeks': '8 Wochen',
+          'course-lit-start': 'N\u00e4chster Kurs: 14. Sep.',
+          'course-phil-title': 'Das gepr\u00fcfte Leben',
+          'course-phil-desc': 'Platon, Descartes, Nietzsche, Arendt \u2014 die Fragen, die nicht altern. Was ist Gerechtigkeit? Was bedeutet es, frei zu sein? Wie sollen wir leben? Keine Vorkenntnisse in Philosophie erforderlich.',
+          'course-phil-weeks': '8 Wochen',
+          'course-phil-start': 'N\u00e4chster Kurs: 5. Okt.',
+          'course-hist-title': 'Revolutionen, die die Welt ver\u00e4nderten',
+          'course-hist-desc': 'Die franz\u00f6sische, haitianische und russische Revolution aus der Sicht derer, die sie erlebten. Briefe, Reden, Manifeste und Memoiren \u2014 Geschichte von innen.',
+          'course-hist-weeks': '8 Wochen',
+          'course-hist-start': 'N\u00e4chster Kurs: 26. Okt.',
+          'how-eyebrow': 'So funktioniert\u2019s',
+          'how-title': 'Drei Schritte, eine Reise.',
+          'how-desc': 'Jeder Kurs folgt dem gleichen Rhythmus. Du machst jede Woche in deinem eigenen Tempo Fortschritte, geleitet vom Text und deinem Seminarleiter.',
+          'step-1-title': 'Tief lesen.',
+          'step-1-desc': 'Ein Haupttext pro Woche. Keine K\u00fcrzungen, keine Zusammenfassungen \u2014 das Original. Du erh\u00e4ltst einen Leseleitfaden mit Kontext, Fragen und verwandten Passagen. Lies in deinem Tempo, an deinem Ort.',
+          'step-2-title': 'Kurz schreiben.',
+          'step-2-desc': 'Eine kurze w\u00f6chentliche Antwort \u2014 kein Aufsatz, sondern ein echter Versuch, auf der Seite zu denken. Dein Seminarleiter liest jede und webt deine Ideen in die Diskussion ein.',
+          'step-3-title': 'Gemeinsam diskutieren.',
+          'step-3-desc': 'Ein 90-min\u00fctiges Live-Seminar jede Woche mit nicht mehr als zw\u00f6lf Lesern. Kein Vortrag \u2014 ein Gespr\u00e4ch. Du gehst mit mehr Fragen, als du gekommen bist, und das ist der Sinn.',
+          'test-eyebrow': 'Von unseren Lesern',
+          'test-title': 'Was Studierende sagen.',
+          'test-desc': 'Menschen kommen aus allen Lebensbereichen zu Paideia. Hier ist, was sie finden.',
+          'test-1-quote': '\u00abIch kam wegen der B\u00fccher. Ich blieb wegen des Gespr\u00e4chs. Ich hatte vergessen, wie gut es sich anf\u00fchlt, in einem Raum zu sein, in dem alle die Aufgabe tats\u00e4chlich gelesen haben.\u00bb',
+          'test-1-name': 'Elena V.',
+          'test-1-title': 'Softwareentwicklerin, Berlin',
+          'test-2-quote': '\u00abDas Seminar \u00fcber die Franz\u00f6sische Revolution hat ver\u00e4ndert, wie ich Nachrichten lese. Ich sehe jetzt \u00fcberall Macht, Erz\u00e4hlung und Kontingenz. Das ist, was Bildung tun sollte.\u00bb',
+          'test-2-name': 'James K.',
+          'test-2-title': 'Journalist, Toronto',
+          'faq-eyebrow': 'H\u00e4ufige Fragen',
+          'faq-title': 'Bevor du dich anmeldest.',
+          'faq-desc': 'Alles, was du \u00fcber Paideia wissen musst.',
+          'faq-q1': 'F\u00fcr wen sind die Kurse?',
+          'faq-a1': 'F\u00fcr jeden, der liest. Unsere Studierenden sind zwischen 19 und 79 \u2014 Studierende, pensionierte Lehrer, Berufst\u00e4tige, Eltern. Es gibt keine Voraussetzungen au\u00dfer Neugier und der Bereitschaft, vorbereitet zu erscheinen.',
+          'faq-q2': 'Wie viel Zeit erfordert ein Kurs?',
+          'faq-a2': 'Etwa 4\u20136 Stunden pro Woche: 3\u20134 Stunden Lesen, 30 Minuten f\u00fcr deine schriftliche Antwort und ein 90-min\u00fctiges Live-Seminar. Das Lesen ist das Herz \u2014 der Rest dient dazu, deine Begegnung mit dem Text zu vertiefen.',
+          'faq-q3': 'Werden die Seminare aufgezeichnet?',
+          'faq-a3': 'Nein. Die Seminare sind live und werden nicht aufgezeichnet. Dies sch\u00fctzt die Intimit\u00e4t des Gespr\u00e4chs und stellt sicher, dass alle Teilnehmer vollst\u00e4ndig anwesend sind. Wenn du eine Sitzung vers\u00e4umst, kannst du in der folgenden Woche an einer Nachhol-Diskussion teilnehmen.',
+          'faq-q4': 'Was kostet es?',
+          'faq-a4': 'Jeder achtw\u00f6chige Kurs kostet 480\u20ac. Dies umfasst alle Lekt\u00fcren (digitale Ausgaben), das w\u00f6chentliche Seminar und pers\u00f6nliches schriftliches Feedback von deinem Seminarleiter. Wir bieten bedarfsorientierte Stipendien an.',
+          'faq-q5': 'Woher wei\u00df ich, ob es das Richtige f\u00fcr mich ist?',
+          'faq-a5': 'Nimm an einer kostenlosen Einf\u00fchrungssitzung teil. Einmal im Monat veranstalten wir einen offenen Lesekreis, bei dem du unseren Ansatz erleben kannst, bevor du dich festlegst. Keine Vorbereitung n\u00f6tig \u2014 bring einfach deine Bereitschaft mit, gemeinsam zu lesen.',
+          'nl-title': 'Bleib in Gesellschaft von Lesern.',
+          'nl-desc': 'Ein monatlicher Brief unserer Gr\u00fcnder \u2014 Leseempfehlungen, Kursank\u00fcndigungen und Gedanken \u00fcber das Leben des Geistes. Nie Spam.',
+          'nl-placeholder': 'deine@email.de',
+          'nl-btn': 'Abonnieren',
+          'nl-success': 'Danke! Du bist abonniert.',
+          'footer-tagline': 'Eine digitale Akademie f\u00fcr Geisteswissenschaften. Mit Sitz in Oxford, lernen \u00fcberall.',
+          'footer-courses': 'Kurse',
+          'footer-lit': 'Literatur',
+          'footer-phil': 'Philosophie',
+          'footer-hist': 'Geschichte',
+          'footer-schedule': 'Zeitplan',
+          'footer-about': '\u00dcber uns',
+          'footer-mission': 'Unsere Mission',
+          'footer-faculty': 'Dozenten',
+          'footer-scholarships': 'Stipendien',
+          'footer-contact': 'Kontakt',
+          'footer-legal': 'Rechtliches',
+          'footer-privacy': 'Datenschutz',
+          'footer-terms': 'AGB',
+          'footer-access': 'Barrierefreiheit',
+          'footer-copy': '\u00a9 2026 Paideia Academy. Alle Rechte vorbehalten.',
+          'cookie-text': 'Wir verwenden essenzielle Cookies, damit unsere Website funktioniert. Kein Tracking, keine Analysen, keine Weitergabe von Daten an Dritte.',
+          'cookie-btn': 'Akzeptieren'
+        },
+        it: {
+          'logo': 'Paideia',
+          'nav-courses': 'Corsi',
+          'nav-how': 'Come funziona',
+          'nav-testimonials': 'Testimonianze',
+          'nav-faq': 'FAQ',
+          'cta-header': 'Inizia',
+          'hero-eyebrow': 'Fondato nello spirito classico',
+          'hero-title': 'Impara a pensare di nuovo.',
+          'hero-desc': 'Paideia \u00e8 un\u2019accademia digitale per le discipline umanistiche. Seminari guidati, testi originali e una comunit\u00e0 di lettori \u2014 riscopri l\u2019arte dell\u2019apprendimento profondo e senza fretta.',
+          'hero-cta-primary': 'Esplora i corsi',
+          'hero-cta-secondary': 'Guarda l\u2019introduzione',
+          'hero-caption': 'La Repubblica di Platone, edizione annotata',
+          'phil-eyebrow': 'La nostra convinzione',
+          'phil-quote': '\u00abL\u2019istruzione non \u00e8 riempire un secchio, ma accendere un fuoco.\u00bb',
+          'phil-cite': '\u2014 W. B. Yeats',
+          'phil-p1': 'Le discipline umanistiche non sono un lusso. Sono la pratica di prestare attenzione \u2014 al linguaggio, alla storia, agli altri. In un\u2019epoca di distrazione infinita, crediamo che l\u2019atto pi\u00f9 radicale sia sedersi con un testo difficile e pensare insieme.',
+          'phil-p2': 'I nostri seminari sono piccoli, le nostre domande sono aperte e i nostri standard sono elevati. Ogni corso \u00e8 guidato da uno studioso che ha dedicato la vita alla materia. Niente lezioni preregistrate, niente quiz a scelta multipla \u2014 solo conversazione, lettura attenta e il lento lavoro della comprensione.',
+          'courses-eyebrow': 'Tre percorsi',
+          'courses-title': 'Corsi che chiedono di pi\u00f9.',
+          'courses-desc': 'Ogni seminario dura otto settimane. Leggerai un testo principale a settimana, scriverai una breve risposta e parteciperai a una discussione dal vivo con non pi\u00f9 di dodici compagni lettori.',
+          'course-lit-title': 'L\u2019arte del romanzo',
+          'course-lit-desc': 'Da Austen a Morrison \u2014 come il romanzo ci ha insegnato a vedere altre menti. Otto capolavori, otto settimane, una conversazione trasformativa su cosa significa abitare un\u2019altra vita.',
+          'course-lit-weeks': '8 settimane',
+          'course-lit-start': 'Prossimo gruppo: 14 set',
+          'course-phil-title': 'La vita esaminata',
+          'course-phil-desc': 'Platone, Descartes, Nietzsche, Arendt \u2014 le domande che rifiutano di invecchiare. Cos\u2019\u00e8 la giustizia? Cosa significa essere liberi? Come dovremmo vivere? Nessuna conoscenza filosofica preliminare richiesta.',
+          'course-phil-weeks': '8 settimane',
+          'course-phil-start': 'Prossimo gruppo: 5 ott',
+          'course-hist-title': 'Rivoluzioni che hanno cambiato il mondo',
+          'course-hist-desc': 'Le rivoluzioni francese, haitiana e russa viste attraverso gli occhi di chi le ha vissute. Lettere, discorsi, manifesti e memorie \u2014 la storia dall\u2019interno.',
+          'course-hist-weeks': '8 settimane',
+          'course-hist-start': 'Prossimo gruppo: 26 ott',
+          'how-eyebrow': 'Come funziona',
+          'how-title': 'Tre movimenti, un viaggio.',
+          'how-desc': 'Ogni corso segue lo stesso ritmo. Avanzi ogni settimana al tuo ritmo, guidato dal testo e dal tuo conduttore del seminario.',
+          'step-1-title': 'Leggi profondamente.',
+          'step-1-desc': 'Un testo principale a settimana. Niente abbreviazioni, niente riassunti \u2014 l\u2019originale. Ricevi una guida alla lettura con contesto, domande e passaggi correlati. Leggi al tuo ritmo, nel tuo spazio.',
+          'step-2-title': 'Scrivi brevemente.',
+          'step-2-desc': 'Una breve risposta settimanale \u2014 non un saggio, ma un genuino tentativo di pensare sulla pagina. Il tuo conduttore legge ciascuna e intreccia le tue idee nella discussione.',
+          'step-3-title': 'Discutete insieme.',
+          'step-3-desc': 'Un seminario dal vivo di 90 minuti ogni settimana con non pi\u00f9 di dodici lettori. Non una lezione \u2014 una conversazione. Te ne vai con pi\u00f9 domande di quante ne avevi all\u2019arrivo, e questo \u00e8 il punto.',
+          'test-eyebrow': 'Dai nostri lettori',
+          'test-title': 'Cosa dicono gli studenti.',
+          'test-desc': 'Le persone arrivano a Paideia da ogni ceto sociale. Ecco cosa trovano.',
+          'test-1-quote': '\u00abSono venuto per i libri. Sono rimasto per la conversazione. Avevo dimenticato quanto \u00e8 bello essere in una stanza dove tutti hanno effettivamente letto il compito.\u00bb',
+          'test-1-name': 'Elena V.',
+          'test-1-title': 'Ingegnere software, Berlino',
+          'test-2-quote': '\u00abIl seminario sulla Rivoluzione francese ha cambiato il modo in cui leggo le notizie. Vedo potere, narrazione e contingenza ovunque ora. Questo \u00e8 ci\u00f2 che l\u2019istruzione dovrebbe fare.\u00bb',
+          'test-2-name': 'James K.',
+          'test-2-title': 'Giornalista, Toronto',
+          'faq-eyebrow': 'Domande comuni',
+          'faq-title': 'Prima di iscriverti.',
+          'faq-desc': 'Tutto ci\u00f2 che devi sapere su come funziona Paideia.',
+          'faq-q1': 'A chi sono rivolti i corsi?',
+          'faq-a1': 'A chiunque legga. I nostri studenti hanno tra i 19 e i 79 anni \u2014 universitari, insegnanti in pensione, professionisti, genitori. Non ci sono prerequisiti oltre alla curiosit\u00e0 e alla volont\u00e0 di presentarsi preparati.',
+          'faq-q2': 'Quanto tempo richiede un corso?',
+          'faq-a2': 'Circa 4\u20136 ore a settimana: 3\u20134 ore di lettura, 30 minuti per la risposta scritta e un seminario dal vivo di 90 minuti. La lettura \u00e8 il cuore \u2014 il resto esiste per approfondire l\u2019incontro con il testo.',
+          'faq-q3': 'I seminari vengono registrati?',
+          'faq-a3': 'No. I seminari sono in diretta e non vengono registrati. Questo protegge l\u2019intimit\u00e0 della conversazione e garantisce che tutti i partecipanti siano pienamente presenti. Se perdi una sessione, puoi partecipare a una discussione di recupero la settimana successiva.',
+          'faq-q4': 'Quanto costa?',
+          'faq-a4': 'Ogni corso di otto settimane costa 480\u20ac. Include tutte le letture (edizioni digitali), il seminario settimanale e un feedback scritto personalizzato dal tuo conduttore. Offriamo borse di studio basate sul bisogno economico.',
+          'faq-q5': 'Come faccio a sapere se fa per me?',
+          'faq-a5': 'Partecipa a una sessione introduttiva gratuita. Una volta al mese organizziamo un circolo di lettura aperto dove puoi sperimentare il nostro approccio prima di impegnarti. Nessuna preparazione necessaria \u2014 porta solo la tua volont\u00e0 di leggere insieme.',
+          'nl-title': 'Resta in compagnia dei lettori.',
+          'nl-desc': 'Una lettera mensile dei nostri fondatori \u2014 consigli di lettura, annunci di corsi e riflessioni sulla vita della mente. Niente spam, mai.',
+          'nl-placeholder': 'tua@email.com',
+          'nl-btn': 'Iscriviti',
+          'nl-success': 'Grazie! Ti sei iscritto.',
+          'footer-tagline': 'Un\u2019accademia digitale per le discipline umanistiche. Con sede a Oxford, si impara ovunque.',
+          'footer-courses': 'Corsi',
+          'footer-lit': 'Letteratura',
+          'footer-phil': 'Filosofia',
+          'footer-hist': 'Storia',
+          'footer-schedule': 'Calendario',
+          'footer-about': 'Chi siamo',
+          'footer-mission': 'La nostra missione',
+          'footer-faculty': 'Docenti',
+          'footer-scholarships': 'Borse di studio',
+          'footer-contact': 'Contatti',
+          'footer-legal': 'Legale',
+          'footer-privacy': 'Privacy',
+          'footer-terms': 'Termini',
+          'footer-access': 'Accessibilit\u00e0',
+          'footer-copy': '\u00a9 2026 Paideia Academy. Tutti i diritti riservati.',
+          'cookie-text': 'Utilizziamo cookie essenziali per far funzionare il sito. Nessun tracciamento, nessuna analisi, nessuna condivisione di dati con terze parti.',
+          'cookie-btn': 'Accetta'
+        },
+        pt: {
+          'logo': 'Paideia',
+          'nav-courses': 'Cursos',
+          'nav-how': 'Como funciona',
+          'nav-testimonials': 'Depoimentos',
+          'nav-faq': 'Perguntas',
+          'cta-header': 'Comece agora',
+          'hero-eyebrow': 'Fundado no esp\u00edrito cl\u00e1ssico',
+          'hero-title': 'Aprenda a pensar de novo.',
+          'hero-desc': 'Paideia \u00e9 uma academia digital para as humanidades. Semin\u00e1rios guiados, textos originais e uma comunidade de leitores \u2014 redescubra a arte do aprendizado profundo e sem pressa.',
+          'hero-cta-primary': 'Explorar cursos',
+          'hero-cta-secondary': 'Ver introdu\u00e7\u00e3o',
+          'hero-caption': 'A Rep\u00fablica de Plat\u00e3o, edi\u00e7\u00e3o anotada',
+          'phil-eyebrow': 'Nossa convic\u00e7\u00e3o',
+          'phil-quote': '\u00abA educa\u00e7\u00e3o n\u00e3o \u00e9 encher um balde, mas acender uma fogueira.\u00bb',
+          'phil-cite': '\u2014 W. B. Yeats',
+          'phil-p1': 'As humanidades n\u00e3o s\u00e3o um luxo. S\u00e3o a pr\u00e1tica de prestar aten\u00e7\u00e3o \u2014 \u00e0 linguagem, \u00e0 hist\u00f3ria, uns aos outros. Numa era de distra\u00e7\u00e3o infinita, acreditamos que o ato mais radical \u00e9 sentar-se com um texto dif\u00edcil e pensar juntos.',
+          'phil-p2': 'Nossos semin\u00e1rios s\u00e3o pequenos, nossas perguntas s\u00e3o abertas e nossos padr\u00f5es s\u00e3o altos. Cada curso \u00e9 liderado por um acad\u00eamico que dedicou sua vida ao assunto. Sem aulas gravadas, sem question\u00e1rios de m\u00faltipla escolha \u2014 apenas conversa, leitura atenta e o lento trabalho da compreens\u00e3o.',
+          'courses-eyebrow': 'Tr\u00eas caminhos',
+          'courses-title': 'Cursos que exigem mais de voc\u00ea.',
+          'courses-desc': 'Cada semin\u00e1rio dura oito semanas. Voc\u00ea ler\u00e1 um texto principal por semana, escrever\u00e1 uma resposta curta e participar\u00e1 de uma discuss\u00e3o ao vivo com no m\u00e1ximo doze colegas leitores.',
+          'course-lit-title': 'A arte do romance',
+          'course-lit-desc': 'De Austen a Morrison \u2014 como o romance nos ensinou a ver outras mentes. Oito obras-primas, oito semanas, uma conversa transformadora sobre o que significa habitar outra vida.',
+          'course-lit-weeks': '8 semanas',
+          'course-lit-start': 'Pr\u00f3ximo grupo: 14 set',
+          'course-phil-title': 'A vida examinada',
+          'course-phil-desc': 'Plat\u00e3o, Descartes, Nietzsche, Arendt \u2014 as perguntas que se recusam a envelhecer. O que \u00e9 justi\u00e7a? O que significa ser livre? Como devemos viver? Nenhum conhecimento pr\u00e9vio de filosofia necess\u00e1rio.',
+          'course-phil-weeks': '8 semanas',
+          'course-phil-start': 'Pr\u00f3ximo grupo: 5 out',
+          'course-hist-title': 'Revolu\u00e7\u00f5es que mudaram o mundo',
+          'course-hist-desc': 'As revolu\u00e7\u00f5es francesa, haitiana e russa vistas pelos olhos de quem as viveu. Cartas, discursos, panfletos e mem\u00f3rias \u2014 a hist\u00f3ria de dentro para fora.',
+          'course-hist-weeks': '8 semanas',
+          'course-hist-start': 'Pr\u00f3ximo grupo: 26 out',
+          'how-eyebrow': 'Como funciona',
+          'how-title': 'Tr\u00eas movimentos, uma jornada.',
+          'how-desc': 'Cada curso segue o mesmo ritmo. Voc\u00ea avança cada semana no seu pr\u00f3prio ritmo, guiado pelo texto e pelo seu l\u00edder de semin\u00e1rio.',
+          'step-1-title': 'Leia profundamente.',
+          'step-1-desc': 'Um texto principal por semana. Sem resumos ou vers\u00f5es abreviadas \u2014 o original. Voc\u00ea recebe um guia de leitura com contexto, perguntas e passagens relacionadas. Leia no seu ritmo, no seu espa\u00e7o.',
+          'step-2-title': 'Escreva brevemente.',
+          'step-2-desc': 'Uma resposta semanal curta \u2014 n\u00e3o um artigo, mas uma tentativa genu\u00edna de pensar na p\u00e1gina. Seu l\u00edder de semin\u00e1rio l\u00ea cada uma e entrela\u00e7a suas ideias na discuss\u00e3o.',
+          'step-3-title': 'Discutam juntos.',
+          'step-3-desc': 'Um semin\u00e1rio ao vivo de 90 minutos a cada semana com no m\u00e1ximo doze leitores. N\u00e3o uma palestra \u2014 uma conversa. Voc\u00ea sai com mais perguntas do que chegou, e esse \u00e9 o objetivo.',
+          'test-eyebrow': 'Dos nossos leitores',
+          'test-title': 'O que os alunos dizem.',
+          'test-desc': 'Pessoas v\u00eam para a Paideia de todas as \u00e1reas da vida. Aqui est\u00e1 o que elas encontram.',
+          'test-1-quote': '\u00abVim pelos livros. Fiquei pela conversa. Tinha esquecido como \u00e9 bom estar numa sala onde todos realmente leram a tarefa.\u00bb',
+          'test-1-name': 'Elena V.',
+          'test-1-title': 'Engenheira de software, Berlim',
+          'test-2-quote': '\u00abO semin\u00e1rio sobre a Revolu\u00e7\u00e3o Francesa mudou como leio as not\u00edcias. Vejo poder, narrativa e conting\u00eancia em toda parte agora. Isso \u00e9 o que a educa\u00e7\u00e3o deveria fazer.\u00bb',
+          'test-2-name': 'James K.',
+          'test-2-title': 'Jornalista, Toronto',
+          'faq-eyebrow': 'Perguntas frequentes',
+          'faq-title': 'Antes de se inscrever.',
+          'faq-desc': 'Tudo o que voc\u00ea precisa saber sobre como a Paideia funciona.',
+          'faq-q1': 'Para quem s\u00e3o os cursos?',
+          'faq-a1': 'Para qualquer pessoa que leia. Nossos alunos t\u00eam entre 19 e 79 anos \u2014 universit\u00e1rios, professores aposentados, profissionais, pais. N\u00e3o h\u00e1 pr\u00e9-requisitos al\u00e9m da curiosidade e da disposi\u00e7\u00e3o de comparecer preparado.',
+          'faq-q2': 'Quanto tempo um curso exige?',
+          'faq-a2': 'Cerca de 4\u20136 horas por semana: 3\u20134 horas de leitura, 30 minutos para sua resposta escrita e um semin\u00e1rio ao vivo de 90 minutos. A leitura \u00e9 o cora\u00e7\u00e3o \u2014 o resto existe para aprofundar seu encontro com o texto.',
+          'faq-q3': 'Os semin\u00e1rios s\u00e3o gravados?',
+          'faq-a3': 'N\u00e3o. Os semin\u00e1rios s\u00e3o ao vivo e n\u00e3o gravados. Isso protege a intimidade da conversa e garante que todos os participantes estejam totalmente presentes. Se voc\u00ea perder uma sess\u00e3o, pode participar de uma discuss\u00e3o de recupera\u00e7\u00e3o na semana seguinte.',
+          'faq-q4': 'Quanto custa?',
+          'faq-a4': 'Cada curso de oito semanas custa 480\u20ac. Isso inclui todas as leituras (edi\u00e7\u00f5es digitais), o semin\u00e1rio semanal e feedback pessoal por escrito do seu l\u00edder de semin\u00e1rio. Oferecemos bolsas baseadas em necessidade financeira.',
+          'faq-q5': 'Como sei se \u00e9 para mim?',
+          'faq-a5': 'Participe de uma sess\u00e3o introdut\u00f3ria gratuita. Uma vez por m\u00eas, realizamos um c\u00edrculo de leitura aberto onde voc\u00ea pode experimentar nossa abordagem antes de se comprometer. Nenhuma prepara\u00e7\u00e3o necess\u00e1ria \u2014 traga apenas sua disposi\u00e7\u00e3o para ler juntos.',
+          'nl-title': 'Fique na companhia dos leitores.',
+          'nl-desc': 'Uma carta mensal dos nossos fundadores \u2014 recomenda\u00e7\u00f5es de leitura, an\u00fancios de cursos e reflex\u00f5es sobre a vida da mente. Sem spam, nunca.',
+          'nl-placeholder': 'seu@email.com',
+          'nl-btn': 'Inscrever-se',
+          'nl-success': 'Obrigado! Voc\u00ea se inscreveu.',
+          'footer-tagline': 'Uma academia digital para as humanidades. Baseada em Oxford, aprendendo em toda parte.',
+          'footer-courses': 'Cursos',
+          'footer-lit': 'Literatura',
+          'footer-phil': 'Filosofia',
+          'footer-hist': 'Hist\u00f3ria',
+          'footer-schedule': 'Agenda',
+          'footer-about': 'Sobre',
+          'footer-mission': 'Nossa miss\u00e3o',
+          'footer-faculty': 'Corpo docente',
+          'footer-scholarships': 'Bolsas',
+          'footer-contact': 'Contato',
+          'footer-legal': 'Legal',
+          'footer-privacy': 'Privacidade',
+          'footer-terms': 'Termos',
+          'footer-access': 'Acessibilidade',
+          'footer-copy': '\u00a9 2026 Paideia Academy. Todos os direitos reservados.',
+          'cookie-text': 'Usamos cookies essenciais para fazer nosso site funcionar. Sem rastreamento, sem an\u00e1lises, sem compartilhamento de dados com terceiros.',
+          'cookie-btn': 'Aceitar'
+        }
+      },
+      t: function(key) {
+        return this.translations[this.currentLang][key] || this.translations['en'][key] || key;
+      },
+      setLang: function(lang) {
+        this.currentLang = lang;
+        localStorage.setItem('paideia-lang', lang);
+        // Update all data-i18n elements
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+          const key = el.getAttribute('data-i18n');
+          const text = this.t(key);
+          if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+            el.placeholder = this.t(el.getAttribute('data-i18n-placeholder') || key);
+          } else {
+            el.innerHTML = text;
+          }
+        });
+        // Update placeholders
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+          el.placeholder = this.t(el.getAttribute('data-i18n-placeholder'));
+        });
+        // Update metadata
+        const metaMap = {
+          'meta-title': 'Paideia \u2014 ' + (lang === 'es' ? 'La Academia de Humanidades' :
+            lang === 'fr' ? "L'Acad\u00e9mie des Humanit\u00e9s" :
+            lang === 'de' ? 'Die Akademie f\u00fcr Geisteswissenschaften' :
+            lang === 'it' ? "L'Accademia di Studi Umanistici" :
+            lang === 'pt' ? 'A Academia de Humanidades' :
+            'The Humanities Academy') + ' | ' +
+            (lang === 'es' ? 'Aprende a Pensar de Nuevo' :
+             lang === 'fr' ? 'Apprenez \u00e0 Penser \u00e0 Nouveau' :
+             lang === 'de' ? 'Lerne Wieder zu Denken' :
+             lang === 'it' ? 'Impara a Pensare di Nuovo' :
+             lang === 'pt' ? 'Aprenda a Pensar de Novo' :
+             'Learn to Think Again'),
+          'meta-desc': lang === 'es' ? 'Paideia es una academia digital de humanidades. Seminarios guiados, textos originales y una comunidad de lectores.' :
+            lang === 'fr' ? "Paideia est une acad\u00e9mie num\u00e9rique des humanit\u00e9s. S\u00e9minaires guid\u00e9s, textes originaux et une communaut\u00e9 de lecteurs." :
+            lang === 'de' ? 'Paideia ist eine digitale Akademie f\u00fcr Geisteswissenschaften. Gef\u00fchrte Seminare, Originaltexte und eine Gemeinschaft von Lesern.' :
+            lang === 'it' ? "Paideia \u00e8 un\u2019accademia digitale per le discipline umanistiche. Seminari guidati, testi originali e una comunit\u00e0 di lettori." :
+            lang === 'pt' ? 'Paideia \u00e9 uma academia digital para as humanidades. Semin\u00e1rios guiados, textos originais e uma comunidade de leitores.' :
+            'Paideia is a digital academy for the humanities. Guided seminars, original texts, and a community of readers.',
+          'og-title': 'Paideia \u2014 ' + (lang === 'es' ? 'La Academia de Humanidades' :
+            lang === 'fr' ? "L'Acad\u00e9mie des Humanit\u00e9s" :
+            lang === 'de' ? 'Die Akademie f\u00fcr Geisteswissenschaften' :
+            lang === 'it' ? "L'Accademia di Studi Umanistici" :
+            lang === 'pt' ? 'A Academia de Humanidades' :
+            'The Humanities Academy'),
+          'og-desc': lang === 'es' ? 'Seminarios guiados, textos originales y una comunidad de lectores.' :
+            lang === 'fr' ? 'S\u00e9minaires guid\u00e9s, textes originaux et une communaut\u00e9 de lecteurs.' :
+            lang === 'de' ? 'Gef\u00fchrte Seminare, Originaltexte und eine Gemeinschaft von Lesern.' :
+            lang === 'it' ? 'Seminari guidati, testi originali e una comunit\u00e0 di lettori.' :
+            lang === 'pt' ? 'Semin\u00e1rios guiados, textos originais e uma comunidade de leitores.' :
+            'Guided seminars, original texts, and a community of readers.',
+          'tw-desc': lang === 'es' ? 'Seminarios guiados, textos originales. Redescubre el arte del aprendizaje profundo.' :
+            lang === 'fr' ? 'S\u00e9minaires guid\u00e9s, textes originaux. Red\u00e9couvrez l\u2019art de l\u2019apprentissage profond.' :
+            lang === 'de' ? 'Gef\u00fchrte Seminare, Originaltexte. Entdecke die Kunst des tiefen Lernens neu.' :
+            lang === 'it' ? 'Seminari guidati, testi originali. Riscopri l\u2019arte dell\u2019apprendimento profondo.' :
+            lang === 'pt' ? 'Semin\u00e1rios guiados, textos originais. Redescubra a arte do aprendizado profundo.' :
+            'Guided seminars, original texts. Rediscover the art of deep learning.'
+        };
+        for (const [id, text] of Object.entries(metaMap)) {
+          const el = document.getElementById(id);
+          if (el) el.textContent = text;
+        }
+        document.getElementById('lang-label').textContent = lang.toUpperCase();
+        document.querySelectorAll('.lang-menu button').forEach(b => {
+          b.classList.toggle('active', b.getAttribute('data-lang') === lang);
+        });
+        document.documentElement.lang = lang;
+      },
+      detectAndInit: function() {
+        const saved = localStorage.getItem('paideia-lang');
+        if (saved && this.translations[saved]) {
+          this.setLang(saved);
+          return;
+        }
+        const browser = (navigator.language || navigator.userLanguage || '').slice(0, 2);
+        const supported = ['en', 'es', 'fr', 'de', 'it', 'pt'];
+        const lang = supported.includes(browser) ? browser : 'en';
+        this.setLang(lang);
+      }
+    };
+
+    // ---- Scroll Reveal ----
+    function initReveals() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    }
+
+    // ---- FAQ Accordion ----
+    function initFaq() {
+      document.querySelectorAll('.faq-question').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const item = btn.closest('.faq-item');
+          const isOpen = item.classList.contains('open');
+          // Close all
+          document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+          if (!isOpen) item.classList.add('open');
+          // Update aria
+          document.querySelectorAll('.faq-question').forEach(q => q.setAttribute('aria-expanded', 'false'));
+          if (!isOpen) btn.setAttribute('aria-expanded', 'true');
+        });
+      });
+    }
+
+    // ---- Cookie Banner ----
+    function initCookie() {
+      const banner = document.getElementById('cookie-banner');
+      const accept = document.getElementById('cookie-accept');
+      if (localStorage.getItem('paideia-cookie')) return;
+      setTimeout(() => banner.classList.add('show'), 500);
+      accept.addEventListener('click', () => {
+        localStorage.setItem('paideia-cookie', 'accepted');
+        banner.classList.remove('show');
+      });
+    }
+
+    // ---- Language Switcher ----
+    function initLang() {
+      const btn = document.getElementById('lang-btn');
+      const menu = document.getElementById('lang-menu');
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menu.classList.toggle('open');
+      });
+      document.addEventListener('click', () => menu.classList.remove('open'));
+      menu.querySelectorAll('button').forEach(b => {
+        b.addEventListener('click', () => {
+          i18n.setLang(b.getAttribute('data-lang'));
+          menu.classList.remove('open');
+        });
+      });
+    }
+
+    // ---- Mobile Menu ----
+    function initMobile() {
+      const toggle = document.getElementById('mobile-toggle');
+      const menu = document.getElementById('mobile-menu');
+      toggle.addEventListener('click', () => {
+        menu.classList.toggle('open');
+      });
+    }
+    window.closeMobile = function() {
+      document.getElementById('mobile-menu').classList.remove('open');
+    };
+
+    // ---- Init ----
+    document.addEventListener('DOMContentLoaded', () => {
+      i18n.detectAndInit();
+      initReveals();
+      initFaq();
+      initCookie();
+      initLang();
+      initMobile();
+    });
+  </script>
+</body>
+</html>

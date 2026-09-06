@@ -1,0 +1,1603 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MÉLIES — Classic Cinema, Restored &amp; Streaming</title>
+<meta name="description" content="A streaming house for the golden age of film. Over 1,200 restored classics and art-house masterpieces in 4K, with original scores and honest program notes. No ads. No AI upscaling.">
+<link rel="canonical" href="https://proyectos.cristiancode.dev/landings/2026-08-14-melies-cinema.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://proyectos.cristiancode.dev/landings/2026-08-14-melies-cinema.html">
+<meta property="og:title" content="MÉLIES — Classic Cinema, Restored &amp; Streaming">
+<meta property="og:description" content="The great films of 1920–1975, back on the screen. Frame-by-frame restorations, original scores, true theatrical cuts.">
+<meta property="og:image" content="https://cristiancode.dev/assets/landing-melies-cinema.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="MÉLIES — Classic Cinema, Restored &amp; Streaming">
+<meta name="twitter:description" content="The great films of 1920–1975, restored frame by frame and streaming in their true theatrical cut.">
+<meta name="theme-color" content="#14090c">
+<meta name="color-scheme" content="dark light">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600;1,700&family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="https://picsum.photos/seed/melies-thirdman/900/1200?grayscale">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"MÉLIES Cinéma","description":"Streaming house for restored classic cinema — 1920–1975, in true theatrical cuts with original scores.","url":"https://proyectos.cristiancode.dev/landings/2026-08-14-melies-cinema.html"}
+</script>
+<style>
+/* ============================================================
+   DESIGN SYSTEM — MÉLIES CINÉMA
+   Surface: Decide/Learn (landing; secondary Compare in the
+            membership section — seat tiers side by side)
+   Family: Entertainment / Classic Cinema
+   Style: Art-Deco glamour — oxblood + antique brass + ivory,
+          high-contrast serif posters, marquee signage, sunbursts.
+          Original composition (no brand template — recent pages
+          already used Stripe/SpaceX; this one invents its own).
+   Strategy: Committed — crimson ~30%, brass ≤12%, ivory expanse;
+             drenched oxblood band for the craft section.
+   Type: Playfair Display (poster serif) + Jost (Futura-like
+         geometric UI sans — art-deco pairing on contrast axis)
+   Motion: ease-out-quart reveals, slow sunburst rotation,
+           marquee ticker, live countdown. Reduced-motion safe.
+   ============================================================ */
+
+:root {
+  /* ——— Palette · Light (ivory house) ——— */
+  --color-bg: #f3ede0;              /* ivory, chroma 0 warm */
+  --color-surface: #fbf7ec;
+  --color-surface-2: #eae2d0;
+  --color-band: #2a151a;            /* drenched oxblood band */
+  --color-band-2: #331a20;
+  --color-ink: #2a1f16;
+  --color-text-primary: #2a1f16;
+  --color-text-secondary: #6e6152;  /* 5.5:1 on bg */
+  --color-text-tertiary: #8a7c68;
+  --color-crimson: #9e1f32;         /* primary CTA — 7.2:1 with ivory */
+  --color-crimson-deep: #7c1626;
+  --color-crimson-soft: #f3e0e2;
+  --color-gold: #b8872c;            /* decorative brass — fills, borders */
+  --color-gold-text: #8a641c;       /* brass for TEXT — 5.5:1 on bg */
+  --color-gold-soft: #f5ead2;
+  --color-line: rgba(42, 31, 22, .16);
+  --color-line-strong: rgba(42, 31, 22, .32);
+  --color-marquee-bg: #201510;      /* black marquee band */
+  --color-marquee-text: #e0b458;
+  --shadow-card: 0 1px 2px rgba(42,31,22,.06), 0 18px 44px -20px rgba(42,31,22,.28);
+  --shadow-deep: 0 2px 4px rgba(0,0,0,.10), 0 30px 70px -30px rgba(42,31,22,.55);
+
+  /* ——— Type ——— */
+  --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-body: "Jost", "Avenir Next", system-ui, -apple-system, sans-serif;
+
+  /* ——— Rhythm ——— */
+  --space-section: clamp(4.5rem, 10vw, 8rem);
+  --container: 1180px;
+  --r-sm: 4px; --r-md: 10px; --r-lg: 16px;
+  --track-label: .14em;
+  --track-display: -.01em;
+  --line-body: 1.65;
+  --maxw-prose: 68ch;
+
+  /* ——— Z scale (semantic) ——— */
+  --z-nav: 100;
+  --z-menu: 200;
+  --z-cookie: 300;
+
+  /* ——— Motion ——— */
+  --ease-out: cubic-bezier(.22, 1, .36, 1);
+  --dur: .7s;
+}
+
+[data-theme="dark"] {
+  --color-bg: #14090c;
+  --color-surface: #1e0f13;
+  --color-surface-2: #271318;
+  --color-band: #2a151a;
+  --color-band-2: #331a20;
+  --color-ink: #f5efe2;
+  --color-text-primary: #f5efe2;
+  --color-text-secondary: #c8b9a4;  /* 9.4:1 on bg */
+  --color-text-tertiary: #a6957d;
+  --color-crimson: #c62f45;         /* 4.9:1 with ivory (large text ok) */
+  --color-crimson-deep: #b32438;
+  --color-crimson-soft: #3a1620;
+  --color-gold: #d9a944;
+  --color-gold-text: #e0b458;       /* 6.8:1 on bg */
+  --color-gold-soft: #33260f;
+  --color-line: rgba(245, 239, 226, .16);
+  --color-line-strong: rgba(245, 239, 226, .34);
+  --color-marquee-bg: #d9a944;      /* inverted: gold band */
+  --color-marquee-text: #201510;
+  --shadow-card: 0 1px 2px rgba(0,0,0,.35), 0 18px 44px -18px rgba(0,0,0,.6);
+  --shadow-deep: 0 2px 6px rgba(0,0,0,.5), 0 30px 70px -30px rgba(0,0,0,.7);
+}
+
+/* ——— Reset & base ——— */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: var(--line-body);
+  color: var(--color-text-primary);
+  background: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  transition: background-color .4s ease, color .4s ease;
+}
+img, svg { display: block; max-width: 100%; }
+h1, h2, h3, h4 { font-family: var(--font-display); margin: 0; text-wrap: balance; line-height: 1.12; letter-spacing: var(--track-display); }
+p { text-wrap: pretty; margin: 0; }
+a { color: var(--color-gold-text); text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 3px; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+::selection { background: var(--color-gold); color: #201510; }
+:focus-visible { outline: 2px solid var(--color-gold-text); outline-offset: 3px; border-radius: 3px; }
+.container { max-width: var(--container); margin-inline: auto; padding-inline: clamp(1.25rem, 4vw, 2.5rem); }
+.visually-hidden { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+/* ——— Type helpers ——— */
+.kicker {
+  display: inline-flex; align-items: center; gap: .75rem;
+  font-size: .75rem; font-weight: 600; letter-spacing: var(--track-label);
+  text-transform: uppercase; color: var(--color-gold-text);
+}
+.kicker::before { content: ""; width: 2.25rem; height: 1px; background: var(--color-gold); }
+.section-title { font-size: clamp(1.9rem, 3.6vw, 2.9rem); font-weight: 700; margin-top: .9rem; }
+.section-title em { font-style: italic; color: var(--color-gold-text); }
+.section-sub { max-width: var(--maxw-prose); color: var(--color-text-secondary); margin-top: 1rem; font-weight: 300; }
+.mono-num { font-variant-numeric: tabular-nums; }
+
+/* ——— Buttons ——— */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+  min-height: 48px; padding: .8rem 1.6rem;
+  border-radius: var(--r-sm); border: 1px solid transparent;
+  font-weight: 600; font-size: .95rem; letter-spacing: .02em;
+  transition: transform .25s var(--ease-out), background-color .25s ease, border-color .25s ease, box-shadow .25s ease;
+  text-decoration: none;
+}
+.btn:hover { text-decoration: none; transform: translateY(-1px); }
+.btn:active { transform: translateY(0); }
+.btn-primary { background: var(--color-crimson); color: #fbf7ec; box-shadow: 0 8px 22px -10px rgba(158,31,50,.6); }
+.btn-primary:hover { background: var(--color-crimson-deep); box-shadow: 0 12px 26px -10px rgba(158,31,50,.7); }
+.btn-ghost { border-color: var(--color-line-strong); color: var(--color-text-primary); background: transparent; }
+.btn-ghost:hover { border-color: var(--color-gold-text); color: var(--color-gold-text); }
+.btn-gold { background: var(--color-gold); color: #201510; font-weight: 600; }
+.btn-gold:hover { background: var(--color-gold-text); color: #fbf7ec; }
+.btn-sm { min-height: 40px; padding: .5rem 1.1rem; font-size: .875rem; }
+.btn-block { width: 100%; }
+
+/* ——— Nav ——— */
+.nav {
+  position: fixed; inset: 0 0 auto 0; z-index: var(--z-nav);
+  border-bottom: 1px solid transparent;
+  transition: background-color .35s ease, border-color .35s ease, backdrop-filter .35s ease;
+}
+.nav-scrolled { background: color-mix(in srgb, var(--color-bg) 88%, transparent); border-color: var(--color-line); }
+.nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; height: 72px; }
+.nav-logo { display: flex; flex-direction: column; line-height: 1; text-decoration: none; }
+.nav-logo b { font-family: var(--font-display); font-size: 1.35rem; font-weight: 700; letter-spacing: .06em; color: var(--color-text-primary); }
+.nav-logo small { font-size: .58rem; letter-spacing: .32em; text-transform: uppercase; color: var(--color-gold-text); margin-top: 3px; }
+.nav-links { display: flex; gap: 1.7rem; }
+.nav-links a { color: var(--color-text-secondary); font-size: .9rem; font-weight: 500; letter-spacing: .04em; text-decoration: none; transition: color .2s ease; }
+.nav-links a:hover { color: var(--color-gold-text); }
+.nav-actions { display: flex; align-items: center; gap: .6rem; }
+
+/* Lang dropdown (shared) */
+.lang-select { position: relative; }
+.lang-select__btn {
+  display: inline-flex; align-items: center; gap: .45rem;
+  min-height: 40px; padding: 0 .7rem; border-radius: var(--r-sm);
+  border: 1px solid var(--color-line); color: var(--color-text-primary);
+  font-size: .8rem; font-weight: 600; letter-spacing: .08em;
+  transition: border-color .2s ease;
+}
+.lang-select__btn:hover { border-color: var(--color-gold-text); }
+.lang-select__chev { transition: transform .25s var(--ease-out); }
+.lang-select.open .lang-select__chev { transform: rotate(180deg); }
+.lang-select__menu {
+  position: absolute; top: calc(100% + 6px); right: 0; min-width: 11rem;
+  background: var(--color-surface); border: 1px solid var(--color-line);
+  border-radius: var(--r-md); box-shadow: var(--shadow-card);
+  padding: .35rem; display: none; z-index: 5;
+}
+.lang-select.open .lang-select__menu { display: block; }
+.lang-select__opt {
+  display: block; width: 100%; text-align: left;
+  padding: .55rem .8rem; border-radius: 6px;
+  font-size: .9rem; color: var(--color-text-secondary); transition: background-color .15s ease, color .15s ease;
+}
+.lang-select__opt:hover, .lang-select__opt[aria-selected="true"] { background: var(--color-gold-soft); color: var(--color-gold-text); }
+
+/* Theme toggle */
+.theme-toggle {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 40px; height: 40px; border-radius: var(--r-sm);
+  border: 1px solid var(--color-line); color: var(--color-text-primary);
+  transition: border-color .2s ease, transform .25s var(--ease-out);
+}
+.theme-toggle:hover { border-color: var(--color-gold-text); transform: rotate(12deg); }
+.theme-toggle .icon-sun { display: none; }
+[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+
+/* Mobile menu */
+.menu-btn { display: none; width: 40px; height: 40px; align-items: center; justify-content: center; border: 1px solid var(--color-line); border-radius: var(--r-sm); }
+.mobile-menu {
+  position: fixed; inset: 72px 0 auto 0; z-index: var(--z-menu);
+  background: var(--color-bg); border-bottom: 1px solid var(--color-line);
+  padding: 1rem clamp(1.25rem, 4vw, 2.5rem) 1.5rem;
+  display: none;
+}
+.mobile-menu.open { display: block; }
+.m-link { display: block; padding: .8rem 0; font-size: 1.05rem; font-weight: 500; color: var(--color-text-primary); border-bottom: 1px solid var(--color-line); text-decoration: none; }
+.m-link:hover { color: var(--color-gold-text); text-decoration: none; }
+.mobile-actions { display: flex; align-items: center; gap: .6rem; margin-top: 1.1rem; }
+.mobile-actions .lang-select__menu { right: auto; left: 0; }
+
+/* ——— Hero ——— */
+.hero { position: relative; padding: clamp(6.2rem, 11vw, 8.75rem) 0 clamp(3.5rem, 6vw, 5rem); overflow: hidden; }
+.hero::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(120% 90% at 78% 12%, transparent 30%, color-mix(in srgb, var(--color-crimson) 14%, transparent) 100%);
+}
+.sunburst {
+  position: absolute; top: -18%; right: -14%; width: 58vw; height: 58vw; max-width: 760px; max-height: 760px;
+  opacity: .5; pointer-events: none;
+  background: repeating-conic-gradient(from 0deg, var(--color-gold) 0deg 1.4deg, transparent 1.4deg 12deg);
+  -webkit-mask-image: radial-gradient(circle, #000 0%, transparent 68%);
+          mask-image: radial-gradient(circle, #000 0%, transparent 68%);
+  animation: sunspin 140s linear infinite;
+}
+@keyframes sunspin { to { transform: rotate(360deg); } }
+.hero-grid { position: relative; display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
+.hero-eyebrow { display: inline-flex; align-items: center; gap: .7rem; font-size: .72rem; font-weight: 600; letter-spacing: var(--track-label); text-transform: uppercase; color: var(--color-gold-text); }
+.hero-eyebrow::before { content: ""; width: 2rem; height: 1px; background: var(--color-gold); }
+.hero h1 { font-size: clamp(2.3rem, 4.7vw, 3.85rem); font-weight: 700; line-height: 1.08; margin-top: 1.1rem; }
+.hero h1 em { font-style: italic; color: var(--color-gold-text); }
+.hero-sub { max-width: 56ch; color: var(--color-text-secondary); font-weight: 300; margin-top: 1.1rem; }
+.hero-ctas { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 1.5rem; }
+
+/* Tonight card */
+.tonight {
+  margin-top: 1.6rem; max-width: 460px;
+  background: var(--color-marquee-bg); color: var(--color-marquee-text);
+  border-radius: var(--r-md); padding: .95rem 1.15rem;
+  display: grid; grid-template-columns: 1fr auto; gap: .8rem 1.2rem; align-items: center;
+  box-shadow: var(--shadow-deep);
+}
+.tonight-label { font-size: .6rem; font-weight: 600; letter-spacing: .28em; text-transform: uppercase; color: color-mix(in srgb, var(--color-marquee-text) 75%, transparent); }
+.tonight-title { font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; margin-top: .25rem; }
+.tonight-meta { font-size: .75rem; opacity: .78; margin-top: .15rem; }
+.cd { text-align: right; }
+.cd-label { font-size: .6rem; letter-spacing: .22em; text-transform: uppercase; opacity: .7; }
+.cd-num { font-family: var(--font-display); font-size: 1.7rem; font-weight: 700; letter-spacing: .02em; line-height: 1; }
+.cd-num small { font-size: .85rem; font-weight: 500; opacity: .65; margin-left: 1px; }
+
+/* Hero poster */
+.hero-visual { position: relative; justify-self: end; width: min(100%, 430px); }
+.poster {
+  position: relative; border-radius: var(--r-md); overflow: hidden;
+  border: 1px solid var(--color-gold);
+  box-shadow: 0 0 0 4px var(--color-surface), 0 0 0 5px var(--color-gold), var(--shadow-deep);
+}
+.poster svg { width: 100%; height: auto; display: block; }
+.poster::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(90% 60% at 30% 0%, transparent 55%, rgba(20, 9, 12, .5) 100%);
+}
+.poster-tag {
+  position: absolute; top: .9rem; left: .9rem; z-index: 2;
+  background: var(--color-crimson); color: #fbf7ec;
+  font-size: .62rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase;
+  padding: .35rem .6rem; border-radius: 3px;
+}
+.deco-stars { position: absolute; top: -26px; right: -30px; font-size: 1.4rem; color: var(--color-gold); letter-spacing: .5rem; user-select: none; }
+
+/* ——— Marquee ticker ——— */
+.ticker { overflow: hidden; background: var(--color-marquee-bg); color: var(--color-marquee-text); border-block: 1px solid var(--color-line-strong); }
+.ticker-track { display: flex; gap: 3rem; width: max-content; padding: .85rem 2rem; animation: tick 46s linear infinite; }
+.ticker:hover .ticker-track { animation-play-state: paused; }
+.ticker-item { display: inline-flex; align-items: center; gap: 3rem; white-space: nowrap; font-family: var(--font-display); font-size: 1.02rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
+.ticker-item::after { content: "✦"; font-size: .8rem; color: var(--color-gold); }
+.ticker-label { font-family: var(--font-body); font-size: .68rem; font-weight: 600; letter-spacing: .3em; text-transform: uppercase; color: color-mix(in srgb, var(--color-marquee-text) 65%, transparent); }
+@keyframes tick { to { transform: translateX(-50%); } }
+
+/* ——— Sections ——— */
+.section { padding-block: var(--space-section); }
+.filmstrip { height: 14px; background: repeating-linear-gradient(90deg, var(--color-line-strong) 0 2px, transparent 2px 14px); opacity: .5; }
+
+/* Tonight's features */
+.films-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
+.films-note { max-width: 34ch; color: var(--color-text-tertiary); font-size: .9rem; font-weight: 300; }
+.films-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1.4rem, 3vw, 2.4rem); margin-top: 3rem; }
+.film-wide { display: grid; grid-template-columns: 1.15fr 1fr; background: var(--color-surface); border: 1px solid var(--color-line); border-radius: var(--r-lg); overflow: hidden; box-shadow: var(--shadow-card); transition: box-shadow .3s ease; }
+.film-wide:hover { box-shadow: var(--shadow-deep); }
+.film-wide .film-img { position: relative; min-height: 280px; }
+.film-wide .film-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: sepia(.38) contrast(1.05) saturate(.82); transition: transform .8s var(--ease-out); }
+.film-wide:hover .film-img img { transform: scale(1.04); }
+.film-info { padding: clamp(1.2rem, 2.5vw, 1.9rem); display: flex; flex-direction: column; }
+.film-badge { align-self: flex-start; font-size: .6rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; color: var(--color-crimson); background: var(--color-crimson-soft); padding: .32rem .55rem; border-radius: 3px; }
+.film-info h3 { font-size: clamp(1.35rem, 2.2vw, 1.7rem); font-weight: 700; margin-top: .8rem; }
+.film-meta { font-size: .78rem; letter-spacing: .1em; text-transform: uppercase; color: var(--color-gold-text); margin-top: .3rem; font-weight: 600; }
+.film-body { color: var(--color-text-secondary); font-weight: 300; font-size: .95rem; margin-top: .8rem; }
+.film-cta { margin-top: auto; padding-top: 1.2rem; display: flex; align-items: center; gap: .5rem; font-size: .88rem; font-weight: 600; color: var(--color-crimson); }
+.film-cta:hover { text-decoration: none; color: var(--color-crimson-deep); }
+.films-stack { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1.4rem, 3vw, 2.4rem); }
+.film-tall { background: var(--color-surface); border: 1px solid var(--color-line); border-radius: var(--r-lg); overflow: hidden; box-shadow: var(--shadow-card); display: flex; flex-direction: column; transition: box-shadow .3s ease; }
+.film-tall:hover { box-shadow: var(--shadow-deep); }
+.film-tall .film-img { position: relative; aspect-ratio: 4/3; overflow: hidden; }
+.film-tall .film-img img { width: 100%; height: 100%; object-fit: cover; filter: sepia(.38) contrast(1.05) saturate(.82); transition: transform .8s var(--ease-out); }
+.film-tall:hover .film-img img { transform: scale(1.05); }
+.film-tall .film-info { padding: 1.15rem 1.25rem 1.3rem; }
+.film-tall h3 { font-size: 1.25rem; margin-top: .6rem; }
+
+/* ——— Craft (drenched band) ——— */
+.craft { background: var(--color-band); color: #f5efe2; }
+.craft .kicker { color: #e0b458; }
+.craft .kicker::before { background: #d9a944; }
+.craft .section-title { color: #f5efe2; }
+.craft .section-title em { color: #e0b458; }
+.craft .section-sub { color: rgba(245, 239, 226, .72); }
+.craft-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(1.2rem, 2.5vw, 2rem); margin-top: 3rem; counter-reset: step; }
+.step { position: relative; border-top: 1px solid rgba(245,239,226,.22); padding-top: 1.4rem; }
+.step::before { counter-increment: step; content: "0" counter(step); font-family: var(--font-display); font-size: 2.1rem; font-weight: 700; color: #d9a944; line-height: 1; display: block; }
+.step h3 { font-family: var(--font-body); font-size: 1rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; margin-top: .8rem; color: #f5efe2; }
+.step p { font-size: .875rem; font-weight: 300; color: rgba(245, 239, 226, .68); margin-top: .5rem; line-height: 1.6; }
+.craft-foot { margin-top: 3rem; display: flex; gap: .8rem; flex-wrap: wrap; align-items: center; }
+.craft-foot .btn-gold { background: #d9a944; color: #201510; }
+.craft-foot .btn-gold:hover { background: #e0b458; }
+.craft-foot p { font-size: .85rem; color: rgba(245,239,226,.66); font-weight: 300; }
+
+/* ——— Seats (Compare) ——— */
+.seats-head { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: end; }
+.seats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1.2rem, 2.5vw, 1.8rem); margin-top: 3rem; align-items: stretch; }
+.seat {
+  position: relative; display: flex; flex-direction: column;
+  background: var(--color-surface); border: 1px solid var(--color-line);
+  border-radius: var(--r-lg); padding: 1.8rem 1.6rem 1.6rem;
+  box-shadow: var(--shadow-card); transition: transform .3s var(--ease-out), box-shadow .3s ease;
+}
+.seat:hover { transform: translateY(-4px); box-shadow: var(--shadow-deep); }
+.seat-featured { border-color: var(--color-gold); box-shadow: 0 0 0 1px var(--color-gold), var(--shadow-card); }
+.seat-flag { position: absolute; top: -13px; left: 1.2rem; background: var(--color-crimson); color: #fbf7ec; font-size: .6rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; padding: .32rem .6rem; border-radius: 3px; }
+.seat-name { font-family: var(--font-display); font-size: 1.35rem; font-weight: 700; }
+.seat-price { display: flex; align-items: baseline; gap: .35rem; margin-top: .7rem; }
+.seat-price b { font-family: var(--font-display); font-size: 2.5rem; font-weight: 700; line-height: 1; }
+.seat-price span { font-size: .8rem; color: var(--color-text-tertiary); }
+.seat-desc { font-size: .88rem; color: var(--color-text-secondary); font-weight: 300; margin-top: .6rem; min-height: 2.6em; }
+.seat ul { margin-top: 1.2rem; border-top: 1px dashed var(--color-line-strong); padding-top: 1.1rem; display: grid; gap: .55rem; flex: 1; }
+.seat li { display: flex; gap: .6rem; font-size: .88rem; color: var(--color-text-primary); font-weight: 400; }
+.seat li::before { content: "✦"; color: var(--color-gold); font-size: .7rem; line-height: 1.5; }
+.seat .btn { margin-top: 1.5rem; }
+.seats-faq { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: var(--space-section); align-items: start; }
+.faq h3 { font-family: var(--font-body); font-size: 1.02rem; font-weight: 600; }
+.faq-item { border-bottom: 1px solid var(--color-line); }
+.faq-q { width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 1rem; text-align: left; padding: 1.05rem 0; font-family: var(--font-body); font-size: .98rem; font-weight: 500; color: var(--color-text-primary); }
+.faq-q:hover { color: var(--color-gold-text); }
+.faq-q .faq-icon { flex: none; color: var(--color-gold); font-size: .95rem; transition: transform .3s var(--ease-out); }
+.faq-item.open .faq-icon { transform: rotate(45deg); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height .45s var(--ease-out); }
+.faq-a-inner { padding: 0 0 1.1rem; font-size: .9rem; font-weight: 300; color: var(--color-text-secondary); max-width: 56ch; }
+
+/* ——— Club + Press split ——— */
+.clubpress { background: var(--color-surface); border-block: 1px solid var(--color-line); }
+.clubpress-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(2.5rem, 6vw, 5rem); }
+.club-event {
+  margin-top: 1.8rem; background: var(--color-bg);
+  border: 1px solid var(--color-line); border-left: 0;
+  border-radius: var(--r-md); padding: 1.4rem 1.5rem;
+  display: grid; grid-template-columns: auto 1fr; gap: 1.2rem; align-items: center;
+}
+.club-date { text-align: center; border-right: 1px dashed var(--color-line-strong); padding-right: 1.2rem; }
+.club-date b { font-family: var(--font-display); font-size: 2rem; font-weight: 800; line-height: 1; display: block; }
+.club-date span { font-size: .68rem; letter-spacing: .24em; text-transform: uppercase; color: var(--color-gold-text); }
+.club-event h3 { font-size: 1.1rem; font-weight: 700; }
+.club-event p { font-size: .88rem; color: var(--color-text-secondary); font-weight: 300; margin-top: .3rem; }
+.club-form { display: flex; gap: .6rem; margin-top: 1.5rem; flex-wrap: wrap; }
+.club-form input, .news-form input {
+  flex: 1; min-width: 200px; min-height: 48px; padding: 0 1rem;
+  border: 1px solid var(--color-line-strong); border-radius: var(--r-sm);
+  background: var(--color-surface); color: var(--color-text-primary);
+  font: inherit; font-size: .92rem; transition: border-color .2s ease;
+}
+.club-form input:focus, .news-form input:focus { outline: none; border-color: var(--color-gold-text); }
+.club-thanks, .news-thanks { margin-top: 1rem; font-size: .9rem; color: var(--color-crimson); font-weight: 500; min-height: 1.4em; }
+.press-quotes { display: grid; gap: 1.6rem; }
+.press-quote { position: relative; padding-left: 2.6rem; }
+.press-quote::before {
+  content: "“"; position: absolute; left: 0; top: -.55rem;
+  font-family: var(--font-display); font-size: 3.4rem; line-height: 1;
+  color: var(--color-gold); font-weight: 700;
+}
+.press-quote blockquote { font-family: var(--font-display); font-size: clamp(1.05rem, 1.8vw, 1.3rem); font-style: italic; font-weight: 500; line-height: 1.45; margin: 0; }
+.press-quote cite { display: block; margin-top: .6rem; font-style: normal; font-size: .78rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--color-gold-text); }
+
+/* ——— Newsletter ticket ——— */
+.news { position: relative; overflow: hidden; }
+.news::before { content: ""; position: absolute; inset: 0; background: repeating-conic-gradient(from 0deg, var(--color-crimson) 0deg 1.2deg, transparent 1.2deg 11deg); opacity: .06; pointer-events: none; }
+.ticket {
+  position: relative; display: grid; grid-template-columns: 150px 1fr; 
+  background: var(--color-marquee-bg); color: var(--color-marquee-text);
+  border-radius: var(--r-lg); overflow: hidden; box-shadow: var(--shadow-deep);
+}
+.ticket-stub {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .4rem;
+  border-right: 2px dashed color-mix(in srgb, var(--color-marquee-text) 45%, transparent);
+  padding: 1.8rem 1rem; text-align: center;
+}
+.ticket-stub b { font-family: var(--font-display); font-size: 1.5rem; font-weight: 800; letter-spacing: .06em; }
+.ticket-stub span { font-size: .58rem; letter-spacing: .3em; text-transform: uppercase; opacity: .72; writing-mode: vertical-rl; transform: rotate(180deg); }
+.ticket-main { padding: clamp(1.6rem, 4vw, 2.6rem); }
+.ticket-main h2 { font-size: clamp(1.6rem, 3vw, 2.3rem); font-weight: 700; }
+.ticket-main h2 em { font-style: italic; color: #e0b458; }
+.ticket-main p { margin-top: .7rem; font-weight: 300; opacity: .8; max-width: 52ch; font-size: .95rem; }
+.news-form { display: flex; gap: .6rem; margin-top: 1.4rem; flex-wrap: wrap; }
+.news-form input { background: rgba(20,9,12,.35); border-color: rgba(245,239,226,.3); color: #f5efe2; }
+.news-form input::placeholder { color: rgba(245,239,226,.55); }
+.news-form .btn { background: #d9a944; color: #201510; }
+.news-form .btn:hover { background: #e0b458; }
+.news-thanks { color: #e0b458; }
+
+/* ——— Footer ——— */
+.footer { background: var(--color-marquee-bg); color: var(--color-marquee-text); padding: clamp(3rem, 6vw, 4.5rem) 0 2.2rem; }
+.footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 2.5rem; }
+.footer-brand b { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; letter-spacing: .08em; }
+.footer-brand p { margin-top: .7rem; font-size: .86rem; font-weight: 300; opacity: .72; max-width: 32ch; }
+.footer h4 { font-size: .66rem; font-weight: 600; letter-spacing: .26em; text-transform: uppercase; opacity: .6; margin-bottom: 1rem; }
+.footer-col a { display: block; padding: .28rem 0; font-size: .88rem; color: inherit; opacity: .82; }
+.footer-col a:hover { opacity: 1; color: #e0b458; text-decoration: none; }
+.footer-bottom { border-top: 1px solid rgba(245,239,226,.16); margin-top: 3rem; padding-top: 1.4rem; display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; font-size: .78rem; opacity: .62; }
+
+/* ——— Cookie ——— */
+.cookie {
+  position: fixed; right: 1.1rem; bottom: 1.1rem; z-index: var(--z-cookie);
+  max-width: 340px; background: var(--color-surface); color: var(--color-text-primary);
+  border: 1px solid var(--color-line-strong); border-radius: var(--r-md);
+  box-shadow: var(--shadow-deep); padding: 1.1rem 1.2rem;
+  transform: translateY(calc(100% + 1.5rem)); opacity: 0;
+  transition: transform .6s var(--ease-out), opacity .5s ease;
+}
+.cookie.show { transform: translateY(0); opacity: 1; }
+.cookie p { font-size: .84rem; font-weight: 300; color: var(--color-text-secondary); }
+.cookie-actions { display: flex; gap: .5rem; margin-top: .8rem; }
+.cookie .btn { min-height: 40px; padding: .5rem 1rem; font-size: .82rem; }
+
+/* ——— Reveal on scroll ——— */
+.js .reveal { opacity: 0; transform: translateY(16px); transition: opacity var(--dur) var(--ease-out), transform var(--dur) var(--ease-out); }
+.js .reveal.in { opacity: 1; transform: none; }
+.js .reveal[data-delay="1"] { transition-delay: .08s; }
+.js .reveal[data-delay="2"] { transition-delay: .16s; }
+.js .reveal[data-delay="3"] { transition-delay: .24s; }
+
+/* ——— Responsive ——— */
+@media (max-width: 980px) {
+  .nav-links { display: none; }
+  .menu-btn { display: inline-flex; }
+  .nav-cta { display: none; }
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-visual { justify-self: center; margin-top: 2rem; }
+  .craft-steps { grid-template-columns: 1fr 1fr; }
+  .films-grid, .seats-grid, .seats-faq, .clubpress-grid, .seats-head { grid-template-columns: 1fr; }
+  .films-stack { grid-template-columns: 1fr 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 620px) {
+  .film-wide { grid-template-columns: 1fr; }
+  .film-wide .film-img { min-height: 0; aspect-ratio: 16/10; }
+  .films-stack { grid-template-columns: 1fr; }
+  .craft-steps { grid-template-columns: 1fr; }
+  .ticket { grid-template-columns: 1fr; }
+  .ticket-stub { flex-direction: row; border-right: 0; border-bottom: 2px dashed color-mix(in srgb, var(--color-marquee-text) 45%, transparent); padding: .9rem 1rem; }
+  .ticket-stub span { writing-mode: initial; transform: none; }
+  .club-event { grid-template-columns: 1fr; }
+  .club-date { border-right: 0; border-bottom: 1px dashed var(--color-line-strong); padding-right: 0; padding-bottom: .8rem; display: flex; gap: .6rem; align-items: baseline; }
+  .tonight { grid-template-columns: 1fr; }
+  .cd { text-align: left; }
+  .footer-grid { grid-template-columns: 1fr; }
+}
+
+/* ——— Reduced motion ——— */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .001s !important; animation-iteration-count: 1 !important; transition-duration: .001s !important; }
+  .js .reveal { opacity: 1; transform: none; }
+  .ticker { overflow-x: auto; }
+  .ticker-track { animation: none; width: max-content; }
+  .sunburst { animation: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ================= NAV ================= -->
+<header class="nav" id="nav">
+  <div class="container nav-inner">
+    <a class="nav-logo" href="#top" aria-label="MÉLIES — home">
+      <b>MÉLIES</b>
+      <small data-i18n="nav.est">Cinéma · est. 1924</small>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#tonight" data-i18n="nav.tonight">Tonight</a>
+      <a href="#craft" data-i18n="nav.craft">Restoration</a>
+      <a href="#seats" data-i18n="nav.seats">Membership</a>
+      <a href="#club" data-i18n="nav.club">Film Club</a>
+      <a href="#news" data-i18n="nav.news">The Letter</a>
+    </nav>
+    <div class="nav-actions">
+      <div class="lang-select" id="langSelectDesk">
+        <button class="lang-select__btn" type="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Select language" data-i18n-aria="aria.lang">
+          <span class="lang-select__cur">EN</span>
+          <svg class="lang-select__chev" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="lang-select__menu" role="listbox" aria-label="Choose language">
+          <button class="lang-select__opt" role="option" data-lang="en" aria-selected="false">English</button>
+          <button class="lang-select__opt" role="option" data-lang="es" aria-selected="false">Español</button>
+          <button class="lang-select__opt" role="option" data-lang="fr" aria-selected="false">Français</button>
+          <button class="lang-select__opt" role="option" data-lang="de" aria-selected="false">Deutsch</button>
+          <button class="lang-select__opt" role="option" data-lang="it" aria-selected="false">Italiano</button>
+          <button class="lang-select__opt" role="option" data-lang="pt" aria-selected="false">Português</button>
+        </div>
+      </div>
+      <button class="theme-toggle" type="button" aria-label="Toggle dark mode" data-i18n-aria="aria.theme">
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.7"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+      </button>
+      <a href="#seats" class="btn btn-primary btn-sm nav-cta" data-i18n="nav.watch">Watch free</a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu" data-i18n-aria="aria.menu">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a class="m-link" href="#tonight" data-i18n="nav.tonight">Tonight</a>
+  <a class="m-link" href="#craft" data-i18n="nav.craft">Restoration</a>
+  <a class="m-link" href="#seats" data-i18n="nav.seats">Membership</a>
+  <a class="m-link" href="#club" data-i18n="nav.club">Film Club</a>
+  <a class="m-link" href="#news" data-i18n="nav.news">The Letter</a>
+  <div class="mobile-actions">
+    <div class="lang-select" id="langSelectMob">
+      <button class="lang-select__btn" type="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Select language" data-i18n-aria="aria.lang">
+        <span class="lang-select__cur">EN</span>
+        <svg class="lang-select__chev" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="lang-select__menu" role="listbox" aria-label="Choose language">
+        <button class="lang-select__opt" role="option" data-lang="en" aria-selected="false">English</button>
+        <button class="lang-select__opt" role="option" data-lang="es" aria-selected="false">Español</button>
+        <button class="lang-select__opt" role="option" data-lang="fr" aria-selected="false">Français</button>
+        <button class="lang-select__opt" role="option" data-lang="de" aria-selected="false">Deutsch</button>
+        <button class="lang-select__opt" role="option" data-lang="it" aria-selected="false">Italiano</button>
+        <button class="lang-select__opt" role="option" data-lang="pt" aria-selected="false">Português</button>
+      </div>
+    </div>
+    <a href="#seats" class="btn btn-primary btn-sm" data-i18n="nav.watch">Watch free</a>
+  </div>
+</div>
+
+<main id="top">
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="hero" aria-labelledby="hero-title">
+  <div class="sunburst" aria-hidden="true"></div>
+  <div class="container hero-grid">
+    <div>
+      <p class="hero-eyebrow reveal" data-i18n="hero.eyebrow">The golden age · restored</p>
+      <h1 id="hero-title" class="reveal" data-delay="1">
+        <span data-i18n="hero.h1a">Cinema as it was</span><br>
+        <em data-i18n="hero.h1b">meant to be seen.</em>
+      </h1>
+      <p class="hero-sub reveal" data-delay="2" data-i18n="hero.sub">The great films of 1920–1975, back on the screen — restored frame by frame, presented in their true theatrical cut, with original scores and honest program notes. No ads. No AI upscaling. Just the film.</p>
+      <div class="hero-ctas reveal" data-delay="3">
+        <a href="#seats" class="btn btn-primary" data-i18n="hero.cta1">Start watching free</a>
+        <a href="#tonight" class="btn btn-ghost" data-i18n="hero.cta2">Browse tonight’s bill</a>
+      </div>
+
+      <div class="tonight reveal" data-delay="3">
+        <div>
+          <p class="tonight-label" data-i18n="tonight.label">Tonight at the Grand Hall</p>
+          <p class="tonight-title" data-i18n="tonight.title">The Third Man · 21:00</p>
+          <p class="tonight-meta" data-i18n="tonight.curator">curated by our projectionist</p>
+        </div>
+        <div class="cd">
+          <p class="cd-label" data-i18n="cd.starts">Starts in</p>
+          <p class="cd-num mono-num" id="cdTime" role="timer" aria-live="off">--:--:--</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual reveal" data-delay="2">
+      <span class="deco-stars" aria-hidden="true">✦ ✦ ✦</span>
+      <figure class="poster" role="img" aria-label="The Third Man — restored poster" data-i18n-aria="img.hero">
+        <span class="poster-tag" data-i18n="poster.tag">Restored 4K</span>
+        <svg viewBox="0 0 600 800" xmlns="http://www.w3.org/2000/svg" role="presentation" aria-hidden="true">
+          <defs>
+            <radialGradient id="pbg" cx="50%" cy="26%" r="85%">
+              <stop offset="0%" stop-color="#3a1c24"/>
+              <stop offset="55%" stop-color="#221013"/>
+              <stop offset="100%" stop-color="#120a0c"/>
+            </radialGradient>
+            <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#e0b458"/>
+              <stop offset="100%" stop-color="#a87f2a"/>
+            </linearGradient>
+          </defs>
+          <rect width="600" height="800" fill="url(#pbg)"/>
+          <!-- marquee rays -->
+          <g stroke="#d9a944" stroke-width="1" opacity=".5">
+            <path d="M300 120 L92 260 M300 120 L40 400 M300 120 L64 560 M300 120 L168 700"/>
+            <path d="M300 120 L148 232 M300 120 L96 330 M300 120 L88 470 M300 120 L150 640"/>
+            <path d="M300 120 L452 260 M300 120 L560 400 M300 120 L536 560 M300 120 L432 700"/>
+            <path d="M300 120 L452 232 M300 120 L504 330 M300 120 L512 470 M300 120 L450 640"/>
+            <path d="M300 120 L220 180 M300 120 L180 262"/>
+            <path d="M300 120 L380 180 M300 120 L420 262"/>
+          </g>
+          <!-- double deco frame -->
+          <rect x="22" y="22" width="556" height="756" fill="none" stroke="#d9a944" stroke-width="2"/>
+          <rect x="34" y="34" width="532" height="732" fill="none" stroke="#d9a944" stroke-width="1" opacity=".65"/>
+          <rect x="46" y="46" width="508" height="708" fill="none" stroke="#d9a944" stroke-width="1" opacity=".35"/>
+          <!-- title block -->
+          <g font-family="Playfair Display, Georgia, serif" fill="#f5efe2">
+            <text x="70" y="150" font-size="34" font-weight="700" letter-spacing="10">THE THIRD</text>
+            <text x="70" y="196" font-size="34" font-weight="700" letter-spacing="10">MAN</text>
+          </g>
+          <line x1="70" y1="222" x2="250" y2="222" stroke="#e0b458" stroke-width="2"/>
+          <text x="70" y="252" font-family="Jost, sans-serif" font-size="14" font-weight="600" letter-spacing="6" fill="#e0b458">1949 · CAROL REED</text>
+          <!-- ferris wheel (Wiener Riesenrad) -->
+          <g stroke="#d9a944" stroke-width="2.5" fill="none" opacity=".95">
+            <circle cx="330" cy="452" r="178"/>
+            <circle cx="330" cy="452" r="16"/>
+            <g stroke-width="1.6" opacity=".8">
+              <path d="M330 274 L330 630"/><path d="M152 452 L508 452"/>
+              <path d="M204 326 L456 578"/><path d="M456 326 L204 578"/>
+              <path d="M248 292 L412 612"/><path d="M412 292 L248 612"/>
+              <path d="M290 278 L370 626"/><path d="M370 278 L290 626"/>
+            </g>
+          </g>
+          <!-- wheel cars -->
+          <g fill="#d9a944">
+            <rect x="318" y="258" width="24" height="14" rx="3"/>
+            <rect x="318" y="624" width="24" height="14" rx="3"/>
+            <rect x="128" y="445" width="24" height="14" rx="3"/>
+            <rect x="508" y="445" width="24" height="14" rx="3"/>
+            <rect x="196" y="320" width="24" height="14" rx="3"/>
+            <rect x="440" y="570" width="24" height="14" rx="3"/>
+            <rect x="440" y="320" width="24" height="14" rx="3"/>
+            <rect x="196" y="570" width="24" height="14" rx="3"/>
+          </g>
+          <!-- Vienna skyline silhouette -->
+          <path d="M0 800 L0 668 L38 668 L38 632 L74 632 L74 660 L104 660 L104 614 L140 614 L140 648 L166 648 L166 592 L198 592 L198 640 L232 640 L232 606 L262 606 L262 652 L296 652 L296 620 L330 620 L330 664 L356 664 L356 608 L392 608 L392 646 L424 646 L424 584 L456 584 L456 636 L486 636 L486 606 L520 606 L520 652 L556 652 L556 626 L600 626 L600 800 Z" fill="#120a0c"/>
+          <path d="M0 800 L0 706 L600 706 L600 800 Z" fill="#0d0709"/>
+          <!-- zither staff motif -->
+          <g stroke="#e0b458" stroke-width="1" opacity=".5">
+            <line x1="70" y1="742" x2="530" y2="742"/>
+            <line x1="70" y1="752" x2="530" y2="752"/>
+            <line x1="70" y1="762" x2="530" y2="762"/>
+          </g>
+          <text x="70" y="788" font-family="Jost, sans-serif" font-size="13" font-weight="500" letter-spacing="4" fill="#e0b458" opacity=".9">RESTORED FROM THE ORIGINAL NEGATIVE</text>
+        </svg>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TICKER ================= -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track" id="tickerTrack">
+    <span class="ticker-item"><span class="ticker-label" data-i18n="ticker.label">Now restored</span><span>Metropolis</span></span>
+    <span class="ticker-item"><span>The Third Man</span></span>
+    <span class="ticker-item"><span>Citizen Kane</span></span>
+    <span class="ticker-item"><span>Black Narcissus</span></span>
+    <span class="ticker-item"><span>Rashomon</span></span>
+    <span class="ticker-item"><span>Sunrise</span></span>
+    <span class="ticker-item"><span>The Apartment</span></span>
+    <span class="ticker-item"><span>Le Samouraï</span></span>
+    <span class="ticker-item"><span>La Dolce Vita</span></span>
+    <span class="ticker-item"><span>Nights of Cabiria</span></span>
+    <span class="ticker-item"><span class="ticker-label" data-i18n="ticker.label">Now restored</span><span>Metropolis</span></span>
+    <span class="ticker-item"><span>The Third Man</span></span>
+    <span class="ticker-item"><span>Citizen Kane</span></span>
+    <span class="ticker-item"><span>Black Narcissus</span></span>
+    <span class="ticker-item"><span>Rashomon</span></span>
+    <span class="ticker-item"><span>Sunrise</span></span>
+    <span class="ticker-item"><span>The Apartment</span></span>
+    <span class="ticker-item"><span>Le Samouraï</span></span>
+    <span class="ticker-item"><span>La Dolce Vita</span></span>
+    <span class="ticker-item"><span>Nights of Cabiria</span></span>
+  </div>
+</div>
+
+<div class="filmstrip" aria-hidden="true"></div>
+
+<!-- ================= TONIGHT'S FEATURES ================= -->
+<section class="section" id="tonight" aria-labelledby="films-title">
+  <div class="container">
+    <div class="films-head">
+      <div>
+        <p class="kicker reveal" data-i18n="films.kicker">New this week</p>
+        <h2 class="section-title reveal" id="films-title"><span data-i18n="films.titleA">Tonight’s</span> <em data-i18n="films.titleB">features</em></h2>
+      </div>
+      <p class="films-note reveal" data-i18n="films.note">Three restorations our projectionists are proudest of — each with the source and the treatment documented, nothing hidden.</p>
+    </div>
+
+    <div class="films-grid">
+      <article class="film-wide reveal">
+        <div class="film-img">
+          <img src="https://picsum.photos/seed/melies-metropolis/1400/800?grayscale" alt="Metropolis — restored still" loading="lazy" data-i18n-alt="img.f1">
+        </div>
+        <div class="film-info">
+          <span class="film-badge" data-i18n="f1.badge">Restored 4K</span>
+          <h3>Metropolis</h3>
+          <p class="film-meta" data-i18n="f1.meta">1927 · Fritz Lang · 153 min</p>
+          <p class="film-body" data-i18n="f1.body">Lang’s great city symphony, rebuilt from the complete Buenos Aires restoration — 25 minutes of footage lost for eight decades, returned to the cut.</p>
+          <a class="film-cta" href="#seats" data-i18n="f1.cta">Watch the restoration <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+
+      <div class="films-stack">
+        <article class="film-tall reveal">
+          <div class="film-img">
+            <img src="https://picsum.photos/seed/melies-narcissus/700/900?grayscale" alt="Black Narcissus — restored still" loading="lazy" data-i18n-alt="img.f2">
+          </div>
+          <div class="film-info">
+            <span class="film-badge" data-i18n="f2.badge">Technicolor regrade</span>
+            <h3>Black Narcissus</h3>
+            <p class="film-meta" data-i18n="f2.meta">1947 · Powell &amp; Pressburger · 100 min</p>
+            <p class="film-body" data-i18n="f2.body">Technicolor at its most intoxicating, regraded from the original three-strip negatives.</p>
+          </div>
+        </article>
+        <article class="film-tall reveal" data-delay="1">
+          <div class="film-img">
+            <img src="https://picsum.photos/seed/melies-rashomon/700/900?grayscale" alt="Rashomon — restored still" loading="lazy" data-i18n-alt="img.f3">
+          </div>
+          <div class="film-info">
+            <span class="film-badge" data-i18n="f3.badge">Venice 1951 premiere cut</span>
+            <h3>Rashomon</h3>
+            <p class="film-meta" data-i18n="f3.meta">1950 · Akira Kurosawa · 88 min</p>
+            <p class="film-body" data-i18n="f3.body">The film that taught cinema to doubt. Grain intact, silences preserved.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CRAFT ================= -->
+<section class="section craft" id="craft" aria-labelledby="craft-title">
+  <div class="container">
+    <p class="kicker reveal" data-i18n="craft.kicker">From nitrate to 4K</p>
+    <h2 class="section-title reveal" id="craft-title">Restoration is <em data-i18n="craft.titleEm">a form of respect.</em></h2>
+    <p class="section-sub reveal" data-i18n="craft.sub">Every film in our catalogue passes through the same four rooms of our lab. The work is manual, slow, and deliberately invisible.</p>
+
+    <ol class="craft-steps">
+      <li class="step reveal">
+        <h3 data-i18n="craft.s1t">Scan</h3>
+        <p data-i18n="craft.s1b">Negatives and fine-grain masters are scanned at 4K and 8K, frame by frame, on wet-gate scanners that read through surface damage.</p>
+      </li>
+      <li class="step reveal" data-delay="1">
+        <h3 data-i18n="craft.s2t">Restore</h3>
+        <p data-i18n="craft.s2b">Tears, dirt and flicker are repaired by hand. Where material is lost, the program note says so. No invented detail. No AI.</p>
+      </li>
+      <li class="step reveal" data-delay="2">
+        <h3 data-i18n="craft.s3t">Grade</h3>
+        <p data-i18n="craft.s3b">Colour is graded against period references — Technicolor charts, release prints, the chemists’ own notes. Never a modern look.</p>
+      </li>
+      <li class="step reveal" data-delay="3">
+        <h3 data-i18n="craft.s4t">Project</h3>
+        <p data-i18n="craft.s4b">We present the theatrical cut with the original score and silence intact. The film you watch is the film that premiered.</p>
+      </li>
+    </ol>
+
+    <div class="craft-foot reveal">
+      <a href="#news" class="btn btn-gold" data-i18n="craft.cta">Read the restoration diaries</a>
+      <p data-i18n="craft.note">A new diary every Friday — with stills, sources and mistakes.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SEATS ================= -->
+<section class="section" id="seats" aria-labelledby="seats-title">
+  <div class="container">
+    <div class="seats-head">
+      <div>
+        <p class="kicker reveal" data-i18n="seats.kicker">Choose your seat</p>
+        <h2 class="section-title reveal" id="seats-title">Membership that behaves <em data-i18n="seats.titleEm">like a cinema.</em></h2>
+      </div>
+      <p class="section-sub reveal" data-i18n="seats.sub">Three tiers, no contracts, no ads. Cancel at any time — your seat is yours until the end of the billing month.</p>
+    </div>
+
+    <div class="seats-grid">
+      <article class="seat reveal">
+        <h3 class="seat-name" data-i18n="s1.name">Balcony</h3>
+        <p class="seat-price"><b>€9</b><span data-i18n="s1.per">/ month</span></p>
+        <p class="seat-desc" data-i18n="s1.desc">For the curious — the full catalogue, beautifully presented.</p>
+        <ul>
+          <li data-i18n="s1.f1">Catalogue access in HD</li>
+          <li data-i18n="s1.f2">One stream at a time</li>
+          <li data-i18n="s1.f3">Watchlist &amp; personal notes</li>
+        </ul>
+        <a href="#news" class="btn btn-ghost" data-i18n="s1.cta">Take the balcony</a>
+      </article>
+
+      <article class="seat seat-featured reveal" data-delay="1">
+        <span class="seat-flag" data-i18n="s2.flag">Most loved</span>
+        <h3 class="seat-name" data-i18n="s2.name">Stalls</h3>
+        <p class="seat-price"><b>€15</b><span data-i18n="s2.per">/ month</span></p>
+        <p class="seat-desc" data-i18n="s2.desc">For the devoted — the true theatrical experience, in 4K.</p>
+        <ul>
+          <li data-i18n="s2.f1">All 4K restorations</li>
+          <li data-i18n="s2.f2">Three streams, family friendly</li>
+          <li data-i18n="s2.f3">Film Club access</li>
+          <li data-i18n="s2.f4">Original scores &amp; program notes</li>
+        </ul>
+        <a href="#news" class="btn btn-primary" data-i18n="s2.cta">Take the stalls</a>
+      </article>
+
+      <article class="seat reveal" data-delay="2">
+        <h3 class="seat-name" data-i18n="s3.name">Loge</h3>
+        <p class="seat-price"><b>€25</b><span data-i18n="s3.per">/ month</span></p>
+        <p class="seat-desc" data-i18n="s3.desc">For the connoisseur — everything, plus the projection booth.</p>
+        <ul>
+          <li data-i18n="s3.f1">Everything in Stalls</li>
+          <li data-i18n="s3.f2">Early premieres</li>
+          <li data-i18n="s3.f3">Quarterly 35mm screening nights</li>
+          <li data-i18n="s3.f4">The projectionist’s letters</li>
+          <li data-i18n="s3.f5">Guest curator evenings</li>
+        </ul>
+        <a href="#news" class="btn btn-ghost" data-i18n="s3.cta">Take the loge</a>
+      </article>
+    </div>
+
+    <div class="seats-faq">
+      <div>
+        <p class="kicker reveal" data-i18n="faq.kicker">Small print</p>
+        <h2 class="section-title reveal" style="font-size: clamp(1.5rem, 2.6vw, 2rem);" data-i18n="faq.title">Asked at the box office</h2>
+      </div>
+      <div class="faq">
+        <div class="faq-item reveal">
+          <button class="faq-q" type="button" aria-expanded="false">
+            <span data-i18n="faq.q1">Do you use AI upscaling?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner" data-i18n="faq.a1">Never. Every restoration is manual frame-by-frame work from the best surviving elements. Where material is missing, we say so in the program notes — we do not invent detail.</div></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-q" type="button" aria-expanded="false">
+            <span data-i18n="faq.q2">Which audio versions do you offer?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner" data-i18n="faq.a2">The original theatrical soundtrack whenever it survives, plus stereo remixes where the original is lost. The source is listed for every film.</div></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-q" type="button" aria-expanded="false">
+            <span data-i18n="faq.q3">Which devices can I watch on?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner" data-i18n="faq.a3">Any modern browser, plus apps for TV, tablet and phone. Up to three concurrent streams on Stalls and Loge.</div></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-q" type="button" aria-expanded="false">
+            <span data-i18n="faq.q4">Can I cancel anytime?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner" data-i18n="faq.a4">Yes. No contracts, no lock-in — your seat is yours until the end of the billing month, then you walk out clean.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CLUB + PRESS ================= -->
+<section class="section clubpress" id="club" aria-labelledby="club-title">
+  <div class="container clubpress-grid">
+    <div>
+      <p class="kicker reveal" data-i18n="club.kicker">The Film Club</p>
+      <h2 class="section-title reveal" id="club-title">See it <em data-i18n="club.titleEm">together.</em></h2>
+      <p class="section-sub reveal" data-i18n="club.sub">Every Friday we screen one film in the Grand Hall online room. Watch together, then talk it through with our curators and the rest of the club.</p>
+
+      <div class="club-event reveal">
+        <div class="club-date">
+          <b>21</b>
+          <span data-i18n="club.month">August</span>
+        </div>
+        <div>
+          <h3 data-i18n="club.event">Black Narcissus · Friday 21:00</h3>
+          <p data-i18n="club.eventSub">Grand Hall online room — open to all Stalls and Loge members.</p>
+        </div>
+      </div>
+
+      <form class="club-form reveal" id="clubForm" novalidate>
+        <label class="visually-hidden" for="clubEmail" data-i18n="club.inputPh">Your email</label>
+        <input type="email" id="clubEmail" name="email" required placeholder="you@example.com" data-i18n-ph="club.inputPh" autocomplete="email">
+        <button class="btn btn-primary" type="submit" data-i18n="club.join">Join the club</button>
+      </form>
+      <p class="club-thanks" id="clubThanks" role="status" aria-live="polite"></p>
+    </div>
+
+    <div class="press-quotes">
+      <p class="kicker reveal" data-i18n="press.kicker">Noticeboard</p>
+      <h2 class="section-title reveal" style="font-size: clamp(1.5rem, 2.6vw, 2rem);" data-i18n="press.title">What they say</h2>
+      <figure class="press-quote reveal">
+        <blockquote data-i18n="press.q1">The only streaming house that treats film as film — restored with reverence, presented without clutter.</blockquote>
+        <cite data-i18n="press.s1">Revue Lumière</cite>
+      </figure>
+      <figure class="press-quote reveal" data-delay="1">
+        <blockquote data-i18n="press.q2">MÉLIES doesn’t sell content. It curates a century of cinema like a projectionist who has seen everything.</blockquote>
+        <cite data-i18n="press.s2">The Reel Review</cite>
+      </figure>
+      <figure class="press-quote reveal" data-delay="2">
+        <blockquote data-i18n="press.q3">Frame-by-frame restoration, honest program notes, zero autoplay. A love letter to the movie theatre.</blockquote>
+        <cite data-i18n="press.s3">Projection Quarterly</cite>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================= NEWSLETTER TICKET ================= -->
+<section class="section news" id="news" aria-labelledby="news-title">
+  <div class="container">
+    <div class="ticket reveal">
+      <div class="ticket-stub" aria-hidden="true">
+        <b>ADMIT<br>ONE</b>
+        <span data-i18n="news.stub">Every Friday · Free</span>
+      </div>
+      <div class="ticket-main">
+        <h2 id="news-title">The Marquee <em data-i18n="news.titleEm">Letter</em></h2>
+        <p data-i18n="news.body">One essential film every Friday, chosen by our projectionists — with program notes, rare stills, and the week’s restoration diary. No trailers, no noise.</p>
+        <form class="news-form" id="newsForm" novalidate>
+          <label class="visually-hidden" for="newsEmail" data-i18n="news.inputPh">Your email</label>
+          <input type="email" id="newsEmail" name="email" required placeholder="you@example.com" data-i18n-ph="news.inputPh" autocomplete="email">
+          <button class="btn" type="submit" data-i18n="news.btn">Get the letter</button>
+        </form>
+        <p class="news-thanks" id="newsThanks" role="status" aria-live="polite"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <b>MÉLIES</b>
+        <p data-i18n="footer.desc">A streaming house for the golden age of film. Founded in Paris, 1924 — restored, curated and projected ever since.</p>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.explore">Explore</h4>
+        <a href="#tonight" data-i18n="nav.tonight">Tonight</a>
+        <a href="#craft" data-i18n="nav.craft">Restoration</a>
+        <a href="#seats" data-i18n="nav.seats">Membership</a>
+        <a href="#club" data-i18n="nav.club">Film Club</a>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.legal">Legal</h4>
+        <a href="#" data-i18n="footer.tos">Terms of service</a>
+        <a href="#" data-i18n="footer.privacy">Privacy</a>
+        <a href="#" data-i18n="footer.policy">Cookie policy</a>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.contact">The house</h4>
+        <a href="#news" data-i18n="footer.letter">The Marquee Letter</a>
+        <a href="#club" data-i18n="footer.club">Join the Film Club</a>
+        <a href="#" data-i18n="footer.press">Press room</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 MÉLIES Cinéma S.A. — Paris</span>
+      <span data-i18n="footer.made">Made with ✦ in the projection booth</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ================= COOKIE ================= -->
+<div class="cookie" id="cookie" role="region" aria-label="Cookie notice">
+  <p data-i18n="cookie.text">We use a few cookies to remember your seat and your language. Nothing is sold, ever.</p>
+  <div class="cookie-actions">
+    <button class="btn btn-primary btn-sm" type="button" id="cookieOk" data-i18n="cookie.accept">Accept</button>
+    <button class="btn btn-ghost btn-sm" type="button" id="cookieNo" data-i18n="cookie.decline">Decline</button>
+  </div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+  document.documentElement.classList.add('js');
+
+  /* ============ I18N ============ */
+  var LANGS = ['en', 'es', 'fr', 'de', 'it', 'pt'];
+  var I18N = {
+    en: {
+      'nav.est': 'Cinéma · est. 1924', 'nav.tonight': 'Tonight', 'nav.craft': 'Restoration', 'nav.seats': 'Membership', 'nav.club': 'Film Club', 'nav.news': 'The Letter', 'nav.watch': 'Watch free',
+      'hero.eyebrow': 'The golden age · restored', 'hero.h1a': 'Cinema as it was', 'hero.h1b': 'meant to be seen.',
+      'hero.sub': 'The great films of 1920–1975, back on the screen — restored frame by frame, presented in their true theatrical cut, with original scores and honest program notes. No ads. No AI upscaling. Just the film.',
+      'hero.cta1': 'Start watching free', 'hero.cta2': 'Browse tonight’s bill',
+      'tonight.label': 'Tonight at the Grand Hall', 'tonight.title': 'The Third Man · 21:00', 'tonight.curator': 'curated by our projectionist',
+      'cd.starts': 'Starts in',
+      'poster.tag': 'Restored 4K', 'poster.year': '1949 · Carol Reed',
+      'ticker.label': 'Now restored',
+      'films.kicker': 'New this week', 'films.titleA': 'Tonight’s', 'films.titleB': 'features',
+      'films.note': 'Three restorations our projectionists are proudest of — each with the source and the treatment documented, nothing hidden.',
+      'f1.badge': 'Restored 4K', 'f1.meta': '1927 · Fritz Lang · 153 min',
+      'f1.body': 'Lang’s great city symphony, rebuilt from the complete Buenos Aires restoration — 25 minutes of footage lost for eight decades, returned to the cut.',
+      'f1.cta': 'Watch the restoration',
+      'f2.badge': 'Technicolor regrade', 'f2.meta': '1947 · Powell & Pressburger · 100 min',
+      'f2.body': 'Technicolor at its most intoxicating, regraded from the original three-strip negatives.',
+      'f3.badge': 'Venice 1951 premiere cut', 'f3.meta': '1950 · Akira Kurosawa · 88 min',
+      'f3.body': 'The film that taught cinema to doubt. Grain intact, silences preserved.',
+      'craft.kicker': 'From nitrate to 4K', 'craft.titleEm': 'a form of respect.',
+      'craft.sub': 'Every film in our catalogue passes through the same four rooms of our lab. The work is manual, slow, and deliberately invisible.',
+      'craft.s1t': 'Scan', 'craft.s1b': 'Negatives and fine-grain masters are scanned at 4K and 8K, frame by frame, on wet-gate scanners that read through surface damage.',
+      'craft.s2t': 'Restore', 'craft.s2b': 'Tears, dirt and flicker are repaired by hand. Where material is lost, the program note says so. No invented detail. No AI.',
+      'craft.s3t': 'Grade', 'craft.s3b': 'Colour is graded against period references — Technicolor charts, release prints, the chemists’ own notes. Never a modern look.',
+      'craft.s4t': 'Project', 'craft.s4b': 'We present the theatrical cut with the original score and silence intact. The film you watch is the film that premiered.',
+      'craft.cta': 'Read the restoration diaries', 'craft.note': 'A new diary every Friday — with stills, sources and mistakes.',
+      'seats.kicker': 'Choose your seat', 'seats.titleEm': 'like a cinema.',
+      'seats.sub': 'Three tiers, no contracts, no ads. Cancel at any time — your seat is yours until the end of the billing month.',
+      's1.name': 'Balcony', 's1.per': '/ month', 's1.desc': 'For the curious — the full catalogue, beautifully presented.',
+      's1.f1': 'Catalogue access in HD', 's1.f2': 'One stream at a time', 's1.f3': 'Watchlist & personal notes', 's1.cta': 'Take the balcony',
+      's2.flag': 'Most loved', 's2.name': 'Stalls', 's2.per': '/ month', 's2.desc': 'For the devoted — the true theatrical experience, in 4K.',
+      's2.f1': 'All 4K restorations', 's2.f2': 'Three streams, family friendly', 's2.f3': 'Film Club access', 's2.f4': 'Original scores & program notes', 's2.cta': 'Take the stalls',
+      's3.name': 'Loge', 's3.per': '/ month', 's3.desc': 'For the connoisseur — everything, plus the projection booth.',
+      's3.f1': 'Everything in Stalls', 's3.f2': 'Early premieres', 's3.f3': 'Quarterly 35mm screening nights', 's3.f4': 'The projectionist’s letters', 's3.f5': 'Guest curator evenings', 's3.cta': 'Take the loge',
+      'faq.kicker': 'Small print', 'faq.title': 'Asked at the box office',
+      'faq.q1': 'Do you use AI upscaling?', 'faq.a1': 'Never. Every restoration is manual frame-by-frame work from the best surviving elements. Where material is missing, we say so in the program notes — we do not invent detail.',
+      'faq.q2': 'Which audio versions do you offer?', 'faq.a2': 'The original theatrical soundtrack whenever it survives, plus stereo remixes where the original is lost. The source is listed for every film.',
+      'faq.q3': 'Which devices can I watch on?', 'faq.a3': 'Any modern browser, plus apps for TV, tablet and phone. Up to three concurrent streams on Stalls and Loge.',
+      'faq.q4': 'Can I cancel anytime?', 'faq.a4': 'Yes. No contracts, no lock-in — your seat is yours until the end of the billing month, then you walk out clean.',
+      'club.kicker': 'The Film Club', 'club.titleEm': 'together.', 'club.sub': 'Every Friday we screen one film in the Grand Hall online room. Watch together, then talk it through with our curators and the rest of the club.',
+      'club.month': 'August', 'club.event': 'Black Narcissus · Friday 21:00', 'club.eventSub': 'Grand Hall online room — open to all Stalls and Loge members.',
+      'club.inputPh': 'Your email', 'club.join': 'Join the club', 'club.thanks': 'Welcome to the club — see you Friday at 21:00.',
+      'press.kicker': 'Noticeboard', 'press.title': 'What they say',
+      'press.q1': 'The only streaming house that treats film as film — restored with reverence, presented without clutter.', 'press.s1': 'Revue Lumière',
+      'press.q2': 'MÉLIES doesn’t sell content. It curates a century of cinema like a projectionist who has seen everything.', 'press.s2': 'The Reel Review',
+      'press.q3': 'Frame-by-frame restoration, honest program notes, zero autoplay. A love letter to the movie theatre.', 'press.s3': 'Projection Quarterly',
+      'news.stub': 'Every Friday · Free', 'news.titleEm': 'Letter', 'news.body': 'One essential film every Friday, chosen by our projectionists — with program notes, rare stills, and the week’s restoration diary. No trailers, no noise.',
+      'news.inputPh': 'Your email', 'news.btn': 'Get the letter', 'news.thanks': 'First letter arrives Friday. No trailers, promised.',
+      'footer.desc': 'A streaming house for the golden age of film. Founded in Paris, 1924 — restored, curated and projected ever since.',
+      'footer.explore': 'Explore', 'footer.legal': 'Legal', 'footer.contact': 'The house',
+      'footer.tos': 'Terms of service', 'footer.privacy': 'Privacy', 'footer.policy': 'Cookie policy',
+      'footer.letter': 'The Marquee Letter', 'footer.club': 'Join the Film Club', 'footer.press': 'Press room',
+      'footer.made': 'Made with ✦ in the projection booth',
+      'cookie.text': 'We use a few cookies to remember your seat and your language. Nothing is sold, ever.',
+      'cookie.accept': 'Accept', 'cookie.decline': 'Decline',
+      'aria.lang': 'Select language', 'aria.theme': 'Toggle dark mode', 'aria.menu': 'Open menu',
+      'img.hero': 'Featured restoration — The Third Man', 'img.f1': 'Metropolis — restored still', 'img.f2': 'Black Narcissus — restored still', 'img.f3': 'Rashomon — restored still',
+      'meta.title': 'MÉLIES — Classic Cinema, Restored & Streaming',
+      'meta.desc': 'A streaming house for the golden age of film. Over 1,200 restored classics and art-house masterpieces in 4K, with original scores and honest program notes. No ads. No AI upscaling.'
+    },
+    es: {
+      'nav.est': 'Cinéma · fundado en 1924', 'nav.tonight': 'Esta noche', 'nav.craft': 'Restauración', 'nav.seats': 'Membresía', 'nav.club': 'Cineclub', 'nav.news': 'La Carta', 'nav.watch': 'Ver gratis',
+      'hero.eyebrow': 'La edad de oro · restaurada', 'hero.h1a': 'El cine, tal como se', 'hero.h1b': 'debía ver.',
+      'hero.sub': 'Las grandes películas de 1920–1975 vuelven a la pantalla — restauradas fotograma a fotograma, en su corte teatral original, con bandas sonoras originales y notas de programa honestas. Sin anuncios. Sin reescalado con IA. Solo la película.',
+      'hero.cta1': 'Empieza a ver gratis', 'hero.cta2': 'Ver el cartel de esta noche',
+      'tonight.label': 'Esta noche en el Gran Salón', 'tonight.title': 'El tercer hombre · 21:00', 'tonight.curator': 'seleccionada por nuestro proyeccionista',
+      'cd.starts': 'Comienza en',
+      'poster.tag': 'Restaurada 4K', 'poster.year': '1949 · Carol Reed',
+      'ticker.label': 'Recién restauradas',
+      'films.kicker': 'Novedades de la semana', 'films.titleA': 'Esta noche,', 'films.titleB': 'los estrenos',
+      'films.note': 'Tres restauraciones de las que nuestros proyeccionistas están más orgullosos — con la fuente y el tratamiento documentados, sin nada oculto.',
+      'f1.badge': 'Restaurada 4K', 'f1.meta': '1927 · Fritz Lang · 153 min',
+      'f1.body': 'La gran sinfonía urbana de Lang, reconstruida a partir de la restauración completa de Buenos Aires — 25 minutos de metraje perdido durante ocho décadas, de vuelta al montaje.',
+      'f1.cta': 'Ver la restauración',
+      'f2.badge': 'Regrade Technicolor', 'f2.meta': '1947 · Powell & Pressburger · 100 min',
+      'f2.body': 'Technicolor en su momento más embriagador, regradecido a partir de los negativos originales de tres tiras.',
+      'f3.badge': 'Corte del estreno en Venecia 1951', 'f3.meta': '1950 · Akira Kurosawa · 88 min',
+      'f3.body': 'La película que enseñó al cine a dudar. Grano intacto, silencios preservados.',
+      'craft.kicker': 'Del nitrato al 4K', 'craft.titleEm': 'una forma de respeto.',
+      'craft.sub': 'Cada película de nuestro catálogo pasa por las mismas cuatro salas de nuestro laboratorio. El trabajo es manual, lento y deliberadamente invisible.',
+      'craft.s1t': 'Escaneo', 'craft.s1b': 'Los negativos y másters de grano fino se escanean en 4K y 8K, fotograma a fotograma, con escáneres de paso húmedo que leen a través del daño superficial.',
+      'craft.s2t': 'Restauración', 'craft.s2b': 'Roturas, suciedad y parpadeo se reparan a mano. Cuando el material se ha perdido, la nota de programa lo dice. Sin detalles inventados. Sin IA.',
+      'craft.s3t': 'Etalonaje', 'craft.s3b': 'El color se etaloniza contra referencias de época — cartas Technicolor, copias de exhibición, las propias notas de los químicos. Nunca un aspecto moderno.',
+      'craft.s4t': 'Proyección', 'craft.s4b': 'Presentamos el corte teatral con la banda sonora original y sus silencios intactos. La película que ves es la que se estrenó.',
+      'craft.cta': 'Leer los diarios de restauración', 'craft.note': 'Un diario nuevo cada viernes — con fotogramas, fuentes y errores.',
+      'seats.kicker': 'Elige tu butaca', 'seats.titleEm': 'como un cine.',
+      'seats.sub': 'Tres niveles, sin contratos, sin anuncios. Cancela cuando quieras — tu butaca es tuya hasta el final del mes de facturación.',
+      's1.name': 'Paraíso', 's1.per': '/ mes', 's1.desc': 'Para curiosos — todo el catálogo, presentado con belleza.',
+      's1.f1': 'Catálogo completo en HD', 's1.f2': 'Una reproducción a la vez', 's1.f3': 'Lista de seguimiento y notas', 's1.cta': 'Tomar el paraíso',
+      's2.flag': 'El más querido', 's2.name': 'Patio', 's2.per': '/ mes', 's2.desc': 'Para los entregados — la verdadera experiencia teatral, en 4K.',
+      's2.f1': 'Todas las restauraciones 4K', 's2.f2': 'Tres pantallas, para toda la familia', 's2.f3': 'Acceso al Cineclub', 's2.f4': 'Bandas originales y notas de programa', 's2.cta': 'Tomar el patio',
+      's3.name': 'Palco', 's3.per': '/ mes', 's3.desc': 'Para conocedores — todo, más la cabina de proyección.',
+      's3.f1': 'Todo lo del Patio', 's3.f2': 'Estrenos anticipados', 's3.f3': 'Noches de proyección en 35mm trimestrales', 's3.f4': 'Las cartas del proyeccionista', 's3.f5': 'Veladas con curadores invitados', 's3.cta': 'Tomar el palco',
+      'faq.kicker': 'Letra pequeña', 'faq.title': 'Preguntas en taquilla',
+      'faq.q1': '¿Usáis reescalado con IA?', 'faq.a1': 'Nunca. Cada restauración es trabajo manual fotograma a fotograma a partir de los mejores elementos supervivientes. Cuando falta material, la nota de programa lo dice — no inventamos detalle.',
+      'faq.q2': '¿Qué versiones de audio ofrecéis?', 'faq.a2': 'La banda sonora teatral original siempre que sobreviva, más remezclas estéreo cuando el original se ha perdido. La fuente aparece listada en cada película.',
+      'faq.q3': '¿En qué dispositivos puedo ver?', 'faq.a3': 'En cualquier navegador moderno, más aplicaciones para TV, tableta y móvil. Hasta tres reproducciones simultáneas en Patio y Palco.',
+      'faq.q4': '¿Puedo cancelar cuando quiera?', 'faq.a4': 'Sí. Sin contratos ni permanencia — tu butaca es tuya hasta el final del mes de facturación y sales sin compromisos.',
+      'club.kicker': 'El Cineclub', 'club.titleEm': 'juntos.', 'club.sub': 'Cada viernes proyectamos una película en la sala online del Gran Salón. Se ve en grupo y luego se conversa con nuestros curadores y el resto del club.',
+      'club.month': 'Agosto', 'club.event': 'Black Narcissus · viernes 21:00', 'club.eventSub': 'Sala online del Gran Salón — abierta a todos los miembros de Patio y Palco.',
+      'club.inputPh': 'Tu correo', 'club.join': 'Unirme al club', 'club.thanks': 'Bienvenido al club — nos vemos el viernes a las 21:00.',
+      'press.kicker': 'Cartelera', 'press.title': 'Lo que dicen',
+      'press.q1': 'La única plataforma que trata el cine como cine — restaurado con reverencia, presentado sin ruido.', 'press.s1': 'Revue Lumière',
+      'press.q2': 'MÉLIES no vende contenido. Curaduriza un siglo de cine como un proyeccionista que lo ha visto todo.', 'press.s2': 'The Reel Review',
+      'press.q3': 'Restauración fotograma a fotograma, notas de programa honestas, cero autoplay. Una carta de amor a la sala de cine.', 'press.s3': 'Projection Quarterly',
+      'news.stub': 'Cada viernes · Gratis', 'news.titleEm': 'Carta', 'news.body': 'Una película esencial cada viernes, elegida por nuestros proyeccionistas — con notas de programa, fotogramas raros y el diario de restauración de la semana. Sin tráilers, sin ruido.',
+      'news.inputPh': 'Tu correo', 'news.btn': 'Recibir la carta', 'news.thanks': 'La primera carta llega el viernes. Sin tráilers, prometido.',
+      'footer.desc': 'Una casa de streaming para la edad de oro del cine. Fundada en París, 1924 — restaurada, curada y proyectada desde entonces.',
+      'footer.explore': 'Explorar', 'footer.legal': 'Legal', 'footer.contact': 'La casa',
+      'footer.tos': 'Términos de servicio', 'footer.privacy': 'Privacidad', 'footer.policy': 'Política de cookies',
+      'footer.letter': 'La Carta Marquee', 'footer.club': 'Únete al Cineclub', 'footer.press': 'Sala de prensa',
+      'footer.made': 'Hecho con ✦ en la cabina de proyección',
+      'cookie.text': 'Usamos unas pocas cookies para recordar tu butaca y tu idioma. Nada se vende, nunca.',
+      'cookie.accept': 'Aceptar', 'cookie.decline': 'Rechazar',
+      'aria.lang': 'Seleccionar idioma', 'aria.theme': 'Cambiar modo oscuro', 'aria.menu': 'Abrir menú',
+      'img.hero': 'Restauración destacada — El tercer hombre', 'img.f1': 'Metropolis — fotograma restaurado', 'img.f2': 'Black Narcissus — fotograma restaurado', 'img.f3': 'Rashomon — fotograma restaurado',
+      'meta.title': 'MÉLIES — Cine clásico, restaurado y en streaming',
+      'meta.desc': 'Una casa de streaming para la edad de oro del cine. Más de 1.200 clásicos restaurados y obras maestras de autor en 4K, con bandas sonoras originales y notas de programa honestas. Sin anuncios. Sin IA.'
+    },
+    fr: {
+      'nav.est': 'Cinéma · fondé en 1924', 'nav.tonight': 'Ce soir', 'nav.craft': 'Restauration', 'nav.seats': 'Abonnement', 'nav.club': 'Ciné-club', 'nav.news': 'La Lettre', 'nav.watch': 'Regarder gratuit',
+      'hero.eyebrow': 'L’âge d’or · restauré', 'hero.h1a': 'Le cinéma, tel qu’il', 'hero.h1b': 'devait être vu.',
+      'hero.sub': 'Les grands films de 1920–1975 reviennent à l’écran — restaurés image par image, présentés dans leur coupe théâtrale d’origine, avec les musiques originales et des notes de programme honnêtes. Pas de publicité. Pas de suréchantillonnage par IA. Juste le film.',
+      'hero.cta1': 'Commencer gratuitement', 'hero.cta2': 'Voir le programme de ce soir',
+      'tonight.label': 'Ce soir au Grand Hall', 'tonight.title': 'Le Troisième Homme · 21h', 'tonight.curator': 'choisi par notre projectionniste',
+      'cd.starts': 'Commence dans',
+      'poster.tag': 'Restauration 4K', 'poster.year': '1949 · Carol Reed',
+      'ticker.label': 'Nouvellement restaurés',
+      'films.kicker': 'Nouveautés de la semaine', 'films.titleA': 'Au programme', 'films.titleB': 'ce soir',
+      'films.note': 'Trois restaurations dont nos projectionnistes sont les plus fiers — source et traitement documentés, rien de caché.',
+      'f1.badge': 'Restauration 4K', 'f1.meta': '1927 · Fritz Lang · 153 min',
+      'f1.body': 'La grande symphonie urbaine de Lang, reconstruite à partir de la restauration complète de Buenos Aires — 25 minutes de métrage perdu pendant huit décennies, rendues au montage.',
+      'f1.cta': 'Voir la restauration',
+      'f2.badge': 'Réétalonnage Technicolor', 'f2.meta': '1947 · Powell & Pressburger · 100 min',
+      'f2.body': 'Le Technicolor à son sommet d’ivresse, réétalonné à partir des négatifs originaux trois bandes.',
+      'f3.badge': 'Coupe de la première de Venise 1951', 'f3.meta': '1950 · Akira Kurosawa · 88 min',
+      'f3.body': 'Le film qui a appris au cinéma à douter. Grain intact, silences préservés.',
+      'craft.kicker': 'Du nitrate à la 4K', 'craft.titleEm': 'une forme de respect.',
+      'craft.sub': 'Chaque film de notre catalogue traverse les mêmes quatre salles de notre laboratoire. Le travail est manuel, lent et délibérément invisible.',
+      'craft.s1t': 'Numérisation', 'craft.s1b': 'Négatifs et masters fine grain sont numérisés en 4K et 8K, image par image, sur des scanners à passage humide qui lisent à travers les dommages de surface.',
+      'craft.s2t': 'Restauration', 'craft.s2b': 'Déchirures, poussières et scintillement sont réparés à la main. Quand le matériau manque, la note de programme le dit. Aucun détail inventé. Pas d’IA.',
+      'craft.s3t': 'Étalonnage', 'craft.s3b': 'La couleur est étalonnée contre des références d’époque — chartes Technicolor, copies d’exploitation, notes des chimistes. Jamais un rendu moderne.',
+      'craft.s4t': 'Projection', 'craft.s4b': 'Nous présentons la coupe théâtrale avec la musique originale et ses silences intacts. Le film que vous voyez est celui de la première.',
+      'craft.cta': 'Lire les journaux de restauration', 'craft.note': 'Un nouveau journal chaque vendredi — avec photogrammes, sources et erreurs.',
+      'seats.kicker': 'Choisissez votre siège', 'seats.titleEm': 'comme un cinéma.',
+      'seats.sub': 'Trois formules, sans contrat, sans publicité. Annulez à tout moment — votre siège est vôtre jusqu’à la fin du mois de facturation.',
+      's1.name': 'Balcon', 's1.per': '/ mois', 's1.desc': 'Pour les curieux — tout le catalogue, joliment présenté.',
+      's1.f1': 'Accès au catalogue en HD', 's1.f2': 'Un flux à la fois', 's1.f3': 'Liste de visionnage et notes', 's1.cta': 'Prendre le balcon',
+      's2.flag': 'Le plus aimé', 's2.name': 'Orchestre', 's2.per': '/ mois', 's2.desc': 'Pour les dévoués — la vraie expérience de salle, en 4K.',
+      's2.f1': 'Toutes les restaurations 4K', 's2.f2': 'Trois écrans, en famille', 's2.f3': 'Accès au Ciné-club', 's2.f4': 'Musiques originales et notes de programme', 's2.cta': 'Prendre l’orchestre',
+      's3.name': 'Loge', 's3.per': '/ mois', 's3.desc': 'Pour les connaisseurs — tout, plus la cabine de projection.',
+      's3.f1': 'Tout de l’Orchestre', 's3.f2': 'Avant-premières', 's3.f3': 'Séances 35mm trimestrielles', 's3.f4': 'Les lettres du projectionniste', 's3.f5': 'Soirées avec des curateurs invités', 's3.cta': 'Prendre la loge',
+      'faq.kicker': 'Petits caractères', 'faq.title': 'Demandé au guichet',
+      'faq.q1': 'Utilisez-vous le suréchantillonnage par IA ?', 'faq.a1': 'Jamais. Chaque restauration est un travail manuel image par image à partir des meilleurs éléments survivants. Quand du matériau manque, la note de programme le dit — nous n’inventons aucun détail.',
+      'faq.q2': 'Quelles versions audio proposez-vous ?', 'faq.a2': 'La bande sonore théâtrale originale chaque fois qu’elle survit, plus des remixes stéréo quand l’original est perdu. La source est indiquée pour chaque film.',
+      'faq.q3': 'Sur quels appareils puis-je regarder ?', 'faq.a3': 'Tout navigateur moderne, plus des applications pour TV, tablette et téléphone. Jusqu’à trois flux simultanés en Orchestre et Loge.',
+      'faq.q4': 'Puis-je annuler à tout moment ?', 'faq.a4': 'Oui. Sans contrat ni engagement — votre siège est vôtre jusqu’à la fin du mois de facturation, puis vous sortez libre.',
+      'club.kicker': 'Le Ciné-club', 'club.titleEm': 'ensemble.', 'club.sub': 'Chaque vendredi, nous projetons un film dans la salle en ligne du Grand Hall. On regarde ensemble, puis on en parle avec nos curateurs et le reste du club.',
+      'club.month': 'Août', 'club.event': 'Black Narcissus · vendredi 21h', 'club.eventSub': 'Salle en ligne du Grand Hall — ouverte à tous les membres Orchestre et Loge.',
+      'club.inputPh': 'Votre e-mail', 'club.join': 'Rejoindre le club', 'club.thanks': 'Bienvenue au club — à vendredi 21h.',
+      'press.kicker': 'Tableau d’affichage', 'press.title': 'Ils disent',
+      'press.q1': 'La seule plateforme qui traite le cinéma comme du cinéma — restauré avec révérence, présenté sans bruit.', 'press.s1': 'Revue Lumière',
+      'press.q2': 'MÉLIES ne vend pas du contenu. Elle programme un siècle de cinéma comme un projectionniste qui a tout vu.', 'press.s2': 'The Reel Review',
+      'press.q3': 'Restauration image par image, notes de programme honnêtes, zéro autoplay. Une lettre d’amour à la salle de cinéma.', 'press.s3': 'Projection Quarterly',
+      'news.stub': 'Chaque vendredi · Gratuit', 'news.titleEm': 'Lettre', 'news.body': 'Un film essentiel chaque vendredi, choisi par nos projectionnistes — avec notes de programme, photogrammes rares et le journal de restauration de la semaine. Pas de bandes-annonces, pas de bruit.',
+      'news.inputPh': 'Votre e-mail', 'news.btn': 'Recevoir la lettre', 'news.thanks': 'La première lettre arrive vendredi. Sans bande-annonce, promis.',
+      'footer.desc': 'Une maison de streaming pour l’âge d’or du cinéma. Fondée à Paris en 1924 — restaurée, programmée et projetée depuis.',
+      'footer.explore': 'Explorer', 'footer.legal': 'Légal', 'footer.contact': 'La maison',
+      'footer.tos': 'Conditions d’utilisation', 'footer.privacy': 'Confidentialité', 'footer.policy': 'Politique des cookies',
+      'footer.letter': 'La Lettre Marquee', 'footer.club': 'Rejoindre le Ciné-club', 'footer.press': 'Espace presse',
+      'footer.made': 'Fait avec ✦ dans la cabine de projection',
+      'cookie.text': 'Nous utilisons quelques cookies pour retenir votre siège et votre langue. Rien n’est vendu, jamais.',
+      'cookie.accept': 'Accepter', 'cookie.decline': 'Refuser',
+      'aria.lang': 'Choisir la langue', 'aria.theme': 'Changer le mode sombre', 'aria.menu': 'Ouvrir le menu',
+      'img.hero': 'Restauration vedette — Le Troisième Homme', 'img.f1': 'Metropolis — photogramme restauré', 'img.f2': 'Black Narcissus — photogramme restauré', 'img.f3': 'Rashomon — photogramme restauré',
+      'meta.title': 'MÉLIES — Cinéma classique, restauré et en streaming',
+      'meta.desc': 'Une maison de streaming pour l’âge d’or du cinéma. Plus de 1 200 classiques restaurés et chefs-d’œuvre d’auteur en 4K, avec musiques originales et notes de programme honnêtes. Sans publicité. Sans IA.'
+    },
+    de: {
+      'nav.est': 'Cinéma · gegr. 1924', 'nav.tonight': 'Heute Abend', 'nav.craft': 'Restauration', 'nav.seats': 'Mitgliedschaft', 'nav.club': 'Filmclub', 'nav.news': 'Der Brief', 'nav.watch': 'Kostenlos ansehen',
+      'hero.eyebrow': 'Das goldene Zeitalter · restauriert', 'hero.h1a': 'Kino, so wie es', 'hero.h1b': 'gesehen werden sollte.',
+      'hero.sub': 'Die großen Filme von 1920–1975 kehren auf die Leinwand zurück — Bild für Bild restauriert, in ihrer wahren Kinofassung, mit Originalmusik und ehrlichen Programmnotizen. Keine Werbung. Kein KI-Upscaling. Nur der Film.',
+      'hero.cta1': 'Kostenlos starten', 'hero.cta2': 'Zum heutigen Programm',
+      'tonight.label': 'Heute Abend im Großen Saal', 'tonight.title': 'Der dritte Mann · 21:00', 'tonight.curator': 'kuratiert von unserem Vorführer',
+      'cd.starts': 'Beginnt in',
+      'poster.tag': '4K-Restauration', 'poster.year': '1949 · Carol Reed',
+      'ticker.label': 'Neu restauriert',
+      'films.kicker': 'Neu diese Woche', 'films.titleA': 'Heute Abend', 'films.titleB': 'im Programm',
+      'films.note': 'Drei Restaurationen, auf die unsere Vorführer am stolzesten sind — mit dokumentierter Quelle und Behandlung, nichts verborgen.',
+      'f1.badge': '4K-Restauration', 'f1.meta': '1927 · Fritz Lang · 153 Min.',
+      'f1.body': 'Langs große Stadtsymphonie, rekonstruiert aus der vollständigen Buenos-Aires-Restauration — 25 Minuten verlorenes Material aus acht Jahrzehnten kehren in den Schnitt zurück.',
+      'f1.cta': 'Die Restauration ansehen',
+      'f2.badge': 'Technicolor-Regrade', 'f2.meta': '1947 · Powell & Pressburger · 100 Min.',
+      'f2.body': 'Technicolor in seiner berauschendsten Form, neu abgestimmt auf die originalen Dreistreifen-Negative.',
+      'f3.badge': 'Schnitt der Premiere in Venedig 1951', 'f3.meta': '1950 · Akira Kurosawa · 88 Min.',
+      'f3.body': 'Der Film, der dem Kino das Zweifeln beibrachte. Korn intakt, Stille bewahrt.',
+      'craft.kicker': 'Vom Nitrat zur 4K', 'craft.titleEm': 'eine Form des Respekts.',
+      'craft.sub': 'Jeder Film unseres Katalogs durchläuft dieselben vier Räume unseres Labors. Die Arbeit ist manuell, langsam und bewusst unsichtbar.',
+      'craft.s1t': 'Scan', 'craft.s1b': 'Negative und Feinkorn-Master werden Bild für Bild in 4K und 8K gescannt, auf Nassgatescannern, die durch Oberflächenschäden hindurchlesen.',
+      'craft.s2t': 'Restaurieren', 'craft.s2b': 'Risse, Schmutz und Flimmern werden von Hand repariert. Wo Material fehlt, sagt es die Programmnotiz. Keine erfundenen Details. Keine KI.',
+      'craft.s3t': 'Graden', 'craft.s3b': 'Die Farbe wird gegen zeitgenössische Referenzen abgestimmt — Technicolor-Tafeln, Kopien, die Notizen der Chemiker. Nie ein moderner Look.',
+      'craft.s4t': 'Projizieren', 'craft.s4b': 'Wir zeigen die Kinofassung mit Originalmusik und intakter Stille. Der Film, den Sie sehen, ist der der Premiere.',
+      'craft.cta': 'Restaurationstagebücher lesen', 'craft.note': 'Jeden Freitag ein neues Tagebuch — mit Standbildern, Quellen und Fehlern.',
+      'seats.kicker': 'Wählen Sie Ihren Platz', 'seats.titleEm': 'wie ein Kino.',
+      'seats.sub': 'Drei Stufen, keine Verträge, keine Werbung. Jederzeit kündbar — Ihr Platz gehört Ihnen bis zum Ende des Abrechnungsmonats.',
+      's1.name': 'Balkon', 's1.per': '/ Monat', 's1.desc': 'Für Neugierige — der ganze Katalog, wunderschön präsentiert.',
+      's1.f1': 'Katalogzugang in HD', 's1.f2': 'Ein Stream gleichzeitig', 's1.f3': 'Merkliste und Notizen', 's1.cta': 'Balkon wählen',
+      's2.flag': 'Am beliebtesten', 's2.name': 'Parkett', 's2.per': '/ Monat', 's2.desc': 'Für die Hingebungsvollen — das echte Kinoerlebnis in 4K.',
+      's2.f1': 'Alle 4K-Restaurationen', 's2.f2': 'Drei Streams, familienfreundlich', 's2.f3': 'Filmclub-Zugang', 's2.f4': 'Originalmusik und Programmnotizen', 's2.cta': 'Parkett wählen',
+      's3.name': 'Loge', 's3.per': '/ Monat', 's3.desc': 'Für Kenner — alles, plus der Vorführraum.',
+      's3.f1': 'Alles aus Parkett', 's3.f2': 'Vorpremieren', 's3.f3': 'Vierteljährliche 35mm-Vorführnächte', 's3.f4': 'Die Briefe des Vorführers', 's3.f5': 'Abende mit Gastkuratoren', 's3.cta': 'Loge wählen',
+      'faq.kicker': 'Kleingedrucktes', 'faq.title': 'An der Kasse gefragt',
+      'faq.q1': 'Nutzen Sie KI-Upscaling?', 'faq.a1': 'Nie. Jede Restauration ist manuelle Bild-für-Bild-Arbeit an den besten erhaltenen Elementen. Wo Material fehlt, sagt es die Programmnotiz — wir erfinden keine Details.',
+      'faq.q2': 'Welche Tonfassungen bieten Sie an?', 'faq.a2': 'Die originale Kinotonfassung, wann immer sie erhalten ist, plus Stereo-Remixe, wenn das Original verloren ging. Die Quelle ist für jeden Film angegeben.',
+      'faq.q3': 'Auf welchen Geräten kann ich sehen?', 'faq.a3': 'In jedem modernen Browser, plus Apps für TV, Tablet und Telefon. Bis zu drei gleichzeitige Streams in Parkett und Loge.',
+      'faq.q4': 'Kann ich jederzeit kündigen?', 'faq.a4': 'Ja. Keine Verträge, keine Bindung — Ihr Platz gehört Ihnen bis zum Ende des Abrechnungsmonats, dann gehen Sie sauber hinaus.',
+      'club.kicker': 'Der Filmclub', 'club.titleEm': 'gemeinsam.', 'club.sub': 'Jeden Freitag zeigen wir einen Film im Online-Saal des Großen Saals. Gemeinsam ansehen, dann mit unseren Kuratoren und dem Rest des Clubs besprechen.',
+      'club.month': 'August', 'club.event': 'Black Narcissus · Freitag 21:00', 'club.eventSub': 'Online-Saal des Großen Saals — offen für alle Parkett- und Loge-Mitglieder.',
+      'club.inputPh': 'Ihre E-Mail', 'club.join': 'Dem Club beitreten', 'club.thanks': 'Willkommen im Club — bis Freitag um 21:00 Uhr.',
+      'press.kicker': 'Schwarzes Brett', 'press.title': 'Was sie sagen',
+      'press.q1': 'Das einzige Streaminghaus, das Film als Film behandelt — mit Ehrfurcht restauriert, ohne Lärm präsentiert.', 'press.s1': 'Revue Lumière',
+      'press.q2': 'MÉLIES verkauft keine Inhalte. Es kuratiert ein Jahrhundert Kino wie ein Vorführer, der alles gesehen hat.', 'press.s2': 'The Reel Review',
+      'press.q3': 'Bild-für-Bild-Restauration, ehrliche Programmnotizen, null Autoplay. Ein Liebesbrief an das Kinosaal.', 'press.s3': 'Projection Quarterly',
+      'news.stub': 'Jeden Freitag · Kostenlos', 'news.titleEm': 'Brief', 'news.body': 'Jeden Freitag ein wesentlicher Film, gewählt von unseren Vorführern — mit Programmnotizen, seltenen Standbildern und dem Restaurationstagebuch der Woche. Keine Trailer, kein Lärm.',
+      'news.inputPh': 'Ihre E-Mail', 'news.btn': 'Brief erhalten', 'news.thanks': 'Der erste Brief kommt Freitag. Ohne Trailer, versprochen.',
+      'footer.desc': 'Ein Streaminghaus für das goldene Zeitalter des Films. 1924 in Paris gegründet — seitdem restauriert, kuratiert und projiziert.',
+      'footer.explore': 'Entdecken', 'footer.legal': 'Rechtliches', 'footer.contact': 'Das Haus',
+      'footer.tos': 'Nutzungsbedingungen', 'footer.privacy': 'Datenschutz', 'footer.policy': 'Cookie-Richtlinie',
+      'footer.letter': 'Der Marquee-Brief', 'footer.club': 'Dem Filmclub beitreten', 'footer.press': 'Pressebereich',
+      'footer.made': 'Gemacht mit ✦ im Vorführraum',
+      'cookie.text': 'Wir verwenden ein paar Cookies, um Ihren Platz und Ihre Sprache zu merken. Nichts wird jemals verkauft.',
+      'cookie.accept': 'Akzeptieren', 'cookie.decline': 'Ablehnen',
+      'aria.lang': 'Sprache wählen', 'aria.theme': 'Dunkelmodus umschalten', 'aria.menu': 'Menü öffnen',
+      'img.hero': 'Leit-Restauration — Der dritte Mann', 'img.f1': 'Metropolis — restauriertes Standbild', 'img.f2': 'Black Narcissus — restauriertes Standbild', 'img.f3': 'Rashomon — restauriertes Standbild',
+      'meta.title': 'MÉLIES — Klassisches Kino, restauriert und gestreamt',
+      'meta.desc': 'Ein Streaminghaus für das goldene Zeitalter des Films. Über 1.200 restaurierte Klassiker und Meisterwerke in 4K, mit Originalmusik und ehrlichen Programmnotizen. Ohne Werbung. Ohne KI.'
+    },
+    it: {
+      'nav.est': 'Cinéma · fondato nel 1924', 'nav.tonight': 'Stasera', 'nav.craft': 'Restauro', 'nav.seats': 'Abbonamento', 'nav.club': 'Cineclub', 'nav.news': 'La Lettera', 'nav.watch': 'Guarda gratis',
+      'hero.eyebrow': 'L’età dell’oro · restaurata', 'hero.h1a': 'Il cinema, come', 'hero.h1b': 'andava visto.',
+      'hero.sub': 'I grandi film del 1920–1975 tornano sullo schermo — restaurati fotogramma per fotogramma, nel loro vero montaggio teatrale, con le colonne sonore originali e note di programma oneste. Niente pubblicità. Niente upscaling con l’IA. Solo il film.',
+      'hero.cta1': 'Inizia a guardare gratis', 'hero.cta2': 'Vedi il programma di stasera',
+      'tonight.label': 'Stasera al Grand Hall', 'tonight.title': 'Il terzo uomo · 21:00', 'tonight.curator': 'curato dal nostro proiezionista',
+      'cd.starts': 'Inizia tra',
+      'poster.tag': 'Restauro 4K', 'poster.year': '1949 · Carol Reed',
+      'ticker.label': 'Appena restaurati',
+      'films.kicker': 'Novità della settimana', 'films.titleA': 'Stasera', 'films.titleB': 'in sala',
+      'films.note': 'Tre restauri di cui i nostri proiezionisti vanno più orgogliosi — fonte e trattamento documentati, nulla di nascosto.',
+      'f1.badge': 'Restauro 4K', 'f1.meta': '1927 · Fritz Lang · 153 min',
+      'f1.body': 'La grande sinfonia urbana di Lang, ricostruita dal restauro completo di Buenos Aires — 25 minuti di materiale perduto per otto decenni, restituiti al montaggio.',
+      'f1.cta': 'Guarda il restauro',
+      'f2.badge': 'Regrade Technicolor', 'f2.meta': '1947 · Powell & Pressburger · 100 min',
+      'f2.body': 'Il Technicolor al suo apice più inebriante, regradato dai negativi originali a tre strisce.',
+      'f3.badge': 'Montaggio della prima di Venezia 1951', 'f3.meta': '1950 · Akira Kurosawa · 88 min',
+      'f3.body': 'Il film che ha insegnato al cinema a dubitare. Grana intatta, silenzi preservati.',
+      'craft.kicker': 'Dal nitrato al 4K', 'craft.titleEm': 'una forma di rispetto.',
+      'craft.sub': 'Ogni film del nostro catalogo passa dalle stesse quattro sale del nostro laboratorio. Il lavoro è manuale, lento e deliberatamente invisibile.',
+      'craft.s1t': 'Scansione', 'craft.s1b': 'Negativi e master a grana fine vengono scanditi in 4K e 8K, fotogramma per fotogramma, su scanner a passaggio umido che leggono attraverso i danni superficiali.',
+      'craft.s2t': 'Restauro', 'craft.s2b': 'Strappi, sporco e sfarfallio vengono riparati a mano. Quando il materiale manca, la nota di programma lo dice. Nessun dettaglio inventato. Niente IA.',
+      'craft.s3t': 'Grading', 'craft.s3b': 'Il colore viene calibrato su riferimenti d’epoca — carte Technicolor, copie di proiezione, gli appunti dei chimici. Mai un look moderno.',
+      'craft.s4t': 'Proiezione', 'craft.s4b': 'Presentiamo il montaggio teatrale con la colonna sonora originale e i suoi silenzi intatti. Il film che guardi è quello della prima.',
+      'craft.cta': 'Leggi i diari di restauro', 'craft.note': 'Un nuovo diario ogni venerdì — con fotogrammi, fonti ed errori.',
+      'seats.kicker': 'Scegli il tuo posto', 'seats.titleEm': 'come un cinema.',
+      'seats.sub': 'Tre formule, senza contratti, senza pubblicità. Disdici quando vuoi — il tuo posto è tuo fino alla fine del mese di fatturazione.',
+      's1.name': 'Galleria', 's1.per': '/ mese', 's1.desc': 'Per i curiosi — l’intero catalogo, presentato con cura.',
+      's1.f1': 'Accesso al catalogo in HD', 's1.f2': 'Uno streaming alla volta', 's1.f3': 'Lista e note personali', 's1.cta': 'Prendi la galleria',
+      's2.flag': 'Il più amato', 's2.name': 'Platea', 's2.per': '/ mese', 's2.desc': 'Per i devoti — la vera esperienza di sala, in 4K.',
+      's2.f1': 'Tutti i restauri 4K', 's2.f2': 'Tre schermi, per la famiglia', 's2.f3': 'Accesso al Cineclub', 's2.f4': 'Colonne originali e note di programma', 's2.cta': 'Prendi la platea',
+      's3.name': 'Palco', 's3.per': '/ mese', 's3.desc': 'Per i conoscitori — tutto, più la cabina di proiezione.',
+      's3.f1': 'Tutto dalla Platea', 's3.f2': 'Prime anticipate', 's3.f3': 'Notti di proiezione 35mm trimestrali', 's3.f4': 'Le lettere del proiezionista', 's3.f5': 'Serate con curatori ospiti', 's3.cta': 'Prendi il palco',
+      'faq.kicker': 'Caratteri piccoli', 'faq.title': 'Chiesto al botteghino',
+      'faq.q1': 'Usate l’upscaling con l’IA?', 'faq.a1': 'Mai. Ogni restauro è lavoro manuale fotogramma per fotogramma sui migliori elementi superstiti. Quando manca materiale, la nota di programma lo dice — non inventiamo dettagli.',
+      'faq.q2': 'Quali versioni audio offrite?', 'faq.a2': 'La colonna sonora teatrale originale ogni volta che sopravvive, più remix stereo quando l’originale è perduto. La fonte è elencata per ogni film.',
+      'faq.q3': 'Su quali dispositivi posso guardare?', 'faq.a3': 'Qualsiasi browser moderno, più app per TV, tablet e telefono. Fino a tre stream simultanei in Platea e Palco.',
+      'faq.q4': 'Posso disdire quando voglio?', 'faq.a4': 'Sì. Niente contratti, niente vincoli — il tuo posto è tuo fino alla fine del mese di fatturazione, poi esci pulito.',
+      'club.kicker': 'Il Cineclub', 'club.titleEm': 'insieme.', 'club.sub': 'Ogni venerdì proiettiamo un film nella sala online del Grand Hall. Si guarda insieme, poi se ne parla con i nostri curatori e il resto del club.',
+      'club.month': 'Agosto', 'club.event': 'Black Narcissus · venerdì 21:00', 'club.eventSub': 'Sala online del Grand Hall — aperta a tutti i membri Platea e Palco.',
+      'club.inputPh': 'La tua e-mail', 'club.join': 'Entra nel club', 'club.thanks': 'Benvenuto nel club — ci vediamo venerdì alle 21:00.',
+      'press.kicker': 'Bacheca', 'press.title': 'Cosa dicono',
+      'press.q1': 'L’unica piattaforma che tratta il cinema come cinema — restaurato con riverenza, presentato senza rumore.', 'press.s1': 'Revue Lumière',
+      'press.q2': 'MÉLIES non vende contenuti. Cura un secolo di cinema come un proiezionista che ha visto tutto.', 'press.s2': 'The Reel Review',
+      'press.q3': 'Restauro fotogramma per fotogramma, note di programma oneste, zero autoplay. Una lettera d’amore alla sala.', 'press.s3': 'Projection Quarterly',
+      'news.stub': 'Ogni venerdì · Gratis', 'news.titleEm': 'Lettera', 'news.body': 'Un film essenziale ogni venerdì, scelto dai nostri proiezionisti — con note di programma, fotogrammi rari e il diario di restauro della settimana. Niente trailer, niente rumore.',
+      'news.inputPh': 'La tua e-mail', 'news.btn': 'Ricevi la lettera', 'news.thanks': 'La prima lettera arriva venerdì. Senza trailer, promesso.',
+      'footer.desc': 'Una casa di streaming per l’età dell’oro del cinema. Fondata a Parigi nel 1924 — restaurata, curata e proiettata da allora.',
+      'footer.explore': 'Esplora', 'footer.legal': 'Legale', 'footer.contact': 'La casa',
+      'footer.tos': 'Termini di servizio', 'footer.privacy': 'Privacy', 'footer.policy': 'Politica sui cookie',
+      'footer.letter': 'La Lettera Marquee', 'footer.club': 'Entra nel Cineclub', 'footer.press': 'Sala stampa',
+      'footer.made': 'Fatto con ✦ nella cabina di proiezione',
+      'cookie.text': 'Usiamo qualche cookie per ricordare il tuo posto e la tua lingua. Non si vende mai nulla.',
+      'cookie.accept': 'Accetta', 'cookie.decline': 'Rifiuta',
+      'aria.lang': 'Seleziona la lingua', 'aria.theme': 'Cambia modalità scura', 'aria.menu': 'Apri il menu',
+      'img.hero': 'Restauro in evidenza — Il terzo uomo', 'img.f1': 'Metropolis — fotogramma restaurato', 'img.f2': 'Black Narcissus — fotogramma restaurato', 'img.f3': 'Rashomon — fotogramma restaurato',
+      'meta.title': 'MÉLIES — Cinema classico, restaurato e in streaming',
+      'meta.desc': 'Una casa di streaming per l’età dell’oro del cinema. Oltre 1.200 classici restaurati e capolavori d’autore in 4K, con colonne sonore originali e note di programma oneste. Senza pubblicità. Senza IA.'
+    },
+    pt: {
+      'nav.est': 'Cinéma · fundado em 1924', 'nav.tonight': 'Esta noite', 'nav.craft': 'Restauro', 'nav.seats': 'Assinatura', 'nav.club': 'Cineclube', 'nav.news': 'A Carta', 'nav.watch': 'Assistir grátis',
+      'hero.eyebrow': 'A era de ouro · restaurada', 'hero.h1a': 'Cinema como', 'hero.h1b': 'deveria ser visto.',
+      'hero.sub': 'Os grandes filmes de 1920–1975 voltam à tela — restaurados quadro a quadro, apresentados no seu corte teatral original, com trilhas sonoras originais e notas de programa honestas. Sem anúncios. Sem upscaling por IA. Só o filme.',
+      'hero.cta1': 'Comece a ver grátis', 'hero.cta2': 'Ver o programa de hoje',
+      'tonight.label': 'Hoje à noite no Grande Salão', 'tonight.title': 'O Terceiro Homem · 21:00', 'tonight.curator': 'curadoria do nosso projecionista',
+      'cd.starts': 'Começa em',
+      'poster.tag': 'Restauro 4K', 'poster.year': '1949 · Carol Reed',
+      'ticker.label': 'Recém-restaurados',
+      'films.kicker': 'Novidades da semana', 'films.titleA': 'Destaques', 'films.titleB': 'de hoje',
+      'films.note': 'Três restauros dos quais nossos projecionistas mais se orgulham — fonte e tratamento documentados, nada escondido.',
+      'f1.badge': 'Restauro 4K', 'f1.meta': '1927 · Fritz Lang · 153 min',
+      'f1.body': 'A grande sinfonia urbana de Lang, reconstruída a partir do restauro completo de Buenos Aires — 25 minutos de material perdido por oito décadas, de volta à montagem.',
+      'f1.cta': 'Ver o restauro',
+      'f2.badge': 'Regrade Technicolor', 'f2.meta': '1947 · Powell & Pressburger · 100 min',
+      'f2.body': 'O Technicolor no seu auge mais inebriante, regradeado a partir dos negativos originais de três tiras.',
+      'f3.badge': 'Corte da estreia em Veneza 1951', 'f3.meta': '1950 · Akira Kurosawa · 88 min',
+      'f3.body': 'O filme que ensinou o cinema a duvidar. Grão intacto, silêncios preservados.',
+      'craft.kicker': 'Do nitrato ao 4K', 'craft.titleEm': 'uma forma de respeito.',
+      'craft.sub': 'Cada filme do nosso catálogo passa pelas mesmas quatro salas do nosso laboratório. O trabalho é manual, lento e deliberadamente invisível.',
+      'craft.s1t': 'Digitalização', 'craft.s1b': 'Negativos e masters de grão fino são digitalizados em 4K e 8K, quadro a quadro, em scanners de passagem úmida que leem através dos danos superficiais.',
+      'craft.s2t': 'Restauro', 'craft.s2b': 'Rasgos, sujeira e cintilação são reparados à mão. Onde o material se perdeu, a nota de programa diz. Nenhum detalhe inventado. Sem IA.',
+      'craft.s3t': 'Etalonagem', 'craft.s3b': 'A cor é calibrada contra referências de época — cartas Technicolor, cópias de exibição, as notas dos químicos. Nunca um visual moderno.',
+      'craft.s4t': 'Projeção', 'craft.s4b': 'Apresentamos o corte teatral com a trilha original e seus silêncios intactos. O filme que você vê é o que estreou.',
+      'craft.cta': 'Ler os diários de restauro', 'craft.note': 'Um diário novo toda sexta — com fotogramas, fontes e erros.',
+      'seats.kicker': 'Escolha seu lugar', 'seats.titleEm': 'como um cinema.',
+      'seats.sub': 'Três planos, sem contratos, sem anúncios. Cancele quando quiser — seu lugar é seu até o fim do mês de cobrança.',
+      's1.name': 'Balcão', 's1.per': '/ mês', 's1.desc': 'Para curiosos — o catálogo inteiro, apresentado com beleza.',
+      's1.f1': 'Catálogo completo em HD', 's1.f2': 'Uma transmissão por vez', 's1.f3': 'Lista de favoritos e anotações', 's1.cta': 'Pegar o balcão',
+      's2.flag': 'O mais amado', 's2.name': 'Plateia', 's2.per': '/ mês', 's2.desc': 'Para os devotados — a verdadeira experiência de sala, em 4K.',
+      's2.f1': 'Todos os restauros 4K', 's2.f2': 'Três telas, para a família', 's2.f3': 'Acesso ao Cineclube', 's2.f4': 'Trilhas originais e notas de programa', 's2.cta': 'Pegar a plateia',
+      's3.name': 'Camarote', 's3.per': '/ mês', 's3.desc': 'Para conhecedores — tudo, mais a cabine de projeção.',
+      's3.f1': 'Tudo da Plateia', 's3.f2': 'Pré-estreias', 's3.f3': 'Noites de projeção 35mm trimestrais', 's3.f4': 'As cartas do projecionista', 's3.f5': 'Noites com curadores convidados', 's3.cta': 'Pegar o camarote',
+      'faq.kicker': 'Letras miúdas', 'faq.title': 'Perguntas na bilheteria',
+      'faq.q1': 'Vocês usam upscaling por IA?', 'faq.a1': 'Nunca. Cada restauro é trabalho manual quadro a quadro a partir dos melhores elementos sobreviventes. Onde falta material, a nota de programa diz — não inventamos detalhe.',
+      'faq.q2': 'Quais versões de áudio vocês oferecem?', 'faq.a2': 'A trilha sonora teatral original sempre que sobrevive, mais remixes estéreo quando o original se perdeu. A fonte é listada para cada filme.',
+      'faq.q3': 'Em quais dispositivos posso assistir?', 'faq.a3': 'Qualquer navegador moderno, mais aplicativos para TV, tablet e celular. Até três transmissões simultâneas em Plateia e Camarote.',
+      'faq.q4': 'Posso cancelar quando quiser?', 'faq.a4': 'Sim. Sem contratos, sem fidelidade — seu lugar é seu até o fim do mês de cobrança, depois você sai limpo.',
+      'club.kicker': 'O Cineclube', 'club.titleEm': 'juntos.', 'club.sub': 'Toda sexta projetamos um filme na sala online do Grande Salão. Assistimos juntos e depois conversamos com nossos curadores e o resto do clube.',
+      'club.month': 'Agosto', 'club.event': 'Black Narcissus · sexta 21:00', 'club.eventSub': 'Sala online do Grande Salão — aberta a todos os membros Plateia e Camarote.',
+      'club.inputPh': 'Seu e-mail', 'club.join': 'Entrar no clube', 'club.thanks': 'Bem-vindo ao clube — até sexta às 21:00.',
+      'press.kicker': 'Mural', 'press.title': 'O que dizem',
+      'press.q1': 'A única plataforma que trata cinema como cinema — restaurado com reverência, apresentado sem ruído.', 'press.s1': 'Revue Lumière',
+      'press.q2': 'MÉLIES não vende conteúdo. Curadoria de um século de cinema como um projecionista que já viu tudo.', 'press.s2': 'The Reel Review',
+      'press.q3': 'Restauro quadro a quadro, notas de programa honestas, zero autoplay. Uma carta de amor à sala de cinema.', 'press.s3': 'Projection Quarterly',
+      'news.stub': 'Toda sexta · Grátis', 'news.titleEm': 'Carta', 'news.body': 'Um filme essencial toda sexta, escolhido pelos nossos projecionistas — com notas de programa, fotogramas raros e o diário de restauro da semana. Sem trailers, sem ruído.',
+      'news.inputPh': 'Seu e-mail', 'news.btn': 'Receber a carta', 'news.thanks': 'A primeira carta chega na sexta. Sem trailers, prometido.',
+      'footer.desc': 'Uma casa de streaming para a era de ouro do cinema. Fundada em Paris, 1924 — restaurada, curada e projetada desde então.',
+      'footer.explore': 'Explorar', 'footer.legal': 'Legal', 'footer.contact': 'A casa',
+      'footer.tos': 'Termos de serviço', 'footer.privacy': 'Privacidade', 'footer.policy': 'Política de cookies',
+      'footer.letter': 'A Carta Marquee', 'footer.club': 'Entre no Cineclube', 'footer.press': 'Sala de imprensa',
+      'footer.made': 'Feito com ✦ na cabine de projeção',
+      'cookie.text': 'Usamos alguns cookies para lembrar do seu lugar e do seu idioma. Nada é vendido, nunca.',
+      'cookie.accept': 'Aceitar', 'cookie.decline': 'Recusar',
+      'aria.lang': 'Selecionar idioma', 'aria.theme': 'Alternar modo escuro', 'aria.menu': 'Abrir menu',
+      'img.hero': 'Restauro em destaque — O Terceiro Homem', 'img.f1': 'Metropolis — fotograma restaurado', 'img.f2': 'Black Narcissus — fotograma restaurado', 'img.f3': 'Rashomon — fotograma restaurado',
+      'meta.title': 'MÉLIES — Cinema clássico, restaurado e em streaming',
+      'meta.desc': 'Uma casa de streaming para a era de ouro do cinema. Mais de 1.200 clássicos restaurados e obras-primas de autor em 4K, com trilhas originais e notas de programa honestas. Sem anúncios. Sem IA.'
+    }
+  };
+
+  var META = { title: 'meta.title', description: 'meta.desc' };
+
+  function detectLang() {
+    var stored = null;
+    try { stored = localStorage.getItem('kairos-lang'); } catch (e) {}
+    if (stored && LANGS.indexOf(stored) !== -1) return stored;
+    var nav = (navigator.language || 'en').toLowerCase().slice(0, 2);
+    return LANGS.indexOf(nav) !== -1 ? nav : 'en';
+  }
+
+  function safeHTML(s) {
+    // allow-list: only <strong>, <em>, <br> pass through
+    return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/&lt;(\/?(?:strong|em))&gt;/g, '<$1>').replace(/&lt;br\s*\/?&gt;/g, '<br>');
+  }
+
+  function applyLang(lang) {
+    var dict = I18N[lang];
+    if (!dict) return;
+    document.documentElement.lang = lang;
+    var els = document.querySelectorAll('[data-i18n]');
+    for (var i = 0; i < els.length; i++) {
+      var k = els[i].getAttribute('data-i18n');
+      if (dict[k] !== undefined) els[i].textContent = dict[k];
+    }
+    var htm = document.querySelectorAll('[data-i18n-html]');
+    for (var j = 0; j < htm.length; j++) {
+      var k2 = htm[j].getAttribute('data-i18n-html');
+      if (dict[k2] !== undefined) htm[j].innerHTML = safeHTML(dict[k2]);
+    }
+    var ph = document.querySelectorAll('[data-i18n-ph]');
+    for (var p = 0; p < ph.length; p++) {
+      var k3 = ph[p].getAttribute('data-i18n-ph');
+      if (dict[k3] !== undefined) ph[p].setAttribute('placeholder', dict[k3]);
+    }
+    var ar = document.querySelectorAll('[data-i18n-aria]');
+    for (var a = 0; a < ar.length; a++) {
+      var k4 = ar[a].getAttribute('data-i18n-aria');
+      if (dict[k4] !== undefined) ar[a].setAttribute('aria-label', dict[k4]);
+    }
+    var al = document.querySelectorAll('[data-i18n-alt]');
+    for (var t = 0; t < al.length; t++) {
+      var k5 = al[t].getAttribute('data-i18n-alt');
+      if (dict[k5] !== undefined) al[t].setAttribute('alt', dict[k5]);
+    }
+    document.querySelectorAll('.lang-select__cur').forEach(function (el) { el.textContent = lang.toUpperCase(); });
+    document.querySelectorAll('.lang-select__opt').forEach(function (opt) {
+      opt.setAttribute('aria-selected', opt.getAttribute('data-lang') === lang ? 'true' : 'false');
+    });
+    if (dict[META.title]) document.title = dict[META.title];
+    if (dict[META.desc]) {
+      var md = document.querySelector('meta[name="description"]');
+      var og = document.querySelector('meta[property="og:description"]');
+      var tw = document.querySelector('meta[name="twitter:description"]');
+      if (md) md.setAttribute('content', dict[META.desc]);
+      if (og) og.setAttribute('content', dict[META.desc]);
+      if (tw) tw.setAttribute('content', dict[META.desc]);
+      var mt = document.querySelector('meta[property="og:title"]');
+      var tt = document.querySelector('meta[name="twitter:title"]');
+      if (mt) mt.setAttribute('content', dict[META.title]);
+      if (tt) tt.setAttribute('content', dict[META.title]);
+    }
+    try { localStorage.setItem('kairos-lang', lang); } catch (e) {}
+  }
+
+  /* ============ Theme ============ */
+  function detectTheme() {
+    var stored = null;
+    try { stored = localStorage.getItem('kairos-theme'); } catch (e) {}
+    if (stored === 'light' || stored === 'dark') return stored;
+    return 'dark'; /* a cinema is dark */
+  }
+  function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    var meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute('content', theme === 'dark' ? '#14090c' : '#f3ede0');
+    try { localStorage.setItem('kairos-theme', theme); } catch (e) {}
+  }
+
+  /* ============ Countdown to tonight's 21:00 ============ */
+  var cdEl = document.getElementById('cdTime');
+  function pad(n) { return n < 10 ? '0' + n : '' + n; }
+  function tickClock() {
+    var now = new Date();
+    var target = new Date(now);
+    target.setHours(21, 0, 0, 0);
+    if (now >= target) target.setDate(target.getDate() + 1);
+    var diff = Math.max(0, target - now);
+    var h = Math.floor(diff / 3600000);
+    var m = Math.floor((diff % 3600000) / 60000);
+    var s = Math.floor((diff % 60000) / 1000);
+    if (cdEl) cdEl.textContent = pad(h) + ':' + pad(m) + ':' + pad(s);
+  }
+  tickClock();
+  setInterval(tickClock, 1000);
+
+  /* ============ Lang dropdowns ============ */
+  function initLangDropdown(sel) {
+    var btn = sel.querySelector('.lang-select__btn');
+    var menu = sel.querySelector('.lang-select__menu');
+    if (!btn || !menu) return;
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var isOpen = sel.classList.toggle('open');
+      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+    menu.querySelectorAll('.lang-select__opt').forEach(function (opt) {
+      opt.addEventListener('click', function () {
+        currentLang = opt.getAttribute('data-lang');
+        applyLang(currentLang);
+        closeAllLang();
+      });
+    });
+  }
+  function closeAllLang() {
+    document.querySelectorAll('.lang-select').forEach(function (s) {
+      s.classList.remove('open');
+      var b = s.querySelector('.lang-select__btn');
+      if (b) b.setAttribute('aria-expanded', 'false');
+    });
+  }
+  document.addEventListener('click', closeAllLang);
+
+  var currentLang = detectLang();
+  applyLang(currentLang);
+  initLangDropdown(document.getElementById('langSelectDesk'));
+  initLangDropdown(document.getElementById('langSelectMob'));
+
+  /* ============ Theme toggle ============ */
+  document.querySelector('.theme-toggle').addEventListener('click', function () {
+    var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    applyTheme(next);
+  });
+
+  /* ============ Nav scrolled state ============ */
+  var nav = document.getElementById('nav');
+  function onScroll() {
+    nav.classList.toggle('nav-scrolled', window.scrollY > 10);
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* ============ Mobile menu ============ */
+  var menuBtn = document.querySelector('.menu-btn');
+  var mobileMenu = document.getElementById('mobileMenu');
+  menuBtn.addEventListener('click', function () {
+    var open = mobileMenu.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  });
+  mobileMenu.querySelectorAll('.m-link').forEach(function (l) {
+    l.addEventListener('click', function () {
+      mobileMenu.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  /* ============ Reveal on scroll ============ */
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var revealEls = document.querySelectorAll('.reveal');
+  if (reduceMotion || !('IntersectionObserver' in window)) {
+    revealEls.forEach(function (el) { el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(function (el) { io.observe(el); });
+  }
+
+  /* ============ FAQ accordion ============ */
+  document.querySelectorAll('.faq-item').forEach(function (item) {
+    var q = item.querySelector('.faq-q');
+    var a = item.querySelector('.faq-a');
+    q.addEventListener('click', function () {
+      var open = item.classList.toggle('open');
+      q.setAttribute('aria-expanded', open ? 'true' : 'false');
+      a.style.maxHeight = open ? a.scrollHeight + 'px' : '0px';
+    });
+  });
+
+  /* ============ Forms ============ */
+  function wireForm(formId, thanksId) {
+    var form = document.getElementById(formId);
+    var thanks = document.getElementById(thanksId);
+    if (!form || !thanks) return;
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var input = form.querySelector('input[type="email"]');
+      if (!input.value || input.value.indexOf('@') === -1) {
+        input.focus();
+        input.style.borderColor = 'var(--color-crimson)';
+        return;
+      }
+      var dict = I18N[currentLang] || I18N.en;
+      thanks.textContent = formId === 'newsForm' ? dict['news.thanks'] : dict['club.thanks'];
+      form.reset();
+    });
+  }
+  wireForm('newsForm', 'newsThanks');
+  wireForm('clubForm', 'clubThanks');
+
+  /* ============ Cookie banner ============ */
+  var cookie = document.getElementById('cookie');
+  var cookieState = null;
+  try { cookieState = localStorage.getItem('kairos-cookie'); } catch (e) {}
+  if (cookieState !== 'accepted' && cookieState !== 'declined') {
+    setTimeout(function () {
+      var st = null;
+      try { st = localStorage.getItem('kairos-cookie'); } catch (e) {}
+      if (st !== 'accepted' && st !== 'declined') cookie.classList.add('show');
+    }, 3600);
+  }
+  function hideCookie() {
+    cookie.classList.remove('show');
+    try { localStorage.setItem('kairos-cookie', 'accepted'); } catch (e) {}
+  }
+  document.getElementById('cookieOk').addEventListener('click', hideCookie);
+  document.getElementById('cookieNo').addEventListener('click', function () {
+    cookie.classList.remove('show');
+    try { localStorage.setItem('kairos-cookie', 'declined'); } catch (e) {}
+  });
+})();
+</script>
+</body>
+</html>

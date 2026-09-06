@@ -1,0 +1,1714 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tanda — Collective savings, digitized</title>
+<meta name="description" content="Rotating savings circles (tandas) with regulated escrow, automatic collections, and a credit history that counts. Start a circle in five minutes.">
+<link rel="canonical" href="https://proyectos.cristiancode.dev/landings/2026-08-12-tanda-savings.html">
+<meta name="theme-color" content="#ffffff">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Tanda — Collective savings, digitized">
+<meta property="og:description" content="Rotating savings circles with regulated escrow, automatic collections, and a credit history that counts.">
+<meta property="og:url" content="https://proyectos.cristiancode.dev/landings/2026-08-12-tanda-savings.html">
+<meta property="og:image" content="https://cristiancode.dev/assets/landing-tanda-savings.png">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="es_ES">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Tanda — Collective savings, digitized">
+<meta name="twitter:description" content="Rotating savings circles with regulated escrow, automatic collections, and a credit history that counts.">
+<meta name="twitter:image" content="https://cristiancode.dev/assets/landing-tanda-savings.png">
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='%23533afd'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%23ffffff'/%3E%3C/svg%3E">
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Product","name":"Tanda","brand":{"@type":"Brand","name":"Tanda Financial"},"description":"Digital rotating savings circles with regulated escrow, automatic collections and portable credit history.","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR","description":"Free to start; managed circles add 2.9% per pot."}}
+</script>
+
+<!-- Theme init (avoid FOUC). Capture tooling sets 'kairos-theme' -->
+<script>
+(function () {
+  try {
+    var t = localStorage.getItem('kairos-theme');
+    if (t === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+  } catch (e) {}
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Source+Code+Pro:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   DESIGN SYSTEM — TANDA
+   Surface: Decide/Learn (marketing landing; hero correct here).
+            Micro-surfaces: Compare (pricing) + Configure
+            (pot simulator) embedded as product features.
+   Derived from: Stripe (popular-web-designs template) —
+            weight-300 elegance, navy headings, purple accent,
+            blue-tinted layered shadows, 4–8px radii.
+   Family: Finance (rotating savings circles / ROSCAs)
+   Style: Weight-300 editorial fintech, precise & warm
+   Strategy: Committed — purple as functional accent (~30%),
+            navy as heading anchor, white expanse.
+   Typography: Source Sans 3 (substituting sohne-var) with
+            font-feature-settings "ss01" globally; tnum for
+            financial numerals. 400 for UI, 300 for voice.
+   Motion: ease-out-quart/expo only. Ring-fill SVG, magnetic
+            CTA, scroll reveals. prefers-reduced-motion respected.
+   z-index: nav 40 → cookie 50 → mobile menu 60
+   ============================================================ */
+
+/* ---------- Tokens ---------- */
+:root {
+  /* Light */
+  --bg: #ffffff;
+  --bg-soft: #f8fafd;            /* very light blue-gray band */
+  --surface: #ffffff;
+  --ink: #061b31;                /* deep navy — headings (17:1 on white) */
+  --ink-strong: #041225;
+  --body: #3f5268;               /* 9.0:1 on white */
+  --muted: #5a6b80;              /* 6.1:1 on white */
+  --faint: #64748d;              /* 4.75:1 — captions & small text */
+  --accent: #533afd;             /* Stripe purple */
+  --accent-hover: #4434d4;
+  --accent-soft: #f0efff;
+  --accent-border: #b9b9f9;
+  --line: #e5edf5;
+  --line-strong: #c9d6e4;
+  --success-bg: rgba(21, 190, 83, 0.14);
+  --success-border: rgba(21, 190, 83, 0.4);
+  --success-text: #0f7a34;       /* 4.9:1 on success-bg over white */
+  --dark-bg: #1c1e54;            /* brand dark — immersive sections */
+  --dark-bg-2: #24276b;
+  --dark-ink: #f2f4ff;
+  --dark-muted: rgba(255, 255, 255, 0.72);
+  --shadow-ambient: rgba(23, 23, 23, 0.06) 0px 15px 35px 0px;
+  --shadow-standard: rgba(23, 23, 23, 0.08) 0px 15px 35px 0px;
+  --shadow-elevated: rgba(50, 50, 93, 0.25) 0px 30px 45px -30px, rgba(0, 0, 0, 0.1) 0px 18px 36px -18px;
+  --shadow-deep: rgba(3, 3, 39, 0.25) 0px 14px 21px -14px, rgba(0, 0, 0, 0.1) 0px 8px 17px -8px;
+  --ring-track: #e5edf5;
+  --blob-1: rgba(234, 34, 97, 0.10);
+  --blob-2: rgba(249, 107, 238, 0.10);
+
+  /* Type */
+  --font-sans: "Source Sans 3", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "Source Code Pro", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Scale */
+  --sp-1: 0.25rem; --sp-2: 0.5rem; --sp-3: 0.75rem; --sp-4: 1rem;
+  --sp-5: 1.5rem; --sp-6: 2rem; --sp-7: 3rem; --sp-8: 4.5rem; --sp-9: 7rem;
+
+  /* Radius (Stripe conservative: 4–8px) */
+  --r-sm: 4px; --r-md: 6px; --r-lg: 8px;
+
+  /* Z (semantic scale) */
+  --z-nav: 40; --z-cookie: 50; --z-menu: 60;
+
+  --wrap: 1120px;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+[data-theme="dark"] {
+  --bg: #0b1526;
+  --bg-soft: #0e1a2f;
+  --surface: #101d33;
+  --ink: #eef3fb;                /* 15.8:1 on --bg */
+  --ink-strong: #ffffff;
+  --body: #b7c5d8;               /* 8.4:1 on --bg */
+  --muted: #9fb2c8;              /* 6.5:1 on --bg */
+  --faint: #8ca0b8;              /* 4.8:1 on --bg */
+  --accent: #5b54ff;            /* 5.05:1 with white text — buttons & interactive bg */
+  --accent-hover: #655dff;      /* 4.60:1 with white — hover */
+  --accent-link: #7571ff;       /* 4.84:1 on --bg — links & accent text */
+  --accent-soft: rgba(91, 84, 255, 0.16);
+  --accent-border: rgba(155, 148, 255, 0.55);
+  --line: rgba(255, 255, 255, 0.10);
+  --line-strong: rgba(255, 255, 255, 0.2);
+  --success-bg: rgba(21, 190, 83, 0.18);
+  --success-border: rgba(21, 190, 83, 0.45);
+  --success-text: #4ade80;
+  --dark-bg: #141743;
+  --dark-bg-2: #1b1f58;
+  --dark-ink: #f2f4ff;
+  --dark-muted: rgba(255, 255, 255, 0.74);
+  --shadow-ambient: 0 1px 2px rgba(0, 0, 0, 0.35), 0 15px 35px rgba(0, 0, 0, 0.4);
+  --shadow-standard: 0 2px 4px rgba(0, 0, 0, 0.35), 0 15px 35px rgba(0, 0, 0, 0.45);
+  --shadow-elevated: rgba(0, 0, 0, 0.5) 0px 30px 45px -30px, rgba(0, 0, 0, 0.35) 0px 18px 36px -18px;
+  --shadow-deep: rgba(0, 0, 0, 0.55) 0px 14px 21px -14px, rgba(0, 0, 0, 0.4) 0px 8px 17px -8px;
+  --ring-track: rgba(255, 255, 255, 0.12);
+  --blob-1: rgba(234, 34, 97, 0.12);
+  --blob-2: rgba(249, 107, 238, 0.10);
+}
+
+/* Dark mode: links & accent text need the lighter accent for AA.
+   Buttons (.btn) keep their own colors — exclude them, and keep
+   .btn-ghost on the lighter accent so its label passes AA too. */
+[data-theme="dark"] a:not(.btn),
+[data-theme="dark"] .section-kicker,
+[data-theme="dark"] .step-num,
+[data-theme="dark"] .sim-note .mono,
+[data-theme="dark"] .mock-foot .link,
+[data-theme="dark"] .slider-label .val,
+[data-theme="dark"] .sim-payout .num,
+[data-theme="dark"] .faq-q .chev,
+[data-theme="dark"] .lang-opt[aria-current="true"],
+[data-theme="dark"] .btn-ghost { color: var(--accent-link); }
+[data-theme="dark"] .btn-ghost:hover { color: var(--accent-link); }
+/* Structural links keep their own color in dark (not accent) */
+[data-theme="dark"] .nav-links a,
+[data-theme="dark"] .mobile-menu .m-link { color: var(--ink); }
+[data-theme="dark"] .nav-actions .nav-signin { color: var(--ink); }
+[data-theme="dark"] .footer-col a { color: rgba(255, 255, 255, 0.85); }
+[data-theme="dark"] .footer .brand { color: #ffffff; }
+
+/* ---------- Reset & base ---------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01";
+  font-size: 1.0625rem;
+  line-height: 1.45;
+  color: var(--body);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  transition: background-color 0.3s var(--ease-out), color 0.3s var(--ease-out);
+}
+img, svg { display: block; max-width: 100%; }
+button { font-family: inherit; font-feature-settings: "ss01"; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: var(--accent-hover); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+
+.tnum { font-variant-numeric: tabular-nums; font-feature-settings: "ss01", "tnum"; }
+.mono { font-family: var(--font-mono); }
+
+.wrap { max-width: var(--wrap); margin-inline: auto; padding-inline: clamp(1.25rem, 4vw, 2.5rem); }
+
+/* Skip link */
+.skip-link {
+  position: fixed; top: -100px; left: 1rem; z-index: 90;
+  background: var(--accent); color: #fff; padding: 0.6rem 1rem;
+  border-radius: var(--r-sm); font-weight: 600; font-size: 0.95rem;
+  transition: top 0.2s var(--ease-out);
+}
+.skip-link:focus { top: 1rem; }
+
+/* ---------- Typography ---------- */
+h1, h2, h3 {
+  color: var(--ink);
+  font-weight: 300;
+  text-wrap: balance;
+  letter-spacing: -0.02em;
+}
+p { text-wrap: pretty; }
+.section-kicker {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: var(--sp-3);
+}
+.sec-title { font-size: clamp(1.9rem, 3.4vw, 2.75rem); line-height: 1.12; }
+.sec-sub { font-size: 1.15rem; color: var(--muted); margin-top: var(--sp-3); max-width: 58ch; }
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+  padding: 0.72rem 1.35rem;
+  border-radius: var(--r-sm);
+  font-size: 1rem; font-weight: 600; line-height: 1.2;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background-color 0.2s var(--ease-out), border-color 0.2s var(--ease-out),
+              color 0.2s var(--ease-out), transform 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out);
+  min-height: 44px;
+}
+.btn-primary { background: var(--accent); color: #ffffff; }
+.btn-primary:hover { background: var(--accent-hover); color: #fff; transform: translateY(-1px); box-shadow: var(--shadow-deep); }
+.btn-ghost { background: transparent; color: var(--accent); border-color: var(--accent-border); }
+.btn-ghost:hover { background: var(--accent-soft); color: var(--accent); }
+.btn-dark { background: #ffffff; color: var(--dark-bg); }
+.btn-dark:hover { background: rgba(255, 255, 255, 0.9); color: var(--dark-bg); }
+.btn-lg { padding: 0.95rem 1.7rem; font-size: 1.05rem; }
+
+/* ---------- Nav ---------- */
+.nav {
+  position: sticky; top: 0; z-index: var(--z-nav);
+  background: color-mix(in srgb, var(--bg) 82%, transparent);
+  -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.25s var(--ease-out), box-shadow 0.25s var(--ease-out), background-color 0.25s var(--ease-out);
+}
+.nav.scrolled { border-bottom-color: var(--line); box-shadow: rgba(3, 3, 39, 0.06) 0px 8px 24px -12px; }
+.nav-inner { display: flex; align-items: center; gap: var(--sp-5); height: 68px; }
+.brand { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 1.35rem; font-weight: 600; color: var(--ink); letter-spacing: -0.02em; }
+.brand:hover { color: var(--ink); }
+.brand-mark { width: 26px; height: 26px; }
+.nav-links { display: flex; gap: var(--sp-5); margin-inline: auto; }
+.nav-links a { color: var(--ink); font-size: 0.95rem; font-weight: 400; padding: 0.35rem 0.1rem; }
+.nav-links a:hover { color: var(--accent); }
+.nav-actions { display: flex; align-items: center; gap: var(--sp-3); }
+
+.icon-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 40px; height: 40px; border-radius: var(--r-md);
+  border: 1px solid var(--line); background: transparent; color: var(--ink);
+  cursor: pointer; transition: border-color 0.2s var(--ease-out), background-color 0.2s var(--ease-out);
+}
+.icon-btn:hover { border-color: var(--line-strong); background: var(--bg-soft); }
+.nav-signin { color: var(--ink); font-size: 0.95rem; font-weight: 400; padding: 0.35rem 0.2rem; }
+.nav-signin:hover { color: var(--accent); }
+
+/* Language dropdown */
+.lang-wrap { position: relative; }
+.lang-btn {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  height: 40px; padding: 0 0.8rem; border-radius: var(--r-md);
+  border: 1px solid var(--line); background: transparent; color: var(--ink);
+  font-size: 0.9rem; font-weight: 500; cursor: pointer;
+  transition: border-color 0.2s var(--ease-out), background-color 0.2s var(--ease-out);
+}
+.lang-btn:hover, .lang-btn[aria-expanded="true"] { border-color: var(--line-strong); background: var(--bg-soft); }
+.lang-btn .chev { transition: transform 0.2s var(--ease-out); }
+.lang-btn[aria-expanded="true"] .chev { transform: rotate(180deg); }
+.lang-menu {
+  position: absolute; top: calc(100% + 6px); right: 0; z-index: var(--z-menu);
+  min-width: 170px; background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--r-md); box-shadow: var(--shadow-elevated);
+  padding: 0.35rem; display: none;
+}
+.lang-menu.open { display: block; }
+.lang-opt {
+  display: block; width: 100%; text-align: left;
+  padding: 0.5rem 0.75rem; border: 0; background: transparent;
+  border-radius: var(--r-sm); color: var(--ink); font-size: 0.95rem; cursor: pointer;
+  transition: background-color 0.15s var(--ease-out);
+}
+.lang-opt:hover { background: var(--accent-soft); }
+.lang-opt[aria-current="true"] { color: var(--accent); font-weight: 600; }
+
+/* Mobile menu */
+.nav-burger { display: none; }
+.mobile-menu {
+  position: fixed; inset: 0; z-index: var(--z-menu);
+  background: var(--bg); display: none; flex-direction: column;
+  padding: calc(68px + 1.5rem) 1.5rem 2rem; overflow-y: auto;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a.m-link { color: var(--ink); font-size: 1.5rem; font-weight: 300; padding: 0.85rem 0; border-bottom: 1px solid var(--line); }
+.mobile-menu .m-actions { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1.5rem; }
+.mobile-menu .lang-wrap { margin-top: 1.5rem; }
+.mobile-menu .lang-menu { left: 0; right: auto; min-width: 180px; }
+
+/* ---------- Hero ---------- */
+.hero { position: relative; overflow: hidden; }
+.hero-inner {
+  display: grid; grid-template-columns: 1.02fr 0.98fr; gap: clamp(2.5rem, 6vw, 5rem);
+  align-items: center; padding-block: clamp(3.5rem, 8vw, 6.5rem);
+}
+.hero-blob {
+  position: absolute; width: 560px; height: 560px; border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, var(--blob-1), transparent 60%),
+              radial-gradient(circle at 70% 70%, var(--blob-2), transparent 60%);
+  top: -140px; right: -160px; z-index: 0; pointer-events: none;
+}
+.hero-copy, .hero-mock { position: relative; z-index: 1; }
+.hero h1 { font-size: clamp(2.5rem, 4.6vw + 0.6rem, 4.35rem); line-height: 1.04; letter-spacing: -0.028em; max-width: 13ch; }
+.hero-sub { font-size: clamp(1.1rem, 1.6vw, 1.25rem); line-height: 1.5; color: var(--muted); margin-top: var(--sp-5); max-width: 52ch; }
+.hero-ctas { display: flex; flex-wrap: wrap; gap: var(--sp-3); margin-top: var(--sp-6); }
+.hero-trust {
+  display: flex; align-items: center; gap: 0.55rem; margin-top: var(--sp-5);
+  font-size: 0.92rem; color: var(--muted);
+}
+.hero-trust svg { flex: none; }
+
+/* Hero mock card */
+.mock {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg);
+  box-shadow: var(--shadow-elevated); padding: 1.5rem 1.5rem 1.25rem;
+  transition: transform 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out);
+}
+.mock:hover { transform: translateY(-3px); box-shadow: var(--shadow-deep); }
+.mock-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; }
+.mock-label { font-size: 0.8rem; color: var(--faint); }
+.mock-pot { font-size: 2.1rem; font-weight: 300; color: var(--ink); letter-spacing: -0.02em; margin-top: 0.1rem; }
+.mock-badge {
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  background: var(--success-bg); border: 1px solid var(--success-border);
+  color: var(--success-text); font-size: 0.78rem; font-weight: 600;
+  padding: 0.28rem 0.6rem; border-radius: var(--r-sm); white-space: nowrap;
+}
+.mock-body { display: grid; grid-template-columns: 148px 1fr; gap: 1.25rem; align-items: center; margin-top: 1.1rem; }
+.ring-wrap { text-align: center; }
+.ring-box { position: relative; width: 140px; height: 140px; margin-inline: auto; }
+.ring-box svg { width: 100%; height: 100%; }
+.ring-mid { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; pointer-events: none; }
+.ring-center { font-size: 1.15rem; font-weight: 500; color: var(--ink); line-height: 1; }
+.ring-sub { font-size: 0.75rem; color: var(--faint); }
+.mock-list { display: flex; flex-direction: column; gap: 0.45rem; }
+.mock-row { display: flex; align-items: center; gap: 0.6rem; font-size: 0.88rem; }
+.avatar {
+  width: 26px; height: 26px; border-radius: 50%; flex: none;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--accent-soft); color: var(--accent);
+  font-size: 0.66rem; font-weight: 700; letter-spacing: 0.02em;
+}
+.mock-row .name { color: var(--ink); margin-right: auto; }
+.mock-row .amt { color: var(--faint); font-size: 0.82rem; }
+.status-dot { width: 8px; height: 8px; border-radius: 50%; flex: none; }
+.status-dot.ok { background: #15be53; }
+.status-dot.wait { background: var(--line-strong); }
+.mock-foot {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-top: 1.15rem; padding-top: 1rem; border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--muted);
+}
+.mock-foot .link { color: var(--accent); font-weight: 600; font-size: 0.85rem; }
+
+/* ---------- Trust band ---------- */
+.band { background: var(--bg-soft); border-block: 1px solid var(--line); }
+.band-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; padding-block: var(--sp-7); }
+.band-item h3 { font-size: 1.02rem; font-weight: 600; color: var(--ink); letter-spacing: 0; display: flex; align-items: center; gap: 0.5rem; }
+.band-item p { font-size: 0.92rem; color: var(--muted); margin-top: 0.45rem; line-height: 1.5; }
+.band-item .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); flex: none; }
+
+/* ---------- Steps ---------- */
+.steps { padding-block: var(--sp-9); }
+.steps-head { max-width: 620px; margin-bottom: var(--sp-8); }
+.steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1.5rem, 3vw, 2.5rem); position: relative; }
+.steps-grid::before {
+  content: ""; position: absolute; top: 26px; left: 8%; right: 8%;
+  border-top: 1px dashed var(--line-strong); z-index: 0;
+}
+.step { position: relative; z-index: 1; padding-top: 0; }
+.step-num {
+  width: 52px; height: 52px; border-radius: 50%;
+  background: var(--bg); border: 1px solid var(--line-strong);
+  display: inline-flex; align-items: center; justify-content: center;
+  font-family: var(--font-mono); font-size: 0.95rem; font-weight: 700; color: var(--accent);
+  margin-bottom: var(--sp-5); box-shadow: 0 0 0 6px var(--bg);
+}
+.step h3 { font-size: 1.35rem; font-weight: 400; letter-spacing: -0.01em; }
+.step p { margin-top: var(--sp-3); font-size: 0.98rem; color: var(--muted); line-height: 1.55; }
+
+/* ---------- Product panel (dark) ---------- */
+.product { padding-block: var(--sp-9); }
+.panel-dark {
+  background: linear-gradient(135deg, var(--dark-bg), var(--dark-bg-2));
+  color: var(--dark-ink); border-radius: var(--r-lg);
+  padding: clamp(2rem, 5vw, 4rem); box-shadow: var(--shadow-elevated);
+  display: grid; grid-template-columns: 1fr 1.15fr; gap: clamp(2rem, 5vw, 4rem); align-items: center;
+}
+.panel-dark h2 { color: #ffffff; font-size: clamp(1.7rem, 3vw, 2.4rem); line-height: 1.14; }
+.panel-dark .p-sub { color: var(--dark-muted); margin-top: var(--sp-4); font-size: 1.05rem; line-height: 1.55; max-width: 46ch; }
+.panel-points { margin-top: var(--sp-6); display: flex; flex-direction: column; gap: 0.9rem; }
+.panel-points li {
+  list-style: none; display: flex; align-items: center; gap: 0.7rem;
+  color: rgba(255, 255, 255, 0.92); font-size: 0.98rem;
+}
+.panel-points .tick {
+  width: 22px; height: 22px; border-radius: 50%; flex: none;
+  background: rgba(83, 58, 253, 0.85); display: inline-flex; align-items: center; justify-content: center;
+}
+.panel-points .tick svg { width: 12px; height: 12px; }
+
+/* Dashboard mock (inside dark panel) */
+.dash {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: var(--r-lg); padding: 1.4rem; backdrop-filter: none;
+}
+.dash-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+.dash-title { color: rgba(255, 255, 255, 0.95); font-size: 0.95rem; font-weight: 500; }
+.dash-chip {
+  font-family: var(--font-mono); font-size: 0.7rem; font-weight: 500;
+  color: rgba(255, 255, 255, 0.85); border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 0.2rem 0.5rem; border-radius: var(--r-sm);
+}
+.dash-bars { display: grid; grid-template-columns: repeat(8, 1fr); gap: 6px; align-items: end; height: 96px; }
+.dash-bar { border-radius: 3px 3px 0 0; background: rgba(255, 255, 255, 0.16); }
+.dash-bar.filled { background: #8b84ff; }
+.dash-bar.now { background: #ffffff; }
+.dash-meta { display: flex; justify-content: space-between; margin-top: 0.8rem; font-size: 0.78rem; color: rgba(255, 255, 255, 0.7); }
+.dash-meta .mono { color: rgba(255, 255, 255, 0.95); }
+
+/* Feature trio — deliberately NOT identical cards */
+.features { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 1.25rem; margin-top: 1.5rem; }
+.feat { border-radius: var(--r-lg); padding: 1.75rem; border: 1px solid var(--line); background: var(--surface); transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out), border-color 0.3s var(--ease-out); }
+.feat:hover { transform: translateY(-3px); box-shadow: var(--shadow-standard); border-color: var(--accent-border); }
+.feat-escrow { background: var(--accent-soft); border-color: var(--accent-border); }
+.feat h3 { font-size: 1.18rem; font-weight: 400; letter-spacing: -0.01em; }
+.feat p { margin-top: var(--sp-3); font-size: 0.94rem; color: var(--muted); line-height: 1.55; }
+.feat-icon { width: 36px; height: 36px; border-radius: var(--r-sm); display: inline-flex; align-items: center; justify-content: center; margin-bottom: 1rem; }
+.feat-icon svg { width: 20px; height: 20px; }
+.feat-escrow .feat-icon { background: rgba(83, 58, 253, 0.14); }
+.feat-escrow .feat-icon svg { stroke: var(--accent); }
+.feat .feat-icon { background: var(--bg-soft); }
+.feat .feat-icon svg { stroke: var(--ink); }
+
+/* ---------- Simulator ---------- */
+.sim { background: var(--bg-soft); border-block: 1px solid var(--line); padding-block: var(--sp-9); }
+.sim-inner { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
+.sim-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); box-shadow: var(--shadow-standard); padding: 2rem; }
+.slider-group { margin-bottom: 1.75rem; }
+.slider-label { display: flex; justify-content: space-between; align-items: baseline; font-size: 0.95rem; color: var(--ink); margin-bottom: 0.55rem; }
+.slider-label .val { font-family: var(--font-mono); font-weight: 700; color: var(--accent); font-size: 1.02rem; }
+input[type="range"] {
+  -webkit-appearance: none; appearance: none; width: 100%; height: 6px;
+  border-radius: 3px; background: linear-gradient(to right, var(--accent) var(--fill, 50%), var(--line) var(--fill, 50%));
+  outline-offset: 4px;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none; appearance: none; width: 20px; height: 20px; border-radius: 50%;
+  background: #fff; border: 2px solid var(--accent); box-shadow: 0 1px 4px rgba(3, 3, 39, 0.25); cursor: pointer;
+}
+input[type="range"]::-moz-range-thumb {
+  width: 20px; height: 20px; border-radius: 50%; background: #fff;
+  border: 2px solid var(--accent); box-shadow: 0 1px 4px rgba(3, 3, 39, 0.25); cursor: pointer;
+}
+.sim-result { display: grid; grid-template-columns: 1fr auto; gap: 1rem; align-items: end; padding-top: 1.4rem; border-top: 1px solid var(--line); margin-top: 0.4rem; }
+.sim-pot-label { font-size: 0.8rem; color: var(--faint); }
+.sim-pot-num { font-size: 2.6rem; font-weight: 300; color: var(--ink); letter-spacing: -0.03em; line-height: 1; margin-top: 0.2rem; }
+.sim-payout { text-align: right; }
+.sim-payout .lbl { font-size: 0.8rem; color: var(--faint); }
+.sim-payout .num { font-family: var(--font-mono); font-size: 1.35rem; font-weight: 700; color: var(--accent); margin-top: 0.25rem; }
+.sim-note { margin-top: 1.4rem; font-size: 0.85rem; color: var(--muted); }
+.sim-note .mono { color: var(--accent); font-weight: 500; }
+.sim-cta { margin-top: 1.1rem; }
+.sim-ring { justify-self: center; text-align: center; }
+.sim-ring .ring-cap { font-size: 1.3rem; font-weight: 300; color: var(--ink); margin-top: 0.8rem; }
+.sim-ring .ring-cap small { display: block; font-size: 0.8rem; color: var(--faint); font-weight: 400; margin-top: 0.15rem; }
+
+/* ---------- Testimonials ---------- */
+.testi { padding-block: var(--sp-9); }
+.testi-grid { display: grid; grid-template-columns: 1.25fr 1fr; gap: 1.5rem; margin-top: var(--sp-7); }
+.testi-feat {
+  background: var(--dark-bg); color: var(--dark-ink); border-radius: var(--r-lg);
+  padding: clamp(1.8rem, 4vw, 3rem); display: flex; flex-direction: column; justify-content: space-between;
+  box-shadow: var(--shadow-elevated); min-height: 320px;
+}
+.testi-feat blockquote { font-size: clamp(1.25rem, 2vw, 1.6rem); font-weight: 300; line-height: 1.45; letter-spacing: -0.01em; text-wrap: balance; }
+.testi-feat .who { margin-top: 1.8rem; }
+.testi-feat .who b { display: block; color: #fff; font-weight: 500; font-size: 1rem; }
+.testi-feat .who span { color: var(--dark-muted); font-size: 0.88rem; }
+.testi-side { display: flex; flex-direction: column; gap: 1.5rem; }
+.testi-card { border: 1px solid var(--line); border-radius: var(--r-lg); padding: 1.6rem; background: var(--surface); transition: box-shadow 0.3s var(--ease-out); }
+.testi-card:hover { box-shadow: var(--shadow-standard); }
+.testi-card blockquote { font-size: 1.02rem; color: var(--body); line-height: 1.55; font-weight: 300; }
+.testi-card .who { margin-top: 1.1rem; }
+.testi-card .who b { display: block; color: var(--ink); font-weight: 600; font-size: 0.95rem; }
+.testi-card .who span { color: var(--faint); font-size: 0.84rem; }
+
+/* ---------- Pricing ---------- */
+.pricing { padding-block: var(--sp-9); }
+.price-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: var(--sp-7); align-items: stretch; max-width: 860px; margin-inline: auto; }
+.plan { border: 1px solid var(--line); border-radius: var(--r-lg); background: var(--surface); padding: 2rem 2rem 1.8rem; display: flex; flex-direction: column; }
+.plan-featured {
+  border: 1px solid var(--accent); background: linear-gradient(180deg, var(--accent-soft), var(--surface) 55%);
+  box-shadow: var(--shadow-elevated); position: relative;
+}
+.plan-flag {
+  position: absolute; top: -12px; left: 2rem;
+  background: var(--accent); color: #fff; font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 0.06em; text-transform: uppercase; padding: 0.3rem 0.75rem; border-radius: var(--r-sm);
+}
+.plan-name { font-size: 1rem; font-weight: 600; color: var(--ink); letter-spacing: 0; }
+.plan-desc { font-size: 0.92rem; color: var(--muted); margin-top: 0.5rem; line-height: 1.5; }
+.plan-price { margin-top: 1.4rem; display: flex; align-items: baseline; gap: 0.45rem; }
+.plan-price .num { font-size: 2.6rem; font-weight: 300; color: var(--ink); letter-spacing: -0.03em; }
+.plan-price .per { font-size: 0.88rem; color: var(--faint); }
+.plan-list { margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.65rem; flex: 1; }
+.plan-list li { list-style: none; display: flex; gap: 0.6rem; align-items: flex-start; font-size: 0.94rem; color: var(--body); }
+.plan-list svg { flex: none; margin-top: 0.25rem; }
+.plan .btn { margin-top: 1.6rem; width: 100%; }
+
+/* ---------- FAQ ---------- */
+.faq { padding-block: var(--sp-9); background: var(--bg-soft); border-block: 1px solid var(--line); }
+.faq-wrap { max-width: 780px; margin-inline: auto; margin-top: var(--sp-7); }
+.faq-item { border-bottom: 1px solid var(--line); }
+.faq-item:first-child { border-top: 1px solid var(--line); }
+.faq-q {
+  width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+  background: transparent; border: 0; padding: 1.3rem 0.25rem;
+  font-size: 1.08rem; font-weight: 400; color: var(--ink); text-align: left; cursor: pointer;
+  min-height: 52px;
+}
+.faq-q .chev { flex: none; transition: transform 0.25s var(--ease-out); color: var(--accent); }
+.faq-item[data-open="true"] .faq-q .chev { transform: rotate(45deg); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s var(--ease-out); }
+.faq-a p { padding: 0 0.25rem 1.35rem; font-size: 0.98rem; color: var(--muted); line-height: 1.6; max-width: 66ch; }
+
+/* ---------- CTA ---------- */
+.cta { padding-block: var(--sp-9); text-align: center; }
+.cta h2 { font-size: clamp(2rem, 4vw, 3.1rem); letter-spacing: -0.025em; max-width: 18ch; margin-inline: auto; }
+.cta-sub { color: var(--muted); margin-top: var(--sp-4); font-size: 1.1rem; }
+.cta-form { display: flex; gap: 0.6rem; justify-content: center; margin-top: var(--sp-6); flex-wrap: wrap; }
+.cta-form input {
+  width: min(320px, 100%); padding: 0.8rem 1rem; font-size: 1rem; font-family: inherit;
+  border: 1px solid var(--line-strong); border-radius: var(--r-sm); background: var(--surface); color: var(--ink);
+  transition: border-color 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out); min-height: 48px;
+}
+.cta-form input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+.cta-form input::placeholder { color: var(--faint); }
+.cta-small { margin-top: 1rem; font-size: 0.85rem; color: var(--faint); }
+
+/* ---------- Footer ---------- */
+.footer { background: var(--dark-bg); color: var(--dark-muted); }
+.footer-inner { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 2.5rem; padding-block: var(--sp-8) var(--sp-7); }
+.footer .brand { color: #fff; }
+.footer-tag { margin-top: 1rem; font-size: 0.95rem; max-width: 30ch; line-height: 1.55; }
+.footer h4 { color: rgba(255, 255, 255, 0.55); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1rem; }
+.footer-col a { display: block; color: rgba(255, 255, 255, 0.85); font-size: 0.95rem; padding: 0.3rem 0; }
+.footer-col a:hover { color: #fff; }
+.footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.12); padding-block: 1.4rem; display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; font-size: 0.85rem; }
+.footer-bottom .mono { color: rgba(255, 255, 255, 0.6); }
+
+/* ---------- Cookie banner ---------- */
+.cookie {
+  position: fixed; right: 1.25rem; bottom: 1.25rem; z-index: var(--z-cookie);
+  max-width: 380px; background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--r-md); box-shadow: var(--shadow-deep);
+  padding: 1rem 1.1rem; font-size: 0.88rem; color: var(--muted);
+  display: flex; flex-direction: column; gap: 0.8rem;
+  transform: translateY(calc(100% + 1.5rem)); opacity: 0;
+  transition: transform 0.5s var(--ease-out), opacity 0.4s var(--ease-out);
+}
+.cookie.show { transform: translateY(0); opacity: 1; }
+.cookie-actions { display: flex; gap: 0.6rem; }
+.cookie-actions .btn { padding: 0.5rem 1rem; font-size: 0.88rem; min-height: 38px; }
+
+/* ---------- Reveal animation ---------- */
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out); transition-delay: var(--d, 0s); }
+.reveal.in { opacity: 1; transform: none; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1020px) {
+  .band-grid { grid-template-columns: repeat(2, 1fr); }
+  .features { grid-template-columns: 1fr 1fr; }
+  .panel-dark { grid-template-columns: 1fr; }
+  .testi-grid { grid-template-columns: 1fr; }
+  .sim-inner { grid-template-columns: 1fr; }
+  .sim-ring { order: -1; }
+  .footer-inner { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 860px) {
+  .hero-inner { grid-template-columns: 1fr; padding-top: 3rem; }
+  .hero-blob { width: 420px; height: 420px; top: -80px; right: -120px; }
+  .steps-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .steps-grid::before { display: none; }
+  .nav-links { display: none; }
+  .nav-signin { display: none; }
+  .nav-burger { display: inline-flex; }
+  .nav-actions .lang-wrap { display: none; }
+  .price-grid { grid-template-columns: 1fr; max-width: 480px; }
+  .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+}
+@media (max-width: 560px) {
+  .band-grid { grid-template-columns: 1fr; gap: 1.4rem; }
+  .features { grid-template-columns: 1fr; }
+  .mock-body { grid-template-columns: 1fr; }
+  .cta-form input { width: 100%; }
+  .cta-form .btn { width: 100%; }
+  .hero-trust { font-size: 0.85rem; flex-wrap: wrap; }
+  .cookie { left: 0.75rem; right: 0.75rem; bottom: 0.75rem; max-width: none; font-size: 0.82rem; }
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+  .ring-progress { transition: none; }
+  .cookie { transition: none; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ================= NAV ================= -->
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#hero" aria-label="Tanda — home">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="13" fill="#533afd"/><circle cx="16" cy="16" r="5" fill="#ffffff"/></svg>
+      <span>tanda</span>
+    </a>
+
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#how" data-i18n="nav_how">How it works</a>
+      <a href="#product" data-i18n="nav_product">Product</a>
+      <a href="#pricing" data-i18n="nav_pricing">Pricing</a>
+      <a href="#faq" data-i18n="nav_faq">FAQ</a>
+    </nav>
+
+    <div class="nav-actions">
+      <div class="lang-wrap">
+        <button class="lang-btn" id="langBtn" aria-haspopup="listbox" aria-expanded="false" aria-label="Language — Idioma">
+          <span id="langCur">EN</span>
+          <svg class="chev" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="lang-menu" id="langMenu" role="listbox" aria-label="Choose language">
+          <button class="lang-opt" role="option" data-lang="en">English</button>
+          <button class="lang-opt" role="option" data-lang="es">Español</button>
+          <button class="lang-opt" role="option" data-lang="fr">Français</button>
+          <button class="lang-opt" role="option" data-lang="de">Deutsch</button>
+          <button class="lang-opt" role="option" data-lang="it">Italiano</button>
+          <button class="lang-opt" role="option" data-lang="pt">Português</button>
+        </div>
+      </div>
+
+      <button class="icon-btn" id="themeBtn" aria-label="Toggle theme" title="Toggle theme">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path class="i-moon" d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/>
+          <path class="i-sun" d="M12 3v2m0 14v2m9-9h-2M5 12H3m13.5-6.5-1.4 1.4M7.9 16.1l-1.4 1.4m0-10.9 1.4 1.4m8.2 8.2 1.4 1.4" style="display:none"/>
+        </svg>
+      </button>
+
+      <a class="nav-signin" href="#pricing" data-i18n="nav_signin">Sign in</a>
+      <a class="btn btn-primary" href="#cta" data-i18n="nav_start">Start a circle</a>
+
+      <button class="icon-btn nav-burger" id="burgerBtn" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a class="m-link" href="#how" data-i18n="nav_how">How it works</a>
+  <a class="m-link" href="#product" data-i18n="nav_product">Product</a>
+  <a class="m-link" href="#pricing" data-i18n="nav_pricing">Pricing</a>
+  <a class="m-link" href="#faq" data-i18n="nav_faq">FAQ</a>
+  <div class="m-actions">
+    <a class="btn btn-primary btn-lg" href="#cta" data-i18n="nav_start">Start a circle</a>
+    <a class="btn btn-ghost btn-lg" href="#pricing" data-i18n="nav_signin">Sign in</a>
+  </div>
+  <div class="lang-wrap" id="mLangRow">
+    <button class="lang-btn" type="button" id="mLangBtn" aria-haspopup="listbox" aria-expanded="false" aria-label="Language — Idioma">
+      <span id="mLangCur">EN</span>
+      <svg class="chev" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <div class="lang-menu" id="mLangMenu" role="listbox" aria-label="Choose language">
+      <button class="lang-opt" role="option" data-lang="en" aria-selected="true">English</button>
+      <button class="lang-opt" role="option" data-lang="es" aria-selected="false">Español</button>
+      <button class="lang-opt" role="option" data-lang="fr" aria-selected="false">Français</button>
+      <button class="lang-opt" role="option" data-lang="de" aria-selected="false">Deutsch</button>
+      <button class="lang-opt" role="option" data-lang="it" aria-selected="false">Italiano</button>
+      <button class="lang-opt" role="option" data-lang="pt" aria-selected="false">Português</button>
+    </div>
+  </div>
+</div>
+
+<main id="main">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero" id="hero">
+    <div class="hero-blob" aria-hidden="true"></div>
+    <div class="wrap hero-inner">
+      <div class="hero-copy">
+        <h1 data-i18n="hero_h1">Savings that come full circle.</h1>
+        <p class="hero-sub" data-i18n="hero_sub">Tanda turns the savings circles your community already trusts into a secure, digital service — transparent escrow, automatic collections, and a credit history that finally counts.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary btn-lg magnetic" href="#cta" data-i18n="hero_cta1">Start a circle</a>
+          <a class="btn btn-ghost btn-lg" href="#how" data-i18n="hero_cta2">See how it works</a>
+        </div>
+        <p class="hero-trust">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0f7a34" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg>
+          <span data-i18n="hero_trust">Funds held in regulated escrow · Insured up to €100,000</span>
+        </p>
+      </div>
+
+      <div class="hero-mock">
+        <div class="mock" role="img" aria-label="Tanda circle dashboard preview">
+          <div class="mock-top">
+            <div>
+              <div class="mock-label" data-i18n="mock_label_pot">This month's pot</div>
+              <div class="mock-pot tnum" id="mockPot">€2,000</div>
+            </div>
+            <span class="mock-badge">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+              <span data-i18n="mock_escrow">In escrow</span>
+            </span>
+          </div>
+
+          <div class="mock-body">
+            <div class="ring-wrap">
+              <div class="ring-box">
+                <svg width="140" height="140" viewBox="0 0 128 128" aria-hidden="true">
+                  <circle cx="64" cy="64" r="54" fill="none" stroke="var(--ring-track)" stroke-width="10"/>
+                  <circle class="ring-progress" id="heroRing" cx="64" cy="64" r="54" fill="none" stroke="#533afd" stroke-width="10" stroke-linecap="round" stroke-dasharray="339.29" stroke-dashoffset="339.29" transform="rotate(-90 64 64)"/>
+                </svg>
+                <div class="ring-mid">
+                  <div class="ring-center tnum">6/8</div>
+                  <div class="ring-sub" data-i18n="mock_ring_paid">paid</div>
+                </div>
+              </div>
+            </div>
+            <div class="mock-list">
+              <div class="mock-row"><span class="avatar">AR</span><span class="name">Ana R.</span><span class="amt tnum">€250</span><span class="status-dot ok" title="paid"></span></div>
+              <div class="mock-row"><span class="avatar">MC</span><span class="name">Marco C.</span><span class="amt tnum">€250</span><span class="status-dot ok" title="paid"></span></div>
+              <div class="mock-row"><span class="avatar">SK</span><span class="name">Sam K.</span><span class="amt tnum">€250</span><span class="status-dot ok" title="paid"></span></div>
+              <div class="mock-row"><span class="avatar">DG</span><span class="name">Dina G.</span><span class="amt tnum">€250</span><span class="status-dot ok" title="paid"></span></div>
+              <div class="mock-row"><span class="avatar">LT</span><span class="name">Leo T.</span><span class="amt tnum">€250</span><span class="status-dot ok" title="paid"></span></div>
+              <div class="mock-row"><span class="avatar">NN</span><span class="name">Nia N.</span><span class="amt tnum">€250</span><span class="status-dot wait" title="pending"></span></div>
+            </div>
+          </div>
+
+          <div class="mock-foot">
+            <span data-i18n="mock_next">Next payout · Sep 4</span>
+            <a class="link" href="#product" data-i18n="mock_ledger">View ledger</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TRUST BAND ================= -->
+  <section class="band" aria-label="Guarantees">
+    <div class="wrap band-grid">
+      <div class="band-item reveal">
+        <h3><span class="dot" aria-hidden="true"></span><span data-i18n="band_1t">Regulated escrow</span></h3>
+        <p data-i18n="band_1d">Every pot lives in a segregated account at a licensed custodian, separate from Tanda's own funds.</p>
+      </div>
+      <div class="band-item reveal" style="--d:.08s">
+        <h3><span class="dot" aria-hidden="true"></span><span data-i18n="band_2t">Automatic collections</span></h3>
+        <p data-i18n="band_2d">No chasing anyone. The platform reminds, collects, and records every contribution on time.</p>
+      </div>
+      <div class="band-item reveal" style="--d:.16s">
+        <h3><span class="dot" aria-hidden="true"></span><span data-i18n="band_3t">Transparent ledger</span></h3>
+        <p data-i18n="band_3d">Every contribution is visible to every member, at all times, with a full audit trail.</p>
+      </div>
+      <div class="band-item reveal" style="--d:.24s">
+        <h3><span class="dot" aria-hidden="true"></span><span data-i18n="band_4t">No hidden fees</span></h3>
+        <p data-i18n="band_4d">What you see in pricing is what you pay. Nothing else, ever.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= STEPS ================= -->
+  <section class="steps" id="how">
+    <div class="wrap">
+      <div class="steps-head reveal">
+        <h2 class="sec-title" data-i18n="steps_title">How a tanda works</h2>
+        <p class="sec-sub" data-i18n="steps_sub">The same rhythm your family has used for generations — with a bank-grade ledger underneath.</p>
+      </div>
+      <div class="steps-grid">
+        <div class="step reveal">
+          <div class="step-num">01</div>
+          <h3 data-i18n="s1_t">Form your circle</h3>
+          <p data-i18n="s1_d">Invite 5–25 people you trust. Agree on the monthly contribution and how the pot is ordered — rotation, lottery, or auction.</p>
+        </div>
+        <div class="step reveal" style="--d:.12s">
+          <div class="step-num">02</div>
+          <h3 data-i18n="s2_t">Contribute monthly</h3>
+          <p data-i18n="s2_d">Tanda collects from everyone automatically and holds each pot in a regulated escrow account. Reminders handle the rest.</p>
+        </div>
+        <div class="step reveal" style="--d:.24s">
+          <div class="step-num">03</div>
+          <h3 data-i18n="s3_t">Receive your pot</h3>
+          <p data-i18n="s3_d">On your month, the full pot lands in your account — no delays, no awkward conversations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PRODUCT ================= -->
+  <section class="product" id="product">
+    <div class="wrap">
+      <div class="panel-dark reveal">
+        <div>
+          <h2 data-i18n="feat_title">A dashboard your circle can actually read</h2>
+          <p class="p-sub" data-i18n="feat_sub">No spreadsheets, no group-chat accounting. Every pot, every member, every payout — one calm view.</p>
+          <ul class="panel-points">
+            <li><span class="tick"><svg viewBox="0 0 12 12" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m2.5 6.5 2.5 2.5 4.5-5"/></svg></span><span data-i18n="pp_1">Live pot tracking</span></li>
+            <li><span class="tick"><svg viewBox="0 0 12 12" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m2.5 6.5 2.5 2.5 4.5-5"/></svg></span><span data-i18n="pp_2">Member payment status</span></li>
+            <li><span class="tick"><svg viewBox="0 0 12 12" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m2.5 6.5 2.5 2.5 4.5-5"/></svg></span><span data-i18n="pp_3">Payout schedule</span></li>
+          </ul>
+        </div>
+        <div class="dash" aria-hidden="true">
+          <div class="dash-top">
+            <span class="dash-title">"La Familia" · 8 members</span>
+            <span class="dash-chip mono">€250/mo</span>
+          </div>
+          <div class="dash-bars">
+            <div class="dash-bar filled" style="height:58%"></div>
+            <div class="dash-bar filled" style="height:72%"></div>
+            <div class="dash-bar filled" style="height:46%"></div>
+            <div class="dash-bar filled" style="height:84%"></div>
+            <div class="dash-bar filled" style="height:64%"></div>
+            <div class="dash-bar filled" style="height:90%"></div>
+            <div class="dash-bar now" style="height:100%"></div>
+            <div class="dash-bar" style="height:30%"></div>
+          </div>
+          <div class="dash-meta">
+            <span data-i18n="mock_label_pot">This month's pot</span>
+            <span class="mono tnum">€2,000</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="features">
+        <div class="feat feat-escrow reveal" style="--d:.05s">
+          <span class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg></span>
+          <h3 data-i18n="f1_t">Escrow you can see</h3>
+          <p data-i18n="f1_d">Every pot sits in a segregated account under a licensed custodian. You can audit the balance anytime — it's your money, not our float.</p>
+        </div>
+        <div class="feat reveal" style="--d:.15s">
+          <span class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="m7 15 4-6 3 4 5-8"/></svg></span>
+          <h3 data-i18n="f2_t">Savings that build credit</h3>
+          <p data-i18n="f2_d">Every on-time contribution becomes verifiable payment history. Lenders see it, and your circle's reliability becomes your score.</p>
+        </div>
+        <div class="feat reveal" style="--d:.25s">
+          <span class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></span>
+          <h3 data-i18n="f3_t">No chasing, no awkwardness</h3>
+          <p data-i18n="f3_d">Automated reminders, split payments, and one-tap "pay for a member" keep circles healthy without the group-chat nagging.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SIMULATOR ================= -->
+  <section class="sim" id="simulator">
+    <div class="wrap sim-inner">
+      <div>
+        <div class="sim-ring" aria-hidden="true">
+          <svg width="220" height="220" viewBox="0 0 128 128">
+            <circle cx="64" cy="64" r="54" fill="none" stroke="var(--ring-track)" stroke-width="9"/>
+            <circle class="ring-progress" id="simRing" cx="64" cy="64" r="54" fill="none" stroke="#533afd" stroke-width="9" stroke-linecap="round" stroke-dasharray="339.29" stroke-dashoffset="339.29" transform="rotate(-90 64 64)"/>
+          </svg>
+          <div class="ring-cap tnum" id="simRingCap">€2,500</div>
+          <div class="ring-cap" style="font-size:.95rem; margin-top:.2rem;" id="simRingSub">10 × €250</div>
+        </div>
+      </div>
+      <div class="sim-card reveal">
+        <h2 class="sec-title" style="font-size:clamp(1.6rem,2.8vw,2.2rem);" data-i18n="sim_title">What would your pot look like?</h2>
+        <p class="sec-sub" style="font-size:1rem;" data-i18n="sim_sub">Move the sliders — the math is yours.</p>
+
+        <div style="margin-top:2rem;">
+          <div class="slider-group">
+            <div class="slider-label"><label for="simMembers" data-i18n="sim_members">People in your circle</label><span class="val tnum" id="vMembers">10</span></div>
+            <input type="range" id="simMembers" min="5" max="25" step="1" value="10">
+          </div>
+          <div class="slider-group">
+            <div class="slider-label"><label for="simAmount" data-i18n="sim_amount">Monthly contribution</label><span class="val tnum" id="vAmount">€250</span></div>
+            <input type="range" id="simAmount" min="20" max="500" step="10" value="250">
+          </div>
+        </div>
+
+        <div class="sim-result">
+          <div>
+            <div class="sim-pot-label" data-i18n="sim_pot">Pot size</div>
+            <div class="sim-pot-num tnum" id="simPotNum">€2,500</div>
+          </div>
+          <div class="sim-payout">
+            <div class="lbl" data-i18n="sim_payout">Your pot arrives in</div>
+            <div class="num tnum" id="simPayoutNum">~5 <span style="font-family:var(--font-sans); font-weight:400; font-size:.9rem;" data-i18n="sim_payout_unit">months</span></div>
+          </div>
+        </div>
+        <p class="sim-note" data-i18n-html="sim_note_html"><span class="mono">Tanda keeps 0%</span> on free circles. Managed circles add <span class="mono">2.9%</span> per pot.</p>
+        <a class="btn btn-primary btn-lg sim-cta" href="#cta" data-i18n="sim_btn">Build this circle</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TESTIMONIALS ================= -->
+  <section class="testi" id="stories">
+    <div class="wrap">
+      <div class="steps-head reveal" style="margin-bottom:0;">
+        <h2 class="sec-title" data-i18n="testi_title">Circles, in their own words</h2>
+      </div>
+      <div class="testi-grid">
+        <div class="testi-feat reveal">
+          <blockquote data-i18n="t1_q">"We're eleven cousins across three states. Tanda collects from everyone, and when it's your month, the money is there — same as always, but nobody has to chase anybody."</blockquote>
+          <div class="who"><b data-i18n="t1_a">Ana Reyes</b><span data-i18n="t1_role">Houston · Family circle of 11</span></div>
+        </div>
+        <div class="testi-side">
+          <div class="testi-card reveal" style="--d:.1s">
+            <blockquote data-i18n="t2_q">"Our taxi cooperative ran tandas on paper for years. Now the ledger is automatic and the bank actually accepts it when we apply for vehicle loans."</blockquote>
+            <div class="who"><b data-i18n="t2_a">Samuel Ochieng</b><span data-i18n="t2_role">Nairobi · Co-op circle of 24</span></div>
+          </div>
+          <div class="testi-card reveal" style="--d:.2s">
+            <blockquote data-i18n="t3_q">"I started a circle with five colleagues to save for our kids' summer camps. The credit history Tanda built even helped me refinance."</blockquote>
+            <div class="who"><b data-i18n="t3_a">Marta Gil</b><span data-i18n="t3_role">Madrid · Teacher circle of 6</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PRICING ================= -->
+  <section class="pricing" id="pricing">
+    <div class="wrap">
+      <div class="steps-head reveal" style="margin-inline:auto; text-align:center; margin-bottom:0;">
+        <h2 class="sec-title" data-i18n="price_title">Simple, honest pricing</h2>
+        <p class="sec-sub" style="margin-inline:auto;" data-i18n="price_sub">No surprises, no fine print. Leave whenever you want.</p>
+      </div>
+      <div class="price-grid">
+        <div class="plan reveal">
+          <div class="plan-name" data-i18n="free_t">Free</div>
+          <p class="plan-desc" data-i18n="free_d">For friends, family, and neighbors who just want a cleaner ledger.</p>
+          <div class="plan-price"><span class="num tnum">€0</span><span class="per" data-i18n="price_per">per pot</span></div>
+          <ul class="plan-list">
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0f7a34" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 13 4 4L19 7"/></svg><span data-i18n="free_l1">Unlimited circles</span></li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0f7a34" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 13 4 4L19 7"/></svg><span data-i18n="free_l2">Automatic collections</span></li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0f7a34" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 13 4 4L19 7"/></svg><span data-i18n="free_l3">Digital ledger</span></li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0f7a34" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 13 4 4L19 7"/></svg><span data-i18n="free_l4">Standard support</span></li>
+          </ul>
+          <a class="btn btn-ghost btn-lg" href="#cta" data-i18n="free_btn">Start free</a>
+        </div>
+
+        <div class="plan plan-featured reveal" style="--d:.12s">
+          <span class="plan-flag" data-i18n="pro_flag">Most popular</span>
+          <div class="plan-name" data-i18n="pro_t">Managed</div>
+          <p class="plan-desc" data-i18n="pro_d">For larger and long-running circles that want Tanda to run the operations.</p>
+          <div class="plan-price"><span class="num tnum">2.9%</span><span class="per" data-i18n="price_per">per pot</span></div>
+          <ul class="plan-list">
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#533afd" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 13 4 4L19 7"/></svg><span data-i18n="pro_l1">Everything in Free</span></li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#533afd" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 13 4 4L19 7"/></svg><span data-i18n="pro_l2">2.9% per pot</span></li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#533afd" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 13 4 4L19 7"/></svg><span data-i18n="pro_l3">Priority escrow &amp; payouts</span></li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#533afd" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 13 4 4L19 7"/></svg><span data-i18n="pro_l4">Member onboarding help</span></li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#533afd" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 13 4 4L19 7"/></svg><span data-i18n="pro_l5">Dedicated support</span></li>
+          </ul>
+          <a class="btn btn-primary btn-lg" href="#cta" data-i18n="pro_btn">Get started</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FAQ ================= -->
+  <section class="faq" id="faq">
+    <div class="wrap">
+      <div class="steps-head reveal" style="margin-inline:auto; text-align:center; margin-bottom:0;">
+        <h2 class="sec-title" data-i18n="faq_title">Frequently asked questions</h2>
+      </div>
+      <div class="faq-wrap">
+        <div class="faq-item reveal" data-open="false">
+          <button class="faq-q" aria-expanded="false"><span data-i18n="fq1">Is my money safe?</span>
+            <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="faq-a"><p data-i18n="fa1">Pots are held in segregated escrow accounts at regulated custodians, separate from Tanda's own funds. Your balance is verifiable at any time, and payouts are released automatically on the scheduled date.</p></div>
+        </div>
+        <div class="faq-item reveal" style="--d:.05s" data-open="false">
+          <button class="faq-q" aria-expanded="false"><span data-i18n="fq2">What happens if someone misses a contribution?</span>
+            <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="faq-a"><p data-i18n="fa2">Tanda sends automatic reminders and lets any member cover for another with one tap. If a gap can't be closed, the circle can adjust the schedule together — the ledger keeps everyone honest.</p></div>
+        </div>
+        <div class="faq-item reveal" style="--d:.1s" data-open="false">
+          <button class="faq-q" aria-expanded="false"><span data-i18n="fq3">Can I join a circle I didn't start?</span>
+            <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="faq-a"><p data-i18n="fa3">Yes. Circles can be public within your community, or invite-only. You see the full member history and payment record before you join.</p></div>
+        </div>
+        <div class="faq-item reveal" style="--d:.15s" data-open="false">
+          <button class="faq-q" aria-expanded="false"><span data-i18n="fq4">Does Tanda charge me?</span>
+            <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="faq-a"><p data-i18n="fa4">Free circles cost nothing. Managed circles add a 2.9% fee per pot, split across members — which usually comes out to less than what one dinner costs.</p></div>
+        </div>
+        <div class="faq-item reveal" style="--d:.2s" data-open="false">
+          <button class="faq-q" aria-expanded="false"><span data-i18n="fq5">Does this build my credit?</span>
+            <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="faq-a"><p data-i18n="fa5">In regions where we partner with credit bureaus, your on-time contribution history is reportable. Everywhere else, you get a portable Tanda score lenders can verify.</p></div>
+        </div>
+        <div class="faq-item reveal" style="--d:.25s" data-open="false">
+          <button class="faq-q" aria-expanded="false"><span data-i18n="fq6">Which countries are supported?</span>
+            <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="faq-a"><p data-i18n="fa6">Tanda currently operates in the EU, Mexico, Kenya, Nigeria, the Philippines, and the United States, with more markets on the way.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CTA ================= -->
+  <section class="cta" id="cta">
+    <div class="wrap">
+      <h2 class="reveal" data-i18n="cta_title">Start your first circle this month.</h2>
+      <p class="cta-sub reveal" style="--d:.08s" data-i18n="cta_sub">Free to start, five minutes to invite, first pot in thirty days.</p>
+      <form class="cta-form reveal" style="--d:.16s" id="ctaForm">
+        <label for="ctaEmail" class="skip-link" style="position:absolute; left:-9999px;" data-i18n="cta_email_label">Email address</label>
+        <input type="email" id="ctaEmail" required placeholder="you@example.com" data-i18n-placeholder="cta_ph" autocomplete="email">
+        <button class="btn btn-primary btn-lg magnetic" type="submit" data-i18n="cta_btn">Get the app</button>
+      </form>
+      <p class="cta-small reveal" style="--d:.24s" data-i18n="cta_small">No card required. Leave anytime.</p>
+    </div>
+  </section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <div>
+      <a class="brand" href="#hero" aria-label="Tanda">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="13" fill="#7b72ff"/><circle cx="16" cy="16" r="5" fill="#ffffff"/></svg>
+        <span>tanda</span>
+      </a>
+      <p class="footer-tag" data-i18n="footer_tag">Collective savings, digitized.</p>
+    </div>
+    <div class="footer-col">
+      <h4 data-i18n="fcol1">Product</h4>
+      <a href="#how" data-i18n="nav_how">How it works</a>
+      <a href="#product" data-i18n="nav_product">Product</a>
+      <a href="#pricing" data-i18n="nav_pricing">Pricing</a>
+      <a href="#faq" data-i18n="nav_faq">FAQ</a>
+    </div>
+    <div class="footer-col">
+      <h4 data-i18n="fcol2">Company</h4>
+      <a href="#" data-i18n="foot_about">About</a>
+      <a href="#" data-i18n="foot_careers">Careers</a>
+      <a href="#" data-i18n="foot_press">Press</a>
+      <a href="#" data-i18n="foot_contact">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4 data-i18n="fcol3">Legal</h4>
+      <a href="#" data-i18n="foot_privacy">Privacy</a>
+      <a href="#" data-i18n="foot_terms">Terms</a>
+      <a href="#" data-i18n="foot_licenses">Licenses</a>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>© 2026 Tanda Financial · Madrid · Nairobi · Mexico City</span>
+    <span class="mono">SOC2 · PCI-DSS · <span data-i18n="footer_rights">All rights reserved</span></span>
+  </div>
+</footer>
+
+<!-- ================= COOKIE ================= -->
+<div class="cookie" id="cookie" role="region" aria-label="Cookie notice">
+  <p data-i18n="cookie_text">We use cookies to run this site and measure traffic. No third-party tracking.</p>
+  <div class="cookie-actions">
+    <button class="btn btn-primary" id="cookieOk" data-i18n="cookie_accept">Accept</button>
+    <button class="btn btn-ghost" id="cookieMore" data-i18n="cookie_more">Learn more</button>
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   TANDA — i18n, theme, interactions
+   ============================================================ */
+
+/* ---------- i18n dictionary (6 languages, key-parity enforced) ---------- */
+var I18N = {
+  en: {
+    nav_how:"How it works", nav_product:"Product", nav_pricing:"Pricing", nav_faq:"FAQ", nav_signin:"Sign in", nav_start:"Start a circle",
+    hero_h1:"Savings that come full circle.",
+    hero_sub:"Tanda turns the savings circles your community already trusts into a secure, digital service — transparent escrow, automatic collections, and a credit history that finally counts.",
+    hero_cta1:"Start a circle", hero_cta2:"See how it works",
+    hero_trust:"Funds held in regulated escrow · Insured up to €100,000",
+    mock_label_pot:"This month's pot", mock_escrow:"In escrow", mock_ring_paid:"paid", mock_next:"Next payout · Sep 4", mock_ledger:"View ledger",
+    band_1t:"Regulated escrow", band_1d:"Every pot lives in a segregated account at a licensed custodian, separate from Tanda's own funds.",
+    band_2t:"Automatic collections", band_2d:"No chasing anyone. The platform reminds, collects, and records every contribution on time.",
+    band_3t:"Transparent ledger", band_3d:"Every contribution is visible to every member, at all times, with a full audit trail.",
+    band_4t:"No hidden fees", band_4d:"What you see in pricing is what you pay. Nothing else, ever.",
+    steps_title:"How a tanda works",
+    steps_sub:"The same rhythm your family has used for generations — with a bank-grade ledger underneath.",
+    s1_t:"Form your circle", s1_d:"Invite 5–25 people you trust. Agree on the monthly contribution and how the pot is ordered — rotation, lottery, or auction.",
+    s2_t:"Contribute monthly", s2_d:"Tanda collects from everyone automatically and holds each pot in a regulated escrow account. Reminders handle the rest.",
+    s3_t:"Receive your pot", s3_d:"On your month, the full pot lands in your account — no delays, no awkward conversations.",
+    feat_title:"A dashboard your circle can actually read",
+    feat_sub:"No spreadsheets, no group-chat accounting. Every pot, every member, every payout — one calm view.",
+    pp_1:"Live pot tracking", pp_2:"Member payment status", pp_3:"Payout schedule",
+    f1_t:"Escrow you can see", f1_d:"Every pot sits in a segregated account under a licensed custodian. You can audit the balance anytime — it's your money, not our float.",
+    f2_t:"Savings that build credit", f2_d:"Every on-time contribution becomes verifiable payment history. Lenders see it, and your circle's reliability becomes your score.",
+    f3_t:"No chasing, no awkwardness", f3_d:"Automated reminders, split payments, and one-tap \u201cpay for a member\u201d keep circles healthy without the group-chat nagging.",
+    sim_title:"What would your pot look like?", sim_sub:"Move the sliders — the math is yours.",
+    sim_members:"People in your circle", sim_amount:"Monthly contribution", sim_pot:"Pot size", sim_payout:"Your pot arrives in", sim_payout_unit:"months",
+    sim_note_html:"<span class=\"mono\">Tanda keeps 0%</span> on free circles. Managed circles add <span class=\"mono\">2.9%</span> per pot.",
+    sim_btn:"Build this circle",
+    testi_title:"Circles, in their own words",
+    t1_q:"\u201cWe're eleven cousins across three states. Tanda collects from everyone, and when it's your month, the money is there — same as always, but nobody has to chase anybody.\u201d", t1_a:"Ana Reyes", t1_role:"Houston · Family circle of 11",
+    t2_q:"\u201cOur taxi cooperative ran tandas on paper for years. Now the ledger is automatic and the bank actually accepts it when we apply for vehicle loans.\u201d", t2_a:"Samuel Ochieng", t2_role:"Nairobi · Co-op circle of 24",
+    t3_q:"\u201cI started a circle with five colleagues to save for our kids' summer camps. The credit history Tanda built even helped me refinance.\u201d", t3_a:"Marta Gil", t3_role:"Madrid · Teacher circle of 6",
+    price_title:"Simple, honest pricing", price_sub:"No surprises, no fine print. Leave whenever you want.",
+    free_t:"Free", free_d:"For friends, family, and neighbors who just want a cleaner ledger.",
+    free_l1:"Unlimited circles", free_l2:"Automatic collections", free_l3:"Digital ledger", free_l4:"Standard support", free_btn:"Start free",
+    pro_t:"Managed", pro_d:"For larger and long-running circles that want Tanda to run the operations.",
+    pro_l1:"Everything in Free", pro_l2:"2.9% per pot", pro_l3:"Priority escrow & payouts", pro_l4:"Member onboarding help", pro_l5:"Dedicated support", pro_btn:"Get started",
+    pro_flag:"Most popular", price_per:"per pot",
+    faq_title:"Frequently asked questions",
+    fq1:"Is my money safe?", fa1:"Pots are held in segregated escrow accounts at regulated custodians, separate from Tanda's own funds. Your balance is verifiable at any time, and payouts are released automatically on the scheduled date.",
+    fq2:"What happens if someone misses a contribution?", fa2:"Tanda sends automatic reminders and lets any member cover for another with one tap. If a gap can't be closed, the circle can adjust the schedule together — the ledger keeps everyone honest.",
+    fq3:"Can I join a circle I didn't start?", fa3:"Yes. Circles can be public within your community, or invite-only. You see the full member history and payment record before you join.",
+    fq4:"Does Tanda charge me?", fa4:"Free circles cost nothing. Managed circles add a 2.9% fee per pot, split across members — which usually comes out to less than what one dinner costs.",
+    fq5:"Does this build my credit?", fa5:"In regions where we partner with credit bureaus, your on-time contribution history is reportable. Everywhere else, you get a portable Tanda score lenders can verify.",
+    fq6:"Which countries are supported?", fa6:"Tanda currently operates in the EU, Mexico, Kenya, Nigeria, the Philippines, and the United States, with more markets on the way.",
+    cta_title:"Start your first circle this month.",
+    cta_sub:"Free to start, five minutes to invite, first pot in thirty days.",
+    cta_ph:"you@example.com", cta_btn:"Get the app", cta_small:"No card required. Leave anytime.", cta_email_label:"Email address",
+    footer_tag:"Collective savings, digitized.",
+    fcol1:"Product", fcol2:"Company", fcol3:"Legal",
+    foot_about:"About", foot_careers:"Careers", foot_press:"Press", foot_contact:"Contact",
+    foot_privacy:"Privacy", foot_terms:"Terms", foot_licenses:"Licenses", footer_rights:"All rights reserved",
+    cookie_text:"We use cookies to run this site and measure traffic. No third-party tracking.", cookie_accept:"Accept", cookie_more:"Learn more",
+    seo_title:"Tanda — Collective savings, digitized",
+    seo_desc:"Rotating savings circles (tandas) with regulated escrow, automatic collections, and a credit history that counts. Start a circle in five minutes."
+  },
+
+  es: {
+    nav_how:"Cómo funciona", nav_product:"Producto", nav_pricing:"Precios", nav_faq:"Preguntas", nav_signin:"Iniciar sesión", nav_start:"Crear una tanda",
+    hero_h1:"El ahorro que da la vuelta entera.",
+    hero_sub:"Tanda convierte las tandas de ahorro en las que tu comunidad ya confía en un servicio digital seguro — custodia transparente, cobros automáticos y un historial de crédito que por fin cuenta.",
+    hero_cta1:"Crear una tanda", hero_cta2:"Ver cómo funciona",
+    hero_trust:"Fondos en custodia regulada · Protegidos hasta 100.000 €",
+    mock_label_pot:"La caja de este mes", mock_escrow:"En custodia", mock_ring_paid:"pagados", mock_next:"Próximo pago · 4 sep", mock_ledger:"Ver el libro",
+    band_1t:"Custodia regulada", band_1d:"Cada caja vive en una cuenta segregada de un custodio autorizado, separada de los fondos de Tanda.",
+    band_2t:"Cobros automáticos", band_2d:"Sin perseguir a nadie: la plataforma recuerda, cobra y registra cada aportación a tiempo.",
+    band_3t:"Libro transparente", band_3d:"Cada aportación es visible para todos los miembros, en todo momento, con trazabilidad completa.",
+    band_4t:"Sin comisiones ocultas", band_4d:"Lo que ves en precios es lo que pagas. Nada más, nunca.",
+    steps_title:"Cómo funciona una tanda",
+    steps_sub:"El mismo ritmo que tu familia lleva generaciones usando — con un libro mayor de nivel bancario por debajo.",
+    s1_t:"Forma tu círculo", s1_d:"Invita a 5–25 personas de confianza. Acuerden la cuota mensual y el orden de la caja — por turnos, sorteo o subasta.",
+    s2_t:"Aporta cada mes", s2_d:"Tanda cobra a todos automáticamente y guarda cada caja en una cuenta de custodia regulada. Los recordatorios hacen el resto.",
+    s3_t:"Recibe tu caja", s3_d:"Cuando llegue tu mes, la caja completa cae en tu cuenta — sin demoras ni conversaciones incómodas.",
+    feat_title:"Un panel que tu círculo puede leer de verdad",
+    feat_sub:"Nada de hojas de cálculo ni cuentas por el grupo. Cada caja, cada miembro, cada pago — una vista tranquila.",
+    pp_1:"Seguimiento de la caja en vivo", pp_2:"Estado de pago de cada miembro", pp_3:"Calendario de pagos",
+    f1_t:"Custodia que puedes ver", f1_d:"Cada caja está en una cuenta segregada bajo un custodio autorizado. Audita el saldo cuando quieras — es tu dinero, no nuestro colchón.",
+    f2_t:"Ahorro que construye crédito", f2_d:"Cada aportación puntual se convierte en historial de pago verificable. Los prestamistas lo ven, y la fiabilidad de tu círculo se vuelve tu puntuación.",
+    f3_t:"Sin perseguir a nadie", f3_d:"Recordatorios automáticos, pagos divididos y un botón para \u201cpagar por un miembro\u201d mantienen la tanda sana sin el grupo rogando.",
+    sim_title:"¿Cómo sería tu caja?", sim_sub:"Mueve los deslizadores — las matemáticas son tuyas.",
+    sim_members:"Personas en tu círculo", sim_amount:"Aportación mensual", sim_pot:"Tamaño de la caja", sim_payout:"Tu caja llega en", sim_payout_unit:"meses",
+    sim_note_html:"<span class=\"mono\">Tanda cobra 0 %</span> en tandas gratuitas. Las gestionadas añaden <span class=\"mono\">2,9 %</span> por caja.",
+    sim_btn:"Montar esta tanda",
+    testi_title:"Las tandas, en sus propias palabras",
+    t1_q:"\u201cSomos once primos repartidos en tres estados. Tanda cobra a todos, y cuando llega tu mes el dinero está ahí — igual que siempre, pero nadie tiene que perseguir a nadie.\u201d", t1_a:"Ana Reyes", t1_role:"Houston · Tanda familiar de 11",
+    t2_q:"\u201cNuestra cooperativa de taxis llevaba tandas en papel durante años. Ahora el libro es automático y el banco lo acepta cuando pedimos préstamos para los vehículos.\u201d", t2_a:"Samuel Ochieng", t2_role:"Nairobi · Cooperativa de 24",
+    t3_q:"\u201cMonté una tanda con cinco compañeros para ahorrar para los campamentos de verano. El historial que Tanda me construyó hasta me ayudó a refinanciar.\u201d", t3_a:"Marta Gil", t3_role:"Madrid · Tanda docente de 6",
+    price_title:"Precios simples y honestos", price_sub:"Sin sorpresas, sin letra pequeña. Deja de pagar cuando quieras.",
+    free_t:"Gratis", free_d:"Para amigos, familia y vecinos que solo quieren un libro más limpio.",
+    free_l1:"Tandas ilimitadas", free_l2:"Cobros automáticos", free_l3:"Libro digital", free_l4:"Soporte estándar", free_btn:"Empezar gratis",
+    pro_t:"Gestionada", pro_d:"Para tandas grandes o de largo recorrido que quieren que Tanda maneje la operación.",
+    pro_l1:"Todo lo de Gratis", pro_l2:"2,9 % por caja", pro_l3:"Custodia y pagos prioritarios", pro_l4:"Ayuda para incorporar miembros", pro_l5:"Soporte dedicado", pro_btn:"Empezar",
+    pro_flag:"Más popular", price_per:"por caja",
+    faq_title:"Preguntas frecuentes",
+    fq1:"¿Mi dinero está seguro?", fa1:"Las cajas se guardan en cuentas de custodia segregadas en entidades reguladas, separadas de los fondos de Tanda. Verifica tu saldo en cualquier momento y los pagos se liberan automáticamente en la fecha prevista.",
+    fq2:"¿Qué pasa si alguien no aporta?", fa2:"Tanda envía recordatorios automáticos y permite que cualquier miembro cubra a otro con un toque. Si el hueco no se cierra, el círculo puede ajustar el calendario en conjunto — el libro mantiene a todos honestos.",
+    fq3:"¿Puedo unirme a una tanda que no empecé?", fa3:"Sí. Las tandas pueden ser públicas dentro de tu comunidad o solo por invitación. Ves el historial completo de miembros y pagos antes de unirte.",
+    fq4:"¿Tanda me cobra?", fa4:"Las tandas gratuitas no cuestan nada. Las gestionadas añaden un 2,9 % por caja, repartido entre los miembros — normalmente menos de lo que cuesta una cena.",
+    fq5:"¿Esto construye mi crédito?", fa5:"En las regiones donde colaboramos con burós de crédito, tu historial de aportaciones puntuales es reportable. En el resto, obtienes una puntuación Tanda portable que los prestamistas pueden verificar.",
+    fq6:"¿En qué países funciona?", fa6:"Tanda opera actualmente en la UE, México, Kenia, Nigeria, Filipinas y Estados Unidos, con más mercados en camino.",
+    cta_title:"Monta tu primera tanda este mes.",
+    cta_sub:"Gratis para empezar, cinco minutos para invitar, primera caja en treinta días.",
+    cta_ph:"tu@correo.com", cta_btn:"Descargar la app", cta_small:"Sin tarjeta. Vete cuando quieras.", cta_email_label:"Correo electrónico",
+    footer_tag:"El ahorro colectivo, digitalizado.",
+    fcol1:"Producto", fcol2:"Empresa", fcol3:"Legal",
+    foot_about:"Nosotros", foot_careers:"Empleo", foot_press:"Prensa", foot_contact:"Contacto",
+    foot_privacy:"Privacidad", foot_terms:"Términos", foot_licenses:"Licencias", footer_rights:"Todos los derechos reservados",
+    cookie_text:"Usamos cookies para que la web funcione y para medir el tráfico. Nada de rastreo de terceros.", cookie_accept:"Aceptar", cookie_more:"Saber más",
+    seo_title:"Tanda — El ahorro colectivo, digitalizado",
+    seo_desc:"Tandas de ahorro con custodia regulada, cobros automáticos y un historial de crédito que cuenta. Crea una tanda en cinco minutos."
+  },
+
+  fr: {
+    nav_how:"Fonctionnement", nav_product:"Produit", nav_pricing:"Tarifs", nav_faq:"FAQ", nav_signin:"Se connecter", nav_start:"Créer une tontine",
+    hero_h1:"L'épargne qui boucle la boucle.",
+    hero_sub:"Tanda transforme les tontines auxquelles votre communauté fait déjà confiance en un service numérique sécurisé — dépôt transparent, cotisations automatiques et un historique de crédit qui compte enfin.",
+    hero_cta1:"Créer une tontine", hero_cta2:"Voir comment ça marche",
+    hero_trust:"Fonds sous dépôt réglementé · Assurés jusqu'à 100 000 €",
+    mock_label_pot:"La cagnotte du mois", mock_escrow:"Sous dépôt", mock_ring_paid:"payés", mock_next:"Prochain versement · 4 sept.", mock_ledger:"Voir le registre",
+    band_1t:"Dépôt réglementé", band_1d:"Chaque cagnotte vit sur un compte ségrégué chez un dépositaire agréé, séparé des fonds de Tanda.",
+    band_2t:"Cotisations automatiques", band_2d:"Personne à relancer : la plateforme rappelle, encaisse et enregistre chaque cotisation à l'heure.",
+    band_3t:"Registre transparent", band_3d:"Chaque cotisation est visible par tous les membres, en permanence, avec une piste d'audit complète.",
+    band_4t:"Aucun frais caché", band_4d:"Ce que vous voyez est ce que vous payez. Rien d'autre, jamais.",
+    steps_title:"Comment fonctionne une tontine",
+    steps_sub:"Le même rythme que votre famille utilise depuis des générations — avec un registre de qualité bancaire en dessous.",
+    s1_t:"Formez votre cercle", s1_d:"Invitez 5 à 25 personnes de confiance. Fixez la cotisation mensuelle et l'ordre des cagnottes — tour, tirage au sort ou enchère.",
+    s2_t:"Cotisez chaque mois", s2_d:"Tanda encaisse automatiquement et conserve chaque cagnotte sur un compte sous dépôt réglementé. Les rappels font le reste.",
+    s3_t:"Recevez votre cagnotte", s3_d:"Le mois venu, la cagnotte complète arrive sur votre compte — sans délai ni conversation gênante.",
+    feat_title:"Un tableau de bord que votre cercle peut vraiment lire",
+    feat_sub:"Ni tableurs, ni comptes par messagerie. Chaque cagnotte, chaque membre, chaque versement — une vue sereine.",
+    pp_1:"Suivi de cagnotte en direct", pp_2:"Statut de paiement de chaque membre", pp_3:"Calendrier des versements",
+    f1_t:"Un dépôt que vous pouvez voir", f1_d:"Chaque cagnotte est sur un compte ségrégué chez un dépositaire agréé. Auditez le solde quand vous voulez — c'est votre argent, pas notre trésorerie.",
+    f2_t:"Une épargne qui construit du crédit", f2_d:"Chaque cotisation à l'heure devient un historique de paiement vérifiable. Les prêteurs le voient, et la fiabilité de votre cercle devient votre score.",
+    f3_t:"Zéro relance, zéro gêne", f3_d:"Rappels automatiques, paiements fractionnés et un bouton pour \u201cpayer pour un membre\u201d gardent la tontine saine, sans la honte du message de groupe.",
+    sim_title:"À quoi ressemblerait votre cagnotte ?", sim_sub:"Déplacez les curseurs — les maths sont à vous.",
+    sim_members:"Personnes dans votre cercle", sim_amount:"Cotisation mensuelle", sim_pot:"Taille de la cagnotte", sim_payout:"Votre cagnotte arrive dans", sim_payout_unit:"mois",
+    sim_note_html:"<span class=\"mono\">Tanda ne prend rien</span> sur les tontines gratuites. Les gérées ajoutent <span class=\"mono\">2,9 %</span> par cagnotte.",
+    sim_btn:"Monter cette tontine",
+    testi_title:"Les tontines, paroles de membres",
+    t1_q:"\u201cNous sommes onze cousins répartis sur trois États. Tanda encaisse pour tout le monde et, quand c'est votre mois, l'argent est là — comme toujours, mais personne ne court après personne.\u201d", t1_a:"Ana Reyes", t1_role:"Houston · Tontine familiale de 11",
+    t2_q:"\u201cNotre coopérative de taxis tenait ses tontines sur papier depuis des années. Maintenant le registre est automatique et la banque l'accepte quand on demande des prêts pour les véhicules.\u201d", t2_a:"Samuel Ochieng", t2_role:"Nairobi · Coopérative de 24",
+    t3_q:"\u201cJ'ai monté une tontine avec cinq collègues pour les colonies de vacances. L'historique que Tanda m'a construit m'a même aidé à renégocier mon prêt.\u201d", t3_a:"Marta Gil", t3_role:"Madrid · Tontine d'enseignants de 6",
+    price_title:"Des tarifs simples et honnêtes", price_sub:"Sans surprise, sans petites lignes. Arrêtez quand vous voulez.",
+    free_t:"Gratuit", free_d:"Pour les amis, la famille et les voisins qui veulent juste un registre plus propre.",
+    free_l1:"Tontines illimitées", free_l2:"Cotisations automatiques", free_l3:"Registre numérique", free_l4:"Support standard", free_btn:"Commencer gratuitement",
+    pro_t:"Gérée", pro_d:"Pour les tontines longues ou importantes qui veulent confier l'opération à Tanda.",
+    pro_l1:"Tout ce qui est inclus dans Gratuit", pro_l2:"2,9 % par cagnotte", pro_l3:"Dépôt et versements prioritaires", pro_l4:"Aide à l'intégration des membres", pro_l5:"Support dédié", pro_btn:"Commencer",
+    pro_flag:"Le plus populaire", price_per:"par cagnotte",
+    faq_title:"Questions fréquentes",
+    fq1:"Mon argent est-il en sécurité ?", fa1:"Les cagnottes sont conservées sur des comptes ségrégués chez des dépositaires réglementés, séparés des fonds de Tanda. Vérifiez votre solde à tout moment ; les versements sont libérés automatiquement à la date prévue.",
+    fq2:"Et si quelqu'un rate une cotisation ?", fa2:"Tanda envoie des rappels automatiques et permet à tout membre de couvrir un autre en un geste. Si l'écart persiste, le cercle ajuste le calendrier ensemble — le registre garde tout le monde honnête.",
+    fq3:"Puis-je rejoindre une tontine que je n'ai pas créée ?", fa3:"Oui. Les tontines peuvent être publiques au sein de votre communauté, ou sur invitation. Vous voyez tout l'historique des membres et des paiements avant de rejoindre.",
+    fq4:"Tanda me facture-t-elle ?", fa4:"Les tontines gratuites ne coûtent rien. Les gérées ajoutent 2,9 % par cagnotte, répartis entre les membres — souvent moins qu'un dîner.",
+    fq5:"Cela construit-il mon crédit ?", fa5:"Dans les régions où nous travaillons avec des agences de crédit, votre historique de cotisations à l'heure est déclarable. Ailleurs, vous obtenez un score Tanda portable que les prêteurs peuvent vérifier.",
+    fq6:"Dans quels pays est-ce disponible ?", fa6:"Tanda opère actuellement dans l'UE, au Mexique, au Kenya, au Nigeria, aux Philippines et aux États-Unis, avec d'autres marchés à venir.",
+    cta_title:"Montez votre première tontine ce mois-ci.",
+    cta_sub:"Gratuit pour commencer, cinq minutes pour inviter, première cagnotte dans trente jours.",
+    cta_ph:"vous@exemple.fr", cta_btn:"Télécharger l'app", cta_small:"Sans carte. Partez quand vous voulez.", cta_email_label:"Adresse e-mail",
+    footer_tag:"L'épargne collective, numérisée.",
+    fcol1:"Produit", fcol2:"Entreprise", fcol3:"Légal",
+    foot_about:"À propos", foot_careers:"Carrières", foot_press:"Presse", foot_contact:"Contact",
+    foot_privacy:"Confidentialité", foot_terms:"Conditions", foot_licenses:"Licences", footer_rights:"Tous droits réservés",
+    cookie_text:"Nous utilisons des cookies pour faire fonctionner le site et mesurer le trafic. Aucun suivi tiers.", cookie_accept:"Accepter", cookie_more:"En savoir plus",
+    seo_title:"Tanda — L'épargne collective, numérisée",
+    seo_desc:"Tontines avec dépôt réglementé, cotisations automatiques et un historique de crédit qui compte. Montez une tontine en cinq minutes."
+  },
+
+  de: {
+    nav_how:"So funktioniert's", nav_product:"Produkt", nav_pricing:"Preise", nav_faq:"FAQ", nav_signin:"Anmelden", nav_start:"Tanda gründen",
+    hero_h1:"Sparen, das den Kreis schließt.",
+    hero_sub:"Tanda macht aus den Sparrunden, denen Ihre Community bereits vertraut, einen sicheren digitalen Dienst — transparente Verwahrung, automatische Beiträge und eine Bonitätshistorie, die endlich zählt.",
+    hero_cta1:"Tanda gründen", hero_cta2:"So funktioniert's",
+    hero_trust:"Gelder in regulierter Verwahrung · Abgesichert bis 100.000 €",
+    mock_label_pot:"Der Topf in diesem Monat", mock_escrow:"In Verwahrung", mock_ring_paid:"gezahlt", mock_next:"Nächste Auszahlung · 4. Sep.", mock_ledger:"Kassenbuch ansehen",
+    band_1t:"Regulierte Verwahrung", band_1d:"Jeder Topf liegt auf einem getrennten Konto bei einem zugelassenen Verwahrer, getrennt von Tandas eigenen Mitteln.",
+    band_2t:"Automatische Beiträge", band_2d:"Kein Hinterherlaufen: Die Plattform erinnert, zieht ein und protokolliert jeden Beitrag pünktlich.",
+    band_3t:"Transparentes Kassenbuch", band_3d:"Jeder Beitrag ist für alle Mitglieder jederzeit sichtbar, mit vollständiger Prüfkette.",
+    band_4t:"Keine versteckten Gebühren", band_4d:"Was Sie sehen, ist, was Sie zahlen. Sonst nichts, nie.",
+    steps_title:"So funktioniert eine Tanda",
+    steps_sub:"Derselbe Rhythmus, den Ihre Familie seit Generationen nutzt — darunter ein Kassenbuch auf Bankniveau.",
+    s1_t:"Kreis bilden", s1_d:"Laden Sie 5–25 vertraute Personen ein. Legen Sie den monatlichen Beitrag und die Reihenfolge fest — Rotation, Los oder Auktion.",
+    s2_t:"Monatlich einzahlen", s2_d:"Tanda zieht automatisch ein und hält jeden Topf auf einem regulierten Verwahrkonto. Erinnerungen übernehmen den Rest.",
+    s3_t:"Ihren Topf erhalten", s3_d:"Im entscheidenden Monat landet der volle Topf auf Ihrem Konto — ohne Verzögerung und ohne unangenehme Gespräche.",
+    feat_title:"Ein Dashboard, das Ihr Kreis wirklich lesen kann",
+    feat_sub:"Keine Tabellen, keine Gruppenchat-Buchhaltung. Jeder Topf, jedes Mitglied, jede Auszahlung — eine ruhige Übersicht.",
+    pp_1:"Topf-Verfolgung in Echtzeit", pp_2:"Zahlungsstatus jedes Mitglieds", pp_3:"Auszahlungskalender",
+    f1_t:"Verwahrung, die Sie sehen können", f1_d:"Jeder Topf liegt auf einem getrennten Konto bei einem zugelassenen Verwahrer. Prüfen Sie den Saldo jederzeit — es ist Ihr Geld, nicht unser Puffer.",
+    f2_t:"Sparen, das Kreditwürdigkeit aufbaut", f2_d:"Jeder pünktliche Beitrag wird zu verifizierbarer Zahlungshistorie. Kreditgeber sehen sie, und die Zuverlässigkeit Ihres Kreises wird zu Ihrem Score.",
+    f3_t:"Kein Nachfragen, keine Peinlichkeit", f3_d:"Automatische Erinnerungen, Teilzahlungen und ein Knopf zum \u201cFür Mitglied zahlen\u201d halten die Runde gesund — ohne Betteln im Gruppenchat.",
+    sim_title:"Wie sähe Ihr Topf aus?", sim_sub:"Bewegen Sie die Regler — die Rechnung gehört Ihnen.",
+    sim_members:"Personen in Ihrem Kreis", sim_amount:"Monatlicher Beitrag", sim_pot:"Topfgröße", sim_payout:"Ihr Topf kommt in", sim_payout_unit:"Monaten",
+    sim_note_html:"<span class=\"mono\">Tanda nimmt 0 %</span> bei kostenlosen Tandas. Bei verwalteten kommen <span class=\"mono\">2,9 %</span> pro Topf hinzu.",
+    sim_btn:"Diese Tanda aufsetzen",
+    testi_title:"Runden, in ihren eigenen Worten",
+    t1_q:"\u201cWir sind elf Cousins in drei Bundesstaaten. Tanda zieht bei allen ein, und wenn der eigene Monat kommt, ist das Geld da — wie immer, nur dass niemand hinterherlaufen muss.\u201d", t1_a:"Ana Reyes", t1_role:"Houston · Familienrunde aus 11",
+    t2_q:"\u201cUnsere Taxigenossenschaft führte Tandas jahrelang auf Papier. Jetzt ist das Kassenbuch automatisch, und die Bank akzeptiert es bei Fahrzeugkrediten.\u201d", t2_a:"Samuel Ochieng", t2_role:"Nairobi · Genossenschaft aus 24",
+    t3_q:"\u201cIch habe mit fünf Kollegen eine Runde für die Sommercamps unserer Kinder gegründet. Die Historie, die Tanda mir aufgebaut hat, half sogar bei der Umschuldung.\u201d", t3_a:"Marta Gil", t3_role:"Madrid · Lehrkräfte-Runde aus 6",
+    price_title:"Einfache, ehrliche Preise", price_sub:"Keine Überraschungen, kein Kleingedrucktes. Aufhören, wann Sie wollen.",
+    free_t:"Kostenlos", free_d:"Für Freunde, Familie und Nachbarn, die einfach ein saubereres Kassenbuch wollen.",
+    free_l1:"Unbegrenzte Tandas", free_l2:"Automatische Einzüge", free_l3:"Digitales Kassenbuch", free_l4:"Standard-Support", free_btn:"Kostenlos starten",
+    pro_t:"Verwaltet", pro_d:"Für große oder lang laufende Runden, die den Betrieb an Tanda abgeben wollen.",
+    pro_l1:"Alles aus Kostenlos", pro_l2:"2,9 % pro Topf", pro_l3:"Priorisierte Verwahrung und Auszahlungen", pro_l4:"Hilfe bei der Mitgliederaufnahme", pro_l5:"Dedizierter Support", pro_btn:"Loslegen",
+    pro_flag:"Am beliebtesten", price_per:"pro Topf",
+    faq_title:"Häufige Fragen",
+    fq1:"Ist mein Geld sicher?", fa1:"Die Töpfe liegen auf getrennten Verwahrkonten bei regulierten Instituten, getrennt von Tandas eigenen Mitteln. Sie können den Saldo jederzeit prüfen; Auszahlungen werden automatisch zum geplanten Datum freigegeben.",
+    fq2:"Was, wenn jemand einen Beitrag verpasst?", fa2:"Tanda sendet automatische Erinnerungen und erlaubt jedem Mitglied, für ein anderes mit einem Klick einzuspringen. Bleibt eine Lücke, passt der Kreis den Plan gemeinsam an — das Kassenbuch hält alle ehrlich.",
+    fq3:"Kann ich einer Runde beitreten, die ich nicht gegründet habe?", fa3:"Ja. Runden können in Ihrer Community öffentlich oder nur auf Einladung sein. Sie sehen die volle Mitglieder- und Zahlungshistorie, bevor Sie beitreten.",
+    fq4:"Verlangt Tanda Gebühren?", fa4:"Kostenlose Tandas kosten nichts. Verwaltete Runden kosten 2,9 % pro Topf, verteilt auf alle Mitglieder — meist weniger als ein Abendessen.",
+    fq5:"Baut das meine Bonität auf?", fa5:"In Regionen mit unseren Auskunftei-Partnerschaften ist Ihre pünktliche Beitragshistorie meldefähig. Überall sonst erhalten Sie einen portablen Tanda-Score, den Kreditgeber prüfen können.",
+    fq6:"In welchen Ländern gibt es Tanda?", fa6:"Tanda ist derzeit in der EU, Mexiko, Kenia, Nigeria, den Philippinen und den USA aktiv — weitere Märkte folgen.",
+    cta_title:"Gründen Sie diesen Monat Ihre erste Tanda.",
+    cta_sub:"Kostenloser Start, fünf Minuten zum Einladen, erster Topf in dreißig Tagen.",
+    cta_ph:"sie@beispiel.de", cta_btn:"App laden", cta_small:"Ohne Karte. Gehen Sie, wann Sie wollen.", cta_email_label:"E-Mail-Adresse",
+    footer_tag:"Kollektives Sparen, digitalisiert.",
+    fcol1:"Produkt", fcol2:"Unternehmen", fcol3:"Rechtliches",
+    foot_about:"Über uns", foot_careers:"Karriere", foot_press:"Presse", foot_contact:"Kontakt",
+    foot_privacy:"Datenschutz", foot_terms:"AGB", foot_licenses:"Lizenzen", footer_rights:"Alle Rechte vorbehalten",
+    cookie_text:"Wir verwenden Cookies, damit die Seite funktioniert und wir den Traffic messen können. Kein Tracking durch Dritte.", cookie_accept:"Akzeptieren", cookie_more:"Mehr erfahren",
+    seo_title:"Tanda — Kollektives Sparen, digitalisiert",
+    seo_desc:"Sparrunden mit regulierter Verwahrung, automatischen Beiträgen und einer Bonitätshistorie, die zählt. In fünf Minuten eine Tanda gründen."
+  },
+
+  it: {
+    nav_how:"Come funziona", nav_product:"Prodotto", nav_pricing:"Prezzi", nav_faq:"FAQ", nav_signin:"Accedi", nav_start:"Crea una tanda",
+    hero_h1:"Il risparmio che torna al punto di partenza.",
+    hero_sub:"Tanda trasforma le tandas a cui la tua comunità già si fida in un servizio digitale sicuro — custodia trasparente, versamenti automatici e una storia creditizia che finalmente conta.",
+    hero_cta1:"Crea una tanda", hero_cta2:"Guarda come funziona",
+    hero_trust:"Fondi in custodia regolamentata · Coperti fino a 100.000 €",
+    mock_label_pot:"Il piatto di questo mese", mock_escrow:"In custodia", mock_ring_paid:"versati", mock_next:"Prossimo pagamento · 4 set", mock_ledger:"Vedi il registro",
+    band_1t:"Custodia regolamentata", band_1d:"Ogni piatto vive su un conto separato presso un custode autorizzato, distinto dai fondi di Tanda.",
+    band_2t:"Versamenti automatici", band_2d:"Nessuno da rincorrere: la piattaforma ricorda, incassa e registra ogni contributo puntualmente.",
+    band_3t:"Registro trasparente", band_3d:"Ogni contributo è visibile a tutti i membri, in ogni momento, con tracciabilità completa.",
+    band_4t:"Nessuna commissione nascosta", band_4d:"Quello che vedi è quello che paghi. Nient'altro, mai.",
+    steps_title:"Come funziona una tanda",
+    steps_sub:"Lo stesso ritmo che la tua famiglia usa da generazioni — con un registro di livello bancario sotto.",
+    s1_t:"Forma il tuo giro", s1_d:"Invita 5–25 persone di fiducia. Concordate il contributo mensile e l'ordine del piatto — rotazione, sorteggio o asta.",
+    s2_t:"Contribuisci ogni mese", s2_d:"Tanda incassa da tutti automaticamente e tiene ogni piatto in un conto di custodia regolamentato. I promemoria fanno il resto.",
+    s3_t:"Ricevi il tuo piatto", s3_d:"Quando arriva il tuo mese, l'intero piatto cade sul tuo conto — senza ritardi né conversazioni scomode.",
+    feat_title:"Una dashboard che il tuo giro può davvero leggere",
+    feat_sub:"Niente fogli di calcolo, niente conti in chat. Ogni piatto, ogni membro, ogni pagamento — una vista serena.",
+    pp_1:"Monitoraggio del piatto in tempo reale", pp_2:"Stato di pagamento di ogni membro", pp_3:"Calendario dei versamenti",
+    f1_t:"Custodia che puoi vedere", f1_d:"Ogni piatto è su un conto separato presso un custode autorizzato. Controlla il saldo quando vuoi — è il tuo denaro, non il nostro cuscinetto.",
+    f2_t:"Risparmio che costruisce credito", f2_d:"Ogni contributo puntuale diventa storia di pagamento verificabile. I finanziatori la vedono e l'affidabilità del tuo giro diventa il tuo punteggio.",
+    f3_t:"Nessun inseguimento", f3_d:"Promemoria automatici, pagamenti frazionati e un pulsante per \u201cpagare per un membro\u201d tengono sana la tanda senza le suppliche di gruppo.",
+    sim_title:"Come sarebbe il tuo piatto?", sim_sub:"Muovi i cursori — la matematica è tua.",
+    sim_members:"Persone nel tuo giro", sim_amount:"Contributo mensile", sim_pot:"Dimensione del piatto", sim_payout:"Il tuo piatto arriva tra", sim_payout_unit:"mesi",
+    sim_note_html:"<span class=\"mono\">Tanda trattiene 0 %</span> sulle tandas gratuite. Quelle gestite aggiungono <span class=\"mono\">2,9 %</span> per piatto.",
+    sim_btn:"Avvia questa tanda",
+    testi_title:"Le tandas, raccontate dai membri",
+    t1_q:"\u201cSiamo undici cugini in tre stati diversi. Tanda incassa da tutti e quando arriva il tuo mese i soldi ci sono — come sempre, ma nessuno deve rincorrere nessuno.\u201d", t1_a:"Ana Reyes", t1_role:"Houston · Tanda di famiglia (11)",
+    t2_q:"\u201cLa nostra cooperativa di taxi teneva le tandas su carta per anni. Ora il registro è automatico e la banca lo accetta quando chiediamo prestiti per i veicoli.\u201d", t2_a:"Samuel Ochieng", t2_role:"Nairobi · Cooperativa di 24",
+    t3_q:"\u201cHo creato una tanda con cinque colleghi per i campi estivi dei figli. La storia creditizia che Tanda mi ha costruito mi ha persino aiutato a rifinanziare.\u201d", t3_a:"Marta Gil", t3_role:"Madrid · Tanda di insegnanti (6)",
+    price_title:"Prezzi semplici e onesti", price_sub:"Niente sorprese, niente lettera piccola. Smetti quando vuoi.",
+    free_t:"Gratis", free_d:"Per amici, familiari e vicini che vogliono solo un registro più pulito.",
+    free_l1:"Tandas illimitate", free_l2:"Versamenti automatici", free_l3:"Registro digitale", free_l4:"Supporto standard", free_btn:"Inizia gratis",
+    pro_t:"Gestita", pro_d:"Per tandas grandi o di lunga durata che vogliono affidare la gestione a Tanda.",
+    pro_l1:"Tutto incluso in Gratis", pro_l2:"2,9 % per piatto", pro_l3:"Custodia e pagamenti prioritari", pro_l4:"Aiuto per l'onboarding dei membri", pro_l5:"Supporto dedicato", pro_btn:"Inizia",
+    pro_flag:"Più popolare", price_per:"per piatto",
+    faq_title:"Domande frequenti",
+    fq1:"I miei soldi sono al sicuro?", fa1:"I piatti sono custoditi su conti separati presso istituti regolamentati, distinti dai fondi di Tanda. Controlla il saldo in qualsiasi momento; i pagamenti vengono rilasciati automaticamente alla data prevista.",
+    fq2:"E se qualcuno salta un contributo?", fa2:"Tanda invia promemoria automatici e consente a qualsiasi membro di coprire un altro con un tocco. Se il buco non si chiude, il giro adatta insieme il calendario — il registro tiene tutti onesti.",
+    fq3:"Posso unirmi a una tanda che non ho creato io?", fa3:"Sì. Le tandas possono essere pubbliche nella tua comunità o solo su invito. Vedi l'intera storia dei membri e dei pagamenti prima di unirti.",
+    fq4:"Tanda mi fa pagare?", fa4:"Le tandas gratuite non costano nulla. Quelle gestite aggiungono 2,9 % per piatto, ripartito tra i membri — di solito meno di una cena.",
+    fq5:"Questo costruisce il mio credito?", fa5:"Nelle regioni dove collaboriamo con le agenzie di credito, la tua storia di contributi puntuali è segnalabile. Altrove ottieni un punteggio Tanda portabile che i finanziatori possono verificare.",
+    fq6:"In quali paesi è disponibile?", fa6:"Tanda opera attualmente in UE, Messico, Kenya, Nigeria, Filippine e Stati Uniti, con altri mercati in arrivo.",
+    cta_title:"Crea la tua prima tanda questo mese.",
+    cta_sub:"Gratis per iniziare, cinque minuti per invitare, primo piatto in trenta giorni.",
+    cta_ph:"tu@esempio.it", cta_btn:"Scarica l'app", cta_small:"Senza carta. Esci quando vuoi.", cta_email_label:"Indirizzo e-mail",
+    footer_tag:"Il risparmio collettivo, digitalizzato.",
+    fcol1:"Prodotto", fcol2:"Azienda", fcol3:"Legale",
+    foot_about:"Chi siamo", foot_careers:"Lavora con noi", foot_press:"Stampa", foot_contact:"Contatti",
+    foot_privacy:"Privacy", foot_terms:"Termini", foot_licenses:"Licenze", footer_rights:"Tutti i diritti riservati",
+    cookie_text:"Usiamo i cookie per far funzionare il sito e misurare il traffico. Nessun tracciamento di terze parti.", cookie_accept:"Accetta", cookie_more:"Scopri di più",
+    seo_title:"Tanda — Il risparmio collettivo, digitalizzato",
+    seo_desc:"Tandas con custodia regolamentata, versamenti automatici e una storia creditizia che conta. Crea una tanda in cinque minuti."
+  },
+
+  pt: {
+    nav_how:"Como funciona", nav_product:"Produto", nav_pricing:"Preços", nav_faq:"FAQ", nav_signin:"Entrar", nav_start:"Criar uma tontina",
+    hero_h1:"Poupança que fecha o ciclo.",
+    hero_sub:"A Tanda transforma as tontinas em que a sua comunidade já confia num serviço digital seguro — custódia transparente, cobranças automáticas e um histórico de crédito que finalmente conta.",
+    hero_cta1:"Criar uma tontina", hero_cta2:"Ver como funciona",
+    hero_trust:"Fundos em custódia regulada · Protegidos até 100.000 €",
+    mock_label_pot:"A caixa deste mês", mock_escrow:"Em custódia", mock_ring_paid:"pagos", mock_next:"Próximo pagamento · 4 set", mock_ledger:"Ver o livro",
+    band_1t:"Custódia regulada", band_1d:"Cada caixa vive numa conta segregada de um custodiante autorizado, separada dos fundos da Tanda.",
+    band_2t:"Cobranças automáticas", band_2d:"Sem correr atrás de ninguém: a plataforma lembra, cobra e regista cada contribuição a tempo.",
+    band_3t:"Livro transparente", band_3d:"Cada contribuição é visível para todos os membros, a todo o momento, com rastreabilidade completa.",
+    band_4t:"Sem taxas escondidas", band_4d:"O que vê é o que paga. Nada mais, nunca.",
+    steps_title:"Como funciona uma tontina",
+    steps_sub:"O mesmo ritmo que a sua família usa há gerações — com um livro-razão de nível bancário por baixo.",
+    s1_t:"Forme o seu círculo", s1_d:"Convide 5–25 pessoas de confiança. Combinem a contribuição mensal e a ordem da caixa — rotação, sorteio ou leilão.",
+    s2_t:"Contribua todos os meses", s2_d:"A Tanda cobra de todos automaticamente e guarda cada caixa numa conta de custódia regulada. Os lembretes fazem o resto.",
+    s3_t:"Receba a sua caixa", s3_d:"No seu mês, a caixa inteira cai na sua conta — sem atrasos nem conversas constrangedoras.",
+    feat_title:"Um painel que o seu círculo consegue mesmo ler",
+    feat_sub:"Nada de folhas de cálculo nem contas no grupo. Cada caixa, cada membro, cada pagamento — uma vista tranquila.",
+    pp_1:"Acompanhamento da caixa ao vivo", pp_2:"Estado de pagamento de cada membro", pp_3:"Calendário de pagamentos",
+    f1_t:"Custódia que pode ver", f1_d:"Cada caixa está numa conta segregada sob um custodiante autorizado. Audite o saldo quando quiser — é o seu dinheiro, não o nosso colchão.",
+    f2_t:"Poupança que constrói crédito", f2_d:"Cada contribuição pontual torna-se histórico de pagamento verificável. Os credores veem-no e a fiabilidade do seu círculo vira a sua pontuação.",
+    f3_t:"Sem cobranças, sem constrangimento", f3_d:"Lembretes automáticos, pagamentos divididos e um botão para \u201cpagar por um membro\u201d mantêm a tontina saudável sem o grupo a suplicar.",
+    sim_title:"Como seria a sua caixa?", sim_sub:"Mexa nos cursores — a matemática é sua.",
+    sim_members:"Pessoas no seu círculo", sim_amount:"Contribuição mensal", sim_pot:"Tamanho da caixa", sim_payout:"A sua caixa chega em", sim_payout_unit:"meses",
+    sim_note_html:"<span class=\"mono\">A Tanda fica com 0 %</span> nas tontinas gratuitas. Nas geridas, acresce <span class=\"mono\">2,9 %</span> por caixa.",
+    sim_btn:"Montar esta tontina",
+    testi_title:"As tontinas, ditas por quem as vive",
+    t1_q:"\u201cSomos onze primos em três estados. A Tanda cobra de todos e, quando chega o seu mês, o dinheiro está lá — como sempre, mas ninguém precisa de correr atrás de ninguém.\u201d", t1_a:"Ana Reyes", t1_role:"Houston · Tontina familiar de 11",
+    t2_q:"\u201cA nossa cooperativa de táxis manteve tontinas em papel durante anos. Agora o livro é automático e o banco aceita-o quando pedimos crédito para os veículos.\u201d", t2_a:"Samuel Ochieng", t2_role:"Nairobi · Cooperativa de 24",
+    t3_q:"\u201cCriei uma tontina com cinco colegas para poupar para os campos de férias. O histórico que a Tanda me construiu até me ajudou a refinanciar.\u201d", t3_a:"Marta Gil", t3_role:"Madrid · Tontina de professores (6)",
+    price_title:"Preços simples e honestos", price_sub:"Sem surpresas, sem letras pequenas. Pare quando quiser.",
+    free_t:"Grátis", free_d:"Para amigos, família e vizinhos que só querem um livro mais limpo.",
+    free_l1:"Tontinas ilimitadas", free_l2:"Cobranças automáticas", free_l3:"Livro digital", free_l4:"Suporte standard", free_btn:"Começar grátis",
+    pro_t:"Gerida", pro_d:"Para tontinas grandes ou de longa duração que querem que a Tanda trate da operação.",
+    pro_l1:"Tudo incluído no Grátis", pro_l2:"2,9 % por caixa", pro_l3:"Custódia e pagamentos prioritários", pro_l4:"Apoio na integração de membros", pro_l5:"Suporte dedicado", pro_btn:"Começar",
+    pro_flag:"Mais popular", price_per:"por caixa",
+    faq_title:"Perguntas frequentes",
+    fq1:"O meu dinheiro está seguro?", fa1:"As caixas são guardadas em contas de custódia segregadas em instituições reguladas, separadas dos fundos da Tanda. Verifique o saldo a qualquer momento; os pagamentos são libertados automaticamente na data prevista.",
+    fq2:"E se alguém falhar uma contribuição?", fa2:"A Tanda envia lembretes automáticos e permite que qualquer membro cubra outro com um toque. Se a falha persistir, o círculo ajusta o calendário em conjunto — o livro mantém todos honestos.",
+    fq3:"Posso entrar numa tontina que não criei?", fa3:"Sim. As tontinas podem ser públicas na sua comunidade ou só por convite. Vê o histórico completo de membros e pagamentos antes de entrar.",
+    fq4:"A Tanda cobra-me?", fa4:"As tontinas gratuitas não custam nada. As geridas acrescem 2,9 % por caixa, dividido entre os membros — normalmente menos do que um jantar.",
+    fq5:"Isto constrói o meu crédito?", fa5:"Nas regiões onde fazemos parceria com agências de crédito, o seu histórico de contribuições pontuais é comunicável. Em todo o lado, obtém uma pontuação Tanda portátil que os credores podem verificar.",
+    fq6:"Em que países está disponível?", fa6:"A Tanda opera atualmente na UE, México, Quénia, Nigéria, Filipinas e Estados Unidos, com mais mercados a caminho.",
+    cta_title:"Monte a sua primeira tontina este mês.",
+    cta_sub:"Grátis para começar, cinco minutos para convidar, primeira caixa em trinta dias.",
+    cta_ph:"voce@exemplo.com", cta_btn:"Descarregar a app", cta_small:"Sem cartão. Saia quando quiser.", cta_email_label:"Endereço de email",
+    footer_tag:"Poupança coletiva, digitalizada.",
+    fcol1:"Produto", fcol2:"Empresa", fcol3:"Legal",
+    foot_about:"Sobre nós", foot_careers:"Carreiras", foot_press:"Imprensa", foot_contact:"Contacto",
+    foot_privacy:"Privacidade", foot_terms:"Termos", foot_licenses:"Licenças", footer_rights:"Todos os direitos reservados",
+    cookie_text:"Usamos cookies para o site funcionar e para medir o tráfego. Sem rastreio de terceiros.", cookie_accept:"Aceitar", cookie_more:"Saber mais",
+    seo_title:"Tanda — Poupança coletiva, digitalizada",
+    seo_desc:"Tontinas com custódia regulada, cobranças automáticas e um histórico de crédito que conta. Monte uma tontina em cinco minutos."
+  }
+};
+
+/* ---------- Utilities ---------- */
+function $(s, c) { return (c || document).querySelector(s); }
+function $$(s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); }
+var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var easeOut = function (t) { return 1 - Math.pow(1 - t, 4); };
+
+/* ---------- i18n engine ---------- */
+var SUPPORTED = ['en', 'es', 'fr', 'de', 'it', 'pt'];
+var lang = 'en';
+try {
+  var stored = localStorage.getItem('tanda-lang');
+  if (stored && SUPPORTED.indexOf(stored) > -1) lang = stored;
+  else {
+    var nav = (navigator.language || 'en').slice(0, 2).toLowerCase();
+    if (SUPPORTED.indexOf(nav) > -1) lang = nav;
+  }
+} catch (e) {}
+
+var SEO_TITLES = {}, SEO_DESCS = {};
+SUPPORTED.forEach(function (l) {
+  SEO_TITLES[l] = I18N[l].seo_title;
+  SEO_DESCS[l] = I18N[l].seo_desc;
+});
+
+function money(n) {
+  try {
+    return n.toLocaleString(lang === 'en' ? 'en-US' : lang, { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 });
+  } catch (e) {
+    return '\u20AC' + n.toLocaleString();
+  }
+}
+
+function applyLang(next) {
+  lang = next;
+  try { localStorage.setItem('tanda-lang', next); } catch (e) {}
+  document.documentElement.lang = next;
+  document.title = SEO_TITLES[next];
+  $('meta[name="description"]').setAttribute('content', SEO_DESCS[next]);
+  $('meta[property="og:title"]').setAttribute('content', SEO_TITLES[next]);
+  $('meta[name="twitter:title"]').setAttribute('content', SEO_TITLES[next]);
+  $('meta[property="og:description"]').setAttribute('content', SEO_DESCS[next]);
+  $('meta[name="twitter:description"]').setAttribute('content', SEO_DESCS[next]);
+  $('meta[property="og:locale"]').setAttribute('content', next === 'en' ? 'en_US' : next + '_' + next.toUpperCase());
+  var t = I18N[next];
+
+  $$('[data-i18n]').forEach(function (el) {
+    var k = el.getAttribute('data-i18n');
+    if (t[k] !== undefined) el.textContent = t[k];
+  });
+  $$('[data-i18n-html]').forEach(function (el) {
+    var k = el.getAttribute('data-i18n-html');
+    if (t[k] !== undefined) el.innerHTML = t[k];
+  });
+  $$('[data-i18n-placeholder]').forEach(function (el) {
+    var k = el.getAttribute('data-i18n-placeholder');
+    if (t[k] !== undefined) el.setAttribute('placeholder', t[k]);
+  });
+
+  $('#langCur').textContent = next.toUpperCase();
+  var mLangCur = $('#mLangCur');
+  if (mLangCur) mLangCur.textContent = next.toUpperCase();
+  $$('.lang-opt').forEach(function (b) {
+    b.setAttribute('aria-selected', b.getAttribute('data-lang') === next ? 'true' : 'false');
+  });
+  updateSim();
+}
+
+/* ---------- Language switcher UI ---------- */
+var langBtn = $('#langBtn'), langMenu = $('#langMenu');
+langBtn.addEventListener('click', function (e) {
+  e.stopPropagation();
+  var open = langMenu.classList.toggle('open');
+  langBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+});
+$$('.lang-opt').forEach(function (b) {
+  b.addEventListener('click', function () {
+    applyLang(b.getAttribute('data-lang'));
+    langMenu.classList.remove('open');
+    langBtn.setAttribute('aria-expanded', 'false');
+    closeMobile();
+  });
+});
+var mLangBtn = $('#mLangBtn'), mLangMenu = $('#mLangMenu');
+if (mLangBtn && mLangMenu) {
+  mLangBtn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    var open = mLangMenu.classList.toggle('open');
+    mLangBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  mLangMenu.querySelectorAll('.lang-opt').forEach(function (o) {
+    o.addEventListener('click', function () {
+      applyLang(o.getAttribute('data-lang'));
+      mLangMenu.classList.remove('open');
+      mLangBtn.setAttribute('aria-expanded', 'false');
+      closeMobile();
+    });
+  });
+}
+document.addEventListener('click', function (e) {
+  if (!langWrapContains(e.target)) {
+    langMenu.classList.remove('open');
+    langBtn.setAttribute('aria-expanded', 'false');
+  }
+});
+function langWrapContains(t) { return $('.lang-wrap').contains(t); }
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape') {
+    langMenu.classList.remove('open');
+    langBtn.setAttribute('aria-expanded', 'false');
+    closeMobile();
+  }
+});
+
+/* ---------- Theme ---------- */
+var themeBtn = $('#themeBtn');
+function setThemeIcon() {
+  var dark = document.documentElement.getAttribute('data-theme') === 'dark';
+  $('.i-moon').style.display = dark ? 'none' : 'block';
+  $('.i-sun').style.display = dark ? 'block' : 'none';
+}
+themeBtn.addEventListener('click', function () {
+  var dark = document.documentElement.getAttribute('data-theme') === 'dark';
+  var next = dark ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  try { localStorage.setItem('kairos-theme', next); } catch (e) {}
+  setThemeIcon();
+});
+setThemeIcon();
+
+/* ---------- Nav scroll + mobile menu ---------- */
+var nav = $('#nav'), burger = $('#burgerBtn'), mobileMenu = $('#mobileMenu');
+function onScroll() { nav.classList.toggle('scrolled', window.scrollY > 8); }
+window.addEventListener('scroll', onScroll, { passive: true });
+onScroll();
+
+function closeMobile() {
+  mobileMenu.classList.remove('open');
+  burger.setAttribute('aria-expanded', 'false');
+  document.body.style.overflow = '';
+}
+burger.addEventListener('click', function () {
+  var open = mobileMenu.classList.toggle('open');
+  burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  document.body.style.overflow = open ? 'hidden' : '';
+});
+$$('#mobileMenu a').forEach(function (a) { a.addEventListener('click', closeMobile); });
+
+/* ---------- Reveal on scroll ---------- */
+var revealObs = new IntersectionObserver(function (entries) {
+  entries.forEach(function (en) {
+    if (en.isIntersecting) { en.target.classList.add('in'); revealObs.unobserve(en.target); }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+$$('.reveal').forEach(function (el) { revealObs.observe(el); });
+
+/* ---------- Ring animation (circle fills) ---------- */
+var RING_C = 339.29;
+function setRing(el, pct) {
+  var off = RING_C * (1 - Math.min(1, Math.max(0, pct)));
+  el.style.strokeDashoffset = off;
+}
+function animateRing(el, from, to, dur) {
+  if (prefersReduced) { setRing(el, to); return; }
+  var start = null;
+  function frame(ts) {
+    if (!start) start = ts;
+    var p = Math.min(1, (ts - start) / dur);
+    setRing(el, from + (to - from) * easeOut(p));
+    if (p < 1) requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+}
+
+/* ---------- Hero count-up + ring ---------- */
+var mockPotEl = $('#mockPot');
+function animateCount(el, target, dur, fmt) {
+  if (prefersReduced) { el.textContent = fmt(target); return; }
+  var start = null, from = 0;
+  function frame(ts) {
+    if (!start) start = ts;
+    var p = Math.min(1, (ts - start) / dur);
+    el.textContent = fmt(Math.round(from + (target - from) * easeOut(p)));
+    if (p < 1) requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+}
+var mockTarget = 2000;
+window.addEventListener('load', function () {
+  animateCount(mockPotEl, mockTarget, 1200, money);
+  animateRing($('#heroRing'), 0, 0.75, 1400);
+});
+
+/* ---------- Simulator ---------- */
+var simMembers = $('#simMembers'), simAmount = $('#simAmount');
+function fill(el) {
+  var min = +el.min, max = +el.max, v = +el.value;
+  el.style.setProperty('--fill', ((v - min) / (max - min)) * 100 + '%');
+}
+function updateSim() {
+  var m = +simMembers.value, a = +simAmount.value;
+  var pot = m * a;
+  $('#vMembers').textContent = m;
+  $('#vAmount').textContent = money(a);
+  $('#simPotNum').textContent = money(pot);
+  $('#simRingCap').textContent = money(pot);
+  $('#simRingSub').textContent = m + ' × ' + money(a);
+  $('#simPayoutNum').innerHTML = '~' + Math.ceil(m / 2) + ' <span style="font-family:var(--font-sans); font-weight:400; font-size:.9rem;">' + I18N[lang].sim_payout_unit + '</span>';
+  setRing($('#simRing'), (Math.ceil(m / 2)) / m);
+  fill(simMembers); fill(simAmount);
+}
+simMembers.addEventListener('input', updateSim);
+simAmount.addEventListener('input', updateSim);
+updateSim();
+
+/* ---------- Magnetic CTA (subtle; disabled for reduced motion) ---------- */
+if (!prefersReduced && window.matchMedia('(pointer: fine)').matches) {
+  $$('.magnetic').forEach(function (btn) {
+    btn.addEventListener('mousemove', function (e) {
+      var r = btn.getBoundingClientRect();
+      var dx = e.clientX - (r.left + r.width / 2);
+      var dy = e.clientY - (r.top + r.height / 2);
+      btn.style.transform = 'translate(' + dx * 0.12 + 'px,' + dy * 0.18 + 'px)';
+    });
+    btn.addEventListener('mouseleave', function () { btn.style.transform = ''; });
+  });
+}
+
+/* ---------- FAQ accordion ---------- */
+$$('.faq-item').forEach(function (item) {
+  var q = $('.faq-q', item), a = $('.faq-a', item);
+  q.addEventListener('click', function () {
+    var open = item.getAttribute('data-open') === 'true';
+    item.setAttribute('data-open', open ? 'false' : 'true');
+    q.setAttribute('aria-expanded', open ? 'false' : 'true');
+    a.style.maxHeight = open ? '0px' : a.scrollHeight + 'px';
+  });
+});
+
+/* ---------- CTA form ---------- */
+$('#ctaForm').addEventListener('submit', function (e) {
+  e.preventDefault();
+  var email = $('#ctaEmail').value.trim();
+  if (!email) return;
+  var btn = $('.btn', this);
+  var ok = btn.textContent;
+  btn.textContent = '\u2713 ' + (I18N[lang].cookie_accept || 'OK');
+  btn.classList.add('btn-ghost'); btn.classList.remove('btn-primary');
+  try { localStorage.setItem('tanda-email', email); } catch (e) {}
+  setTimeout(function () { btn.textContent = ok; btn.classList.remove('btn-ghost'); btn.classList.add('btn-primary'); }, 2600);
+});
+
+/* ---------- Cookie banner ---------- */
+var cookie = $('#cookie');
+var cookieAccepted = false;
+try { cookieAccepted = localStorage.getItem('tanda-cookie') === '1'; } catch (e) {}
+if (!cookieAccepted) {
+  setTimeout(function () { cookie.classList.add('show'); }, 4500);
+}
+$('#cookieOk').addEventListener('click', function () {
+  cookie.classList.remove('show');
+  try { localStorage.setItem('tanda-cookie', '1'); } catch (e) {}
+});
+$('#cookieMore').addEventListener('click', function () {
+  cookie.classList.remove('show');
+  try { localStorage.setItem('tanda-cookie', '1'); } catch (e) {}
+  var faq = $('#faq');
+  if (faq) faq.scrollIntoView({ behavior: prefersReduced ? 'auto' : 'smooth' });
+});
+
+/* ---------- Init ---------- */
+applyLang(lang);
+</script>
+</body>
+</html>

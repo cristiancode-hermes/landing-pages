@@ -1,0 +1,1834 @@
+<!DOCTYPE html>
+<html lang="es" class="no-js" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="doc-title">CALIBRE — Relojería mecánica en Madrid</title>
+<meta name="description" id="meta-desc" content="Taller de relojería mecánica en el Barrio de las Letras. Regulación, revisión y restauración con cita. Calle de León 11, Madrid.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23101010'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='%231C69D4' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='2.5' fill='%23F4F4F4'/%3E%3C/svg%3E">
+<link rel="canonical" href="https://proyectos.cristiancode.dev/landings/2026-09-04-calibre.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://proyectos.cristiancode.dev/landings/2026-09-04-calibre.html">
+<meta property="og:title" id="og-title" content="CALIBRE — Relojería mecánica en Madrid">
+<meta property="og:description" id="og-desc" content="Taller de relojería mecánica en el Barrio de las Letras. Regulación, revisión y restauración con cita.">
+<meta property="og:image" content="https://cristiancode.dev/assets/landing-2026-09-04-calibre.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" id="tw-title" content="CALIBRE — Relojería mecánica en Madrid">
+<meta name="twitter:description" id="tw-desc" content="Taller de relojería mecánica en el Barrio de las Letras. Regulación, revisión y restauración con cita.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   DESIGN SYSTEM — CALIBRE · Taller de relojería mecánica
+   Surface: Decide/Learn (landing; hero correct). Secondary
+            Operate in the bench SVG (listen toggle + sweep),
+            Compare across the two commissions, Configure in
+            the booking form.
+   Derived from: BMW (popular-web-designs template) — weight-300
+            uppercase display, ZERO border-radius, weight 700 CTA,
+            blue #1c69d4 interactive-only, dark hero + white content
+            rhythm, single family, tight line-heights.
+            Diverged: font Archivo (Helvetica-like grotesque, closer
+            to BMWTypeNextLatin than DM Sans; DM Sans just used by
+            REMO), no nav weight-900 (12px uppercase 600 reads
+            better), mono omitted entirely.
+   Family: Luxury / Horology workshop
+   Style: Showroom technical drawing — angular, monochrome, one blue
+   Strategy: Committed (single saturated accent for interaction)
+   Impeccable: solid colors only, sharp edges, no cards grid,
+            numbered steps only where a real sequence exists.
+   ============================================================ */
+:root{
+  --paper:#FFFFFF;
+  --ink:#262626;
+  --muted:#616161;
+  --faint:#8A8A8A;
+  --line:#E4E4E4;
+  --soft:#F5F5F5;
+  --blue:#1C69D4;
+  --blue-deep:#0F4FA3;
+  --blue-cta:#1C69D4;
+  --blue-cta-hover:#0F4FA3;
+  --link:#0F4FA3;
+  --stage-bg:#101010;
+  --stage-2:#161616;
+  --stage-3:#1C1C1C;
+  --stage-ink:#F4F4F4;
+  --stage-muted:#A6A6A6;
+  --stage-line:rgba(255,255,255,.14);
+  --ok:#2E7D4F;
+  --err:#B3261E;
+}
+[data-theme="dark"]{
+  --paper:#141414;
+  --ink:#F2F2F2;
+  --muted:#B4B4B4;
+  --faint:#9A9A9A;
+  --line:rgba(255,255,255,.12);
+  --soft:#1C1C1C;
+  --link:#7FB0F5;
+  --blue-cta:#1C69D4;
+  --blue-cta-hover:#0F4FA3;
+}
+/* ---------- reset & base ---------- */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Archivo',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  font-size:16px;line-height:1.6;color:var(--ink);background:var(--paper);
+  -webkit-font-smoothing:antialiased;
+}
+body.no-scroll{overflow:hidden}
+img,svg{display:block;max-width:100%}
+a{color:var(--link);text-decoration:none}
+a:hover{text-decoration:underline}
+button{font:inherit;cursor:pointer;background:none;border:none;color:inherit}
+ul,ol{list-style:none}
+h1,h2,h3{text-wrap:balance}
+p{text-wrap:pretty}
+:focus-visible{outline:2px solid var(--blue-cta);outline-offset:2px}
+::selection{background:var(--blue);color:#fff}
+.visually-hidden{
+  position:absolute;width:1px;height:1px;margin:-1px;padding:0;
+  overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;
+}
+.skip-link{
+  position:fixed;top:-100px;left:16px;z-index:80;
+  background:var(--blue-cta);color:#fff;font-weight:700;font-size:.875rem;
+  padding:.7rem 1.1rem;
+}
+.skip-link:focus{top:12px}
+.container{max-width:1180px;margin:0 auto;padding:0 24px}
+/* ---------- semantic z-index ---------- */
+.nav{z-index:50}
+.mobile-menu{z-index:55}
+.lang-select__menu{z-index:70}
+.cookie{z-index:60}
+/* ---------- nav (fixed dark in both themes) ---------- */
+.nav{
+  position:fixed;inset:0 0 auto 0;height:64px;
+  background:var(--stage-bg);color:var(--stage-ink);
+  border-bottom:1px solid var(--stage-line);
+  display:flex;align-items:center;
+}
+.nav-inner{display:flex;align-items:center;gap:2rem;width:100%}
+.brand{
+  font-weight:700;font-size:.9375rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--stage-ink);white-space:nowrap;
+}
+.brand:hover{color:#fff;text-decoration:none}
+.brand em{font-style:normal;color:var(--blue)}
+.nav-links{display:flex;gap:1.6rem;margin-left:.6rem}
+.nav-links a{
+  font-size:.75rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  color:#E8E8E8;
+}
+.nav-links a:hover{color:#fff;text-decoration:none}
+.nav-actions{margin-left:auto;display:flex;align-items:center;gap:1rem}
+.nav-cta{
+  display:inline-flex;align-items:center;
+  background:var(--blue-cta);color:#fff !important;
+  font-size:.8125rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  padding:.68rem 1.15rem;border-radius:2px;white-space:nowrap;
+}
+.nav-cta:hover{background:var(--blue-cta-hover);text-decoration:none}
+.nav-desktop-only{display:contents}
+.lang-select{position:relative}
+.lang-select__btn{
+  display:inline-flex;align-items:center;gap:.5rem;height:36px;padding:0 .85rem;
+  border:1px solid rgba(255,255,255,.28);border-radius:2px;
+  color:#E8E8E8;font-size:.8125rem;font-weight:600;
+}
+.lang-select__btn:hover,.lang-select__btn[aria-expanded="true"]{border-color:#fff;color:#fff}
+.lang-select__chev{transition:transform .25s ease}
+.lang-select__btn[aria-expanded="true"] .lang-select__chev{transform:rotate(180deg)}
+.lang-select__menu{
+  position:absolute;top:calc(100% + 8px);right:0;min-width:176px;padding:.4rem;
+  background:var(--stage-3);border:1px solid var(--stage-line);border-radius:2px;
+  box-shadow:0 14px 34px rgba(0,0,0,.45);
+  opacity:0;visibility:hidden;transform:translateY(-4px);
+  transition:opacity .22s ease,transform .22s ease,visibility .22s;
+}
+.lang-select__menu.open{opacity:1;visibility:visible;transform:translateY(0)}
+.lang-select__opt{
+  display:flex;align-items:center;gap:.5rem;width:100%;text-align:left;
+  padding:.5rem .7rem;border-radius:2px;
+  font-size:.84375rem;color:var(--stage-ink);
+}
+.lang-select__opt:hover{background:rgba(255,255,255,.08)}
+.lang-select__opt[aria-selected="true"]{color:#7FB0F5;font-weight:700}
+.lang-select__opt[aria-selected="true"]::after{content:'\2713';margin-left:auto}
+.theme-toggle{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:36px;height:36px;border:1px solid rgba(255,255,255,.28);border-radius:2px;
+  color:#E8E8E8;
+}
+.theme-toggle:hover{border-color:#fff;color:#fff}
+.theme-toggle svg{width:17px;height:17px}
+.menu-toggle{display:none;color:#E8E8E8;padding:.5rem}
+.menu-toggle svg{width:22px;height:22px}
+/* ---------- mobile menu ---------- */
+.mobile-menu{
+  position:fixed;inset:0;background:var(--stage-bg);
+  transform:translateX(100%);transition:transform .38s cubic-bezier(.22,1,.36,1);
+  display:flex;flex-direction:column;padding:88px 24px 40px;
+  overflow-y:auto;
+}
+.mobile-menu.open{transform:translateX(0)}
+.mobile-menu nav{display:flex;flex-direction:column;gap:.4rem;margin-bottom:2rem}
+.mobile-menu .m-link{
+  font-size:1.65rem;font-weight:700;letter-spacing:-.01em;
+  color:var(--stage-ink);padding:.45rem 0;border-bottom:1px solid var(--stage-line);
+}
+.mobile-menu .m-link:hover{color:#fff;text-decoration:none}
+.mobile-menu .lang-select{width:100%}
+.mobile-menu .lang-select__btn{width:100%;justify-content:space-between;height:48px}
+.mobile-menu .lang-select__menu{position:static;width:100%;min-width:0;box-shadow:none;margin-top:6px}
+.m-menu-cta{
+  margin-top:auto;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--blue-cta);color:#fff !important;
+  font-size:.9375rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  padding:1rem 1.4rem;border-radius:2px;
+}
+.m-menu-cta:hover{background:var(--blue-cta-hover);text-decoration:none}
+/* ---------- hero (fixed dark both themes) ---------- */
+.hero{
+  background:var(--stage-bg);color:var(--stage-ink);
+  padding:128px 0 80px;
+}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center}
+.hero h1{
+  font-weight:300;text-transform:uppercase;
+  font-size:clamp(2.25rem,5.4vw,4.5rem);
+  line-height:1.03;letter-spacing:-.015em;color:var(--stage-ink);
+}
+.hero-sub{
+  margin-top:24px;font-size:1.0625rem;line-height:1.68;color:#C9C9C9;
+  max-width:46ch;
+}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
+  border-radius:2px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  font-size:.84375rem;padding:.95rem 1.6rem;
+  transition:background .22s ease,color .22s ease,border-color .22s ease,transform .22s ease;
+}
+.btn:hover{transform:none;text-decoration:none}
+.btn-primary{background:var(--blue-cta);color:#fff}
+.btn-primary:hover{background:var(--blue-cta-hover)}
+.btn-ghost{border:1px solid rgba(255,255,255,.4);color:#fff}
+.btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.07)}
+.hero-note{
+  margin-top:26px;font-size:.75rem;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--stage-muted);display:flex;align-items:center;gap:.6rem;
+}
+.hero-note::before{content:'';width:6px;height:6px;background:var(--stage-muted);flex:none}
+/* bench panel */
+.bench{
+  background:var(--stage-2);border:1px solid var(--stage-line);
+  padding:20px 20px 16px;border-radius:2px;
+}
+.bench-pad{position:relative}
+.bench-pad svg{width:100%;height:auto}
+.bench-fig{
+  display:flex;align-items:baseline;gap:12px;margin-top:14px;
+  border-top:1px solid var(--stage-line);padding-top:12px;
+}
+.bench-fig span:first-child{
+  min-width:0;flex:1 1 auto;white-space:normal;
+  font-size:.8125rem;font-weight:600;color:var(--stage-ink);
+}
+.bench-fig span.meta{
+  flex:none;white-space:nowrap;
+  font-size:.6875rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--stage-muted);
+}
+.listen-btn{
+  margin-top:14px;display:inline-flex;align-items:center;gap:.55rem;
+  border:1px solid var(--blue);color:#7FB0F5;
+  font-size:.8125rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  padding:.68rem 1.1rem;border-radius:2px;
+  transition:background .22s ease,color .22s ease;
+}
+.listen-btn:hover{background:rgba(28,105,212,.16)}
+.listen-btn[aria-pressed="true"]{background:var(--blue);color:#fff}
+.listen-btn svg{width:13px;height:13px}
+/* svg animation */
+.rot-sec{animation:rot-sec 60s linear infinite;transform-origin:300px 250px}
+.lis .rot-sec{animation-duration:2s}
+.bal{animation:bal 3.2s ease-in-out infinite;transform-origin:396px 150px}
+.lis .bal{animation:bal .38s ease-in-out infinite}
+@keyframes rot-sec{to{transform:rotate(360deg)}}
+@keyframes bal{
+  0%,100%{transform:rotate(-16deg)}
+  50%{transform:rotate(16deg)}
+}
+/* spec strip */
+.spec{
+  margin-top:72px;border-top:1px solid var(--stage-line);
+  display:grid;grid-template-columns:repeat(4,1fr);gap:32px;
+}
+.spec div{padding-top:22px}
+.spec .v{font-size:1.5rem;font-weight:700;color:var(--stage-ink)}
+.spec .k{
+  margin-top:4px;font-size:.6875rem;font-weight:600;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--stage-muted);
+}
+/* ---------- sections ---------- */
+.section{padding:104px 0}
+.section-lit{background:var(--soft)}
+.section-dark{background:var(--stage-bg);color:var(--stage-ink)}
+.sec-h{font-size:clamp(1.9rem,3.6vw,3rem);font-weight:700;line-height:1.08;letter-spacing:-.01em}
+.sec-lead{margin-top:18px;font-size:1.0625rem;color:var(--muted);line-height:1.68;max-width:58ch}
+.section-dark .sec-lead{color:#C9C9C9}
+/* ---------- oficio / steps (real sequence: numbered) ---------- */
+.oficio-grid{display:grid;grid-template-columns:minmax(300px,.9fr) minmax(0,1.15fr);gap:72px;align-items:start}
+.sticky-col{position:sticky;top:96px}
+.steps{margin-top:0}
+.step{
+  display:grid;grid-template-columns:56px 1fr;gap:20px;
+  padding:26px 0;border-top:1px solid var(--line);
+}
+.step .n{
+  font-size:.8125rem;font-weight:900;letter-spacing:.12em;color:var(--muted);
+  padding-top:4px;
+}
+.step h3{font-size:1.0625rem;font-weight:700;margin-bottom:8px}
+.step p{font-size:.9375rem;color:var(--muted);line-height:1.62;max-width:58ch}
+/* ---------- bancada ledger ---------- */
+.ledger{} 
+.ledger-row{
+  display:grid;grid-template-columns:64px 1fr auto;gap:28px;align-items:baseline;
+  padding:34px 0;border-top:1px solid var(--line);
+}
+.ledger-row:last-child{border-bottom:1px solid var(--line)}
+.ledger-row .n{font-weight:900;font-size:.8125rem;letter-spacing:.12em;color:var(--muted)}
+.ledger-row h3{font-size:1.25rem;font-weight:700;margin-bottom:8px;transition:color .2s ease}
+.ledger-row:hover h3{color:var(--link)}
+.ledger-row .d{font-size:.9375rem;color:var(--muted);line-height:1.62;max-width:56ch}
+.ledger-row .meta{
+  text-align:right;font-size:.6875rem;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--muted);white-space:nowrap;padding-top:6px;
+}
+.tag{
+  display:inline-flex;background:var(--blue-cta);color:#fff;
+  font-size:.6875rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  padding:.3rem .6rem;border-radius:2px;margin-bottom:12px;vertical-align:middle;
+}
+/* ---------- planes (compare) ---------- */
+.plans-grid{display:grid;grid-template-columns:repeat(2,minmax(300px,1fr));gap:24px;align-items:stretch}
+.plan{border:1px solid var(--line);padding:38px 36px;border-radius:2px;display:flex;flex-direction:column}
+.plan .p-name{font-size:.8125rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--link)}
+.plan .p-price{
+  margin-top:14px;font-size:clamp(2rem,3vw,2.6rem);font-weight:300;
+  letter-spacing:-.01em;line-height:1.1;
+}
+.plan .p-unit{margin-top:4px;font-size:.8125rem;color:var(--muted)}
+.plan ul{margin-top:30px;display:flex;flex-direction:column;gap:14px}
+.plan li{display:flex;gap:12px;align-items:baseline;font-size:.9375rem;color:var(--ink)}
+.plan li svg{width:15px;height:15px;flex:none;transform:translateY(2px);stroke:var(--link)}
+.plan .btn{margin-top:34px;width:100%}
+.plan-strong{background:var(--stage-bg);border-color:var(--stage-bg);color:var(--stage-ink)}
+.plan-strong .p-name{color:#7FB0F5}
+.plan-strong ul li{color:var(--stage-ink)}
+.plan-strong ul li svg{stroke:#7FB0F5}
+.plan-strong .p-unit{color:var(--stage-muted)}
+.plans-note{margin-top:26px;font-size:.8125rem;color:var(--muted);max-width:72ch}
+/* ---------- visita / form ---------- */
+.visita-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:72px;align-items:start}
+.form{display:flex;flex-direction:column;gap:20px}
+.field{display:flex;flex-direction:column;gap:8px}
+.field label{font-size:.75rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#C9C9C9}
+.field input,.field textarea{
+  background:var(--stage-3);border:1px solid var(--stage-line);border-radius:2px;
+  color:var(--stage-ink);font:inherit;font-size:.9375rem;
+  padding:.9rem 1rem;transition:border-color .2s ease,box-shadow .2s ease;
+}
+.field textarea{min-height:118px;resize:vertical}
+.field input:focus,.field textarea:focus{
+  outline:none;border-color:#7FB0F5;box-shadow:0 0 0 3px rgba(127,176,245,.28);
+}
+.field input::placeholder,.field textarea::placeholder{color:#8A8A8A}
+.news-msg{font-size:.875rem;min-height:1.4em}
+.news-msg.err{color:#FF9F9F}
+.news-msg.ok{color:#8FD3A8}
+.form-honest{font-size:.84375rem;color:#C9C9C9}
+.form-honest a{color:#7FB0F5;text-decoration:underline}
+.visita-info{display:flex;flex-direction:column;gap:8px}
+.info-k{font-size:.75rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--stage-muted);margin-top:18px}
+.info-v{font-size:1.0625rem;color:var(--stage-ink)}
+.info-link{color:#7FB0F5;font-weight:600}
+/* ---------- faq ---------- */
+.faq{max-width:820px}
+.faq-item{border-top:1px solid var(--line)}
+.faq-item:last-child{border-bottom:1px solid var(--line)}
+.faq-q{
+  width:100%;display:flex;align-items:center;justify-content:space-between;gap:20px;
+  padding:22px 0;text-align:left;font-size:1.0625rem;font-weight:600;color:var(--ink);
+}
+.faq-q .ic{flex:none;width:20px;height:20px;position:relative;transition:transform .3s ease}
+.faq-q .ic::before,.faq-q .ic::after{
+  content:'';position:absolute;background:currentColor;
+}
+.faq-q .ic::before{left:4px;right:4px;top:9px;height:2px}
+.faq-q .ic::after{top:4px;bottom:4px;left:9px;width:2px}
+.faq-item.open .faq-q .ic{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.faq-a p{padding:0 0 22px;font-size:.9375rem;color:var(--muted);line-height:1.62;max-width:64ch}
+/* ---------- news ---------- */
+.news-inline{display:grid;grid-template-columns:1fr auto;gap:12px;max-width:560px;margin-top:28px}
+.news-inline input{
+  background:var(--stage-3);border:1px solid var(--stage-line);border-radius:2px;
+  color:var(--stage-ink);font:inherit;font-size:.9375rem;padding:.9rem 1rem;
+}
+.news-inline input:focus{outline:none;border-color:#7FB0F5;box-shadow:0 0 0 3px rgba(127,176,245,.28)}
+.news-inline input::placeholder{color:#8A8A8A}
+.news-honest{margin-top:14px;font-size:.84375rem;color:#C9C9C9;max-width:52ch}
+.news-honest a{color:#7FB0F5;text-decoration:underline}
+/* ---------- footer ---------- */
+.footer{background:#0C0C0C;color:#C9C9C9;padding:64px 0 40px}
+.footer-grid{display:flex;justify-content:space-between;gap:48px;flex-wrap:wrap}
+.footer .brand{font-size:1rem}
+.footer-tag{margin-top:14px;font-size:.8125rem;color:var(--stage-muted);max-width:34ch}
+.footer-mail{
+  display:inline-block;margin-top:16px;font-weight:600;color:#C9C9C9;
+}
+.footer-mail:hover{color:#fff}
+.footer-col h3{font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--stage-muted);margin-bottom:14px}
+.footer-col a{display:block;color:#C9C9C9;padding:4px 0;font-size:.875rem}
+.footer-col a:hover{color:#fff}
+.footer-bottom{
+  margin-top:52px;padding-top:24px;border-top:1px solid var(--stage-line);
+  display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  font-size:.75rem;color:#8A8A8A;
+}
+/* ---------- cookie ---------- */
+.cookie{
+  position:fixed;right:12px;bottom:12px;max-width:min(340px,calc(100vw - 24px));
+  background:var(--stage-3);border:1px solid var(--stage-line);border-radius:2px;
+  color:var(--stage-ink);padding:14px 16px;
+  transform:translateY(calc(100% + 2rem));opacity:0;
+  transition:transform .4s cubic-bezier(.22,1,.36,1),opacity .4s ease;
+}
+.cookie.show{transform:translateY(0);opacity:1}
+.cookie p{font-size:.8125rem;line-height:1.5;color:#D8D8D8}
+.cookie button{
+  margin-top:10px;background:var(--blue-cta);color:#fff;
+  font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  padding:.55rem 1rem;border-radius:2px;
+}
+.cookie button:hover{background:var(--blue-cta-hover)}
+/* ---------- reveal ---------- */
+.rv{opacity:0;transform:translateY(16px);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1)}
+.rv.in{opacity:1;transform:none}
+html.no-js .rv{opacity:1;transform:none}
+/* ---------- responsive ---------- */
+@media (max-width:1024px){
+  .hero-grid{grid-template-columns:1fr;gap:44px}
+  .hero{padding-top:112px}
+  .spec{grid-template-columns:repeat(2,1fr);gap:20px}
+  .oficio-grid{grid-template-columns:1fr;gap:40px}
+  .sticky-col{position:static}
+  .visita-grid{grid-template-columns:1fr;gap:52px}
+}
+@media (max-width:900px){
+  .nav-links,.nav-actions > .nav-cta{display:none}
+  .menu-toggle{display:inline-flex}
+}
+@media (max-width:760px){
+  .section{padding:72px 0}
+  .plans-grid{grid-template-columns:1fr}
+  .ledger-row{grid-template-columns:1fr;gap:10px;padding:26px 0}
+  .ledger-row .meta{text-align:left;padding-top:0}
+  .news-inline{grid-template-columns:1fr}
+  .hero-cta .btn{width:100%}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
+  html{scroll-behavior:auto}
+  .rv{opacity:1;transform:none}
+}
+@media print{
+  .nav,.mobile-menu,.cookie,.theme-toggle,.lang-select{display:none !important}
+  .hero{padding-top:24px}
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#hero" data-i18n="skip">Saltar al contenido</a>
+
+<!-- ================= NAV (fixed dark) ================= -->
+<header class="nav" id="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="#hero"><em>C</em>ALIBRE</a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="#oficio" data-i18n="nav.oficio">Oficio</a>
+      <a href="#bancada" data-i18n="nav.bancada">Bancada</a>
+      <a href="#planes" data-i18n="nav.planes">Encargos</a>
+      <a href="#visita" data-i18n="nav.visita">Cita</a>
+      <a href="#faq" data-i18n="nav.faq">Preguntas</a>
+    </nav>
+    <div class="nav-actions">
+      <div class="lang-select">
+        <button class="lang-select__btn" type="button" aria-haspopup="listbox" aria-expanded="false" data-i18n-aria="lang.aria">
+          <span class="lang-select__cur">ES</span>
+          <svg class="lang-select__chev" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="lang-select__menu" role="listbox" aria-label="Language">
+          <button class="lang-select__opt" type="button" role="option" data-lang="en" aria-selected="false">English</button>
+          <button class="lang-select__opt" type="button" role="option" data-lang="es" aria-selected="false">Español</button>
+          <button class="lang-select__opt" type="button" role="option" data-lang="fr" aria-selected="false">Français</button>
+          <button class="lang-select__opt" type="button" role="option" data-lang="de" aria-selected="false">Deutsch</button>
+          <button class="lang-select__opt" type="button" role="option" data-lang="it" aria-selected="false">Italiano</button>
+          <button class="lang-select__opt" type="button" role="option" data-lang="pt" aria-selected="false">Português</button>
+        </div>
+      </div>
+      <button class="theme-toggle" type="button" data-i18n-aria="theme.toggle" aria-label="Cambiar tema">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M18.4 5.6L17 7M7 17l-1.4 1.4"/><circle cx="12" cy="12" r="4"/></svg>
+      </button>
+      <a class="nav-cta" href="#visita" data-i18n="nav.cta">Pedir cita</a>
+    </div>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobileMenu" data-i18n-aria="menu.open">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- ================= MOBILE MENU ================= -->
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <nav aria-label="Mobile">
+    <a class="m-link" href="#oficio" data-i18n="nav.oficio">Oficio</a>
+    <a class="m-link" href="#bancada" data-i18n="nav.bancada">Bancada</a>
+    <a class="m-link" href="#planes" data-i18n="nav.planes">Encargos</a>
+    <a class="m-link" href="#visita" data-i18n="nav.visita">Cita</a>
+    <a class="m-link" href="#faq" data-i18n="nav.faq">Preguntas</a>
+  </nav>
+  <div class="lang-select" data-mobile-lang>
+    <button class="lang-select__btn" type="button" aria-haspopup="listbox" aria-expanded="false" data-i18n-aria="lang.aria">
+      <span class="lang-select__cur">ES</span>
+      <svg class="lang-select__chev" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <div class="lang-select__menu" role="listbox" aria-label="Language">
+      <button class="lang-select__opt" type="button" role="option" data-lang="en" aria-selected="false">English</button>
+      <button class="lang-select__opt" type="button" role="option" data-lang="es" aria-selected="false">Español</button>
+      <button class="lang-select__opt" type="button" role="option" data-lang="fr" aria-selected="false">Français</button>
+      <button class="lang-select__opt" type="button" role="option" data-lang="de" aria-selected="false">Deutsch</button>
+      <button class="lang-select__opt" type="button" role="option" data-lang="it" aria-selected="false">Italiano</button>
+      <button class="lang-select__opt" type="button" role="option" data-lang="pt" aria-selected="false">Português</button>
+    </div>
+  </div>
+  <a class="m-menu-cta" href="#visita" data-i18n="nav.cta">Pedir cita</a>
+</div>
+
+<main id="main">
+<!-- ================= HERO ================= -->
+<section class="hero" id="hero">
+  <div class="container hero-grid">
+    <div>
+      <h1 id="hero-title" data-i18n-html="hero.title">UN CALIBRE NO SE <br>COMPRA. SE ACUERDA.</h1>
+      <p class="hero-sub" data-i18n="hero.sub">Taller de relojería mecánica en el Barrio de las Letras. Diagnóstico a la vista, regulación en bancada y piezas con procedencia. Solo con cita.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#visita" data-i18n="hero.cta1">Reservar mesa de bancada</a>
+        <a class="btn btn-ghost" href="#oficio" data-i18n="hero.cta2">Ver el oficio</a>
+      </div>
+      <p class="hero-note" data-i18n="hero.note">Calle de León 11 · Madrid · martes a sábado</p>
+    </div>
+    <div>
+      <figure class="bench rv" id="bench">
+        <div class="bench-pad" id="benchPad">
+          <svg viewBox="0 0 560 430" role="img" aria-labelledby="benchTitle">
+            <title id="benchTitle" data-i18n="hero.fig">Calibre 2892 en bancada</title>
+            <!-- mainplate -->
+            <rect x="70" y="40" width="420" height="350" fill="none" stroke="#525252" stroke-width="1.6"/>
+            <g stroke="#6E6E6E" stroke-width="1.4">
+              <circle cx="94" cy="64" r="5"/><circle cx="466" cy="64" r="5"/>
+              <circle cx="94" cy="366" r="5"/><circle cx="466" cy="366" r="5"/>
+            </g>
+            <!-- barrel at left bottom -->
+            <circle cx="150" cy="300" r="62" fill="none" stroke="#4A4A4A" stroke-width="1.6"/>
+            <circle cx="150" cy="300" r="48" fill="none" stroke="#5E5E5E" stroke-width="1.2" stroke-dasharray="3 5"/>
+            <circle cx="150" cy="300" r="10" fill="#6E6E6E"/>
+            <!-- center wheel (big gear) -->
+            <g class="rot-sec">
+              <circle cx="300" cy="250" r="78" fill="none" stroke="#4A4A4A" stroke-width="1.6"/>
+              <circle cx="300" cy="250" r="66" fill="none" stroke="#5E5E5E" stroke-width="1.2" stroke-dasharray="2 6"/>
+              <circle cx="300" cy="250" r="46" fill="none" stroke="#4A4A4A" stroke-width="1.2"/>
+              <!-- spokes -->
+              <g stroke="#525252" stroke-width="1.2">
+                <line x1="300" y1="204" x2="300" y2="296"/><line x1="254" y1="250" x2="346" y2="250"/>
+                <line x1="267" y1="217" x2="333" y2="283"/><line x1="333" y1="217" x2="267" y2="283"/>
+              </g>
+              <circle cx="300" cy="250" r="14" fill="#6E6E6E"/>
+              <!-- sweeping seconds hand -->
+              <g stroke="#C6C6C6" stroke-width="1.6" stroke-linecap="round">
+                <line x1="300" y1="250" x2="300" y2="190"/>
+              </g>
+              <circle cx="300" cy="250" r="4" fill="#8E8E8E"/>
+            </g>
+            <!-- third wheel -->
+            <circle cx="214" cy="172" r="40" fill="none" stroke="#545454" stroke-width="1.4"/>
+            <circle cx="214" cy="172" r="32" fill="none" stroke="#5E5E5E" stroke-width="1.1" stroke-dasharray="2 5"/>
+            <circle cx="214" cy="172" r="8" fill="#6E6E6E"/>
+            <!-- escape wheel -->
+            <circle cx="352" cy="308" r="34" fill="none" stroke="#545454" stroke-width="1.4"/>
+            <circle cx="352" cy="308" r="26" fill="none" stroke="#5E5E5E" stroke-width="1.1" stroke-dasharray="2 4"/>
+            <circle cx="352" cy="308" r="7" fill="#6E6E6E"/>
+            <!-- balance wheel (animated) -->
+            <g class="bal">
+              <circle cx="396" cy="150" r="52" fill="none" stroke="#3A3A3A" stroke-width="6"/>
+              <circle cx="396" cy="150" r="46" fill="none" stroke="#8A8A8A" stroke-width="1.2"/>
+              <circle cx="396" cy="150" r="30" fill="none" stroke="#5E5E5E" stroke-width="1.1" stroke-dasharray="2 4"/>
+              <!-- hairspring -->
+              <path d="M396 150 m-2 0 a2 2 0 0 1 4 0 a6 6 0 0 1 -12 0 a10 10 0 0 1 20 0 a14 14 0 0 1 -28 0" fill="none" stroke="#B8B8B8" stroke-width="1.1"/>
+              <circle cx="396" cy="150" r="4" fill="#8E8E8E"/>
+            </g>
+            <!-- pallet fork -->
+            <g stroke="#7E7E7E" stroke-width="1.6" stroke-linecap="round">
+              <line x1="368" y1="196" x2="392" y2="216"/>
+              <line x1="368" y1="228" x2="380" y2="222"/>
+            </g>
+            <!-- regulator bridge -->
+            <rect x="240" y="96" width="120" height="14" fill="none" stroke="#525252" stroke-width="1.4"/>
+            <circle cx="262" cy="103" r="3" fill="#7E7E7E"/><circle cx="338" cy="103" r="3" fill="#7E7E7E"/>
+            <!-- jewels (monochrome) -->
+            <g fill="#7E7E7E">
+              <circle cx="352" cy="308" r="3.4"/>
+              <circle cx="214" cy="172" r="3.4"/>
+              <circle cx="300" cy="118" r="3.4"/>
+            </g>
+            <!-- case screws -->
+            <g fill="#9A9A9A">
+              <rect x="76" y="46" width="10" height="3" transform="rotate(20 81 47.5)"/>
+              <rect x="474" y="46" width="10" height="3" transform="rotate(-14 479 47.5)"/>
+            </g>
+          </svg>
+        </div>
+        <figcaption class="bench-fig">
+          <span data-i18n="hero.fig">Calibre 2892 en bancada</span>
+          <span class="meta" data-i18n="hero.figmeta">28 800 a/h</span>
+        </figcaption>
+        <button class="listen-btn" id="listenBtn" type="button" aria-pressed="false" data-i18n-aria="listen.start">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 12h.01"/><path d="M17 10h.01"/><path d="M19 8h.01"/><path d="M6 4h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><path d="M10 9v6l5-3z" fill="currentColor" stroke="currentColor"/></svg>
+          <span data-i18n="listen.start">Escuchar el escape</span>
+        </button>
+      </figure>
+    </div>
+  </div>
+  <div class="container">
+    <div class="spec rv">
+      <div><div class="v" data-i18n="spec.a_v">28 800 a/h</div><div class="k" data-i18n="spec.a_k">Frecuencia</div></div>
+      <div><div class="v" data-i18n="spec.b_v">42 horas</div><div class="k" data-i18n="spec.b_k">Reserva</div></div>
+      <div><div class="v" data-i18n="spec.c_v">21</div><div class="k" data-i18n="spec.c_k">Rubíes</div></div>
+      <div><div class="v" data-i18n="spec.d_v">Una a la vez</div><div class="k" data-i18n="spec.d_k">Mesa</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= OFICIO ================= -->
+<section class="section" id="oficio">
+  <div class="container oficio-grid">
+    <div class="sticky-col rv">
+      <h2 class="sec-h" data-i18n="oficio.title">El tiempo se corrige a mano.</h2>
+      <p class="sec-lead" data-i18n="oficio.lead">No vendemos vitrinas. Recibimos un reloj, lo abrimos con el dueño delante y dejamos escrito qué se toca y qué no.</p>
+    </div>
+    <div>
+      <p class="rv" data-i18n="oficio.p" style="font-size:1.0625rem;line-height:1.7;color:var(--muted);max-width:60ch">La bancada está en la planta calle. Si el escape adelanta, se oye. Si un puente está torcido, se ve. Nada se va a un taller anónimo: el mismo relojero que te recibe es quien regula.</p>
+      <ol class="steps" style="margin-top:36px">
+        <li class="step rv"><span class="n" aria-hidden="true">01</span><div><h3 data-i18n="step.1t">Recepción</h3><p data-i18n="step.1d">Abrimos la caja juntos. Fotografiamos estado, número de calibre y golpes visibles. Sales con una hoja, no con una promesa.</p></div></li>
+        <li class="step rv"><span class="n" aria-hidden="true">02</span><div><h3 data-i18n="step.2t">Diagnóstico</h3><p data-i18n="step.2d">Medimos amplitud, error de marcha y batido. Si hace falta pieza, te decimos origen y plazo antes de pedirla.</p></div></li>
+        <li class="step rv"><span class="n" aria-hidden="true">03</span><div><h3 data-i18n="step.3t">Bancada</h3><p data-i18n="step.3d">Desmontaje, limpieza, lubricación y regulación. Cada tornillo vuelve a su sitio. El escape se escucha otra vez.</p></div></li>
+        <li class="step rv"><span class="n" aria-hidden="true">04</span><div><h3 data-i18n="step.4t">Entrega</h3><p data-i18n="step.4d">Te devolvemos el reloj con la hoja de marcha de 24 h y las piezas sustituidas etiquetadas. Citas de revisión a los 30 días, sin cargo.</p></div></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BANCADA ================= -->
+<section class="section section-lit" id="bancada">
+  <div class="container">
+    <div class="rv">
+      <h2 class="sec-h" data-i18n="banc.title">Tres trabajos. Ninguno genérico.</h2>
+      <p class="sec-lead" data-i18n="banc.lead">Elegimos poco a propósito. Un reloj en bancada ocupa el día; no hay cola invisible.</p>
+    </div>
+    <div class="ledger" style="margin-top:48px">
+      <div class="ledger-row rv">
+        <span class="n" aria-hidden="true">01</span>
+        <div><h3 data-i18n="banc.1t">Regulación</h3><p class="d" data-i18n="banc.1d">Para marchas que se han ido. Posiciones, isocronismo, empujadores. Sales el mismo día si el calibre está limpio.</p></div>
+        <span class="meta" data-i18n="banc.1m">90 minutos · con cita</span>
+      </div>
+      <div class="ledger-row rv">
+        <span class="n" aria-hidden="true">02</span>
+        <div><span class="tag" data-i18n="plan.b_tag">El trabajo de fondo</span><h3 data-i18n="banc.2t">Revisión completa</h3><p class="d" data-i18n="banc.2d">Servicio de 4–6 semanas: desmontaje, cubeta, juntas nuevas, control de estanqueidad cuando el reloj la tiene.</p></div>
+        <span class="meta" data-i18n="banc.2m">Calibres comunes y cronógrafos</span>
+      </div>
+      <div class="ledger-row rv">
+        <span class="n" aria-hidden="true">03</span>
+        <div><h3 data-i18n="banc.3t">Restauración</h3><p class="d" data-i18n="banc.3d">Cajas abolladas, esferas con humedad, calibres parados veinte años. Presupuesto cerrado antes de tocar el puente.</p></div>
+        <span class="meta" data-i18n="banc.3m">Por encargo · plazo escrito</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PLANES ================= -->
+<section class="section" id="planes">
+  <div class="container">
+    <div class="rv">
+      <h2 class="sec-h" data-i18n="planes.title">Dos encargos. Sin tercer cajón.</h2>
+      <p class="sec-lead" data-i18n="planes.lead">Si no encaja aquí, lo decimos en la primera visita. No inventamos un pack para cuadrar.</p>
+    </div>
+    <div class="plans-grid" style="margin-top:52px">
+      <article class="plan rv">
+        <span class="p-name" data-i18n="plan.a_name">Regulación</span>
+        <div class="p-price" data-i18n="plan.a_price">120 €</div>
+        <div class="p-unit" data-i18n="plan.a_unit">sesión de 90 min</div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><span data-i18n="plan.a_1">Medición en 5 posiciones</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><span data-i18n="plan.a_2">Ajuste de batido y marcha</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><span data-i18n="plan.a_3">Hoja de error al salir</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><span data-i18n="plan.a_4">Si hay suciedad, paramos y presupuestamos revisión</span></li>
+        </ul>
+        <a class="btn btn-primary" href="#visita" data-i18n="plan.a_cta">Pedir mesa</a>
+      </article>
+      <article class="plan plan-strong rv">
+        <span class="tag" data-i18n="plan.b_tag">El trabajo de fondo</span>
+        <span class="p-name" data-i18n="plan.b_name">Revisión</span>
+        <div class="p-price" data-i18n="plan.b_price">Desde 380 €</div>
+        <div class="p-unit" data-i18n="plan.b_unit">calibre de 3 agujas</div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><span data-i18n="plan.b_1">Desmontaje y limpieza</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><span data-i18n="plan.b_2">Lubricación y juntas</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><span data-i18n="plan.b_3">Marcha 24 h documentada</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><span data-i18n="plan.b_4">Revisión a 30 días incluida</span></li>
+        </ul>
+        <a class="btn btn-primary" href="#visita" data-i18n="plan.b_cta">Pedir diagnóstico</a>
+      </article>
+    </div>
+    <p class="plans-note rv" data-i18n="plan.note">Cronógrafos, calendarios anuales y restauraciones se presupuestan aparte, por escrito, antes de pedir pieza.</p>
+  </div>
+</section>
+
+<!-- ================= VISITA ================= -->
+<section class="section section-dark" id="visita">
+  <div class="container">
+    <div class="rv">
+      <h2 class="sec-h" data-i18n="visita.title">La mesa se reserva. El reloj no se deja en un buzón.</h2>
+      <p class="sec-lead" data-i18n="visita.lead">Escribe qué llevas (marca, calibre si lo sabes, qué falla). Te respondemos con un hueco real, no con un formulario ciego.</p>
+    </div>
+    <div class="visita-grid" style="margin-top:52px">
+      <form class="form rv" id="visitForm" novalidate>
+        <div class="field">
+          <label for="fName" data-i18n="form.name">Nombre</label>
+          <input id="fName" name="name" type="text" autocomplete="name" data-i18n-ph="form.ph_name" placeholder="Tu nombre">
+        </div>
+        <div class="field">
+          <label for="fEmail" data-i18n="form.email">Correo</label>
+          <input id="fEmail" name="email" type="email" autocomplete="email" required data-i18n-ph="form.ph_email" placeholder="tu@correo.com">
+        </div>
+        <div class="field">
+          <label for="fWatch" data-i18n="form.watch">Reloj</label>
+          <input id="fWatch" name="watch" type="text" data-i18n-ph="form.ph_watch" placeholder="Marca, modelo, año si lo sabes">
+        </div>
+        <div class="field">
+          <label for="fMsg" data-i18n="form.msg">Qué falla</label>
+          <textarea id="fMsg" name="msg" required data-i18n-ph="form.ph_msg" placeholder="Avanza, se para, humedad…"></textarea>
+        </div>
+        <div>
+          <button class="btn btn-primary" type="submit" style="width:auto;padding-inline:2rem" data-i18n="form.submit">Escribir al taller</button>
+          <p class="form-honest" style="margin-top:14px" data-i18n-html="form.honest">No hay bandeja oculta. El envío abre tu cliente de correo hacia <a href="mailto:hola@cristiancode.dev">hola@cristiancode.dev</a>.</p>
+          <p class="news-msg" id="formMsg" role="status" aria-live="polite"></p>
+        </div>
+      </form>
+      <aside class="visita-info rv">
+        <span class="info-k" data-i18n="visita.hours_k">Horario</span>
+        <span class="info-v" data-i18n="visita.hours">Martes a viernes 11–14 / 16–19. Sábado 11–14. Lunes cerrado.</span>
+        <span class="info-k" data-i18n="visita.addr_k">Dirección</span>
+        <span class="info-v" data-i18n="visita.addr">Calle de León 11, 28014 Madrid</span>
+        <a class="info-link" style="margin-top:14px" href="https://maps.google.com/?q=Calle+de+Leon+11+28014+Madrid" target="_blank" rel="noopener" data-i18n="visita.cta">Abrir el mapa</a>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="section section-lit" id="faq">
+  <div class="container">
+    <h2 class="sec-h rv" data-i18n="faq.title">Antes de traer el reloj</h2>
+    <div class="faq" style="margin-top:40px">
+      <div class="faq-item rv">
+        <button class="faq-q" type="button" aria-expanded="false" aria-controls="faqA1"><span data-i18n="faq.q1">¿Puedo dejar el reloj sin cita?</span><span class="ic" aria-hidden="true"></span></button>
+        <div class="faq-a" id="faqA1"><p data-i18n="faq.a1">No. La mesa es una. Sin hueco no hay recepción, para no tener cajas sin dueño a la vista.</p></div>
+      </div>
+      <div class="faq-item rv">
+        <button class="faq-q" type="button" aria-expanded="false" aria-controls="faqA2"><span data-i18n="faq.q2">¿Trabajáis cuarzo?</span><span class="ic" aria-hidden="true"></span></button>
+        <div class="faq-a" id="faqA2"><p data-i18n="faq.a2">Cambio de pila y juntas en piezas sencillas, sí. Módulos digitales y smartwatches, no.</p></div>
+      </div>
+      <div class="faq-item rv">
+        <button class="faq-q" type="button" aria-expanded="false" aria-controls="faqA3"><span data-i18n="faq.q3">¿Y si hace falta una pieza?</span><span class="ic" aria-hidden="true"></span></button>
+        <div class="faq-a" id="faqA3"><p data-i18n="faq.a3">Te decimos proveedor, plazo y precio antes de pedirla. Si tarda, el reloj se queda o se va contigo; tú eliges.</p></div>
+      </div>
+      <div class="faq-item rv">
+        <button class="faq-q" type="button" aria-expanded="false" aria-controls="faqA4"><span data-i18n="faq.q4">¿Hacéis tasación para venta?</span><span class="ic" aria-hidden="true"></span></button>
+        <div class="faq-a" id="faqA4"><p data-i18n="faq.a4">No compramos relojes ni intermediamos. Si el calibre está sano, te lo decimos; el mercado es cosa tuya.</p></div>
+      </div>
+      <div class="faq-item rv">
+        <button class="faq-q" type="button" aria-expanded="false" aria-controls="faqA5"><span data-i18n="faq.q5">¿El presupuesto de revisión es fijo?</span><span class="ic" aria-hidden="true"></span></button>
+        <div class="faq-a" id="faqA5"><p data-i18n="faq.a5">El de regulación, sí. El de revisión se cierra tras el diagnóstico: si aparece óxido o un puente fisurado, paramos.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= NEWS ================= -->
+<section class="section section-dark" id="news">
+  <div class="container">
+    <div class="rv">
+      <h2 class="sec-h" data-i18n="news.title">Avisos de bancada</h2>
+      <p class="sec-lead" data-i18n="news.lead">Huecos libres y cuando entra un calibre raro. Un correo ocasional, escrito aquí.</p>
+    </div>
+    <form class="news-inline rv" id="newsForm" novalidate>
+      <input id="newsEmail" type="email" autocomplete="email" required data-i18n-ph="news.ph" placeholder="tu@correo.com" aria-label="Email">
+      <button class="btn btn-primary" type="submit" data-i18n="news.cta">Escribir para avisar</button>
+    </form>
+    <p class="news-honest rv" data-i18n-html="news.honest">No guardamos una lista. El botón abre un <a href="mailto:hola@cristiancode.dev">mailto</a> con tu dirección.</p>
+    <p class="news-msg" id="newsMsg" role="status" aria-live="polite" style="margin-top:10px"></p>
+  </div>
+</section>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="brand"><em>C</em>ALIBRE</div>
+        <p class="footer-tag" data-i18n="footer.tag">Relojería mecánica · Madrid</p>
+        <a class="footer-mail" href="mailto:hola@cristiancode.dev" data-i18n="footer.mail">hola@cristiancode.dev</a>
+      </div>
+      <div class="footer-col">
+        <h3 data-i18n="footer.col2">En esta página</h3>
+        <a href="#oficio" data-i18n="footer.l1">Oficio</a>
+        <a href="#bancada" data-i18n="footer.l2">Bancada</a>
+        <a href="#planes" data-i18n="footer.l3">Encargos</a>
+        <a href="#visita" data-i18n="footer.l4">Cita</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span data-i18n="footer.cr">© 2026 CALIBRE · Calle de León 11, Madrid</span>
+      <span>Impeccable · WCAG AA</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ================= COOKIE ================= -->
+<div class="cookie" id="cookieBanner" role="region" aria-label="Cookies">
+  <p data-i18n="cookie.msg">Solo idioma y tema en este dispositivo. Nada de seguimiento.</p>
+  <button type="button" id="cookieOk" data-i18n="cookie.ok">De acuerdo</button>
+</div>
+<script>
+
+var I18N = {
+  es: {
+    "skip": "Saltar al contenido",
+    "nav.oficio": "Oficio",
+    "nav.bancada": "Bancada",
+    "nav.planes": "Encargos",
+    "nav.visita": "Cita",
+    "nav.faq": "Preguntas",
+    "nav.cta": "Pedir cita",
+    "lang.aria": "Idioma",
+    "theme.toggle": "Cambiar tema",
+    "menu.open": "Abrir menú",
+    "menu.close": "Cerrar menú",
+    "hero.title": "UN CALIBRE NO SE <br>COMPRA. SE ACUERDA.",
+    "hero.sub": "Taller de relojería mecánica en el Barrio de las Letras. Diagnóstico a la vista, regulación en bancada y piezas con procedencia. Solo con cita.",
+    "hero.cta1": "Reservar mesa de bancada",
+    "hero.cta2": "Ver el oficio",
+    "hero.note": "Calle de León 11 · Madrid · martes a sábado",
+    "hero.fig": "Calibre 2892 en bancada",
+    "hero.figmeta": "28 800 a/h",
+    "listen.start": "Escuchar el escape",
+    "listen.stop": "Silencio",
+    "spec.a_k": "Frecuencia",
+    "spec.a_v": "28 800 a/h",
+    "spec.b_k": "Reserva",
+    "spec.b_v": "42 horas",
+    "spec.c_k": "Rubíes",
+    "spec.c_v": "21",
+    "spec.d_k": "Mesa",
+    "spec.d_v": "Una a la vez",
+    "oficio.title": "El tiempo se corrige a mano.",
+    "oficio.lead": "No vendemos vitrinas. Recibimos un reloj, lo abrimos con el dueño delante y dejamos escrito qué se toca y qué no.",
+    "oficio.p": "La bancada está en la planta calle. Si el escape adelanta, se oye. Si un puente está torcido, se ve. Nada se va a un taller anónimo: el mismo relojero que te recibe es quien regula.",
+    "step.1t": "Recepción",
+    "step.1d": "Abrimos la caja juntos. Fotografiamos estado, número de calibre y golpes visibles. Sales con una hoja, no con una promesa.",
+    "step.2t": "Diagnóstico",
+    "step.2d": "Medimos amplitud, error de marcha y batido. Si hace falta pieza, te decimos origen y plazo antes de pedirla.",
+    "step.3t": "Bancada",
+    "step.3d": "Desmontaje, limpieza, lubricación y regulación. Cada tornillo vuelve a su sitio. El escape se escucha otra vez.",
+    "step.4t": "Entrega",
+    "step.4d": "Te devolvemos el reloj con la hoja de marcha de 24 h y las piezas sustituidas etiquetadas. Citas de revisión a los 30 días, sin cargo.",
+    "banc.title": "Tres trabajos. Ninguno genérico.",
+    "banc.lead": "Elegimos poco a propósito. Un reloj en bancada ocupa el día; no hay cola invisible.",
+    "banc.1t": "Regulación",
+    "banc.1d": "Para marchas que se han ido. Posiciones, isocronismo, empujadores. Sales el mismo día si el calibre está limpio.",
+    "banc.1m": "90 minutos · con cita",
+    "banc.2t": "Revisión completa",
+    "banc.2d": "Servicio de 4–6 semanas: desmontaje, cubeta, juntas nuevas, control de estanqueidad cuando el reloj la tiene.",
+    "banc.2m": "Calibres comunes y cronógrafos",
+    "banc.3t": "Restauración",
+    "banc.3d": "Cajas abolladas, esferas con humedad, calibres parados veinte años. Presupuesto cerrado antes de tocar el puente.",
+    "banc.3m": "Por encargo · plazo escrito",
+    "planes.title": "Dos encargos. Sin tercer cajón.",
+    "planes.lead": "Si no encaja aquí, lo decimos en la primera visita. No inventamos un pack para cuadrar.",
+    "plan.a_name": "Regulación",
+    "plan.a_price": "120 €",
+    "plan.a_unit": "sesión de 90 min",
+    "plan.a_1": "Medición en 5 posiciones",
+    "plan.a_2": "Ajuste de batido y marcha",
+    "plan.a_3": "Hoja de error al salir",
+    "plan.a_4": "Si hay suciedad, paramos y presupuestamos revisión",
+    "plan.a_cta": "Pedir mesa",
+    "plan.b_name": "Revisión",
+    "plan.b_price": "Desde 380 €",
+    "plan.b_unit": "calibre de 3 agujas",
+    "plan.b_tag": "El trabajo de fondo",
+    "plan.b_1": "Desmontaje y limpieza",
+    "plan.b_2": "Lubricación y juntas",
+    "plan.b_3": "Marcha 24 h documentada",
+    "plan.b_4": "Revisión a 30 días incluida",
+    "plan.b_cta": "Pedir diagnóstico",
+    "plan.note": "Cronógrafos, calendarios anuales y restauraciones se presupuestan aparte, por escrito, antes de pedir pieza.",
+    "visita.title": "La mesa se reserva. El reloj no se deja en un buzón.",
+    "visita.lead": "Escribe qué llevas (marca, calibre si lo sabes, qué falla). Te respondemos con un hueco real, no con un formulario ciego.",
+    "visita.hours_k": "Horario",
+    "visita.hours": "Martes a viernes 11–14 / 16–19. Sábado 11–14. Lunes cerrado.",
+    "visita.addr_k": "Dirección",
+    "visita.addr": "Calle de León 11, 28014 Madrid",
+    "visita.cta": "Abrir el mapa",
+    "visit.mail_subject": "Cita CALIBRE — bancada",
+    "form.name": "Nombre",
+    "form.email": "Correo",
+    "form.watch": "Reloj",
+    "form.msg": "Qué falla",
+    "form.submit": "Escribir al taller",
+    "form.ph_name": "Tu nombre",
+    "form.ph_email": "tu@correo.com",
+    "form.ph_watch": "Marca, modelo, año si lo sabes",
+    "form.ph_msg": "Avanza, se para, humedad…",
+    "form.err": "Necesitamos un correo válido y una breve nota del reloj.",
+    "form.ok": "Se abre tu correo. Si no, escríbenos a mano.",
+    "form.honest": "No hay bandeja oculta. El envío abre tu cliente de correo hacia <a href=\"mailto:hola@cristiancode.dev\">hola@cristiancode.dev</a>.",
+    "faq.title": "Antes de traer el reloj",
+    "faq.q1": "¿Puedo dejar el reloj sin cita?",
+    "faq.a1": "No. La mesa es una. Sin hueco no hay recepción, para no tener cajas sin dueño a la vista.",
+    "faq.q2": "¿Trabajáis cuarzo?",
+    "faq.a2": "Cambio de pila y juntas en piezas sencillas, sí. Módulos digitales y smartwatches, no.",
+    "faq.q3": "¿Y si hace falta una pieza?",
+    "faq.a3": "Te decimos proveedor, plazo y precio antes de pedirla. Si tarda, el reloj se queda o se va contigo; tú eliges.",
+    "faq.q4": "¿Hacéis tasación para venta?",
+    "faq.a4": "No compramos relojes ni intermediamos. Si el calibre está sano, te lo decimos; el mercado es cosa tuya.",
+    "faq.q5": "¿El presupuesto de revisión es fijo?",
+    "faq.a5": "El de regulación, sí. El de revisión se cierra tras el diagnóstico: si aparece óxido o un puente fisurado, paramos.",
+    "news.title": "Avisos de bancada",
+    "news.lead": "Huecos libres y cuando entra un calibre raro. Un correo ocasional, escrito aquí.",
+    "news.ph": "tu@correo.com",
+    "news.cta": "Escribir para avisar",
+    "news.err": "Ese correo no se entiende.",
+    "news.ok": "Se abre tu correo para mandarnos la dirección. No hay alta automática.",
+    "news.honest": "No guardamos una lista. El botón abre un <a href=\"mailto:hola@cristiancode.dev\">mailto</a> con tu dirección.",
+    "news.mail_subject": "Avisos CALIBRE",
+    "news.mail_body": "Quiero avisos de bancada. Mi correo es {email}.",
+    "cookie.msg": "Solo idioma y tema en este dispositivo. Nada de seguimiento.",
+    "cookie.ok": "De acuerdo",
+    "footer.tag": "Relojería mecánica · Madrid",
+    "footer.col2": "En esta página",
+    "footer.l1": "Oficio",
+    "footer.l2": "Bancada",
+    "footer.l3": "Encargos",
+    "footer.l4": "Cita",
+    "footer.cr": "© 2026 CALIBRE · Calle de León 11, Madrid",
+    "footer.mail": "hola@cristiancode.dev",
+    "meta.title": "CALIBRE — Relojería mecánica en Madrid",
+    "meta.desc": "Taller de relojería mecánica en el Barrio de las Letras. Regulación, revisión y restauración con cita. Calle de León 11, Madrid."
+  },
+  en: {
+    "skip": "Skip to content",
+    "nav.oficio": "Craft",
+    "nav.bancada": "Bench",
+    "nav.planes": "Work",
+    "nav.visita": "Visit",
+    "nav.faq": "Questions",
+    "nav.cta": "Book a slot",
+    "lang.aria": "Language",
+    "theme.toggle": "Toggle theme",
+    "menu.open": "Open menu",
+    "menu.close": "Close menu",
+    "hero.title": "A CALIBRE IS NOT <br>BOUGHT. IT IS AGREED.",
+    "hero.sub": "Mechanical watch workshop in Madrid’s Barrio de las Letras. Diagnosis in sight, regulation on the bench, parts with a paper trail. By appointment only.",
+    "hero.cta1": "Reserve the bench",
+    "hero.cta2": "See the craft",
+    "hero.note": "Calle de León 11 · Madrid · Tuesday to Saturday",
+    "hero.fig": "Calibre 2892 on the bench",
+    "hero.figmeta": "28,800 vph",
+    "listen.start": "Listen to the escapement",
+    "listen.stop": "Silence",
+    "spec.a_k": "Frequency",
+    "spec.a_v": "28,800 vph",
+    "spec.b_k": "Power reserve",
+    "spec.b_v": "42 hours",
+    "spec.c_k": "Jewels",
+    "spec.c_v": "21",
+    "spec.d_k": "Bench",
+    "spec.d_v": "One at a time",
+    "oficio.title": "Time is corrected by hand.",
+    "oficio.lead": "We do not sell display cases. We open a watch with the owner present and write down what will be touched — and what will not.",
+    "oficio.p": "The bench sits on the street floor. If the escapement runs fast, you hear it. If a bridge is bent, you see it. The watchmaker who greets you is the one who regulates.",
+    "step.1t": "Intake",
+    "step.1d": "We open the case together. We photograph condition, calibre number and visible shocks. You leave with a sheet, not a slogan.",
+    "step.2t": "Diagnosis",
+    "step.2d": "Amplitude, rate error, beat. If a part is needed, you hear origin and lead time before we order it.",
+    "step.3t": "Bench",
+    "step.3d": "Strip, clean, oil, regulate. Every screw returns to its hole. The escapement is audible again.",
+    "step.4t": "Handover",
+    "step.4d": "You get the watch back with a 24-hour rate sheet and labelled replaced parts. A 30-day check is included.",
+    "banc.title": "Three jobs. None of them generic.",
+    "banc.lead": "We take little on purpose. One watch on the bench fills the day; there is no invisible queue.",
+    "banc.1t": "Regulation",
+    "banc.1d": "For rates that have drifted. Positions, isochronism, pushers. Same-day exit if the calibre is clean.",
+    "banc.1m": "90 minutes · appointment",
+    "banc.2t": "Full service",
+    "banc.2d": "A 4–6 week service: strip, ultrasonic, new gaskets, water-resistance test when the watch claims it.",
+    "banc.2m": "Common calibres and chronographs",
+    "banc.3t": "Restoration",
+    "banc.3d": "Dented cases, moisture on the dial, movements silent for twenty years. A closed quote before any bridge is moved.",
+    "banc.3m": "Commission · written lead time",
+    "planes.title": "Two commissions. No third drawer.",
+    "planes.lead": "If it does not fit here, we say so on the first visit. We do not invent a bundle to make the numbers work.",
+    "plan.a_name": "Regulation",
+    "plan.a_price": "€120",
+    "plan.a_unit": "90-minute session",
+    "plan.a_1": "Measurement in 5 positions",
+    "plan.a_2": "Beat and rate adjustment",
+    "plan.a_3": "Error sheet on the way out",
+    "plan.a_4": "If it is dirty, we stop and quote a service",
+    "plan.a_cta": "Book the bench",
+    "plan.b_name": "Service",
+    "plan.b_price": "From €380",
+    "plan.b_unit": "three-hand calibre",
+    "plan.b_tag": "The real work",
+    "plan.b_1": "Strip and clean",
+    "plan.b_2": "Oil and gaskets",
+    "plan.b_3": "Documented 24-hour rate",
+    "plan.b_4": "30-day check included",
+    "plan.b_cta": "Book diagnosis",
+    "plan.note": "Chronographs, annual calendars and restorations are quoted separately, in writing, before any part is ordered.",
+    "visita.title": "The bench is booked. The watch is not posted through a slot.",
+    "visita.lead": "Tell us what you are bringing (brand, calibre if you know it, what fails). We answer with a real gap, not a blind form.",
+    "visita.hours_k": "Hours",
+    "visita.hours": "Tuesday–Friday 11–14 / 16–19. Saturday 11–14. Monday closed.",
+    "visita.addr_k": "Address",
+    "visita.addr": "Calle de León 11, 28014 Madrid",
+    "visita.cta": "Open the map",
+    "visit.mail_subject": "CALIBRE appointment — bench",
+    "form.name": "Name",
+    "form.email": "Email",
+    "form.watch": "Watch",
+    "form.msg": "What fails",
+    "form.submit": "Write to the workshop",
+    "form.ph_name": "Your name",
+    "form.ph_email": "you@email.com",
+    "form.ph_watch": "Brand, model, year if known",
+    "form.ph_msg": "Runs fast, stops, moisture…",
+    "form.err": "We need a valid email and a short note about the watch.",
+    "form.ok": "Your mail app will open. If it does not, write us by hand.",
+    "form.honest": "There is no hidden inbox. Submit opens your mail client to <a href=\"mailto:hola@cristiancode.dev\">hola@cristiancode.dev</a>.",
+    "faq.title": "Before you bring the watch",
+    "faq.q1": "Can I drop the watch off without an appointment?",
+    "faq.a1": "No. There is one bench. Without a slot there is no intake — so we do not keep ownerless boxes in sight.",
+    "faq.q2": "Do you work on quartz?",
+    "faq.a2": "Battery and gaskets on simple pieces, yes. Digital modules and smartwatches, no.",
+    "faq.q3": "What if a part is needed?",
+    "faq.a3": "We name the supplier, lead time and price before ordering. If it is slow, the watch stays or leaves with you; you choose.",
+    "faq.q4": "Do you appraise for sale?",
+    "faq.a4": "We do not buy watches or broker them. If the calibre is healthy we will say so; the market is yours.",
+    "faq.q5": "Is the service quote fixed?",
+    "faq.a5": "Regulation is. A full service is closed after diagnosis: if rust or a cracked bridge appears, we stop.",
+    "news.title": "Bench notices",
+    "news.lead": "Open slots and the odd rare calibre. Occasional mail, written here.",
+    "news.ph": "you@email.com",
+    "news.cta": "Write to be notified",
+    "news.err": "That email does not parse.",
+    "news.ok": "Your mail app opens so you can send us the address. There is no automatic list.",
+    "news.honest": "We do not keep a list. The button opens a <a href=\"mailto:hola@cristiancode.dev\">mailto</a> with your address.",
+    "news.mail_subject": "CALIBRE notices",
+    "news.mail_body": "I want bench notices. My email is {email}.",
+    "cookie.msg": "Only language and theme on this device. No tracking.",
+    "cookie.ok": "Agreed",
+    "footer.tag": "Mechanical watchmaking · Madrid",
+    "footer.col2": "On this page",
+    "footer.l1": "Craft",
+    "footer.l2": "Bench",
+    "footer.l3": "Work",
+    "footer.l4": "Visit",
+    "footer.cr": "© 2026 CALIBRE · Calle de León 11, Madrid",
+    "footer.mail": "hola@cristiancode.dev",
+    "meta.title": "CALIBRE — Mechanical watchmaking in Madrid",
+    "meta.desc": "Mechanical watch workshop in Madrid’s Barrio de las Letras. Regulation, service and restoration by appointment. Calle de León 11."
+  },
+  fr: {
+    "skip": "Aller au contenu",
+    "nav.oficio": "Métier",
+    "nav.bancada": "Établi",
+    "nav.planes": "Travaux",
+    "nav.visita": "Rendez-vous",
+    "nav.faq": "Questions",
+    "nav.cta": "Prendre rendez-vous",
+    "lang.aria": "Langue",
+    "theme.toggle": "Changer de thème",
+    "menu.open": "Ouvrir le menu",
+    "menu.close": "Fermer le menu",
+    "hero.title": "UN CALIBRE NE <br>S’ACHÈTE PAS. IL SE CONVIENT.",
+    "hero.sub": "Atelier d’horlogerie mécanique au Barrio de las Letras. Diagnostic sous les yeux, réglage à l’établi, pièces documentées. Sur rendez-vous uniquement.",
+    "hero.cta1": "Réserver l’établi",
+    "hero.cta2": "Voir le métier",
+    "hero.note": "Calle de León 11 · Madrid · mardi à samedi",
+    "hero.fig": "Calibre 2892 à l’établi",
+    "hero.figmeta": "28 800 alt/h",
+    "listen.start": "Écouter l’échappement",
+    "listen.stop": "Silence",
+    "spec.a_k": "Fréquence",
+    "spec.a_v": "28 800 alt/h",
+    "spec.b_k": "Réserve",
+    "spec.b_v": "42 heures",
+    "spec.c_k": "Rubis",
+    "spec.c_v": "21",
+    "spec.d_k": "Établi",
+    "spec.d_v": "Un à la fois",
+    "oficio.title": "Le temps se corrige à la main.",
+    "oficio.lead": "Nous ne vendons pas de vitrines. Nous recevons une montre, nous l’ouvrons devant son propriétaire et nous écrivons ce qui sera touché — et ce qui ne le sera pas.",
+    "oficio.p": "L’établi est au rez-de-chaussée. Si l’échappement avance, on l’entend. Si un pont est tordu, on le voit. Rien ne part dans un atelier anonyme : l’horloger qui vous accueille est celui qui règle.",
+    "step.1t": "Réception",
+    "step.1d": "Nous ouvrons la boîte ensemble. Photos de l’état, numéro de calibre, chocs visibles. Vous repartez avec une feuille, pas une promesse.",
+    "step.2t": "Diagnostic",
+    "step.2d": "Amplitude, erreur de marche, battement. S’il faut une pièce, vous connaissez l’origine et le délai avant la commande.",
+    "step.3t": "Établi",
+    "step.3d": "Démontage, nettoyage, lubrification, réglage. Chaque vis retrouve sa place. L’échappement se réécoute.",
+    "step.4t": "Livraison",
+    "step.4d": "La montre revient avec la feuille de marche sur 24 h et les pièces remplacées étiquetées. Contrôle à 30 jours inclus, sans frais.",
+    "banc.title": "Trois travaux. Aucun générique.",
+    "banc.lead": "Nous choisissons peu, à dessein. Une montre à l’établi occupe la journée ; il n’y a pas de file invisible.",
+    "banc.1t": "Réglage",
+    "banc.1d": "Pour les marches dérivées. Positions, isochronisme, poussoirs. Sortie le jour même si le calibre est propre.",
+    "banc.1m": "90 minutes · sur rendez-vous",
+    "banc.2t": "Révision complète",
+    "banc.2d": "Service en 4–6 semaines : démontage, cuve, joints neufs, contrôle d’étanchéité quand la montre le prévoit.",
+    "banc.2m": "Calibres courants et chronographes",
+    "banc.3t": "Restauration",
+    "banc.3d": "Boîtes cabossées, cadrans humides, calibres arrêtés depuis vingt ans. Devis fermé avant de toucher un pont.",
+    "banc.3m": "Sur commande · délai écrit",
+    "planes.title": "Deux travaux. Pas de troisième tiroir.",
+    "planes.lead": "Si cela ne cadre pas ici, nous le disons dès la première visite. Nous n’inventons pas de pack pour équilibrer.",
+    "plan.a_name": "Réglage",
+    "plan.a_price": "120 €",
+    "plan.a_unit": "séance de 90 min",
+    "plan.a_1": "Mesure en 5 positions",
+    "plan.a_2": "Réglage du battement et de la marche",
+    "plan.a_3": "Feuille d’erreur en sortie",
+    "plan.a_4": "Si c’est sale, on s’arrête et on devis une révision",
+    "plan.a_cta": "Réserver l’établi",
+    "plan.b_name": "Révision",
+    "plan.b_price": "Dès 380 €",
+    "plan.b_unit": "calibre 3 aiguilles",
+    "plan.b_tag": "Le vrai travail",
+    "plan.b_1": "Démontage et nettoyage",
+    "plan.b_2": "Lubrification et joints",
+    "plan.b_3": "Marche 24 h documentée",
+    "plan.b_4": "Contrôle à 30 jours inclus",
+    "plan.b_cta": "Demander un diagnostic",
+    "plan.note": "Chronographes, calendriers annuels et restaurations sont devisés séparément, par écrit, avant toute commande de pièce.",
+    "visita.title": "L’établi se réserve. La montre ne se glisse pas dans une fente.",
+    "visita.lead": "Écrivez ce que vous portez (marque, calibre si vous le savez, le défaut). Nous répondons avec un vrai créneau, pas un formulaire aveugle.",
+    "visita.hours_k": "Horaires",
+    "visita.hours": "Mardi–vendredi 11–14 / 16–19. Samedi 11–14. Lundi fermé.",
+    "visita.addr_k": "Adresse",
+    "visita.addr": "Calle de León 11, 28014 Madrid",
+    "visita.cta": "Ouvrir la carte",
+    "visit.mail_subject": "Rendez-vous CALIBRE — établi",
+    "form.name": "Nom",
+    "form.email": "E-mail",
+    "form.watch": "Montre",
+    "form.msg": "Le défaut",
+    "form.submit": "Écrire à l’atelier",
+    "form.ph_name": "Votre nom",
+    "form.ph_email": "vous@courriel.com",
+    "form.ph_watch": "Marque, modèle, année si connue",
+    "form.ph_msg": "Avance, s’arrête, humidité…",
+    "form.err": "Il nous faut un e-mail valide et une note brève sur la montre.",
+    "form.ok": "Votre messagerie va s’ouvrir. Sinon, écrivez-nous à la main.",
+    "form.honest": "Pas de boîte cachée. L’envoi ouvre votre messagerie vers <a href=\"mailto:hola@cristiancode.dev\">hola@cristiancode.dev</a>.",
+    "faq.title": "Avant d’apporter la montre",
+    "faq.q1": "Puis-je déposer la montre sans rendez-vous ?",
+    "faq.a1": "Non. Il n’y a qu’un établi. Sans créneau, pas de réception — nous ne gardons pas de boîtes sans propriétaire en vue.",
+    "faq.q2": "Travaillez-vous le quartz ?",
+    "faq.a2": "Pile et joints sur pièces simples, oui. Modules numériques et montres connectées, non.",
+    "faq.q3": "Et s’il faut une pièce ?",
+    "faq.a3": "Vous connaissez fournisseur, délai et prix avant la commande. Si c’est long, la montre reste ou repart avec vous ; vous choisissez.",
+    "faq.q4": "Estimez-vous des montres pour la vente ?",
+    "faq.a4": "Nous n’achetons ni n’intermédions. Si le calibre est sain, nous le disons ; le marché vous appartient.",
+    "faq.q5": "Le devis de révision est-il fixe ?",
+    "faq.a5": "Celui du réglage, oui. La révision se ferme après diagnostic : si rouille ou pont fissuré, on s’arrête.",
+    "news.title": "Notes d’établi",
+    "news.lead": "Créneaux libres et calibres rares. Courriel occasionnel, écrit ici.",
+    "news.ph": "vous@courriel.com",
+    "news.cta": "Écrire pour être prévenu",
+    "news.err": "Cet e-mail ne se comprend pas.",
+    "news.ok": "Votre messagerie s’ouvre pour nous envoyer l’adresse. Pas d’inscription automatique.",
+    "news.honest": "Nous ne tenons pas de liste. Le bouton ouvre un <a href=\"mailto:hola@cristiancode.dev\">mailto</a> avec votre adresse.",
+    "news.mail_subject": "Notes CALIBRE",
+    "news.mail_body": "Je veux les notes d’établi. Mon e-mail : {email}.",
+    "cookie.msg": "Seulement la langue et le thème sur cet appareil. Aucun suivi.",
+    "cookie.ok": "D’accord",
+    "footer.tag": "Horlogerie mécanique · Madrid",
+    "footer.col2": "Sur cette page",
+    "footer.l1": "Métier",
+    "footer.l2": "Établi",
+    "footer.l3": "Travaux",
+    "footer.l4": "Rendez-vous",
+    "footer.cr": "© 2026 CALIBRE · Calle de León 11, Madrid",
+    "footer.mail": "hola@cristiancode.dev",
+    "meta.title": "CALIBRE — Horlogerie mécanique à Madrid",
+    "meta.desc": "Atelier d’horlogerie mécanique au Barrio de las Letras. Réglage, révision et restauration sur rendez-vous. Calle de León 11."
+  },
+  de: {
+    "skip": "Zum Inhalt",
+    "nav.oficio": "Handwerk",
+    "nav.bancada": "Werkbank",
+    "nav.planes": "Arbeiten",
+    "nav.visita": "Termin",
+    "nav.faq": "Fragen",
+    "nav.cta": "Termin vereinbaren",
+    "lang.aria": "Sprache",
+    "theme.toggle": "Design wechseln",
+    "menu.open": "Menü öffnen",
+    "menu.close": "Menü schließen",
+    "hero.title": "EIN KALIBER KAUFT MAN <br>NICHT. MAN VEREINBART ES.",
+    "hero.sub": "Werkstatt für mechanische Uhren im Barrio de las Letras. Diagnose mit Ansicht, Reglage an der Werkbank, Teile mit Herkunft. Nur mit Termin.",
+    "hero.cta1": "Werkbank reservieren",
+    "hero.cta2": "Handwerk ansehen",
+    "hero.note": "Calle de León 11 · Madrid · Dienstag bis Samstag",
+    "hero.fig": "Kaliber 2892 an der Werkbank",
+    "hero.figmeta": "28 800 A/h",
+    "listen.start": "Hemmung hören",
+    "listen.stop": "Stille",
+    "spec.a_k": "Frequenz",
+    "spec.a_v": "28 800 A/h",
+    "spec.b_k": "Gangreserve",
+    "spec.b_v": "42 Stunden",
+    "spec.c_k": "Steine",
+    "spec.c_v": "21",
+    "spec.d_k": "Werkbank",
+    "spec.d_v": "Eine zur Zeit",
+    "oficio.title": "Zeit wird von Hand korrigiert.",
+    "oficio.lead": "Wir verkaufen keine Vitrinen. Wir empfangen eine Uhr, öffnen sie vor dem Eigentümer und schreiben auf, was angefasst wird — und was nicht.",
+    "oficio.p": "Die Werkbank liegt im Erdgeschoss. Läuft die Hemmung vor, hört man es. Ist eine Brücke verbogen, sieht man es. Nichts wandert in eine anonyme Werkstatt: Der Uhrmacher, der Sie empfängt, regliert.",
+    "step.1t": "Annahme",
+    "step.1d": "Wir öffnen das Gehäuse gemeinsam. Zustand, Kalibernummer und sichtbare Stöße werden fotografiert. Sie gehen mit einem Blatt, nicht mit einem Versprechen.",
+    "step.2t": "Diagnose",
+    "step.2d": "Amplitude, Gangabweichung, Schlag. Braucht es ein Teil, erfahren Sie Herkunft und Frist vor der Bestellung.",
+    "step.3t": "Werkbank",
+    "step.3d": "Zerlegen, reinigen, ölen, reglieren. Jede Schraube kehrt an ihren Platz. Die Hemmung ist wieder zu hören.",
+    "step.4t": "Übergabe",
+    "step.4d": "Die Uhr kommt mit dem Gangprotokoll über 24 h und etikettierten Ersatzteilen zurück. Kontrolle nach 30 Tagen ohne Aufpreis.",
+    "banc.title": "Drei Arbeiten. Keine generische.",
+    "banc.lead": "Wir nehmen bewusst wenig an. Eine Uhr belegt den Tag; es gibt keine unsichtbare Warteschlange.",
+    "banc.1t": "Reglage",
+    "banc.1d": "Für Gänge, die abgedriftet sind. Lagen, Isochronismus, Drücker. Gleichtags-Ausgabe, wenn das Kaliber sauber ist.",
+    "banc.1m": "90 Minuten · mit Termin",
+    "banc.2t": "Komplettrevision",
+    "banc.2d": "Service über 4–6 Wochen: Zerlegen, Ultraschall, neue Dichtungen, Druckprüfung, wenn die Uhr sie vorsieht.",
+    "banc.2m": "Gängige Kaliber und Chronographen",
+    "banc.3t": "Restaurierung",
+    "banc.3d": "Beulte Gehäuse, feuchte Zifferblätter, Kaliber, die zwanzig Jahre stillstanden. Festpreis, bevor eine Brücke berührt wird.",
+    "banc.3m": "Auf Anfrage · Frist schriftlich",
+    "planes.title": "Zwei Arbeiten. Keine dritte Schublade.",
+    "planes.lead": "Passt es hier nicht hinein, sagen wir es beim ersten Besuch. Wir erfinden kein Paket, damit es passt.",
+    "plan.a_name": "Reglage",
+    "plan.a_price": "120 €",
+    "plan.a_unit": "Sitzung 90 min",
+    "plan.a_1": "Messung in 5 Lagen",
+    "plan.a_2": "Schlag- und Gangjustage",
+    "plan.a_3": "Fehlerprotokoll bei Abgabe",
+    "plan.a_4": "Ist es verschmutzt, stoppen wir und bieten eine Revision an",
+    "plan.a_cta": "Werkbank buchen",
+    "plan.b_name": "Revision",
+    "plan.b_price": "Ab 380 €",
+    "plan.b_unit": "Kaliber mit 3 Zeigern",
+    "plan.b_tag": "Die eigentliche Arbeit",
+    "plan.b_1": "Zerlegen und reinigen",
+    "plan.b_2": "Ölen und Dichtungen",
+    "plan.b_3": "Gang über 24 h dokumentiert",
+    "plan.b_4": "Kontrolle nach 30 Tagen inklusive",
+    "plan.b_cta": "Diagnose buchen",
+    "plan.note": "Chronographen, Jahreskalender und Restaurierungen werden separat, schriftlich und vor jeder Teilebestellung kalkuliert.",
+    "visita.title": "Die Werkbank wird reserviert. Die Uhr kommt nicht in einen Schlitz.",
+    "visita.lead": "Schreiben Sie, was Sie tragen (Marke, Kaliber falls bekannt, der Fehler). Wir antworten mit einem echten Termin, nicht mit einem blinden Formular.",
+    "visita.hours_k": "Öffnungszeiten",
+    "visita.hours": "Di–Fr 11–14 / 16–19. Sa 11–14. Mo geschlossen.",
+    "visita.addr_k": "Adresse",
+    "visita.addr": "Calle de León 11, 28014 Madrid",
+    "visita.cta": "Karte öffnen",
+    "visit.mail_subject": "CALIBRE-Termin — Werkbank",
+    "form.name": "Name",
+    "form.email": "E-Mail",
+    "form.watch": "Uhr",
+    "form.msg": "Das Problem",
+    "form.submit": "Werkstatt schreiben",
+    "form.ph_name": "Ihr Name",
+    "form.ph_email": "sie@email.de",
+    "form.ph_watch": "Marke, Modell, Jahr falls bekannt",
+    "form.ph_msg": "Läuft vor, stoppt, Feuchtigkeit…",
+    "form.err": "Wir brauchen eine gültige E-Mail und eine kurze Notiz zur Uhr.",
+    "form.ok": "Ihr Mailprogramm öffnet sich. Wenn nicht, schreiben Sie uns von Hand.",
+    "form.honest": "Es gibt keinen versteckten Posteingang. Der Versand öffnet Ihr Mailprogramm an <a href=\"mailto:hola@cristiancode.dev\">hola@cristiancode.dev</a>.",
+    "faq.title": "Bevor Sie die Uhr bringen",
+    "faq.q1": "Kann ich die Uhr ohne Termin abgeben?",
+    "faq.a1": "Nein. Es gibt eine Werkbank. Ohne Termin keine Annahme — wir halten keine herrenlosen Schachteln in Sichtweite.",
+    "faq.q2": "Arbeiten Sie an Quarzuhren?",
+    "faq.a2": "Batterie und Dichtungen an einfachen Stücken, ja. Digitale Module und Smartwatches, nein.",
+    "faq.q3": "Was, wenn ein Teil nötig ist?",
+    "faq.a3": "Sie erfahren Lieferant, Frist und Preis vor der Bestellung. Dauert es, bleibt die Uhr oder geht mit Ihnen; Sie entscheiden.",
+    "faq.q4": "Schätzen Sie Uhren zum Verkauf?",
+    "faq.a4": "Wir kaufen keine Uhren und vermitteln nicht. Ist das Kaliber gesund, sagen wir es; der Markt ist Ihre Sache.",
+    "faq.q5": "Ist das Revisionsangebot fix?",
+    "faq.a5": "Das der Reglage, ja. Die Revision schließt nach der Diagnose: Tritt Rost oder ein gerissener Steg auf, stoppen wir.",
+    "news.title": "Werkbank-Notizen",
+    "news.lead": "Freie Termine und seltene Kaliber. Gelegentliche Post, hier geschrieben.",
+    "news.ph": "sie@email.de",
+    "news.cta": "Schreiben, um informiert zu werden",
+    "news.err": "Diese E-Mail verstehen wir nicht.",
+    "news.ok": "Ihr Mailprogramm öffnet sich, um uns die Adresse zu schicken. Keine automatische Eintragung.",
+    "news.honest": "Wir führen keine Liste. Der Button öffnet ein <a href=\"mailto:hola@cristiancode.dev\">mailto</a> mit Ihrer Adresse.",
+    "news.mail_subject": "CALIBRE-Notizen",
+    "news.mail_body": "Ich möchte Werkbank-Notizen. Meine E-Mail: {email}.",
+    "cookie.msg": "Nur Sprache und Design auf diesem Gerät. Kein Tracking.",
+    "cookie.ok": "Einverstanden",
+    "footer.tag": "Mechanische Uhrmacherei · Madrid",
+    "footer.col2": "Auf dieser Seite",
+    "footer.l1": "Handwerk",
+    "footer.l2": "Werkbank",
+    "footer.l3": "Arbeiten",
+    "footer.l4": "Termin",
+    "footer.cr": "© 2026 CALIBRE · Calle de León 11, Madrid",
+    "footer.mail": "hola@cristiancode.dev",
+    "meta.title": "CALIBRE — Mechanische Uhrmacherei in Madrid",
+    "meta.desc": "Werkstatt für mechanische Uhren im Barrio de las Letras. Reglage, Revision und Restaurierung mit Termin. Calle de León 11."
+  },
+  it: {
+    "skip": "Vai al contenuto",
+    "nav.oficio": "Mestiere",
+    "nav.bancada": "Banco",
+    "nav.planes": "Lavori",
+    "nav.visita": "Appuntamento",
+    "nav.faq": "Domande",
+    "nav.cta": "Prenota un appuntamento",
+    "lang.aria": "Lingua",
+    "theme.toggle": "Cambia tema",
+    "menu.open": "Apri il menu",
+    "menu.close": "Chiudi il menu",
+    "hero.title": "UN CALIBRO NON <br>SI COMPRA. SI CONCORDA.",
+    "hero.sub": "Laboratorio di orologeria meccanica nel Barrio de las Letras. Diagnosi a vista, regolazione al banco, pezzi con provenienza. Solo su appuntamento.",
+    "hero.cta1": "Prenota il banco",
+    "hero.cta2": "Vedi il mestiere",
+    "hero.note": "Calle de León 11 · Madrid · martedì a sabato",
+    "hero.fig": "Calibro 2892 al banco",
+    "hero.figmeta": "28 800 a/h",
+    "listen.start": "Ascolta lo scappamento",
+    "listen.stop": "Silenzio",
+    "spec.a_k": "Frequenza",
+    "spec.a_v": "28 800 a/h",
+    "spec.b_k": "Riserva",
+    "spec.b_v": "42 ore",
+    "spec.c_k": "Rubini",
+    "spec.c_v": "21",
+    "spec.d_k": "Banco",
+    "spec.d_v": "Uno alla volta",
+    "oficio.title": "Il tempo si corregge a mano.",
+    "oficio.lead": "Non vendiamo vetrine. Riceviamo un orologio, lo apriamo davanti al proprietario e scriviamo cosa si tocca e cosa no.",
+    "oficio.p": "Il banco è al piano terra. Se lo scappamento anticipa, lo senti. Se un ponte è storto, lo vedi. Nulla va in un laboratorio anonimo: l’orologiaio che ti riceve è quello che regola.",
+    "step.1t": "Ricezione",
+    "step.1d": "Apriamo la cassa insieme. Fotografiamo stato, numero di calibro e urti visibili. Esci con un foglio, non con una promessa.",
+    "step.2t": "Diagnosi",
+    "step.2d": "Misuriamo ampiezza, errore di marcia e battuta. Se serve un pezzo, ti diciamo origine e tempi prima di ordinarlo.",
+    "step.3t": "Banco",
+    "step.3d": "Smontaggio, pulizia, lubrificazione e regolazione. Ogni vite torna al suo posto. Lo scappamento si risente.",
+    "step.4t": "Consegna",
+    "step.4d": "Ti restituiamo l’orologio con il foglio di marcia su 24 h e i pezzi sostituiti etichettati. Controllo a 30 giorni incluso.",
+    "banc.title": "Tre lavori. Nessuno generico.",
+    "banc.lead": "Scegliamo poco, di proposito. Un orologio al banco occupa la giornata; non c’è coda invisibile.",
+    "banc.1t": "Regolazione",
+    "banc.1d": "Per marce derivate. Posizioni, isocronismo, pulsanti. Esci il giorno stesso se il calibro è pulito.",
+    "banc.1m": "90 minuti · su appuntamento",
+    "banc.2t": "Revisione completa",
+    "banc.2d": "Servizio di 4–6 settimane: smontaggio, vasca, guarnizioni nuove, controllo di tenuta quando l’orologio la prevede.",
+    "banc.2m": "Calibri comuni e cronografi",
+    "banc.3t": "Restauro",
+    "banc.3d": "Casse ammaccate, quadranti umidi, calibri fermi da vent’anni. Preventivo chiuso prima di toccare un ponte.",
+    "banc.3m": "Su commissione · tempi scritti",
+    "planes.title": "Due lavori. Niente terzo cassetto.",
+    "planes.lead": "Se non rientra qui, lo diciamo alla prima visita. Non inventiamo un pacchetto per far quadrare.",
+    "plan.a_name": "Regolazione",
+    "plan.a_price": "120 €",
+    "plan.a_unit": "sessione da 90 min",
+    "plan.a_1": "Misura in 5 posizioni",
+    "plan.a_2": "Regolazione di battuta e marcia",
+    "plan.a_3": "Foglio di errore all’uscita",
+    "plan.a_4": "Se è sporco, ci fermiamo e preventiviamo una revisione",
+    "plan.a_cta": "Prenota il banco",
+    "plan.b_name": "Revisione",
+    "plan.b_price": "Da 380 €",
+    "plan.b_unit": "calibro a 3 lancette",
+    "plan.b_tag": "Il lavoro vero",
+    "plan.b_1": "Smontaggio e pulizia",
+    "plan.b_2": "Lubrificazione e guarnizioni",
+    "plan.b_3": "Marcia 24 h documentata",
+    "plan.b_4": "Controllo a 30 giorni incluso",
+    "plan.b_cta": "Prenota la diagnosi",
+    "plan.note": "Cronografi, calendari annuali e restauri si preventivano a parte, per iscritto, prima di ordinare qualsiasi pezzo.",
+    "visita.title": "Il banco si prenota. L’orologio non si infila in una fessura.",
+    "visita.lead": "Scrivi cosa porti (marca, calibro se lo sai, il difetto). Rispondiamo con un posto vero, non con un modulo cieco.",
+    "visita.hours_k": "Orari",
+    "visita.hours": "Mar–ven 11–14 / 16–19. Sab 11–14. Lunedì chiuso.",
+    "visita.addr_k": "Indirizzo",
+    "visita.addr": "Calle de León 11, 28014 Madrid",
+    "visita.cta": "Apri la mappa",
+    "visit.mail_subject": "Appuntamento CALIBRE — banco",
+    "form.name": "Nome",
+    "form.email": "Email",
+    "form.watch": "Orologio",
+    "form.msg": "Il difetto",
+    "form.submit": "Scrivi al laboratorio",
+    "form.ph_name": "Il tuo nome",
+    "form.ph_email": "tuo@email.com",
+    "form.ph_watch": "Marca, modello, anno se noto",
+    "form.ph_msg": "Anticipa, si ferma, umidità…",
+    "form.err": "Servono un’email valida e una breve nota sull’orologio.",
+    "form.ok": "Si apre la tua posta. Se non succede, scrivici a mano.",
+    "form.honest": "Non c’è una casella nascosta. L’invio apre il tuo client verso <a href=\"mailto:hola@cristiancode.dev\">hola@cristiancode.dev</a>.",
+    "faq.title": "Prima di portare l’orologio",
+    "faq.q1": "Posso lasciare l’orologio senza appuntamento?",
+    "faq.a1": "No. Il banco è uno. Senza posto non c’è ricezione, per non tenere casse senza proprietario in vista.",
+    "faq.q2": "Lavorate il quarzo?",
+    "faq.a2": "Cambio pila e guarnizioni su pezzi semplici, sì. Moduli digitali e smartwatch, no.",
+    "faq.q3": "E se serve un pezzo?",
+    "faq.a3": "Ti diciamo fornitore, tempi e prezzo prima di ordinarlo. Se tarda, l’orologio resta o va via con te; scegli tu.",
+    "faq.q4": "Fate valutazioni per la vendita?",
+    "faq.a4": "Non compriamo orologi né intermediamo. Se il calibro è sano, lo diciamo; il mercato è cosa tua.",
+    "faq.q5": "Il preventivo di revisione è fisso?",
+    "faq.a5": "Quello di regolazione, sì. La revisione si chiude dopo la diagnosi: se spunta ruggine o un ponte incrinato, ci fermiamo.",
+    "news.title": "Note di banco",
+    "news.lead": "Posti liberi e calibri rari. Email occasionale, scritta qui.",
+    "news.ph": "tuo@email.com",
+    "news.cta": "Scrivi per essere avvisato",
+    "news.err": "Questa email non si capisce.",
+    "news.ok": "Si apre la tua posta per inviarci l’indirizzo. Non c’è iscrizione automatica.",
+    "news.honest": "Non teniamo una lista. Il bottone apre una <a href=\"mailto:hola@cristiancode.dev\">mailto</a> con il tuo indirizzo.",
+    "news.mail_subject": "Note CALIBRE",
+    "news.mail_body": "Voglio le note di banco. La mia email è {email}.",
+    "cookie.msg": "Solo lingua e tema su questo dispositivo. Nessun tracciamento.",
+    "cookie.ok": "D’accordo",
+    "footer.tag": "Orologeria meccanica · Madrid",
+    "footer.col2": "In questa pagina",
+    "footer.l1": "Mestiere",
+    "footer.l2": "Banco",
+    "footer.l3": "Lavori",
+    "footer.l4": "Appuntamento",
+    "footer.cr": "© 2026 CALIBRE · Calle de León 11, Madrid",
+    "footer.mail": "hola@cristiancode.dev",
+    "meta.title": "CALIBRE — Orologeria meccanica a Madrid",
+    "meta.desc": "Laboratorio di orologeria meccanica nel Barrio de las Letras. Regolazione, revisione e restauro su appuntamento. Calle de León 11."
+  },
+  pt: {
+    "skip": "Ir para o conteúdo",
+    "nav.oficio": "Ofício",
+    "nav.bancada": "Bancada",
+    "nav.planes": "Trabalhos",
+    "nav.visita": "Consulta",
+    "nav.faq": "Perguntas",
+    "nav.cta": "Marcar consulta",
+    "lang.aria": "Idioma",
+    "theme.toggle": "Mudar tema",
+    "menu.open": "Abrir menu",
+    "menu.close": "Fechar menu",
+    "hero.title": "UM CALIBRE NÃO <br>SE COMPRA. COMBINA-SE.",
+    "hero.sub": "Oficina de relojoaria mecânica no Barrio de las Letras. Diagnóstico à vista, regulação na bancada e peças com procedência. Só com consulta marcada.",
+    "hero.cta1": "Reservar a bancada",
+    "hero.cta2": "Ver o ofício",
+    "hero.note": "Calle de León 11 · Madrid · terça a sábado",
+    "hero.fig": "Calibre 2892 na bancada",
+    "hero.figmeta": "28 800 a/h",
+    "listen.start": "Ouvir o escape",
+    "listen.stop": "Silêncio",
+    "spec.a_k": "Frequência",
+    "spec.a_v": "28 800 a/h",
+    "spec.b_k": "Reserva",
+    "spec.b_v": "42 horas",
+    "spec.c_k": "Rubis",
+    "spec.c_v": "21",
+    "spec.d_k": "Bancada",
+    "spec.d_v": "Uma de cada vez",
+    "oficio.title": "O tempo corrige-se à mão.",
+    "oficio.lead": "Não vendemos vitrinas. Recebemos um relógio, abrimo-lo diante do dono e deixamos escrito o que se mexe e o que não se mexe.",
+    "oficio.p": "A bancada fica no rés do chão. Se o escape adianta, ouve-se. Se uma ponte está torta, vê-se. Nada vai para uma oficina anónima: o relojoeiro que te recebe é o que regula.",
+    "step.1t": "Recepção",
+    "step.1d": "Abrimos a caixa juntos. Fotografamos estado, número de calibre e pancadas visíveis. Sais com uma folha, não com uma promessa.",
+    "step.2t": "Diagnóstico",
+    "step.2d": "Medimos amplitude, erro de marcha e batida. Se for precisa uma peça, dizemos origem e prazo antes de a encomendar.",
+    "step.3t": "Bancada",
+    "step.3d": "Desmontagem, limpeza, lubrificação e regulação. Cada parafuso volta ao seu lugar. O escape volta a ouvir-se.",
+    "step.4t": "Entrega",
+    "step.4d": "Devolvemos o relógio com a folha de marcha de 24 h e as peças substituídas etiquetadas. Revisão aos 30 dias incluída.",
+    "banc.title": "Três trabalhos. Nenhum genérico.",
+    "banc.lead": "Escolhemos pouco, de propósito. Um relógio na bancada ocupa o dia; não há fila invisível.",
+    "banc.1t": "Regulação",
+    "banc.1d": "Para marchas que se foram. Posições, isocronismo, empurradores. Sais no mesmo dia se o calibre estiver limpo.",
+    "banc.1m": "90 minutos · com consulta",
+    "banc.2t": "Revisão completa",
+    "banc.2d": "Serviço de 4–6 semanas: desmontagem, cuba, juntas novas, controlo de estanquidade quando o relógio a tem.",
+    "banc.2m": "Calibres comuns e cronógrafos",
+    "banc.3t": "Restauro",
+    "banc.3d": "Caixas amolgadas, mostradores húmidos, calibres parados há vinte anos. Orçamento fechado antes de tocar numa ponte.",
+    "banc.3m": "Por encomenda · prazo escrito",
+    "planes.title": "Dois trabalhos. Sem terceira gaveta.",
+    "planes.lead": "Se não encaixa aqui, dizemos logo na primeira visita. Não inventamos um pacote para fechar as contas.",
+    "plan.a_name": "Regulação",
+    "plan.a_price": "120 €",
+    "plan.a_unit": "sessão de 90 min",
+    "plan.a_1": "Medição em 5 posições",
+    "plan.a_2": "Ajuste de batida e marcha",
+    "plan.a_3": "Folha de erro à saída",
+    "plan.a_4": "Se estiver sujo, paramos e orçamentamos uma revisão",
+    "plan.a_cta": "Reservar a bancada",
+    "plan.b_name": "Revisão",
+    "plan.b_price": "Desde 380 €",
+    "plan.b_unit": "calibre de 3 ponteiros",
+    "plan.b_tag": "O trabalho a sério",
+    "plan.b_1": "Desmontagem e limpeza",
+    "plan.b_2": "Lubrificação e juntas",
+    "plan.b_3": "Marcha 24 h documentada",
+    "plan.b_4": "Revisão aos 30 dias incluída",
+    "plan.b_cta": "Marcar diagnóstico",
+    "plan.note": "Cronógrafos, calendários anuais e restauros orçamentam-se à parte, por escrito, antes de encomendar qualquer peça.",
+    "visita.title": "A bancada reserva-se. O relógio não se deixa numa fresta.",
+    "visita.lead": "Escreve o que trazes (marca, calibre se souberes, o defeito). Respondemos com um horário real, não com um formulário cego.",
+    "visita.hours_k": "Horário",
+    "visita.hours": "Ter–sex 11–14 / 16–19. Sáb 11–14. Segunda fechado.",
+    "visita.addr_k": "Morada",
+    "visita.addr": "Calle de León 11, 28014 Madrid",
+    "visita.cta": "Abrir o mapa",
+    "visit.mail_subject": "Consulta CALIBRE — bancada",
+    "form.name": "Nome",
+    "form.email": "Email",
+    "form.watch": "Relógio",
+    "form.msg": "O defeito",
+    "form.submit": "Escrever à oficina",
+    "form.ph_name": "O teu nome",
+    "form.ph_email": "tu@email.com",
+    "form.ph_watch": "Marca, modelo, ano se souberes",
+    "form.ph_msg": "Adianta, para, humidade…",
+    "form.err": "Precisamos de um email válido e de uma breve nota sobre o relógio.",
+    "form.ok": "Vai abrir o teu correio. Se não, escreve-nos à mão.",
+    "form.honest": "Não há caixa escondida. O envio abre o teu cliente de correio para <a href=\"mailto:hola@cristiancode.dev\">hola@cristiancode.dev</a>.",
+    "faq.title": "Antes de trazeres o relógio",
+    "faq.q1": "Posso deixar o relógio sem consulta?",
+    "faq.a1": "Não. Há uma bancada. Sem horário não há recepção, para não termos caixas sem dono à vista.",
+    "faq.q2": "Trabalham com quartzo?",
+    "faq.a2": "Troca de pilha e juntas em peças simples, sim. Módulos digitais e smartwatches, não.",
+    "faq.q3": "E se for precisa uma peça?",
+    "faq.a3": "Dizemos fornecedor, prazo e preço antes de encomendar. Se demorar, o relógio fica ou vai contigo; tu escolhes.",
+    "faq.q4": "Fazem avaliação para venda?",
+    "faq.a4": "Não compramos relógios nem intermediamos. Se o calibre estiver são, dizemos; o mercado é contigo.",
+    "faq.q5": "O orçamento da revisão é fixo?",
+    "faq.a5": "O da regulação, sim. A revisão fecha-se após o diagnóstico: se aparecer ferrugem ou uma ponte fissurada, paramos.",
+    "news.title": "Avisos de bancada",
+    "news.lead": "Horários livres e quando entra um calibre raro. Email ocasional, escrito aqui.",
+    "news.ph": "tu@email.com",
+    "news.cta": "Escrever para ser avisado",
+    "news.err": "Esse email não se percebe.",
+    "news.ok": "Abre o teu correio para nos mandares a morada. Não há inscrição automática.",
+    "news.honest": "Não guardamos uma lista. O botão abre um <a href=\"mailto:hola@cristiancode.dev\">mailto</a> com a tua morada.",
+    "news.mail_subject": "Avisos CALIBRE",
+    "news.mail_body": "Quero avisos de bancada. O meu email é {email}.",
+    "cookie.msg": "Só idioma e tema neste dispositivo. Sem rastreamento.",
+    "cookie.ok": "Percebido",
+    "footer.tag": "Relojoaria mecânica · Madrid",
+    "footer.col2": "Nesta página",
+    "footer.l1": "Ofício",
+    "footer.l2": "Bancada",
+    "footer.l3": "Trabalhos",
+    "footer.l4": "Consulta",
+    "footer.cr": "© 2026 CALIBRE · Calle de León 11, Madrid",
+    "footer.mail": "hola@cristiancode.dev",
+    "meta.title": "CALIBRE — Relojoaria mecânica em Madrid",
+    "meta.desc": "Oficina de relojoaria mecânica no Barrio de las Letras. Regulação, revisão e restauro com consulta marcada. Calle de León 11."
+  }
+};
+
+(function () {
+  var LANGS = ['es', 'en', 'fr', 'de', 'it', 'pt'];
+  var LANG_KEY = 'calibre-lang';
+  var COOKIE_KEY = 'calibre-cookie';
+  var HTML_KEYS = { 'hero.title': 1, 'form.honest': 1, 'news.honest': 1 };
+  function $(s, r) { return (r || document).querySelector(s); }
+  function $$(s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); }
+  function DICT() { return I18N[getLang()] || I18N.es; }
+
+  function getLang() {
+    var saved = null;
+    try { saved = localStorage.getItem(LANG_KEY); } catch (e) {}
+    if (saved && LANGS.indexOf(saved) > -1) return saved;
+    var nav = (navigator.languages || [navigator.language || 'es']).map(function (l) {
+      return String(l).split('-')[0].toLowerCase();
+    });
+    for (var i = 0; i < nav.length; i++) { if (LANGS.indexOf(nav[i]) > -1) return nav[i]; }
+    return 'es';
+  }
+  function getTheme() {
+    var t = 'light';
+    try { t = localStorage.getItem('kairos-theme') || 'light'; } catch (e) {}
+    return t === 'dark' ? 'dark' : 'light';
+  }
+  function setTheme(t) {
+    document.documentElement.setAttribute('data-theme', t);
+    try { localStorage.setItem('kairos-theme', t); } catch (e) {}
+    $$('.theme-toggle').forEach(function (b) {
+      b.setAttribute('aria-label', DICT()['theme.toggle'] || '');
+    });
+  }
+  function applyLang(lang) {
+    if (LANGS.indexOf(lang) === -1) lang = 'es';
+    try { localStorage.setItem(LANG_KEY, lang); } catch (e) {}
+    var D = I18N[lang] || I18N.es;
+    document.documentElement.setAttribute('lang', lang);
+    $$('[data-i18n]').forEach(function (el) {
+      var k = el.getAttribute('data-i18n');
+      if (D[k] !== undefined) el.textContent = D[k];
+    });
+    $$('[data-i18n-html]').forEach(function (el) {
+      var k = el.getAttribute('data-i18n-html');
+      if (D[k] !== undefined && HTML_KEYS[k]) el.innerHTML = D[k];
+    });
+    $$('[data-i18n-ph]').forEach(function (el) {
+      var k = el.getAttribute('data-i18n-ph');
+      if (D[k] !== undefined) el.setAttribute('placeholder', D[k]);
+    });
+    $$('[data-i18n-aria]').forEach(function (el) {
+      var k = el.getAttribute('data-i18n-aria');
+      if (D[k] !== undefined) el.setAttribute('aria-label', D[k]);
+    });
+    $$('.lang-select__cur').forEach(function (el) { el.textContent = lang.toUpperCase(); });
+    $$('.lang-select__opt').forEach(function (opt) {
+      opt.setAttribute('aria-selected', opt.getAttribute('data-lang') === lang ? 'true' : 'false');
+    });
+    var lb = $('#listenBtn');
+    if (lb) {
+      var pressed = lb.getAttribute('aria-pressed') === 'true';
+      lb.setAttribute('aria-label', pressed ? (D['listen.stop'] || '') : (D['listen.start'] || ''));
+      var ls = lb.querySelector('span');
+      if (ls) ls.textContent = pressed ? (D['listen.stop'] || '') : (D['listen.start'] || '');
+    }
+    var mt = document.getElementById('meta-desc');
+    if (mt) mt.setAttribute('content', D['meta.desc'] || '');
+    var dt = document.getElementById('doc-title');
+    if (dt) dt.textContent = D['meta.title'] || '';
+    var ogt = document.getElementById('og-title');
+    if (ogt) ogt.setAttribute('content', D['meta.title'] || '');
+    var ogd = document.getElementById('og-desc');
+    if (ogd) ogd.setAttribute('content', D['meta.desc'] || '');
+    var twt = document.getElementById('tw-title');
+    if (twt) twt.setAttribute('content', D['meta.title'] || '');
+    var twd = document.getElementById('tw-desc');
+    if (twd) twd.setAttribute('content', D['meta.desc'] || '');
+  }
+
+  function closeLangMenus() {
+    $$('.lang-select').forEach(function (sel) {
+      var m = sel.querySelector('.lang-select__menu');
+      var b = sel.querySelector('.lang-select__btn');
+      if (m) m.classList.remove('open');
+      if (b) b.setAttribute('aria-expanded', 'false');
+    });
+  }
+  $$('.lang-select').forEach(function (sel) {
+    var btn = sel.querySelector('.lang-select__btn');
+    var menu = sel.querySelector('.lang-select__menu');
+    if (!btn || !menu) return;
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var open = menu.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    menu.querySelectorAll('.lang-select__opt').forEach(function (opt) {
+      opt.addEventListener('click', function () {
+        applyLang(opt.getAttribute('data-lang'));
+        closeLangMenus();
+      });
+    });
+  });
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('.lang-select')) closeLangMenus();
+  });
+
+  var menuToggle = $('.menu-toggle');
+  var mobileMenu = $('#mobileMenu');
+  function menuOpen() {
+    mobileMenu.classList.add('open');
+    mobileMenu.setAttribute('aria-hidden', 'false');
+    menuToggle.setAttribute('aria-expanded', 'true');
+    document.body.classList.add('no-scroll');
+    menuToggle.setAttribute('aria-label', DICT()['menu.close'] || '');
+  }
+  function closeMenu() {
+    if (!mobileMenu) return;
+    mobileMenu.classList.remove('open');
+    mobileMenu.setAttribute('aria-hidden', 'true');
+    if (menuToggle) {
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.setAttribute('aria-label', DICT()['menu.open'] || '');
+    }
+    document.body.classList.remove('no-scroll');
+  }
+  if (menuToggle) menuToggle.addEventListener('click', function () {
+    if (mobileMenu.classList.contains('open')) closeMenu(); else menuOpen();
+  });
+  $$('#mobileMenu nav a, #mobileMenu a.m-menu-cta').forEach(function (a) {
+    a.addEventListener('click', closeMenu);
+  });
+
+  $$('.theme-toggle').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      setTheme(getTheme() === 'dark' ? 'light' : 'dark');
+    });
+  });
+
+  /* listen toggle — speeds the escapement */
+  var listenBtn = $('#listenBtn');
+  var bench = $('#bench');
+  if (listenBtn && bench) {
+    listenBtn.addEventListener('click', function () {
+      var on = listenBtn.getAttribute('aria-pressed') === 'true';
+      listenBtn.setAttribute('aria-pressed', on ? 'false' : 'true');
+      bench.classList.toggle('lis', !on);
+      var D = DICT();
+      listenBtn.setAttribute('aria-label', on ? (D['listen.start'] || '') : (D['listen.stop'] || ''));
+      var ls = listenBtn.querySelector('span');
+      if (ls) ls.textContent = on ? (D['listen.start'] || '') : (D['listen.stop'] || '');
+    });
+  }
+
+  $$('.faq-item').forEach(function (item) {
+    var q = item.querySelector('.faq-q');
+    var a = item.querySelector('.faq-a');
+    q.addEventListener('click', function () {
+      var open = item.classList.toggle('open');
+      q.setAttribute('aria-expanded', open ? 'true' : 'false');
+      a.style.maxHeight = open ? a.scrollHeight + 'px' : '0px';
+    });
+  });
+
+  function revealTick() {
+    var vh = window.innerHeight || 800;
+    $$('.rv').forEach(function (el) {
+      if (el.classList.contains('in')) return;
+      var r = el.getBoundingClientRect();
+      if (r.top < vh * 0.92) el.classList.add('in');
+    });
+  }
+  function initReveal() {
+    var items = $$('.rv');
+    if (!items.length) return;
+    revealTick();
+    var ticking = false;
+    window.addEventListener('scroll', function () {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () { revealTick(); ticking = false; });
+    }, { passive: true });
+    window.addEventListener('resize', revealTick, { passive: true });
+  }
+
+  /* honest mailto form */
+  var visitForm = $('#visitForm');
+  var formMsg = $('#formMsg');
+  if (visitForm) visitForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var email = ($('#fEmail') || {}).value || '';
+    var msg = ($('#fMsg') || {}).value || '';
+    email = email.trim(); msg = msg.trim();
+    var D = DICT();
+    var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
+    if (!emailOk || msg.length < 6) {
+      formMsg.className = 'news-msg err';
+      formMsg.textContent = D['form.err'] || '';
+      return;
+    }
+    var watch = ($('#fWatch') || {}).value || '';
+    var name = ($('#fName') || {}).value || '';
+    var body = 'De: ' + name + ' (' + email + ')\nReloj: ' + watch + '\n\n' + msg;
+    window.location.href = 'mailto:hola@cristiancode.dev?subject=' +
+      encodeURIComponent(D['visit.mail_subject'] || '') +
+      '&body=' + encodeURIComponent(body);
+    formMsg.className = 'news-msg ok';
+    formMsg.textContent = D['form.ok'] || '';
+  });
+
+  /* honest newsletter mailto */
+  var newsForm = $('#newsForm');
+  var newsMsg = $('#newsMsg');
+  if (newsForm) newsForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var email = ($('#newsEmail') || {}).value || '';
+    email = email.trim();
+    var D = DICT();
+    var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
+    if (!emailOk) {
+      newsMsg.className = 'news-msg err';
+      newsMsg.textContent = D['news.err'] || '';
+      return;
+    }
+    var body = (D['news.mail_body'] || '').replace('{email}', email);
+    window.location.href = 'mailto:hola@cristiancode.dev?subject=' +
+      encodeURIComponent(D['news.mail_subject'] || '') +
+      '&body=' + encodeURIComponent(body);
+    newsMsg.className = 'news-msg ok';
+    newsMsg.textContent = D['news.ok'] || '';
+  });
+
+  /* cookie */
+  var cookieBanner = $('#cookieBanner');
+  var cookieAccepted = false;
+  try { cookieAccepted = localStorage.getItem(COOKIE_KEY) === 'accepted'; } catch (e) {}
+  if (!cookieAccepted && cookieBanner) {
+    setTimeout(function () { cookieBanner.classList.add('show'); }, 3000);
+  }
+  var cookieOk = $('#cookieOk');
+  if (cookieOk) cookieOk.addEventListener('click', function () {
+    try { localStorage.setItem(COOKIE_KEY, 'accepted'); } catch (e) {}
+    cookieBanner.classList.remove('show');
+  });
+
+  try {
+    document.documentElement.classList.remove('no-js');
+    setTheme(getTheme());
+    applyLang(getLang());
+    initReveal();
+  } catch (err) {
+    $$('.rv').forEach(function (el) { el.classList.add('in'); });
+  }
+})();
+
+</script>
+</body>
+</html>

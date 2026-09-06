@@ -1,0 +1,15 @@
+import re
+from pathlib import Path
+h = Path('/opt/data/landing-pages/2026-08-25-salina.html').read_text()
+print('== href="#" anchors ==')
+m = re.findall(r'href="([^"]+)"', h)
+print('  total hrefs:', len(m))
+print('  href="#" occurrences:', m.count('#'))
+print()
+print('== external image URLs ==')
+urls = sorted(set(re.findall(r'https?://[^"\'\s>]+\.(jpg|jpeg|webp|png)[^"\'\s>]*', h)))
+for u in urls: print('  IMG', u)
+print()
+print('== scripts ==')
+print('  mailto hola@salinas.es:', h.count('mailto:hola@salinas.es'))
+print('  <img count:', len(re.findall(r'<img', h)))

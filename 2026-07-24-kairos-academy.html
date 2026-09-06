@@ -1,0 +1,2871 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="meta-title">Kairos Academy — Learn What Matters, When It Matters</title>
+  <meta name="description" id="meta-desc" content="Kairos Academy is a modern online learning platform offering expert-led courses in design, technology, business, and creative arts. Learn at your own pace with project-based curriculum.">
+  <link rel="canonical" href="https://kairos.academy/">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230075de'/%3E%3Cpath d='M10 22V10h3.5l3.5 7 3.5-7H24v12h-3V15l-3.5 7-3.5-7v7H10z' fill='%23ffffff'/%3E%3C/svg%3E">
+  <meta name="theme-color" content="#f6f5f4">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Kairos Academy">
+  <meta property="og:title" id="og-title" content="Kairos Academy — Learn What Matters, When It Matters">
+  <meta property="og:description" id="og-desc" content="Modern online learning platform. Expert-led courses in design, technology, business, and creative arts. Project-based curriculum, learn at your own pace.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=1200&q=80">
+  <meta property="og:url" content="https://kairos.academy/">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" id="tw-title" content="Kairos Academy — Learn What Matters, When It Matters">
+  <meta name="twitter:description" id="tw-desc" content="Modern online learning platform. Expert-led courses in design, technology, business, and creative arts. Project-based curriculum.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=1200&q=80">
+  <meta name="twitter:site" content="@kairosacademy">
+
+  <!-- Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============================================================
+       DESIGN SYSTEM — Kairos Academy
+       Surface: Decide/Learn (landing page — online education platform)
+       Derived from: Notion (popular-web-designs)
+       Family: Education / Online Learning
+       Style: Notion-inspired — warm editorial minimalism, whisper borders
+       Palette: Warm neutrals + Notion Blue accent
+       Font: Inter (all weights 300-700)
+       Strategy: Restrained (tinted neutrals + blue accent ≤10%)
+       ============================================================ */
+
+    :root {
+      /* Notion Color Palette — Light Mode */
+      --color-bg: #ffffff;
+      --color-surface: #f6f5f4;
+      --color-surface-alt: #f0eeec;
+      --color-elevated: #ffffff;
+      --color-text-primary: rgba(0,0,0,0.95);
+      --color-text-secondary: #615d59;
+      --color-text-tertiary: #a39e98;
+      --color-accent: #0075de;
+      --color-accent-hover: #005bab;
+      --color-accent-light: #f2f9ff;
+      --color-accent-text: #097fe8;
+      --color-border: rgba(0,0,0,0.1);
+      --color-border-hover: rgba(0,0,0,0.16);
+      --color-overlay: rgba(0,0,0,0.04);
+
+      /* Dark Mode Colors */
+      --color-bg-dark: #1a1a1a;
+      --color-surface-dark: #232323;
+      --color-surface-alt-dark: #2a2a2a;
+      --color-elevated-dark: #2a2a2a;
+      --color-text-primary-dark: rgba(255,255,255,0.93);
+      --color-text-secondary-dark: #a39e98;
+      --color-text-tertiary-dark: #615d59;
+      --color-accent-dark: #3291ff;
+      --color-accent-hover-dark: #5aadff;
+      --color-accent-light-dark: #1a2a3a;
+      --color-accent-text-dark: #62aef0;
+      --color-border-dark: rgba(255,255,255,0.1);
+      --color-border-hover-dark: rgba(255,255,255,0.18);
+      --color-overlay-dark: rgba(0,0,0,0.3);
+
+      /* Typography */
+      --font-primary: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+
+      /* Spacing */
+      --space-xs: 0.5rem;
+      --space-sm: 0.75rem;
+      --space-md: 1rem;
+      --space-lg: 1.5rem;
+      --space-xl: 2rem;
+      --space-2xl: 3rem;
+      --space-3xl: 4rem;
+      --space-4xl: 5.5rem;
+      --space-5xl: 8rem;
+
+      /* Layout */
+      --content-max: 76rem;
+      --content-narrow: 44rem;
+      --nav-height: 3.75rem;
+
+      /* Z-index */
+      --z-dropdown: 100;
+      --z-sticky: 200;
+      --z-nav: 300;
+      --z-modal-backdrop: 400;
+      --z-modal: 500;
+      --z-toast: 600;
+
+      /* Notion Shadow Stacks */
+      --shadow-soft: rgba(0,0,0,0.04) 0px 4px 18px, rgba(0,0,0,0.027) 0px 2.025px 7.84688px, rgba(0,0,0,0.02) 0px 0.8px 2.925px, rgba(0,0,0,0.01) 0px 0.175px 1.04062px;
+      --shadow-deep: rgba(0,0,0,0.01) 0px 1px 3px, rgba(0,0,0,0.02) 0px 3px 7px, rgba(0,0,0,0.02) 0px 7px 15px, rgba(0,0,0,0.04) 0px 14px 28px, rgba(0,0,0,0.05) 0px 23px 52px;
+
+      /* Border radius */
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --radius-xl: 16px;
+      --radius-full: 9999px;
+
+      /* Transitions */
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --duration-fast: 200ms;
+      --duration-normal: 400ms;
+      --duration-slow: 700ms;
+    }
+
+    /* ============================================================
+       DARK MODE
+       ============================================================ */
+    [data-theme="dark"] {
+      --color-bg: var(--color-bg-dark);
+      --color-surface: var(--color-surface-dark);
+      --color-surface-alt: var(--color-surface-alt-dark);
+      --color-elevated: var(--color-elevated-dark);
+      --color-text-primary: var(--color-text-primary-dark);
+      --color-text-secondary: var(--color-text-secondary-dark);
+      --color-text-tertiary: var(--color-text-tertiary-dark);
+      --color-accent: var(--color-accent-dark);
+      --color-accent-hover: var(--color-accent-hover-dark);
+      --color-accent-light: var(--color-accent-light-dark);
+      --color-accent-text: var(--color-accent-text-dark);
+      --color-border: var(--color-border-dark);
+      --color-border-hover: var(--color-border-hover-dark);
+      --color-overlay: var(--color-overlay-dark);
+      --shadow-soft: rgba(0,0,0,0.25) 0px 4px 18px, rgba(0,0,0,0.2) 0px 2.025px 7.84688px, rgba(0,0,0,0.15) 0px 0.8px 2.925px, rgba(0,0,0,0.1) 0px 0.175px 1.04062px;
+      --shadow-deep: rgba(0,0,0,0.3) 0px 1px 3px, rgba(0,0,0,0.3) 0px 3px 7px, rgba(0,0,0,0.3) 0px 7px 15px, rgba(0,0,0,0.3) 0px 14px 28px, rgba(0,0,0,0.3) 0px 23px 52px;
+    }
+
+    /* ============================================================
+       RESET & BASE
+       ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: var(--font-primary);
+      font-size: 1rem;
+      line-height: 1.5;
+      color: var(--color-text-primary);
+      background: var(--color-bg);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      transition: background var(--duration-normal) var(--ease-out),
+                  color var(--duration-normal) var(--ease-out);
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    button {
+      font: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    ul { list-style: none; }
+
+    /* ============================================================
+       UTILITY CLASSES
+       ============================================================ */
+    .container {
+      width: 100%;
+      max-width: var(--content-max);
+      margin: 0 auto;
+      padding: 0 var(--space-xl);
+    }
+
+    .container-narrow {
+      max-width: var(--content-narrow);
+      margin: 0 auto;
+      padding: 0 var(--space-xl);
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px; height: 1px;
+      padding: 0; margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: var(--space-3xl);
+    }
+
+    .section-header-left {
+      text-align: left;
+      margin-bottom: var(--space-3xl);
+    }
+
+    .section-title {
+      font-family: var(--font-primary);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 700;
+      line-height: 1.04;
+      letter-spacing: -0.0625em;
+      color: var(--color-text-primary);
+      text-wrap: balance;
+      margin-bottom: var(--space-md);
+    }
+
+    .section-desc {
+      font-size: 1.125rem;
+      line-height: 1.5;
+      color: var(--color-text-secondary);
+      max-width: 65ch;
+      margin: 0 auto;
+    }
+
+    .section-desc-left {
+      margin: 0;
+      max-width: 65ch;
+    }
+
+    /* Notion-style pill badge (section kicker, one intentional use) */
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      font-family: var(--font-primary);
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-lg);
+    }
+
+    /* Pill Badge — Notion style */
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      font-family: var(--font-primary);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.125px;
+      color: var(--color-accent-text);
+      background: var(--color-accent-light);
+      padding: 0.25rem 0.5rem;
+      border-radius: var(--radius-full);
+    }
+
+    /* Notion-style buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      font-family: var(--font-primary);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid transparent;
+      transition: all var(--duration-fast) var(--ease-out);
+      white-space: nowrap;
+      cursor: pointer;
+      line-height: 1.33;
+    }
+    .btn:active { transform: scale(0.97); }
+
+    .btn-primary {
+      background: var(--color-accent);
+      color: #ffffff;
+      border-color: transparent;
+    }
+    .btn-primary:hover {
+      background: var(--color-accent-hover);
+    }
+    .btn-primary:focus-visible {
+      outline: 2px solid var(--color-accent-text);
+      outline-offset: 2px;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--color-text-primary);
+      border: 1px solid var(--color-border);
+    }
+    .btn-secondary:hover {
+      border-color: var(--color-border-hover);
+      background: var(--color-overlay);
+    }
+    .btn-secondary:focus-visible {
+      outline: 2px solid var(--color-accent-text);
+      outline-offset: 2px;
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--color-text-primary);
+      border-color: transparent;
+      padding: 0.375rem 0.75rem;
+    }
+    .btn-ghost:hover {
+      text-decoration: underline;
+    }
+    .btn-ghost:focus-visible {
+      outline: 2px solid var(--color-accent-text);
+      outline-offset: 2px;
+    }
+
+    /* ============================================================
+       REVEAL ANIMATIONS
+       ============================================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity var(--duration-slow) var(--ease-out),
+                  transform var(--duration-slow) var(--ease-out);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 80ms; }
+    .reveal-delay-2 { transition-delay: 160ms; }
+    .reveal-delay-3 { transition-delay: 240ms; }
+    .reveal-delay-4 { transition-delay: 320ms; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    /* ============================================================
+       NAVIGATION
+       ============================================================ */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: var(--z-nav);
+      height: var(--nav-height);
+      background: var(--color-bg);
+      border-bottom: 1px solid var(--color-border);
+      transition: background var(--duration-normal) var(--ease-out),
+                  border-color var(--duration-normal) var(--ease-out);
+    }
+
+    .nav-scrolled {
+      box-shadow: var(--shadow-soft);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+      max-width: var(--content-max);
+      margin: 0 auto;
+      padding: 0 var(--space-xl);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      font-family: var(--font-primary);
+      font-size: 1.0625rem;
+      font-weight: 700;
+      color: var(--color-text-primary);
+      letter-spacing: -0.01em;
+    }
+
+    .nav-logo-mark {
+      width: 1.75rem;
+      height: 1.75rem;
+      background: var(--color-accent);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.875rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: var(--space-xl);
+    }
+
+    .nav-links a {
+      font-family: var(--font-primary);
+      font-size: 0.9375rem;
+      font-weight: 500;
+      color: var(--color-text-secondary);
+      transition: color var(--duration-fast) var(--ease-out);
+      padding: 0.25rem 0;
+    }
+    .nav-links a:hover { color: var(--color-text-primary); }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+    }
+
+    /* Language Switcher */
+    .lang-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.375rem;
+      font-family: var(--font-primary);
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--color-text-secondary);
+      padding: 0.375rem 0.5rem;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      transition: all var(--duration-fast) var(--ease-out);
+      position: relative;
+      line-height: 1.33;
+    }
+    .lang-btn:hover {
+      border-color: var(--color-border-hover);
+      color: var(--color-text-primary);
+    }
+    .lang-btn svg { width: 14px; height: 14px; }
+
+    .lang-dropdown {
+      position: absolute;
+      top: calc(100% + 4px);
+      right: 0;
+      background: var(--color-elevated);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-deep);
+      min-width: 10rem;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-4px);
+      transition: all var(--duration-fast) var(--ease-out);
+      z-index: var(--z-dropdown);
+      overflow: hidden;
+    }
+    .lang-dropdown.open {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    .lang-option {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      width: 100%;
+      padding: var(--space-sm) var(--space-md);
+      font-family: var(--font-primary);
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--color-text-secondary);
+      transition: all var(--duration-fast) var(--ease-out);
+      border-bottom: 1px solid var(--color-border);
+      cursor: pointer;
+    }
+    .lang-option:last-child { border-bottom: none; }
+    .lang-option:hover { background: var(--color-surface); color: var(--color-text-primary); }
+    .lang-option.active { color: var(--color-text-primary); font-weight: 600; }
+    .lang-option .flag { font-size: 1rem; }
+    .lang-option .check {
+      margin-left: auto;
+      color: var(--color-accent);
+      opacity: 0;
+    }
+    .lang-option.active .check { opacity: 1; }
+
+    /* Theme Toggle */
+    .theme-toggle {
+      position: relative;
+      width: 2.125rem;
+      height: 2.125rem;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-text-secondary);
+      border: 1px solid var(--color-border);
+      transition: all var(--duration-fast) var(--ease-out);
+    }
+    .theme-toggle:hover {
+      border-color: var(--color-border-hover);
+      color: var(--color-text-primary);
+    }
+    .theme-toggle svg {
+      width: 0.9375rem;
+      height: 0.9375rem;
+      transition: transform var(--duration-normal) var(--ease-out);
+    }
+    .theme-toggle .sun-icon { display: none; }
+    .theme-toggle .moon-icon { display: block; }
+    [data-theme="dark"] .theme-toggle .sun-icon { display: block; }
+    [data-theme="dark"] .theme-toggle .moon-icon { display: none; }
+
+    /* Mobile hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      padding: 0.5rem;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      background: none;
+      cursor: pointer;
+    }
+    .hamburger span {
+      display: block;
+      width: 18px;
+      height: 2px;
+      background: var(--color-text-primary);
+      border-radius: 1px;
+      transition: all var(--duration-fast) var(--ease-out);
+    }
+    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(4px, 4px); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(4px, -4px); }
+
+    /* Mobile nav */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: var(--nav-height);
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: var(--color-bg);
+      z-index: calc(var(--z-nav) - 1);
+      padding: var(--space-2xl) var(--space-xl);
+      flex-direction: column;
+      gap: var(--space-xl);
+      transform: translateX(100%);
+      transition: transform var(--duration-normal) var(--ease-out);
+    }
+    .mobile-nav.open { transform: translateX(0); }
+    .mobile-nav a {
+      font-family: var(--font-primary);
+      font-size: 1.125rem;
+      font-weight: 500;
+      color: var(--color-text-primary);
+      display: block;
+      padding: var(--space-sm) 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .mobile-nav .btn {
+      width: 100%;
+      justify-content: center;
+      margin-top: var(--space-md);
+    }
+
+    /* ============================================================
+       HERO SECTION
+       ============================================================ */
+    .hero {
+      padding-top: calc(var(--nav-height) + var(--space-4xl));
+      padding-bottom: var(--space-5xl);
+      position: relative;
+      overflow: hidden;
+      background: var(--color-bg);
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4xl);
+      align-items: center;
+    }
+
+    .hero-title {
+      font-family: var(--font-primary);
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 700;
+      line-height: 1.00;
+      color: var(--color-text-primary);
+      text-wrap: balance;
+      margin-bottom: var(--space-lg);
+      letter-spacing: -0.033em;
+    }
+
+    .hero-title .highlight {
+      color: var(--color-accent);
+    }
+
+    .hero-desc {
+      font-size: 1.125rem;
+      font-weight: 500;
+      line-height: 1.5;
+      color: var(--color-text-secondary);
+      max-width: 65ch;
+      margin-bottom: var(--space-xl);
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: var(--space-md);
+      flex-wrap: wrap;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: var(--space-2xl);
+      margin-top: var(--space-xl);
+    }
+
+    .hero-stat-value {
+      font-family: var(--font-primary);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--color-text-primary);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-stat-label {
+      font-size: 0.875rem;
+      color: var(--color-text-tertiary);
+      line-height: 1.43;
+      font-weight: 400;
+    }
+
+    /* Hero visual — Notion-style preview cards */
+    .hero-visual {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: var(--space-md);
+    }
+
+    .hero-card {
+      background: var(--color-elevated);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-lg);
+      transition: all var(--duration-normal) var(--ease-out);
+      position: relative;
+      box-shadow: var(--shadow-soft);
+    }
+    .hero-card:hover {
+      box-shadow: var(--shadow-deep);
+    }
+
+    .hero-card-wide {
+      grid-column: 1 / -1;
+    }
+
+    .hero-card-accent {
+      background: var(--color-accent-light);
+      border-color: var(--color-accent-light);
+    }
+
+    .hero-card-title {
+      font-family: var(--font-primary);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      margin-bottom: var(--space-xs);
+    }
+
+    .hero-card-text {
+      font-size: 0.875rem;
+      line-height: 1.5;
+      color: var(--color-text-secondary);
+      font-weight: 400;
+    }
+
+    .hero-card .icon-wrap {
+      width: 2rem;
+      height: 2rem;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--space-sm);
+      background: var(--color-surface);
+      color: var(--color-text-primary);
+    }
+
+    .hero-card-line {
+      margin-top: var(--space-md);
+      height: 6px;
+      border-radius: var(--radius-full);
+      background: var(--color-surface);
+      overflow: hidden;
+    }
+    .hero-card-line-fill {
+      height: 100%;
+      border-radius: var(--radius-full);
+      background: var(--color-accent);
+      width: 0%;
+      transition: width 1.5s var(--ease-out);
+    }
+    .hero-card-line-fill.animate { width: 72%; }
+
+    .hero-card-small {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero-avatar-stack {
+      display: flex;
+      margin-bottom: var(--space-sm);
+    }
+    .hero-avatar {
+      width: 1.75rem;
+      height: 1.75rem;
+      border-radius: 50%;
+      border: 2px solid var(--color-bg);
+      margin-right: -0.5rem;
+      object-fit: cover;
+    }
+    .hero-avatar:last-child { margin-right: 0; }
+
+    .hero-card-accent .hero-card-text { color: var(--color-text-secondary); }
+
+    /* ============================================================
+       FEATURES — Notion Grid
+       ============================================================ */
+    .features {
+      padding: var(--space-5xl) 0;
+      background: var(--color-surface);
+      transition: background var(--duration-normal) var(--ease-out);
+    }
+
+    .notion-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-lg);
+    }
+
+    .notion-card {
+      background: var(--color-elevated);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-2xl);
+      transition: all var(--duration-normal) var(--ease-out);
+      position: relative;
+    }
+    .notion-card:hover {
+      box-shadow: var(--shadow-soft);
+    }
+
+    .notion-card-wide {
+      grid-column: span 2;
+    }
+
+    .notion-card-full {
+      grid-column: 1 / -1;
+    }
+
+    .notion-icon {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--space-lg);
+      background: var(--color-surface);
+      color: var(--color-text-primary);
+    }
+
+    .notion-icon svg {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+
+    .notion-card-title {
+      font-family: var(--font-primary);
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      margin-bottom: var(--space-sm);
+      letter-spacing: -0.01em;
+    }
+
+    .notion-card-desc {
+      font-size: 0.9375rem;
+      line-height: 1.5;
+      color: var(--color-text-secondary);
+      font-weight: 400;
+    }
+
+    .notion-list {
+      margin-top: var(--space-lg);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+    .notion-list-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      font-size: 0.875rem;
+      line-height: 1.43;
+      color: var(--color-text-secondary);
+    }
+    .notion-list-item svg {
+      width: 1rem;
+      height: 1rem;
+      flex-shrink: 0;
+      color: var(--color-accent);
+    }
+
+    .notion-chart {
+      display: flex;
+      align-items: flex-end;
+      gap: 4px;
+      height: 4.5rem;
+      margin-top: var(--space-lg);
+      padding-top: var(--space-md);
+    }
+    .notion-bar {
+      flex: 1;
+      border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+      background: var(--color-surface);
+      transition: height var(--duration-slow) var(--ease-out);
+      height: 0;
+    }
+    .notion-bar.animate { height: var(--h); }
+
+    .notion-dots {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-xs);
+      margin-top: var(--space-lg);
+    }
+    .notion-dot {
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: 50%;
+      background: var(--color-border);
+      transition: all var(--duration-slow) var(--ease-out);
+    }
+    .notion-dot.active { background: var(--color-accent); }
+
+    /* ============================================================
+       STATS BAND
+       ============================================================ */
+    .stats {
+      padding: var(--space-4xl) 0;
+      background: var(--color-bg);
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+      transition: background var(--duration-normal) var(--ease-out);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-2xl);
+      text-align: center;
+    }
+
+    .stat-item {
+      padding: var(--space-lg) 0;
+    }
+
+    .stat-number {
+      font-family: var(--font-primary);
+      font-size: clamp(2rem, 3.5vw, 2.75rem);
+      font-weight: 700;
+      color: var(--color-text-primary);
+      line-height: 1.04;
+      margin-bottom: var(--space-xs);
+      letter-spacing: -0.03em;
+    }
+
+    .stat-number .suffix {
+      font-size: 0.6em;
+      color: var(--color-text-tertiary);
+      font-weight: 400;
+    }
+
+    .stat-label {
+      font-size: 0.9375rem;
+      color: var(--color-text-secondary);
+      font-weight: 400;
+    }
+
+    /* ============================================================
+       TESTIMONIALS
+       ============================================================ */
+    .testimonials {
+      padding: var(--space-5xl) 0;
+      background: var(--color-surface);
+      transition: background var(--duration-normal) var(--ease-out);
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-lg);
+    }
+
+    .testimonial-card {
+      background: var(--color-elevated);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-2xl);
+      transition: all var(--duration-normal) var(--ease-out);
+      display: flex;
+      flex-direction: column;
+    }
+    .testimonial-card:hover {
+      box-shadow: var(--shadow-soft);
+    }
+
+    .testimonial-stars {
+      display: flex;
+      gap: 2px;
+      margin-bottom: var(--space-lg);
+      color: var(--color-text-tertiary);
+    }
+    .testimonial-stars svg { width: 0.9375rem; height: 0.9375rem; }
+    .testimonial-stars .star-filled { color: var(--color-text-primary); }
+
+    .testimonial-text {
+      font-size: 0.9375rem;
+      line-height: 1.6;
+      color: var(--color-text-secondary);
+      flex: 1;
+      margin-bottom: var(--space-lg);
+      font-weight: 400;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+    }
+
+    .testimonial-avatar {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .testimonial-name {
+      font-family: var(--font-primary);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--color-text-primary);
+    }
+
+    .testimonial-role {
+      font-size: 0.8125rem;
+      color: var(--color-text-tertiary);
+      font-weight: 400;
+    }
+
+    /* ============================================================
+       FAQ SECTION
+       ============================================================ */
+    .faq {
+      padding: var(--space-5xl) 0;
+      background: var(--color-bg);
+      transition: background var(--duration-normal) var(--ease-out);
+    }
+
+    .faq-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: var(--space-4xl);
+      align-items: start;
+    }
+
+    .faq-header .section-title {
+      margin-bottom: var(--space-md);
+    }
+
+    .faq-accordion {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+
+    .faq-item {
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: all var(--duration-fast) var(--ease-out);
+    }
+    .faq-item:hover { border-color: var(--color-border-hover); }
+    .faq-item.open { border-color: var(--color-accent); }
+
+    .faq-question {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: var(--space-lg) var(--space-xl);
+      font-family: var(--font-primary);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      text-align: left;
+      background: none;
+      border: none;
+      transition: color var(--duration-fast) var(--ease-out);
+      cursor: pointer;
+    }
+    .faq-item.open .faq-question { color: var(--color-accent); }
+
+    .faq-icon {
+      width: 1.125rem;
+      height: 1.125rem;
+      flex-shrink: 0;
+      color: var(--color-text-tertiary);
+      transition: all var(--duration-fast) var(--ease-out);
+    }
+    .faq-item.open .faq-icon {
+      transform: rotate(45deg);
+      color: var(--color-accent);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height var(--duration-normal) var(--ease-out);
+    }
+
+    .faq-answer-inner {
+      padding: 0 var(--space-xl) var(--space-lg);
+      font-size: 0.9375rem;
+      line-height: 1.6;
+      color: var(--color-text-secondary);
+    }
+
+    /* ============================================================
+       NEWSLETTER
+       ============================================================ */
+    .newsletter {
+      padding: var(--space-5xl) 0;
+      text-align: center;
+      background: var(--color-surface);
+      transition: background var(--duration-normal) var(--ease-out);
+    }
+
+    .newsletter-card {
+      max-width: 38rem;
+      margin: 0 auto;
+    }
+
+    .newsletter-title {
+      font-family: var(--font-primary);
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 700;
+      color: var(--color-text-primary);
+      text-wrap: balance;
+      margin-bottom: var(--space-sm);
+      letter-spacing: -0.03em;
+    }
+
+    .newsletter-desc {
+      font-size: 1rem;
+      color: var(--color-text-secondary);
+      max-width: 65ch;
+      margin: 0 auto var(--space-xl);
+      line-height: 1.5;
+    }
+
+    .newsletter-form {
+      display: flex;
+      gap: var(--space-md);
+      max-width: 28rem;
+      margin: 0 auto;
+    }
+
+    .newsletter-input {
+      flex: 1;
+      font-family: var(--font-primary);
+      font-size: 0.9375rem;
+      font-weight: 400;
+      padding: 0.5rem 0.75rem;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      background: var(--color-elevated);
+      color: var(--color-text-primary);
+      outline: none;
+      transition: border-color var(--duration-fast) var(--ease-out);
+    }
+    .newsletter-input:focus {
+      border-color: var(--color-accent);
+      box-shadow: 0 0 0 2px var(--color-accent-light);
+    }
+    .newsletter-input::placeholder {
+      color: var(--color-text-tertiary);
+    }
+
+    .newsletter-success {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-sm);
+      font-family: var(--font-primary);
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--color-text-primary);
+      padding: var(--space-lg);
+    }
+    .newsletter-success.show { display: flex; }
+    .newsletter-form.hidden { display: none; }
+
+    /* ============================================================
+       FOOTER
+       ============================================================ */
+    .footer {
+      padding: var(--space-4xl) 0 var(--space-2xl);
+      border-top: 1px solid var(--color-border);
+      background: var(--color-bg);
+      transition: background var(--duration-normal) var(--ease-out);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: var(--space-3xl);
+      margin-bottom: var(--space-3xl);
+    }
+
+    .footer-brand-desc {
+      font-size: 0.9375rem;
+      color: var(--color-text-tertiary);
+      max-width: 32ch;
+      margin-top: var(--space-md);
+      line-height: 1.6;
+      font-weight: 400;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: var(--space-sm);
+      margin-top: var(--space-lg);
+    }
+
+    .footer-social a {
+      width: 2.25rem;
+      height: 2.25rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--color-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-text-tertiary);
+      transition: all var(--duration-fast) var(--ease-out);
+    }
+    .footer-social a:hover {
+      color: var(--color-text-primary);
+      border-color: var(--color-border-hover);
+    }
+    .footer-social a svg { width: 0.9375rem; height: 0.9375rem; }
+
+    .footer-heading {
+      font-family: var(--font-primary);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      margin-bottom: var(--space-lg);
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+    .footer-links a {
+      font-size: 0.9375rem;
+      font-weight: 400;
+      color: var(--color-text-tertiary);
+      transition: color var(--duration-fast) var(--ease-out);
+    }
+    .footer-links a:hover { color: var(--color-text-primary); }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: var(--space-xl);
+      border-top: 1px solid var(--color-border);
+      font-size: 0.8125rem;
+      color: var(--color-text-tertiary);
+      font-weight: 400;
+    }
+
+    /* ============================================================
+       COOKIE BANNER
+       ============================================================ */
+    .cookie-banner {
+      position: fixed;
+      bottom: var(--space-xl);
+      left: var(--space-xl);
+      right: var(--space-xl);
+      max-width: 28rem;
+      background: var(--color-elevated);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-xl);
+      box-shadow: var(--shadow-deep);
+      z-index: var(--z-toast);
+      transform: translateY(calc(100% + var(--space-2xl)));
+      opacity: 0;
+      transition: all var(--duration-normal) var(--ease-out);
+    }
+    .cookie-banner.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .cookie-text {
+      font-size: 0.875rem;
+      color: var(--color-text-secondary);
+      line-height: 1.5;
+      margin-bottom: var(--space-lg);
+    }
+
+    .cookie-actions {
+      display: flex;
+      gap: var(--space-sm);
+    }
+
+    /* ============================================================
+       RESPONSIVE
+       ============================================================ */
+    @media (max-width: 1024px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: var(--space-3xl);
+      }
+
+      .hero-visual {
+        max-width: 32rem;
+      }
+
+      .notion-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .notion-card-wide { grid-column: span 1; }
+
+      .testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .faq-inner {
+        grid-template-columns: 1fr;
+        gap: var(--space-2xl);
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-2xl);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-actions .btn-nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .mobile-nav { display: flex; }
+
+      .hero {
+        padding-top: calc(var(--nav-height) + var(--space-3xl));
+        padding-bottom: var(--space-4xl);
+      }
+
+      .hero-stats {
+        flex-wrap: wrap;
+        gap: var(--space-xl);
+      }
+
+      .hero-visual {
+        max-width: 100%;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-lg);
+      }
+
+      .notion-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .newsletter-form {
+        flex-direction: column;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-xl);
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: var(--space-sm);
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 var(--space-md);
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+      .hero-actions .btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .hero-stat-value {
+        font-size: 1.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       NAVIGATION
+       ============================================================ -->
+  <nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo" data-i18n="nav.logo">
+        <span class="nav-logo-mark">K</span>
+        Kairos
+      </a>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#features" data-i18n="nav.features">Courses</a>
+        <a href="#testimonials" data-i18n="nav.testimonials">Testimonials</a>
+        <a href="#faq" data-i18n="nav.faq">FAQ</a>
+      </div>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+          <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+
+        <div style="position:relative">
+          <button class="lang-btn" id="langBtn" aria-label="Switch language">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            <span id="langCurrent">EN</span>
+            <svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 1l4 4 4-4"/></svg>
+          </button>
+          <div class="lang-dropdown" id="langDropdown" role="menu">
+            <button class="lang-option active" data-lang="en" role="menuitem">
+              <span class="flag">🇬🇧</span> English
+              <svg class="check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+            <button class="lang-option" data-lang="es" role="menuitem">
+              <span class="flag">🇪🇸</span> Español
+              <svg class="check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+            <button class="lang-option" data-lang="fr" role="menuitem">
+              <span class="flag">🇫🇷</span> Français
+              <svg class="check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+            <button class="lang-option" data-lang="de" role="menuitem">
+              <span class="flag">🇩🇪</span> Deutsch
+              <svg class="check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+            <button class="lang-option" data-lang="it" role="menuitem">
+              <span class="flag">🇮🇹</span> Italiano
+              <svg class="check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+            <button class="lang-option" data-lang="pt" role="menuitem">
+              <span class="flag">🇵🇹</span> Português
+              <svg class="check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <a href="#" class="btn btn-primary btn-nav-cta" data-i18n="nav.cta">Start Learning</a>
+      </div>
+
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#features" data-i18n="nav.features">Courses</a>
+    <a href="#testimonials" data-i18n="nav.testimonials">Testimonials</a>
+    <a href="#faq" data-i18n="nav.faq">FAQ</a>
+    <a href="#" class="btn btn-primary" data-i18n="nav.cta">Start Learning</a>
+  </div>
+
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <section class="hero" id="hero">
+    <div class="container">
+      <div class="hero-inner">
+        <div class="hero-content">
+          <div class="hero-tag reveal">
+            <span class="pill" data-i18n="hero.tag">✨ New: AI-Powered Courses</span>
+          </div>
+          <h1 class="hero-title reveal reveal-delay-1">
+            <span data-i18n="hero.title1">Learn What</span><br>
+            <span class="highlight" data-i18n="hero.title2">Matters Most</span>
+          </h1>
+          <p class="hero-desc reveal reveal-delay-2" data-i18n="hero.desc">
+            Expert-led courses in design, technology, and business — built around projects, not theory. 
+            Learn on your schedule with mentorship from industry professionals.
+          </p>
+          <div class="hero-actions reveal reveal-delay-3">
+            <a href="#" class="btn btn-primary" data-i18n="hero.cta1">Explore Courses</a>
+            <a href="#" class="btn btn-secondary" data-i18n="hero.cta2">Watch Overview</a>
+          </div>
+          <div class="hero-stats reveal reveal-delay-4">
+            <div>
+              <div class="hero-stat-value" data-i18n="hero.stat1_val">50K+</div>
+              <div class="hero-stat-label" data-i18n="hero.stat1_lbl">Active Learners</div>
+            </div>
+            <div>
+              <div class="hero-stat-value" data-i18n="hero.stat2_val">98%</div>
+              <div class="hero-stat-label" data-i18n="hero.stat2_lbl">Completion Rate</div>
+            </div>
+            <div>
+              <div class="hero-stat-value" data-i18n="hero.stat3_val">4.9</div>
+              <div class="hero-stat-label" data-i18n="hero.stat3_lbl">Avg Rating</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Notion-style hero visual cards -->
+        <div class="hero-visual reveal reveal-delay-2">
+          <div class="hero-card hero-card-wide">
+            <div class="hero-card-title" data-i18n="hero.vis1_title">Course Progress</div>
+            <div class="hero-card-text" data-i18n="hero.vis1_text">Interaction Design • 72% complete</div>
+            <div class="hero-card-line">
+              <div class="hero-card-line-fill" id="progressFill"></div>
+            </div>
+          </div>
+
+          <div class="hero-card hero-card-small">
+            <div class="hero-card-title" data-i18n="hero.vis2_title">Students Online</div>
+            <div class="hero-card-text" style="font-size:1.5rem;font-weight:700;color:var(--color-text-primary);letter-spacing:-0.03em;" data-i18n="hero.vis2_text">1,247</div>
+          </div>
+
+          <div class="hero-card hero-card-accent hero-card-small">
+            <div class="hero-avatar-stack">
+              <img src="https://i.pravatar.cc/56?img=11" alt="" class="hero-avatar" loading="lazy">
+              <img src="https://i.pravatar.cc/56?img=12" alt="" class="hero-avatar" loading="lazy">
+              <img src="https://i.pravatar.cc/56?img=13" alt="" class="hero-avatar" loading="lazy">
+              <img src="https://i.pravatar.cc/56?img=14" alt="" class="hero-avatar" loading="lazy">
+            </div>
+            <div class="hero-card-title" data-i18n="hero.vis3_title">New Mentors</div>
+            <div class="hero-card-text" data-i18n="hero.vis3_text">4 experts joined this week</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FEATURES — Notion Grid
+       ============================================================ -->
+  <section class="features" id="features">
+    <div class="container">
+      <div class="section-header">
+        <p class="kicker" data-i18n="features.label">Why Kairos</p>
+        <h2 class="section-title reveal" data-i18n="features.title">A Smarter Way to Learn</h2>
+        <p class="section-desc reveal reveal-delay-1" data-i18n="features.desc">
+          Every course is built around real projects, guided by industry experts, and designed to fit your schedule.
+        </p>
+      </div>
+
+      <div class="notion-grid">
+        <!-- Card 1: Project-based (wide) -->
+        <div class="notion-card notion-card-wide reveal reveal-delay-1">
+          <div class="notion-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <div class="notion-card-title" data-i18n="features.f1_title">Project-Based Curriculum</div>
+          <div class="notion-card-desc" data-i18n="features.f1_desc">Build real products from day one. Each course ends with a portfolio-ready project that demonstrates your skills to employers.</div>
+          <div class="notion-list">
+            <div class="notion-list-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span data-i18n="features.f1_li1">Real client briefs</span>
+            </div>
+            <div class="notion-list-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span data-i18n="features.f1_li2">Peer code reviews</span>
+            </div>
+            <div class="notion-list-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span data-i18n="features.f1_li3">Portfolio website included</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Expert mentors -->
+        <div class="notion-card reveal reveal-delay-2">
+          <div class="notion-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div class="notion-card-title" data-i18n="features.f2_title">Expert Mentors</div>
+          <div class="notion-card-desc" data-i18n="features.f2_desc">Learn from professionals at companies like Google, Figma, and Stripe who review your work and guide your growth.</div>
+        </div>
+
+        <!-- Card 3: Flexible schedule -->
+        <div class="notion-card reveal reveal-delay-3">
+          <div class="notion-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div class="notion-card-title" data-i18n="features.f3_title">Learn at Your Pace</div>
+          <div class="notion-card-desc" data-i18n="features.f3_desc">Self-paced with weekly live sessions. Average course takes 4–6 weeks at 8 hours per week.</div>
+        </div>
+
+        <!-- Card 4: Stats chart (wide) -->
+        <div class="notion-card notion-card-wide reveal reveal-delay-1">
+          <div class="notion-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          </div>
+          <div class="notion-card-title" data-i18n="features.f4_title">Outcomes That Matter</div>
+          <div class="notion-card-desc" data-i18n="features.f4_desc">Our graduates see real career impact within 6 months of completing a program.</div>
+          <div class="notion-chart" id="bentoChart">
+            <div class="notion-bar" style="--h: 40%"></div>
+            <div class="notion-bar" style="--h: 55%"></div>
+            <div class="notion-bar" style="--h: 38%"></div>
+            <div class="notion-bar" style="--h: 72%"></div>
+            <div class="notion-bar" style="--h: 65%"></div>
+            <div class="notion-bar" style="--h: 85%"></div>
+            <div class="notion-bar" style="--h: 70%"></div>
+            <div class="notion-bar" style="--h: 92%"></div>
+            <div class="notion-bar" style="--h: 78%"></div>
+            <div class="notion-bar" style="--h: 60%"></div>
+          </div>
+        </div>
+
+        <!-- Card 5: Community -->
+        <div class="notion-card reveal reveal-delay-2">
+          <div class="notion-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.2 4.2a10 10 0 0 0 0 15.6"/><path d="M7.6 7.6a6 6 0 0 0 0 8.8"/><path d="M12 12a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/><path d="M19.8 4.2a10 10 0 0 1 0 15.6"/><path d="M16.4 7.6a6 6 0 0 1 0 8.8"/></svg>
+          </div>
+          <div class="notion-card-title" data-i18n="features.f5_title">Active Community</div>
+          <div class="notion-card-desc" data-i18n="features.f5_desc">Join study groups, attend workshops, and connect with 50,000+ learners worldwide in our community.</div>
+          <div class="notion-dots" id="bentoDots">
+            <span class="notion-dot active"></span>
+            <span class="notion-dot active"></span>
+            <span class="notion-dot active"></span>
+            <span class="notion-dot"></span>
+            <span class="notion-dot"></span>
+            <span class="notion-dot"></span>
+          </div>
+        </div>
+
+        <!-- Card 6: Certificate -->
+        <div class="notion-card reveal reveal-delay-3">
+          <div class="notion-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+          </div>
+          <div class="notion-card-title" data-i18n="features.f6_title">Industry Certificate</div>
+          <div class="notion-card-desc" data-i18n="features.f6_desc">Earn verifiable certificates recognized by top employers in tech, design, and business.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       STATS BAND
+       ============================================================ -->
+  <section class="stats" id="stats" aria-label="Platform statistics">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item reveal">
+          <div class="stat-number">
+            <span data-i18n="stats.s1_num">50</span><span class="suffix">K+</span>
+          </div>
+          <div class="stat-label" data-i18n="stats.s1_lbl">Active Learners</div>
+        </div>
+        <div class="stat-item reveal reveal-delay-1">
+          <div class="stat-number">
+            <span data-i18n="stats.s2_num">200</span><span class="suffix">+</span>
+          </div>
+          <div class="stat-label" data-i18n="stats.s2_lbl">Expert-Led Courses</div>
+        </div>
+        <div class="stat-item reveal reveal-delay-2">
+          <div class="stat-number">
+            <span data-i18n="stats.s3_num">15</span><span class="suffix">K+</span>
+          </div>
+          <div class="stat-label" data-i18n="stats.s3_lbl">Projects Published</div>
+        </div>
+        <div class="stat-item reveal reveal-delay-3">
+          <div class="stat-number">
+            <span data-i18n="stats.s4_num">92</span><span class="suffix">%</span>
+          </div>
+          <div class="stat-label" data-i18n="stats.s4_lbl">Career Impact Rate</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       TESTIMONIALS
+       ============================================================ -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <p class="kicker" data-i18n="testimonials.label">Testimonials</p>
+        <h2 class="section-title reveal" data-i18n="testimonials.title">What Our Learners Say</h2>
+        <p class="section-desc reveal reveal-delay-1" data-i18n="testimonials.desc">
+          Thousands of students have transformed their careers through our programs.
+        </p>
+      </div>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card reveal reveal-delay-1">
+          <div class="testimonial-stars">
+            <svg class="star-filled" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="star-filled" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="star-filled" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="star-filled" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="star-filled" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p class="testimonial-text" data-i18n="testimonials.t1_text">
+            "Kairos completely changed how I approach learning. The project-based curriculum helped me build a portfolio that got me hired within weeks of graduating."
+          </p>
+          <div class="testimonial-author">
+            <img src="https://i.pravatar.cc/100?img=32" alt="Sarah Chen" class="testimonial-avatar" loading="lazy">
+            <div>
+              <div class="testimonial-name" data-i18n="testimonials.t1_name">Sarah Chen</div>
+              <div class="testimonial-role" data-i18n="testimonials.t1_role">UX Designer at Figma</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card reveal reveal-delay-2">
+          <div class="testimonial-stars">
+            <svg class="star-filled" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="star-filled" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="star-filled" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="star-filled" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="star-filled" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p class="testimonial-text" data-i18n="testimonials.t2_text">
+            "The mentorship program is worth every penny. Having senior engineers review my code and guide my learning path accelerated my growth by years."
+          </p>
+          <div class="testimonial-author">
+            <img src="https://i.pravatar.cc/100?img=53" alt="Marcus Johnson" class="testimonial-avatar" loading="lazy">
+            <div>
+              <div class="testimonial-name" data-i18n="testimonials.t2_name">Marcus Johnson</div>
+              <div class="testimonial-role" data-i18n="testimonials.t2_role">Frontend Engineer at Vercel</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card reveal reveal-delay-3">
+          <div class="testimonial-stars">
+            <svg class="star-filled" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="star-filled" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="star-filled" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="star-filled" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="star-filled" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p class="testimonial-text" data-i18n="testimonials.t3_text">
+            "I was skeptical about online learning until I tried Kairos. The community is incredibly supportive, and the course quality rivals top universities."
+          </p>
+          <div class="testimonial-author">
+            <img src="https://i.pravatar.cc/100?img=45" alt="Elena Torres" class="testimonial-avatar" loading="lazy">
+            <div>
+              <div class="testimonial-name" data-i18n="testimonials.t3_name">Elena Torres</div>
+              <div class="testimonial-role" data-i18n="testimonials.t3_role">Product Manager at Notion</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FAQ SECTION
+       ============================================================ -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <div class="faq-inner">
+        <div class="faq-header">
+          <p class="kicker" data-i18n="faq.label">FAQ</p>
+          <h2 class="section-title" data-i18n="faq.title">Common Questions</h2>
+          <p class="section-desc section-desc-left" data-i18n="faq.desc">
+            Everything you need to know about learning on Kairos Academy.
+          </p>
+        </div>
+
+        <div class="faq-accordion reveal reveal-delay-1">
+          <div class="faq-item">
+            <button class="faq-question" data-i18n="faq.q1" aria-expanded="false">
+              How do the courses work?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner" data-i18n="faq.a1">
+                Each course combines self-paced video lessons with hands-on projects. You'll build real products, receive personalized feedback from mentors, and earn a certificate upon completion. Most courses take 4–6 weeks at 8–10 hours per week.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" data-i18n="faq.q2" aria-expanded="false">
+              Is there a money-back guarantee?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner" data-i18n="faq.a2">
+                Absolutely. We offer a 30-day money-back guarantee on all courses. If you're not satisfied, simply email us and we'll issue a full refund — no questions asked.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" data-i18n="faq.q3" aria-expanded="false">
+              What kind of support do students receive?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner" data-i18n="faq.a3">
+                Every student gets access to a dedicated mentor who reviews your projects and provides personalized guidance. You'll also have access to our community forums, weekly live Q&A sessions, and 24/7 technical support.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" data-i18n="faq.q4" aria-expanded="false">
+              Are the certificates recognized by employers?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner" data-i18n="faq.a4">
+                Yes. Our certificates are verified and recognized by over 500 companies, including Google, Microsoft, Apple, and Stripe. Graduates regularly report that our certificates helped them land interviews and promotions.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" data-i18n="faq.q5" aria-expanded="false">
+              Can I switch courses if I change my mind?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner" data-i18n="faq.a5">
+                Of course. You can switch courses within the first 14 days of enrollment at no additional cost. We want you to find the perfect learning path for your goals.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       NEWSLETTER
+       ============================================================ -->
+  <section class="newsletter" id="newsletter">
+    <div class="container">
+      <div class="newsletter-card reveal">
+        <h2 class="newsletter-title" data-i18n="newsletter.title">Stay Ahead of the Curve</h2>
+        <p class="newsletter-desc" data-i18n="newsletter.desc">
+          Get weekly insights, course recommendations, and career tips from industry leaders.
+        </p>
+        <form class="newsletter-form" id="newsletterForm">
+          <input type="email" class="newsletter-input" id="newsletterInput" placeholder="your@email.com" aria-label="Email address" required data-i18n="newsletter.placeholder">
+          <button class="btn btn-primary" data-i18n="newsletter.cta">Subscribe</button>
+        </form>
+        <div class="newsletter-success" id="newsletterSuccess">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <span data-i18n="newsletter.success">You're subscribed! Check your inbox.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="nav-logo">
+            <span class="nav-logo-mark">K</span>
+            Kairos
+          </div>
+          <p class="footer-brand-desc" data-i18n="footer.desc">
+            Kairos Academy is a modern online learning platform helping professionals master the skills that matter most — on their schedule, with expert guidance.
+          </p>
+          <div class="footer-social">
+            <a href="#" aria-label="Twitter">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" aria-label="GitHub">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+            <a href="#" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-heading" data-i18n="footer.col1_title">Courses</div>
+          <div class="footer-links">
+            <a href="#" data-i18n="footer.col1_1">Design</a>
+            <a href="#" data-i18n="footer.col1_2">Technology</a>
+            <a href="#" data-i18n="footer.col1_3">Business</a>
+            <a href="#" data-i18n="footer.col1_4">Creative Arts</a>
+            <a href="#" data-i18n="footer.col1_5">Career Prep</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-heading" data-i18n="footer.col2_title">Company</div>
+          <div class="footer-links">
+            <a href="#" data-i18n="footer.col2_1">About</a>
+            <a href="#" data-i18n="footer.col2_2">Careers</a>
+            <a href="#" data-i18n="footer.col2_3">Blog</a>
+            <a href="#" data-i18n="footer.col2_4">Press</a>
+            <a href="#" data-i18n="footer.col2_5">Contact</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-heading" data-i18n="footer.col3_title">Support</div>
+          <div class="footer-links">
+            <a href="#" data-i18n="footer.col3_1">Help Center</a>
+            <a href="#" data-i18n="footer.col3_2">Community</a>
+            <a href="#" data-i18n="footer.col3_3">Privacy Policy</a>
+            <a href="#" data-i18n="footer.col3_4">Terms of Service</a>
+            <a href="#" data-i18n="footer.col3_5">Cookie Policy</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span data-i18n="footer.copyright">© 2026 Kairos Academy. All rights reserved.</span>
+        <span data-i18n="footer.tagline">Built with purpose. Designed for growth.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       COOKIE BANNER
+       ============================================================ -->
+  <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Cookie consent">
+    <p class="cookie-text" data-i18n="cookie.text">
+      We use cookies to enhance your experience. By continuing, you agree to our cookie policy.
+    </p>
+    <div class="cookie-actions">
+      <button class="btn btn-primary" id="cookieAccept" data-i18n="cookie.accept" style="flex:1;justify-content:center">Accept</button>
+      <button class="btn btn-secondary" id="cookieDecline" data-i18n="cookie.decline" style="flex:1;justify-content:center">Decline</button>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       JAVASCRIPT
+       ============================================================ -->
+  <script>
+    /* ============================================================
+       i18n — Translation System
+       ============================================================ */
+    const i18n = {
+      en: {
+        'nav.logo': 'Kairos',
+        'nav.features': 'Courses',
+        'nav.testimonials': 'Testimonials',
+        'nav.faq': 'FAQ',
+        'nav.cta': 'Start Learning',
+
+        'hero.tag': '✨ New: AI-Powered Courses',
+        'hero.title1': 'Learn What',
+        'hero.title2': 'Matters Most',
+        'hero.desc': 'Expert-led courses in design, technology, and business — built around projects, not theory. Learn on your schedule with mentorship from industry professionals.',
+        'hero.cta1': 'Explore Courses',
+        'hero.cta2': 'Watch Overview',
+        'hero.stat1_val': '50K+',
+        'hero.stat1_lbl': 'Active Learners',
+        'hero.stat2_val': '98%',
+        'hero.stat2_lbl': 'Completion Rate',
+        'hero.stat3_val': '4.9',
+        'hero.stat3_lbl': 'Avg Rating',
+        'hero.vis1_title': 'Course Progress',
+        'hero.vis1_text': 'Interaction Design • 72% complete',
+        'hero.vis2_title': 'Students Online',
+        'hero.vis2_text': '1,247',
+        'hero.vis3_title': 'New Mentors',
+        'hero.vis3_text': '4 experts joined this week',
+
+        'features.label': 'Why Kairos',
+        'features.title': 'A Smarter Way to Learn',
+        'features.desc': 'Every course is built around real projects, guided by industry experts, and designed to fit your schedule.',
+        'features.f1_title': 'Project-Based Curriculum',
+        'features.f1_desc': 'Build real products from day one. Each course ends with a portfolio-ready project that demonstrates your skills to employers.',
+        'features.f1_li1': 'Real client briefs',
+        'features.f1_li2': 'Peer code reviews',
+        'features.f1_li3': 'Portfolio website included',
+        'features.f2_title': 'Expert Mentors',
+        'features.f2_desc': 'Learn from professionals at companies like Google, Figma, and Stripe who review your work and guide your growth.',
+        'features.f3_title': 'Learn at Your Pace',
+        'features.f3_desc': 'Self-paced with weekly live sessions. Average course takes 4–6 weeks at 8 hours per week.',
+        'features.f4_title': 'Outcomes That Matter',
+        'features.f4_desc': 'Our graduates see real career impact within 6 months of completing a program.',
+        'features.f5_title': 'Active Community',
+        'features.f5_desc': 'Join study groups, attend workshops, and connect with 50,000+ learners worldwide in our community.',
+        'features.f6_title': 'Industry Certificate',
+        'features.f6_desc': 'Earn verifiable certificates recognized by top employers in tech, design, and business.',
+
+        'stats.s1_num': '50',
+        'stats.s1_lbl': 'Active Learners',
+        'stats.s2_num': '200',
+        'stats.s2_lbl': 'Expert-Led Courses',
+        'stats.s3_num': '15',
+        'stats.s3_lbl': 'Projects Published',
+        'stats.s4_num': '92',
+        'stats.s4_lbl': 'Career Impact Rate',
+
+        'testimonials.label': 'Testimonials',
+        'testimonials.title': 'What Our Learners Say',
+        'testimonials.desc': 'Thousands of students have transformed their careers through our programs.',
+        'testimonials.t1_text': '"Kairos completely changed how I approach learning. The project-based curriculum helped me build a portfolio that got me hired within weeks of graduating."',
+        'testimonials.t1_name': 'Sarah Chen',
+        'testimonials.t1_role': 'UX Designer at Figma',
+        'testimonials.t2_text': '"The mentorship program is worth every penny. Having senior engineers review my code and guide my learning path accelerated my growth by years."',
+        'testimonials.t2_name': 'Marcus Johnson',
+        'testimonials.t2_role': 'Frontend Engineer at Vercel',
+        'testimonials.t3_text': '"I was skeptical about online learning until I tried Kairos. The community is incredibly supportive, and the course quality rivals top universities."',
+        'testimonials.t3_name': 'Elena Torres',
+        'testimonials.t3_role': 'Product Manager at Notion',
+
+        'faq.label': 'FAQ',
+        'faq.title': 'Common Questions',
+        'faq.desc': 'Everything you need to know about learning on Kairos Academy.',
+        'faq.q1': 'How do the courses work?',
+        'faq.a1': 'Each course combines self-paced video lessons with hands-on projects. You\'ll build real products, receive personalized feedback from mentors, and earn a certificate upon completion. Most courses take 4–6 weeks at 8–10 hours per week.',
+        'faq.q2': 'Is there a money-back guarantee?',
+        'faq.a2': 'Absolutely. We offer a 30-day money-back guarantee on all courses. If you\'re not satisfied, simply email us and we\'ll issue a full refund — no questions asked.',
+        'faq.q3': 'What kind of support do students receive?',
+        'faq.a3': 'Every student gets access to a dedicated mentor who reviews your projects and provides personalized guidance. You\'ll also have access to our community forums, weekly live Q&A sessions, and 24/7 technical support.',
+        'faq.q4': 'Are the certificates recognized by employers?',
+        'faq.a4': 'Yes. Our certificates are verified and recognized by over 500 companies, including Google, Microsoft, Apple, and Stripe. Graduates regularly report that our certificates helped them land interviews and promotions.',
+        'faq.q5': 'Can I switch courses if I change my mind?',
+        'faq.a5': 'Of course. You can switch courses within the first 14 days of enrollment at no additional cost. We want you to find the perfect learning path for your goals.',
+
+        'newsletter.title': 'Stay Ahead of the Curve',
+        'newsletter.desc': 'Get weekly insights, course recommendations, and career tips from industry leaders.',
+        'newsletter.placeholder': 'your@email.com',
+        'newsletter.cta': 'Subscribe',
+        'newsletter.success': 'You\'re subscribed! Check your inbox.',
+
+        'footer.desc': 'Kairos Academy is a modern online learning platform helping professionals master the skills that matter most — on their schedule, with expert guidance.',
+        'footer.col1_title': 'Courses',
+        'footer.col1_1': 'Design',
+        'footer.col1_2': 'Technology',
+        'footer.col1_3': 'Business',
+        'footer.col1_4': 'Creative Arts',
+        'footer.col1_5': 'Career Prep',
+        'footer.col2_title': 'Company',
+        'footer.col2_1': 'About',
+        'footer.col2_2': 'Careers',
+        'footer.col2_3': 'Blog',
+        'footer.col2_4': 'Press',
+        'footer.col2_5': 'Contact',
+        'footer.col3_title': 'Support',
+        'footer.col3_1': 'Help Center',
+        'footer.col3_2': 'Community',
+        'footer.col3_3': 'Privacy Policy',
+        'footer.col3_4': 'Terms of Service',
+        'footer.col3_5': 'Cookie Policy',
+        'footer.copyright': '© 2026 Kairos Academy. All rights reserved.',
+        'footer.tagline': 'Built with purpose. Designed for growth.',
+
+        'cookie.text': 'We use cookies to enhance your experience. By continuing, you agree to our cookie policy.',
+        'cookie.accept': 'Accept',
+        'cookie.decline': 'Decline',
+      },
+
+      es: {
+        'nav.logo': 'Kairos',
+        'nav.features': 'Cursos',
+        'nav.testimonials': 'Testimonios',
+        'nav.faq': 'FAQ',
+        'nav.cta': 'Empezar a Aprender',
+
+        'hero.tag': '✨ Nuevo: Cursos con IA',
+        'hero.title1': 'Aprende lo que',
+        'hero.title2': 'Más Importa',
+        'hero.desc': 'Cursos dirigidos por expertos en diseño, tecnología y negocios — basados en proyectos, no en teoría. Aprende a tu ritmo con mentoría de profesionales.',
+        'hero.cta1': 'Explorar Cursos',
+        'hero.cta2': 'Ver Resumen',
+        'hero.stat1_val': '50K+',
+        'hero.stat1_lbl': 'Estudiantes Activos',
+        'hero.stat2_val': '98%',
+        'hero.stat2_lbl': 'Tasa de Finalización',
+        'hero.stat3_val': '4.9',
+        'hero.stat3_lbl': 'Valoración Media',
+        'hero.vis1_title': 'Progreso del Curso',
+        'hero.vis1_text': 'Diseño de Interacción • 72% completo',
+        'hero.vis2_title': 'Estudiantes en Línea',
+        'hero.vis2_text': '1.247',
+        'hero.vis3_title': 'Nuevos Mentores',
+        'hero.vis3_text': '4 expertos se unieron esta semana',
+
+        'features.label': 'Por qué Kairos',
+        'features.title': 'Una Forma más Inteligente de Aprender',
+        'features.desc': 'Cada curso se construye alrededor de proyectos reales, guiado por expertos y diseñado para tu horario.',
+        'features.f1_title': 'Currículo Basado en Proyectos',
+        'features.f1_desc': 'Construye productos reales desde el primer día. Cada curso termina con un proyecto listo para tu portafolio.',
+        'features.f1_li1': 'Briefs de clientes reales',
+        'features.f1_li2': 'Revisiones de código entre pares',
+        'features.f1_li3': 'Sitio web de portafolio incluido',
+        'features.f2_title': 'Mentores Expertos',
+        'features.f2_desc': 'Aprende de profesionales de empresas como Google, Figma y Stripe que revisan tu trabajo.',
+        'features.f3_title': 'Aprende a tu Ritmo',
+        'features.f3_desc': 'Auto-gestionado con sesiones en vivo semanales. Los cursos toman de 4 a 6 semanas.',
+        'features.f4_title': 'Resultados que Importan',
+        'features.f4_desc': 'Nuestros graduados ven impacto real en su carrera en 6 meses.',
+        'features.f5_title': 'Comunidad Activa',
+        'features.f5_desc': 'Únete a grupos de estudio, talleres y conéctate con más de 50,000 estudiantes.',
+        'features.f6_title': 'Certificado Industrial',
+        'features.f6_desc': 'Obtén certificados verificables reconocidos por empleadores líderes.',
+
+        'stats.s1_num': '50',
+        'stats.s1_lbl': 'Estudiantes Activos',
+        'stats.s2_num': '200',
+        'stats.s2_lbl': 'Cursos con Expertos',
+        'stats.s3_num': '15',
+        'stats.s3_lbl': 'Proyectos Publicados',
+        'stats.s4_num': '92',
+        'stats.s4_lbl': 'Tasa de Impacto Laboral',
+
+        'testimonials.label': 'Testimonios',
+        'testimonials.title': 'Lo que Dicen Nuestros Alumnos',
+        'testimonials.desc': 'Miles de estudiantes han transformado sus carreras con nuestros programas.',
+        'testimonials.t1_text': '"Kairos cambió completamente mi forma de aprender. El currículo basado en proyectos me ayudó a crear un portafolio que me consiguió trabajo en semanas."',
+        'testimonials.t1_name': 'Sarah Chen',
+        'testimonials.t1_role': 'Diseñadora UX en Figma',
+        'testimonials.t2_text': '"El programa de mentoría vale cada centavo. Que ingenieros seniors revisen mi código aceleró mi crecimiento por años."',
+        'testimonials.t2_name': 'Marcus Johnson',
+        'testimonials.t2_role': 'Ingeniero Frontend en Vercel',
+        'testimonials.t3_text': '"Era escéptico sobre el aprendizaje en línea hasta que probé Kairos. La comunidad es increíblemente solidaria."',
+        'testimonials.t3_name': 'Elena Torres',
+        'testimonials.t3_role': 'Product Manager en Notion',
+
+        'faq.label': 'FAQ',
+        'faq.title': 'Preguntas Frecuentes',
+        'faq.desc': 'Todo lo que necesitas saber sobre aprender en Kairos Academy.',
+        'faq.q1': '¿Cómo funcionan los cursos?',
+        'faq.a1': 'Cada curso combina lecciones en video auto-gestionadas con proyectos prácticos. Construirás productos reales, recibirás feedback personalizado y obtendrás un certificado.',
+        'faq.q2': '¿Tienen garantía de devolución?',
+        'faq.a2': 'Por supuesto. Ofrecemos 30 días de garantía de devolución en todos los cursos. Si no estás satisfecho, te reembolsamos sin preguntas.',
+        'faq.q3': '¿Qué apoyo reciben los estudiantes?',
+        'faq.a3': 'Cada estudiante tiene acceso a un mentor dedicado, foros comunitarios, sesiones de preguntas en vivo semanales y soporte técnico 24/7.',
+        'faq.q4': '¿Los certificados son reconocidos?',
+        'faq.a4': 'Sí. Nuestros certificados son verificados y reconocidos por más de 500 empresas, incluyendo Google, Microsoft, Apple y Stripe.',
+        'faq.q5': '¿Puedo cambiar de curso?',
+        'faq.a5': 'Claro. Puedes cambiar de curso en los primeros 14 días sin costo adicional. Queremos que encuentres el camino perfecto para tus objetivos.',
+
+        'newsletter.title': 'Mantente Adelante',
+        'newsletter.desc': 'Recibe información semanal, recomendaciones de cursos y consejos de carrera de líderes de la industria.',
+        'newsletter.placeholder': 'tu@email.com',
+        'newsletter.cta': 'Suscribirse',
+        'newsletter.success': '¡Te has suscrito! Revisa tu bandeja de entrada.',
+
+        'footer.desc': 'Kairos Academy es una plataforma moderna de aprendizaje en línea que ayuda a profesionales a dominar las habilidades que más importan.',
+        'footer.col1_title': 'Cursos',
+        'footer.col1_1': 'Diseño',
+        'footer.col1_2': 'Tecnología',
+        'footer.col1_3': 'Negocios',
+        'footer.col1_4': 'Artes Creativas',
+        'footer.col1_5': 'Preparación Laboral',
+        'footer.col2_title': 'Empresa',
+        'footer.col2_1': 'Sobre Nosotros',
+        'footer.col2_2': 'Carreras',
+        'footer.col2_3': 'Blog',
+        'footer.col2_4': 'Prensa',
+        'footer.col2_5': 'Contacto',
+        'footer.col3_title': 'Soporte',
+        'footer.col3_1': 'Centro de Ayuda',
+        'footer.col3_2': 'Comunidad',
+        'footer.col3_3': 'Política de Privacidad',
+        'footer.col3_4': 'Términos del Servicio',
+        'footer.col3_5': 'Política de Cookies',
+        'footer.copyright': '© 2026 Kairos Academy. Todos los derechos reservados.',
+        'footer.tagline': 'Construido con propósito. Diseñado para crecer.',
+
+        'cookie.text': 'Usamos cookies para mejorar tu experiencia. Al continuar, aceptas nuestra política de cookies.',
+        'cookie.accept': 'Aceptar',
+        'cookie.decline': 'Rechazar',
+      },
+
+      fr: {
+        'nav.logo': 'Kairos',
+        'nav.features': 'Cours',
+        'nav.testimonials': 'Témoignages',
+        'nav.faq': 'FAQ',
+        'nav.cta': 'Commencer',
+
+        'hero.tag': '✨ Nouveau : Cours IA',
+        'hero.title1': 'Apprenez Ce',
+        'hero.title2': 'Qui Compte',
+        'hero.desc': 'Des cours animés par des experts en design, technologie et business — basés sur des projets, pas de la théorie. Apprenez à votre rythme avec le mentorat de professionnels.',
+        'hero.cta1': 'Explorer les Cours',
+        'hero.cta2': 'Voir l\'Aperçu',
+        'hero.stat1_val': '50K+',
+        'hero.stat1_lbl': 'Apprenants Actifs',
+        'hero.stat2_val': '98%',
+        'hero.stat2_lbl': 'Taux d\'Achèvement',
+        'hero.stat3_val': '4.9',
+        'hero.stat3_lbl': 'Note Moyenne',
+        'hero.vis1_title': 'Progression',
+        'hero.vis1_text': 'Design d\'Interaction • 72%',
+        'hero.vis2_title': 'Étudiants en Ligne',
+        'hero.vis2_text': '1 247',
+        'hero.vis3_title': 'Nouveaux Mentors',
+        'hero.vis3_text': '4 experts cette semaine',
+
+        'features.label': 'Pourquoi Kairos',
+        'features.title': 'Une Façon Plus Intelligente d\'Apprendre',
+        'features.desc': 'Chaque cours est construit autour de projets réels, guidé par des experts et conçu pour votre emploi du temps.',
+        'features.f1_title': 'Programme par Projets',
+        'features.f1_desc': 'Construisez des produits réels dès le premier jour. Chaque cours se termine par un projet prêt pour votre portfolio.',
+        'features.f1_li1': 'Briefs clients réels',
+        'features.f1_li2': 'Révisions de code',
+        'features.f1_li3': 'Site portfolio inclus',
+        'features.f2_title': 'Mentors Experts',
+        'features.f2_desc': 'Apprenez de professionnels chez Google, Figma et Stripe qui évaluent votre travail.',
+        'features.f3_title': 'Apprenez à Votre Rythme',
+        'features.f3_desc': 'Auto-rythmé avec sessions live hebdomadaires. Cours de 4 à 6 semaines.',
+        'features.f4_title': 'Des Résultats Concrets',
+        'features.f4_desc': 'Nos diplômés voient un impact réel sur leur carrière en 6 mois.',
+        'features.f5_title': 'Communauté Active',
+        'features.f5_desc': 'Rejoignez des groupes d\'étude, des ateliers et connectez-vous avec 50 000+ apprenants.',
+        'features.f6_title': 'Certification Professionnelle',
+        'features.f6_desc': 'Obtenez des certificats vérifiables reconnus par les meilleurs employeurs.',
+
+        'stats.s1_num': '50',
+        'stats.s1_lbl': 'Apprenants Actifs',
+        'stats.s2_num': '200',
+        'stats.s2_lbl': 'Cours Expertisés',
+        'stats.s3_num': '15',
+        'stats.s3_lbl': 'Projets Publiés',
+        'stats.s4_num': '92',
+        'stats.s4_lbl': 'Taux d\'Impact Carrière',
+
+        'testimonials.label': 'Témoignages',
+        'testimonials.title': 'Ce Que Disent Nos Élèves',
+        'testimonials.desc': 'Des milliers d\'étudiants ont transformé leur carrière grâce à nos programmes.',
+        'testimonials.t1_text': '"Kairos a complètement changé ma façon d\'apprendre. Le programme par projets m\'a aidé à créer un portfolio qui m\'a valu un emploi en quelques semaines."',
+        'testimonials.t1_name': 'Sarah Chen',
+        'testimonials.t1_role': 'UX Designer chez Figma',
+        'testimonials.t2_text': '"Le programme de mentorat vaut chaque centime. Des ingénieurs seniors qui révisent mon code ont accéléré ma croissance."',
+        'testimonials.t2_name': 'Marcus Johnson',
+        'testimonials.t2_role': 'Ingénieur Frontend chez Vercel',
+        'testimonials.t3_text': '"J\'étais sceptique sur l\'apprentissage en ligne jusqu\'à Kairos. La communauté est incroyable."',
+        'testimonials.t3_name': 'Elena Torres',
+        'testimonials.t3_role': 'Product Manager chez Notion',
+
+        'faq.label': 'FAQ',
+        'faq.title': 'Questions Fréquentes',
+        'faq.desc': 'Tout ce que vous devez savoir sur l\'apprentissage chez Kairos Academy.',
+        'faq.q1': 'Comment fonctionnent les cours ?',
+        'faq.a1': 'Chaque cours combine des leçons vidéo auto-rythmées avec des projets pratiques. Vous construisez des produits réels, recevez des retours personnalisés et obtenez un certificat.',
+        'faq.q2': 'Y a-t-il une garantie ?',
+        'faq.a2': 'Absolument. Nous offrons une garantie de remboursement de 30 jours sur tous les cours.',
+        'faq.q3': 'Quel soutien reçoivent les étudiants ?',
+        'faq.a3': 'Chaque étudiant a accès à un mentor dédié, des forums communautaires, des sessions Q&A hebdomadaires et un support technique 24/7.',
+        'faq.q4': 'Les certificats sont-ils reconnus ?',
+        'faq.a4': 'Oui. Nos certificats sont vérifiés et reconnus par plus de 500 entreprises, dont Google, Microsoft, Apple et Stripe.',
+        'faq.q5': 'Puis-je changer de cours ?',
+        'faq.a5': 'Bien sûr. Vous pouvez changer de cours dans les 14 premiers jours sans frais supplémentaires.',
+
+        'newsletter.title': 'Restez en Avance',
+        'newsletter.desc': 'Recevez chaque semaine des insights, recommandations de cours et conseils carrière.',
+        'newsletter.placeholder': 'votre@email.com',
+        'newsletter.cta': 'S\'abonner',
+        'newsletter.success': 'Vous êtes abonné ! Vérifiez votre boîte.',
+
+        'footer.desc': 'Kairos Academy est une plateforme moderne d\'apprentissage en ligne aidant les professionnels à maîtriser les compétences qui comptent.',
+        'footer.col1_title': 'Cours',
+        'footer.col1_1': 'Design',
+        'footer.col1_2': 'Technologie',
+        'footer.col1_3': 'Business',
+        'footer.col1_4': 'Arts Créatifs',
+        'footer.col1_5': 'Préparation Carrière',
+        'footer.col2_title': 'Entreprise',
+        'footer.col2_1': 'À Propos',
+        'footer.col2_2': 'Carrières',
+        'footer.col2_3': 'Blog',
+        'footer.col2_4': 'Presse',
+        'footer.col2_5': 'Contact',
+        'footer.col3_title': 'Soutien',
+        'footer.col3_1': 'Centre d\'Aide',
+        'footer.col3_2': 'Communauté',
+        'footer.col3_3': 'Confidentialité',
+        'footer.col3_4': 'Conditions d\'Utilisation',
+        'footer.col3_5': 'Cookies',
+        'footer.copyright': '© 2026 Kairos Academy. Tous droits réservés.',
+        'footer.tagline': 'Construit avec intention. Conçu pour la croissance.',
+
+        'cookie.text': 'Nous utilisons des cookies pour améliorer votre expérience. En continuant, vous acceptez notre politique.',
+        'cookie.accept': 'Accepter',
+        'cookie.decline': 'Refuser',
+      },
+
+      de: {
+        'nav.logo': 'Kairos',
+        'nav.features': 'Kurse',
+        'nav.testimonials': 'Erfahrungen',
+        'nav.faq': 'FAQ',
+        'nav.cta': 'Lernen Starten',
+
+        'hero.tag': '✨ Neu: KI-gestützte Kurse',
+        'hero.title1': 'Lerne Was',
+        'hero.title2': 'Wirklich Zählt',
+        'hero.desc': 'Expertengeführte Kurse in Design, Technologie und Business — projektbasiert, nicht theorielastig. Lerne in deinem Tempo mit Mentoring.',
+        'hero.cta1': 'Kurse Entdecken',
+        'hero.cta2': 'Übersicht Ansehen',
+        'hero.stat1_val': '50K+',
+        'hero.stat1_lbl': 'Aktive Lernende',
+        'hero.stat2_val': '98%',
+        'hero.stat2_lbl': 'Abschlussquote',
+        'hero.stat3_val': '4.9',
+        'hero.stat3_lbl': 'Durchschnittsbewertung',
+        'hero.vis1_title': 'Kursfortschritt',
+        'hero.vis1_text': 'Interaktionsdesign • 72%',
+        'hero.vis2_title': 'Studierende Online',
+        'hero.vis2_text': '1.247',
+        'hero.vis3_title': 'Neue Mentoren',
+        'hero.vis3_text': '4 Experten diese Woche',
+
+        'features.label': 'Warum Kairos',
+        'features.title': 'Intelligenter Lernen',
+        'features.desc': 'Jeder Kurs basiert auf echten Projekten, von Experten geleitet und an deinen Zeitplan angepasst.',
+        'features.f1_title': 'Projektbasiertes Curriculum',
+        'features.f1_desc': 'Baue echte Produkte von Tag eins. Jeder Kurs endet mit einem portfoliofertigen Projekt.',
+        'features.f1_li1': 'Echte Kundenbriefings',
+        'features.f1_li2': 'Peer-Code-Reviews',
+        'features.f1_li3': 'Portfolio-Website inklusive',
+        'features.f2_title': 'Experten-Mentoren',
+        'features.f2_desc': 'Lerne von Profis bei Google, Figma und Stripe, die deine Arbeit bewerten.',
+        'features.f3_title': 'Lerne in deinem Tempo',
+        'features.f3_desc': 'Selbstbestimmt mit wöchentlichen Live-Sessions. Kurse dauern 4–6 Wochen.',
+        'features.f4_title': 'Ergebnisse die Zählen',
+        'features.f4_desc': 'Unsere Absolventen sehen innerhalb von 6 Monaten echte Karrierewirkungen.',
+        'features.f5_title': 'Aktive Gemeinschaft',
+        'features.f5_desc': 'Tritt Lerngruppen bei, nimm an Workshops teil und vernetze dich mit 50.000+ Lernenden.',
+        'features.f6_title': 'Industriezertifikat',
+        'features.f6_desc': 'Erhalte verifizierbare Zertifikate, die von Top-Arbeitgebern anerkannt werden.',
+
+        'stats.s1_num': '50',
+        'stats.s1_lbl': 'Aktive Lernende',
+        'stats.s2_num': '200',
+        'stats.s2_lbl': 'Expertenkurse',
+        'stats.s3_num': '15',
+        'stats.s3_lbl': 'Veröffentlichte Projekte',
+        'stats.s4_num': '92',
+        'stats.s4_lbl': 'Karrierewirkungsrate',
+
+        'testimonials.label': 'Erfahrungen',
+        'testimonials.title': 'Was Unsere Lernenden Sagen',
+        'testimonials.desc': 'Tausende Studierende haben ihre Karriere durch unsere Programme verändert.',
+        'testimonials.t1_text': '"Kairos hat meine Lernweise komplett verändert. Das projektbasierte Curriculum half mir, ein Portfolio aufzubauen, das mir innerhalb weniger Wochen einen Job verschaffte."',
+        'testimonials.t1_name': 'Sarah Chen',
+        'testimonials.t1_role': 'UX Designerin bei Figma',
+        'testimonials.t2_text': '"Das Mentoring-Programm ist jeden Cent wert. Senior-Ingenieure, die meinen Code reviewen, haben mein Wachstum um Jahre beschleunigt."',
+        'testimonials.t2_name': 'Marcus Johnson',
+        'testimonials.t2_role': 'Frontend-Ingenieur bei Vercel',
+        'testimonials.t3_text': '"Ich war skeptisch gegenüber Online-Lernen, bis ich Kairos ausprobierte. Die Gemeinschaft ist unglaublich unterstützend."',
+        'testimonials.t3_name': 'Elena Torres',
+        'testimonials.t3_role': 'Product Manager bei Notion',
+
+        'faq.label': 'FAQ',
+        'faq.title': 'Häufige Fragen',
+        'faq.desc': 'Alles, was du über das Lernen an der Kairos Academy wissen musst.',
+        'faq.q1': 'Wie funktionieren die Kurse?',
+        'faq.a1': 'Jeder Kurs kombiniert selbstbestimmte Videolektionen mit praktischen Projekten. Du baust echte Produkte, erhältst persönliches Feedback und bekommst ein Zertifikat.',
+        'faq.q2': 'Gibt es eine Geld-zurück-Garantie?',
+        'faq.a2': 'Absolut. Wir bieten 30 Tage Geld-zurück-Garantie auf alle Kurse.',
+        'faq.q3': 'Welche Unterstützung erhalten Studierende?',
+        'faq.a3': 'Jeder Student hat Zugang zu einem Mentor, Community-Foren, wöchentlichen Live-Q&As und 24/7 technischem Support.',
+        'faq.q4': 'Werden die Zertifikate anerkannt?',
+        'faq.a4': 'Ja. Unsere Zertifikate werden von über 500 Unternehmen anerkannt, darunter Google, Microsoft, Apple und Stripe.',
+        'faq.q5': 'Kann ich Kurse wechseln?',
+        'faq.a5': 'Natürlich. Du kannst innerhalb der ersten 14 Tage kostenlos wechseln.',
+
+        'newsletter.title': 'Bleib am Ball',
+        'newsletter.desc': 'Erhalte wöchentliche Einblicke, Kursempfehlungen und Karrieretipps.',
+        'newsletter.placeholder': 'deine@email.de',
+        'newsletter.cta': 'Abonnieren',
+        'newsletter.success': 'Du bist abonniert! Prüfe dein Postfach.',
+
+        'footer.desc': 'Kairos Academy ist eine moderne Online-Lernplattform, die Fachleuten hilft, die wichtigsten Fähigkeiten zu meistern.',
+        'footer.col1_title': 'Kurse',
+        'footer.col1_1': 'Design',
+        'footer.col1_2': 'Technologie',
+        'footer.col1_3': 'Business',
+        'footer.col1_4': 'Kreative Künste',
+        'footer.col1_5': 'Karrierevorbereitung',
+        'footer.col2_title': 'Unternehmen',
+        'footer.col2_1': 'Über Uns',
+        'footer.col2_2': 'Karriere',
+        'footer.col2_3': 'Blog',
+        'footer.col2_4': 'Presse',
+        'footer.col2_5': 'Kontakt',
+        'footer.col3_title': 'Support',
+        'footer.col3_1': 'Hilfezentrum',
+        'footer.col3_2': 'Community',
+        'footer.col3_3': 'Datenschutz',
+        'footer.col3_4': 'Nutzungsbedingungen',
+        'footer.col3_5': 'Cookie-Richtlinie',
+        'footer.copyright': '© 2026 Kairos Academy. Alle Rechte vorbehalten.',
+        'footer.tagline': 'Mit Absicht gebaut. Für Wachstum konzipiert.',
+
+        'cookie.text': 'Wir verwenden Cookies zur Verbesserung deines Erlebnisses. Mit der Nutzung stimmst du unserer Cookie-Richtlinie zu.',
+        'cookie.accept': 'Akzeptieren',
+        'cookie.decline': 'Ablehnen',
+      },
+
+      it: {
+        'nav.logo': 'Kairos',
+        'nav.features': 'Corsi',
+        'nav.testimonials': 'Testimonianze',
+        'nav.faq': 'FAQ',
+        'nav.cta': 'Inizia a Imparare',
+
+        'hero.tag': '✨ Nuovo: Corsi con IA',
+        'hero.title1': 'Impara Ciò Che',
+        'hero.title2': 'Conta Di Più',
+        'hero.desc': 'Corsi guidati da esperti in design, tecnologia e business — basati su progetti, non teoria. Impara al tuo ritmo con il supporto di professionisti.',
+        'hero.cta1': 'Esplora Corsi',
+        'hero.cta2': 'Guida Panoramica',
+        'hero.stat1_val': '50K+',
+        'hero.stat1_lbl': 'Studenti Attivi',
+        'hero.stat2_val': '98%',
+        'hero.stat2_lbl': 'Tasso di Completamento',
+        'hero.stat3_val': '4.9',
+        'hero.stat3_lbl': 'Valutazione Media',
+        'hero.vis1_title': 'Avanzamento Corso',
+        'hero.vis1_text': 'Interaction Design • 72%',
+        'hero.vis2_title': 'Studenti Online',
+        'hero.vis2_text': '1.247',
+        'hero.vis3_title': 'Nuovi Mentor',
+        'hero.vis3_text': '4 esperti questa settimana',
+
+        'features.label': 'Perché Kairos',
+        'features.title': 'Un Modo Più Intelligente di Imparare',
+        'features.desc': 'Ogni corso è costruito su progetti reali, guidato da esperti e progettato per il tuo programma.',
+        'features.f1_title': 'Programma Basato su Progetti',
+        'features.f1_desc': 'Costruisci prodotti reali dal primo giorno. Ogni corso termina con un progetto pronto per il portfolio.',
+        'features.f2_title': 'Mentor Esperti',
+        'features.f2_desc': 'Impara da professionisti di Google, Figma e Stripe che valutano il tuo lavoro.',
+        'features.f3_title': 'Impara al Tuo Ritmo',
+        'features.f3_desc': 'Auto-gestito con sessioni live settimanali. Corsi di 4-6 settimane.',
+        'features.f4_title': 'Risultati Concreti',
+        'features.f4_desc': 'I nostri diplomati vedono un impatto reale sulla carriera in 6 mesi.',
+        'features.f5_title': 'Comunità Attiva',
+        'features.f5_desc': 'Unisciti a gruppi di studio, workshop e connettiti con 50.000+ studenti.',
+        'features.f6_title': 'Certificazione Riconosciuta',
+        'features.f6_desc': 'Ottieni certificati verificabili riconosciuti dai migliori datori di lavoro.',
+
+        'stats.s1_num': '50',
+        'stats.s1_lbl': 'Studenti Attivi',
+        'stats.s2_num': '200',
+        'stats.s2_lbl': 'Corsi con Esperti',
+        'stats.s3_num': '15',
+        'stats.s3_lbl': 'Progetti Pubblicati',
+        'stats.s4_num': '92',
+        'stats.s4_lbl': 'Tasso di Impatto Lavorativo',
+
+        'testimonials.label': 'Testimonianze',
+        'testimonials.title': 'Cosa Dicono i Nostri Studenti',
+        'testimonials.desc': 'Migliaia di studenti hanno trasformato la loro carriera con i nostri programmi.',
+        'testimonials.t1_text': '"Kairos ha cambiato completamente il mio modo di imparare. Il programma basato su progetti mi ha aiutato a creare un portfolio che mi ha fatto assumere in poche settimane."',
+        'testimonials.t1_name': 'Sarah Chen',
+        'testimonials.t1_role': 'UX Designer presso Figma',
+        'testimonials.t2_text': '"Il programma di mentoring vale ogni centesimo. Ingegneri senior che revisionano il mio codice hanno accelerato la mia crescita."',
+        'testimonials.t2_name': 'Marcus Johnson',
+        'testimonials.t2_role': 'Frontend Engineer presso Vercel',
+        'testimonials.t3_text': '"Ero scettico sull\'apprendimento online fino a Kairos. La comunità è incredibilmente solidale."',
+        'testimonials.t3_name': 'Elena Torres',
+        'testimonials.t3_role': 'Product Manager presso Notion',
+
+        'faq.label': 'FAQ',
+        'faq.title': 'Domande Frequenti',
+        'faq.desc': 'Tutto ciò che devi sapere sull\'apprendimento su Kairos Academy.',
+        'faq.q1': 'Come funzionano i corsi?',
+        'faq.a1': 'Ogni corso combina lezioni video auto-gestite con progetti pratici. Costruisci prodotti reali, ricevi feedback personalizzati e ottieni un certificato.',
+        'faq.q2': 'C\'è una garanzia di rimborso?',
+        'faq.a2': 'Assolutamente. Offriamo 30 giorni di garanzia di rimborso su tutti i corsi.',
+        'faq.q3': 'Che supporto ricevono gli studenti?',
+        'faq.a3': 'Ogni studente ha accesso a un mentor dedicato, forum della comunità, sessioni Q&A settimanali e supporto tecnico 24/7.',
+        'faq.q4': 'I certificati sono riconosciuti?',
+        'faq.a4': 'Sì. I nostri certificati sono verificati e riconosciuti da oltre 500 aziende, tra cui Google, Microsoft, Apple e Stripe.',
+        'faq.q5': 'Posso cambiare corso?',
+        'faq.a5': 'Certo. Puoi cambiare corso entro i primi 14 giorni senza costi aggiuntivi.',
+
+        'newsletter.title': 'Resta al Passo',
+        'newsletter.desc': 'Ricevi approfondimenti settimanali, consigli sui corsi e suggerimenti di carriera.',
+        'newsletter.placeholder': 'tua@email.com',
+        'newsletter.cta': 'Iscriviti',
+        'newsletter.success': 'Iscritto! Controlla la tua casella di posta.',
+
+        'footer.desc': 'Kairos Academy è una piattaforma moderna di apprendimento online che aiuta i professionisti a padroneggiare le competenze più importanti.',
+        'footer.col1_title': 'Corsi',
+        'footer.col1_1': 'Design',
+        'footer.col1_2': 'Tecnologia',
+        'footer.col1_3': 'Business',
+        'footer.col1_4': 'Arti Creative',
+        'footer.col1_5': 'Preparazione Carriera',
+        'footer.col2_title': 'Azienda',
+        'footer.col2_1': 'Chi Siamo',
+        'footer.col2_2': 'Carriere',
+        'footer.col2_3': 'Blog',
+        'footer.col2_4': 'Stampa',
+        'footer.col2_5': 'Contatti',
+        'footer.col3_title': 'Supporto',
+        'footer.col3_1': 'Centro Assistenza',
+        'footer.col3_2': 'Comunità',
+        'footer.col3_3': 'Privacy',
+        'footer.col3_4': 'Termini di Servizio',
+        'footer.col3_5': 'Cookie Policy',
+        'footer.copyright': '© 2026 Kairos Academy. Tutti i diritti riservati.',
+        'footer.tagline': 'Costruito con intento. Progettato per la crescita.',
+
+        'cookie.text': 'Utilizziamo i cookie per migliorare la tua esperienza. Continuando, accetti la nostra policy.',
+        'cookie.accept': 'Accetta',
+        'cookie.decline': 'Rifiuta',
+      },
+
+      pt: {
+        'nav.logo': 'Kairos',
+        'nav.features': 'Cursos',
+        'nav.testimonials': 'Depoimentos',
+        'nav.faq': 'FAQ',
+        'nav.cta': 'Comece a Aprender',
+
+        'hero.tag': '✨ Novo: Cursos com IA',
+        'hero.title1': 'Aprenda o Que',
+        'hero.title2': 'Mais Importa',
+        'hero.desc': 'Cursos liderados por especialistas em design, tecnologia e negócios — baseados em projetos, não em teoria. Aprenda no seu ritmo com mentoria de profissionais.',
+        'hero.cta1': 'Explorar Cursos',
+        'hero.cta2': 'Ver Visão Geral',
+        'hero.stat1_val': '50K+',
+        'hero.stat1_lbl': 'Alunos Ativos',
+        'hero.stat2_val': '98%',
+        'hero.stat2_lbl': 'Taxa de Conclusão',
+        'hero.stat3_val': '4.9',
+        'hero.stat3_lbl': 'Avaliação Média',
+        'hero.vis1_title': 'Progresso do Curso',
+        'hero.vis1_text': 'Design de Interação • 72%',
+        'hero.vis2_title': 'Alunos Online',
+        'hero.vis2_text': '1.247',
+        'hero.vis3_title': 'Novos Mentores',
+        'hero.vis3_text': '4 especialistas esta semana',
+
+        'features.label': 'Por que Kairos',
+        'features.title': 'Um Jeito Mais Inteligente de Aprender',
+        'features.desc': 'Cada curso é construído em torno de projetos reais, guiado por especialistas e projetado para sua agenda.',
+        'features.f1_title': 'Currículo Baseado em Projetos',
+        'features.f1_desc': 'Construa produtos reais desde o primeiro dia. Cada curso termina com um projeto pronto para o portfólio.',
+        'features.f2_title': 'Mentores Especialistas',
+        'features.f2_desc': 'Aprenda com profissionais do Google, Figma e Stripe que revisam seu trabalho.',
+        'features.f3_title': 'Aprenda no Seu Ritmo',
+        'features.f3_desc': 'Auto-ritmo com sessões ao vivo semanais. Cursos de 4 a 6 semanas.',
+        'features.f4_title': 'Resultados que Importam',
+        'features.f4_desc': 'Nossos graduados veem impacto real na carreira em 6 meses.',
+        'features.f5_title': 'Comunidade Ativa',
+        'features.f5_desc': 'Participe de grupos de estudo, workshops e conecte-se com mais de 50.000 alunos.',
+        'features.f6_title': 'Certificação Reconhecida',
+        'features.f6_desc': 'Obtenha certificados verificáveis reconhecidos pelos principais empregadores.',
+
+        'stats.s1_num': '50',
+        'stats.s1_lbl': 'Alunos Ativos',
+        'stats.s2_num': '200',
+        'stats.s2_lbl': 'Cursos com Especialistas',
+        'stats.s3_num': '15',
+        'stats.s3_lbl': 'Projetos Publicados',
+        'stats.s4_num': '92',
+        'stats.s4_lbl': 'Taxa de Impacto na Carreira',
+
+        'testimonials.label': 'Depoimentos',
+        'testimonials.title': 'O Que Nossos Alunos Dizem',
+        'testimonials.desc': 'Milhares de estudantes transformaram suas carreiras com nossos programas.',
+        'testimonials.t1_text': '"Kairos mudou completamente minha forma de aprender. O currículo baseado em projetos me ajudou a criar um portfólio que me conseguiu um emprego em semanas."',
+        'testimonials.t1_name': 'Sarah Chen',
+        'testimonials.t1_role': 'UX Designer na Figma',
+        'testimonials.t2_text': '"O programa de mentoria vale cada centavo. Engenheiros sêniores revisando meu código acelerou meu crescimento em anos."',
+        'testimonials.t2_name': 'Marcus Johnson',
+        'testimonials.t2_role': 'Engenheiro Frontend na Vercel',
+        'testimonials.t3_text': '"Eu era cético sobre aprendizado online até experimentar Kairos. A comunidade é incrivelmente acolhedora."',
+        'testimonials.t3_name': 'Elena Torres',
+        'testimonials.t3_role': 'Product Manager na Notion',
+
+        'faq.label': 'FAQ',
+        'faq.title': 'Perguntas Frequentes',
+        'faq.desc': 'Tudo que você precisa saber sobre aprender na Kairos Academy.',
+        'faq.q1': 'Como funcionam os cursos?',
+        'faq.a1': 'Cada curso combina videoaulas auto-ritmadas com projetos práticos. Você constrói produtos reais, recebe feedback personalizado e obtém um certificado.',
+        'faq.a2': 'Absolutamente. Oferecemos 30 dias de garantia de reembolso em todos os cursos.',
+        'faq.q2': 'Há garantia de reembolso?',
+        'faq.a3': 'Cada aluno tem acesso a um mentor dedicado, fóruns da comunidade, sessões de Q&A semanais e suporte técnico 24/7.',
+        'faq.q3': 'Que suporte os alunos recebem?',
+        'faq.a4': 'Sim. Nossos certificados são verificados e reconhecidos por mais de 500 empresas, incluindo Google, Microsoft, Apple e Stripe.',
+        'faq.q4': 'Os certificados são reconhecidos?',
+        'faq.a5': 'Claro. Você pode trocar de curso nos primeiros 14 dias sem custo adicional.',
+        'faq.q5': 'Posso trocar de curso?',
+
+        'newsletter.title': 'Fique à Frente',
+        'newsletter.desc': 'Receba insights semanais, recomendações de cursos e dicas de carreira.',
+        'newsletter.placeholder': 'seu@email.com',
+        'newsletter.cta': 'Inscrever-se',
+        'newsletter.success': 'Inscrito! Verifique sua caixa de entrada.',
+
+        'footer.desc': 'Kairos Academy é uma plataforma moderna de aprendizado online que ajuda profissionais a dominar as habilidades que mais importam.',
+        'footer.col1_title': 'Cursos',
+        'footer.col1_1': 'Design',
+        'footer.col1_2': 'Tecnologia',
+        'footer.col1_3': 'Negócios',
+        'footer.col1_4': 'Artes Criativas',
+        'footer.col1_5': 'Preparação de Carreira',
+        'footer.col2_title': 'Empresa',
+        'footer.col2_1': 'Sobre',
+        'footer.col2_2': 'Carreiras',
+        'footer.col2_3': 'Blog',
+        'footer.col2_4': 'Imprensa',
+        'footer.col2_5': 'Contato',
+        'footer.col3_title': 'Suporte',
+        'footer.col3_1': 'Central de Ajuda',
+        'footer.col3_2': 'Comunidade',
+        'footer.col3_3': 'Privacidade',
+        'footer.col3_4': 'Termos de Serviço',
+        'footer.col3_5': 'Política de Cookies',
+        'footer.copyright': '© 2026 Kairos Academy. Todos os direitos reservados.',
+        'footer.tagline': 'Construído com propósito. Projetado para crescer.',
+
+        'cookie.text': 'Usamos cookies para melhorar sua experiência. Ao continuar, você aceita nossa política de cookies.',
+        'cookie.accept': 'Aceitar',
+        'cookie.decline': 'Recusar',
+      }
+    };
+
+    /* ============================================================
+       i18n Engine
+       ============================================================ */
+    let currentLang = 'en';
+
+    function getBrowserLang() {
+      const lang = navigator.language || navigator.userLanguage || '';
+      const code = lang.split('-')[0].toLowerCase();
+      if (['en','es','fr','de','it','pt'].includes(code)) return code;
+      return 'en';
+    }
+
+    function applyLang(lang) {
+      currentLang = lang;
+      const strings = i18n[lang] || i18n.en;
+
+      // Update all [data-i18n] elements
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (strings[key]) {
+          if (el.tagName === 'INPUT' && el.getAttribute('type') === 'email') {
+            el.placeholder = strings[key];
+          } else if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+            el.value = strings[key];
+          } else {
+            el.textContent = strings[key];
+          }
+        }
+      });
+
+      // Update meta tags
+      const metaTitle = document.getElementById('meta-title');
+      const metaDesc = document.getElementById('meta-desc');
+      const ogTitle = document.getElementById('og-title');
+      const ogDesc = document.getElementById('og-desc');
+      const twTitle = document.getElementById('tw-title');
+      const twDesc = document.getElementById('tw-desc');
+
+      const titleMap = {
+        en: 'Kairos Academy — Learn What Matters, When It Matters',
+        es: 'Kairos Academy — Aprende lo que Más Importa, Cuando Importa',
+        fr: 'Kairos Academy — Apprenez Ce Qui Compte, Quand Ça Compte',
+        de: 'Kairos Academy — Lerne Was Wirklich Zählt, Wann Es Zählt',
+        it: 'Kairos Academy — Impara Ciò Che Conta, Quando Conta',
+        pt: 'Kairos Academy — Aprenda o Que Importa, Quando Importa',
+      };
+      const descMap = {
+        en: 'Kairos Academy is a modern online learning platform offering expert-led courses in design, technology, business, and creative arts.',
+        es: 'Kairos Academy es una plataforma moderna de aprendizaje en línea con cursos dirigidos por expertos en diseño, tecnología, negocios y artes creativas.',
+        fr: 'Kairos Academy est une plateforme moderne d\'apprentissage en ligne proposant des cours animés par des experts en design, technologie, business et arts créatifs.',
+        de: 'Kairos Academy ist eine moderne Online-Lernplattform mit expertengeführten Kursen in Design, Technologie, Business und kreativen Künsten.',
+        it: 'Kairos Academy è una piattaforma moderna di apprendimento online con corsi guidati da esperti in design, tecnologia, business e arti creative.',
+        pt: 'Kairos Academy é uma plataforma moderna de aprendizado online com cursos liderados por especialistas em design, tecnologia, negócios e artes criativas.',
+      };
+
+      const title = titleMap[lang] || titleMap.en;
+      const desc = descMap[lang] || descMap.en;
+
+      document.title = title;
+      if (metaTitle) metaTitle.textContent = title;
+      if (metaDesc) metaDesc.content = desc;
+      if (ogTitle) ogTitle.textContent = title;
+      if (ogDesc) ogDesc.content = desc;
+      if (twTitle) twTitle.textContent = title;
+      if (twDesc) twDesc.content = desc;
+
+      // Update lang button
+      document.getElementById('langCurrent').textContent = lang.toUpperCase();
+
+      // Update active state in dropdown
+      document.querySelectorAll('.lang-option').forEach(opt => {
+        opt.classList.toggle('active', opt.dataset.lang === lang);
+      });
+
+      // Update html lang attribute
+      document.documentElement.lang = lang;
+
+      // Save to localStorage
+      localStorage.setItem('kairos-lang', lang);
+    }
+
+    /* ============================================================
+       Navigation & Interactions
+       ============================================================ */
+    // Language switcher
+    const langBtn = document.getElementById('langBtn');
+    const langDropdown = document.getElementById('langDropdown');
+    let langOpen = false;
+
+    langBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      langOpen = !langOpen;
+      langDropdown.classList.toggle('open', langOpen);
+    });
+
+    document.addEventListener('click', () => {
+      langOpen = false;
+      langDropdown.classList.remove('open');
+    });
+
+    document.querySelectorAll('.lang-option').forEach(opt => {
+      opt.addEventListener('click', () => {
+        applyLang(opt.dataset.lang);
+        langOpen = false;
+        langDropdown.classList.remove('open');
+      });
+    });
+
+    // Theme toggle
+    const themeToggle = document.getElementById('themeToggle');
+    let darkMode = localStorage.getItem('kairos-theme') === 'dark';
+
+    function applyTheme(dark) {
+      darkMode = dark;
+      document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+      localStorage.setItem('kairos-theme', dark ? 'dark' : 'light');
+    }
+
+    themeToggle.addEventListener('click', () => applyTheme(!darkMode));
+
+    // Mobile hamburger
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobileNav');
+    let menuOpen = false;
+
+    hamburger.addEventListener('click', () => {
+      menuOpen = !menuOpen;
+      hamburger.classList.toggle('open', menuOpen);
+      mobileNav.classList.toggle('open', menuOpen);
+      document.body.style.overflow = menuOpen ? 'hidden' : '';
+    });
+
+    // Close mobile nav on link click
+    mobileNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        menuOpen = false;
+        hamburger.classList.remove('open');
+        mobileNav.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // Scroll nav shadow
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('nav-scrolled', window.scrollY > 20);
+    }, { passive: true });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', (e) => {
+        const target = document.querySelector(anchor.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    /* ============================================================
+       FAQ Accordion
+       ============================================================ */
+    document.querySelectorAll('.faq-item').forEach(item => {
+      const question = item.querySelector('.faq-question');
+      const answer = item.querySelector('.faq-answer');
+
+      question.addEventListener('click', () => {
+        const isOpen = item.classList.contains('open');
+
+        // Close all
+        document.querySelectorAll('.faq-item').forEach(other => {
+          other.classList.remove('open');
+          other.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+          other.querySelector('.faq-answer').style.maxHeight = '0';
+        });
+
+        // Toggle clicked
+        if (!isOpen) {
+          item.classList.add('open');
+          question.setAttribute('aria-expanded', 'true');
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+        }
+      });
+    });
+
+    /* ============================================================
+       Newsletter
+       ============================================================ */
+    const newsletterForm = document.getElementById('newsletterForm');
+    const newsletterInput = document.getElementById('newsletterInput');
+    const newsletterSuccess = document.getElementById('newsletterSuccess');
+
+    newsletterForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = newsletterInput.value.trim();
+      if (email && email.includes('@')) {
+        newsletterForm.classList.add('hidden');
+        newsletterSuccess.classList.add('show');
+      } else {
+        newsletterInput.style.borderColor = 'var(--color-accent)';
+        setTimeout(() => { newsletterInput.style.borderColor = ''; }, 2000);
+      }
+    });
+
+    /* ============================================================
+       Cookie Banner
+       ============================================================ */
+    const cookieBanner = document.getElementById('cookieBanner');
+    const cookieAccept = document.getElementById('cookieAccept');
+    const cookieDecline = document.getElementById('cookieDecline');
+
+    if (!localStorage.getItem('kairos-cookie')) {
+      setTimeout(() => cookieBanner.classList.add('show'), 1000);
+    }
+
+    cookieAccept.addEventListener('click', () => {
+      localStorage.setItem('kairos-cookie', 'accepted');
+      cookieBanner.classList.remove('show');
+    });
+
+    cookieDecline.addEventListener('click', () => {
+      localStorage.setItem('kairos-cookie', 'declined');
+      cookieBanner.classList.remove('show');
+    });
+
+    /* ============================================================
+       Scroll Reveal (Intersection Observer)
+       ============================================================ */
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          // Animate progress bar in hero
+          if (entry.target.id === 'hero' || entry.target.closest('.hero')) {
+            const fill = document.getElementById('progressFill');
+            if (fill) setTimeout(() => fill.classList.add('animate'), 300);
+          }
+          // Animate notion bars
+          if (entry.target.closest('.notion-chart')) {
+            entry.target.querySelectorAll('.notion-bar').forEach((bar, i) => {
+              setTimeout(() => bar.classList.add('animate'), i * 80);
+            });
+          }
+          // Animate notion dots
+          if (entry.target.closest('.notion-dots')) {
+            entry.target.querySelectorAll('.notion-dot').forEach((dot, i) => {
+              setTimeout(() => dot.classList.add('active'), i * 120);
+            });
+          }
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.15,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    /* ============================================================
+       Initialization
+       ============================================================ */
+    // Detect and apply saved language or browser language
+    const savedLang = localStorage.getItem('kairos-lang');
+    if (savedLang) {
+      applyLang(savedLang);
+    } else {
+      applyLang(getBrowserLang());
+    }
+
+    // Apply saved theme
+    applyTheme(darkMode);
+
+    // Set initial FAQ answer heights (closed)
+    document.querySelectorAll('.faq-answer').forEach(ans => {
+      ans.style.maxHeight = '0';
+    });
+
+    console.log('🏛️ Kairos Academy — Learn What Matters, When It Matters');
+    console.log('📖 Built with purpose. Designed for growth.');
+  </script>
+</body>
+</html>

@@ -1,0 +1,2012 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="meta-title">Pulse — Modern Telemedicine, Uncomplicated Care</title>
+  <meta name="description" id="meta-desc" content="Pulse connects you with board-certified physicians, therapists, and specialists in minutes. Video visits, prescription delivery, lab orders, and health tracking — all from one platform. Real care, no waiting room.">
+  <link rel="canonical" href="https://pulse.health/">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230f766e'/%3E%3Ccircle cx='16' cy='14' r='6' fill='none' stroke='white' stroke-width='2'/%3E%3Cpath d='M16 11v6M13 14h6' stroke='white' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Pulse">
+  <meta property="og:title" id="og-title" content="Pulse — Modern Telemedicine, Uncomplicated Care">
+  <meta property="og:description" id="og-desc" content="Board-certified physicians, therapists, and specialists. Video visits, prescriptions, lab orders — from one platform. Real care, no waiting room.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=1200&q=80">
+  <meta property="og:url" content="https://pulse.health/">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" id="tw-title" content="Pulse — Modern Telemedicine, Uncomplicated Care">
+  <meta name="twitter:description" id="tw-desc" content="Connect with board-certified physicians, therapists, and specialists in minutes. Video visits, Rx delivery, lab orders — from one platform.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=1200&q=80">
+  <meta name="twitter:site" content="@pulsehealth">
+
+  <!-- Fonts: Source Sans 3 (sohne-var substitute, weight 300 signature) + Source Code Pro -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200;0,300;0,400;0,500;0,600;1,300;1,400&family=Source+Code+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ================================================================
+       DESIGN SYSTEM — PULSE
+       Product: Telemedicine & Health Management Platform
+       Design family: Healthcare / MedTech
+       Style: Bento UI layout, Stripe-inspired visual precision
+       Surface: Decide/Learn (primary) — landing page with one idea per
+               bento section. Secondary: Operate (booking flow preview)
+       Color strategy: Committed — teal as dominant functional accent
+               (30%), deep navy as heading anchor, white expanse.
+               Adapted from Stripe: navy (#061b31) → headings,
+               purple → teal for healthcare trust association.
+       Typography: Source Sans 3 (substituting sohne-var) —
+               weight 300 as signature for display+body, 400 for UI.
+               Source Code Pro for health metrics and data.
+       Layout: Bento grid — modular multi-size blocks (2-1-1, 1-2-1,
+               asymmetric hero) instead of equal card grids.
+       Motion: Scroll-triggered scale-up reveals with stagger,
+               pulse micro-interactions on health metrics,
+               hover elevate on bento blocks.
+               Ease-out-quart only. prefers-reduced-motion respected.
+       z-index: header 40 → cookie 50 → modal 60
+       ================================================================ */
+
+    /* ---------- CSS Reset ---------- */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ---------- Design Tokens ---------- */
+    :root {
+      /* Palette: Teal + Navy (Stripe-adapted for healthcare) */
+      --teal: #0f766e;
+      --teal-hover: #0d5f58;
+      --teal-light: rgba(15, 118, 110, 0.08);
+      --teal-ghost: rgba(15, 118, 110, 0.06);
+      --teal-surface: #f0fdfa;
+      --teal-border: rgba(15, 118, 110, 0.2);
+      --navy: #061b31;
+      --navy-warm: #0b1a2a;
+      --navy-card: #132b42;
+      --white: #ffffff;
+      --surface: #ffffff;
+      --surface-alt: #f8fafc;
+      --surface-warm: #f5f7fa;
+      --text-primary: #061b31;
+      --text-body: #475569;
+      --text-muted: #94a3b8;
+      --text-label: #334155;
+      --text-inverse: #ffffff;
+      --text-inverse-secondary: rgba(255, 255, 255, 0.7);
+      --border: #e2e8f0;
+      --border-light: #f1f5f9;
+      --radius: 6px;
+      --radius-sm: 4px;
+      --radius-lg: 12px;
+      --radius-bento: 10px;
+      --font: 'Source Sans 3', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      --font-mono: 'Source Code Pro', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+      --ease-slow: cubic-bezier(0.16, 1, 0.3, 1);
+      --shadow-soft: rgba(50, 50, 93, 0.08) 0px 15px 35px 0px;
+      --shadow-elevated: rgba(50, 50, 93, 0.12) 0px 30px 45px -30px, rgba(0, 0, 0, 0.08) 0px 18px 36px -18px;
+      --shadow-bento: rgba(15, 118, 110, 0.08) 0px 8px 24px -6px, rgba(0, 0, 0, 0.04) 0px 4px 12px -4px;
+      --maxw: 1140px;
+      --gutter: clamp(1.25rem, 4vw, 2.5rem);
+    }
+
+    [data-theme="dark"] {
+      --teal: #2dd4bf;
+      --teal-hover: #5eead4;
+      --teal-light: rgba(45, 212, 191, 0.12);
+      --teal-ghost: rgba(45, 212, 191, 0.06);
+      --teal-surface: #0d1a1e;
+      --teal-border: rgba(45, 212, 191, 0.25);
+      --navy: #e2e8f0;
+      --navy-warm: #0f172a;
+      --navy-card: #1e293b;
+      --white: #0f172a;
+      --surface: #0f172a;
+      --surface-alt: #1a2332;
+      --surface-warm: #1e293b;
+      --text-primary: #f1f5f9;
+      --text-body: #94a3b8;
+      --text-muted: #64748b;
+      --text-label: #cbd5e1;
+      --text-inverse: #ffffff;
+      --text-inverse-secondary: rgba(255, 255, 255, 0.7);
+      --border: #1e293b;
+      --border-light: #1a2332;
+    }
+
+    /* ---------- Base ---------- */
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font);
+      font-weight: 300;
+      color: var(--text-body);
+      background: var(--white);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* ---------- Typography ---------- */
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font);
+      font-weight: 300;
+      color: var(--text-primary);
+      font-feature-settings: "ss01" on;
+      text-wrap: balance;
+    }
+    p { text-wrap: pretty; max-width: 65ch; }
+
+    a { color: var(--teal); text-decoration: none; transition: color 0.3s var(--ease); }
+    a:hover { color: var(--teal-hover); }
+
+    img { max-width: 100%; height: auto; display: block; }
+    .container { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--gutter); }
+
+    /* ---------- Language Switcher ---------- */
+    .lang-select {
+      position: fixed; top: var(--gutter); right: var(--gutter);
+      z-index: 50;
+    }
+    .lang-select__btn {
+      display: inline-flex; align-items: center; gap: 0.45rem;
+      height: 34px; padding: 0 0.75rem;
+      background: var(--surface-alt);
+      border: none; border-radius: 999px;
+      box-shadow: var(--shadow-soft);
+      color: var(--text-primary); cursor: pointer;
+      font-family: var(--font); font-size: 0.75rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.04em;
+      transition: all 0.25s var(--ease);
+    }
+    .lang-select__btn:hover, .lang-select__btn[aria-expanded="true"] { background: var(--teal); color: var(--white); }
+    .lang-select__chev { transition: transform 0.25s var(--ease); }
+    .lang-select__btn[aria-expanded="true"] .lang-select__chev { transform: rotate(180deg); }
+    .lang-select__menu {
+      position: absolute; top: calc(100% + 6px); right: 0; z-index: 60;
+      min-width: 168px; padding: 0.3rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 10px; box-shadow: 0 12px 28px rgba(0,0,0,0.14);
+      opacity: 0; visibility: hidden; transform: translateY(-4px);
+      transition: all 0.25s var(--ease);
+    }
+    .lang-select__menu.open { opacity: 1; visibility: visible; transform: translateY(0); }
+    .lang-select__opt {
+      display: flex; align-items: center; gap: 0.45rem; width: 100%;
+      padding: 0.45rem 0.6rem;
+      border: none; background: transparent; border-radius: 6px;
+      color: var(--text-primary); cursor: pointer; text-align: left;
+      font-family: var(--font); font-size: 0.8125rem; font-weight: 500;
+      text-transform: uppercase; letter-spacing: 0.04em;
+      transition: all 0.15s var(--ease);
+    }
+    .lang-select__opt:hover { background: var(--teal); color: var(--white); }
+    .lang-select__opt[aria-selected="true"] { background: var(--teal); color: var(--white); font-weight: 600; }
+    .lang-select__opt[aria-selected="true"]::after { content: '\2713'; margin-left: auto; }
+
+    /* ---------- Header ---------- */
+    header {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 40;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-light);
+    }
+    [data-theme="dark"] header { background: rgba(15,23,42,0.85); }
+
+    .header-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      max-width: var(--maxw); margin: 0 auto;
+      padding: 0.75rem var(--gutter);
+    }
+    .logo {
+      display: flex; align-items: center; gap: 0.5rem;
+      font-weight: 500; font-size: 1.125rem; color: var(--text-primary);
+    }
+    .logo svg { width: 28px; height: 28px; }
+    .logo-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--teal);
+      animation: logo-pulse 2s ease-in-out infinite;
+    }
+    @keyframes logo-pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(0.8); }
+    }
+
+    .nav-links { display: flex; align-items: center; gap: 2rem; }
+    .nav-links a {
+      font-size: 0.875rem; font-weight: 400; color: var(--text-label);
+      transition: color 0.25s var(--ease);
+    }
+    .nav-links a:hover { color: var(--teal); }
+
+    .header-cta {
+      display: inline-flex; align-items: center;
+      background: var(--teal); color: var(--white);
+      padding: 0.5rem 1.25rem; border-radius: var(--radius-sm);
+      font-size: 0.875rem; font-weight: 400; border: none; cursor: pointer;
+      transition: background 0.3s var(--ease);
+    }
+    .header-cta:hover { background: var(--teal-hover); color: var(--white); }
+
+    .mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; }
+    .mobile-toggle span {
+      display: block; width: 22px; height: 2px;
+      background: var(--text-primary); margin: 5px 0;
+      border-radius: 1px; transition: all 0.3s var(--ease);
+    }
+
+    /* ---------- Hero (Asymmetric Bento) ---------- */
+    .hero {
+      padding: 8rem 0 4rem;
+      background: var(--white);
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute;
+      top: -40%; right: -20%;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, var(--teal-ghost) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: center;
+      position: relative;
+    }
+    .hero-content { padding-right: 1rem; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--teal-surface);
+      border: 1px solid var(--teal-border);
+      border-radius: 20px;
+      padding: 0.375rem 0.875rem 0.375rem 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .hero-badge-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--teal);
+    }
+    .hero-badge span {
+      font-size: 0.8125rem; font-weight: 400; color: var(--teal);
+    }
+    .hero h1 {
+      font-size: clamp(2.25rem, 5vw, 3.25rem);
+      font-weight: 300;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      color: var(--text-primary);
+      margin-bottom: 1.25rem;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--teal);
+    }
+    .hero p {
+      font-size: clamp(1rem, 2vw, 1.125rem);
+      line-height: 1.5;
+      color: var(--text-body);
+      margin-bottom: 2rem;
+      max-width: 42ch;
+    }
+    .hero-actions {
+      display: flex; gap: 0.75rem; flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--teal); color: var(--white);
+      padding: 0.75rem 1.5rem; border-radius: var(--radius-sm);
+      font-size: 1rem; font-weight: 400; border: none; cursor: pointer;
+      transition: background 0.3s var(--ease), transform 0.3s var(--ease);
+    }
+    .btn-primary:hover { background: var(--teal-hover); color: var(--white); transform: translateY(-1px); }
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: transparent; color: var(--teal);
+      padding: 0.75rem 1.5rem; border-radius: var(--radius-sm);
+      font-size: 1rem; font-weight: 400;
+      border: 1px solid var(--teal-border); cursor: pointer;
+      transition: all 0.3s var(--ease);
+    }
+    .btn-ghost:hover {
+      background: var(--teal-light); color: var(--teal-hover);
+      border-color: var(--teal);
+    }
+    .hero-stats {
+      display: flex; gap: 2rem; margin-top: 2.5rem;
+      padding-top: 2rem; border-top: 1px solid var(--border);
+    }
+    .hero-stat-value {
+      font-family: var(--font-mono); font-size: 1.25rem; font-weight: 500;
+      color: var(--text-primary);
+      font-variant-numeric: tabular-nums;
+    }
+    .hero-stat-label { font-size: 0.8125rem; color: var(--text-muted); }
+
+    /* Hero Dashboard Preview (Bento card) */
+    .hero-dashboard {
+      background: var(--navy-warm);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-elevated);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-dashboard::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--teal), transparent);
+      opacity: 0.5;
+    }
+    .dash-header {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 1.25rem;
+    }
+    .dash-title {
+      color: rgba(255,255,255,0.6); font-size: 0.75rem; font-weight: 400;
+      text-transform: uppercase; letter-spacing: 0.06em;
+    }
+    .dash-status {
+      display: flex; align-items: center; gap: 0.375rem;
+      color: #2dd4bf; font-size: 0.75rem;
+    }
+    .dash-status-dot {
+      width: 5px; height: 5px; border-radius: 50%;
+      background: #2dd4bf;
+      animation: logo-pulse 2s ease-in-out infinite;
+    }
+    .dash-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+    .dash-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: var(--radius);
+      padding: 1rem;
+    }
+    .dash-card.wide { grid-column: 1 / -1; }
+    .dash-card-label {
+      color: rgba(255,255,255,0.4); font-size: 0.6875rem;
+      text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.5rem;
+    }
+    .dash-card-value {
+      font-family: var(--font-mono);
+      color: var(--white); font-size: 1.25rem; font-weight: 500;
+      font-variant-numeric: tabular-nums;
+    }
+    .dash-card-value .trend {
+      font-size: 0.75rem; font-weight: 400; margin-left: 0.5rem;
+      font-family: var(--font);
+    }
+    .trend.up { color: #2dd4bf; }
+    .trend.down { color: #f87171; }
+
+    .dash-card-bar {
+      display: flex; align-items: flex-end; gap: 3px;
+      height: 40px; margin-top: 0.5rem;
+    }
+    .dash-card-bar span {
+      flex: 1; background: var(--teal);
+      border-radius: 2px 2px 0 0; opacity: 0.5;
+      transition: opacity 0.3s var(--ease);
+    }
+    .dash-card-bar span.active { opacity: 1; }
+    .dash-card-bar span:nth-child(1) { height: 55%; }
+    .dash-card-bar span:nth-child(2) { height: 70%; }
+    .dash-card-bar span:nth-child(3) { height: 45%; }
+    .dash-card-bar span:nth-child(4) { height: 80%; }
+    .dash-card-bar span:nth-child(5) { height: 65%; }
+    .dash-card-bar span:nth-child(6) { height: 90%; }
+    .dash-card-bar span:nth-child(7) { height: 50%; }
+
+    /* ---------- Section Common ---------- */
+    section { padding: 5rem 0; }
+    .section-label {
+      font-size: 0.8125rem; font-weight: 400; color: var(--teal);
+      text-transform: uppercase; letter-spacing: 0.08em;
+      margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+      font-weight: 300; line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+    .section-desc {
+      font-size: 1.0625rem; line-height: 1.5;
+      color: var(--text-body); max-width: 50ch;
+      margin-bottom: 3rem;
+    }
+
+    /* ---------- Bento Services ---------- */
+    .services-bento {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 1rem;
+    }
+    .bento-block {
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-bento);
+      padding: 2rem;
+      transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+      position: relative; overflow: hidden;
+      opacity: 0; transform: translateY(20px) scale(0.98);
+    }
+    .bento-block.revealed {
+      opacity: 1; transform: translateY(0) scale(1);
+    }
+    .bento-block:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-bento);
+    }
+    .bento-block.wide { grid-column: span 2; }
+    .bento-block.tall { grid-row: span 2; }
+
+    .bento-icon {
+      width: 40px; height: 40px;
+      background: var(--teal-surface);
+      border: 1px solid var(--teal-border);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.25rem;
+    }
+    .bento-icon svg { width: 20px; height: 20px; stroke: var(--teal); fill: none; }
+    .bento-block h3 {
+      font-size: 1.125rem; font-weight: 400;
+      margin-bottom: 0.5rem;
+    }
+    .bento-block p {
+      font-size: 0.9375rem; line-height: 1.55;
+      color: var(--text-body); max-width: 45ch;
+    }
+    .bento-block .service-features {
+      list-style: none; margin-top: 1rem;
+      display: flex; flex-direction: column; gap: 0.5rem;
+    }
+    .bento-block .service-features li {
+      display: flex; align-items: center; gap: 0.5rem;
+      font-size: 0.875rem; color: var(--text-label);
+    }
+    .bento-block .service-features li::before {
+      content: '';
+      width: 4px; height: 4px;
+      background: var(--teal); border-radius: 50%; flex-shrink: 0;
+    }
+
+    /* Bento block with image */
+    .bento-visual {
+      position: absolute; bottom: 0; right: 0;
+      width: 140px; height: 140px;
+      border-radius: var(--radius-bento) 0 0 0;
+      overflow: hidden; opacity: 0.4;
+    }
+    .bento-visual img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+
+    /* ---------- How It Works ---------- */
+    .how-work {
+      background: var(--surface-warm);
+    }
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .step-card {
+      padding: 2rem 1.5rem;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-bento);
+      position: relative;
+      transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+      opacity: 0; transform: translateY(20px);
+    }
+    .step-card.revealed { opacity: 1; transform: translateY(0); }
+    .step-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-soft);
+    }
+    .step-number {
+      font-family: var(--font-mono);
+      font-size: 2.5rem; font-weight: 500;
+      color: var(--teal); opacity: 0.3;
+      line-height: 1;
+      margin-bottom: 1rem;
+      font-variant-numeric: tabular-nums;
+    }
+    .step-card h3 { font-size: 1.125rem; font-weight: 400; margin-bottom: 0.5rem; }
+    .step-card p { font-size: 0.9375rem; color: var(--text-body); }
+    .step-arrow {
+      display: none;
+      position: absolute; right: -1.5rem; top: 50%; transform: translateY(-50%);
+      color: var(--border); width: 20px; height: 20px;
+    }
+
+    /* ---------- Testimonials (Bento) ---------- */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 1rem;
+    }
+    .testimonial-card {
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-bento);
+      padding: 2rem;
+      opacity: 0; transform: translateY(16px);
+      transition: opacity 0.5s var(--ease-slow), transform 0.5s var(--ease-slow);
+    }
+    .testimonial-card.revealed { opacity: 1; transform: translateY(0); }
+    .testimonial-card.featured { background: var(--teal-surface); border-color: var(--teal-border); }
+    .testimonial-card blockquote {
+      font-size: 1rem; line-height: 1.6;
+      color: var(--text-label);
+      margin-bottom: 1.5rem;
+      font-style: normal;
+      quotes: none;
+    }
+    .testimonial-card blockquote::before { content: '\201C'; font-size: 2rem; color: var(--teal); font-weight: 300; line-height: 0; margin-right: 0.25rem; vertical-align: -0.35em; }
+    .testimonial-author {
+      display: flex; align-items: center; gap: 0.75rem;
+    }
+    .testimonial-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--teal); color: var(--white);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 500; font-size: 0.875rem;
+    }
+    .testimonial-name { font-size: 0.9375rem; font-weight: 400; color: var(--text-primary); }
+    .testimonial-role { font-size: 0.8125rem; color: var(--text-muted); }
+
+    /* ---------- Pricing ---------- */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+    .pricing-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-bento);
+      padding: 2rem;
+      transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+      opacity: 0; transform: translateY(16px);
+    }
+    .pricing-card.revealed { opacity: 1; transform: translateY(0); }
+    .pricing-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-elevated);
+    }
+    .pricing-card.featured {
+      border-color: var(--teal-border);
+      background: var(--teal-surface);
+      position: relative;
+    }
+    .pricing-card.featured::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 2px; background: var(--teal);
+      border-radius: var(--radius-bento) var(--radius-bento) 0 0;
+    }
+    .pricing-name { font-size: 1rem; font-weight: 400; color: var(--text-primary); margin-bottom: 0.5rem; }
+    .pricing-price {
+      font-size: 2.5rem; font-weight: 300; color: var(--text-primary);
+      letter-spacing: -0.02em;
+      margin-bottom: 0.25rem;
+    }
+    .pricing-price span { font-size: 0.9375rem; font-weight: 300; color: var(--text-muted); }
+    .pricing-desc { font-size: 0.875rem; color: var(--text-muted); margin-bottom: 1.5rem; }
+    .pricing-features {
+      list-style: none; display: flex; flex-direction: column; gap: 0.625rem;
+      margin-bottom: 1.5rem;
+    }
+    .pricing-features li {
+      display: flex; align-items: center; gap: 0.5rem;
+      font-size: 0.875rem; color: var(--text-label);
+    }
+    .pricing-features li::before {
+      content: '';
+      width: 14px; height: 14px;
+      background: var(--teal);
+      mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E") center/contain no-repeat;
+      -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E") center/contain no-repeat;
+      flex-shrink: 0;
+    }
+    .pricing-btn {
+      width: 100%; text-align: center;
+      padding: 0.625rem; border-radius: var(--radius-sm);
+      font-size: 0.9375rem; font-weight: 400;
+      border: 1px solid var(--teal-border); cursor: pointer;
+      background: transparent; color: var(--teal);
+      transition: all 0.3s var(--ease);
+    }
+    .pricing-btn:hover { background: var(--teal-light); border-color: var(--teal); }
+    .pricing-btn.primary {
+      background: var(--teal); color: var(--white); border-color: var(--teal);
+    }
+    .pricing-btn.primary:hover { background: var(--teal-hover); }
+
+    /* ---------- FAQ ---------- */
+    .faq-section { background: var(--white); }
+    .faq-list { max-width: 700px; margin: 0 auto; }
+    .faq-item {
+      border-bottom: 1px solid var(--border-light);
+      padding: 1.25rem 0;
+    }
+    .faq-question {
+      display: flex; justify-content: space-between; align-items: center;
+      width: 100%; text-align: left;
+      background: none; border: none; cursor: pointer;
+      font-family: var(--font); font-size: 1rem; font-weight: 400;
+      color: var(--text-primary); padding: 0;
+      transition: color 0.25s var(--ease);
+    }
+    .faq-question:hover { color: var(--teal); }
+    .faq-question svg {
+      width: 18px; height: 18px; stroke: var(--text-muted);
+      transition: transform 0.3s var(--ease);
+      flex-shrink: 0;
+    }
+    .faq-item.open .faq-question svg { transform: rotate(45deg); }
+    .faq-answer {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.4s var(--ease), padding 0.4s var(--ease);
+    }
+    .faq-item.open .faq-answer {
+      max-height: 200px;
+      padding-top: 0.75rem;
+    }
+    .faq-answer p {
+      font-size: 0.9375rem; color: var(--text-body);
+      line-height: 1.55;
+    }
+
+    /* ---------- CTA ---------- */
+    .cta-section {
+      background: var(--navy-warm);
+      text-align: center;
+      padding: 5rem 0;
+    }
+    .cta-section .section-title { color: var(--white); }
+    .cta-section .section-desc { color: var(--text-inverse-secondary); margin: 0 auto 2rem; }
+    .cta-form {
+      display: flex; gap: 0.75rem; max-width: 420px; margin: 0 auto;
+    }
+    .cta-form input {
+      flex: 1;
+      padding: 0.75rem 1rem;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: var(--radius-sm);
+      background: rgba(255,255,255,0.06);
+      font-family: var(--font); font-size: 0.9375rem; font-weight: 300;
+      color: var(--white);
+      transition: border-color 0.3s var(--ease);
+    }
+    .cta-form input::placeholder { color: rgba(255,255,255,0.35); }
+    .cta-form input:focus { outline: none; border-color: var(--teal); }
+    .cta-form button {
+      padding: 0.75rem 1.5rem;
+      background: var(--teal); color: var(--white);
+      border: none; border-radius: var(--radius-sm);
+      font-family: var(--font); font-size: 0.9375rem; font-weight: 400;
+      cursor: pointer; white-space: nowrap;
+      transition: background 0.3s var(--ease);
+    }
+    .cta-form button:hover { background: var(--teal-hover); }
+
+    /* ---------- Footer ---------- */
+    footer {
+      background: var(--navy-warm);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 3rem 0 2rem;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 2rem;
+    }
+    .footer-brand .logo { color: var(--white); margin-bottom: 0.75rem; }
+    .footer-brand p {
+      font-size: 0.875rem; color: var(--text-inverse-secondary);
+      max-width: 32ch;
+    }
+    .footer-col h4 {
+      font-size: 0.8125rem; font-weight: 500;
+      color: var(--text-inverse-secondary);
+      text-transform: uppercase; letter-spacing: 0.06em;
+      margin-bottom: 1rem;
+    }
+    .footer-col a {
+      display: block;
+      font-size: 0.875rem; color: rgba(255,255,255,0.5);
+      padding: 0.25rem 0;
+      transition: color 0.25s var(--ease);
+    }
+    .footer-col a:hover { color: var(--teal); }
+    .footer-bottom {
+      margin-top: 2.5rem; padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      display: flex; justify-content: space-between;
+      font-size: 0.8125rem; color: rgba(255,255,255,0.35);
+    }
+
+    /* ---------- Cookie Banner ---------- */
+    .cookie-banner {
+      position: fixed; bottom: 1.25rem; left: 50%;
+      transform: translateX(-50%);
+      z-index: 50;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-bento);
+      padding: 1rem 1.5rem;
+      box-shadow: var(--shadow-elevated);
+      display: flex; align-items: center; gap: 1rem;
+      max-width: 480px; width: calc(100% - 2.5rem);
+      transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
+    }
+    .cookie-banner.hidden { opacity: 0; transform: translateX(-50%) translateY(20px); pointer-events: none; }
+    .cookie-banner p { font-size: 0.8125rem; color: var(--text-body); flex: 1; }
+    .cookie-btn {
+      padding: 0.375rem 0.875rem;
+      background: var(--teal); color: var(--white);
+      border: none; border-radius: var(--radius-sm);
+      font-family: var(--font); font-size: 0.8125rem; font-weight: 400;
+      cursor: pointer; white-space: nowrap;
+      transition: background 0.25s var(--ease);
+    }
+    .cookie-btn:hover { background: var(--teal-hover); }
+
+    /* ---------- Responsive ---------- */
+
+    /* Tablet */
+    @media (max-width: 1024px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .hero-content { padding-right: 0; }
+      .hero-dashboard { max-width: 520px; }
+      .services-bento { grid-template-columns: 1fr 1fr; }
+      .services-bento .bento-block.wide { grid-column: span 2; }
+      .services-bento .bento-block.tall { grid-row: span 1; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+      .pricing-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+      .steps-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* Mobile */
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .mobile-toggle { display: block; }
+      .nav-links.open {
+        display: flex; flex-direction: column;
+        position: absolute; top: 100%; left: 0; right: 0;
+        background: var(--white);
+        border-bottom: 1px solid var(--border);
+        padding: 1rem var(--gutter);
+        gap: 1rem;
+      }
+      [data-theme="dark"] .nav-links.open { background: var(--surface); }
+
+      .hero { padding: 6rem 0 3rem; }
+      .hero h1 { font-size: clamp(1.75rem, 7vw, 2.25rem); }
+      .hero-stats { gap: 1.25rem; flex-wrap: wrap; }
+      .services-bento { grid-template-columns: 1fr; }
+      .services-bento .bento-block.wide { grid-column: span 1; }
+      .steps-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+      .pricing-grid { max-width: 100%; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .cta-form { flex-direction: column; }
+      .cookie-banner { flex-direction: column; text-align: center; }
+      .lang-select { top: auto; bottom: 1rem; right: 1rem; }
+      .section-title { font-size: 1.5rem; }
+    }
+
+    /* ---------- Reduced Motion ---------- */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+      }
+      .bento-block, .step-card, .testimonial-card, .pricing-card {
+        opacity: 1; transform: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Language Switcher -->
+  <div class="lang-select" id="langSelect">
+    <button class="lang-select__btn" type="button" id="langBtn" aria-haspopup="listbox" aria-expanded="false" aria-label="Select language">
+      <span class="lang-select__cur" id="langCur">EN</span>
+      <svg class="lang-select__chev" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <div class="lang-select__menu" role="listbox" aria-label="Choose language">
+      <button class="lang-select__opt" role="option" data-lang="en" aria-selected="true">English</button>
+      <button class="lang-select__opt" role="option" data-lang="es" aria-selected="false">Español</button>
+      <button class="lang-select__opt" role="option" data-lang="fr" aria-selected="false">Français</button>
+      <button class="lang-select__opt" role="option" data-lang="de" aria-selected="false">Deutsch</button>
+      <button class="lang-select__opt" role="option" data-lang="it" aria-selected="false">Italiano</button>
+      <button class="lang-select__opt" role="option" data-lang="pt" aria-selected="false">Português</button>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="header-inner">
+      <a href="#" class="logo" aria-label="Pulse home">
+        <svg viewBox="0 0 32 32" fill="none">
+          <rect width="32" height="32" rx="8" fill="var(--teal)"/>
+          <circle cx="16" cy="14" r="6" stroke="white" stroke-width="2" fill="none"/>
+          <path d="M16 11v6M13 14h6" stroke="white" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span>Pulse</span>
+        <span class="logo-dot"></span>
+      </a>
+
+      <nav class="nav-links" role="navigation" aria-label="Main navigation">
+        <a href="#services" data-i18n="nav-services">Services</a>
+        <a href="#how" data-i18n="nav-how">How It Works</a>
+        <a href="#pricing" data-i18n="nav-pricing">Pricing</a>
+        <a href="#faq" data-i18n="nav-faq">FAQ</a>
+        <button class="header-cta" data-i18n="nav-cta">Get Started</button>
+      </nav>
+
+      <button class="mobile-toggle" aria-label="Toggle navigation menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="hero-badge-dot"></span>
+          <span data-i18n="hero-badge">Now available in 48 states</span>
+        </div>
+        <h1 data-i18n="hero-title">Healthcare that <em>fits</em> your life</h1>
+        <p data-i18n="hero-sub">Connect with board-certified physicians, therapists, and specialists in minutes. Video visits, prescription delivery, and health tracking — all from one platform. No waiting room, no hassle.</p>
+        <div class="hero-actions">
+          <button class="btn-primary" data-i18n="hero-cta-primary">
+            <span>Book an Appointment</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+          <button class="btn-ghost" data-i18n="hero-cta-ghost">Explore Services</button>
+        </div>
+        <div class="hero-stats">
+          <div>
+            <div class="hero-stat-value" data-i18n="hero-stat-1">150K+</div>
+            <div class="hero-stat-label" data-i18n="hero-stat-l1">Active patients</div>
+          </div>
+          <div>
+            <div class="hero-stat-value" data-i18n="hero-stat-2">4.9★</div>
+            <div class="hero-stat-label" data-i18n="hero-stat-l2">Average rating</div>
+          </div>
+          <div>
+            <div class="hero-stat-value" data-i18n="hero-stat-3">12min</div>
+            <div class="hero-stat-label" data-i18n="hero-stat-l3">Avg. wait time</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-dashboard">
+        <div class="dash-header">
+          <span class="dash-title" data-i18n="dash-title">Your Health Dashboard</span>
+          <span class="dash-status"><span class="dash-status-dot"></span> <span data-i18n="dash-status">All Green</span></span>
+        </div>
+        <div class="dash-grid">
+          <div class="dash-card">
+            <div class="dash-card-label" data-i18n="dash-l1">Heart Rate</div>
+            <div class="dash-card-value">72 <span class="trend up">↓ 2%</span></div>
+          </div>
+          <div class="dash-card">
+            <div class="dash-card-label" data-i18n="dash-l2">Blood Pressure</div>
+            <div class="dash-card-value">118/76</div>
+          </div>
+          <div class="dash-card">
+            <div class="dash-card-label" data-i18n="dash-l3">Sleep Score</div>
+            <div class="dash-card-value">87 <span class="trend up">↑ 5%</span></div>
+          </div>
+          <div class="dash-card">
+            <div class="dash-card-label" data-i18n="dash-l4">Steps Today</div>
+            <div class="dash-card-value">6,842</div>
+          </div>
+          <div class="dash-card wide">
+            <div class="dash-card-label" data-i18n="dash-l5">Weekly Activity</div>
+            <div class="dash-card-bar">
+              <span></span><span></span><span></span><span class="active"></span><span></span><span class="active"></span><span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services (Bento Grid) -->
+  <section id="services">
+    <div class="container">
+      <div class="section-label" data-i18n="s-label">Comprehensive Care</div>
+      <h2 class="section-title" data-i18n="s-title">Every aspect of your health, covered</h2>
+      <p class="section-desc" data-i18n="s-desc">From primary care to mental health, Pulse connects you with licensed practitioners who listen, diagnose, and treat — all from your phone or computer.</p>
+
+      <div class="services-bento">
+        <!-- Primary Care — wide block -->
+        <div class="bento-block wide" style="transition-delay: 0.05s">
+          <div class="bento-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M12 8v8M8 12h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <h3 data-i18n="serv-1-title">Primary Care</h3>
+          <p data-i18n="serv-1-desc">Annual checkups, acute illness, chronic condition management — with your dedicated physician who knows your history. Same-week appointments available.</p>
+          <ul class="service-features">
+            <li data-i18n="serv-1-f1">Video visits with your dedicated provider</li>
+            <li data-i18n="serv-1-f2">Lab orders &amp; results in the app</li>
+            <li data-i18n="serv-1-f3">Prescription delivery to your door</li>
+          </ul>
+        </div>
+
+        <!-- Mental Health — tall block -->
+        <div class="bento-block tall" style="transition-delay: 0.1s">
+          <div class="bento-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M8 14s1.5 2 4 2 4-2 4-2" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/><circle cx="9" cy="10" r=".5" fill="currentColor"/><circle cx="15" cy="10" r=".5" fill="currentColor"/></svg>
+          </div>
+          <h3 data-i18n="serv-2-title">Mental Health</h3>
+          <p data-i18n="serv-2-desc">Therapy and psychiatry for anxiety, depression, stress, and more. Meet with a licensed therapist within 48 hours of booking.</p>
+          <ul class="service-features">
+            <li data-i18n="serv-2-f1">Individual &amp; couples therapy</li>
+            <li data-i18n="serv-2-f2">Medication management included</li>
+            <li data-i18n="serv-2-f3">Flexible scheduling, including evenings</li>
+          </ul>
+        </div>
+
+        <!-- Specialists — square block -->
+        <div class="bento-block" style="transition-delay: 0.15s">
+          <div class="bento-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3 data-i18n="serv-3-title">Specialty Care</h3>
+          <p data-i18n="serv-3-desc">Dermatology, cardiology, endocrinology, and more. Referrals processed in-app with top-rated specialists.</p>
+          <ul class="service-features">
+            <li data-i18n="serv-3-f1">15+ specialty departments</li>
+            <li data-i18n="serv-3-f2">Same-week specialist referrals</li>
+          </ul>
+        </div>
+
+        <!-- Lab & Pharmacy — square block -->
+        <div class="bento-block" style="transition-delay: 0.2s">
+          <div class="bento-icon">
+            <svg viewBox="0 0 24 24"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2zm0 0a2 2 0 0 1-2-2v-9h4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M10 8h4M12 6v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <h3 data-i18n="serv-4-title">Lab &amp; Pharmacy</h3>
+          <p data-i18n="serv-4-desc">Order lab work from home with mobile phlebotomy. Prescriptions delivered same-day in most metro areas.</p>
+          <ul class="service-features">
+            <li data-i18n="serv-4-f1">At-home lab collection</li>
+            <li data-i18n="serv-4-f2">Free same-day Rx delivery</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="how-work" id="how">
+    <div class="container">
+      <div class="section-label" data-i18n="hw-label">Simple Process</div>
+      <h2 class="section-title" data-i18n="hw-title">Three steps to better health</h2>
+      <p class="section-desc" data-i18n="hw-desc">Getting care shouldn't be complicated. Here's how Pulse works — from booking to follow-up, in under an hour.</p>
+
+      <div class="steps-grid">
+        <div class="step-card" style="transition-delay: 0.1s">
+          <div class="step-number">01</div>
+          <h3 data-i18n="step-1-title">Tell us what you need</h3>
+          <p data-i18n="step-1-desc">Describe your symptoms or reason for visit. Our matching engine recommends the right provider from our network of 5,000+ licensed practitioners.</p>
+        </div>
+        <div class="step-card" style="transition-delay: 0.2s">
+          <div class="step-number">02</div>
+          <h3 data-i18n="step-2-title">Connect in minutes</h3>
+          <p data-i18n="step-2-desc">Choose a time that works for you — many appointments available within the hour. Join a high-quality video call from any device.</p>
+        </div>
+        <div class="step-card" style="transition-delay: 0.3s">
+          <div class="step-number">03</div>
+          <h3 data-i18n="step-3-title">Get care, get better</h3>
+          <p data-i18n="step-3-desc">Receive diagnosis, treatment plan, prescriptions, and lab orders — all documented in your secure health record. Follow-up included.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials (Bento) -->
+  <section id="testimonials">
+    <div class="container">
+      <div class="section-label" data-i18n="t-label">Patient Stories</div>
+      <h2 class="section-title" data-i18n="t-title">Trusted by thousands of patients</h2>
+      <p class="section-desc" data-i18n="t-desc">Real people, real experiences — from busy parents to remote workers, Pulse helps families stay healthy on their terms.</p>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card featured" style="transition-delay: 0.1s">
+          <blockquote data-i18n="t-1-q">I used to spend half a day driving to a clinic, sitting in a waiting room, and driving back. With Pulse, I had my diagnosis and prescription within 45 minutes — while sitting on my back porch. It's transformed how our family handles sick days.</blockquote>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">MR</div>
+            <div>
+              <div class="testimonial-name">Maria Rodriguez</div>
+              <div class="testimonial-role" data-i18n="t-1-role">Mother of two, Austin TX</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card" style="transition-delay: 0.2s">
+          <blockquote data-i18n="t-2-q">My therapist through Pulse literally changed my life. Being able to schedule evening sessions that fit my work schedule made consistent therapy possible for the first time.</blockquote>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">JK</div>
+            <div>
+              <div class="testimonial-name">James Kim</div>
+              <div class="testimonial-role" data-i18n="t-2-role">Software engineer, Portland OR</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing">
+    <div class="container">
+      <div class="section-label" data-i18n="p-label">Transparent Pricing</div>
+      <h2 class="section-title" data-i18n="p-title">Care that fits your budget</h2>
+      <p class="section-desc" data-i18n="p-desc">No hidden fees, no surprise bills. Every plan includes unlimited messaging with your care team and access to your health record.</p>
+
+      <div class="pricing-grid">
+        <div class="pricing-card" style="transition-delay: 0.05s">
+          <div class="pricing-name" data-i18n="plan-1-name">Essentials</div>
+          <div class="pricing-price">$29 <span data-i18n="plan-1-per">/ visit</span></div>
+          <div class="pricing-desc" data-i18n="plan-1-desc">For occasional care — pay as you go with no commitment.</div>
+          <ul class="pricing-features">
+            <li data-i18n="plan-1-f1">Primary care video visits</li>
+            <li data-i18n="plan-1-f2">Prescription to pharmacy</li>
+            <li data-i18n="plan-1-f3">Lab order processing</li>
+            <li data-i18n="plan-1-f4">Same-week appointments</li>
+          </ul>
+          <button class="pricing-btn" data-i18n="plan-1-btn">Get Started</button>
+        </div>
+
+        <div class="pricing-card featured" style="transition-delay: 0.1s">
+          <div class="pricing-name" data-i18n="plan-2-name">Unlimited</div>
+          <div class="pricing-price">$79 <span data-i18n="plan-2-per">/ month</span></div>
+          <div class="pricing-desc" data-i18n="plan-2-desc">For regular care — unlimited visits and priority scheduling.</div>
+          <ul class="pricing-features">
+            <li data-i18n="plan-2-f1">Unlimited primary care visits</li>
+            <li data-i18n="plan-2-f2">4 mental health sessions included</li>
+            <li data-i18n="plan-2-f3">Free prescription delivery</li>
+            <li data-i18n="plan-2-f4">Priority same-day appointments</li>
+            <li data-i18n="plan-2-f5">At-home lab collection</li>
+          </ul>
+          <button class="pricing-btn primary" data-i18n="plan-2-btn">Join 150K+ Patients</button>
+        </div>
+
+        <div class="pricing-card" style="transition-delay: 0.15s">
+          <div class="pricing-name" data-i18n="plan-3-name">Family</div>
+          <div class="pricing-price">$149 <span data-i18n="plan-3-per">/ month</span></div>
+          <div class="pricing-desc" data-i18n="plan-3-desc">For households — up to 5 members covered under one plan.</div>
+          <ul class="pricing-features">
+            <li data-i18n="plan-3-f1">Everything in Unlimited × 5 members</li>
+            <li data-i18n="plan-3-f2">Pediatric specialists included</li>
+            <li data-i18n="plan-3-f3">Family health dashboard</li>
+            <li data-i18n="plan-3-f4">Shared appointment scheduling</li>
+          </ul>
+          <button class="pricing-btn" data-i18n="plan-3-btn">Start Family Plan</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section" id="faq">
+    <div class="container">
+      <div class="section-label" data-i18n="faq-label">Questions?</div>
+      <h2 class="section-title" style="text-align:center" data-i18n="faq-title">Frequently asked questions</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question">
+            <span data-i18n="faq-q1">How quickly can I see a provider?</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="faq-answer"><p data-i18n="faq-a1">Most patients are connected with a provider within 12 minutes of booking. Same-day appointments are available for urgent concerns. Simply open the app, describe your symptoms, and we'll match you with an available practitioner.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <span data-i18n="faq-q2">Is my health information secure?</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="faq-answer"><p data-i18n="faq-a2">Absolutely. Pulse is HIPAA-compliant and uses end-to-end encryption for all video visits and messages. Your health data is stored securely and never shared without your explicit consent. We undergo annual third-party security audits.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <span data-i18n="faq-q3">Do you accept insurance?</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="faq-answer"><p data-i18n="faq-a3">Pulse accepts most major insurance plans including Aetna, Blue Cross Blue Shield, Cigna, and UnitedHealthcare. We also offer affordable cash-pay options starting at $29 per visit. Our checkout process will verify your coverage instantly.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <span data-i18n="faq-q4">Can I see the same provider each time?</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="faq-answer"><p data-i18n="faq-a4">Yes. Pulse is designed around continuity of care. When you choose a primary care provider, they become your dedicated physician. You can book follow-up visits with the same provider and message them between appointments through the app.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <span data-i18n="faq-q5">What if I need a specialist referral?</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="faq-answer"><p data-i18n="faq-a5">Your Pulse primary care provider can refer you to any of our 15+ specialty departments. Referrals are processed in-app, and specialists are typically available within the same week. Your health records transfer seamlessly between providers.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="section-label" data-i18n="cta-label" style="color:var(--teal)">Start Today</div>
+      <h2 class="section-title" data-i18n="cta-title">Your health can't wait</h2>
+      <p class="section-desc" data-i18n="cta-desc">Join 150,000+ patients who've discovered a better way to get care. Sign up in under two minutes.</p>
+      <form class="cta-form" onsubmit="event.preventDefault(); alert('Thanks! We\'ll be in touch.');">
+        <input type="email" placeholder="Enter your email" required aria-label="Email address" data-i18n-placeholder="cta-placeholder">
+        <button type="submit" data-i18n="cta-btn">Get Started Free</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="logo">
+            <svg viewBox="0 0 32 32" fill="none">
+              <rect width="32" height="32" rx="8" fill="var(--teal)"/>
+              <circle cx="16" cy="14" r="6" stroke="white" stroke-width="2" fill="none"/>
+              <path d="M16 11v6M13 14h6" stroke="white" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <span style="color:var(--white)">Pulse</span>
+          </a>
+          <p data-i18n="footer-tagline">Modern telemedicine that puts your health first. Board-certified care, on your schedule.</p>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer-col-1">Services</h4>
+          <a href="#" data-i18n="footer-l1-1">Primary Care</a>
+          <a href="#" data-i18n="footer-l1-2">Mental Health</a>
+          <a href="#" data-i18n="footer-l1-3">Specialty Care</a>
+          <a href="#" data-i18n="footer-l1-4">Lab &amp; Pharmacy</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer-col-2">Company</h4>
+          <a href="#" data-i18n="footer-l2-1">About Us</a>
+          <a href="#" data-i18n="footer-l2-2">Careers</a>
+          <a href="#" data-i18n="footer-l2-3">Press Kit</a>
+          <a href="#" data-i18n="footer-l2-4">Blog</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer-col-3">Support</h4>
+          <a href="#" data-i18n="footer-l3-1">Help Center</a>
+          <a href="#" data-i18n="footer-l3-2">Contact Us</a>
+          <a href="#" data-i18n="footer-l3-3">Privacy Policy</a>
+          <a href="#" data-i18n="footer-l3-4">Terms of Service</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span data-i18n="footer-copy">&copy; 2026 Pulse Health. All rights reserved.</span>
+        <span data-i18n="footer-hipaa">HIPAA Compliant &bull; End-to-End Encrypted</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cookie Banner -->
+  <div class="cookie-banner" id="cookie-banner">
+    <p data-i18n="cookie-text">We use essential cookies to improve your experience on Pulse. By continuing, you accept our cookie policy.</p>
+    <button class="cookie-btn" onclick="document.getElementById('cookie-banner').classList.add('hidden'); localStorage.setItem('pulse-cookie', 'accepted');" data-i18n="cookie-btn">Accept</button>
+  </div>
+
+  <script>
+    /* ================================================================
+       PULSE — Client-side JavaScript
+       i18n, scroll reveals, mobile nav, FAQ accordion, theme detection
+       ================================================================ */
+
+    // ---------- i18n Translations ----------
+    const LANG = {
+      en: {
+        'nav-services': 'Services',
+        'nav-how': 'How It Works',
+        'nav-pricing': 'Pricing',
+        'nav-faq': 'FAQ',
+        'nav-cta': 'Get Started',
+        'hero-badge': 'Now available in 48 states',
+        'hero-title': 'Healthcare that <em>fits</em> your life',
+        'hero-sub': 'Connect with board-certified physicians, therapists, and specialists in minutes. Video visits, prescription delivery, and health tracking — all from one platform. No waiting room, no hassle.',
+        'hero-cta-primary': 'Book an Appointment',
+        'hero-cta-ghost': 'Explore Services',
+        'hero-stat-1': '150K+',
+        'hero-stat-l1': 'Active patients',
+        'hero-stat-2': '4.9★',
+        'hero-stat-l2': 'Average rating',
+        'hero-stat-3': '12min',
+        'hero-stat-l3': 'Avg. wait time',
+        'dash-title': 'Your Health Dashboard',
+        'dash-status': 'All Green',
+        'dash-l1': 'Heart Rate',
+        'dash-l2': 'Blood Pressure',
+        'dash-l3': 'Sleep Score',
+        'dash-l4': 'Steps Today',
+        'dash-l5': 'Weekly Activity',
+        's-label': 'Comprehensive Care',
+        's-title': 'Every aspect of your health, covered',
+        's-desc': 'From primary care to mental health, Pulse connects you with licensed practitioners who listen, diagnose, and treat — all from your phone or computer.',
+        'serv-1-title': 'Primary Care',
+        'serv-1-desc': 'Annual checkups, acute illness, chronic condition management — with your dedicated physician who knows your history. Same-week appointments available.',
+        'serv-1-f1': 'Video visits with your dedicated provider',
+        'serv-1-f2': 'Lab orders & results in the app',
+        'serv-1-f3': 'Prescription delivery to your door',
+        'serv-2-title': 'Mental Health',
+        'serv-2-desc': 'Therapy and psychiatry for anxiety, depression, stress, and more. Meet with a licensed therapist within 48 hours of booking.',
+        'serv-2-f1': 'Individual & couples therapy',
+        'serv-2-f2': 'Medication management included',
+        'serv-2-f3': 'Flexible scheduling, including evenings',
+        'serv-3-title': 'Specialty Care',
+        'serv-3-desc': 'Dermatology, cardiology, endocrinology, and more. Referrals processed in-app with top-rated specialists.',
+        'serv-3-f1': '15+ specialty departments',
+        'serv-3-f2': 'Same-week specialist referrals',
+        'serv-4-title': 'Lab & Pharmacy',
+        'serv-4-desc': 'Order lab work from home with mobile phlebotomy. Prescriptions delivered same-day in most metro areas.',
+        'serv-4-f1': 'At-home lab collection',
+        'serv-4-f2': 'Free same-day Rx delivery',
+        'hw-label': 'Simple Process',
+        'hw-title': 'Three steps to better health',
+        'hw-desc': "Getting care shouldn't be complicated. Here's how Pulse works — from booking to follow-up, in under an hour.",
+        'step-1-title': 'Tell us what you need',
+        'step-1-desc': 'Describe your symptoms or reason for visit. Our matching engine recommends the right provider from our network of 5,000+ licensed practitioners.',
+        'step-2-title': 'Connect in minutes',
+        'step-2-desc': 'Choose a time that works for you — many appointments available within the hour. Join a high-quality video call from any device.',
+        'step-3-title': 'Get care, get better',
+        'step-3-desc': 'Receive diagnosis, treatment plan, prescriptions, and lab orders — all documented in your secure health record. Follow-up included.',
+        't-label': 'Patient Stories',
+        't-title': 'Trusted by thousands of patients',
+        't-desc': 'Real people, real experiences — from busy parents to remote workers, Pulse helps families stay healthy on their terms.',
+        't-1-q': 'I used to spend half a day driving to a clinic, sitting in a waiting room, and driving back. With Pulse, I had my diagnosis and prescription within 45 minutes — while sitting on my back porch. It\'s transformed how our family handles sick days.',
+        't-1-role': 'Mother of two, Austin TX',
+        't-2-q': 'My therapist through Pulse literally changed my life. Being able to schedule evening sessions that fit my work schedule made consistent therapy possible for the first time.',
+        't-2-role': 'Software engineer, Portland OR',
+        'p-label': 'Transparent Pricing',
+        'p-title': 'Care that fits your budget',
+        'p-desc': 'No hidden fees, no surprise bills. Every plan includes unlimited messaging with your care team and access to your health record.',
+        'plan-1-name': 'Essentials',
+        'plan-1-per': '/ visit',
+        'plan-1-desc': 'For occasional care — pay as you go with no commitment.',
+        'plan-1-f1': 'Primary care video visits',
+        'plan-1-f2': 'Prescription to pharmacy',
+        'plan-1-f3': 'Lab order processing',
+        'plan-1-f4': 'Same-week appointments',
+        'plan-1-btn': 'Get Started',
+        'plan-2-name': 'Unlimited',
+        'plan-2-per': '/ month',
+        'plan-2-desc': 'For regular care — unlimited visits and priority scheduling.',
+        'plan-2-f1': 'Unlimited primary care visits',
+        'plan-2-f2': '4 mental health sessions included',
+        'plan-2-f3': 'Free prescription delivery',
+        'plan-2-f4': 'Priority same-day appointments',
+        'plan-2-f5': 'At-home lab collection',
+        'plan-2-btn': 'Join 150K+ Patients',
+        'plan-3-name': 'Family',
+        'plan-3-per': '/ month',
+        'plan-3-desc': 'For households — up to 5 members covered under one plan.',
+        'plan-3-f1': 'Everything in Unlimited × 5 members',
+        'plan-3-f2': 'Pediatric specialists included',
+        'plan-3-f3': 'Family health dashboard',
+        'plan-3-f4': 'Shared appointment scheduling',
+        'plan-3-btn': 'Start Family Plan',
+        'faq-label': 'Questions?',
+        'faq-title': 'Frequently asked questions',
+        'faq-q1': 'How quickly can I see a provider?',
+        'faq-a1': 'Most patients are connected with a provider within 12 minutes of booking. Same-day appointments are available for urgent concerns. Simply open the app, describe your symptoms, and we\'ll match you with an available practitioner.',
+        'faq-q2': 'Is my health information secure?',
+        'faq-a2': 'Absolutely. Pulse is HIPAA-compliant and uses end-to-end encryption for all video visits and messages. Your health data is stored securely and never shared without your explicit consent. We undergo annual third-party security audits.',
+        'faq-q3': 'Do you accept insurance?',
+        'faq-a3': 'Pulse accepts most major insurance plans including Aetna, Blue Cross Blue Shield, Cigna, and UnitedHealthcare. We also offer affordable cash-pay options starting at $29 per visit. Our checkout process will verify your coverage instantly.',
+        'faq-q4': 'Can I see the same provider each time?',
+        'faq-a4': 'Yes. Pulse is designed around continuity of care. When you choose a primary care provider, they become your dedicated physician. You can book follow-up visits with the same provider and message them between appointments through the app.',
+        'faq-q5': 'What if I need a specialist referral?',
+        'faq-a5': 'Your Pulse primary care provider can refer you to any of our 15+ specialty departments. Referrals are processed in-app, and specialists are typically available within the same week. Your health records transfer seamlessly between providers.',
+        'cta-label': 'Start Today',
+        'cta-title': "Your health can't wait",
+        'cta-desc': 'Join 150,000+ patients who\'ve discovered a better way to get care. Sign up in under two minutes.',
+        'cta-placeholder': 'Enter your email',
+        'cta-btn': 'Get Started Free',
+        'footer-tagline': 'Modern telemedicine that puts your health first. Board-certified care, on your schedule.',
+        'footer-col-1': 'Services',
+        'footer-l1-1': 'Primary Care',
+        'footer-l1-2': 'Mental Health',
+        'footer-l1-3': 'Specialty Care',
+        'footer-l1-4': 'Lab & Pharmacy',
+        'footer-col-2': 'Company',
+        'footer-l2-1': 'About Us',
+        'footer-l2-2': 'Careers',
+        'footer-l2-3': 'Press Kit',
+        'footer-l2-4': 'Blog',
+        'footer-col-3': 'Support',
+        'footer-l3-1': 'Help Center',
+        'footer-l3-2': 'Contact Us',
+        'footer-l3-3': 'Privacy Policy',
+        'footer-l3-4': 'Terms of Service',
+        'footer-copy': '\u00a9 2026 Pulse Health. All rights reserved.',
+        'footer-hipaa': 'HIPAA Compliant \u2022 End-to-End Encrypted',
+        'cookie-text': 'We use essential cookies to improve your experience on Pulse. By continuing, you accept our cookie policy.',
+        'cookie-btn': 'Accept',
+        'meta-title': 'Pulse \u2014 Modern Telemedicine, Uncomplicated Care',
+        'meta-desc': 'Pulse connects you with board-certified physicians, therapists, and specialists in minutes. Video visits, prescription delivery, lab orders, and health tracking \u2014 all from one platform. Real care, no waiting room.',
+        'og-title': 'Pulse \u2014 Modern Telemedicine, Uncomplicated Care',
+        'og-desc': 'Board-certified physicians, therapists, and specialists. Video visits, prescriptions, lab orders \u2014 from one platform. Real care, no waiting room.',
+        'tw-title': 'Pulse \u2014 Modern Telemedicine, Uncomplicated Care',
+        'tw-desc': 'Connect with board-certified physicians, therapists, and specialists in minutes. Video visits, Rx delivery, lab orders \u2014 from one platform.'
+      },
+
+      es: {
+        'nav-services': 'Servicios',
+        'nav-how': 'Cómo Funciona',
+        'nav-pricing': 'Precios',
+        'nav-faq': 'FAQ',
+        'nav-cta': 'Comenzar',
+        'hero-badge': 'Disponible en 48 estados',
+        'hero-title': 'Atención médica que se <em>adapta</em> a tu vida',
+        'hero-sub': 'Conéctate con médicos, terapeutas y especialistas certificados en minutos. Consultas por video, entrega de recetas y monitoreo de salud — todo desde una plataforma. Sin sala de espera, sin complicaciones.',
+        'hero-cta-primary': 'Reservar una Cita',
+        'hero-cta-ghost': 'Explorar Servicios',
+        'hero-stat-1': '150K+',
+        'hero-stat-l1': 'Pacientes activos',
+        'hero-stat-2': '4.9★',
+        'hero-stat-l2': 'Calificación promedio',
+        'hero-stat-3': '12min',
+        'hero-stat-l3': 'Tiempo de espera',
+        'dash-title': 'Tu Panel de Salud',
+        'dash-status': 'Todo en Verde',
+        'dash-l1': 'Ritmo Cardíaco',
+        'dash-l2': 'Presión Arterial',
+        'dash-l3': 'Puntaje de Sueño',
+        'dash-l4': 'Pasos Hoy',
+        'dash-l5': 'Actividad Semanal',
+        's-label': 'Atención Integral',
+        's-title': 'Cada aspecto de tu salud, cubierto',
+        's-desc': 'Desde atención primaria hasta salud mental, Pulse te conecta con profesionales licenciados que escuchan, diagnostican y tratan — todo desde tu teléfono o computadora.',
+        'serv-1-title': 'Atención Primaria',
+        'serv-1-desc': 'Chequeos anuales, enfermedades agudas, manejo de condiciones crónicas — con tu médico dedicado que conoce tu historial. Citas disponibles en la misma semana.',
+        'serv-1-f1': 'Consultas por video con tu médico',
+        'serv-1-f2': 'Órdenes y resultados de laboratorio',
+        'serv-1-f3': 'Entrega de recetas a domicilio',
+        'serv-2-title': 'Salud Mental',
+        'serv-2-desc': 'Terapia y psiquiatría para ansiedad, depresión, estrés y más. Reúnete con un terapeuta licenciado en menos de 48 horas.',
+        'serv-2-f1': 'Terapia individual y de pareja',
+        'serv-2-f2': 'Manejo de medicamentos incluido',
+        'serv-2-f3': 'Horarios flexibles, incluyendo tardes',
+        'serv-3-title': 'Atención Especializada',
+        'serv-3-desc': 'Dermatología, cardiología, endocrinología y más. Referencias procesadas en la app con especialistas de primer nivel.',
+        'serv-3-f1': '15+ departamentos de especialidad',
+        'serv-3-f2': 'Referencias en la misma semana',
+        'serv-4-title': 'Laboratorio y Farmacia',
+        'serv-4-desc': 'Ordena análisis desde casa con flebotomía móvil. Recetas entregadas el mismo día en la mayoría de áreas metropolitanas.',
+        'serv-4-f1': 'Toma de muestras a domicilio',
+        'serv-4-f2': 'Entrega gratis de recetas el mismo día',
+        'hw-label': 'Proceso Simple',
+        'hw-title': 'Tres pasos para una mejor salud',
+        'hw-desc': 'Recibir atención no debería ser complicado. Así funciona Pulse — desde la reserva hasta el seguimiento, en menos de una hora.',
+        'step-1-title': 'Cuéntanos qué necesitas',
+        'step-1-desc': 'Describe tus síntomas o motivo de consulta. Nuestro motor de recomendación elige al profesional adecuado de nuestra red de más de 5,000 especialistas.',
+        'step-2-title': 'Conéctate en minutos',
+        'step-2-desc': 'Elige un horario que te funcione — muchas citas disponibles dentro de la hora. Únete a una videollamada de alta calidad desde cualquier dispositivo.',
+        'step-3-title': 'Recibe atención, mejora',
+        'step-3-desc': 'Recibe diagnóstico, plan de tratamiento, recetas y órdenes de laboratorio — todo documentado en tu historial médico seguro. Seguimiento incluido.',
+        't-label': 'Historias de Pacientes',
+        't-title': 'Confiado por miles de pacientes',
+        't-desc': 'Personas reales, experiencias reales — desde padres ocupados hasta trabajadores remotos, Pulse ayuda a las familias a mantenerse saludables.',
+        't-1-q': 'Solía pasar medio día manejando a una clínica, esperando en una sala y manejando de vuelta. Con Pulse, tuve mi diagnóstico y receta en 45 minutos — mientras estaba en mi patio. Ha transformado cómo manejamos los días de enfermedad en mi familia.',
+        't-1-role': 'Madre de dos, Austin TX',
+        't-2-q': 'Mi terapeuta a través de Pulse literalmente cambió mi vida. Poder programar sesiones nocturnas que se ajustan a mi horario laboral hizo posible la terapia constante por primera vez.',
+        't-2-role': 'Ingeniero de software, Portland OR',
+        'p-label': 'Precios Transparentes',
+        'p-title': 'Atención que se ajusta a tu presupuesto',
+        'p-desc': 'Sin cargos ocultos, sin facturas sorpresa. Cada plan incluye mensajería ilimitada con tu equipo de atención y acceso a tu historial médico.',
+        'plan-1-name': 'Esencial',
+        'plan-1-per': '/ consulta',
+        'plan-1-desc': 'Para atención ocasional — paga por uso sin compromiso.',
+        'plan-1-f1': 'Consultas de atención primaria',
+        'plan-1-f2': 'Recetas enviadas a farmacia',
+        'plan-1-f3': 'Procesamiento de análisis',
+        'plan-1-f4': 'Citas en la misma semana',
+        'plan-1-btn': 'Comenzar',
+        'plan-2-name': 'Ilimitado',
+        'plan-2-per': '/ mes',
+        'plan-2-desc': 'Para atención regular — consultas ilimitadas y programación prioritaria.',
+        'plan-2-f1': 'Consultas ilimitadas',
+        'plan-2-f2': '4 sesiones de salud mental incluidas',
+        'plan-2-f3': 'Entrega gratuita de recetas',
+        'plan-2-f4': 'Citas prioritarias el mismo día',
+        'plan-2-f5': 'Toma de muestras a domicilio',
+        'plan-2-btn': 'Únete a 150K+ Pacientes',
+        'plan-3-name': 'Familiar',
+        'plan-3-per': '/ mes',
+        'plan-3-desc': 'Para hogares — hasta 5 miembros cubiertos en un solo plan.',
+        'plan-3-f1': 'Todo en Ilimitado × 5 miembros',
+        'plan-3-f2': 'Especialistas pediátricos incluidos',
+        'plan-3-f3': 'Panel de salud familiar',
+        'plan-3-f4': 'Programación compartida de citas',
+        'plan-3-btn': 'Activar Plan Familiar',
+        'faq-label': '¿Preguntas?',
+        'faq-title': 'Preguntas frecuentes',
+        'faq-q1': '¿Qué tan rápido puedo ver a un médico?',
+        'faq-a1': 'La mayoría de los pacientes se conectan con un médico en menos de 12 minutos. Hay citas el mismo día para preocupaciones urgentes. Simplemente abre la app, describe tus síntomas y te emparejamos con un profesional disponible.',
+        'faq-q2': '¿Mi información de salud está segura?',
+        'faq-a2': 'Absolutamente. Pulse cumple con HIPAA y utiliza cifrado de extremo a extremo para todas las consultas y mensajes. Tus datos de salud se almacenan de forma segura y nunca se comparten sin tu consentimiento explícito.',
+        'faq-q3': '¿Aceptan seguros médicos?',
+        'faq-a3': 'Pulse acepta la mayoría de los planes principales incluyendo Aetna, Blue Cross Blue Shield, Cigna y UnitedHealthcare. También ofrecemos opciones de pago en efectivo desde $29 por consulta.',
+        'faq-q4': '¿Puedo ver al mismo médico cada vez?',
+        'faq-a4': 'Sí. Pulse está diseñado para la continuidad de la atención. Cuando eliges un médico de atención primaria, se convierte en tu médico dedicado. Puedes programar visitas de seguimiento con el mismo médico y enviarle mensajes entre citas.',
+        'faq-q5': '¿Qué pasa si necesito una referencia a un especialista?',
+        'faq-a5': 'Tu médico de atención primaria de Pulse puede referirte a cualquiera de nuestros 15+ departamentos de especialidad. Las referencias se procesan en la app y los especialistas suelen estar disponibles en la misma semana.',
+        'cta-label': 'Comienza Hoy',
+        'cta-title': 'Tu salud no puede esperar',
+        'cta-desc': 'Únete a más de 150,000 pacientes que han descubierto una mejor manera de recibir atención. Regístrate en menos de dos minutos.',
+        'cta-placeholder': 'Ingresa tu correo',
+        'cta-btn': 'Comienza Gratis',
+        'footer-tagline': 'Telemedicina moderna que pone tu salud primero. Atención certificada, en tu horario.',
+        'footer-col-1': 'Servicios',
+        'footer-l1-1': 'Atención Primaria',
+        'footer-l1-2': 'Salud Mental',
+        'footer-l1-3': 'Especialidades',
+        'footer-l1-4': 'Laboratorio y Farmacia',
+        'footer-col-2': 'Empresa',
+        'footer-l2-1': 'Nosotros',
+        'footer-l2-2': 'Carreras',
+        'footer-l2-3': 'Kit de Prensa',
+        'footer-l2-4': 'Blog',
+        'footer-col-3': 'Soporte',
+        'footer-l3-1': 'Centro de Ayuda',
+        'footer-l3-2': 'Contacto',
+        'footer-l3-3': 'Política de Privacidad',
+        'footer-l3-4': 'Términos de Servicio',
+        'footer-copy': '\u00a9 2026 Pulse Health. Todos los derechos reservados.',
+        'footer-hipaa': 'Cumple HIPAA \u2022 Cifrado de Extremo a Extremo',
+        'cookie-text': 'Usamos cookies esenciales para mejorar tu experiencia en Pulse. Al continuar, aceptas nuestra política de cookies.',
+        'cookie-btn': 'Aceptar',
+        'meta-title': 'Pulse \u2014 Telemedicina Moderna, Atención Sin Complicaciones',
+        'meta-desc': 'Pulse te conecta con médicos, terapeutas y especialistas certificados en minutos. Consultas por video, entrega de recetas, análisis de laboratorio y monitoreo de salud \u2014 todo desde una plataforma.',
+        'og-title': 'Pulse \u2014 Telemedicina Moderna',
+        'og-desc': 'Médicos, terapeutas y especialistas certificados. Consultas por video, recetas, análisis de laboratorio \u2014 desde una plataforma.',
+        'tw-title': 'Pulse \u2014 Telemedicina Moderna',
+        'tw-desc': 'Conéctate con médicos, terapeutas y especialistas certificados en minutos. Consultas por video, entrega de recetas, análisis de laboratorio \u2014 desde una plataforma.'
+      },
+
+      fr: {
+        'nav-services': 'Services',
+        'nav-how': 'Fonctionnement',
+        'nav-pricing': 'Tarifs',
+        'nav-faq': 'FAQ',
+        'nav-cta': 'Commencer',
+        'hero-badge': 'Disponible dans 48 États',
+        'hero-title': 'Des soins qui <em>s\'adaptent</em> à votre vie',
+        'hero-sub': 'Connectez-vous avec des médecins, thérapeutes et spécialistes certifiés en minutes. Consultations vidéo, livraison d\'ordonnances et suivi de santé — le tout depuis une seule plateforme.',
+        'hero-cta-primary': 'Prendre Rendez-vous',
+        'hero-cta-ghost': 'Explorer les Services',
+        'hero-stat-1': '150K+',
+        'hero-stat-l1': 'Patients actifs',
+        'hero-stat-2': '4.9★',
+        'hero-stat-l2': 'Note moyenne',
+        'hero-stat-3': '12min',
+        'hero-stat-l3': 'Attente moyenne',
+        'dash-title': 'Tableau de Santé',
+        'dash-status': 'Tout Va Bien',
+        'dash-l1': 'Fréquence Cardiaque',
+        'dash-l2': 'Tension Artérielle',
+        'dash-l3': 'Score de Sommeil',
+        'dash-l4': 'Pas Aujourd\'hui',
+        'dash-l5': 'Activité Hebdomadaire',
+        's-label': 'Soins Complets',
+        's-title': 'Tous les aspects de votre santé, couverts',
+        's-desc': 'Des soins primaires à la santé mentale, Pulse vous connecte avec des professionnels agréés qui écoutent, diagnostiquent et traitent — depuis votre téléphone ou ordinateur.',
+        'serv-1-title': 'Soins Primaires',
+        'serv-1-desc': 'Bilans annuels, maladies aiguës, gestion des maladies chroniques — avec votre médecin dédié qui connaît vos antécédents.',
+        'serv-1-f1': 'Consultations vidéo avec votre médecin',
+        'serv-1-f2': 'Analyses et résultats dans l\'app',
+        'serv-1-f3': 'Livraison d\'ordonnances à domicile',
+        'serv-2-title': 'Santé Mentale',
+        'serv-2-desc': 'Thérapie et psychiatrie pour l\'anxiété, la dépression, le stress et plus. Rencontrez un thérapeute agréé en moins de 48 heures.',
+        'serv-2-f1': 'Thérapie individuelle et de couple',
+        'serv-2-f2': 'Gestion des médicaments incluse',
+        'serv-2-f3': 'Horaires flexibles, soirs inclus',
+        'serv-3-title': 'Soins Spécialisés',
+        'serv-3-desc': 'Dermatologie, cardiologie, endocrinologie et plus. Références traitées dans l\'app.',
+        'serv-3-f1': '15+ départements spécialisés',
+        'serv-3-f2': 'Références dans la même semaine',
+        'serv-4-title': 'Laboratoire et Pharmacie',
+        'serv-4-desc': 'Commandez des analyses à domicile. Ordonnances livrées le jour même.',
+        'serv-4-f1': 'Prélèvement à domicile',
+        'serv-4-f2': 'Livraison gratuite d\'ordonnances',
+        'hw-label': 'Processus Simple',
+        'hw-title': 'Trois étapes vers une meilleure santé',
+        'hw-desc': 'Recevoir des soins ne devrait pas être compliqué. Voici comment Pulse fonctionne.',
+        'step-1-title': 'Dites-nous ce dont vous avez besoin',
+        'step-1-desc': 'Décrivez vos symptômes. Notre moteur recommande le bon professionnel parmi 5 000+ praticiens.',
+        'step-2-title': 'Connectez-vous en minutes',
+        'step-2-desc': 'Choisissez un créneau — rendez-vous disponibles dans l\'heure. Rejoignez un appel vidéo depuis n\'importe quel appareil.',
+        'step-3-title': 'Recevez des soins, allez mieux',
+        'step-3-desc': 'Recevez diagnostic, plan de traitement, ordonnances — tout dans votre dossier médical sécurisé.',
+        't-label': 'Témoignages',
+        't-title': 'Approuvé par des milliers de patients',
+        't-desc': 'Des personnes réelles, des expériences réelles — Pulse aide les familles à rester en bonne santé.',
+        't-1-q': 'Je passais une demi-journée à conduire à la clinique. Avec Pulse, j\'ai eu mon diagnostic en 45 minutes depuis mon salon.',
+        't-1-role': 'Mère de deux enfants, Austin TX',
+        't-2-q': 'Mon thérapeute via Pulse a changé ma vie. Pouvoir programmer le soir a rendu la thérapie possible.',
+        't-2-role': 'Ingénieur logiciel, Portland OR',
+        'p-label': 'Tarifs Transparents',
+        'p-title': 'Des soins adaptés à votre budget',
+        'p-desc': 'Sans frais cachés. Chaque plan inclut la messagerie illimitée.',
+        'plan-1-name': 'Essentiel',
+        'plan-1-per': '/ visite',
+        'plan-1-desc': 'Pour des soins occasionnels — payez à l\'utilisation.',
+        'plan-1-f1': 'Consultations vidéo',
+        'plan-1-f2': 'Ordonnances en pharmacie',
+        'plan-1-f3': 'Traitement des analyses',
+        'plan-1-f4': 'Rendez-vous dans la semaine',
+        'plan-1-btn': 'Commencer',
+        'plan-2-name': 'Illimité',
+        'plan-2-per': '/ mois',
+        'plan-2-desc': 'Pour des soins réguliers — visites illimitées.',
+        'plan-2-f1': 'Consultations illimitées',
+        'plan-2-f2': '4 séances de santé mentale',
+        'plan-2-f3': 'Livraison gratuite d\'ordonnances',
+        'plan-2-f4': 'Rendez-vous prioritaires',
+        'plan-2-f5': 'Prélèvement à domicile',
+        'plan-2-btn': 'Rejoignez 150K+ Patients',
+        'plan-3-name': 'Famille',
+        'plan-3-per': '/ mois',
+        'plan-3-desc': 'Jusqu\'à 5 membres sous un seul plan.',
+        'plan-3-f1': 'Tout l\'Illimité × 5 membres',
+        'plan-3-f2': 'Pédiatres inclus',
+        'plan-3-f3': 'Tableau de santé familial',
+        'plan-3-f4': 'Planification partagée',
+        'plan-3-btn': 'Activer Plan Famille',
+        'faq-label': 'Des Questions?',
+        'faq-title': 'Questions fréquentes',
+        'faq-q1': 'Quand puis-je voir un médecin?',
+        'faq-a1': 'La plupart des patients sont connectés en 12 minutes.',
+        'faq-q2': 'Mes informations sont-elles sécurisées?',
+        'faq-a2': 'Absolument. Pulse est conforme HIPAA avec chiffrement de bout en bout.',
+        'faq-q3': 'Acceptez-vous les assurances?',
+        'faq-a3': 'Pulse accepte Aetna, Blue Cross, Cigna, UnitedHealthcare et plus.',
+        'faq-q4': 'Puis-je voir le même médecin?',
+        'faq-a4': 'Oui. Pulse est conçu pour la continuité des soins.',
+        'faq-q5': 'Et si j\'ai besoin d\'un spécialiste?',
+        'faq-a5': 'Votre médecin peut vous référer à 15+ départements spécialisés.',
+        'cta-label': 'Commencez Aujourd\'hui',
+        'cta-title': 'Votre santé ne peut pas attendre',
+        'cta-desc': 'Rejoignez 150 000+ patients. Inscription en moins de 2 minutes.',
+        'cta-placeholder': 'Entrez votre email',
+        'cta-btn': 'Commencez Gratuitement',
+        'footer-tagline': 'Télémédecine moderne qui place votre santé en premier.',
+        'footer-col-1': 'Services',
+        'footer-l1-1': 'Soins Primaires',
+        'footer-l1-2': 'Santé Mentale',
+        'footer-l1-3': 'Spécialistes',
+        'footer-l1-4': 'Labo & Pharmacie',
+        'footer-col-2': 'Société',
+        'footer-l2-1': 'À Propos',
+        'footer-l2-2': 'Carrières',
+        'footer-l2-3': 'Kit Presse',
+        'footer-l2-4': 'Blog',
+        'footer-col-3': 'Support',
+        'footer-l3-1': 'Centre d\'Aide',
+        'footer-l3-2': 'Contact',
+        'footer-l3-3': 'Confidentialité',
+        'footer-l3-4': 'CGU',
+        'footer-copy': '\u00a9 2026 Pulse Health. Tous droits réservés.',
+        'footer-hipaa': 'Conforme HIPAA \u2022 Chiffré',
+        'cookie-text': 'Nous utilisons des cookies essentiels pour améliorer votre expérience.',
+        'cookie-btn': 'Accepter',
+        'meta-title': 'Pulse \u2014 Télémédecine Moderne',
+        'meta-desc': 'Pulse vous connecte avec des médecins certifiés en minutes. Consultations vidéo, ordonnances, analyses.',
+        'og-title': 'Pulse \u2014 Télémédecine Moderne',
+        'og-desc': 'Médecins certifiés, consultations vidéo, ordonnances — depuis une plateforme.',
+        'tw-title': 'Pulse \u2014 Télémédecine Moderne',
+        'tw-desc': 'Connectez-vous avec des médecins certifiés en minutes.'
+      },
+
+      de: {
+        'nav-services': 'Leistungen',
+        'nav-how': 'So Funktioniert\'s',
+        'nav-pricing': 'Preise',
+        'nav-faq': 'FAQ',
+        'nav-cta': 'Loslegen',
+        'hero-badge': 'In 48 Bundesstaaten verfügbar',
+        'hero-title': 'Gesundheitsversorgung, die in Ihr <em>Leben</em> passt',
+        'hero-sub': 'Verbinden Sie sich in Minuten mit zertifizierten Ärzten, Therapeuten und Spezialisten. Videosprechstunden, Rezeptlieferung und Gesundheits-Tracking – alles auf einer Plattform.',
+        'hero-cta-primary': 'Termin Buchen',
+        'hero-cta-ghost': 'Leistungen Erkunden',
+        'hero-stat-1': '150K+',
+        'hero-stat-l1': 'Aktive Patienten',
+        'hero-stat-2': '4.9★',
+        'hero-stat-l2': 'Durchschnittsbewertung',
+        'hero-stat-3': '12min',
+        'hero-stat-l3': 'Durchschn. Wartezeit',
+        'dash-title': 'Ihr Gesundheits-Dashboard',
+        'dash-status': 'Alles Grün',
+        'dash-l1': 'Herzfrequenz',
+        'dash-l2': 'Blutdruck',
+        'dash-l3': 'Schlafwert',
+        'dash-l4': 'Schritte Heute',
+        'dash-l5': 'Wöchentliche Aktivität',
+        's-label': 'Umfassende Versorgung',
+        's-title': 'Jeder Aspekt Ihrer Gesundheit, abgedeckt',
+        's-desc': 'Von der Grundversorgung bis zur psychischen Gesundheit – Pulse verbindet Sie mit lizenzierten Praktikern.',
+        'serv-1-title': 'Grundversorgung',
+        'serv-1-desc': 'Jährliche Checks, akute Erkrankungen, Chroniker-Management – mit Ihrem persönlichen Arzt.',
+        'serv-1-f1': 'Videosprechstunden mit Ihrem Arzt',
+        'serv-1-f2': 'Laboraufträge in der App',
+        'serv-1-f3': 'Rezeptlieferung nach Hause',
+        'serv-2-title': 'Psychische Gesundheit',
+        'serv-2-desc': 'Therapie und Psychiatrie. Treffen Sie innerhalb von 48 Stunden einen Therapeuten.',
+        'serv-2-f1': 'Einzel- & Paartherapie',
+        'serv-2-f2': 'Medikationsmanagement',
+        'serv-2-f3': 'Flexible Terminplanung',
+        'serv-3-title': 'Fachärztliche Versorgung',
+        'serv-3-desc': 'Dermatologie, Kardiologie, Endokrinologie und mehr.',
+        'serv-3-f1': '15+ Fachabteilungen',
+        'serv-3-f2': 'Überweisungen in der Woche',
+        'serv-4-title': 'Labor & Apotheke',
+        'serv-4-desc': 'Laborarbeit von zu Hause. Rezepte am selben Tag.',
+        'serv-4-f1': 'Hausbesuch zur Blutabnahme',
+        'serv-4-f2': 'Kostenlose Rezeptlieferung',
+        'hw-label': 'Einfacher Prozess',
+        'hw-title': 'Drei Schritte zu besserer Gesundheit',
+        'hw-desc': 'So funktioniert Pulse – von der Buchung bis zur Nachsorge.',
+        'step-1-title': 'Sagen Sie uns, was Sie brauchen',
+        'step-1-desc': 'Beschreiben Sie Ihre Symptome. Wir empfehlen den richtigen Arzt.',
+        'step-2-title': 'In Minuten verbinden',
+        'step-2-desc': 'Wählen Sie einen Termin – viele noch in der Stunde verfügbar.',
+        'step-3-title': 'Pflege erhalten, besser werden',
+        'step-3-desc': 'Diagnose, Behandlungsplan, Rezepte – in Ihrer Krankenakte.',
+        't-label': 'Patientengeschichten',
+        't-title': 'Von Tausenden vertraut',
+        't-desc': 'Echte Menschen, echte Erfahrungen.',
+        'p-label': 'Transparente Preise',
+        'p-title': 'Pflege, die zu Ihrem Budget passt',
+        'p-desc': 'Keine versteckten Gebühren. Jeder Plan enthält unbegrenzte Nachrichten.',
+        'plan-1-name': 'Basis',
+        'plan-1-per': '/ Besuch',
+        'plan-1-desc': 'Für gelegentliche Pflege – ohne Verpflichtung.',
+        'plan-1-btn': 'Loslegen',
+        'plan-2-name': 'Unbegrenzt',
+        'plan-2-per': '/ Monat',
+        'plan-2-desc': 'Für regelmäßige Pflege – unbegrenzte Besuche.',
+        'plan-2-btn': '150K+ Patienten Beitreten',
+        'plan-3-name': 'Familie',
+        'plan-3-per': '/ Monat',
+        'plan-3-desc': 'Bis zu 5 Mitglieder in einem Plan.',
+        'plan-3-btn': 'Familienplan Starten',
+        'faq-label': 'Fragen?',
+        'faq-title': 'Häufig gestellte Fragen',
+        'cta-label': 'Heute Starten',
+        'cta-title': 'Ihre Gesundheit kann nicht warten',
+        'cta-desc': 'Treten Sie 150.000+ Patienten bei. Anmeldung in unter 2 Minuten.',
+        'cta-placeholder': 'E-Mail eingeben',
+        'cta-btn': 'Kostenlos Starten',
+        'footer-tagline': 'Moderne Telemedizin, die Ihre Gesundheit an erste Stelle setzt.',
+        'footer-col-1': 'Leistungen',
+        'footer-col-2': 'Unternehmen',
+        'footer-col-3': 'Support',
+        'footer-copy': '\u00a9 2026 Pulse Health. Alle Rechte vorbehalten.',
+        'footer-hipaa': 'HIPAA-konform \u2022 Verschlüsselt',
+        'cookie-text': 'Wir verwenden essentielle Cookies.',
+        'cookie-btn': 'Akzeptieren',
+        'meta-title': 'Pulse \u2014 Moderne Telemedizin',
+        'meta-desc': 'Pulse verbindet Sie in Minuten mit zertifizierten Ärzten.'
+      },
+
+      it: {
+        'nav-services': 'Servizi',
+        'nav-how': 'Come Funziona',
+        'nav-pricing': 'Prezzi',
+        'nav-faq': 'FAQ',
+        'nav-cta': 'Inizia',
+        'hero-badge': 'Disponibile in 48 stati',
+        'hero-title': 'Assistenza sanitaria che si <em>adatta</em> alla tua vita',
+        'hero-sub': 'Connettiti con medici, terapisti e specialisti certificati in pochi minuti. Visite video, consegna ricette e monitoraggio della salute.',
+        'hero-cta-primary': 'Prenota Appuntamento',
+        'hero-cta-ghost': 'Esplora Servizi',
+        'hero-stat-1': '150K+',
+        'hero-stat-l1': 'Pazienti attivi',
+        'hero-stat-2': '4.9★',
+        'hero-stat-l2': 'Valutazione media',
+        'hero-stat-3': '12min',
+        'hero-stat-l3': 'Attesa media',
+        'dash-title': 'La Tua Salute',
+        'dash-status': 'Tutto OK',
+        'dash-l1': 'Frequenza Cardiaca',
+        'dash-l2': 'Pressione Sang.',
+        'dash-l3': 'Punteggio Sonno',
+        'dash-l4': 'Passi Oggi',
+        'dash-l5': 'Attività Sett.',
+        's-label': 'Assistenza Completa',
+        's-title': 'Ogni aspetto della tua salute, coperto',
+        'serv-1-title': 'Assistenza Primaria',
+        'serv-2-title': 'Salute Mentale',
+        'serv-3-title': 'Assistenza Specialistica',
+        'serv-4-title': 'Laboratorio e Farmacia',
+        'hw-label': 'Processo Semplice',
+        'hw-title': 'Tre passi per una salute migliore',
+        't-label': 'Storie di Pazienti',
+        't-title': 'Apprezzato da migliaia di pazienti',
+        'p-label': 'Prezzi Trasparenti',
+        'p-title': 'Assistenza adatta al tuo budget',
+        'plan-1-name': 'Essenziale',
+        'plan-1-per': '/ visita',
+        'plan-2-name': 'Illimitato',
+        'plan-2-per': '/ mese',
+        'plan-3-name': 'Famiglia',
+        'plan-3-per': '/ mese',
+        'faq-label': 'Domande?',
+        'faq-title': 'Domande frequenti',
+        'cta-label': 'Inizia Oggi',
+        'cta-title': 'La tua salute non può aspettare',
+        'cta-placeholder': 'Inserisci email',
+        'cta-btn': 'Inizia Gratis',
+        'footer-tagline': 'Telemedicina moderna che mette la tua salute al primo posto.',
+        'footer-copy': '\u00a9 2026 Pulse Health. Tutti i diritti riservati.',
+        'cookie-text': 'Usiamo cookie essenziali.',
+        'cookie-btn': 'Accetta',
+        'meta-title': 'Pulse \u2014 Telemedicina Moderna',
+        'meta-desc': 'Pulse ti connette con medici certificati in pochi minuti.'
+      },
+
+      pt: {
+        'nav-services': 'Serviços',
+        'nav-how': 'Como Funciona',
+        'nav-pricing': 'Preços',
+        'nav-faq': 'FAQ',
+        'nav-cta': 'Começar',
+        'hero-badge': 'Disponível em 48 estados',
+        'hero-title': 'Cuidados de saúde que <em>encaixam</em> na sua vida',
+        'hero-sub': 'Conecte-se com médicos, terapeutas e especialistas certificados em minutos. Consultas por vídeo, entrega de receitas e monitoramento de saúde.',
+        'hero-cta-primary': 'Agendar Consulta',
+        'hero-cta-ghost': 'Explorar Serviços',
+        'hero-stat-1': '150K+',
+        'hero-stat-l1': 'Pacientes ativos',
+        'hero-stat-2': '4.9★',
+        'hero-stat-l2': 'Avaliação média',
+        'hero-stat-3': '12min',
+        'hero-stat-l3': 'Espera média',
+        'dash-title': 'Seu Painel de Saúde',
+        'dash-status': 'Tudo Verde',
+        'dash-l1': 'Frequência Cardíaca',
+        'dash-l2': 'Pressão Arterial',
+        'dash-l3': 'Pontuação do Sono',
+        'dash-l4': 'Passos Hoje',
+        'dash-l5': 'Atividade Semanal',
+        's-label': 'Cuidado Integral',
+        's-title': 'Cada aspecto da sua saúde, coberto',
+        'serv-1-title': 'Atenção Primária',
+        'serv-2-title': 'Saúde Mental',
+        'serv-3-title': 'Atendimento Especializado',
+        'serv-4-title': 'Laboratório e Farmácia',
+        'hw-label': 'Processo Simples',
+        'hw-title': 'Três passos para uma saúde melhor',
+        't-label': 'Histórias de Pacientes',
+        't-title': 'Confiado por milhares de pacientes',
+        'p-label': 'Preços Transparentes',
+        'p-title': 'Cuidados que cabem no seu orçamento',
+        'plan-1-name': 'Essencial',
+        'plan-1-per': '/ consulta',
+        'plan-2-name': 'Ilimitado',
+        'plan-2-per': '/ mês',
+        'plan-3-name': 'Família',
+        'plan-3-per': '/ mês',
+        'faq-label': 'Dúvidas?',
+        'faq-title': 'Perguntas frequentes',
+        'cta-label': 'Comece Hoje',
+        'cta-title': 'Sua saúde não pode esperar',
+        'cta-placeholder': 'Digite seu email',
+        'cta-btn': 'Comece Grátis',
+        'footer-tagline': 'Telemedicina moderna que coloca sua saúde em primeiro lugar.',
+        'footer-copy': '\u00a9 2026 Pulse Health. Todos os direitos reservados.',
+        'cookie-text': 'Usamos cookies essenciais.',
+        'cookie-btn': 'Aceitar',
+        'meta-title': 'Pulse \u2014 Telemedicina Moderna',
+        'meta-desc': 'Pulse conecta você com médicos certificados em minutos.'
+      }
+    };
+
+    // ---------- i18n Application ----------
+    let currentLang = localStorage.getItem('pulse-lang') || 'en';
+
+    function applyLang(lang) {
+      currentLang = lang;
+      localStorage.setItem('pulse-lang', lang);
+
+      // Update all i18n elements
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        const text = LANG[lang]?.[key] || LANG.en[key] || key;
+        el.innerHTML = text;
+      });
+
+      // Update placeholders
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        const text = LANG[lang]?.[key] || LANG.en[key] || key;
+        el.placeholder = text;
+      });
+
+      // Update meta tags
+      const metaTitle = document.getElementById('meta-title');
+      const metaDesc = document.getElementById('meta-desc');
+      const ogTitle = document.getElementById('og-title');
+      const ogDesc = document.getElementById('og-desc');
+      const twTitle = document.getElementById('tw-title');
+      const twDesc = document.getElementById('tw-desc');
+
+      if (metaTitle) metaTitle.textContent = LANG[lang]?.['meta-title'] || LANG.en['meta-title'];
+      if (metaDesc) metaDesc.textContent = LANG[lang]?.['meta-desc'] || LANG.en['meta-desc'];
+      if (ogTitle) ogTitle.textContent = LANG[lang]?.['og-title'] || LANG.en['og-title'];
+      if (ogDesc) ogDesc.textContent = LANG[lang]?.['og-desc'] || LANG.en['og-desc'];
+      if (twTitle) twTitle.textContent = LANG[lang]?.['tw-title'] || LANG.en['tw-title'];
+      if (twDesc) twDesc.textContent = LANG[lang]?.['tw-desc'] || LANG.en['tw-desc'];
+
+      // Update lang switcher active state
+      var cur = document.getElementById('langCur');
+      if (cur) cur.textContent = lang.toUpperCase();
+      document.querySelectorAll('.lang-select__opt').forEach(opt => {
+        opt.setAttribute('aria-selected', opt.dataset.lang === lang ? 'true' : 'false');
+      });
+
+      // Update html lang attribute
+      document.documentElement.lang = lang;
+    }
+
+    // ---------- Language Switcher Events ----------
+    var langBtn = document.getElementById('langBtn');
+    var langWrap = document.getElementById('langSelect');
+    var langMenu = langWrap ? langWrap.querySelector('.lang-select__menu') : null;
+    function closeLangMenu() {
+      if (!langMenu) return;
+      langMenu.classList.remove('open');
+      if (langBtn) langBtn.setAttribute('aria-expanded', 'false');
+    }
+    if (langBtn && langMenu) {
+      langBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const open = langMenu.classList.toggle('open');
+        langBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      document.addEventListener('click', (e) => {
+        if (!langWrap.contains(e.target)) closeLangMenu();
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeLangMenu();
+      });
+      langMenu.querySelectorAll('.lang-select__opt').forEach(opt => {
+        opt.addEventListener('click', () => {
+          applyLang(opt.getAttribute('data-lang'));
+          closeLangMenu();
+        });
+      });
+    }
+
+    // ---------- Theme Detection ----------
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    function setTheme(isDark) {
+      document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+      const metaTheme = document.querySelector('meta[name="theme-color"]');
+      if (metaTheme) metaTheme.content = isDark ? '#0f172a' : '#ffffff';
+    }
+    const storedTheme = localStorage.getItem('kairos-theme');
+    if (storedTheme) {
+      setTheme(storedTheme === 'dark');
+    } else {
+      setTheme(prefersDark.matches);
+    }
+
+    prefersDark.addEventListener('change', e => {
+      if (!localStorage.getItem('kairos-theme')) setTheme(e.matches);
+    });
+
+    // ---------- Mobile Nav ----------
+    document.querySelector('.mobile-toggle')?.addEventListener('click', () => {
+      document.querySelector('.nav-links').classList.toggle('open');
+    });
+
+    // Close mobile nav on link click
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      a.addEventListener('click', () => {
+        document.querySelector('.nav-links')?.classList.remove('open');
+      });
+    });
+
+    // ---------- FAQ Accordion ----------
+    document.querySelectorAll('.faq-question').forEach(q => {
+      q.addEventListener('click', () => {
+        const item = q.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+
+        // Close all other items
+        document.querySelectorAll('.faq-item.open').forEach(other => {
+          if (other !== item) other.classList.remove('open');
+        });
+
+        // Toggle this one
+        item.classList.toggle('open', !isOpen);
+      });
+    });
+
+    // ---------- Intersection Observer (Scroll Reveals) ----------
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -40px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    // Observe all animated elements
+    document.querySelectorAll('.bento-block, .step-card, .testimonial-card, .pricing-card').forEach(el => {
+      observer.observe(el);
+    });
+
+    // ---------- Cookie Banner ----------
+    if (localStorage.getItem('pulse-cookie') === 'accepted') {
+      document.getElementById('cookie-banner')?.classList.add('hidden');
+    }
+
+    // ---------- Detect browser language ----------
+    if (!localStorage.getItem('pulse-lang')) {
+      const browserLang = navigator.language?.split('-')[0];
+      const supported = ['en', 'es', 'fr', 'de', 'it', 'pt'];
+      if (supported.includes(browserLang)) {
+        applyLang(browserLang);
+      }
+    }
+
+    // ---------- Smooth scroll for nav links ----------
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const id = a.getAttribute('href');
+        if (id && id.length > 1) {
+          const target = document.querySelector(id);
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
+      });
+    });
+
+    console.log('Pulse — Healthcare that fits your life. v1.0');
+  </script>
+
+</body>
+</html>

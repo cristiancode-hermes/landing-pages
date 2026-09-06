@@ -1,0 +1,2299 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="meta-title">Cortex — Incident Management for Platform Engineering</title>
+  <meta name="description" id="meta-desc" content="Cortex correlates alerts, automates incident response, and surfaces root cause — so your team ships faster with confidence. Platform engineering, redefined.">
+  <link rel="canonical" href="https://cortex-incident.io/">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%235e6ad2'/%3E%3Cpath d='M10 10h12v3l-4 4 4 4v3H10v-3l4-4-4-4z' fill='%23ffffff'/%3E%3C/svg%3E">
+  <meta name="theme-color" content="#08090a">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Cortex">
+  <meta property="og:title" id="og-title" content="Cortex — Incident Management for Platform Engineering">
+  <meta property="og:description" id="og-desc" content="Correlate alerts, automate incident response, and surface root cause. Platform engineering, redefined.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80">
+  <meta property="og:url" content="https://cortex-incident.io/">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" id="tw-title" content="Cortex — Incident Management for Platform Engineering">
+  <meta name="twitter:description" id="tw-desc" content="Correlate alerts, automate incident response, and surface root cause. Platform engineering, redefined.">
+  <meta name="twitter:site" content="@cortexio">
+
+  <!-- Fonts: Inter + JetBrains Mono (Linear's signature pairing) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,510;0,14..32,590;0,14..32,600;1,14..32,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    /* ================================================================
+       DESIGN SYSTEM — Cortex Incident Management
+       Derived from: Linear (popular-web-designs)
+       Family: Developer Tools / Observability / SRE
+       Style: Linear-inspired — near-black canvas, precision engineering
+       Surface: Decide/Learn (landing page, hero + varied feature sections)
+       Strategy: Restrained (tinted neutrals + indigo accent ≤10%)
+       Font feature: cv01, ss03 on Inter — Linear's signature type treatment
+       Colors: Near-achromatic dark with #5e6ad2 brand indigo accent only
+       ================================================================ */
+
+    /* ----- CSS Reset & Base ----- */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      /* Colors — Dark mode (native, no light mode) */
+      --color-bg: #08090a;
+      --color-panel: #0f1011;
+      --color-surface: #191a1b;
+      --color-surface-hover: #242528;
+      --color-text-primary: #f7f8f8;
+      --color-text-secondary: #d0d6e0;
+      --color-text-tertiary: #8a8f98;
+      --color-text-quaternary: #62666d;
+      --color-accent: #5e6ad2;
+      --color-accent-hover: #7170ff;
+      --color-accent-ghost: rgba(94, 106, 210, 0.15);
+      --color-border: rgba(255,255,255,0.08);
+      --color-border-subtle: rgba(255,255,255,0.05);
+      --color-divider: #141516;
+      --color-success: #27a644;
+      --color-success-bg: rgba(39, 166, 68, 0.1);
+      --color-overlay: rgba(0,0,0,0.85);
+
+      /* Typography */
+      --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+
+      /* Spacing */
+      --space-1: 4px;
+      --space-2: 8px;
+      --space-3: 12px;
+      --space-4: 16px;
+      --space-5: 20px;
+      --space-6: 24px;
+      --space-8: 32px;
+      --space-10: 40px;
+      --space-12: 48px;
+      --space-16: 64px;
+      --space-20: 80px;
+      --space-24: 96px;
+
+      /* Radii */
+      --radius-sm: 4px;
+      --radius-md: 6px;
+      --radius-lg: 8px;
+      --radius-xl: 12px;
+
+      /* Z-index scale */
+      --z-dropdown: 100;
+      --z-sticky: 200;
+      --z-modal-backdrop: 300;
+      --z-modal: 400;
+      --z-toast: 500;
+      --z-tooltip: 600;
+
+      /* Transitions */
+      --ease-out-quart: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+      --duration-fast: 150ms;
+      --duration-normal: 250ms;
+      --duration-slow: 400ms;
+    }
+
+    /* ----- Base styles ----- */
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      font-weight: 400;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--color-text-secondary);
+      background: var(--color-bg);
+      overflow-x: hidden;
+    }
+
+    /* Inter with Linear's signature OpenType features */
+    body, h1, h2, h3, h4, h5, h6, p, span, a, button, li, label, input, textarea {
+      font-feature-settings: 'cv01' on, 'ss03' on;
+    }
+
+    img { display: block; max-width: 100%; height: auto; }
+    a { color: var(--color-accent-hover); text-decoration: none; transition: color var(--duration-fast) var(--ease-out-quart); }
+    a:hover { color: var(--color-text-primary); }
+    button { cursor: pointer; font-family: inherit; }
+    ul, ol { list-style: none; }
+
+    /* ----- Typography ----- */
+    h1, h2, h3, h4 {
+      font-family: var(--font-sans);
+      font-weight: 510;
+      color: var(--color-text-primary);
+      line-height: 1.05;
+      letter-spacing: -0.022em;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      letter-spacing: clamp(-0.038em, -0.03em, -0.022em);
+      text-wrap: balance;
+    }
+
+    h2 {
+      font-size: clamp(1.75rem, 3.5vw, 3rem);
+      letter-spacing: clamp(-0.03em, -0.022em, -0.015em);
+      text-wrap: balance;
+    }
+
+    h3 {
+      font-size: clamp(1.25rem, 2.2vw, 1.5rem);
+      letter-spacing: -0.015em;
+      text-wrap: balance;
+    }
+
+    .text-mono {
+      font-family: var(--font-mono);
+      font-size: 0.875rem;
+    }
+
+    /* Max line length for readable paragraphs */
+    .content-maxw {
+      max-width: 65ch;
+    }
+
+    /* ----- Container ----- */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 var(--space-6);
+    }
+
+    @media (max-width: 640px) {
+      .container { padding: 0 var(--space-4); }
+    }
+
+    /* ----- Navigation ----- */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: var(--z-sticky);
+      background: rgba(8, 9, 10, 0.8);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--color-border-subtle);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      font-weight: 510;
+      font-size: 1.125rem;
+      color: var(--color-text-primary);
+    }
+
+    .nav-brand svg {
+      width: 28px;
+      height: 28px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: var(--space-6);
+    }
+
+    .nav-links a {
+      font-size: 0.875rem;
+      font-weight: 510;
+      color: var(--color-text-tertiary);
+      transition: color var(--duration-fast) var(--ease-out-quart);
+    }
+
+    .nav-links a:hover {
+      color: var(--color-text-primary);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+    }
+
+    .lang-select {
+      position: relative;
+      z-index: var(--z-dropdown);
+    }
+
+    .lang-btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      color: var(--color-text-tertiary);
+      font-size: 0.813rem;
+      font-weight: 510;
+      transition: all var(--duration-fast) var(--ease-out-quart);
+    }
+
+    .lang-btn:hover {
+      background: rgba(255,255,255,0.06);
+      color: var(--color-text-primary);
+    }
+
+    .lang-btn svg { width: 14px; height: 14px; opacity: 0.6; transition: transform var(--duration-fast) var(--ease-out-quart); }
+    .lang-btn[aria-expanded="true"] svg { transform: rotate(180deg); }
+
+    .lang-dropdown {
+      position: absolute;
+      top: calc(100% + 4px);
+      right: 0;
+      min-width: 140px;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 4px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-4px);
+      transition: all var(--duration-normal) var(--ease-out-quart);
+    }
+
+    .lang-dropdown.open {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .lang-option {
+      display: block;
+      width: 100%;
+      padding: 6px 10px;
+      background: none;
+      border: none;
+      border-radius: var(--radius-sm);
+      color: var(--color-text-tertiary);
+      font-size: 0.813rem;
+      font-weight: 400;
+      text-align: left;
+      transition: all var(--duration-fast) var(--ease-out-quart);
+    }
+
+    .lang-option:hover {
+      background: rgba(255,255,255,0.06);
+      color: var(--color-text-primary);
+    }
+
+    .lang-option.active {
+      color: var(--color-accent-hover);
+      font-weight: 510;
+    }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: 8px 16px;
+      background: var(--color-accent);
+      border: none;
+      border-radius: var(--radius-md);
+      color: #ffffff;
+      font-size: 0.875rem;
+      font-weight: 510;
+      transition: background var(--duration-fast) var(--ease-out-quart);
+    }
+
+    .nav-cta:hover {
+      background: var(--color-accent-hover);
+    }
+
+    .mobile-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 28px;
+      height: 28px;
+      background: none;
+      border: none;
+      padding: 2px;
+      cursor: pointer;
+    }
+
+    .mobile-toggle span {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: var(--color-text-primary);
+      border-radius: 1px;
+      transition: all var(--duration-normal) var(--ease-out-quart);
+    }
+
+    .mobile-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .mobile-toggle.open span:nth-child(2) { opacity: 0; }
+    .mobile-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .mobile-toggle { display: flex; }
+
+      .nav-links.mobile-open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 56px;
+        left: 0;
+        right: 0;
+        background: var(--color-panel);
+        border-bottom: 1px solid var(--color-border);
+        padding: var(--space-4);
+        gap: var(--space-3);
+      }
+    }
+
+    @media (max-width: 420px) {
+      .nav-cta { display: none; }
+    }
+
+    /* ----- Button system (Linear-style: transparent bg, subtle border) ----- */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: 10px 20px;
+      border-radius: var(--radius-md);
+      font-size: 0.938rem;
+      font-weight: 510;
+      border: none;
+      transition: all var(--duration-fast) var(--ease-out-quart);
+    }
+
+    .btn-primary {
+      background: var(--color-accent);
+      color: #ffffff;
+    }
+    .btn-primary:hover {
+      background: var(--color-accent-hover);
+    }
+
+    .btn-ghost {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgb(36, 40, 44);
+      color: var(--color-text-secondary);
+    }
+    .btn-ghost:hover {
+      background: rgba(255,255,255,0.06);
+      color: var(--color-text-primary);
+    }
+
+    .btn-large {
+      padding: 12px 28px;
+      font-size: 1rem;
+    }
+
+    /* ----- Hero ----- */
+    .hero {
+      padding: 160px 0 100px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border: 1px solid var(--color-border);
+      border-radius: 9999px;
+      font-size: 0.813rem;
+      font-weight: 510;
+      color: var(--color-text-secondary);
+      background: rgba(255,255,255,0.03);
+      margin-bottom: var(--space-6);
+    }
+
+    .hero-badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--color-success);
+    }
+
+    .hero h1 {
+      margin-bottom: var(--space-5);
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 1.8vw, 1.125rem);
+      color: var(--color-text-tertiary);
+      line-height: 1.7;
+      max-width: 600px;
+      margin: 0 auto var(--space-8);
+      text-wrap: pretty;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+    }
+
+    .hero-visual {
+      margin-top: var(--space-16);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--color-border);
+      background: var(--color-panel);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-visual img {
+      width: 100%;
+      display: block;
+    }
+
+    .hero-visual-label {
+      position: absolute;
+      top: var(--space-4);
+      left: var(--space-4);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      background: var(--color-panel);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      font-size: 0.75rem;
+      color: var(--color-text-tertiary);
+      font-weight: 510;
+    }
+
+    .hero-visual-label svg { width: 12px; height: 12px; }
+
+    @media (max-width: 640px) {
+      .hero { padding: 120px 0 60px; }
+      .hero-actions { flex-direction: column; }
+    }
+
+    /* ----- Dashboard preview (feature images) ----- */
+    .dashboard-frame {
+      width: 100%;
+      background: linear-gradient(180deg, var(--color-panel) 0%, var(--color-bg) 100%);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .dashboard-frame .dash-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-3) var(--space-4);
+      border-bottom: 1px solid var(--color-border);
+      background: rgba(255,255,255,0.02);
+    }
+
+    .dash-dots {
+      display: flex;
+      gap: 6px;
+    }
+
+    .dash-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+
+    .dash-dot:nth-child(1) { background: #ff5f57; }
+    .dash-dot:nth-child(2) { background: #ffbd2e; }
+    .dash-dot:nth-child(3) { background: #28c840; }
+
+    .dash-title {
+      font-size: 0.75rem;
+      color: var(--color-text-quaternary);
+      font-weight: 510;
+      margin-left: var(--space-2);
+    }
+
+    .dash-body {
+      padding: var(--space-6);
+      display: grid;
+      gap: var(--space-4);
+    }
+
+    .dash-row {
+      display: grid;
+      grid-template-columns: 1fr 2fr 1fr;
+      gap: var(--space-3);
+      align-items: center;
+      padding: var(--space-2) var(--space-3);
+      border-radius: var(--radius-sm);
+      background: rgba(255,255,255,0.02);
+    }
+
+    .dash-row-indicator {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+    }
+
+    .dash-row-indicator.critical { background: #ff4444; }
+    .dash-row-indicator.warning { background: #ffbd2e; }
+    .dash-row-indicator.resolved { background: var(--color-success); }
+
+    .dash-row-label {
+      font-size: 0.813rem;
+      font-weight: 510;
+      color: var(--color-text-primary);
+    }
+
+    .dash-row-value {
+      font-size: 0.75rem;
+      font-family: var(--font-mono);
+      color: var(--color-text-tertiary);
+      text-align: right;
+    }
+
+    .dash-metric-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+    }
+
+    .dash-metric-card {
+      padding: var(--space-3);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-border-subtle);
+      background: rgba(255,255,255,0.02);
+    }
+
+    .dash-metric-card .metric-num {
+      font-size: 1.5rem;
+      font-weight: 510;
+      color: var(--color-text-primary);
+      letter-spacing: -0.02em;
+      margin-bottom: 2px;
+    }
+
+    .dash-metric-card .metric-label {
+      font-size: 0.75rem;
+      color: var(--color-text-quaternary);
+    }
+
+    /* ----- Sections ----- */
+    section {
+      padding: var(--space-20) 0;
+    }
+
+    .section-label {
+      font-size: 0.875rem;
+      font-weight: 510;
+      color: var(--color-accent-hover);
+      margin-bottom: var(--space-3);
+    }
+
+    .section-title {
+      margin-bottom: var(--space-4);
+    }
+
+    .section-desc {
+      font-size: clamp(0.938rem, 1.4vw, 1.063rem);
+      color: var(--color-text-tertiary);
+      line-height: 1.7;
+      max-width: 65ch;
+      text-wrap: pretty;
+    }
+
+    /* Feature split layout (text left, visual right) */
+    .feature-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-16);
+      align-items: center;
+    }
+
+    .feature-content { max-width: 480px; }
+
+    .feature-content h3 {
+      margin-bottom: var(--space-3);
+    }
+
+    .feature-content p {
+      font-size: 0.938rem;
+      line-height: 1.8;
+      color: var(--color-text-tertiary);
+      text-wrap: pretty;
+    }
+
+    .feature-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      margin-top: var(--space-5);
+    }
+
+    .feature-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 10px;
+      border: 1px solid var(--color-border);
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 510;
+      color: var(--color-text-tertiary);
+      background: rgba(255,255,255,0.02);
+    }
+
+    .feature-tag svg { width: 12px; height: 12px; }
+
+    @media (max-width: 860px) {
+      .feature-split {
+        grid-template-columns: 1fr;
+        gap: var(--space-8);
+      }
+      .feature-content { max-width: 100%; }
+    }
+
+    /* Full-width feature (alternating style) */
+    .feature-full {
+      position: relative;
+    }
+
+    .feature-full-content {
+      text-align: center;
+      margin-bottom: var(--space-10);
+    }
+
+    .feature-full-content .section-desc {
+      margin: 0 auto;
+    }
+
+    /* ----- Stats / Metrics ----- */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-6);
+      padding: var(--space-10) 0;
+      border-top: 1px solid var(--color-divider);
+      border-bottom: 1px solid var(--color-divider);
+    }
+
+    .stat-item { text-align: center; }
+
+    .stat-item .stat-num {
+      font-size: clamp(2rem, 3vw, 2.5rem);
+      font-weight: 510;
+      color: var(--color-text-primary);
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: var(--space-1);
+    }
+
+    .stat-item .stat-label {
+      font-size: 0.875rem;
+      color: var(--color-text-tertiary);
+      line-height: 1.5;
+    }
+
+    @media (max-width: 768px) {
+      .stats-grid { grid-template-columns: repeat(2, 1fr); gap: var(--space-6); }
+    }
+    @media (max-width: 420px) {
+      .stats-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ----- Testimonials ----- */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-4);
+    }
+
+    .testimonial-card {
+      padding: var(--space-6);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      background: rgba(255,255,255,0.02);
+      transition: background var(--duration-normal) var(--ease-out-quart);
+    }
+
+    .testimonial-card:hover {
+      background: rgba(255,255,255,0.04);
+    }
+
+    .testimonial-card .quote {
+      font-size: 0.875rem;
+      line-height: 1.7;
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-5);
+      text-wrap: pretty;
+      font-style: normal;
+    }
+
+    .testimonial-card .author {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+    }
+
+    .author-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--color-accent-ghost);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.813rem;
+      font-weight: 510;
+      color: var(--color-accent-hover);
+    }
+
+    .author-info .name {
+      font-size: 0.813rem;
+      font-weight: 510;
+      color: var(--color-text-primary);
+    }
+
+    .author-info .role {
+      font-size: 0.75rem;
+      color: var(--color-text-quaternary);
+    }
+
+    @media (max-width: 860px) {
+      .testimonials-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ----- FAQ Accordion ----- */
+    .faq-list {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--color-divider);
+    }
+
+    .faq-item:first-child {
+      border-top: 1px solid var(--color-divider);
+    }
+
+    .faq-question {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: var(--space-5) 0;
+      background: none;
+      border: none;
+      font-size: 1rem;
+      font-weight: 510;
+      color: var(--color-text-secondary);
+      text-align: left;
+      transition: color var(--duration-fast) var(--ease-out-quart);
+      gap: var(--space-4);
+    }
+
+    .faq-question:hover {
+      color: var(--color-text-primary);
+    }
+
+    .faq-question svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      color: var(--color-text-quaternary);
+      transition: transform var(--duration-normal) var(--ease-out-quart);
+    }
+
+    .faq-item.active .faq-question svg {
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height var(--duration-slow) var(--ease-out-quint);
+    }
+
+    .faq-answer-inner {
+      padding-bottom: var(--space-5);
+      font-size: 0.938rem;
+      line-height: 1.7;
+      color: var(--color-text-tertiary);
+      max-width: 65ch;
+      text-wrap: pretty;
+    }
+
+    .faq-answer-inner code {
+      font-family: var(--font-mono);
+      font-size: 0.813rem;
+      padding: 1px 5px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 3px;
+      color: var(--color-text-secondary);
+    }
+
+    /* ----- CTA section ----- */
+    .cta-section {
+      text-align: center;
+      padding: var(--space-24) 0;
+      position: relative;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80%;
+      max-width: 600px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+    }
+
+    .cta-section h2 {
+      margin-bottom: var(--space-4);
+    }
+
+    .cta-section .section-desc {
+      margin: 0 auto var(--space-8);
+    }
+
+    .cta-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+    }
+
+    .cta-note {
+      font-size: 0.813rem;
+      color: var(--color-text-quaternary);
+      margin-top: var(--space-4);
+    }
+
+    /* ----- Footer ----- */
+    .footer {
+      border-top: 1px solid var(--color-divider);
+      padding: var(--space-16) 0 var(--space-8);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: var(--space-10);
+      margin-bottom: var(--space-12);
+    }
+
+    .footer-brand p {
+      font-size: 0.875rem;
+      color: var(--color-text-tertiary);
+      margin-top: var(--space-3);
+      max-width: 280px;
+      line-height: 1.6;
+    }
+
+    .footer-col h4 {
+      font-size: 0.813rem;
+      font-weight: 510;
+      color: var(--color-text-tertiary);
+      margin-bottom: var(--space-4);
+      letter-spacing: normal;
+    }
+
+    .footer-col a {
+      display: block;
+      font-size: 0.875rem;
+      color: var(--color-text-quaternary);
+      padding: 3px 0;
+      transition: color var(--duration-fast) var(--ease-out-quart);
+    }
+
+    .footer-col a:hover {
+      color: var(--color-text-primary);
+    }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: var(--space-6);
+      border-top: 1px solid var(--color-divider);
+      font-size: 0.813rem;
+      color: var(--color-text-quaternary);
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: var(--space-4);
+    }
+
+    .footer-socials a {
+      color: var(--color-text-quaternary);
+      transition: color var(--duration-fast) var(--ease-out-quart);
+    }
+
+    .footer-socials a:hover {
+      color: var(--color-text-primary);
+    }
+
+    @media (max-width: 768px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-8);
+      }
+      .footer-brand { grid-column: 1 / -1; }
+    }
+    @media (max-width: 420px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: var(--space-3); }
+    }
+
+    /* ----- Animations ----- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s var(--ease-out-quint), transform 0.6s var(--ease-out-quint);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    .hero-fade-in {
+      opacity: 0;
+      transform: translateY(16px);
+      animation: heroFadeIn 0.8s var(--ease-out-quint) forwards;
+    }
+
+    .hero-fade-in-delay-1 { animation-delay: 0.1s; }
+    .hero-fade-in-delay-2 { animation-delay: 0.2s; }
+    .hero-fade-in-delay-3 { animation-delay: 0.35s; }
+    .hero-fade-in-delay-4 { animation-delay: 0.5s; }
+
+    @keyframes heroFadeIn {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal, .hero-fade-in {
+        opacity: 1;
+        transform: none;
+        animation: none;
+      }
+      .reveal.visible { opacity: 1; transform: none; }
+      html { scroll-behavior: auto; }
+    }
+
+    /* ----- Cookie banner ----- */
+    .cookie-banner {
+      position: fixed;
+      bottom: var(--space-4);
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: var(--z-toast);
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      padding: var(--space-4) var(--space-6);
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+      max-width: 600px;
+      width: calc(100% - var(--space-8));
+      font-size: 0.875rem;
+      color: var(--color-text-secondary);
+    }
+
+    .cookie-banner p { line-height: 1.5; text-wrap: pretty; }
+
+    .cookie-btn {
+      flex-shrink: 0;
+      padding: 6px 16px;
+      background: var(--color-accent);
+      border: none;
+      border-radius: var(--radius-md);
+      color: #ffffff;
+      font-size: 0.813rem;
+      font-weight: 510;
+      transition: background var(--duration-fast) var(--ease-out-quart);
+    }
+
+    .cookie-btn:hover { background: var(--color-accent-hover); }
+
+    .cookie-close {
+      flex-shrink: 0;
+      padding: 4px;
+      background: none;
+      border: none;
+      color: var(--color-text-quaternary);
+      font-size: 1.25rem;
+      line-height: 1;
+      transition: color var(--duration-fast) var(--ease-out-quart);
+    }
+
+    .cookie-close:hover { color: var(--color-text-primary); }
+
+    @media (max-width: 640px) {
+      .cookie-banner {
+        flex-wrap: wrap;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        transform: none;
+        width: 100%;
+        border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+      }
+    }
+
+    /* ----- Scrollbar ----- */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--color-bg); }
+    ::-webkit-scrollbar-thumb { background: #2a2b2d; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #3a3b3d; }
+
+    /* ----- Selection ----- */
+    ::selection {
+      background: var(--color-accent-ghost);
+      color: var(--color-text-primary);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== Navigation ===== -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <a href="#" class="nav-brand">
+        <svg viewBox="0 0 28 28" fill="none">
+          <rect width="28" height="28" rx="6" fill="#5e6ad2"/>
+          <path d="M8 8h12v3l-4 4 4 4v3H8v-3l4-4-4-4V8z" fill="#ffffff"/>
+        </svg>
+        <span data-i18n="brand">Cortex</span>
+      </a>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#features" data-i18n="nav_features">Features</a>
+        <a href="#testimonials" data-i18n="nav_testimonials">Testimonials</a>
+        <a href="#faq" data-i18n="nav_faq">FAQ</a>
+        <a href="#cta" data-i18n="nav_cta">Get Started</a>
+      </div>
+
+      <div class="nav-actions">
+        <div class="lang-select">
+          <button class="lang-btn" id="langBtn" aria-expanded="false" aria-haspopup="true">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="10" cy="10" r="8"/><path d="M2 10h16"/><path d="M10 2a15.3 15.3 0 0 1 4 8 15.3 15.3 0 0 1-4 8 15.3 15.3 0 0 1-4-8 15.3 15.3 0 0 1 4-8z"/>
+            </svg>
+            <span id="langLabel">EN</span>
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 8l4 4 4-4"/>
+            </svg>
+          </button>
+          <div class="lang-dropdown" id="langDropdown" role="menu">
+            <button class="lang-option active" data-lang="en" role="menuitem">English</button>
+            <button class="lang-option" data-lang="es" role="menuitem">Español</button>
+            <button class="lang-option" data-lang="fr" role="menuitem">Français</button>
+            <button class="lang-option" data-lang="de" role="menuitem">Deutsch</button>
+            <button class="lang-option" data-lang="it" role="menuitem">Italiano</button>
+            <button class="lang-option" data-lang="pt" role="menuitem">Português</button>
+          </div>
+        </div>
+        <button class="nav-cta" data-i18n="nav_cta_btn">Start Free Trial</button>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== Hero ===== -->
+  <section class="hero" id="hero">
+    <div class="container">
+      <div class="hero-badge hero-fade-in hero-fade-in-delay-1">
+        <span class="hero-badge-dot"></span>
+        <span data-i18n="hero_badge">Cortex 2.0 — Intelligent Incident Response</span>
+      </div>
+      <h1 class="hero-fade-in hero-fade-in-delay-1" data-i18n="hero_title">Incident management,<br>engineered.</h1>
+      <p class="hero-sub hero-fade-in hero-fade-in-delay-2" data-i18n="hero_sub">Cortex correlates alerts, automates response, and surfaces root cause — so your team ships faster with confidence.</p>
+      <div class="hero-actions hero-fade-in hero-fade-in-delay-3">
+        <button class="btn btn-primary btn-large" data-i18n="hero_cta_primary">Start free trial</button>
+        <button class="btn btn-ghost btn-large" data-i18n="hero_cta_secondary">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="6 4 12 8 6 12"/>
+          </svg>
+          Watch demo
+        </button>
+      </div>
+
+      <!-- Dashboard preview -->
+      <div class="hero-visual hero-fade-in hero-fade-in-delay-4">
+        <div class="hero-visual-label">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+          </svg>
+          <span data-i18n="hero_visual_label">Live incident dashboard</span>
+        </div>
+        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1100&q=85" alt="Incident management dashboard interface" loading="eager">
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Features ===== -->
+  <section id="features">
+    <div class="container">
+      <!-- Feature 1: split layout -->
+      <div class="feature-split reveal">
+        <div class="feature-content">
+          <div class="section-label" data-i18n="feat1_label">Alert Intelligence</div>
+          <h3 data-i18n="feat1_title">Real-time alert correlation</h3>
+          <p data-i18n="feat1_desc">Cortex ingests alerts from every monitoring tool in your stack — Datadog, Grafana, PagerDuty, Sentry — and intelligently groups related incidents. Your team sees one notification per issue, not a hundred.</p>
+          <div class="feature-tags">
+            <span class="feature-tag">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Datadog
+            </span>
+            <span class="feature-tag">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Grafana
+            </span>
+            <span class="feature-tag">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              PagerDuty
+            </span>
+            <span class="feature-tag">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              +12 more
+            </span>
+          </div>
+        </div>
+        <div class="dashboard-frame">
+          <div class="dash-header">
+            <div class="dash-dots">
+              <span class="dash-dot"></span>
+              <span class="dash-dot"></span>
+              <span class="dash-dot"></span>
+            </div>
+            <span class="dash-title" data-i18n="feat1_dash_title">cortex/alerts — live correlation</span>
+          </div>
+          <div class="dash-body">
+            <div class="dash-metric-grid">
+              <div class="dash-metric-card">
+                <div class="metric-num">147</div>
+                <div class="metric-label" data-i18n="feat1_metric1">Incoming alerts</div>
+              </div>
+              <div class="dash-metric-card">
+                <div class="metric-num">12</div>
+                <div class="metric-label" data-i18n="feat1_metric2">Correlated incidents</div>
+              </div>
+              <div class="dash-metric-card">
+                <div class="metric-num">91%</div>
+                <div class="metric-label" data-i18n="feat1_metric3">Reduction in noise</div>
+              </div>
+            </div>
+            <div class="dash-row">
+              <span class="dash-row-indicator critical"></span>
+              <span class="dash-row-label" data-i18n="feat1_row1">Payment API — 503 errors</span>
+              <span class="dash-row-value">2m ago</span>
+            </div>
+            <div class="dash-row">
+              <span class="dash-row-indicator warning"></span>
+              <span class="dash-row-label" data-i18n="feat1_row2">Database connection pool</span>
+              <span class="dash-row-value">5m ago</span>
+            </div>
+            <div class="dash-row">
+              <span class="dash-row-indicator resolved"></span>
+              <span class="dash-row-label" data-i18n="feat1_row3">CDN cache invalidation</span>
+              <span class="dash-row-value">Resolved</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature 2: full-width -->
+  <section>
+    <div class="container">
+      <div class="feature-full reveal">
+        <div class="feature-full-content feature-content" style="max-width:560px;margin:0 auto;">
+          <div class="section-label" data-i18n="feat2_label">Automation</div>
+          <h3 data-i18n="feat2_title">Automated incident response</h3>
+          <p class="section-desc" data-i18n="feat2_desc">Define runbooks once. Cortex triggers automated diagnostics, assembles a war room in Slack, and executes remediation steps — reducing mean time to resolve from hours to minutes.</p>
+        </div>
+        <div class="dashboard-frame" style="max-width:720px;margin:0 auto;">
+          <div class="dash-header">
+            <div class="dash-dots">
+              <span class="dash-dot"></span>
+              <span class="dash-dot"></span>
+              <span class="dash-dot"></span>
+            </div>
+            <span class="dash-title" data-i18n="feat2_dash_title">cortex/runbooks — active response</span>
+          </div>
+          <div class="dash-body">
+            <div style="display:flex;align-items:center;gap:var(--space-3);padding:var(--space-3);border-radius:var(--radius-sm);background:var(--color-success-bg);margin-bottom:var(--space-3);">
+              <span style="width:8px;height:8px;border-radius:50%;background:var(--color-success);flex-shrink:0;"></span>
+              <div>
+                <div style="font-size:0.813rem;font-weight:510;color:var(--color-text-primary);" data-i18n="feat2_runbook1">Runbook: database failover</div>
+                <div style="font-size:0.75rem;color:var(--color-text-quaternary);" data-i18n="feat2_runbook_status">Completed in 47s — 4 of 4 steps</div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:var(--space-3);padding:var(--space-3);border-radius:var(--radius-sm);background:rgba(255,255,255,0.02);">
+              <span style="width:8px;height:8px;border-radius:50%;background:var(--color-accent);flex-shrink:0;"></span>
+              <div>
+                <div style="font-size:0.813rem;font-weight:510;color:var(--color-text-primary);" data-i18n="feat2_runbook2">Runbook: cache warm-up</div>
+                <div style="font-size:0.75rem;color:var(--color-text-quaternary);" data-i18n="feat2_runbook_status2">Running — 2 of 5 steps</div>
+              </div>
+            </div>
+            <div style="margin-top:var(--space-3);display:flex;gap:var(--space-2);flex-wrap:wrap;">
+              <span style="font-family:var(--font-mono);font-size:0.75rem;padding:3px 8px;border-radius:3px;background:rgba(255,255,255,0.04);color:var(--color-text-tertiary);">mttr: 47s ↓93%</span>
+              <span style="font-family:var(--font-mono);font-size:0.75rem;padding:3px 8px;border-radius:3px;background:rgba(255,255,255,0.04);color:var(--color-text-tertiary);">runbooks: 24 active</span>
+              <span style="font-family:var(--font-mono);font-size:0.75rem;padding:3px 8px;border-radius:3px;background:rgba(255,255,255,0.04);color:var(--color-text-tertiary);">auto-resolve: 87%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature 3: split layout (reversed) -->
+  <section>
+    <div class="container">
+      <div class="feature-split reveal" style="direction:rtl;">
+        <div class="feature-content" style="direction:ltr;">
+          <div class="section-label" data-i18n="feat3_label">Root Cause Analysis</div>
+          <h3 data-i18n="feat3_title">Pinpoint the exact cause</h3>
+          <p data-i18n="feat3_desc">Cortex traces requests across services, analyzes deployment history, and surfaces the exact change that triggered the incident. No more digging through logs or context-switching between tools.</p>
+          <div class="feature-tags">
+            <span class="feature-tag">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Distributed tracing
+            </span>
+            <span class="feature-tag">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Git blame integration
+            </span>
+          </div>
+        </div>
+        <div class="dashboard-frame" style="direction:ltr;">
+          <div class="dash-header">
+            <div class="dash-dots">
+              <span class="dash-dot"></span>
+              <span class="dash-dot"></span>
+              <span class="dash-dot"></span>
+            </div>
+            <span class="dash-title" data-i18n="feat3_dash_title">cortex/rca — root cause analysis</span>
+          </div>
+          <div class="dash-body">
+            <div style="padding:var(--space-3);border-radius:var(--radius-md);border:1px solid var(--color-border);">
+              <div style="font-size:0.75rem;color:var(--color-text-quaternary);margin-bottom:var(--space-2);" data-i18n="feat3_chain">Service call chain</div>
+              <div style="display:flex;align-items:center;gap:var(--space-1);flex-wrap:wrap;">
+                <span style="font-size:0.75rem;padding:2px 8px;border-radius:3px;background:rgba(255,255,255,0.05);color:var(--color-text-tertiary);font-family:var(--font-mono);">api-gateway</span>
+                <span style="color:var(--color-text-quaternary);font-size:0.75rem;">→</span>
+                <span style="font-size:0.75rem;padding:2px 8px;border-radius:3px;background:rgba(255,255,255,0.05);color:var(--color-text-tertiary);font-family:var(--font-mono);">auth-svc</span>
+                <span style="color:var(--color-text-quaternary);font-size:0.75rem;">→</span>
+                <span style="font-size:0.75rem;padding:2px 8px;border-radius:3px;background:rgba(255,50,50,0.15);color:#ff6b6b;font-family:var(--font-mono);font-weight:510;">payment-svc ⚠</span>
+                <span style="color:var(--color-text-quaternary);font-size:0.75rem;">→</span>
+                <span style="font-size:0.75rem;padding:2px 8px;border-radius:3px;background:rgba(255,255,255,0.05);color:var(--color-text-tertiary);font-family:var(--font-mono);">db-cluster</span>
+              </div>
+            </div>
+            <div style="margin-top:var(--space-3);padding:var(--space-3);border-radius:var(--radius-md);border:1px solid var(--color-border-subtle);">
+              <div style="font-size:0.813rem;font-weight:510;color:var(--color-text-primary);" data-i18n="feat3_cause">Likely cause: deploy #4812</div>
+              <div style="font-size:0.75rem;color:var(--color-text-quaternary);margin-top:var(--space-1);font-family:var(--font-mono);">
+                <span data-i18n="feat3_commit">Commit</span>: a3f8e2d — "refactor: payment timeout config"
+              </div>
+              <div style="font-size:0.75rem;color:var(--color-accent-hover);margin-top:4px;">
+                <a href="#" onclick="return false;" data-i18n="feat3_pr">View pull request →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Stats ===== -->
+  <section>
+    <div class="container reveal">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-num">10,000+</div>
+          <div class="stat-label" data-i18n="stat1">Incidents resolved daily</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">47%</div>
+          <div class="stat-label" data-i18n="stat2">Average MTTR reduction</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">99.9%</div>
+          <div class="stat-label" data-i18n="stat3">Alert accuracy rate</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">1,200+</div>
+          <div class="stat-label" data-i18n="stat4">Teams trust Cortex</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Testimonials ===== -->
+  <section id="testimonials">
+    <div class="container">
+      <div class="feature-full-content reveal" style="max-width:560px;margin:0 auto var:var(--space-10);">
+        <div class="section-label" data-i18n="testimonials_label">Trusted by Platform Teams</div>
+        <h3 data-i18n="testimonials_title">Used by engineering leaders worldwide</h3>
+      </div>
+
+      <div class="testimonials-grid reveal">
+        <div class="testimonial-card">
+          <p class="quote" data-i18n="testimonial1_quote">"Cortex cut our incident response time by 60% in the first week. The alert correlation alone saved us from burning out our on-call rotation. It's become essential infrastructure for us."</p>
+          <div class="author">
+            <div class="author-avatar">SK</div>
+            <div class="author-info">
+              <div class="name" data-i18n="testimonial1_name">Sarah Kim</div>
+              <div class="role" data-i18n="testimonial1_role">VP of Engineering, Luma</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <p class="quote" data-i18n="testimonial2_quote">"We evaluated PagerDuty, Opsgenie, and Incident.io before choosing Cortex. What sets them apart is the root cause analysis — it actually surfaces the deploy that broke things. Game changer."</p>
+          <div class="author">
+            <div class="author-avatar">MR</div>
+            <div class="author-info">
+              <div class="name" data-i18n="testimonial2_name">Marcus Rodriguez</div>
+              <div class="role" data-i18n="testimonial2_role">SRE Lead, Vercel</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <p class="quote" data-i18n="testimonial3_quote">"The automated runbooks feature alone is worth the price. We handle 80% of incidents without human intervention now. Our SRE team can finally focus on reliability improvements instead of firefighting."</p>
+          <div class="author">
+            <div class="author-avatar">EC</div>
+            <div class="author-info">
+              <div class="name" data-i18n="testimonial3_name">Elena Chen</div>
+              <div class="role" data-i18n="testimonial3_role">Director of Platform, Stripe</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section id="faq">
+    <div class="container">
+      <div class="feature-full-content reveal" style="max-width:560px;margin:0 auto var:var(--space-10);">
+        <div class="section-label" data-i18n="faq_label">FAQ</div>
+        <h3 data-i18n="faq_title">Frequently asked questions</h3>
+      </div>
+
+      <div class="faq-list reveal">
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span data-i18n="faq_q1">How does pricing work?</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner" data-i18n="faq_a1">Cortex offers a usage-based pricing model starting at $99 per month for teams of up to 10 engineers. Enterprise plans include custom runbooks, dedicated support, and SSO. All plans include a 14-day free trial with no credit card required.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span data-i18n="faq_q2">Which monitoring tools do you integrate with?</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner" data-i18n="faq_a2">Cortex integrates with Datadog, Grafana, PagerDuty, Sentry, CloudWatch, Prometheus, New Relic, Slack, Jira, Opsgenie, and 50+ other tools. If your tool isn't listed, our REST API makes it straightforward to build a custom integration.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span data-i18n="faq_q3">How long does it take to set up?</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner" data-i18n="faq_a3">Most teams are up and running within 15 minutes. Our onboarding wizard guides you through connecting your monitoring tools and setting up your first correlation rules. Full deployment, including custom runbooks, typically takes less than a day.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span data-i18n="faq_q4">Is my data secure?</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner" data-i18n="faq_a4">Absolutely. Cortex is SOC 2 Type II certified and GDPR compliant. All data is encrypted at rest (AES-256) and in transit (TLS 1.3). We offer dedicated single-tenant deployments for enterprise customers with additional compliance requirements.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span data-i18n="faq_q5">Can I self-host Cortex?</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner" data-i18n="faq_a5">Yes. Cortex Enterprise includes a self-hosted option using Kubernetes via our Helm chart. We support AWS EKS, GCP GKE, and Azure AKS. The self-hosted version includes all features plus a dedicated migration engineer to help you get started.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section id="cta" class="cta-section">
+    <div class="container reveal">
+      <h2 data-i18n="cta_title">Ready to ship with confidence?</h2>
+      <p class="section-desc" data-i18n="cta_sub">Join 1,200+ engineering teams using Cortex to resolve incidents faster, reduce alert fatigue, and ship more reliably.</p>
+      <div class="cta-actions">
+        <button class="btn btn-primary btn-large" data-i18n="cta_btn">Start free trial</button>
+        <button class="btn btn-ghost btn-large" data-i18n="cta_btn2">Talk to sales</button>
+      </div>
+      <p class="cta-note" data-i18n="cta_note">No credit card required — 14-day free trial</p>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="nav-brand" style="margin-bottom:0;">
+            <svg viewBox="0 0 28 28" fill="none" style="width:24px;height:24px;">
+              <rect width="28" height="28" rx="6" fill="#5e6ad2"/>
+              <path d="M8 8h12v3l-4 4 4 4v3H8v-3l4-4-4-4V8z" fill="#ffffff"/>
+            </svg>
+            <span>Cortex</span>
+          </div>
+          <p data-i18n="footer_tagline">Incident management for platform engineering teams. Ship faster with confidence.</p>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer_product">Product</h4>
+          <a href="#" data-i18n="footer_features">Features</a>
+          <a href="#" data-i18n="footer_integrations">Integrations</a>
+          <a href="#" data-i18n="footer_changelog">Changelog</a>
+          <a href="#" data-i18n="footer_pricing">Pricing</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer_company">Company</h4>
+          <a href="#" data-i18n="footer_about">About</a>
+          <a href="#" data-i18n="footer_blog">Blog</a>
+          <a href="#" data-i18n="footer_careers">Careers</a>
+          <a href="#" data-i18n="footer_contact">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer_resources">Resources</h4>
+          <a href="#" data-i18n="footer_docs">Documentation</a>
+          <a href="#" data-i18n="footer_api">API Reference</a>
+          <a href="#" data-i18n="footer_status">Status</a>
+          <a href="#" data-i18n="footer_privacy">Privacy</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span data-i18n="footer_copyright">© 2026 Cortex, Inc. All rights reserved.</span>
+        <div class="footer-socials">
+          <a href="#" aria-label="GitHub">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12 24 5.37 18.63 0 12 0z"/></svg>
+          </a>
+          <a href="#" aria-label="Twitter">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="#" aria-label="LinkedIn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== Cookie Banner ===== -->
+  <div class="cookie-banner" id="cookieBanner" role="alert">
+    <p data-i18n="cookie_text">This site uses essential cookies to provide the best experience. By continuing, you agree to our use of cookies.</p>
+    <button class="cookie-btn" id="cookieAccept" data-i18n="cookie_btn">Accept</button>
+    <button class="cookie-close" id="cookieDismiss" aria-label="Dismiss">✕</button>
+  </div>
+
+  <script>
+    /* ===============================================================
+       CORTEX — i18n, Animations, Interactions
+       Languages: EN, ES, FR, DE, IT, PT
+       =============================================================== */
+
+    (function() {
+      'use strict';
+
+      /* ----- i18n Dictionary ----- */
+      const i18n = {
+        en: {
+          brand: 'Cortex',
+          nav_features: 'Features',
+          nav_testimonials: 'Testimonials',
+          nav_faq: 'FAQ',
+          nav_cta: 'Get Started',
+          nav_cta_btn: 'Start Free Trial',
+          hero_badge: 'Cortex 2.0 — Intelligent Incident Response',
+          hero_title: 'Incident management,<br>engineered.',
+          hero_sub: 'Cortex correlates alerts, automates response, and surfaces root cause — so your team ships faster with confidence.',
+          hero_cta_primary: 'Start free trial',
+          hero_cta_secondary: 'Watch demo',
+          hero_visual_label: 'Live incident dashboard',
+          feat1_label: 'Alert Intelligence',
+          feat1_title: 'Real-time alert correlation',
+          feat1_desc: 'Cortex ingests alerts from every monitoring tool in your stack — Datadog, Grafana, PagerDuty, Sentry — and intelligently groups related incidents. Your team sees one notification per issue, not a hundred.',
+          feat1_dash_title: 'cortex/alerts — live correlation',
+          feat1_metric1: 'Incoming alerts',
+          feat1_metric2: 'Correlated incidents',
+          feat1_metric3: 'Reduction in noise',
+          feat1_row1: 'Payment API — 503 errors',
+          feat1_row2: 'Database connection pool',
+          feat1_row3: 'CDN cache invalidation',
+          feat2_label: 'Automation',
+          feat2_title: 'Automated incident response',
+          feat2_desc: 'Define runbooks once. Cortex triggers automated diagnostics, assembles a war room in Slack, and executes remediation steps — reducing mean time to resolve from hours to minutes.',
+          feat2_dash_title: 'cortex/runbooks — active response',
+          feat2_runbook1: 'Runbook: database failover',
+          feat2_runbook_status: 'Completed in 47s — 4 of 4 steps',
+          feat2_runbook2: 'Runbook: cache warm-up',
+          feat2_runbook_status2: 'Running — 2 of 5 steps',
+          feat3_label: 'Root Cause Analysis',
+          feat3_title: 'Pinpoint the exact cause',
+          feat3_desc: 'Cortex traces requests across services, analyzes deployment history, and surfaces the exact change that triggered the incident. No more digging through logs or context-switching between tools.',
+          feat3_dash_title: 'cortex/rca — root cause analysis',
+          feat3_chain: 'Service call chain',
+          feat3_cause: 'Likely cause: deploy #4812',
+          feat3_commit: 'Commit',
+          feat3_pr: 'View pull request →',
+          stat1: 'Incidents resolved daily',
+          stat2: 'Average MTTR reduction',
+          stat3: 'Alert accuracy rate',
+          stat4: 'Teams trust Cortex',
+          testimonials_label: 'Trusted by Platform Teams',
+          testimonials_title: 'Used by engineering leaders worldwide',
+          testimonial1_quote: '"Cortex cut our incident response time by 60% in the first week. The alert correlation alone saved us from burning out our on-call rotation. It\'s become essential infrastructure for us."',
+          testimonial1_name: 'Sarah Kim',
+          testimonial1_role: 'VP of Engineering, Luma',
+          testimonial2_quote: '"We evaluated PagerDuty, Opsgenie, and Incident.io before choosing Cortex. What sets them apart is the root cause analysis — it actually surfaces the deploy that broke things. Game changer."',
+          testimonial2_name: 'Marcus Rodriguez',
+          testimonial2_role: 'SRE Lead, Vercel',
+          testimonial3_quote: '"The automated runbooks feature alone is worth the price. We handle 80% of incidents without human intervention now. Our SRE team can finally focus on reliability improvements instead of firefighting."',
+          testimonial3_name: 'Elena Chen',
+          testimonial3_role: 'Director of Platform, Stripe',
+          faq_label: 'FAQ',
+          faq_title: 'Frequently asked questions',
+          faq_q1: 'How does pricing work?',
+          faq_a1: 'Cortex offers a usage-based pricing model starting at $99 per month for teams of up to 10 engineers. Enterprise plans include custom runbooks, dedicated support, and SSO. All plans include a 14-day free trial with no credit card required.',
+          faq_q2: 'Which monitoring tools do you integrate with?',
+          faq_a2: 'Cortex integrates with Datadog, Grafana, PagerDuty, Sentry, CloudWatch, Prometheus, New Relic, Slack, Jira, Opsgenie, and 50+ other tools. If your tool isn\'t listed, our REST API makes it straightforward to build a custom integration.',
+          faq_q3: 'How long does it take to set up?',
+          faq_a3: 'Most teams are up and running within 15 minutes. Our onboarding wizard guides you through connecting your monitoring tools and setting up your first correlation rules. Full deployment typically takes less than a day.',
+          faq_q4: 'Is my data secure?',
+          faq_a4: 'Absolutely. Cortex is SOC 2 Type II certified and GDPR compliant. All data is encrypted at rest (AES-256) and in transit (TLS 1.3). We offer dedicated single-tenant deployments for enterprise customers.',
+          faq_q5: 'Can I self-host Cortex?',
+          faq_a5: 'Yes. Cortex Enterprise includes a self-hosted option using Kubernetes via our Helm chart. We support AWS EKS, GCP GKE, and Azure AKS. The self-hosted version includes all features plus a dedicated migration engineer.',
+          cta_title: 'Ready to ship with confidence?',
+          cta_sub: 'Join 1,200+ engineering teams using Cortex to resolve incidents faster, reduce alert fatigue, and ship more reliably.',
+          cta_btn: 'Start free trial',
+          cta_btn2: 'Talk to sales',
+          cta_note: 'No credit card required — 14-day free trial',
+          footer_tagline: 'Incident management for platform engineering teams. Ship faster with confidence.',
+          footer_product: 'Product',
+          footer_features: 'Features',
+          footer_integrations: 'Integrations',
+          footer_changelog: 'Changelog',
+          footer_pricing: 'Pricing',
+          footer_company: 'Company',
+          footer_about: 'About',
+          footer_blog: 'Blog',
+          footer_careers: 'Careers',
+          footer_contact: 'Contact',
+          footer_resources: 'Resources',
+          footer_docs: 'Documentation',
+          footer_api: 'API Reference',
+          footer_status: 'Status',
+          footer_privacy: 'Privacy',
+          footer_copyright: '© 2026 Cortex, Inc. All rights reserved.',
+          cookie_text: 'This site uses essential cookies to provide the best experience. By continuing, you agree to our use of cookies.',
+          cookie_btn: 'Accept',
+        },
+        es: {
+          brand: 'Cortex',
+          nav_features: 'Funcionalidades',
+          nav_testimonials: 'Testimonios',
+          nav_faq: 'Preguntas',
+          nav_cta: 'Comenzar',
+          nav_cta_btn: 'Prueba gratuita',
+          hero_badge: 'Cortex 2.0 — Respuesta inteligente a incidentes',
+          hero_title: 'Gestión de incidentes,<br>con ingeniería.',
+          hero_sub: 'Cortex correlaciona alertas, automatiza respuestas y encuentra la causa raíz — para que tu equipo despliegue más rápido con confianza.',
+          hero_cta_primary: 'Iniciar prueba gratuita',
+          hero_cta_secondary: 'Ver demo',
+          hero_visual_label: 'Panel de incidentes en vivo',
+          feat1_label: 'Inteligencia de Alertas',
+          feat1_title: 'Correlación de alertas en tiempo real',
+          feat1_desc: 'Cortex ingiere alertas de todas tus herramientas de monitoreo — Datadog, Grafana, PagerDuty, Sentry — y agrupa incidentes relacionados inteligentemente. Tu equipo recibe una notificación por incidente, no cien.',
+          feat1_dash_title: 'cortex/alerts — correlación en vivo',
+          feat1_metric1: 'Alertas entrantes',
+          feat1_metric2: 'Incidentes correlacionados',
+          feat1_metric3: 'Reducción de ruido',
+          feat1_row1: 'API de pagos — errores 503',
+          feat1_row2: 'Grupo de conexiones DB',
+          feat1_row3: 'Invalidación de caché CDN',
+          feat2_label: 'Automatización',
+          feat2_title: 'Respuesta automatizada a incidentes',
+          feat2_desc: 'Define runbooks una vez. Cortex activa diagnósticos automáticos, monta una sala de guerra en Slack y ejecuta pasos de remediación — reduciendo el tiempo de resolución de horas a minutos.',
+          feat2_dash_title: 'cortex/runbooks — respuesta activa',
+          feat2_runbook1: 'Runbook: conmutación DB',
+          feat2_runbook_status: 'Completado en 47s — 4 de 4 pasos',
+          feat2_runbook2: 'Runbook: recarga de caché',
+          feat2_runbook_status2: 'Ejecutando — 2 de 5 pasos',
+          feat3_label: 'Análisis de Causa Raíz',
+          feat3_title: 'Identifica la causa exacta',
+          feat3_desc: 'Cortex rastrea solicitudes entre servicios, analiza el historial de despliegues y encuentra el cambio exacto que provocó el incidente. Sin más búsquedas en logs ni cambios de contexto.',
+          feat3_dash_title: 'cortex/rca — análisis de causa raíz',
+          feat3_chain: 'Cadena de llamadas',
+          feat3_cause: 'Causa probable: despliegue #4812',
+          feat3_commit: 'Commit',
+          feat3_pr: 'Ver pull request →',
+          stat1: 'Incidentes resueltos al día',
+          stat2: 'Reducción promedio de MTTR',
+          stat3: 'Precisión de alertas',
+          stat4: 'Equipos confían en Cortex',
+          testimonials_label: 'Equipos de Plataforma Confían',
+          testimonials_title: 'Usado por líderes de ingeniería mundial',
+          testimonial1_quote: '"Cortex redujo nuestro tiempo de respuesta a incidentes un 60% en la primera semana. La correlación de alertas nos salvó del agotamiento del equipo de guardia. Se ha convertido en infraestructura esencial."',
+          testimonial1_name: 'Sarah Kim',
+          testimonial1_role: 'VP de Ingeniería, Luma',
+          testimonial2_quote: '"Evaluamos PagerDuty, Opsgenie e Incident.io antes de elegir Cortex. Lo que los diferencia es el análisis de causa raíz — realmente encuentra el despliegue que causó el problema. Un cambio radical."',
+          testimonial2_name: 'Marcus Rodriguez',
+          testimonial2_role: 'Líder SRE, Vercel',
+          testimonial3_quote: '"La función de runbooks automatizados vale el precio. Ahora manejamos el 80% de los incidentes sin intervención humana. Nuestro equipo SRE puede enfocarse en mejoras de confiabilidad."',
+          testimonial3_name: 'Elena Chen',
+          testimonial3_role: 'Directora de Plataforma, Stripe',
+          faq_label: 'Preguntas',
+          faq_title: 'Preguntas frecuentes',
+          faq_q1: '¿Cómo funciona el precio?',
+          faq_a1: 'Cortex ofrece un modelo de precios basado en uso desde $99 al mes para equipos de hasta 10 ingenieros. Los planes Enterprise incluyen runbooks personalizados, soporte dedicado y SSO. Todos incluyen 14 días de prueba gratuita.',
+          faq_q2: '¿Con qué herramientas se integra?',
+          faq_a2: 'Cortex se integra con Datadog, Grafana, PagerDuty, Sentry, CloudWatch, Prometheus, New Relic, Slack, Jira, Opsgenie y más de 50 herramientas. Si tu herramienta no está lista, nuestra API REST permite crear integraciones personalizadas.',
+          faq_q3: '¿Cuánto toma la configuración?',
+          faq_a3: 'La mayoría de los equipos están operativos en 15 minutos. Nuestro asistente de configuración te guía para conectar tus herramientas de monitoreo y crear tus primeras reglas de correlación.',
+          faq_q4: '¿Mis datos están seguros?',
+          faq_a4: 'Absolutamente. Cortex tiene certificación SOC 2 Tipo II y cumple con GDPR. Todos los datos están cifrados en reposo (AES-256) y en tránsito (TLS 1.3). Ofrecemos despliegues dedicados para clientes Enterprise.',
+          faq_q5: '¿Puedo instalar Cortex localmente?',
+          faq_a5: 'Sí. Cortex Enterprise incluye una opción auto-gestionada usando Kubernetes mediante nuestro Helm chart. Compatible con AWS EKS, GCP GKE y Azure AKS, con un ingeniero de migración dedicado.',
+          cta_title: '¿Listo para desplegar con confianza?',
+          cta_sub: 'Únete a más de 1,200 equipos de ingeniería que usan Cortex para resolver incidentes más rápido y desplegar con mayor fiabilidad.',
+          cta_btn: 'Iniciar prueba gratuita',
+          cta_btn2: 'Hablar con ventas',
+          cta_note: 'Sin tarjeta de crédito — 14 días de prueba gratuita',
+          footer_tagline: 'Gestión de incidentes para equipos de plataforma. Despliega más rápido con confianza.',
+          footer_product: 'Producto',
+          footer_features: 'Funcionalidades',
+          footer_integrations: 'Integraciones',
+          footer_changelog: 'Cambios',
+          footer_pricing: 'Precios',
+          footer_company: 'Empresa',
+          footer_about: 'Nosotros',
+          footer_blog: 'Blog',
+          footer_careers: 'Carreras',
+          footer_contact: 'Contacto',
+          footer_resources: 'Recursos',
+          footer_docs: 'Documentación',
+          footer_api: 'API',
+          footer_status: 'Estado',
+          footer_privacy: 'Privacidad',
+          footer_copyright: '© 2026 Cortex, Inc. Todos los derechos reservados.',
+          cookie_text: 'Este sitio utiliza cookies esenciales para ofrecer la mejor experiencia. Al continuar, aceptas nuestro uso de cookies.',
+          cookie_btn: 'Aceptar',
+        },
+        fr: {
+          brand: 'Cortex',
+          nav_features: 'Fonctionnalités',
+          nav_testimonials: 'Témoignages',
+          nav_faq: 'FAQ',
+          nav_cta: 'Commencer',
+          nav_cta_btn: 'Essai gratuit',
+          hero_badge: 'Cortex 2.0 — Réponse intelligente aux incidents',
+          hero_title: 'Gestion des incidents,<br>conçue par des ingénieurs.',
+          hero_sub: 'Cortex corrèle les alertes, automatise les réponses et identifie la cause racine — pour que votre équipe livre plus vite en toute confiance.',
+          hero_cta_primary: 'Essai gratuit',
+          hero_cta_secondary: 'Voir la démo',
+          hero_visual_label: 'Tableau de bord en direct',
+          feat1_label: 'Intelligence des Alertes',
+          feat1_title: 'Corrélation d\'alertes en temps réel',
+          feat1_desc: 'Cortex ingère les alertes de tous vos outils de monitoring — Datadog, Grafana, PagerDuty, Sentry — et regroupe intelligemment les incidents connexes. Une notification par incident, pas cent.',
+          feat1_dash_title: 'cortex/alerts — corrélation en direct',
+          feat1_metric1: 'Alertes entrantes',
+          feat1_metric2: 'Incidents corrélés',
+          feat1_metric3: 'Réduction du bruit',
+          feat1_row1: 'API de paiement — erreurs 503',
+          feat1_row2: 'Pool de connexions DB',
+          feat1_row3: 'Invalidation du cache CDN',
+          feat2_label: 'Automatisation',
+          feat2_title: 'Réponse automatisée aux incidents',
+          feat2_desc: 'Définissez des runbooks une fois. Cortex déclenche des diagnostics automatiques, crée une salle de crise dans Slack et exécute les étapes de remédiation — réduisant le MTTR de quelques heures à quelques minutes.',
+          feat2_dash_title: 'cortex/runbooks — réponse active',
+          feat2_runbook1: 'Runbook: basculement base de données',
+          feat2_runbook_status: 'Terminé en 47s — 4/4 étapes',
+          feat2_runbook2: 'Runbook: réchauffement du cache',
+          feat2_runbook_status2: 'En cours — 2/5 étapes',
+          feat3_label: 'Analyse des Causes Racines',
+          feat3_title: 'Identifiez la cause exacte',
+          feat3_desc: 'Cortex trace les requêtes à travers les services, analyse l\'historique des déploiements et identifie le changement exact qui a déclenché l\'incident. Fini les recherches dans les logs.',
+          feat3_dash_title: 'cortex/rca — analyse des causes',
+          feat3_chain: 'Chaîne d\'appels',
+          feat3_cause: 'Cause probable: déploiement #4812',
+          feat3_commit: 'Commit',
+          feat3_pr: 'Voir la pull request →',
+          stat1: 'Incidents résolus par jour',
+          stat2: 'Réduction MTTR moyenne',
+          stat3: 'Taux de précision des alertes',
+          stat4: 'Équipes font confiance à Cortex',
+          testimonials_label: 'Recommandé par les équipes plateforme',
+          testimonials_title: 'Utilisé par des leaders d\'ingénierie dans le monde',
+          testimonial1_quote: '"Cortex a réduit notre temps de réponse de 60% dès la première semaine. La corrélation d\'alertes nous a sauvés de l\'épuisement. C\'est devenu une infrastructure essentielle."',
+          testimonial1_name: 'Sarah Kim',
+          testimonial1_role: 'VP Ingénierie, Luma',
+          testimonial2_quote: '"Nous avons évalué PagerDuty, Opsgenie et Incident.io avant Cortex. L\'analyse des causes racines est ce qui les distingue — elle trouve vraiment le déploiement problématique."',
+          testimonial2_name: 'Marcus Rodriguez',
+          testimonial2_role: 'Responsable SRE, Vercel',
+          testimonial3_quote: '"Les runbooks automatisés valent à eux seuls le prix. Nous gérons 80% des incidents sans intervention humaine. Notre équipe SRE peut enfin se concentrer sur l\'amélioration de la fiabilité."',
+          testimonial3_name: 'Elena Chen',
+          testimonial3_role: 'Directrice Plateforme, Stripe',
+          faq_label: 'FAQ',
+          faq_title: 'Questions fréquentes',
+          faq_q1: 'Comment fonctionne la tarification?',
+          faq_a1: 'Cortex propose un modèle basé sur l\'utilisation à partir de 99$/mois pour les équipes jusqu\'à 10 ingénieurs. Les plans Enterprise incluent des runbooks personnalisés, support dédié et SSO. Essai gratuit de 14 jours.',
+          faq_q2: 'Quels outils de monitoring sont supportés?',
+          faq_a2: 'Cortex s\'intègre avec Datadog, Grafana, PagerDuty, Sentry, CloudWatch, Prometheus, New Relic, Slack, Jira, Opsgenie et 50+ autres outils. Notre API REST permet de créer des intégrations personnalisées.',
+          faq_q3: 'Combien de temps prend la configuration?',
+          faq_a3: 'La plupart des équipes sont opérationnelles en 15 minutes. Notre assistant vous guide pour connecter vos outils et configurer vos premières règles de corrélation.',
+          faq_q4: 'Mes données sont-elles sécurisées?',
+          faq_a4: 'Absolument. Cortex est certifié SOC 2 Type II et conforme GDPR. Les données sont chiffrées au repos (AES-256) et en transit (TLS 1.3). Déploiements dédiés disponibles pour les entreprises.',
+          faq_q5: 'Puis-je auto-héberger Cortex?',
+          faq_a5: 'Oui. Cortex Enterprise inclut une option auto-hébergée via Kubernetes avec notre chart Helm. Support AWS EKS, GCP GKE et Azure AKS, avec ingénieur de migration dédié.',
+          cta_title: 'Prêt à livrer en toute confiance?',
+          cta_sub: 'Rejoignez plus de 1 200 équipes d\'ingénierie qui utilisent Cortex pour résoudre les incidents plus rapidement et livrer plus fi ablement.',
+          cta_btn: 'Essai gratuit',
+          cta_btn2: 'Parler aux ventes',
+          cta_note: 'Sans carte de crédit — 14 jours d\'essai gratuit',
+          footer_tagline: 'Gestion d\'incidents pour les équipes plateforme. Livrez plus vite en toute confiance.',
+          footer_product: 'Produit',
+          footer_features: 'Fonctionnalités',
+          footer_integrations: 'Intégrations',
+          footer_changelog: 'Évolutions',
+          footer_pricing: 'Tarifs',
+          footer_company: 'Société',
+          footer_about: 'À propos',
+          footer_blog: 'Blog',
+          footer_careers: 'Carrières',
+          footer_contact: 'Contact',
+          footer_resources: 'Ressources',
+          footer_docs: 'Documentation',
+          footer_api: 'API',
+          footer_status: 'Statut',
+          footer_privacy: 'Confidentialité',
+          footer_copyright: '© 2026 Cortex, Inc. Tous droits réservés.',
+          cookie_text: 'Ce site utilise des cookies essentiels pour offrir la meilleure expérience. En continuant, vous acceptez notre utilisation des cookies.',
+          cookie_btn: 'Accepter',
+        },
+        de: {
+          brand: 'Cortex',
+          nav_features: 'Funktionen',
+          nav_testimonials: 'Erfahrungsberichte',
+          nav_faq: 'FAQ',
+          nav_cta: 'Loslegen',
+          nav_cta_btn: 'Kostenlos testen',
+          hero_badge: 'Cortex 2.0 — Intelligente Incident-Response',
+          hero_title: 'Incident-Management,<br>durchdacht konstruiert.',
+          hero_sub: 'Cortex korreliert Alarme, automatisiert Reaktionen und findet die Ursache — damit Ihr Team schneller und sicherer ausliefert.',
+          hero_cta_primary: 'Kostenlos testen',
+          hero_cta_secondary: 'Demo ansehen',
+          hero_visual_label: 'Live-Incident-Dashboard',
+          feat1_label: 'Alarm-Intelligenz',
+          feat1_title: 'Echtzeit-Alarmkorrelation',
+          feat1_desc: 'Cortex erfasst Alarme aus all Ihren Monitoring-Tools — Datadog, Grafana, PagerDuty, Sentry — und gruppiert zusammengehörige Incidents intelligent. Eine Benachrichtigung pro Vorfall, nicht hundert.',
+          feat1_dash_title: 'cortex/alerts — Live-Korrelation',
+          feat1_metric1: 'Eingehende Alarme',
+          feat1_metric2: 'Korrelierte Incidents',
+          feat1_metric3: 'Rauschreduzierung',
+          feat1_row1: 'Payment-API — 503-Fehler',
+          feat1_row2: 'Datenbank-Verbindungspool',
+          feat1_row3: 'CDN-Cache-Invalidierung',
+          feat2_label: 'Automatisierung',
+          feat2_title: 'Automatisierte Incident-Response',
+          feat2_desc: 'Definieren Sie Runbooks einmal. Cortex löst automatische Diagnosen aus, richtet einen War Room in Slack ein und führt Remediation-Schritte aus — MTTR von Stunden auf Minuten reduziert.',
+          feat2_dash_title: 'cortex/runbooks — aktive Response',
+          feat2_runbook1: 'Runbook: DB-Failover',
+          feat2_runbook_status: 'Abgeschlossen in 47s — 4/4 Schritte',
+          feat2_runbook2: 'Runbook: Cache-Warming',
+          feat2_runbook_status2: 'Läuft — 2/5 Schritte',
+          feat3_label: 'Ursachenanalyse',
+          feat3_title: 'Finden Sie die genaue Ursache',
+          feat3_desc: 'Cortex verfolgt Anfragen über Dienste hinweg, analysiert den Deployment-Verlauf und zeigt die exakte Änderung, die den Incident ausgelöst hat. Kein Log-Durchforsten mehr.',
+          feat3_dash_title: 'cortex/rca — Ursachenanalyse',
+          feat3_chain: 'Service-Aufrufkette',
+          feat3_cause: 'Wahrscheinliche Ursache: Deployment #4812',
+          feat3_commit: 'Commit',
+          feat3_pr: 'Pull Request anzeigen →',
+          stat1: 'Täglich gelöste Incidents',
+          stat2: 'Durchschnittliche MTTR-Reduktion',
+          stat3: 'Alarmgenauigkeit',
+          stat4: 'Teams vertrauen Cortex',
+          testimonials_label: 'Empfohlen von Plattform-Teams',
+          testimonials_title: 'Von Engineering-Leitern weltweit genutzt',
+          testimonial1_quote: '"Cortex hat unsere Incident-Response-Zeit in der ersten Woche um 60% reduziert. Die Alarmkorrelation hat unser On-Call-Team vor dem Burnout bewahrt. Unverzichtbare Infrastruktur."',
+          testimonial1_name: 'Sarah Kim',
+          testimonial1_role: 'VP Engineering, Luma',
+          testimonial2_quote: '"Wir haben PagerDuty, Opsgenie und Incident.io evaluiert, bevor wir uns für Cortex entschieden haben. Die Ursachenanalyse ist der entscheidende Unterschied — sie findet wirklich das problematische Deployment."',
+          testimonial2_name: 'Marcus Rodriguez',
+          testimonial2_role: 'SRE-Leiter, Vercel',
+          testimonial3_quote: '"Allein die automatisierten Runbooks sind den Preis wert. Wir erledigen 80% der Incidents ohne menschliches Eingreifen. Unser SRE-Team kann sich endlich auf Zuverlässigkeit konzentrieren."',
+          testimonial3_name: 'Elena Chen',
+          testimonial3_role: 'Direktorin Plattform, Stripe',
+          faq_label: 'FAQ',
+          faq_title: 'Häufig gestellte Fragen',
+          faq_q1: 'Wie funktioniert die Preisgestaltung?',
+          faq_a1: 'Cortex bietet ein nutzungsbasiertes Preismodell ab 99 $ pro Monat für Teams mit bis zu 10 Ingenieuren. Enterprise-Pläne enthalten benutzerdefinierte Runbooks, dedizierten Support und SSO. 14-tägige kostenlose Testversion.',
+          faq_q2: 'Welche Monitoring-Tools werden unterstützt?',
+          faq_a2: 'Cortex integriert sich mit Datadog, Grafana, PagerDuty, Sentry, CloudWatch, Prometheus, New Relic, Slack, Jira, Opsgenie und 50+ weiteren Tools. Unsere REST-API ermöglicht benutzerdefinierte Integrationen.',
+          faq_q3: 'Wie lange dauert die Einrichtung?',
+          faq_a3: 'Die meisten Teams sind innerhalb von 15 Minuten einsatzbereit. Unser Einrichtungsassistent führt Sie durch den Anschluss Ihrer Monitoring-Tools und die Erstellung Ihrer ersten Korrelationsregeln.',
+          faq_q4: 'Sind meine Daten sicher?',
+          faq_a4: 'Absolut. Cortex ist SOC 2 Type II zertifiziert und GDPR-konform. Alle Daten sind im Ruhezustand (AES-256) und während der Übertragung (TLS 1.3) verschlüsselt. Dedizierte Bereitstellungen für Unternehmen.',
+          faq_q5: 'Kann ich Cortex selbst hosten?',
+          faq_a5: 'Ja. Cortex Enterprise enthält eine selbst-gehostete Option mit Kubernetes über unser Helm-Chart. Wir unterstützen AWS EKS, GCP GKE und Azure AKS, inklusive dediziertem Migrationsingenieur.',
+          cta_title: 'Bereit für sicheres Ausliefern?',
+          cta_sub: 'Schließen Sie sich über 1.200 Engineering-Teams an, die Cortex nutzen, um Incidents schneller zu lösen und zuverlässiger auszuliefern.',
+          cta_btn: 'Kostenlos testen',
+          cta_btn2: 'Vertrieb kontaktieren',
+          cta_note: 'Keine Kreditkarte nötig — 14 Tage kostenlos testen',
+          footer_tagline: 'Incident-Management für Plattform-Teams. Liefern Sie schneller und sicherer aus.',
+          footer_product: 'Produkt',
+          footer_features: 'Funktionen',
+          footer_integrations: 'Integrationen',
+          footer_changelog: 'Änderungen',
+          footer_pricing: 'Preise',
+          footer_company: 'Unternehmen',
+          footer_about: 'Über uns',
+          footer_blog: 'Blog',
+          footer_careers: 'Karriere',
+          footer_contact: 'Kontakt',
+          footer_resources: 'Ressourcen',
+          footer_docs: 'Dokumentation',
+          footer_api: 'API',
+          footer_status: 'Status',
+          footer_privacy: 'Datenschutz',
+          footer_copyright: '© 2026 Cortex, Inc. Alle Rechte vorbehalten.',
+          cookie_text: 'Diese Website verwendet essentielle Cookies, um das beste Erlebnis zu bieten. Mit der weiteren Nutzung stimmen Sie der Verwendung von Cookies zu.',
+          cookie_btn: 'Akzeptieren',
+        },
+        it: {
+          brand: 'Cortex',
+          nav_features: 'Funzionalità',
+          nav_testimonials: 'Testimonianze',
+          nav_faq: 'FAQ',
+          nav_cta: 'Inizia',
+          nav_cta_btn: 'Prova gratuita',
+          hero_badge: 'Cortex 2.0 — Risposta intelligente agli incidenti',
+          hero_title: 'Gestione incidenti,<br>progettata da ingegneri.',
+          hero_sub: 'Cortex correla gli alert, automatizza le risposte e individua la causa principale — così il tuo team rilascia più velocemente con sicurezza.',
+          hero_cta_primary: 'Prova gratuita',
+          hero_cta_secondary: 'Guarda demo',
+          hero_visual_label: 'Dashboard incidenti in tempo reale',
+          feat1_label: 'Intelligenza degli Alert',
+          feat1_title: 'Correlazione alert in tempo reale',
+          feat1_desc: 'Cortex riceve alert da tutti i tuoi strumenti di monitoraggio — Datadog, Grafana, PagerDuty, Sentry — e raggruppa intelligentemente gli incidenti correlati. Una notifica per problema, non cento.',
+          feat1_dash_title: 'cortex/alerts — correlazione live',
+          feat1_metric1: 'Alert in arrivo',
+          feat1_metric2: 'Incidenti correlati',
+          feat1_metric3: 'Riduzione del rumore',
+          feat1_row1: 'API pagamenti — errori 503',
+          feat1_row2: 'Pool connessioni DB',
+          feat1_row3: 'Invalidazione cache CDN',
+          feat2_label: 'Automazione',
+          feat2_title: 'Risposta automatizzata agli incidenti',
+          feat2_desc: 'Definisci i runbook una volta. Cortex attiva diagnosi automatiche, crea una war room in Slack ed esegue le fasi di remediation — riducendo il MTTR da ore a minuti.',
+          feat2_dash_title: 'cortex/runbooks — risposta attiva',
+          feat2_runbook1: 'Runbook: failover database',
+          feat2_runbook_status: 'Completato in 47s — 4/4 passi',
+          feat2_runbook2: 'Runbook: riscaldamento cache',
+          feat2_runbook_status2: 'In esecuzione — 2/5 passi',
+          feat3_label: 'Analisi Causa Radice',
+          feat3_title: 'Individua la causa esatta',
+          feat3_desc: 'Cortex traccia le richieste attraverso i servizi, analizza la cronologia dei deployment e individua la modifica esatta che ha causato l\'incidente. Niente più ricerche nei log.',
+          feat3_dash_title: 'cortex/rca — analisi causa radice',
+          feat3_chain: 'Catena di chiamate',
+          feat3_cause: 'Causa probabile: deploy #4812',
+          feat3_commit: 'Commit',
+          feat3_pr: 'Vedi pull request →',
+          stat1: 'Incidenti risolti al giorno',
+          stat2: 'Riduzione media MTTR',
+          stat3: 'Precisione alert',
+          stat4: 'Team si fidano di Cortex',
+          testimonials_label: 'Consigliato dai Team Piattaforma',
+          testimonials_title: 'Utilizzato da leader ingegneria in tutto il mondo',
+          testimonial1_quote: '"Cortex ha ridotto il nostro tempo di risposta del 60% nella prima settimana. La correlazione degli alert ci ha salvato dal burnout del team di turno. È diventata infrastruttura essenziale."',
+          testimonial1_name: 'Sarah Kim',
+          testimonial1_role: 'VP Ingegneria, Luma',
+          testimonial2_quote: '"Abbiamo valutato PagerDuty, Opsgenie e Incident.io prima di scegliere Cortex. L\'analisi delle cause radice è ciò che li distingue — trova davvero il deploy che ha causato il problema."',
+          testimonial2_name: 'Marcus Rodriguez',
+          testimonial2_role: 'Responsabile SRE, Vercel',
+          testimonial3_quote: '"La funzione dei runbook automatizzati vale da sola il prezzo. Gestiamo l\'80% degli incidenti senza intervento umano. Il nostro team SRE può finalmente concentrarsi sul miglioramento dell\'affidabilità."',
+          testimonial3_name: 'Elena Chen',
+          testimonial3_role: 'Direttrice Piattaforma, Stripe',
+          faq_label: 'FAQ',
+          faq_title: 'Domande frequenti',
+          faq_q1: 'Come funzionano i prezzi?',
+          faq_a1: 'Cortex offre un modello di prezzo basato sull\'uso a partire da $99 al mese per team fino a 10 ingegneri. I piani Enterprise includono runbook personalizzati, supporto dedicato e SSO. Prova gratuita di 14 giorni.',
+          faq_q2: 'Quali strumenti di monitoraggio sono supportati?',
+          faq_a2: 'Cortex si integra con Datadog, Grafana, PagerDuty, Sentry, CloudWatch, Prometheus, New Relic, Slack, Jira, Opsgenie e oltre 50 altri strumenti. La nostra API REST permette integrazioni personalizzate.',
+          faq_q3: 'Quanto tempo richiede la configurazione?',
+          faq_a3: 'La maggior parte dei team è operativa entro 15 minuti. La procedura guidata ti assiste nella connessione dei tuoi strumenti di monitoraggio e nella creazione delle prime regole di correlazione.',
+          faq_q4: 'I miei dati sono al sicuro?',
+          faq_a4: 'Assolutamente. Cortex è certificato SOC 2 Tipo II e conforme GDPR. Tutti i dati sono crittografati a riposo (AES-256) e in transito (TLS 1.3). Deployment dedicati disponibili per enterprise.',
+          faq_q5: 'Posso auto-ospitare Cortex?',
+          faq_a5: 'Sì. Cortex Enterprise include un\'opzione auto-ospitata con Kubernetes tramite il nostro Helm chart. Supportiamo AWS EKS, GCP GKE e Azure AKS, con ingegnere di migrazione dedicato.',
+          cta_title: 'Pronto a rilasciare con sicurezza?',
+          cta_sub: 'Unisciti a oltre 1.200 team di ingegneria che usano Cortex per risolvere incidenti più velocemente e rilasciare in modo più affidabile.',
+          cta_btn: 'Prova gratuita',
+          cta_btn2: 'Parla con le vendite',
+          cta_note: 'Nessuna carta di credito — 14 giorni di prova gratuita',
+          footer_tagline: 'Gestione incidenti per team di piattaforma. Rilascia più velocemente con sicurezza.',
+          footer_product: 'Prodotto',
+          footer_features: 'Funzionalità',
+          footer_integrations: 'Integrazioni',
+          footer_changelog: 'Novità',
+          footer_pricing: 'Prezzi',
+          footer_company: 'Azienda',
+          footer_about: 'Chi siamo',
+          footer_blog: 'Blog',
+          footer_careers: 'Carriera',
+          footer_contact: 'Contatti',
+          footer_resources: 'Risorse',
+          footer_docs: 'Documentazione',
+          footer_api: 'API',
+          footer_status: 'Stato',
+          footer_privacy: 'Privacy',
+          footer_copyright: '© 2026 Cortex, Inc. Tutti i diritti riservati.',
+          cookie_text: 'Questo sito utilizza cookie essenziali per offrire la migliore esperienza. Continuando, accetti il nostro utilizzo dei cookie.',
+          cookie_btn: 'Accetta',
+        },
+        pt: {
+          brand: 'Cortex',
+          nav_features: 'Recursos',
+          nav_testimonials: 'Depoimentos',
+          nav_faq: 'Perguntas',
+          nav_cta: 'Começar',
+          nav_cta_btn: 'Teste gratuito',
+          hero_badge: 'Cortex 2.0 — Resposta Inteligente a Incidentes',
+          hero_title: 'Gerenciamento de incidentes,<br>projetado por engenheiros.',
+          hero_sub: 'Cortex correlaciona alertas, automatiza respostas e encontra a causa raiz — para sua equipe entregar mais rápido com confiança.',
+          hero_cta_primary: 'Iniciar teste gratuito',
+          hero_cta_secondary: 'Ver demonstração',
+          hero_visual_label: 'Painel de incidentes ao vivo',
+          feat1_label: 'Inteligência de Alertas',
+          feat1_title: 'Correlação de alertas em tempo real',
+          feat1_desc: 'Cortex ingere alertas de todas as suas ferramentas de monitoramento — Datadog, Grafana, PagerDuty, Sentry — e agrupa incidentes relacionados de forma inteligente. Uma notificação por incidente, não cem.',
+          feat1_dash_title: 'cortex/alerts — correlação ao vivo',
+          feat1_metric1: 'Alertas recebidos',
+          feat1_metric2: 'Incidentes correlacionados',
+          feat1_metric3: 'Redução de ruído',
+          feat1_row1: 'API de pagamento — erros 503',
+          feat1_row2: 'Pool de conexões DB',
+          feat1_row3: 'Invalidação de cache CDN',
+          feat2_label: 'Automação',
+          feat2_title: 'Resposta automatizada a incidentes',
+          feat2_desc: 'Defina runbooks uma vez. Cortex aciona diagnósticos automáticos, monta uma sala de guerra no Slack e executa etapas de remediação — reduzindo o MTTR de horas para minutos.',
+          feat2_dash_title: 'cortex/runbooks — resposta ativa',
+          feat2_runbook1: 'Runbook: failover do banco',
+          feat2_runbook_status: 'Concluído em 47s — 4 de 4 etapas',
+          feat2_runbook2: 'Runbook: aquecimento de cache',
+          feat2_runbook_status2: 'Executando — 2 de 5 etapas',
+          feat3_label: 'Análise de Causa Raiz',
+          feat3_title: 'Identifique a causa exata',
+          feat3_desc: 'Cortex rastreia requisições entre serviços, analisa o histórico de deploys e encontra a alteração exata que desencadeou o incidente. Sem mais buscas em logs ou troca de contexto entre ferramentas.',
+          feat3_dash_title: 'cortex/rca — análise de causa raiz',
+          feat3_chain: 'Cadeia de chamadas',
+          feat3_cause: 'Causa provável: deploy #4812',
+          feat3_commit: 'Commit',
+          feat3_pr: 'Ver pull request →',
+          stat1: 'Incidentes resolvidos por dia',
+          stat2: 'Redução média de MTTR',
+          stat3: 'Taxa de precisão de alertas',
+          stat4: 'Equipes confiam na Cortex',
+          testimonials_label: 'Recomendado por Equipes de Plataforma',
+          testimonials_title: 'Usado por líderes de engenharia no mundo todo',
+          testimonial1_quote: '"A Cortex reduziu nosso tempo de resposta a incidentes em 60% na primeira semana. A correlação de alertas nos salvou do esgotamento da equipe de plantão. Tornou-se infraestrutura essencial."',
+          testimonial1_name: 'Sarah Kim',
+          testimonial1_role: 'VP de Engenharia, Luma',
+          testimonial2_quote: '"Avaliamos PagerDuty, Opsgenie e Incident.io antes de escolher a Cortex. A análise de causa raiz é o diferencial — ela realmente encontra o deploy que causou o problema."',
+          testimonial2_name: 'Marcus Rodriguez',
+          testimonial2_role: 'Líder SRE, Vercel',
+          testimonial3_quote: '"O recurso de runbooks automatizados já vale o preço. Agora lidamos com 80% dos incidentes sem intervenção humana. Nosso time SRE pode focar em melhorias de confiabilidade."',
+          testimonial3_name: 'Elena Chen',
+          testimonial3_role: 'Diretora de Plataforma, Stripe',
+          faq_label: 'Perguntas',
+          faq_title: 'Perguntas frequentes',
+          faq_q1: 'Como funciona o preço?',
+          faq_a1: 'A Cortex oferece um modelo de preço baseado em uso a partir de $99 por mês para equipes de até 10 engenheiros. Planos Enterprise incluem runbooks personalizados, suporte dedicado e SSO. Teste gratuito de 14 dias.',
+          faq_q2: 'Quais ferramentas de monitoramento são suportadas?',
+          faq_a2: 'A Cortex se integra com Datadog, Grafana, PagerDuty, Sentry, CloudWatch, Prometheus, New Relic, Slack, Jira, Opsgenie e mais de 50 outras ferramentas. Nossa API REST permite integrações personalizadas.',
+          faq_q3: 'Quanto tempo leva para configurar?',
+          faq_a3: 'A maioria das equipes está operacional em 15 minutos. Nosso assistente de configuração guia você na conexão das ferramentas de monitoramento e criação das primeiras regras de correlação.',
+          faq_q4: 'Meus dados estão seguros?',
+          faq_a4: 'Com certeza. A Cortex é certificada SOC 2 Tipo II e compatível com GDPR. Todos os dados são criptografados em repouso (AES-256) e em trânsito (TLS 1.3). Oferecemos implantações dedicadas para empresas.',
+          faq_q5: 'Posso auto-hospedar a Cortex?',
+          faq_a5: 'Sim. O Cortex Enterprise inclui uma opção auto-hospedada usando Kubernetes através do nosso Helm chart. Suportamos AWS EKS, GCP GKE e Azure AKS, com engenheiro de migração dedicado.',
+          cta_title: 'Pronto para entregar com confiança?',
+          cta_sub: 'Junte-se a mais de 1.200 equipes de engenharia que usam a Cortex para resolver incidentes mais rápido e entregar com mais confiabilidade.',
+          cta_btn: 'Iniciar teste gratuito',
+          cta_btn2: 'Falar com vendas',
+          cta_note: 'Sem cartão de crédito — 14 dias de teste gratuito',
+          footer_tagline: 'Gerenciamento de incidentes para equipes de plataforma. Entregue mais rápido com confiança.',
+          footer_product: 'Produto',
+          footer_features: 'Recursos',
+          footer_integrations: 'Integrações',
+          footer_changelog: 'Novidades',
+          footer_pricing: 'Preços',
+          footer_company: 'Empresa',
+          footer_about: 'Sobre',
+          footer_blog: 'Blog',
+          footer_careers: 'Carreiras',
+          footer_contact: 'Contato',
+          footer_resources: 'Recursos',
+          footer_docs: 'Documentação',
+          footer_api: 'API',
+          footer_status: 'Status',
+          footer_privacy: 'Privacidade',
+          footer_copyright: '© 2026 Cortex, Inc. Todos os direitos reservados.',
+          cookie_text: 'Este site usa cookies essenciais para oferecer a melhor experiência. Ao continuar, você concorda com nosso uso de cookies.',
+          cookie_btn: 'Aceitar',
+        }
+      };
+
+      /* ----- Current Language ----- */
+      let currentLang = localStorage.getItem('cortex-lang') || 'en';
+
+      /* ----- Apply translations ----- */
+      function applyTranslations(lang) {
+        const dict = i18n[lang] || i18n.en;
+        document.documentElement.lang = lang === 'en' ? 'en' : lang;
+
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+          const key = el.getAttribute('data-i18n');
+          if (dict[key] !== undefined) {
+            if (el.tagName === 'META') {
+              el.setAttribute('content', dict[key]);
+            } else {
+              el.innerHTML = dict[key];
+            }
+          }
+        });
+
+        // Update meta tags by ID
+        const metaT = document.getElementById('meta-title');
+        const metaD = document.getElementById('meta-desc');
+        const ogT = document.getElementById('og-title');
+        const ogD = document.getElementById('og-desc');
+        const twT = document.getElementById('tw-title');
+        const twD = document.getElementById('tw-desc');
+
+        const titleKey = lang === 'en' ? 'Cortex — Incident Management for Platform Engineering'
+          : lang === 'es' ? 'Cortex — Gestión de Incidentes para Ingeniería de Plataforma'
+          : lang === 'fr' ? 'Cortex — Gestion d\'Incidents pour l\'Ingénierie de Plateforme'
+          : lang === 'de' ? 'Cortex — Incident-Management für Plattform-Engineering'
+          : lang === 'it' ? 'Cortex — Gestione Incidenti per Piattaforma Ingegneria'
+          : 'Cortex — Gerenciamento de Incidentes para Engenharia de Plataforma';
+
+        const descKey = lang === 'en' ? 'Cortex correlates alerts, automates incident response, and surfaces root cause — so your team ships faster with confidence.'
+          : lang === 'es' ? 'Cortex correlaciona alertas, automatiza la respuesta a incidentes y encuentra la causa raíz — para que tu equipo despliegue más rápido con confianza.'
+          : lang === 'fr' ? 'Cortex corrèle les alertes, automatise la réponse aux incidents et identifie la cause racine — pour que votre équipe livre plus vite en toute confiance.'
+          : lang === 'de' ? 'Cortex korreliert Alarme, automatisiert Incident-Response und findet die Ursache — damit Ihr Team schneller und sicherer ausliefert.'
+          : lang === 'it' ? 'Cortex correla gli alert, automatizza la risposta agli incidenti e individua la causa principale — così il tuo team rilascia più velocemente con sicurezza.'
+          : 'Cortex correlaciona alertas, automatiza a resposta a incidentes e encontra a causa raiz — para sua equipe entregar mais rápido com confiança.';
+
+        if (metaT) metaT.textContent = titleKey;
+        if (metaD) metaD.setAttribute('content', descKey);
+        if (ogT) ogT.setAttribute('content', titleKey);
+        if (ogD) ogD.setAttribute('content', descKey);
+        if (twT) twT.setAttribute('content', titleKey);
+        if (twD) twD.setAttribute('content', descKey);
+
+        // Update language label
+        const langLabel = document.getElementById('langLabel');
+        if (langLabel) langLabel.textContent = lang.toUpperCase();
+
+        // Update active state in dropdown
+        document.querySelectorAll('.lang-option').forEach(opt => {
+          opt.classList.toggle('active', opt.dataset.lang === lang);
+        });
+
+        localStorage.setItem('cortex-lang', lang);
+      }
+
+      /* ----- Language Switcher ----- */
+      const langBtn = document.getElementById('langBtn');
+      const langDropdown = document.getElementById('langDropdown');
+
+      if (langBtn && langDropdown) {
+        langBtn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          const expanded = this.getAttribute('aria-expanded') === 'true';
+          this.setAttribute('aria-expanded', !expanded);
+          langDropdown.classList.toggle('open');
+        });
+
+        document.addEventListener('click', function() {
+          langBtn.setAttribute('aria-expanded', 'false');
+          langDropdown.classList.remove('open');
+        });
+
+        langDropdown.addEventListener('click', function(e) {
+          const opt = e.target.closest('.lang-option');
+          if (!opt) return;
+          currentLang = opt.dataset.lang;
+          applyTranslations(currentLang);
+          langBtn.setAttribute('aria-expanded', 'false');
+          langDropdown.classList.remove('open');
+        });
+      }
+
+      // Detect browser language
+      const browserLang = (navigator.language || '').slice(0, 2);
+      if (!localStorage.getItem('cortex-lang') && ['en','es','fr','de','it','pt'].includes(browserLang)) {
+        currentLang = browserLang;
+      }
+      applyTranslations(currentLang);
+
+      /* ----- Mobile Navigation ----- */
+      const mobileToggle = document.getElementById('mobileToggle');
+      const navLinks = document.getElementById('navLinks');
+
+      if (mobileToggle && navLinks) {
+        mobileToggle.addEventListener('click', function() {
+          this.classList.toggle('open');
+          navLinks.classList.toggle('mobile-open');
+          this.setAttribute('aria-label', navLinks.classList.contains('mobile-open') ? 'Close menu' : 'Toggle menu');
+        });
+
+        navLinks.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', function() {
+            mobileToggle.classList.remove('open');
+            navLinks.classList.remove('mobile-open');
+            mobileToggle.setAttribute('aria-label', 'Toggle menu');
+          });
+        });
+      }
+
+      /* ----- Intersection Observer (reveal animations) ----- */
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+      /* ----- FAQ Accordion ----- */
+      document.querySelectorAll('.faq-item').forEach(item => {
+        const question = item.querySelector('.faq-question');
+        const answer = item.querySelector('.faq-answer');
+
+        question.addEventListener('click', function() {
+          const isOpen = item.classList.contains('active');
+
+          // Close all
+          document.querySelectorAll('.faq-item').forEach(i => {
+            i.classList.remove('active');
+            i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+            i.querySelector('.faq-answer').style.maxHeight = '0';
+          });
+
+          if (!isOpen) {
+            item.classList.add('active');
+            question.setAttribute('aria-expanded', 'true');
+            answer.style.maxHeight = answer.scrollHeight + 'px';
+          }
+        });
+      });
+
+      /* ----- Cookie Banner ----- */
+      const cookieBanner = document.getElementById('cookieBanner');
+      const cookieAccept = document.getElementById('cookieAccept');
+      const cookieDismiss = document.getElementById('cookieDismiss');
+
+      if (!localStorage.getItem('cortex-cookie')) {
+        cookieBanner.style.display = 'flex';
+      } else {
+        cookieBanner.style.display = 'none';
+      }
+
+      function dismissCookie() {
+        localStorage.setItem('cortex-cookie', 'accepted');
+        cookieBanner.style.display = 'none';
+      }
+
+      if (cookieAccept) cookieAccept.addEventListener('click', dismissCookie);
+      if (cookieDismiss) cookieDismiss.addEventListener('click', dismissCookie);
+
+      /* ----- Smooth nav scroll ----- */
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+
+    })();
+  </script>
+</body>
+</html>

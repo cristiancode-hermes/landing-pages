@@ -1,0 +1,2382 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="meta-title">Atrium — Architecture &amp; Interior Design Studio | Spaces That Breathe</title>
+  <meta name="description" id="meta-desc" content="Atrium is an award-winning architecture and interior design studio crafting residential, commercial, and public spaces that harmonize light, material, and landscape. Based in Barcelona, working worldwide.">
+  <link rel="canonical" href="https://atrium.studio/">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23ff385c'/%3E%3Cpath d='M8 26L16 6l8 20' stroke='white' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M12 18h8' stroke='white' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" id="og-site" content="Atrium Studio">
+  <meta property="og:title" id="og-title" content="Atrium — Architecture &amp; Interior Design Studio">
+  <meta property="og:description" id="og-desc" content="Award-winning architecture and interior design studio crafting spaces that harmonize light, material, and landscape. Based in Barcelona, working worldwide.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80">
+  <meta property="og:url" content="https://atrium.studio/">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" id="tw-title" content="Atrium — Architecture &amp; Interior Design Studio">
+  <meta name="twitter:description" id="tw-desc" content="Award-winning architecture and interior design studio. Residential, commercial, public spaces. Barcelona &amp; worldwide.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80">
+  <meta name="twitter:site" content="@atriumstudio">
+
+  <!-- Fonts: DM Sans (Airbnb Cereal VF substitute) — warm, rounded geometric with full weight range -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,200..1000;1,9..40,200..1000&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+
+  <style>
+    /* ================================================================
+       DESIGN SYSTEM — ATRIUM STUDIO
+       Product: Architecture & Interior Design Studio
+       Design family: Real Estate / Architecture — photography-first
+       Style: Airbnb-inspired (popular-web-designs template) — white canvas,
+              warm near-black text, coral accent (#ff385c), DM Sans font,
+              three-layer shadows, generous border-radius, category pills.
+       Surface: Decide/Learn — landing page, one idea per section.
+                Each section is a distinct editorial composition.
+       Color strategy: Restrained — tinted neutrals (chroma 0) + one
+              coral accent (#ff385c) used sparingly for CTAs and brand
+              moments. Architecture photography provides all the color.
+       Typography: DM Sans (substituting Airbnb Cereal VF) at weights
+              300 (display light), 500 (body), 600 (semibold), 700 (bold).
+              DM Serif Display for pull quotes — serif + sans contrast.
+       Layout: Editorial / magazine spread — full-bleed hero, varied
+              project card layouts (wide, tall, standard, showcase),
+              asymmetric services grid, quote pull detail.
+       Motion: Mouse parallax on hero, scroll-triggered clip-path reveals
+              for project cards, staggered fade-ups for text, subtle
+              parallax scroll for section backgrounds.
+       ================================================================ */
+
+    /* ---------- CSS Reset ---------- */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    body {
+      font-family: 'DM Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      color: #222222;
+      background: #ffffff;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    /* ---------- Custom Properties ---------- */
+    :root {
+      --coral: #ff385c;
+      --coral-dark: #e00b41;
+      --coral-light: #ff6b81;
+      --near-black: #222222;
+      --text-secondary: #6a6a6a;
+      --text-disabled: rgba(0,0,0,0.24);
+      --surface-light: #f2f2f2;
+      --border-light: rgba(0,0,0,0.08);
+      --white: #ffffff;
+
+      /* Airbnb three-layer shadow system */
+      --shadow-card: 0 0 0 1px rgba(0,0,0,0.02), 0 2px 6px rgba(0,0,0,0.04), 0 4px 8px rgba(0,0,0,0.1);
+      --shadow-hover: rgba(0,0,0,0.08) 0 4px 12px;
+      --shadow-nav: 0 2px 8px rgba(0,0,0,0.06);
+
+      /* Border-radius scale */
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 20px;
+      --radius-xl: 28px;
+      --radius-full: 50%;
+
+      /* Spacing */
+      --space-xs: 4px;
+      --space-sm: 8px;
+      --space-md: 16px;
+      --space-lg: 24px;
+      --space-xl: 32px;
+      --space-2xl: 48px;
+      --space-3xl: 64px;
+      --space-4xl: 96px;
+      --space-5xl: 128px;
+
+      /* Z-index scale */
+      --z-dropdown: 100;
+      --z-sticky: 200;
+      --z-modal-backdrop: 300;
+      --z-modal: 400;
+      --z-toast: 500;
+      --z-tooltip: 600;
+
+      /* Layout */
+      --max-width: 1200px;
+      --content-padding: clamp(16px, 5vw, 64px);
+    }
+
+    /* ---------- Typography ---------- */
+    h1, h2, h3, h4 {
+      font-weight: 500;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+    h1 { font-size: clamp(2.5rem, 6vw, 5.5rem); font-weight: 300; letter-spacing: -0.04em; }
+    h2 { font-size: clamp(1.75rem, 4vw, 3.25rem); font-weight: 300; letter-spacing: -0.03em; }
+    h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem); font-weight: 500; letter-spacing: -0.02em; }
+    h4 { font-size: clamp(1rem, 1.8vw, 1.375rem); font-weight: 500; letter-spacing: -0.01em; }
+    p { font-size: clamp(0.95rem, 1.2vw, 1.1rem); color: var(--text-secondary); max-width: 65ch; }
+    .text-balance { text-wrap: balance; }
+    .text-pretty { text-wrap: pretty; }
+
+    .serif-quote {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: clamp(1.5rem, 3vw, 2.25rem);
+      line-height: 1.3;
+      font-style: italic;
+      color: var(--near-black);
+    }
+
+    /* ---------- Helper Classes ---------- */
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--content-padding);
+    }
+    .section-pad {
+      padding: var(--space-4xl) 0;
+    }
+    .section-pad-sm {
+      padding: var(--space-2xl) 0;
+    }
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+    }
+
+    /* ---------- Language Switcher ---------- */
+    .lang-select { position: relative; display: inline-block; }
+    .lang-select__btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      height: 38px; padding: 0 0.9rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.8125rem; font-weight: 600;
+      color: var(--near-black);
+      background: transparent;
+      border: 1px solid var(--border-light);
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .lang-select__btn:focus-visible {
+      outline: 2px solid var(--coral);
+      outline-offset: 2px;
+    }
+    .lang-select__btn:hover, .lang-select__btn[aria-expanded="true"] {
+      color: var(--coral);
+      background: var(--surface-light);
+      border-color: var(--coral);
+    }
+    .lang-select__chev { transition: transform 0.2s ease; }
+    .lang-select__btn[aria-expanded="true"] .lang-select__chev { transform: rotate(180deg); }
+    .lang-select__menu {
+      position: absolute; top: calc(100% + 8px); right: 0; z-index: 100;
+      min-width: 176px; padding: 0.4rem;
+      background: var(--white);
+      border: 1px solid var(--border-light);
+      border-radius: 12px;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+      opacity: 0; visibility: hidden; transform: translateY(-4px);
+      transition: all 0.2s ease;
+    }
+    .lang-select__menu.open { opacity: 1; visibility: visible; transform: translateY(0); }
+    .lang-select__opt {
+      display: flex; align-items: center; gap: 0.5rem; width: 100%;
+      padding: 0.5rem 0.7rem;
+      background: none; border: none; border-radius: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.84375rem; font-weight: 500;
+      color: var(--near-black);
+      cursor: pointer; text-align: left;
+      transition: all 0.15s ease;
+    }
+    .lang-select__opt:hover { background: var(--surface-light); }
+    .lang-select__opt[aria-selected="true"] { color: var(--coral); font-weight: 600; }
+    .lang-select__opt[aria-selected="true"]::after { content: '\2713'; margin-left: auto; }
+    /* Nav transparente (sobre hero oscuro) → pill claro */
+    .nav:not(.scrolled) .lang-select__btn {
+      color: var(--white);
+      border-color: rgba(255,255,255,0.35);
+      background: rgba(255,255,255,0.06);
+    }
+    .nav:not(.scrolled) .lang-select__btn:hover,
+    .nav:not(.scrolled) .lang-select__btn[aria-expanded="true"] {
+      color: var(--coral);
+      border-color: var(--coral);
+      background: rgba(255,255,255,0.12);
+    }
+    /* Nav con scroll (fondo blanco) → pill oscuro */
+    .nav.scrolled .lang-select__btn {
+      color: var(--near-black);
+      border-color: var(--border-light);
+      background: transparent;
+    }
+    .nav.scrolled .lang-select__btn:hover,
+    .nav.scrolled .lang-select__btn[aria-expanded="true"] {
+      color: var(--coral);
+      border-color: var(--coral);
+      background: var(--surface-light);
+    }
+    .nav:not(.scrolled) .lang-select__menu { background: var(--white); }
+    .nav:not(.scrolled) .lang-select__opt { color: var(--near-black); }
+
+    @media (hover: none) {
+      .lang-select__opt[aria-selected="true"] {
+        color: var(--coral);
+        background: rgba(255,56,92,0.08);
+      }
+    }
+
+    /* ---------- Cookie Banner ---------- */
+    .cookie-banner {
+      position: fixed;
+      bottom: var(--space-lg);
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: var(--z-toast);
+      background: var(--near-black);
+      color: var(--white);
+      padding: var(--space-md) var(--space-xl);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-hover);
+      display: none;
+      align-items: center;
+      gap: var(--space-lg);
+      max-width: min(90vw, 520px);
+      font-size: 0.875rem;
+    }
+    .cookie-banner.show { display: flex; }
+    .cookie-banner p { color: rgba(255,255,255,0.8); font-size: 0.875rem; max-width: none; }
+    .cookie-accept {
+      background: var(--coral);
+      color: white;
+      border: none;
+      padding: 8px 20px;
+      border-radius: var(--radius-md);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      font-size: 0.875rem;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.2s;
+    }
+    .cookie-accept:hover { background: var(--coral-dark); }
+    @media (max-width: 600px) {
+      .cookie-banner {
+        flex-direction: column;
+        text-align: center;
+        padding: var(--space-md);
+        bottom: var(--space-sm);
+        width: calc(100vw - var(--space-xl));
+      }
+    }
+
+    /* ================================================================
+       NAVIGATION — transparent overlay, Airbnb-style thin nav
+       ================================================================ */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: var(--z-sticky);
+      padding: var(--space-lg) var(--content-padding);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+    .nav.scrolled {
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: var(--shadow-nav);
+    }
+    .nav-logo {
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      color: var(--white);
+      transition: color 0.3s;
+    }
+    .nav.scrolled .nav-logo { color: var(--near-black); }
+    .nav-logo-icon {
+      width: 28px; height: 28px;
+      background: var(--coral);
+      border-radius: var(--radius-sm);
+      display: flex; align-items: center; justify-content: center;
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: var(--space-lg);
+    }
+    .nav-links a {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.85);
+      transition: color 0.2s;
+      position: relative;
+    }
+    .nav.scrolled .nav-links a { color: var(--text-secondary); }
+    .nav-links a:hover { color: var(--white); }
+    .nav.scrolled .nav-links a:hover { color: var(--near-black); }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px; left: 0; right: 0;
+      height: 1.5px;
+      background: currentColor;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.3s ease;
+    }
+    .nav-links a:hover::after { transform: scaleX(1); transform-origin: left; }
+
+    .nav-cta {
+      background: var(--coral);
+      color: white !important;
+      padding: 8px 20px;
+      border-radius: var(--radius-md);
+      font-weight: 600 !important;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--coral-dark) !important; }
+    .nav-cta::after { display: none !important; }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none; border: none;
+      color: var(--white);
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .nav.scrolled .mobile-menu-btn { color: var(--near-black); }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .mobile-menu-btn { display: block; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: var(--content-padding);
+        right: var(--content-padding);
+        background: var(--white);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-card);
+        padding: var(--space-lg);
+        gap: var(--space-md);
+      }
+      .nav-links.open a {
+        color: var(--near-black) !important;
+        font-size: 1rem;
+      }
+      .nav-links.open .nav-cta {
+        text-align: center;
+      }
+    }
+
+    /* ================================================================
+       HERO — full-bleed architecture photography
+       ================================================================ */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 600px;
+      max-height: 1080px;
+      overflow: hidden;
+    }
+    .hero-image {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+    }
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      will-change: transform;
+    }
+    .hero-overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(135deg,
+        rgba(0,0,0,0.45) 0%,
+        rgba(0,0,0,0.15) 50%,
+        rgba(0,0,0,0.3) 100%
+      );
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: var(--space-5xl) var(--content-padding) var(--space-4xl);
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: var(--space-lg);
+      letter-spacing: 0.02em;
+    }
+    .hero-badge span {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--coral);
+      display: inline-block;
+    }
+    .hero h1 {
+      color: var(--white);
+      max-width: 14ch;
+      margin-bottom: var(--space-lg);
+    }
+    .hero h1 .highlight {
+      color: var(--coral);
+    }
+    .hero-sub {
+      font-size: clamp(1rem, 1.5vw, 1.25rem);
+      color: rgba(255,255,255,0.75);
+      max-width: 55ch;
+      margin-bottom: var(--space-xl);
+      font-weight: 400;
+    }
+    .hero-actions {
+      display: flex;
+      gap: var(--space-md);
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      background: var(--coral);
+      color: white;
+      padding: 14px 28px;
+      border-radius: var(--radius-md);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      text-wrap: nowrap;
+    }
+    .btn-primary:hover {
+      background: var(--coral-dark);
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-1px);
+    }
+    .btn-primary:focus-visible {
+      outline: 2px solid var(--coral);
+      outline-offset: 3px;
+    }
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      background: transparent;
+      color: rgba(255,255,255,0.9);
+      padding: 14px 28px;
+      border-radius: var(--radius-md);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 500;
+      border: 1px solid rgba(255,255,255,0.3);
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+    .btn-outline:hover {
+      border-color: rgba(255,255,255,0.7);
+      background: rgba(255,255,255,0.08);
+    }
+    .btn-outline:focus-visible {
+      outline: 2px solid var(--coral);
+      outline-offset: 3px;
+    }
+    .scroll-indicator {
+      position: absolute;
+      bottom: var(--space-xl);
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-sm);
+      color: rgba(255,255,255,0.5);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+    .scroll-line {
+      width: 1px;
+      height: 32px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.5), transparent);
+    }
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.6; transform: translateX(-50%) translateY(0); }
+      50% { opacity: 1; transform: translateX(-50%) translateY(4px); }
+    }
+
+    @media (max-width: 600px) {
+      .hero-content { padding-bottom: var(--space-3xl); }
+      .hero h1 { font-size: clamp(2rem, 10vw, 3rem); }
+      .scroll-indicator { display: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-image img { will-change: auto; }
+      .scroll-indicator { animation: none; }
+    }
+
+    /* ================================================================
+       SECTION LABEL — uses small uppercase indicator (NOT eyebrow)
+       ================================================================ */
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      margin-bottom: var(--space-lg);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      color: var(--coral);
+    }
+    .section-label::after {
+      content: '';
+      flex: 1;
+      max-width: 48px;
+      height: 1px;
+      background: currentColor;
+      opacity: 0.4;
+    }
+
+    /* ================================================================
+       FEATURED PROJECTS — varied card layouts
+       ================================================================ */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: var(--space-lg);
+    }
+
+    /* Wide: image left 40%, text right 60% */
+    .project-wide {
+      grid-column: span 12;
+      display: grid;
+      grid-template-columns: 4fr 6fr;
+      gap: var(--space-xl);
+      align-items: center;
+    }
+    .project-wide .project-image {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      aspect-ratio: 4/3;
+    }
+    .project-wide .project-image img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .project-wide:hover .project-image img { transform: scale(1.03); }
+
+    /* Tall: full-bleed background with overlay */
+    .project-tall {
+      grid-column: span 6;
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      aspect-ratio: 3/4;
+      min-height: 420px;
+    }
+    .project-tall img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .project-tall:hover img { transform: scale(1.04); }
+    .project-tall-overlay {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: var(--space-xl);
+      background: linear-gradient(transparent, rgba(0,0,0,0.6));
+      color: white;
+    }
+    .project-tall-overlay h3 { color: white; }
+    .project-tall-overlay p { color: rgba(255,255,255,0.7); }
+
+    /* Standard: image on top, text below */
+    .project-standard {
+      grid-column: span 4;
+    }
+    .project-standard .project-image {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      aspect-ratio: 16/12;
+      margin-bottom: var(--space-md);
+    }
+    .project-standard .project-image img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .project-standard:hover .project-image img { transform: scale(1.04); }
+
+    .project-meta {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--coral);
+      margin-bottom: var(--space-xs);
+    }
+    .project-title {
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin-bottom: var(--space-xs);
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+    }
+    .project-desc {
+      font-size: 0.9375rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    @media (max-width: 900px) {
+      .project-wide { grid-column: span 12; grid-template-columns: 1fr; }
+      .project-tall { grid-column: span 12; min-height: 340px; }
+      .project-standard { grid-column: span 6; }
+    }
+    @media (max-width: 600px) {
+      .project-standard { grid-column: span 12; }
+    }
+
+    /* ---------- Reveal animations ---------- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .project-wide .project-image img,
+      .project-tall img,
+      .project-standard .project-image img { transition: none; }
+      .project-wide:hover .project-image img,
+      .project-tall:hover img,
+      .project-standard:hover .project-image img { transform: none; }
+    }
+
+    /* ================================================================
+       SERVICES — asymmetric bento blocks
+       ================================================================ */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: var(--space-lg);
+    }
+    .service-card {
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: var(--space-xl);
+      transition: all 0.3s ease;
+      background: var(--white);
+    }
+    .service-card:hover {
+      box-shadow: var(--shadow-card);
+      transform: translateY(-2px);
+    }
+    .service-card-large {
+      grid-column: span 7;
+    }
+    .service-card-small {
+      grid-column: span 5;
+    }
+    .service-card-wide {
+      grid-column: span 12;
+    }
+    .service-number {
+      font-size: 2.5rem;
+      font-weight: 300;
+      color: var(--coral);
+      line-height: 1;
+      margin-bottom: var(--space-md);
+    }
+    .service-card h3 {
+      margin-bottom: var(--space-sm);
+    }
+    .service-card p {
+      color: var(--text-secondary);
+    }
+    .service-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      margin-top: var(--space-lg);
+    }
+    .service-tag {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      padding: 4px 12px;
+      border-radius: 100px;
+      background: var(--surface-light);
+    }
+
+    @media (max-width: 900px) {
+      .service-card-large,
+      .service-card-small,
+      .service-card-wide { grid-column: span 12; }
+    }
+
+    /* ================================================================
+       PROCESS — visual flow without numbers or section markers
+       ================================================================ */
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-2xl);
+      position: relative;
+    }
+    .process-grid::before {
+      content: '';
+      position: absolute;
+      top: 48px; left: 15%; right: 15%;
+      height: 1px;
+      background: var(--border-light);
+    }
+    .process-step {
+      position: relative;
+      text-align: center;
+    }
+    .process-dot {
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      background: var(--coral);
+      margin: 0 auto var(--space-lg);
+      position: relative;
+      z-index: 1;
+    }
+    .process-step h3 {
+      margin-bottom: var(--space-sm);
+    }
+    .process-step p {
+      font-size: 0.9375rem;
+    }
+
+    @media (max-width: 700px) {
+      .process-grid { grid-template-columns: 1fr; gap: var(--space-xl); }
+      .process-grid::before { display: none; }
+    }
+
+    /* ================================================================
+       TESTIMONIALS — editorial pull quotes with DM Serif Display
+       ================================================================ */
+    .testimonials {
+      background: var(--surface-light);
+    }
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-xl);
+    }
+    .testimonial-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: var(--space-xl);
+      box-shadow: var(--shadow-card);
+    }
+    .testimonial-card .serif-quote {
+      margin-bottom: var(--space-lg);
+      font-size: clamp(1.125rem, 1.5vw, 1.375rem);
+    }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+    }
+    .testimonial-avatar {
+      width: 44px; height: 44px;
+      border-radius: var(--radius-full);
+      overflow: hidden;
+    }
+    .testimonial-avatar img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+    .testimonial-name {
+      font-weight: 600;
+      font-size: 0.9375rem;
+    }
+    .testimonial-role {
+      font-size: 0.8125rem;
+      color: var(--text-secondary);
+    }
+
+    @media (max-width: 900px) {
+      .testimonial-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ================================================================
+       STUDIO PHILOSOPHY — full-width editorial spread
+       ================================================================ */
+    .philosophy {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-3xl);
+      align-items: center;
+    }
+    .philosophy-image {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      aspect-ratio: 4/3;
+    }
+    .philosophy-image img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+    .philosophy-text .serif-quote {
+      margin-bottom: var(--space-lg);
+      color: var(--near-black);
+    }
+    .philosophy-text p {
+      margin-bottom: var(--space-md);
+    }
+    .studio-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-lg);
+      margin-top: var(--space-lg);
+      padding-top: var(--space-lg);
+      border-top: 1px solid var(--border-light);
+    }
+    .stat-item {
+      text-align: center;
+    }
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 300;
+      color: var(--near-black);
+      line-height: 1;
+      margin-bottom: var(--space-xs);
+    }
+    .stat-label {
+      font-size: 0.8125rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    @media (max-width: 800px) {
+      .philosophy { grid-template-columns: 1fr; }
+      .studio-stats { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    /* ================================================================
+       CONTACT — form with address sidebar
+       ================================================================ */
+    .contact-section {
+      background: var(--near-black);
+      color: var(--white);
+    }
+    .contact-section .section-label {
+      color: var(--coral-light);
+    }
+    .contact-section .section-label::after {
+      background: var(--coral-light);
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      gap: var(--space-3xl);
+    }
+    .contact-info h3 {
+      color: var(--white);
+      margin-bottom: var(--space-md);
+    }
+    .contact-info p {
+      color: rgba(255,255,255,0.6);
+      margin-bottom: var(--space-sm);
+    }
+    .contact-detail {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-md);
+      margin-bottom: var(--space-lg);
+    }
+    .contact-icon {
+      width: 40px; height: 40px;
+      border-radius: var(--radius-md);
+      background: rgba(255,255,255,0.08);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      color: var(--coral);
+    }
+    .contact-icon svg { width: 20px; height: 20px; }
+    .contact-detail-text label {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.4);
+      display: block;
+      margin-bottom: 2px;
+    }
+    .contact-detail-text span {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.85);
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-md);
+    }
+    .form-group label {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.5);
+      display: block;
+      margin-bottom: var(--space-xs);
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.06);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9375rem;
+      transition: all 0.2s;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--coral);
+      background: rgba(255,255,255,0.1);
+      box-shadow: 0 0 0 3px rgba(255,56,92,0.15);
+    }
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: rgba(255,255,255,0.3);
+    }
+    .form-submit {
+      align-self: flex-start;
+    }
+
+    @media (max-width: 800px) {
+      .contact-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+
+    /* ================================================================
+       FOOTER — full-width with link columns
+       ================================================================ */
+    .footer {
+      padding: var(--space-3xl) 0 var(--space-xl);
+      background: #1a1a1a;
+      color: rgba(255,255,255,0.5);
+      font-size: 0.875rem;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: var(--space-2xl);
+      margin-bottom: var(--space-2xl);
+    }
+    .footer-brand {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: var(--space-sm);
+      letter-spacing: -0.02em;
+    }
+    .footer p { font-size: 0.875rem; color: rgba(255,255,255,0.4); }
+    .footer-col h4 {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: var(--space-md);
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+    .footer-col a {
+      display: block;
+      color: rgba(255,255,255,0.45);
+      padding: 4px 0;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: var(--coral); }
+    .footer-bottom {
+      padding-top: var(--space-lg);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--space-md);
+    }
+    .footer-social {
+      display: flex;
+      gap: var(--space-md);
+    }
+    .footer-social a {
+      width: 36px; height: 36px;
+      border-radius: var(--radius-md);
+      background: rgba(255,255,255,0.06);
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s;
+    }
+    .footer-social a:hover {
+      background: var(--coral);
+    }
+    .footer-social a svg { width: 16px; height: 16px; }
+
+    @media (max-width: 700px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+
+    /* ================================================================
+       FLOATING CTA
+       ================================================================ */
+    .floating-cta {
+      position: fixed;
+      bottom: var(--space-xl);
+      right: var(--space-xl);
+      z-index: var(--z-toast);
+      background: var(--coral);
+      color: white;
+      width: 56px; height: 56px;
+      border-radius: var(--radius-full);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 16px rgba(255,56,92,0.35);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      opacity: 0;
+      transform: translateY(16px);
+      pointer-events: none;
+    }
+    .floating-cta.show {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    .floating-cta:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(255,56,92,0.45);
+    }
+    .floating-cta svg { width: 24px; height: 24px; }
+    @media (prefers-reduced-motion: reduce) {
+      .floating-cta { transition: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ================================================================
+       COOKIE BANNER
+       ================================================================ -->
+  <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Cookie consent">
+    <p data-i18n="cookie-text">We use essential cookies to enhance your browsing experience. By continuing, you agree to our use of cookies.</p>
+    <button class="cookie-accept" id="cookieAccept" data-i18n="cookie-accept">Accept</button>
+  </div>
+
+  <!-- ================================================================
+       NAVIGATION
+       ================================================================ -->
+  <nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-logo">
+      <span class="nav-logo-icon">A</span>
+      <span>Atrium</span>
+    </div>
+    <div class="nav-links" id="navLinks">
+      <a href="#projects" data-i18n="nav-projects">Projects</a>
+      <a href="#services" data-i18n="nav-services">Services</a>
+      <a href="#process" data-i18n="nav-process">Process</a>
+      <a href="#testimonials" data-i18n="nav-testimonials">Testimonials</a>
+      <a href="#studio" data-i18n="nav-studio">Studio</a>
+      <a href="#contact" class="nav-cta" data-i18n="nav-contact">Contact</a>
+    </div>
+    <div style="display:flex;align-items:center;gap:4px;">
+      <div class="lang-select" id="langSelect">
+        <button class="lang-select__btn" type="button" id="langBtn" aria-haspopup="listbox" aria-expanded="false" aria-label="Select language">
+          <span class="lang-select__cur" id="langCur">EN</span>
+          <svg class="lang-select__chev" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="lang-select__menu" role="listbox" aria-label="Choose language">
+          <button class="lang-select__opt" role="option" data-lang="en" aria-selected="true">English</button>
+          <button class="lang-select__opt" role="option" data-lang="es" aria-selected="false">Español</button>
+          <button class="lang-select__opt" role="option" data-lang="fr" aria-selected="false">Français</button>
+          <button class="lang-select__opt" role="option" data-lang="de" aria-selected="false">Deutsch</button>
+          <button class="lang-select__opt" role="option" data-lang="it" aria-selected="false">Italiano</button>
+          <button class="lang-select__opt" role="option" data-lang="pt" aria-selected="false">Português</button>
+        </div>
+      </div>
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu" aria-expanded="false">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ================================================================
+       HERO
+       ================================================================ -->
+  <section class="hero" id="hero">
+    <div class="hero-image" id="heroImage">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=85"
+           alt="Modern architectural interior with natural light streaming through large windows"
+           loading="eager">
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-badge reveal visible">
+        <span></span>
+        <span data-i18n="hero-badge">Barcelona · Est. 2012</span>
+      </div>
+      <h1 class="reveal visible reveal-delay-1" data-i18n="hero-title">Spaces That<span class="highlight"> Breathe</span></h1>
+      <p class="hero-sub reveal visible reveal-delay-2" data-i18n="hero-sub">Architecture and interior design rooted in light, material honesty, and the quiet poetry of everyday living.</p>
+      <div class="hero-actions reveal visible reveal-delay-3">
+        <a href="#projects" class="btn-primary" data-i18n="hero-cta-primary">View our work</a>
+        <a href="#contact" class="btn-outline" data-i18n="hero-cta-secondary">Start a project</a>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <span data-i18n="scroll">Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ================================================================
+       FEATURED PROJECTS
+       ================================================================ -->
+  <section class="section-pad" id="projects">
+    <div class="container">
+      <div class="section-label reveal"><span data-i18n="projects-label">Selected Work</span></div>
+      <h2 class="reveal" data-i18n="projects-title">Projects that define how we live</h2>
+      <p class="reveal reveal-delay-1" style="margin-bottom:var(--space-2xl)" data-i18n="projects-desc">Each commission is a dialogue between place and purpose. Here are four recent narratives.</p>
+
+      <div class="projects-grid">
+        <!-- Project 1: Wide (image left, text right) -->
+        <div class="project-wide reveal">
+          <div class="project-image">
+            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=85"
+                 alt="Hillside residence exterior with geometric stone walls and wide glass panels" loading="lazy">
+          </div>
+          <div>
+            <div class="project-meta" data-i18n="project1-meta">Residential · 2025</div>
+            <h3 class="project-title" data-i18n="project1-title">Casa Serra — Hillside Retreat</h3>
+            <p class="project-desc" data-i18n="project1-desc">A concrete-and-glass residence carved into the Catalan hillside. The brief called for a home that disappears into its landscape — every room opens onto a private courtyard or the valley beyond. Local stone, exposed board-formed concrete, and Mediterranean oak define the material palette.</p>
+          </div>
+        </div>
+
+        <!-- Project 2: Tall (full-bleed background) -->
+        <div class="project-tall reveal reveal-delay-1">
+          <img src="https://images.unsplash.com/photo-1600566753086-00f18f6b0052?w=800&q=85"
+               alt="Minimalist interior with warm wood shelves and soft natural light" loading="lazy">
+          <div class="project-tall-overlay">
+            <div class="project-meta" style="color:var(--coral-light)" data-i18n="project2-meta">Commercial · 2024</div>
+            <h3 data-i18n="project2-title">Scribe — Coworking &amp; Library</h3>
+            <p data-i18n="project2-desc">A workspace that reads like a private library. Volume, silence, and deep oak.</p>
+          </div>
+        </div>
+
+        <!-- Project 3: Standard (image top, text below) -->
+        <div class="project-standard reveal reveal-delay-2">
+          <div class="project-image">
+            <img src="https://images.unsplash.com/photo-1618220179428-22790b461013?w=600&q=85"
+                 alt="Contemporary interior with sage green cabinetry and marble surfaces" loading="lazy">
+          </div>
+          <div class="project-meta" data-i18n="project3-meta">Interior · 2025</div>
+          <h3 class="project-title" data-i18n="project3-title">Plaça Major Apartment</h3>
+          <p class="project-desc" data-i18n="project3-desc">A 120m² apartment in an 18th-century Eixample building. Original ceiling mouldings meet custom joinery in warm grey and sage.</p>
+        </div>
+
+        <!-- Project 4: Standard -->
+        <div class="project-standard reveal reveal-delay-3">
+          <div class="project-image">
+            <img src="https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=600&q=85"
+                 alt="Museum facade with dramatic geometric shadow patterns" loading="lazy">
+          </div>
+          <div class="project-meta" data-i18n="project4-meta">Cultural · 2024</div>
+          <h3 class="project-title" data-i18n="project4-title">Can Framis Pavilion</h3>
+          <p class="project-desc" data-i18n="project4-desc">A 400m² exhibition pavilion within the Can Framis museum grounds. The structure is a single folded concrete plane that lifts at one corner — creating a shaded entrance and a sculptural silhouette.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================
+       SERVICES — bento asymmetric grid
+       ================================================================ -->
+  <section class="section-pad" id="services" style="background:var(--surface-light);">
+    <div class="container">
+      <div class="section-label reveal"><span data-i18n="services-label">Expertise</span></div>
+      <h2 class="reveal" data-i18n="services-title">What we do</h2>
+      <p class="reveal reveal-delay-1" style="margin-bottom:var(--space-2xl)" data-i18n="services-desc">From a single room to a whole neighborhood — we bring the same attention to thresholds, light, and how a space feels when you enter it.</p>
+
+      <div class="services-grid">
+        <div class="service-card service-card-large reveal">
+          <div class="service-number">01</div>
+          <h3 data-i18n="service1-title">Architecture</h3>
+          <p data-i18n="service1-desc">New builds, renovations, and extensions. We work with concrete, steel, stone, and timber — each chosen for its behaviour over time, not just its appearance. Every project begins with a week of site observation before a single line is drawn.</p>
+          <div class="service-tags">
+            <span class="service-tag" data-i18n="service1-tag1">Residential</span>
+            <span class="service-tag" data-i18n="service1-tag2">Cultural</span>
+            <span class="service-tag" data-i18n="service1-tag3">Hospitality</span>
+            <span class="service-tag" data-i18n="service1-tag4">Workplace</span>
+          </div>
+        </div>
+        <div class="service-card service-card-small reveal reveal-delay-1">
+          <div class="service-number">02</div>
+          <h3 data-i18n="service2-title">Interior Design</h3>
+          <p data-i18n="service2-desc">We design interiors that age gracefully — joinery that patinates, textiles that soften, and light that shifts through the day. Our palette is restrained: stone, oak, lime plaster, hand-fired tile.</p>
+          <div class="service-tags">
+            <span class="service-tag" data-i18n="service2-tag1">Residential</span>
+            <span class="service-tag" data-i18n="service2-tag2">Retail</span>
+            <span class="service-tag" data-i18n="service2-tag3">Custom furniture</span>
+          </div>
+        </div>
+        <div class="service-card service-card-wide reveal reveal-delay-2">
+          <div class="service-number">03</div>
+          <h3 data-i18n="service3-title">Urban &amp; Landscape</h3>
+          <p data-i18n="service3-desc">Public spaces, master planning, and landscape architecture. We believe the best urban interventions feel inevitable — as though they have always been part of the city fabric. Plazas, park edges, waterfronts, and the spaces between buildings.</p>
+          <div class="service-tags">
+            <span class="service-tag" data-i18n="service3-tag1">Master planning</span>
+            <span class="service-tag" data-i18n="service3-tag2">Public realm</span>
+            <span class="service-tag" data-i18n="service3-tag3">Landscape</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================
+       PROCESS — visual flow without numbered markers or eyebrows
+       ================================================================ -->
+  <section class="section-pad" id="process">
+    <div class="container">
+      <div class="section-label reveal"><span data-i18n="process-label">How we work</span></div>
+      <h2 class="reveal" data-i18n="process-title">From conversation to cornerstone</h2>
+      <p class="reveal reveal-delay-1" style="margin-bottom:var(--space-2xl)" data-i18n="process-desc">We keep the process human — no templates, no delivery-room formalism. Three movements, from the first conversation to the finished space.</p>
+
+      <div class="process-grid">
+        <div class="process-step reveal">
+          <div class="process-dot"></div>
+          <h3 data-i18n="process1-title">Listen and Observe</h3>
+          <p data-i18n="process1-desc">We spend time on site — watching the light, feeling the wind, understanding how you actually live or work. This phase lasts as long as it needs to.</p>
+        </div>
+        <div class="process-step reveal reveal-delay-1">
+          <div class="process-dot"></div>
+          <h3 data-i18n="process2-title">Draw and Refine</h3>
+          <p data-i18n="process2-desc">Physical models, hand sketches, and full-scale mock-ups. We test proportions with our hands before committing to construction drawings.</p>
+        </div>
+        <div class="process-step reveal reveal-delay-2">
+          <div class="process-dot"></div>
+          <h3 data-i18n="process3-title">Build and Inhabit</h3>
+          <p data-i18n="process3-desc">We stay on site through construction — working alongside artisans, adjusting details, and ensuring the finished space holds the quiet conviction of the original idea.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================
+       TESTIMONIALS — DM Serif Display pull quotes
+       ================================================================ -->
+  <section class="section-pad testimonials" id="testimonials">
+    <div class="container">
+      <div class="section-label reveal"><span data-i18n="testimonials-label">Kind words</span></div>
+      <h2 class="reveal" data-i18n="testimonials-title">What our clients say</h2>
+      <p class="reveal reveal-delay-1" style="margin-bottom:var(--space-2xl)" data-i18n="testimonials-desc">We measure our work by how a space feels five years after completion — not on opening day.</p>
+
+      <div class="testimonial-grid">
+        <div class="testimonial-card reveal">
+          <div class="serif-quote" data-i18n="testimonial1-quote">"Atrium understood what we wanted before we had the words for it. Our home now breathes with the landscape — every window frames a view we never tire of."</div>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&q=80" alt="" loading="lazy"></div>
+            <div>
+              <div class="testimonial-name" data-i18n="testimonial1-name">James &amp; Ana Torres</div>
+              <div class="testimonial-role" data-i18n="testimonial1-role">Casa Serra, Girona</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal reveal-delay-1">
+          <div class="serif-quote" data-i18n="testimonial2-quote">"The pavilion feels ancient and entirely new at the same time. People walk through it slowly — which is exactly what art deserves."</div>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar"><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=80&q=80" alt="" loading="lazy"></div>
+            <div>
+              <div class="testimonial-name" data-i18n="testimonial2-name">Maria Costa</div>
+              <div class="testimonial-role" data-i18n="testimonial2-role">Director, Can Framis Museum</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal reveal-delay-2">
+          <div class="serif-quote" data-i18n="testimonial3-quote">"We gave Atrium a challenging urban site and they gave us a building that dignifies the entire block. The craft is extraordinary — every joint, every material transition resolved."</div>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&q=80" alt="" loading="lazy"></div>
+            <div>
+              <div class="testimonial-name" data-i18n="testimonial3-name">Carlos Vives</div>
+              <div class="testimonial-role" data-i18n="testimonial3-role">Developer, Poblenou Quarter</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================
+       STUDIO PHILOSOPHY
+       ================================================================ -->
+  <section class="section-pad" id="studio">
+    <div class="container">
+      <div class="section-label reveal"><span data-i18n="studio-label">Our studio</span></div>
+      <div class="philosophy">
+        <div class="philosophy-image reveal">
+          <img src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?w=800&q=85"
+               alt="Architecture studio workspace with models and natural light" loading="lazy">
+        </div>
+        <div class="philosophy-text">
+          <div class="serif-quote reveal" data-i18n="studio-quote">"Architecture is not about form. It is about the quality of the space between walls — the light, the sound, the feeling of arrival."</div>
+          <p class="reveal reveal-delay-1" data-i18n="studio-p1">Founded in 2012, Atrium is a Barcelona-based studio of twelve architects, designers, and makers. We work across scales — from a single piece of furniture to an entire neighborhood — but our concern is always the same: how a space shapes the people who move through it.</p>
+          <p class="reveal reveal-delay-2" data-i18n="studio-p2">We are drawn to natural materials, honest construction, and the kind of quiet elegance that reveals itself slowly. Our projects have been recognized by the European Prize for Architecture, the FAD Awards, and the Barcelona City Council.</p>
+          <div class="studio-stats reveal reveal-delay-3">
+            <div class="stat-item">
+              <div class="stat-number">13</div>
+              <div class="stat-label" data-i18n="stat1">Years in practice</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">80+</div>
+              <div class="stat-label" data-i18n="stat2">Completed projects</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">9</div>
+              <div class="stat-label" data-i18n="stat3">Design awards</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================
+       CONTACT
+       ================================================================ -->
+  <section class="section-pad contact-section" id="contact">
+    <div class="container">
+      <div class="section-label reveal"><span data-i18n="contact-label">Get in touch</span></div>
+      <h2 class="reveal" style="color:var(--white)" data-i18n="contact-title">Let's make something together</h2>
+      <p class="reveal reveal-delay-1" style="color:rgba(255,255,255,0.6);margin-bottom:var(--space-2xl)" data-i18n="contact-desc">Whether you have a clear brief or just a seed of an idea — we would love to hear from you.</p>
+
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <div class="contact-detail">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="contact-detail-text">
+              <label data-i18n="contact-address-label">Studio</label>
+              <span data-i18n="contact-address">Carrer de la Diputació 238, 4-2<br>08007 Barcelona, Spain</span>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div class="contact-detail-text">
+              <label data-i18n="contact-phone-label">Phone</label>
+              <span data-i18n="contact-phone">+34 93 123 45 67</span>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div class="contact-detail-text">
+              <label data-i18n="contact-email-label">Email</label>
+              <span>hello@atrium.studio</span>
+            </div>
+          </div>
+        </div>
+
+        <form class="contact-form reveal reveal-delay-1" id="contactForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="form-name" data-i18n="form-name">Name</label>
+              <input type="text" id="form-name" name="name" required placeholder="e.g. Maria Garcia" data-i18n-placeholder="form-name-placeholder">
+            </div>
+            <div class="form-group">
+              <label for="form-email" data-i18n="form-email">Email</label>
+              <input type="email" id="form-email" name="email" required placeholder="maria@example.com" data-i18n-placeholder="form-email-placeholder">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="form-project" data-i18n="form-project">Project type</label>
+            <select id="form-project" name="project">
+              <option value="" data-i18n="form-project-default">Select a project type</option>
+              <option value="residential" data-i18n="form-project-residential">Residential</option>
+              <option value="commercial" data-i18n="form-project-commercial">Commercial</option>
+              <option value="interior" data-i18n="form-project-interior">Interior design</option>
+              <option value="urban" data-i18n="form-project-urban">Urban / Landscape</option>
+              <option value="other" data-i18n="form-project-other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="form-message" data-i18n="form-message">Tell us about your project</label>
+            <textarea id="form-message" name="message" rows="4" placeholder="Describe your project briefly — scale, location, timeline, and what matters most to you." data-i18n-placeholder="form-message-placeholder"></textarea>
+          </div>
+          <button type="submit" class="btn-primary form-submit" data-i18n="form-submit">Send inquiry</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================
+       FOOTER
+       ================================================================ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">Atrium</div>
+          <p data-i18n="footer-desc">Architecture and interior design studio based in Barcelona. Crafting spaces that harmonize light, material, and landscape since 2012.</p>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer-nav">Navigation</h4>
+          <a href="#projects" data-i18n="nav-projects">Projects</a>
+          <a href="#services" data-i18n="nav-services">Services</a>
+          <a href="#process" data-i18n="nav-process">Process</a>
+          <a href="#studio" data-i18n="nav-studio">Studio</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer-services">Services</h4>
+          <a href="#services" data-i18n="service1-title">Architecture</a>
+          <a href="#services" data-i18n="service2-title">Interior Design</a>
+          <a href="#services" data-i18n="service3-title">Urban &amp; Landscape</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer-legal">Legal</h4>
+          <a href="#" data-i18n="footer-privacy">Privacy Policy</a>
+          <a href="#" data-i18n="footer-cookies">Cookie Policy</a>
+          <a href="#" data-i18n="footer-terms">Terms of Service</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span data-i18n="footer-copyright">&copy; 2026 Atrium Studio SLP. All rights reserved.</span>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="#" aria-label="Pinterest">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 17.5C6.5 14.5 7 11 9 10c2-1 3 1 2.5 3.5S12 17 12 17"/><line x1="12" y1="14" x2="14" y2="10"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================================================================
+       FLOATING CTA
+       ================================================================ -->
+  <a href="#contact" class="floating-cta" id="floatingCta" aria-label="Contact us">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+  </a>
+
+  <!-- ================================================================
+       JAVASCRIPT
+       ================================================================ -->
+  <script>
+    (function() {
+      'use strict';
+
+      /* ---------- Translation Database ---------- */
+      const translations = {
+        en: {
+          'hero-badge': 'Barcelona \u00B7 Est. 2012',
+          'hero-title': 'Spaces That Breath\u00ADe',
+          'hero-sub': 'Architecture and interior design rooted in light, material honesty, and the quiet poetry of everyday living.',
+          'hero-cta-primary': 'View our work',
+          'hero-cta-secondary': 'Start a project',
+          'scroll': 'Scroll',
+          'nav-projects': 'Projects',
+          'nav-services': 'Services',
+          'nav-process': 'Process',
+          'nav-testimonials': 'Testimonials',
+          'nav-studio': 'Studio',
+          'nav-contact': 'Contact',
+          'projects-label': 'Selected Work',
+          'projects-title': 'Projects that define how we live',
+          'projects-desc': 'Each commission is a dialogue between place and purpose. Here are four recent narratives.',
+          'project1-meta': 'Residential \u00B7 2025',
+          'project1-title': 'Casa Serra \u2014 Hillside Retreat',
+          'project1-desc': 'A concrete-and-glass residence carved into the Catalan hillside. The brief called for a home that disappears into its landscape \u2014 every room opens onto a private courtyard or the valley beyond. Local stone, exposed board-formed concrete, and Mediterranean oak define the material palette.',
+          'project2-meta': 'Commercial \u00B7 2024',
+          'project2-title': 'Scribe \u2014 Coworking & Library',
+          'project2-desc': 'A workspace that reads like a private library. Volume, silence, and deep oak.',
+          'project3-meta': 'Interior \u00B7 2025',
+          'project3-title': 'Pla\u00E7a Major Apartment',
+          'project3-desc': 'A 120m\u00B2 apartment in an 18th-century Eixample building. Original ceiling mouldings meet custom joinery in warm grey and sage.',
+          'project4-meta': 'Cultural \u00B7 2024',
+          'project4-title': 'Can Framis Pavilion',
+          'project4-desc': 'A 400m\u00B2 exhibition pavilion within the Can Framis museum grounds. The structure is a single folded concrete plane that lifts at one corner \u2014 creating a shaded entrance and a sculptural silhouette.',
+          'services-label': 'Expertise',
+          'services-title': 'What we do',
+          'services-desc': 'From a single room to a whole neighborhood \u2014 we bring the same attention to thresholds, light, and how a space feels when you enter it.',
+          'service1-title': 'Architecture',
+          'service1-desc': 'New builds, renovations, and extensions. We work with concrete, steel, stone, and timber \u2014 each chosen for its behaviour over time, not just its appearance. Every project begins with a week of site observation before a single line is drawn.',
+          'service1-tag1': 'Residential',
+          'service1-tag2': 'Cultural',
+          'service1-tag3': 'Hospitality',
+          'service1-tag4': 'Workplace',
+          'service2-title': 'Interior Design',
+          'service2-desc': 'We design interiors that age gracefully \u2014 joinery that patinates, textiles that soften, and light that shifts through the day. Our palette is restrained: stone, oak, lime plaster, hand-fired tile.',
+          'service2-tag1': 'Residential',
+          'service2-tag2': 'Retail',
+          'service2-tag3': 'Custom furniture',
+          'service3-title': 'Urban & Landscape',
+          'service3-desc': 'Public spaces, master planning, and landscape architecture. We believe the best urban interventions feel inevitable \u2014 as though they have always been part of the city fabric. Plazas, park edges, waterfronts, and the spaces between buildings.',
+          'service3-tag1': 'Master planning',
+          'service3-tag2': 'Public realm',
+          'service3-tag3': 'Landscape',
+          'process-label': 'How we work',
+          'process-title': 'From conversation to cornerstone',
+          'process-desc': 'We keep the process human \u2014 no templates, no delivery-room formalism. Three movements, from the first conversation to the finished space.',
+          'process1-title': 'Listen and Observe',
+          'process1-desc': 'We spend time on site \u2014 watching the light, feeling the wind, understanding how you actually live or work. This phase lasts as long as it needs to.',
+          'process2-title': 'Draw and Refine',
+          'process2-desc': 'Physical models, hand sketches, and full-scale mock-ups. We test proportions with our hands before committing to construction drawings.',
+          'process3-title': 'Build and Inhabit',
+          'process3-desc': 'We stay on site through construction \u2014 working alongside artisans, adjusting details, and ensuring the finished space holds the quiet conviction of the original idea.',
+          'testimonials-label': 'Kind words',
+          'testimonials-title': 'What our clients say',
+          'testimonials-desc': 'We measure our work by how a space feels five years after completion \u2014 not on opening day.',
+          'testimonial1-quote': '\u201CAtrium understood what we wanted before we had the words for it. Our home now breathes with the landscape \u2014 every window frames a view we never tire of.\u201D',
+          'testimonial1-name': 'James & Ana Torres',
+          'testimonial1-role': 'Casa Serra, Girona',
+          'testimonial2-quote': '\u201CThe pavilion feels ancient and entirely new at the same time. People walk through it slowly \u2014 which is exactly what art deserves.\u201D',
+          'testimonial2-name': 'Maria Costa',
+          'testimonial2-role': 'Director, Can Framis Museum',
+          'testimonial3-quote': '\u201CWe gave Atrium a challenging urban site and they gave us a building that dignifies the entire block. The craft is extraordinary \u2014 every joint, every material transition resolved.\u201D',
+          'testimonial3-name': 'Carlos Vives',
+          'testimonial3-role': 'Developer, Poblenou Quarter',
+          'studio-label': 'Our studio',
+          'studio-quote': '\u201CArchitecture is not about form. It is about the quality of the space between walls \u2014 the light, the sound, the feeling of arrival.\u201D',
+          'studio-p1': 'Founded in 2012, Atrium is a Barcelona-based studio of twelve architects, designers, and makers. We work across scales \u2014 from a single piece of furniture to an entire neighborhood \u2014 but our concern is always the same: how a space shapes the people who move through it.',
+          'studio-p2': 'We are drawn to natural materials, honest construction, and the kind of quiet elegance that reveals itself slowly. Our projects have been recognized by the European Prize for Architecture, the FAD Awards, and the Barcelona City Council.',
+          'stat1': 'Years in practice',
+          'stat2': 'Completed projects',
+          'stat3': 'Design awards',
+          'contact-label': 'Get in touch',
+          'contact-title': 'Let\u2019s make something together',
+          'contact-desc': 'Whether you have a clear brief or just a seed of an idea \u2014 we would love to hear from you.',
+          'contact-address-label': 'Studio',
+          'contact-address': 'Carrer de la Diputaci\u00F3 238, 4-2<br>08007 Barcelona, Spain',
+          'contact-phone-label': 'Phone',
+          'contact-phone': '+34 93 123 45 67',
+          'contact-email-label': 'Email',
+          'form-name': 'Name',
+          'form-email': 'Email',
+          'form-project': 'Project type',
+          'form-message': 'Tell us about your project',
+          'form-submit': 'Send inquiry',
+          'form-name-placeholder': 'e.g. Maria Garcia',
+          'form-email-placeholder': 'maria@example.com',
+          'form-project-default': 'Select a project type',
+          'form-project-residential': 'Residential',
+          'form-project-commercial': 'Commercial',
+          'form-project-interior': 'Interior design',
+          'form-project-urban': 'Urban / Landscape',
+          'form-project-other': 'Other',
+          'form-message-placeholder': 'Describe your project briefly \u2014 scale, location, timeline, and what matters most to you.',
+          'cookie-text': 'We use essential cookies to enhance your browsing experience. By continuing, you agree to our use of cookies.',
+          'cookie-accept': 'Accept',
+          'footer-desc': 'Architecture and interior design studio based in Barcelona. Crafting spaces that harmonize light, material, and landscape since 2012.',
+          'footer-nav': 'Navigation',
+          'footer-services': 'Services',
+          'footer-legal': 'Legal',
+          'footer-privacy': 'Privacy Policy',
+          'footer-cookies': 'Cookie Policy',
+          'footer-terms': 'Terms of Service',
+          'footer-copyright': '\u00A9 2026 Atrium Studio SLP. All rights reserved.'
+        },
+        es: {
+          'hero-badge': 'Barcelona \u00B7 Fund. 2012',
+          'hero-title': 'Espacios que Resp\u00ED\u00ADran',
+          'hero-sub': 'Arquitectura y dise\u00F1o de interiores arraigados en la luz, la honestidad de los materiales y la poes\u00EDa silenciosa de la vida cotidiana.',
+          'hero-cta-primary': 'Ver nuestro trabajo',
+          'hero-cta-secondary': 'Iniciar un proyecto',
+          'scroll': 'Desplazar',
+          'nav-projects': 'Proyectos',
+          'nav-services': 'Servicios',
+          'nav-process': 'Proceso',
+          'nav-testimonials': 'Testimonios',
+          'nav-studio': 'Estudio',
+          'nav-contact': 'Contacto',
+          'projects-label': 'Trabajos Seleccionados',
+          'projects-title': 'Proyectos que definen c\u00F3mo vivimos',
+          'projects-desc': 'Cada encargo es un di\u00E1logo entre el lugar y el prop\u00F3sito. Aqu\u00ED hay cuatro narrativas recientes.',
+          'project1-meta': 'Residencial \u00B7 2025',
+          'project1-title': 'Casa Serra \u2014 Refugio de Colina',
+          'project1-desc': 'Una residencia de hormig\u00F3n y vidrio esculpida en la ladera catalana. El encargo ped\u00EDa un hogar que desapareciera en su paisaje \u2014 cada habitaci\u00F3n se abre a un patio privado o al valle. Piedra local, hormig\u00F3n encofrado y roble mediterr\u00E1neo definen la paleta material.',
+          'project2-meta': 'Comercial \u00B7 2024',
+          'project2-title': 'Scribe \u2014 Coworking y Biblioteca',
+          'project2-desc': 'Un espacio de trabajo que se lee como una biblioteca privada. Volumen, silencio y roble profundo.',
+          'project3-meta': 'Interior \u00B7 2025',
+          'project3-title': 'Apartamento Pla\u00E7a Major',
+          'project3-desc': 'Un piso de 120m\u00B2 en un edificio decimon\u00F3nico del Eixample. Las molduras originales se encuentran con carpinter\u00EDa a medida en gris c\u00E1lido y salvia.',
+          'project4-meta': 'Cultural \u00B7 2024',
+          'project4-title': 'Pabell\u00F3n Can Framis',
+          'project4-desc': 'Un pabell\u00F3n expositivo de 400m\u00B2 en los terrenos del museo Can Framis. La estructura es un \u00FAnico plano de hormig\u00F3n plegado que se eleva en una esquina \u2014 creando una entrada sombreada y una silueta escult\u00F3rica.',
+          'services-label': 'Experiencia',
+          'services-title': 'Qu\u00E9 hacemos',
+          'services-desc': 'De una sola habitaci\u00F3n a todo un barrio \u2014 llevamos la misma atenci\u00F3n a los umbrales, la luz y c\u00F3mo se siente un espacio al entrar.',
+          'service1-title': 'Arquitectura',
+          'service1-desc': 'Obras nuevas, reformas y ampliaciones. Trabajamos con hormig\u00F3n, acero, piedra y madera \u2014 cada uno elegido por su comportamiento con el tiempo, no solo por su apariencia. Cada proyecto comienza con una semana de observaci\u00F3n del sitio antes de trazar una sola l\u00EDnea.',
+          'service1-tag1': 'Residencial',
+          'service1-tag2': 'Cultural',
+          'service1-tag3': 'Hosteler\u00EDa',
+          'service1-tag4': 'Oficinas',
+          'service2-title': 'Dise\u00F1o de Interiores',
+          'service2-desc': 'Dise\u00F1amos interiores que envejecen con gracia \u2014 carpinter\u00EDa que pátina, textiles que se suavizan y luz que se desplaza durante el d\u00EDa. Nuestra paleta es contenida: piedra, roble, yeso de cal, azulejo artesanal.',
+          'service2-tag1': 'Residencial',
+          'service2-tag2': 'Comercio',
+          'service2-tag3': 'Muebles a medida',
+          'service3-title': 'Urbano y Paisajismo',
+          'service3-desc': 'Espacios p\u00FAblicos, planeamiento urban\u00EDstico y arquitectura del paisaje. Creemos que las mejores intervenciones urbanas se sienten inevitables \u2014 como si siempre hubieran sido parte del tejido de la ciudad.',
+          'service3-tag1': 'Planeamiento',
+          'service3-tag2': 'Espacio p\u00FAblico',
+          'service3-tag3': 'Paisajismo',
+          'process-label': 'C\u00F3mo trabajamos',
+          'process-title': 'De la conversaci\u00F3n a la piedra angular',
+          'process-desc': 'Mantenemos el proceso humano \u2014 sin plantillas ni formalismo. Tres movimientos, desde la primera conversaci\u00F3n hasta el espacio terminado.',
+          'process1-title': 'Escuchar y Observar',
+          'process1-desc': 'Pasamos tiempo en el sitio \u2014 observando la luz, sintiendo el viento, comprendiendo c\u00F3mo vives o trabajas realmente. Esta fase dura todo lo que necesita.',
+          'process2-title': 'Dibujar y Refinar',
+          'process2-desc': 'Maquetas f\u00EDsicas, bocetos a mano y prototipos a escala real. Probamos proporciones con las manos antes de comprometernos con los planos de construcci\u00F3n.',
+          'process3-title': 'Construir y Habitar',
+          'process3-desc': 'Permanecemos en obra durante la construcci\u00F3n \u2014 trabajando junto a artesanos, ajustando detalles y asegurando que el espacio terminado mantenga la convicci\u00F3n silenciosa de la idea original.',
+          'testimonials-label': 'Testimonios',
+          'testimonials-title': 'Lo que dicen nuestros clientes',
+          'testimonials-desc': 'Medimos nuestro trabajo por c\u00F3mo se siente un espacio cinco a\u00F1os despu\u00E9s de su finalizaci\u00F3n \u2014 no el d\u00EDa de la inauguraci\u00F3n.',
+          'testimonial1-quote': '\u201CAtrium entendi\u00F3 lo que quer\u00EDamos antes de que tuvi\u00E9ramos palabras para ello. Nuestro hogar ahora respira con el paisaje \u2014 cada ventana enmarca una vista de la que nunca nos cansamos.\u201D',
+          'testimonial1-name': 'James y Ana Torres',
+          'testimonial1-role': 'Casa Serra, Girona',
+          'testimonial2-quote': '\u201CEl pabell\u00F3n se siente antiguo y completamente nuevo a la vez. La gente lo recorre lentamente \u2014 que es exactamente lo que el arte merece.\u201D',
+          'testimonial2-name': 'Maria Costa',
+          'testimonial2-role': 'Directora, Museo Can Framis',
+          'testimonial3-quote': '\u201CDimos a Atrium un sitio urbano desafiante y nos dieron un edificio que dignifica toda la manzana. La artesan\u00EDa es extraordinaria \u2014 cada junta, cada transici\u00F3n de material resuelta.\u201D',
+          'testimonial3-name': 'Carlos Vives',
+          'testimonial3-role': 'Promotor, Barrio de Poblenou',
+          'studio-label': 'Nuestro estudio',
+          'studio-quote': '\u201CLa arquitectura no trata sobre la forma. Trata sobre la calidad del espacio entre las paredes \u2014 la luz, el sonido, la sensaci\u00F3n de llegada.\u201D',
+          'studio-p1': 'Fundado en 2012, Atrium es un estudio con sede en Barcelona de doce arquitectos, dise\u00F1adores y artesanos. Trabajamos en todas las escalas \u2014 desde un mueble hasta un barrio entero \u2014 pero nuestra preocupaci\u00F3n es siempre la misma: c\u00F3mo un espacio moldea a las personas que lo transitan.',
+          'studio-p2': 'Nos atraen los materiales naturales, la construcci\u00F3n honesta y el tipo de elegancia silenciosa que se revela lentamente. Nuestros proyectos han sido reconocidos por el Premio Europeo de Arquitectura, los Premios FAD y el Ayuntamiento de Barcelona.',
+          'stat1': 'A\u00F1os de pr\u00E1ctica',
+          'stat2': 'Proyectos realizados',
+          'stat3': 'Premios de dise\u00F1o',
+          'contact-label': 'Contacto',
+          'contact-title': 'Hagamos algo juntos',
+          'contact-desc': 'Ya sea que tengas un encargo claro o solo una semilla de idea \u2014 nos encantar\u00E1 escucharte.',
+          'contact-address-label': 'Estudio',
+          'contact-address': 'Carrer de la Diputaci\u00F3 238, 4-2<br>08007 Barcelona, Espa\u00F1a',
+          'contact-phone-label': 'Tel\u00E9fono',
+          'contact-phone': '+34 93 123 45 67',
+          'contact-email-label': 'Correo',
+          'form-name': 'Nombre',
+          'form-email': 'Correo electr\u00F3nico',
+          'form-project': 'Tipo de proyecto',
+          'form-message': 'Cu\u00E9ntanos sobre tu proyecto',
+          'form-submit': 'Enviar consulta',
+          'form-name-placeholder': 'p.ej. Mar\u00EDa Garc\u00EDa',
+          'form-email-placeholder': 'maria@ejemplo.com',
+          'form-project-default': 'Selecciona un tipo de proyecto',
+          'form-project-residential': 'Residencial',
+          'form-project-commercial': 'Comercial',
+          'form-project-interior': 'Dise\u00F1o de interiores',
+          'form-project-urban': 'Urbano / Paisajismo',
+          'form-project-other': 'Otro',
+          'form-message-placeholder': 'Describe tu proyecto brevemente \u2014 escala, ubicaci\u00F3n, cronograma y lo que m\u00E1s te importa.',
+          'cookie-text': 'Utilizamos cookies esenciales para mejorar tu experiencia de navegaci\u00F3n. Al continuar, aceptas el uso de cookies.',
+          'cookie-accept': 'Aceptar',
+          'footer-desc': 'Estudio de arquitectura y dise\u00F1o de interiores con sede en Barcelona. Creando espacios que armonizan luz, material y paisaje desde 2012.',
+          'footer-nav': 'Navegaci\u00F3n',
+          'footer-services': 'Servicios',
+          'footer-legal': 'Legal',
+          'footer-privacy': 'Pol\u00EDtica de privacidad',
+          'footer-cookies': 'Pol\u00EDtica de cookies',
+          'footer-terms': 'T\u00E9rminos del servicio',
+          'footer-copyright': '\u00A9 2026 Atrium Studio SLP. Todos los derechos reservados.'
+        },
+        fr: {
+          'hero-badge': 'Barcelone \u00B7 Fond. 2012',
+          'hero-title': 'Des Espaces Qui Respirent',
+          'hero-sub': 'Architecture et design d\u2019int\u00E9rieur ancr\u00E9s dans la lumi\u00E8re, l\u2019honn\u00EAtet\u00E9 des mat\u00E9riaux et la po\u00E9sie silencieuse du quotidien.',
+          'hero-cta-primary': 'Voir nos r\u00E9alisations',
+          'hero-cta-secondary': 'Lancer un projet',
+          'scroll': 'D\u00E9filer',
+          'nav-projects': 'Projets',
+          'nav-services': 'Services',
+          'nav-process': 'Processus',
+          'nav-testimonials': 'T\u00E9moignages',
+          'nav-studio': 'Studio',
+          'nav-contact': 'Contact',
+          'projects-label': 'R\u00E9alisations',
+          'projects-title': 'Des projets qui d\u00E9finissent notre fa\u00E7on de vivre',
+          'projects-desc': 'Chaque commande est un dialogue entre le lieu et la vocation. Voici quatre r\u00E9cits r\u00E9cents.',
+          'project1-meta': 'R\u00E9sidentiel \u00B7 2025',
+          'project1-title': 'Casa Serra \u2014 Retraite Collinaire',
+          'project1-desc': 'Une r\u00E9sidence de b\u00E9ton et verre sculpt\u00E9e dans la colline catalane. Chaque pi\u00E8ce donne sur une cour priv\u00E9e ou la vall\u00E9e. Pierre locale, b\u00E9ton banch\u00E9 et ch\u00EAnne m\u00E9diterran\u00E9en d\u00E9finissent la palette mat\u00E9rielle.',
+          'project2-meta': 'Commercial \u00B7 2024',
+          'project2-title': 'Scribe \u2014 Coworking & Biblioth\u00E8que',
+          'project2-desc': 'Un espace de travail qui se lit comme une biblioth\u00E8que priv\u00E9e. Volume, silence et ch\u00EAnne profond.',
+          'project3-meta': 'Int\u00E9rieur \u00B7 2025',
+          'project3-title': 'Appartement Pla\u00E7a Major',
+          'project3-desc': 'Un appartement de 120m\u00B2 dans un immeuble du XIXe \u00E0 l\u2019Eixample. Moulures d\u2019\u00E9poque et menuiserie sur mesure en gris chaud et sauge.',
+          'project4-meta': 'Culturel \u00B7 2024',
+          'project4-title': 'Pavillon Can Framis',
+          'project4-desc': 'Un pavillon d\u2019exposition de 400m\u00B2 dans le mus\u00E9e Can Framis. Un plan de b\u00E9ton pli\u00E9 unique qui se soul\u00E8ve \u00E0 un coin.',
+          'services-label': 'Expertise',
+          'services-title': 'Notre m\u00E9tier',
+          'services-desc': 'D\u2019une seule pi\u00E8ce \u00E0 tout un quartier \u2014 nous portons la m\u00EAme attention aux seuils, \u00E0 la lumi\u00E8re et \u00E0 la sensation d\u2019un espace.',
+          'service1-title': 'Architecture',
+          'service1-desc': 'Constructions neuves, r\u00E9novations et extensions. B\u00E9ton, acier, pierre et bois \u2014 choisis pour leur comportement dans le temps. Chaque projet commence par une semaine d\u2019observation du site.',
+          'service1-tag1': 'R\u00E9sidentiel',
+          'service1-tag2': 'Culturel',
+          'service1-tag3': 'H\u00F4tellerie',
+          'service1-tag4': 'Bureau',
+          'service2-title': 'Design d\u2019Int\u00E9rieur',
+          'service2-desc': 'Des int\u00E9rieurs qui vieillissent avec gr\u00E2ce. Menuiserie qui patine, textiles qui s\u2019adoucissent, lumi\u00E8re qui se d\u00E9place. Palette sobre: pierre, ch\u00EAnne, pl\u00E2tre \u00E0 la chaux, carreau artisanal.',
+          'service2-tag1': 'R\u00E9sidentiel',
+          'service2-tag2': 'Commerce',
+          'service2-tag3': 'Meubles sur mesure',
+          'service3-title': 'Urbain & Paysage',
+          'service3-desc': 'Espaces publics, planification urbaine et architecture paysag\u00E8re. Les meilleures interventions semblent in\u00E9vitables.',
+          'service3-tag1': 'Planification',
+          'service3-tag2': 'Espace public',
+          'service3-tag3': 'Paysage',
+          'process-label': 'Notre m\u00E9thode',
+          'process-title': 'De la conversation \u00E0 la pierre angulaire',
+          'process-desc': 'Un processus humain, sans mod\u00E8les ni formalisme. Trois mouvements.',
+          'process1-title': '\u00C9couter et Observer',
+          'process1-desc': 'Nous passons du temps sur le site \u2014 \u00E0 observer la lumi\u00E8re, le vent, votre fa\u00E7on de vivre.',
+          'process2-title': 'Dessiner et Affiner',
+          'process2-desc': 'Maquettes physiques, croquis, prototypes grandeur nature avant les plans.',
+          'process3-title': 'Construire et Habiter',
+          'process3-desc': 'Nous restons sur le chantier, aux c\u00F4t\u00E9s des artisans, pour pr\u00E9server l\u2019id\u00E9e originale.',
+          'testimonials-label': 'T\u00E9moignages',
+          'testimonials-title': 'Ce que disent nos clients',
+          'testimonials-desc': 'Nous mesurons notre travail \u00E0 ce qu\u2019un espace devient cinq ans apr\u00E8s.',
+          'testimonial1-quote': '\u201CAtrium a compris ce que nous voulions avant que nous ayons les mots. Notre maison respire avec le paysage.\u201D',
+          'testimonial1-name': 'James & Ana Torres',
+          'testimonial1-role': 'Casa Serra, Girona',
+          'testimonial2-quote': '\u201CLe pavillon semble ancien et nouveau \u00E0 la fois. Les gens le traversent lentement \u2014 ce que l\u2019art m\u00E9rite.\u201D',
+          'testimonial2-name': 'Maria Costa',
+          'testimonial2-role': 'Directrice, Mus\u00E9e Can Framis',
+          'testimonial3-quote': '\u201CAtrium a transform\u00E9 un site urbain difficile en un b\u00E2timent qui honore tout le quartier.\u201D',
+          'testimonial3-name': 'Carlos Vives',
+          'testimonial3-role': 'Promoteur, Quartier Poblenou',
+          'studio-label': 'Notre studio',
+          'studio-quote': '\u201CL\u2019architecture n\u2019est pas une question de forme mais de qualit\u00E9 de l\u2019espace entre les murs.\u201D',
+          'studio-p1': 'Fond\u00E9 en 2012, Atrium est un studio barcelonais de douze architectes, designers et artisans. Nous travaillons \u00E0 toutes les \u00E9chelles.',
+          'studio-p2': 'Nous sommes attir\u00E9s par les mat\u00E9riaux naturels, la construction honn\u00EAte et l\u2019\u00E9l\u00E9gance silencieuse. Reconnus par le Prix Europ\u00E9en d\u2019Architecture, les Prix FAD et la Mairie de Barcelone.',
+          'stat1': 'Ann\u00E9es de pratique',
+          'stat2': 'Projets r\u00E9alis\u00E9s',
+          'stat3': 'Prix de design',
+          'contact-label': 'Contact',
+          'contact-title': 'Cr\u00E9ons ensemble',
+          'contact-desc': 'Que vous ayez un brief clair ou juste une id\u00E9e \u2014 nous serions ravis de vous entendre.',
+          'contact-address-label': 'Studio',
+          'contact-address': 'Carrer de la Diputaci\u00F3 238, 4-2<br>08007 Barcelone, Espagne',
+          'contact-phone-label': 'T\u00E9l\u00E9phone',
+          'contact-phone': '+34 93 123 45 67',
+          'contact-email-label': 'Email',
+          'form-name': 'Nom',
+          'form-email': 'Email',
+          'form-project': 'Type de projet',
+          'form-message': 'Parlez-nous de votre projet',
+          'form-submit': 'Envoyer la demande',
+          'form-name-placeholder': 'ex. Marie Garcia',
+          'form-email-placeholder': 'marie@exemple.com',
+          'form-project-default': 'S\u00E9lectionnez un type',
+          'form-project-residential': 'R\u00E9sidentiel',
+          'form-project-commercial': 'Commercial',
+          'form-project-interior': 'Design d\u2019int\u00E9rieur',
+          'form-project-urban': 'Urbain / Paysage',
+          'form-project-other': 'Autre',
+          'form-message-placeholder': 'D\u00E9crivez bri\u00E8vement votre projet.',
+          'cookie-text': 'Nous utilisons des cookies essentiels pour am\u00E9liorer votre exp\u00E9rience. En continuant, vous acceptez notre utilisation des cookies.',
+          'cookie-accept': 'Accepter',
+          'footer-desc': 'Studio d\u2019architecture et de design d\u2019int\u00E9rieur bas\u00E9 \u00E0 Barcelone. Des espaces qui marient lumi\u00E8re, mati\u00E8re et paysage depuis 2012.',
+          'footer-nav': 'Navigation',
+          'footer-services': 'Services',
+          'footer-legal': 'L\u00E9gal',
+          'footer-privacy': 'Politique de confidentialit\u00E9',
+          'footer-cookies': 'Politique de cookies',
+          'footer-terms': 'Conditions d\u2019utilisation',
+          'footer-copyright': '\u00A9 2026 Atrium Studio SLP. Tous droits r\u00E9serv\u00E9s.'
+        },
+        de: {
+          'hero-badge': 'Barcelona \u00B7 Gr\u00FCnd. 2012',
+          'hero-title': 'R\u00E4ume die Atmen',
+          'hero-sub': 'Architektur und Innenarchitektur, verwurzelt in Licht, materieller Ehrlichkeit und der stillen Poesie des allt\u00E4glichen Lebens.',
+          'hero-cta-primary': 'Unsere Arbeiten',
+          'hero-cta-secondary': 'Projekt starten',
+          'scroll': 'Scrollen',
+          'nav-projects': 'Projekte',
+          'nav-services': 'Leistungen',
+          'nav-process': 'Prozess',
+          'nav-testimonials': 'Referenzen',
+          'nav-studio': 'Studio',
+          'nav-contact': 'Kontakt',
+          'projects-label': 'Ausgew\u00E4hlte Arbeiten',
+          'projects-title': 'Projekte die unser Leben pr\u00E4gen',
+          'projects-desc': 'Jeder Auftrag ist ein Dialog zwischen Ort und Zweck. Hier vier aktuelle Erz\u00E4hlungen.',
+          'project1-meta': 'Wohnbau \u00B7 2025',
+          'project1-title': 'Casa Serra \u2014 Hangr\u00FCckzugsort',
+          'project1-desc': 'Ein Beton-und-Glas-Haus in den katalanischen Hang gemei\u00DFelt. Jeder Raum \u00F6ffnet sich zu einem privaten Innenhof oder dem Tal. Stein, Sichtbeton und mediterrane Eiche.',
+          'project2-meta': 'Gewerblich \u00B7 2024',
+          'project2-title': 'Scribe \u2014 Coworking & Bibliothek',
+          'project2-desc': 'Ein Arbeitsplatz wie eine Privatbibliothek. Volumen, Stille und tiefe Eiche.',
+          'project3-meta': 'Innenraum \u00B7 2025',
+          'project3-title': 'Pla\u00E7a Major Wohnung',
+          'project3-desc': '120m\u00B2 in einem Geb\u00E4ude aus dem 18. Jahrhundert im Eixample. Original-Stuckdecken treffen auf ma\u00DFgefertigte Schreinerei.',
+          'project4-meta': 'Kultur \u00B7 2024',
+          'project4-title': 'Can Framis Pavillon',
+          'project4-desc': '400m\u00B2 Ausstellungspavillon im Can Framis Museum. Eine gefaltete Betonebene die an einer Ecke aufsteigt.',
+          'services-label': 'Expertise',
+          'services-title': 'Was wir tun',
+          'services-desc': 'Vom einzelnen Raum bis zum ganzen Stadtteil \u2014 dieselbe Aufmerksamkeit f\u00FCr Schwellen, Licht und Raumgef\u00FChl.',
+          'service1-title': 'Architektur',
+          'service1-desc': 'Neubauten, Sanierungen und Erweiterungen. Beton, Stahl, Stein und Holz \u2014 gew\u00E4hlt f\u00FCr ihr Verhalten \u00FCber Zeit.',
+          'service2-title': 'Innenarchitektur',
+          'service2-desc': 'Innenr\u00E4ume die anmutig altern. Schreinerei die patiniert, Stoffe die weicher werden, Licht das wandert. Zur\u00FCckhaltende Palette.',
+          'service3-title': 'Stadt & Landschaft',
+          'service3-desc': '\u00D6ffentliche R\u00E4ume, Masterplanung und Landschaftsarchitektur. Die besten urbanen Eingriffe f\u00FChlen sich unvermeidlich an.',
+          'process-label': 'Arbeitsweise',
+          'process-title': 'Vom Gespr\u00E4ch zum Grundstein',
+          'process-desc': 'Ein menschlicher Prozess \u2014 ohne Vorlagen oder Formalismus.',
+          'process1-title': 'Zuh\u00F6ren und Beobachten',
+          'process1-desc': 'Wir nehmen uns Zeit vor Ort \u2014 Licht, Wind und Ihre Lebensweise verstehen.',
+          'process2-title': 'Zeichnen und Verfeinern',
+          'process2-desc': 'Modelle, Skizzen, Prototypen bevor wir Baupl\u00E4ne erstellen.',
+          'process3-title': 'Bauen und Bewohnen',
+          'process3-desc': 'Wir bleiben auf der Baustelle \u2014 neben Handwerkern, um die urspr\u00FCngliche Idee zu bewahren.',
+          'testimonials-label': 'Referenzen',
+          'testimonials-title': 'Was unsere Kunden sagen',
+          'testimonials-desc': 'Wir messen unsere Arbeit daran, wie sich ein Raum f\u00FCnf Jahre sp\u00E4ter anf\u00FChlt.',
+          'testimonial1-quote': '\u201EAtrium hat verstanden was wir wollten bevor wir Worte daf\u00FCr hatten. Unser Zuhause atmet mit der Landschaft.\u201C',
+          'testimonial1-name': 'James & Ana Torres',
+          'testimonial1-role': 'Casa Serra, Girona',
+          'testimonial2-quote': '\u201EDer Pavillon wirkt zugleich urt\u00FCmlich und v\u00F6llig neu. Die Leute gehen langsam hindurch \u2014 genau das verdient Kunst.\u201C',
+          'testimonial2-name': 'Maria Costa',
+          'testimonial2-role': 'Direktorin, Can Framis Museum',
+          'testimonial3-quote': '\u201EWir gaben Atrium einen schwierigen Standort und sie gaben uns ein Geb\u00E4ude das den ganzen Block aufwertet.\u201C',
+          'testimonial3-name': 'Carlos Vives',
+          'testimonial3-role': 'Entwickler, Poblenou Viertel',
+          'studio-label': 'Unser Studio',
+          'studio-quote': '\u201EArchitektur handelt nicht von Form. Sondern von der Qualit\u00E4t des Raumes zwischen den W\u00E4nden \u2014 dem Licht, dem Klang, dem Gef\u00FChl der Ankunft.\u201C',
+          'studio-p1': '2012 gegr\u00FCndet, ist Atrium ein Studio in Barcelona mit zw\u00F6lf Architekten, Designern und Handwerkern.',
+          'studio-p2': 'Wir arbeiten mit nat\u00FCrlichen Materialien und ehrlicher Konstruktion. Ausgezeichnet mit dem Europ\u00E4ischen Architekturpreis, den FAD Awards und der Stadt Barcelona.',
+          'stat1': 'Jahre Praxis',
+          'stat2': 'Abgeschlossene Projekte',
+          'stat3': 'Designpreise',
+          'contact-label': 'Kontakt',
+          'contact-title': 'Lassen Sie uns etwas gemeinsam schaffen',
+          'contact-desc': 'Ob klares Briefing oder erste Idee \u2014 wir freuen uns von Ihnen zu h\u00F6ren.',
+          'contact-address-label': 'Studio',
+          'contact-address': 'Carrer de la Diputaci\u00F3 238, 4-2<br>08007 Barcelona, Spanien',
+          'contact-phone-label': 'Telefon',
+          'contact-phone': '+34 93 123 45 67',
+          'contact-email-label': 'E-Mail',
+          'form-name': 'Name',
+          'form-email': 'E-Mail',
+          'form-project': 'Projekttyp',
+          'form-message': 'Erz\u00E4hlen Sie von Ihrem Projekt',
+          'form-submit': 'Anfrage senden',
+          'form-name-placeholder': 'z.B. Maria Garcia',
+          'form-email-placeholder': 'maria@beispiel.de',
+          'form-project-default': 'Projekttyp w\u00E4hlen',
+          'form-project-residential': 'Wohnbau',
+          'form-project-commercial': 'Gewerblich',
+          'form-project-interior': 'Innenarchitektur',
+          'form-project-urban': 'Stadt / Landschaft',
+          'form-project-other': 'Anderes',
+          'form-message-placeholder': 'Beschreiben Sie Ihr Projekt kurz.',
+          'cookie-text': 'Wir verwenden essentielle Cookies. Durch die weitere Nutzung stimmen Sie dem zu.',
+          'cookie-accept': 'Akzeptieren',
+          'footer-desc': 'Architektur- und Innenarchitekturstudio in Barcelona. R\u00E4ume die Licht, Material und Landschaft vereinen \u2014 seit 2012.',
+          'footer-nav': 'Navigation',
+          'footer-services': 'Leistungen',
+          'footer-legal': 'Rechtliches',
+          'footer-privacy': 'Datenschutz',
+          'footer-cookies': 'Cookie-Richtlinie',
+          'footer-terms': 'AGB',
+          'footer-copyright': '\u00A9 2026 Atrium Studio SLP. Alle Rechte vorbehalten.'
+        },
+        it: {
+          'hero-badge': 'Barcellona \u00B7 Fond. 2012',
+          'hero-title': 'Spazi che Respirano',
+          'hero-sub': 'Architettura e interior design radicati nella luce, nell\u2019onest\u00E0 dei materiali e nella poesia silenziosa della vita quotidiana.',
+          'hero-cta-primary': 'Vedi i nostri lavori',
+          'hero-cta-secondary': 'Avvia un progetto',
+          'scroll': 'Scorri',
+          'nav-projects': 'Progetti',
+          'nav-services': 'Servizi',
+          'nav-process': 'Processo',
+          'nav-testimonials': 'Testimonianze',
+          'nav-studio': 'Studio',
+          'nav-contact': 'Contatti',
+          'projects-label': 'Lavori Scelti',
+          'projects-title': 'Progetti che definiscono come viviamo',
+          'projects-desc': 'Ogni incarico \u00E8 un dialogo tra luogo e scopo. Ecco quattro narrazioni recenti.',
+          'project1-meta': 'Residenziale \u00B7 2025',
+          'project1-title': 'Casa Serra \u2014 Rifugio Collinare',
+          'project1-desc': 'Una residenza di cemento e vetro scolpita nella collina catalana. Ogni stanza si apre su un cortile privato o sulla valle.',
+          'project2-meta': 'Commerciale \u00B7 2024',
+          'project2-title': 'Scribe \u2014 Coworking & Biblioteca',
+          'project2-desc': 'Uno spazio di lavoro che si legge come una biblioteca privata. Volume, silenzio e quercia.',
+          'project3-meta': 'Interno \u00B7 2025',
+          'project3-title': 'Appartamento Pla\u00E7a Major',
+          'project3-desc': '120m\u00B2 in un edificio settecentesco dell\u2019Eixample. Modanature originali e falegnameria su misura.',
+          'project4-meta': 'Culturale \u00B7 2024',
+          'project4-title': 'Padiglione Can Framis',
+          'project4-desc': 'Un padiglione espositivo di 400m\u00B2 nel museo Can Framis. Un piano di cemento piegato che si solleva a un angolo.',
+          'services-label': 'Competenze',
+          'services-title': 'Cosa facciamo',
+          'services-desc': 'Da una singola stanza a un intero quartiere \u2014 la stessa attenzione a soglie, luce e sensazione dello spazio.',
+          'service1-title': 'Architettura',
+          'service1-desc': 'Nuove costruzioni, ristrutturazioni e ampliamenti. Cemento, acciaio, pietra e legno scelti per il loro comportamento nel tempo.',
+          'service2-title': 'Interior Design',
+          'service2-desc': 'Interni che invecchiano con grazia. Palette sobria: pietra, quercia, intonaco a calce, piastrelle artigianali.',
+          'service3-title': 'Urbano & Paesaggio',
+          'service3-desc': 'Spazi pubblici, pianificazione urbanistica e architettura del paesaggio. Interventi che sembrano inevitabili.',
+          'process-label': 'Come lavoriamo',
+          'process-title': 'Dalla conversazione alla pietra angolare',
+          'process-desc': 'Un processo umano, senza modelli o formalismo.',
+          'process1-title': 'Ascoltare e Osservare',
+          'process1-desc': 'Trascorriamo tempo sul posto \u2014 osservando la luce, il vento, il tuo modo di vivere.',
+          'process2-title': 'Disegnare e Raffinare',
+          'process2-desc': 'Modelli fisici, schizzi, prototipi a grandezza naturale.',
+          'process3-title': 'Costruire e Abitare',
+          'process3-desc': 'Rimaniamo in cantiere, accanto agli artigiani, per preservare l\u2019idea originale.',
+          'testimonials-label': 'Testimonianze',
+          'testimonials-title': 'Cosa dicono i clienti',
+          'testimonials-desc': 'Misuriamo il lavoro da come uno spazio si sente cinque anni dopo.',
+          'testimonial1-quote': '\u201CAtrium ha capito cosa volevamo prima che avessimo le parole. La nostra casa respira con il paesaggio.\u201D',
+          'testimonial1-name': 'James & Ana Torres',
+          'testimonial1-role': 'Casa Serra, Girona',
+          'testimonial2-quote': '\u201CIl padiglione sembra antico e nuovo allo stesso tempo. La gente lo attraversa lentamente \u2014 proprio come l\u2019arte merita.\u201D',
+          'testimonial2-name': 'Maria Costa',
+          'testimonial2-role': 'Direttrice, Museo Can Framis',
+          'testimonial3-quote': '\u201CAtrium ha trasformato un sito urbano difficile in un edificio che onora tutto il quartiere.\u201D',
+          'testimonial3-name': 'Carlos Vives',
+          'testimonial3-role': 'Sviluppatore, Quartiere Poblenou',
+          'studio-label': 'Il nostro studio',
+          'studio-quote': '\u201CL\u2019architettura non riguarda la forma. Riguarda la qualit\u00E0 dello spazio tra le pareti.\u201D',
+          'studio-p1': 'Fondato nel 2012, Atrium \u00E8 uno studio di Barcellona con dodici architetti, designer e artigiani.',
+          'studio-p2': 'Siamo attratti da materiali naturali e costruzione onesta. Riconosciuti dal Premio Europeo di Architettura, dai premi FAD e dal Comune di Barcellona.',
+          'stat1': 'Anni di pratica',
+          'stat2': 'Progetti completati',
+          'stat3': 'Premi di design',
+          'contact-label': 'Contatti',
+          'contact-title': 'Creiamo insieme',
+          'contact-desc': 'Che abbiate un brief chiaro o solo un\u2019idea \u2014 saremo lieti di sentirvi.',
+          'contact-address-label': 'Studio',
+          'contact-address': 'Carrer de la Diputaci\u00F3 238, 4-2<br>08007 Barcellona, Spagna',
+          'contact-phone-label': 'Telefono',
+          'contact-phone': '+34 93 123 45 67',
+          'contact-email-label': 'Email',
+          'form-name': 'Nome',
+          'form-email': 'Email',
+          'form-project': 'Tipo di progetto',
+          'form-message': 'Parlaci del tuo progetto',
+          'form-submit': 'Invia richiesta',
+          'form-name-placeholder': 'es. Maria Garcia',
+          'form-email-placeholder': 'maria@esempio.com',
+          'form-project-default': 'Seleziona un tipo',
+          'form-project-residential': 'Residenziale',
+          'form-project-commercial': 'Commerciale',
+          'form-project-interior': 'Interior design',
+          'form-project-urban': 'Urbano / Paesaggio',
+          'form-project-other': 'Altro',
+          'form-message-placeholder': 'Descrivi brevemente il tuo progetto.',
+          'cookie-text': 'Utilizziamo cookie essenziali. Continuando, accetti il loro uso.',
+          'cookie-accept': 'Accetta',
+          'footer-desc': 'Studio di architettura e interior design a Barcellona. Spazi che armonizzano luce, materiale e paesaggio dal 2012.',
+          'footer-nav': 'Navigazione',
+          'footer-services': 'Servizi',
+          'footer-legal': 'Legale',
+          'footer-privacy': 'Informativa privacy',
+          'footer-cookies': 'Informativa cookie',
+          'footer-terms': 'Termini di servizio',
+          'footer-copyright': '\u00A9 2026 Atrium Studio SLP. Tutti i diritti riservati.'
+        },
+        pt: {
+          'hero-badge': 'Barcelona \u00B7 Fund. 2012',
+          'hero-title': 'Espa\u00E7os que Respiram',
+          'hero-sub': 'Arquitetura e design de interiores enraizados na luz, na honestidade dos materiais e na poesia silenciosa do cotidiano.',
+          'hero-cta-primary': 'Ver nosso trabalho',
+          'hero-cta-secondary': 'Iniciar um projeto',
+          'scroll': 'Rolar',
+          'nav-projects': 'Projetos',
+          'nav-services': 'Servi\u00E7os',
+          'nav-process': 'Processo',
+          'nav-testimonials': 'Depoimentos',
+          'nav-studio': 'Est\u00FAdio',
+          'nav-contact': 'Contato',
+          'projects-label': 'Trabalhos Selecionados',
+          'projects-title': 'Projetos que definem como vivemos',
+          'projects-desc': 'Cada encomenda \u00E9 um di\u00E1logo entre lugar e prop\u00F3sito. Aqui est\u00E3o quatro narrativas recentes.',
+          'project1-meta': 'Residencial \u00B7 2025',
+          'project1-title': 'Casa Serra \u2014 Ref\u00FAgio na Colina',
+          'project1-desc': 'Uma resid\u00EAncia de concreto e vidro esculpida na encosta catal\u00E3. Cada quarto se abre para um p\u00E1tio particular ou o vale.',
+          'project2-meta': 'Comercial \u00B7 2024',
+          'project2-title': 'Scribe \u2014 Coworking & Biblioteca',
+          'project2-desc': 'Um espa\u00E7o de trabalho que se l\u00EA como uma biblioteca privada. Volume, sil\u00EAncio e carvalho.',
+          'project3-meta': 'Interior \u00B7 2025',
+          'project3-title': 'Apartamento Pla\u00E7a Major',
+          'project3-desc': '120m\u00B2 num edif\u00EDcio setecentista do Eixample. Moldura original e marcenaria sob medida.',
+          'project4-meta': 'Cultural \u00B7 2024',
+          'project4-title': 'Pavilh\u00E3o Can Framis',
+          'project4-desc': 'Um pavilh\u00E3o expositivo de 400m\u00B2 no museu Can Framis. Um plano \u00FAnico de concreto dobrado.',
+          'services-label': 'Expertise',
+          'services-title': 'O que fazemos',
+          'services-desc': 'De um c\u00F4modo a um bairro inteiro \u2014 a mesma aten\u00E7\u00E3o a limiares, luz e sensa\u00E7\u00E3o do espa\u00E7o.',
+          'service1-title': 'Arquitetura',
+          'service1-desc': 'Novas constru\u00E7\u00F5es, reformas e amplia\u00E7\u00F5es. Concreto, a\u00E7o, pedra e madeira escolhidos pelo seu comportamento ao longo do tempo.',
+          'service2-title': 'Design de Interiores',
+          'service2-desc': 'Interiores que envelhecem com eleg\u00E2ncia. Paleta contida: pedra, carvalho, gesso de cal, azulejo artesanal.',
+          'service3-title': 'Urbano & Paisagem',
+          'service3-desc': 'Espa\u00E7os p\u00FAblicos, planejamento urbano e arquitetura paisag\u00EDstica. Interven\u00E7\u00F5es que parecem inevit\u00E1veis.',
+          'process-label': 'Como trabalhamos',
+          'process-title': 'Da conversa \u00E0 pedra angular',
+          'process-desc': 'Um processo humano, sem modelos ou formalismo.',
+          'process1-title': 'Ouvir e Observar',
+          'process1-desc': 'Passamos tempo no local \u2014 observando a luz, o vento, seu modo de viver.',
+          'process2-title': 'Desenhar e Refinar',
+          'process2-desc': 'Modelos f\u00EDsicos, esbo\u00E7os, prot\u00F3tipos em escala real.',
+          'process3-title': 'Construir e Habitar',
+          'process3-desc': 'Permanecemos no canteiro ao lado dos artes\u00E3os para preservar a ideia original.',
+          'testimonials-label': 'Depoimentos',
+          'testimonials-title': 'O que dizem nossos clientes',
+          'testimonials-desc': 'Medimos nosso trabalho por como um espa\u00E7o se sente cinco anos depois.',
+          'testimonial1-quote': '\u201CA Atrium entendeu o que quer\u00EDamos antes de termos palavras. Nossa casa respira com a paisagem.\u201D',
+          'testimonial1-name': 'James & Ana Torres',
+          'testimonial1-role': 'Casa Serra, Girona',
+          'testimonial2-quote': '\u201CO pavilh\u00E3o parece antigo e novo ao mesmo tempo. As pessoas o percorrem devagar \u2014 exatamente o que a arte merece.\u201D',
+          'testimonial2-name': 'Maria Costa',
+          'testimonial2-role': 'Diretora, Museu Can Framis',
+          'testimonial3-quote': '\u201CA Atrium transformou um terreno urbano dif\u00EDcil num edif\u00EDcio que honra todo o quarteir\u00E3o.\u201D',
+          'testimonial3-name': 'Carlos Vives',
+          'testimonial3-role': 'Incorporador, Bairro Poblenou',
+          'studio-label': 'Nosso est\u00FAdio',
+          'studio-quote': '\u201CA arquitetura n\u00E3o \u00E9 sobre forma. \u00C9 sobre a qualidade do espa\u00E7o entre as paredes.\u201D',
+          'studio-p1': 'Fundado em 2012, a Atrium \u00E9 um est\u00FAdio em Barcelona com doze arquitetos, designers e artes\u00E3os.',
+          'studio-p2': 'Somos atra\u00EDdos por materiais naturais e constru\u00E7\u00E3o honesta. Reconhecidos pelo Pr\u00EAmio Europeu de Arquitetura, FAD Awards e Prefeitura de Barcelona.',
+          'stat1': 'Anos de pr\u00E1tica',
+          'stat2': 'Projetos conclu\u00EDdos',
+          'stat3': 'Pr\u00EAmios de design',
+          'contact-label': 'Contato',
+          'contact-title': 'Vamos criar juntos',
+          'contact-desc': 'Com brief claro ou apenas uma semente de ideia \u2014 adorar\u00EDamos ouvir de voc\u00EA.',
+          'contact-address-label': 'Est\u00FAdio',
+          'contact-address': 'Carrer de la Diputaci\u00F3 238, 4-2<br>08007 Barcelona, Espanha',
+          'contact-phone-label': 'Telefone',
+          'contact-phone': '+34 93 123 45 67',
+          'contact-email-label': 'Email',
+          'form-name': 'Nome',
+          'form-email': 'Email',
+          'form-project': 'Tipo de projeto',
+          'form-message': 'Conte-nos sobre seu projeto',
+          'form-submit': 'Enviar consulta',
+          'form-name-placeholder': 'ex. Maria Garcia',
+          'form-email-placeholder': 'maria@exemplo.com',
+          'form-project-default': 'Selecione um tipo',
+          'form-project-residential': 'Residencial',
+          'form-project-commercial': 'Comercial',
+          'form-project-interior': 'Design de interiores',
+          'form-project-urban': 'Urbano / Paisagem',
+          'form-project-other': 'Outro',
+          'form-message-placeholder': 'Descreva seu projeto brevemente.',
+          'cookie-text': 'Usamos cookies essenciais. Ao continuar, voc\u00EA concorda com seu uso.',
+          'cookie-accept': 'Aceitar',
+          'footer-desc': 'Est\u00FAdio de arquitetura e design de interiores em Barcelona. Espa\u00E7os que harmonizam luz, material e paisagem desde 2012.',
+          'footer-nav': 'Navega\u00E7\u00E3o',
+          'footer-services': 'Servi\u00E7os',
+          'footer-legal': 'Legal',
+          'footer-privacy': 'Pol\u00EDtica de privacidade',
+          'footer-cookies': 'Pol\u00EDtica de cookies',
+          'footer-terms': 'Termos de servi\u00E7o',
+          'footer-copyright': '\u00A9 2026 Atrium Studio SLP. Todos os direitos reservados.'
+        }
+      };
+
+      /* ---------- i18n ---------- */
+      let currentLang = 'en';
+
+      function detectLanguage() {
+        const stored = localStorage.getItem('atrium-lang');
+        if (stored && translations[stored]) return stored;
+        const browserLang = (navigator.language || '').slice(0, 2);
+        if (translations[browserLang]) return browserLang;
+        return 'en';
+      }
+
+      function setLanguage(lang) {
+        currentLang = lang;
+        localStorage.setItem('atrium-lang', lang);
+
+        // Translate data-i18n elements
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+          const key = el.dataset.i18n;
+          const text = translations[lang] && translations[lang][key];
+          if (text) {
+            el.innerHTML = text;
+          }
+        });
+
+        // Translate placeholders
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+          const key = el.dataset.i18nPlaceholder;
+          const text = translations[lang] && translations[lang][key];
+          if (text) {
+            el.placeholder = text;
+          }
+        });
+
+        // Update SEO meta
+        const titleKey = 'hero-title';
+        const descKey = 'hero-sub';
+        const tTitle = translations[lang][titleKey] || '';
+        const tDesc = translations[lang][descKey] || '';
+
+        const metaTitle = document.getElementById('meta-title');
+        const metaDesc = document.getElementById('meta-desc');
+        const ogTitle = document.getElementById('og-title');
+        const ogDesc = document.getElementById('og-desc');
+        const twTitle = document.getElementById('tw-title');
+        const twDesc = document.getElementById('tw-desc');
+
+        if (metaTitle) metaTitle.textContent = 'Atrium \u2014 ' + tTitle + ' | Architecture & Design';
+        if (ogTitle) ogTitle.textContent = 'Atrium \u2014 ' + tTitle;
+        if (twTitle) twTitle.textContent = 'Atrium \u2014 ' + tTitle;
+        if (metaDesc) metaDesc.setAttribute('content', tDesc);
+        if (ogDesc) ogDesc.setAttribute('content', tDesc);
+        if (twDesc) twDesc.setAttribute('content', tDesc);
+
+        // Update lang buttons
+        var cur = document.getElementById('langCur');
+        if (cur) cur.textContent = lang.toUpperCase();
+        document.querySelectorAll('.lang-select__opt').forEach(opt => {
+          opt.setAttribute('aria-selected', opt.dataset.lang === lang ? 'true' : 'false');
+        });
+
+        // Update html lang attribute
+        document.documentElement.lang = lang === 'en' ? 'en' : lang;
+      }
+
+      // Initialize language
+      const detected = detectLanguage();
+      setLanguage(detected);
+
+      // Language switcher dropdown
+      var langBtn = document.getElementById('langBtn');
+      var langWrap = document.getElementById('langSelect');
+      var langMenu = langWrap ? langWrap.querySelector('.lang-select__menu') : null;
+      function closeLangMenu() {
+        if (!langMenu) return;
+        langMenu.classList.remove('open');
+        if (langBtn) langBtn.setAttribute('aria-expanded', 'false');
+      }
+      if (langBtn && langMenu) {
+        langBtn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          var open = langMenu.classList.toggle('open');
+          langBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+        document.addEventListener('click', function(e) {
+          if (!langWrap.contains(e.target)) closeLangMenu();
+        });
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape') closeLangMenu();
+        });
+        langMenu.querySelectorAll('.lang-select__opt').forEach(function(opt) {
+          opt.addEventListener('click', function() {
+            setLanguage(opt.getAttribute('data-lang'));
+            closeLangMenu();
+          });
+        });
+      }
+
+      /* ---------- Cookie Banner ---------- */
+      const cookieBanner = document.getElementById('cookieBanner');
+      const cookieAccept = document.getElementById('cookieAccept');
+
+      if (!localStorage.getItem('atrium-cookies')) {
+        cookieBanner.classList.add('show');
+      }
+
+      cookieAccept.addEventListener('click', function() {
+        localStorage.setItem('atrium-cookies', 'accepted');
+        cookieBanner.classList.remove('show');
+      });
+
+      /* ---------- Navbar scroll effect ---------- */
+      const nav = document.getElementById('nav');
+      let lastScrollY = 0;
+
+      function handleScroll() {
+        const scrollY = window.scrollY;
+        if (scrollY > 80) {
+          nav.classList.add('scrolled');
+        } else {
+          nav.classList.remove('scrolled');
+        }
+        lastScrollY = scrollY;
+      }
+
+      window.addEventListener('scroll', handleScroll, { passive: true });
+      handleScroll();
+
+      /* ---------- Mobile menu ---------- */
+      const mobileBtn = document.getElementById('mobileMenuBtn');
+      const navLinks = document.getElementById('navLinks');
+
+      if (mobileBtn) {
+        mobileBtn.addEventListener('click', function() {
+          const isOpen = navLinks.classList.toggle('open');
+          this.setAttribute('aria-expanded', isOpen);
+        });
+
+        // Close on link click
+        navLinks.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', function() {
+            navLinks.classList.remove('open');
+            mobileBtn.setAttribute('aria-expanded', 'false');
+          });
+        });
+      }
+
+      /* ---------- Floating CTA ---------- */
+      const floatingCta = document.getElementById('floatingCta');
+
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 600) {
+          floatingCta.classList.add('show');
+        } else {
+          floatingCta.classList.remove('show');
+        }
+      }, { passive: true });
+
+      /* ---------- Intersection Observer for reveals ---------- */
+      const revealElements = document.querySelectorAll('.reveal');
+
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+            }
+          });
+        }, {
+          threshold: 0.12,
+          rootMargin: '0px 0px -40px 0px'
+        });
+
+        revealElements.forEach(el => observer.observe(el));
+      } else {
+        // Fallback: show everything
+        revealElements.forEach(el => el.classList.add('visible'));
+      }
+
+      /* ---------- Hero parallax ---------- */
+      const heroImage = document.getElementById('heroImage');
+
+      if (heroImage && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        window.addEventListener('scroll', function() {
+          const scrollY = window.scrollY;
+          const heroHeight = document.querySelector('.hero').offsetHeight;
+          if (scrollY <= heroHeight) {
+            const translateY = scrollY * 0.35;
+            heroImage.style.transform = 'translateY(' + translateY + 'px)';
+          }
+        }, { passive: true });
+      }
+
+      /* ---------- Contact form handler ---------- */
+      const contactForm = document.getElementById('contactForm');
+      if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          const btn = this.querySelector('.form-submit');
+          const originalText = btn.textContent;
+          btn.textContent = translations[currentLang]['form-submit-sent'] || 'Sent \u2713';
+          btn.disabled = true;
+          setTimeout(() => {
+            btn.textContent = originalText;
+            btn.disabled = false;
+            this.reset();
+          }, 3000);
+        });
+      }
+
+      /* ---------- Smooth scroll for anchor links ---------- */
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

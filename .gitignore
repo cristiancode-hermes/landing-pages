@@ -1,0 +1,8 @@
+# Build leftovers
+.build/
+_azimut_build/
+_build_ondaocho/
+_gen_quiebre/
+_qa-puente/
+node_modules/
+.DS_Store

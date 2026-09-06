@@ -1,0 +1,1522 @@
+<!DOCTYPE html>
+<html lang="es" class="no-js" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="doc-title">QUIEBRE · Tostadero de especialidad en Embajadores</title>
+<meta id="meta-desc" name="description" content="Tostadero de café de especialidad en Madrid: un lote a la vez, curva anotada, saca el jueves. Huila, filtro y espresso por separado.">
+<link rel="canonical" href="https://proyectos.cristiancode.dev/landings/2026-08-29-quiebre.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="QUIEBRE · El crack es el momento">
+<meta property="og:description" content="Un lote a la vez. Curva anotada a mano. Saca el jueves en Embajadores.">
+<meta property="og:url" content="https://proyectos.cristiancode.dev/landings/2026-08-29-quiebre.html">
+<meta property="og:image" content="https://cristiancode.dev/assets/landing-2026-08-29-quiebre.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="QUIEBRE · Tostadero">
+<meta name="twitter:description" content="El crack es el momento. Nosotros lo escuchamos.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#FAFF69">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23141414'/%3E%3Crect x='8' y='8' width='16' height='16' fill='%23FAFF69'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Red+Hat+Display:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+
+/* ============================================================
+   DESIGN SYSTEM — QUIEBRE · Tostadero de especialidad
+   Surface: Decide/Learn (landing; hero correct). Secondary
+            Monitor: roast-curve cockpit. Compare: filter vs
+            espresso. Operate: replay + profile switch.
+   Derived from: ClickHouse (popular-web-designs) — neon volt
+            #faff69, forest #166534, charcoal containment,
+            4–8px radii, heavy display weight, NO Inter.
+            Diverged: light log-sheet as default (capture +
+            last two dailies were void-black), curve is the
+            product object not a hero-metric stack.
+   Family: Food / Specialty coffee
+   Style: Technical roast log — volt highlighter on a paper
+          cockpit, forest conversion, mono readouts.
+   Strategy: Restrained (neutrals + volt ≤10% + forest CTA)
+   Type: Red Hat Display 800/900 (mass) + IBM Plex Sans
+         (humanist body) + IBM Plex Mono (curve labels)
+   Impeccable: no gradient text, no glass, no side-stripe,
+         no 3 equal tiles, no hero-metrics, no uppercase
+         eyebrow on every section, numbers only on Thursday
+         sequence, no Inter, no indigo.
+   ============================================================ */
+:root{
+  --z-nav:30; --z-banner:40; --z-menu:45; --z-toast:60;
+  --bg:#F6F6F4; --bg-2:#EFEFEA; --card:#FFFFFF;
+  --ink:#141414; --muted:#3E4132; --faint:#4A4D3A;
+  --line:#D4D4D0; --line-strong:#B8B8B2;
+  --volt:#FAFF69; --volt-ink:#151515;
+  --forest:#166534; --forest-hover:#14572F; --forest-ink:#FFFFFF;
+  --cta:#FAFF69; --cta-ink:#151515; --cta-hover:#E6EB4A;
+  --link:#166534; --ok:#14572F; --err:#B42318;
+  --stage:#141414; --stage-ink:#F6F6F4; --stage-muted:#C8C8C8;
+  --disp:'Red Hat Display',Arial,Helvetica,sans-serif;
+  --sans:'IBM Plex Sans',system-ui,'Segoe UI',Roboto,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --r:8px; --r-sm:4px;
+  --ease:cubic-bezier(.16,1,.3,1);
+  --nav-h:64px;
+}
+[data-theme="dark"]{
+  --bg:#000000; --bg-2:#141414; --card:#141414;
+  --ink:#FFFFFF; --muted:#C8C8C8; --faint:#A0A0A0;
+  --line:rgba(65,65,65,.8); --line-strong:#585858;
+  --link:#FAFF69;
+  --cta:#FAFF69; --cta-ink:#151515; --cta-hover:#E6EB4A;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+html.no-js .rv, html.reduced .rv{opacity:1!important;transform:none!important}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:1.0625rem;line-height:1.55;font-weight:400;-webkit-font-smoothing:antialiased}
+img,svg{display:block;max-width:100%}
+a{color:var(--link);text-decoration:none}
+a:hover{color:var(--forest-hover)}
+[data-theme="dark"] a:hover{color:#F4F692}
+h1,h2,h3{font-family:var(--disp);font-weight:800;letter-spacing:-0.03em;line-height:1.05;text-wrap:balance;margin:0;color:var(--ink)}
+p,li{text-wrap:pretty}
+.visually-hidden{position:absolute;width:1px;height:1px;margin:-1px;padding:0;border:0;clip:rect(0 0 0 0);overflow:hidden;white-space:nowrap}
+.wrap{width:100%;max-width:1180px;margin:0 auto;padding:0 22px}
+section{scroll-margin-top:calc(var(--nav-h) + 12px)}
+.skip{position:absolute;left:12px;top:-80px;background:var(--volt);color:var(--volt-ink);padding:.5rem 1rem;z-index:var(--z-toast);border-radius:var(--r-sm);font-weight:600}
+.skip:focus{top:12px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:.45rem;
+  min-height:44px;padding:.7rem 1.25rem;border-radius:var(--r-sm);
+  font-family:var(--sans);font-size:.95rem;font-weight:600;line-height:1;
+  border:1px solid transparent;cursor:pointer;text-decoration:none;
+  transition:background .25s var(--ease),color .25s var(--ease),border-color .25s var(--ease),transform .25s var(--ease);
+}
+.btn:focus-visible{outline:2px solid var(--forest);outline-offset:3px}
+.btn-primary, a.btn-primary{
+  background:var(--cta);color:var(--cta-ink);border-color:#151515;
+}
+.btn-primary:hover, a.btn-primary:hover{background:var(--cta-hover);color:var(--cta-ink)}
+.btn-forest, a.btn-forest{
+  background:var(--forest);color:var(--forest-ink);border-color:#141414;
+}
+.btn-forest:hover, a.btn-forest:hover{background:var(--forest-hover);color:#fff}
+.btn-ghost, a.btn-ghost{
+  background:transparent;color:var(--ink);border-color:#4F5100;
+}
+.btn-ghost:hover, a.btn-ghost:hover{background:var(--bg-2)}
+.nav{position:sticky;top:0;z-index:var(--z-nav);background:var(--bg);border-bottom:1px solid var(--line);height:var(--nav-h)}
+.nav-inner{display:flex;align-items:center;gap:18px;height:var(--nav-h)}
+.logo{display:flex;align-items:center;gap:10px;color:var(--ink);font-family:var(--disp);font-weight:800;letter-spacing:-0.03em;font-size:1.15rem}
+.logo-mark{width:18px;height:18px;background:var(--volt);border:1px solid #151515;flex:0 0 18px}
+.nav-links{display:flex;gap:1.15rem;list-style:none;margin:0;padding:0;margin-left:auto}
+.nav-links a{color:var(--ink);font-size:.92rem;font-weight:500}
+.nav-links a:hover{color:var(--link)}
+.nav-actions{display:flex;align-items:center;gap:8px}
+.icon-btn{width:40px;height:40px;border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:var(--r-sm);cursor:pointer;display:inline-flex;align-items:center;justify-content:center}
+.icon-btn:focus-visible{outline:2px solid var(--forest);outline-offset:2px}
+.burger{display:none}
+.lang-select{position:relative}
+.lang-select__btn{
+  display:inline-flex;align-items:center;gap:.45rem;height:40px;padding:0 .8rem;
+  border:1px solid var(--line);border-radius:var(--r-sm);background:transparent;color:var(--ink);
+  font-size:.8rem;font-weight:600;cursor:pointer;font-family:var(--mono);
+}
+.lang-select__btn[aria-expanded="true"] .lang-select__chev{transform:rotate(180deg)}
+.lang-select__chev{transition:transform .2s var(--ease)}
+.lang-select__menu{
+  position:absolute;top:calc(100% + 8px);right:0;z-index:var(--z-menu);
+  min-width:168px;padding:.35rem;background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+  opacity:0;visibility:hidden;transform:translateY(-4px);
+  transition:opacity .2s var(--ease),transform .2s var(--ease),visibility .2s;
+}
+.lang-select__menu.open{opacity:1;visibility:visible;transform:none}
+.lang-select__opt{
+  display:flex;width:100%;padding:.5rem .7rem;border:0;background:none;text-align:left;
+  font-size:.85rem;color:var(--ink);border-radius:var(--r-sm);cursor:pointer;font-family:var(--sans);
+}
+.lang-select__opt:hover{background:var(--bg-2)}
+.lang-select__opt[aria-selected="true"]{font-weight:700}
+.lang-select__opt[aria-selected="true"]::after{content:'✓';margin-left:auto}
+.mobile-menu{display:none}
+.hero{padding:48px 0 28px;border-bottom:1px solid var(--line)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:36px;align-items:end}
+.hero h1{font-size:clamp(2.2rem,5.4vw,4.6rem);max-width:16ch;letter-spacing:-0.035em}
+.hero-lead{margin:1.1rem 0 1.5rem;color:var(--muted);max-width:46ch;font-size:1.05rem}
+.hero-cta{display:flex;flex-wrap:wrap;gap:10px}
+.readout{margin-top:1.4rem;font-family:var(--mono);font-size:.78rem;color:var(--faint);letter-spacing:.02em}
+.cockpit{background:var(--stage);color:var(--stage-ink);border-radius:var(--r);padding:16px 16px 12px;border:1px solid #141414}
+.cockpit-bar{display:flex;align-items:center;gap:8px;margin-bottom:10px;flex-wrap:wrap}
+.seg{display:flex;border:1px solid #414141;border-radius:var(--r-sm);overflow:hidden}
+.seg button{min-height:36px;padding:0 .85rem;border:0;background:transparent;color:var(--stage-ink);font-family:var(--mono);font-size:.72rem;letter-spacing:.04em;text-transform:uppercase;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--volt);color:var(--volt-ink)}
+.replay{margin-left:auto;min-height:36px;padding:0 .85rem;border:1px solid #4F5100;background:transparent;color:var(--stage-ink);font-family:var(--mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.04em;cursor:pointer;border-radius:var(--r-sm)}
+.chart{width:100%;height:auto;overflow:visible}
+.chart .grid{stroke:#3A3A3A;stroke-width:1}
+.chart .axis{stroke:#585858;stroke-width:1}
+.chart .curve{fill:none;stroke:#FAFF69;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.chart .curve-ghost{fill:none;stroke:#414141;stroke-width:1.5}
+.chart .fc-line{stroke:#FAFF69;stroke-dasharray:3 4;stroke-width:1}
+.chart text{font-family:var(--mono);font-size:10px;fill:#A0A0A0}
+.chart .volt-dot{fill:#FAFF69;stroke:#151515;stroke-width:1}
+.cockpit-cap{margin:.75rem 0 0;color:var(--stage-muted);font-size:.82rem;max-width:62ch}
+.lot{padding:72px 0;background:var(--bg)}
+.lot-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:40px;align-items:start}
+.sack{background:var(--stage);border-radius:var(--r);padding:28px;min-height:320px;position:relative;overflow:hidden}
+.sack svg{width:100%;height:auto}
+.lot h2{font-size:clamp(1.7rem,3.2vw,2.7rem);max-width:18ch;margin-bottom:.8rem}
+.lot-lead{color:var(--muted);max-width:52ch;margin:0 0 1.4rem}
+.meta{display:grid;grid-template-columns:1fr 1fr;gap:14px 22px;margin:0 0 1.3rem;padding:0;border-top:1px solid var(--line)}
+.meta div{padding-top:12px;border-bottom:1px solid var(--line);padding-bottom:12px}
+.meta dt{font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);margin:0 0 4px}
+.meta dd{margin:0;font-weight:600}
+.notes{font-size:1.05rem;margin:0 0 1.3rem;max-width:48ch}
+.cmp{padding:72px 0;background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.cmp h2{font-size:clamp(1.7rem,3.2vw,2.7rem);max-width:16ch}
+.cmp .lead{color:var(--muted);max-width:54ch;margin:.8rem 0 1.8rem}
+.cmp-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:16px}
+.profile{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:28px 26px}
+.profile.hot{border-color:#151515;background:var(--volt);color:var(--volt-ink)}
+.profile.hot h2,.profile.hot h3{color:var(--volt-ink)}
+.profile.hot p,.profile.hot .drop{color:#3A3C00}
+.profile h3{font-size:2rem;margin-bottom:.35rem}
+.drop{font-family:var(--mono);font-size:.78rem;color:var(--faint);margin-bottom:1rem}
+.profile p{margin:0 0 1.3rem;color:var(--muted);max-width:42ch}
+.profile.hot .btn-primary{background:#151515;color:#FAFF69;border-color:#151515}
+.day{padding:72px 0}
+.day h2{font-size:clamp(1.7rem,3.2vw,2.7rem);max-width:18ch}
+.day .lead{color:var(--muted);max-width:54ch;margin:.8rem 0 1.8rem}
+.steps{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line)}
+.step{padding:22px 22px 24px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.step:nth-child(2n){border-right:0}
+.step time{font-family:var(--mono);font-size:.78rem;color:var(--faint);display:block;margin-bottom:.45rem}
+.step p{margin:0;color:var(--muted)}
+.plans{padding:72px 0;background:var(--bg-2);border-top:1px solid var(--line)}
+.plans h2{font-size:clamp(1.7rem,3.2vw,2.7rem)}
+.plans .lead{color:var(--muted);max-width:54ch;margin:.8rem 0 1.8rem}
+.plan-grid{display:grid;grid-template-columns:1fr 1.25fr 1fr;gap:14px;align-items:stretch}
+.plan{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:24px;display:flex;flex-direction:column}
+.plan.feat{background:var(--stage);color:var(--stage-ink);border-color:#141414}
+.plan .name{font-family:var(--disp);font-weight:800;font-size:1.45rem;letter-spacing:-0.03em}
+.plan .price{font-family:var(--mono);font-size:1.05rem;margin:.4rem 0 .8rem}
+.plan p{color:var(--muted);flex:1;margin:0 0 1.1rem}
+.plan.feat p{color:var(--stage-muted)}
+.flag{display:inline-block;background:var(--volt);color:var(--volt-ink);font-family:var(--mono);font-size:.68rem;letter-spacing:.04em;text-transform:uppercase;padding:.25rem .5rem;border-radius:var(--r-sm);margin-bottom:.7rem}
+.faq{padding:72px 0}
+.faq h2{font-size:clamp(1.7rem,3.2vw,2.6rem);margin-bottom:1.4rem;max-width:18ch}
+.faq-item{border-top:1px solid var(--line)}
+.faq-item:last-child{border-bottom:1px solid var(--line)}
+.faq-q{width:100%;text-align:left;background:none;border:0;padding:1rem 0;display:flex;justify-content:space-between;gap:12px;align-items:center;cursor:pointer;font:600 1.02rem/1.3 var(--sans);color:var(--ink)}
+.faq-q .ic{font-family:var(--mono);color:var(--faint)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s var(--ease)}
+.faq-a p{margin:0 0 1rem;color:var(--muted);max-width:62ch}
+.visit{padding:72px 0 40px;background:var(--stage);color:var(--stage-ink)}
+.visit h2{font-size:clamp(1.7rem,3.2vw,2.7rem);color:var(--stage-ink)}
+.visit .lead{color:var(--stage-muted);max-width:52ch;margin:.8rem 0 1.4rem}
+.visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px}
+.hours{font-family:var(--mono);font-size:.85rem;color:var(--stage-muted);margin-bottom:1rem}
+.addr{font-size:1.15rem;margin:0 0 1rem;color:var(--stage-ink)}
+.visit a.btn-primary,.visit a.btn-forest{color:var(--cta-ink)}
+.nl-msg{display:none;margin-top:.7rem;font-size:.88rem}
+.nl-msg.ok,.nl-msg.err{display:block}
+.nl-msg.ok{color:#B5E4C4}
+.nl-msg.err{color:#F5B7B2}
+.news-form{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.news-form input{
+  min-height:44px;padding:0 .9rem;border:1px solid #414141;background:#000;color:#fff;
+  border-radius:var(--r-sm);font-family:var(--sans);min-width:220px;flex:1;
+}
+.news-form input:focus{outline:2px solid #FAFF69;outline-offset:2px}
+.honest{font-size:.82rem;color:var(--stage-muted);max-width:50ch;margin:.8rem 0 0}
+.honest a{color:#FAFF69}
+.foot{background:var(--stage);color:var(--stage-ink);border-top:1px solid #414141;padding:28px 0 36px}
+.foot-inner{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;align-items:end}
+.foot a{color:#C8C8C8}
+.foot a:hover{color:#FAFF69}
+.foot small{color:#A0A0A0}
+.cookie{
+  position:fixed;right:18px;bottom:18px;left:auto;z-index:var(--z-banner);
+  max-width:340px;background:var(--stage);color:var(--stage-ink);
+  border:1px solid #414141;border-radius:var(--r);padding:14px 14px 12px;
+  transform:translateY(calc(100% + 2rem));opacity:0;pointer-events:none;
+  transition:transform .4s var(--ease),opacity .4s var(--ease);
+}
+.cookie.show{transform:none;opacity:1;pointer-events:auto}
+.cookie p{margin:0 0 .8rem;font-size:.85rem;color:var(--stage-muted)}
+.cookie-actions{display:flex;gap:8px}
+.cookie .accept{background:var(--volt);color:var(--volt-ink);border:1px solid #151515;min-height:40px;padding:.5rem 1rem;border-radius:var(--r-sm);font-weight:700;cursor:pointer}
+.cookie .deny{background:transparent;color:var(--stage-ink);border:1px solid #4F5100;min-height:40px;padding:.5rem 1rem;border-radius:var(--r-sm);cursor:pointer}
+.rv{opacity:0;transform:translateY(14px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+  .rv{opacity:1;transform:none}
+  .chart .curve{stroke-dasharray:none!important;stroke-dashoffset:0!important}
+}
+@media (max-width:900px){
+  .nav-links,.nav-desktop-only{display:none}
+  .burger{display:inline-flex}
+  .hero-grid,.lot-grid,.cmp-grid,.visit-grid,.plan-grid,.steps{grid-template-columns:1fr}
+  .hero{padding:28px 0 20px}
+  .hero h1{font-size:clamp(2rem,9vw,3.2rem)}
+  .step:nth-child(2n){border-right:1px solid var(--line)}
+  .steps .step:nth-child(n){border-right:0}
+  .mobile-menu{display:none;position:fixed;inset:var(--nav-h) 0 auto 0;background:var(--bg);border-bottom:1px solid var(--line);padding:16px 22px 22px;z-index:var(--z-menu)}
+  .mobile-menu.open{display:block}
+  .mobile-menu a{display:block;padding:.7rem 0;color:var(--ink);font-weight:600}
+  .mobile-menu a.btn-primary{
+    color:var(--cta-ink);background:var(--cta);padding:.75rem 1.4rem;margin-top:8px;text-align:center;
+  }
+  .m-tools{display:flex;gap:8px;margin:12px 0}
+  /* Keep cookie bottom-right on ≤900px: docking under nav covered the H1. */
+  .cookie{left:auto;right:12px;bottom:12px;top:auto;max-width:min(340px,calc(100vw - 24px))}
+  .cookie:not(.show){transform:translateY(calc(100% + 2rem))}
+  .cookie.show{transform:none}
+}
+@media (max-width:700px){
+  .hero-grid{gap:22px}
+  .meta{grid-template-columns:1fr}
+}
+
+.visit h2,.visit h3{color:var(--stage-ink)}
+.profile.hot h2,.profile.hot h3{color:var(--volt-ink)}
+.visit a.btn-ghost{color:var(--stage-ink);border-color:#4F5100}
+[data-theme="dark"] a:not(.btn){color:var(--link)}
+[data-theme="dark"] .nav-links a,
+[data-theme="dark"] .mobile-menu a:not(.btn-primary){color:var(--ink)}
+.mobile-menu a.btn-primary{color:var(--cta-ink)!important;background:var(--cta);padding:.75rem 1.4rem}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main" data-i18n="skip">Saltar al contenido</a>
+<header class="nav" id="siteNav">
+  <div class="wrap nav-inner">
+    <a class="logo" href="#hero"><span class="logo-mark" aria-hidden="true"></span>QUIEBRE</a>
+    <ul class="nav-links nav-desktop-only">
+      <li><a href="#lote" data-i18n="nav.lots">Lote</a></li>
+      <li><a href="#curva" data-i18n="nav.curve">Curva</a></li>
+      <li><a href="#jueves" data-i18n="nav.day">Jueves</a></li>
+      <li><a href="#sacas" data-i18n="nav.plans">Sacas</a></li>
+      <li><a href="#dudas" data-i18n="nav.faq">Dudas</a></li>
+      <li><a href="#pasar" data-i18n="nav.visit">Pasar</a></li>
+    </ul>
+    <div class="nav-actions">
+      <div class="lang-select nav-desktop-only">
+        <button class="lang-select__btn" type="button" aria-haspopup="listbox" aria-expanded="false" data-i18n-aria="lang.aria">
+          <span class="lang-select__cur">ES</span>
+          <svg class="lang-select__chev" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </button>
+        <div class="lang-select__menu" role="listbox">
+          <button class="lang-select__opt" role="option" data-lang="en" aria-selected="false">English</button>
+          <button class="lang-select__opt" role="option" data-lang="es" aria-selected="true">Español</button>
+          <button class="lang-select__opt" role="option" data-lang="fr" aria-selected="false">Français</button>
+          <button class="lang-select__opt" role="option" data-lang="de" aria-selected="false">Deutsch</button>
+          <button class="lang-select__opt" role="option" data-lang="it" aria-selected="false">Italiano</button>
+          <button class="lang-select__opt" role="option" data-lang="pt" aria-selected="false">Português</button>
+        </div>
+      </div>
+      <button class="icon-btn nav-desktop-only" id="themeToggle" type="button" data-i18n-aria="theme.aria" aria-label="Tema">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="3.2" stroke="currentColor" stroke-width="1.4"/><path d="M8 1.4v1.6M8 13v1.6M1.4 8h1.6M13 8h1.6M3.1 3.1l1.1 1.1M11.8 11.8l1.1 1.1M3.1 12.9l1.1-1.1M11.8 4.2l1.1-1.1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+      </button>
+      <a class="btn btn-primary nav-desktop-only" href="#sacas" data-i18n="nav.cta">Reservar lote</a>
+      <button class="icon-btn burger" id="burger" type="button" aria-expanded="false" data-i18n-aria="burger.aria" aria-controls="mobileMenu">
+        <svg width="18" height="12" viewBox="0 0 18 12" fill="none" aria-hidden="true"><path d="M0 1h18M0 6h18M0 11h18" stroke="currentColor" stroke-width="1.6"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <a href="#lote" data-i18n="nav.lots">Lote</a>
+    <a href="#curva" data-i18n="nav.curve">Curva</a>
+    <a href="#jueves" data-i18n="nav.day">Jueves</a>
+    <a href="#sacas" data-i18n="nav.plans">Sacas</a>
+    <a href="#dudas" data-i18n="nav.faq">Dudas</a>
+    <a href="#pasar" data-i18n="nav.visit">Pasar</a>
+    <div class="m-tools">
+      <div class="lang-select">
+        <button class="lang-select__btn" type="button" aria-haspopup="listbox" aria-expanded="false" data-i18n-aria="lang.aria">
+          <span class="lang-select__cur">ES</span>
+          <svg class="lang-select__chev" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </button>
+        <div class="lang-select__menu" role="listbox">
+          <button class="lang-select__opt" role="option" data-lang="en">English</button>
+          <button class="lang-select__opt" role="option" data-lang="es">Español</button>
+          <button class="lang-select__opt" role="option" data-lang="fr">Français</button>
+          <button class="lang-select__opt" role="option" data-lang="de">Deutsch</button>
+          <button class="lang-select__opt" role="option" data-lang="it">Italiano</button>
+          <button class="lang-select__opt" role="option" data-lang="pt">Português</button>
+        </div>
+      </div>
+      <button class="icon-btn" id="themeToggleM" type="button" data-i18n-aria="theme.aria" aria-label="Tema">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="3.2" stroke="currentColor" stroke-width="1.4"/></svg>
+      </button>
+    </div>
+    <a class="btn btn-primary" href="#sacas" data-i18n="nav.cta">Reservar lote</a>
+  </div>
+</header>
+<main id="main">
+  <section class="hero" id="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1 id="hero-title" data-i18n-html="hero.title">El crack es el momento. <br>Nosotros lo escuchamos.</h1>
+        <p class="hero-lead" data-i18n="hero.lead">Tostadero de especialidad en Embajadores. Un lote a la vez, curva anotada a mano, saca el jueves.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#lote" data-i18n="hero.cta">Ver el lote de esta semana</a>
+          <a class="btn btn-ghost" href="#curva" data-i18n="hero.ghost">Cómo tostamos</a>
+        </div>
+        <p class="readout" data-i18n="hero.readout">BT 196,4 °C · primer crack · 08:42</p>
+      </div>
+      <div class="cockpit" id="curva">
+        <div class="cockpit-bar">
+          <div class="seg" role="group">
+            <button type="button" id="btnFilter" aria-pressed="true" data-i18n="curve.filter">Filtro</button>
+            <button type="button" id="btnEsp" aria-pressed="false" data-i18n="curve.espresso">Espresso</button>
+          </div>
+          <button type="button" class="replay" id="replay" data-i18n="curve.replay">Repetir curva</button>
+        </div>
+        <svg class="chart" id="roastChart" viewBox="0 0 640 300" role="img" aria-labelledby="curveCap">
+          <title>Roast curve</title>
+          <g class="grid">
+            <line x1="48" y1="40" x2="48" y2="250"/>
+            <line x1="48" y1="250" x2="620" y2="250"/>
+            <line x1="48" y1="190" x2="620" y2="190"/>
+            <line x1="48" y1="130" x2="620" y2="130"/>
+            <line x1="48" y1="70" x2="620" y2="70"/>
+          </g>
+          <text x="8" y="254">20°</text>
+          <text x="8" y="194">120°</text>
+          <text x="8" y="134">170°</text>
+          <text x="8" y="74">210°</text>
+          <text x="44" y="272" data-i18n="curve.charge">Carga</text>
+          <text x="210" y="272" data-i18n="curve.yellow">Amarillo</text>
+          <text x="390" y="272" data-i18n="curve.fc">Primer crack</text>
+          <text x="560" y="272" data-i18n="curve.drop">Saca</text>
+          <line class="fc-line" x1="410" y1="40" x2="410" y2="250"/>
+          <path class="curve-ghost" d="M48 242 C 90 238, 130 210, 170 168 S 250 118, 310 108 S 390 92, 410 78 S 520 62, 610 52"/>
+          <path class="curve" id="curvePath" d="M48 242 C 90 238, 130 210, 170 168 S 250 118, 310 108 S 390 92, 410 78 S 500 68, 590 62"/>
+          <circle class="volt-dot" id="fcDot" cx="410" cy="78" r="5"/>
+        </svg>
+        <p class="cockpit-cap" id="curveCap" data-i18n="curve.caption">Curva real del lote Huila 2508.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="lot" id="lote">
+    <div class="wrap lot-grid">
+      <div class="sack rv" aria-hidden="true">
+        <svg viewBox="0 0 360 380" xmlns="http://www.w3.org/2000/svg">
+          <rect width="360" height="380" fill="#141414"/>
+          <path d="M70 86 h220 l18 250 h-256 z" fill="#1C1C1C" stroke="#FAFF69" stroke-width="1.5"/>
+          <path d="M88 120 h184" stroke="#4F5100" stroke-width="1"/>
+          <path d="M92 160 h176" stroke="#4F5100" stroke-width="1"/>
+          <text x="180" y="214" text-anchor="middle" fill="#FAFF69" font-family="IBM Plex Mono,monospace" font-size="22" letter-spacing="4">HUILA</text>
+          <text x="180" y="238" text-anchor="middle" fill="#A0A0A0" font-family="IBM Plex Mono,monospace" font-size="11">2508 · 62 KG</text>
+          <rect x="148" y="70" width="64" height="22" fill="#FAFF69"/>
+          <text x="180" y="85" text-anchor="middle" fill="#151515" font-family="IBM Plex Mono,monospace" font-size="10">LOTE</text>
+        </svg>
+      </div>
+      <div class="rv">
+        <h2 data-i18n="lot.title">Esta semana sale Huila, finca El Roble.</h2>
+        <p class="lot-lead" data-i18n="lot.lead">Caturra lavado, 1.720 m.</p>
+        <dl class="meta">
+          <div><dt data-i18n="lot.meta1">Origen</dt><dd data-i18n="lot.origin">Huila, Colombia</dd></div>
+          <div><dt data-i18n="lot.meta2">Variedad</dt><dd data-i18n="lot.var">Caturra</dd></div>
+          <div><dt data-i18n="lot.meta3">Proceso</dt><dd data-i18n="lot.process">Lavado, 36 h fermento</dd></div>
+          <div><dt data-i18n="lot.meta4">Densidad</dt><dd data-i18n="lot.density">712 g/L</dd></div>
+        </dl>
+        <p class="notes" data-i18n="lot.notes">Panela, cáscara de naranja, cacao corto.</p>
+        <a class="btn btn-forest" href="#sacas" data-i18n="lot.cta">Reservar 250 g</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cmp" id="perfiles">
+    <div class="wrap">
+      <h2 class="rv" data-i18n="cmp.title">Dos perfiles. El mismo grano.</h2>
+      <p class="lead rv" data-i18n="cmp.lead">No tostamos un omni y lo vendemos para todo.</p>
+      <div class="cmp-grid">
+        <article class="profile rv">
+          <h3 data-i18n="cmp.a.name">Filtro</h3>
+          <p class="drop" data-i18n="cmp.a.drop">Saca 204 °C · 10:05</p>
+          <p data-i18n="cmp.a.body">Carga 180 g, aire alto desde el minuto 4.</p>
+          <a class="btn btn-ghost" href="#sacas" data-i18n="cmp.a.cta">Pedir filtro</a>
+        </article>
+        <article class="profile hot rv">
+          <h3 data-i18n="cmp.b.name">Espresso</h3>
+          <p class="drop" data-i18n="cmp.b.drop">Saca 208 °C · 11:20</p>
+          <p data-i18n="cmp.b.body">Carga 200 g, desarrollo más largo.</p>
+          <a class="btn btn-primary" href="#sacas" data-i18n="cmp.b.cta">Pedir espresso</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="day" id="jueves">
+    <div class="wrap">
+      <h2 class="rv" data-i18n="day.title">El jueves es el único día que huele a esto.</h2>
+      <p class="lead rv" data-i18n="day.lead">No hay tostadora encendida el resto de la semana.</p>
+      <div class="steps">
+        <article class="step rv"><time data-i18n="day.1.t">07:10 · Carga</time><p data-i18n="day.1.d">Tambor a 196 °C de ambiente.</p></article>
+        <article class="step rv"><time data-i18n="day.2.t">08:40 · Primer crack</time><p data-i18n="day.2.d">Se oye. No se mira un número y se decide.</p></article>
+        <article class="step rv"><time data-i18n="day.3.t">10:05 · Saca y enfriado</time><p data-i18n="day.3.d">Aire a 40 °C en menos de 3 minutos.</p></article>
+        <article class="step rv"><time data-i18n="day.4.t">16:00 · Reposo y saca</time><p data-i18n="day.4.d">Desgasifica en cubeta tapada.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="plans" id="sacas">
+    <div class="wrap">
+      <h2 class="rv" data-i18n="plans.title">Tres formas de llevarte el lote.</h2>
+      <p class="lead rv" data-i18n="plans.lead">Nada de puntos ni café de temporada eterno.</p>
+      <div class="plan-grid">
+        <article class="plan rv">
+          <div class="name" data-i18n="plan.a.name">Saca suelta</div>
+          <div class="price"><span data-i18n="plan.a.price">12 €</span> · <span data-i18n="plan.a.unit">250 g</span></div>
+          <p data-i18n="plan.a.body">El lote de la semana, molido a petición o en grano.</p>
+          <a class="btn btn-ghost" href="#pasar" data-i18n="plan.a.cta">Reservar 250 g</a>
+        </article>
+        <article class="plan feat rv">
+          <span class="flag" data-i18n="plan.b.flag">El que sale primero</span>
+          <div class="name" data-i18n="plan.b.name">Cuatro jueves</div>
+          <div class="price"><span data-i18n="plan.b.price">44 €</span> · <span data-i18n="plan.b.unit">4 × 250 g</span></div>
+          <p data-i18n="plan.b.body">Un pago. Cuatro lotes seguidos.</p>
+          <a class="btn btn-primary" href="#pasar" data-i18n="plan.b.cta">Apuntarme</a>
+        </article>
+        <article class="plan rv">
+          <div class="name" data-i18n="plan.c.name">Saco de barra</div>
+          <div class="price"><span data-i18n="plan.c.price">a consultar</span> · <span data-i18n="plan.c.unit">5 kg</span></div>
+          <p data-i18n="plan.c.body">Para cafeterías que quieren el mismo perfil dos semanas.</p>
+          <a class="btn btn-ghost" href="mailto:lotes@quiebre.madrid" data-i18n="plan.c.cta">Escribir</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq" id="dudas">
+    <div class="wrap">
+      <h2 class="rv" data-i18n="faq.title">Preguntas que nos hacen en la ventana.</h2>
+      <div class="faq-item rv">
+        <button class="faq-q" type="button" aria-expanded="false"><span data-i18n="faq.q1">¿Moléis el café?</span><span class="ic" aria-hidden="true">+</span></button>
+        <div class="faq-a"><p data-i18n="faq.a1">Sí, si lo pides al reservar.</p></div>
+      </div>
+      <div class="faq-item rv">
+        <button class="faq-q" type="button" aria-expanded="false"><span data-i18n="faq.q2">¿Enviáis a domicilio?</span><span class="ic" aria-hidden="true">+</span></button>
+        <div class="faq-a"><p data-i18n="faq.a2">No. El lote sale el jueves y se recoge aquí.</p></div>
+      </div>
+      <div class="faq-item rv">
+        <button class="faq-q" type="button" aria-expanded="false"><span data-i18n="faq.q3">¿Por qué no publicáis puntuación SCA?</span><span class="ic" aria-hidden="true">+</span></button>
+        <div class="faq-a"><p data-i18n="faq.a3">Porque una nota de 86 no te dice si esta semana está más naranja o más cacao.</p></div>
+      </div>
+      <div class="faq-item rv">
+        <button class="faq-q" type="button" aria-expanded="false"><span data-i18n="faq.q4">¿Tostáis para otras marcas?</span><span class="ic" aria-hidden="true">+</span></button>
+        <div class="faq-a"><p data-i18n="faq.a4">No. Un tambor, un lote, nuestro nombre.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="visit" id="pasar">
+    <div class="wrap visit-grid">
+      <div class="rv">
+        <h2 data-i18n="visit.title">La ventana da a la Travesía.</h2>
+        <p class="lead" data-i18n="visit.lead">No hay mostrador. Hay una ventana, una báscula y la curva del día pegada con cinta.</p>
+        <p class="hours" data-i18n="visit.hours">Jueves 16:00–19:00 · tostado 07:10–11:30</p>
+        <p class="addr" data-i18n="visit.addr">Travesía de Embajadores 18, Madrid</p>
+        <a class="btn btn-primary" href="https://www.google.com/maps/search/?api=1&query=Travesia+de+Embajadores+18+Madrid" target="_blank" rel="noopener" data-i18n="visit.map">Abrir en Maps</a>
+      </div>
+      <div class="rv">
+        <h3 data-i18n="news.title">El jueves anterior avisamos el lote.</h3>
+        <p class="lead" data-i18n="news.lead">Un correo. Origen, curva, gramos que quedan.</p>
+        <form class="news-form" id="newsForm">
+          <label class="visually-hidden" for="newsEmail">Email</label>
+          <input id="newsEmail" type="email" required autocomplete="email" data-i18n-ph="news.ph" placeholder="tu@correo.com">
+          <button class="btn btn-primary" type="submit" data-i18n="news.cta">Abrir el correo</button>
+        </form>
+        <p class="nl-msg" id="nlMsg"></p>
+        <p class="honest" data-i18n-html="news.honest">No hay lista oculta.</p>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="foot">
+  <div class="wrap foot-inner">
+    <div>
+      <strong>QUIEBRE</strong>
+      <div data-i18n="foot.tag">Tostadero de especialidad · Madrid</div>
+    </div>
+    <nav>
+      <a href="#lote" data-i18n="foot.a">Lote</a> ·
+      <a href="#sacas" data-i18n="foot.b">Sacas</a> ·
+      <a href="#pasar" data-i18n="foot.c">Pasar</a>
+    </nav>
+    <small data-i18n="foot.copy">© 2026 QUIEBRE. Un tambor. Un lote. Un jueves.</small>
+  </div>
+</footer>
+<div class="cookie" id="cookieBanner" role="dialog" aria-live="polite">
+  <p data-i18n="cookie.body">Solo guardamos idioma, tema y si cerraste este aviso.</p>
+  <div class="cookie-actions">
+    <button type="button" class="accept" id="cookieOk" data-i18n="cookie.ok">De acuerdo</button>
+    <button type="button" class="deny" id="cookieNo" data-i18n="cookie.no">Cerrar</button>
+  </div>
+</div>
+
+<script>
+
+(function () {
+  var LANGS = ['es','en','fr','de','it','pt'];
+  var THEME_KEY = 'kairos-theme';
+  var LANG_KEY = 'quiebre-lang';
+  var COOKIE_KEY = 'quiebre-cookie';
+  var I18N = {
+  es: {
+    "skip": "Saltar al contenido",
+    "nav.lots": "Lote",
+    "nav.curve": "Curva",
+    "nav.day": "Jueves",
+    "nav.plans": "Sacas",
+    "nav.faq": "Dudas",
+    "nav.visit": "Pasar",
+    "nav.cta": "Reservar lote",
+    "theme.aria": "Activar modo oscuro",
+    "theme.light": "Activar modo claro",
+    "lang.aria": "Elegir idioma",
+    "burger.aria": "Abrir menú",
+    "hero.title": "El crack es el momento. <br>Nosotros lo escuchamos.",
+    "hero.lead": "Tostadero de especialidad en Embajadores. Un lote a la vez, curva anotada a mano, saca el jueves. Sin blend secreto ni bolsa que prometa origen y entregue otra cosa.",
+    "hero.cta": "Ver el lote de esta semana",
+    "hero.ghost": "Cómo tostamos",
+    "hero.readout": "BT 196,4 °C · primer crack · 08:42",
+    "curve.charge": "Carga",
+    "curve.yellow": "Amarillo",
+    "curve.fc": "Primer crack",
+    "curve.drop": "Saca",
+    "curve.replay": "Repetir curva",
+    "curve.filter": "Filtro",
+    "curve.espresso": "Espresso",
+    "curve.caption": "Curva real del lote Huila 2508. El volt marca el primer crack — ahí paramos de empujar calor y empezamos a escuchar.",
+    "lot.title": "Esta semana sale Huila, finca El Roble.",
+    "lot.lead": "Caturra lavado, 1.720 m. Lo compramos en pergamino a Lina Herrera. 62 kg verdes. Cuando se acabe, se acaba: no hay saco de recambio con otro nombre.",
+    "lot.origin": "Huila, Colombia",
+    "lot.farm": "El Roble · Lina Herrera",
+    "lot.var": "Caturra",
+    "lot.process": "Lavado, 36 h fermento",
+    "lot.alt": "1.720 m",
+    "lot.density": "712 g/L",
+    "lot.moisture": "10,8 %",
+    "lot.notes": "Panela, cáscara de naranja, cacao corto. El final es seco, no a mermelada.",
+    "lot.cta": "Reservar 250 g",
+    "lot.meta1": "Origen",
+    "lot.meta2": "Variedad",
+    "lot.meta3": "Proceso",
+    "lot.meta4": "Densidad",
+    "cmp.title": "Dos perfiles. El mismo grano.",
+    "cmp.lead": "No tostamos un «omni» y lo vendemos para todo. Filtro y espresso salen de cargas distintas, con desarrollo distinto. Elige cómo lo vas a beber.",
+    "cmp.a.name": "Filtro",
+    "cmp.a.drop": "Saca 204 °C · 10:05",
+    "cmp.a.body": "Carga 180 g, aire alto desde el minuto 4. El primer crack dura 48 s. Taza limpia, acidez cítrica, cuerpo de té. Pensado para V60 y cafetera de émbolo.",
+    "cmp.a.cta": "Pedir filtro",
+    "cmp.b.name": "Espresso",
+    "cmp.b.drop": "Saca 208 °C · 11:20",
+    "cmp.b.body": "Carga 200 g, desarrollo más largo. El azúcar se carameliza sin llegar a humo. Crema densa, cacao y naranja confitada. 18 g in, 36 g out, 28 s.",
+    "cmp.b.cta": "Pedir espresso",
+    "day.title": "El jueves es el único día que huele a esto.",
+    "day.lead": "No hay tostadora encendida el resto de la semana. Cuatro pasos, siempre en este orden. Si fallamos uno, el lote no sale.",
+    "day.1.t": "07:10 · Carga",
+    "day.1.d": "Tambor a 196 °C de ambiente. El grano entra a temperatura de sala. Anotamos humedad y densidad antes de cerrar la puerta.",
+    "day.2.t": "08:40 · Primer crack",
+    "day.2.d": "Se oye. No se mira un número y se decide. Si el crack llega tarde, bajamos gas; si llega pronto, no empujamos.",
+    "day.3.t": "10:05 · Saca y enfriado",
+    "day.3.d": "Aire a 40 °C en menos de 3 minutos. El volt del visor se apaga. El grano deja de cocinarse.",
+    "day.4.t": "16:00 · Reposo y saca",
+    "day.4.d": "Desgasifica en cubeta tapada. A las 16:00 se pesa, se etiqueta y se abre la ventana. Quien reservó, pasa.",
+    "plans.title": "Tres formas de llevarte el lote.",
+    "plans.lead": "Nada de puntos ni café «de temporada» eterno. El lote dura lo que dura el saco.",
+    "plan.a.name": "Saca suelta",
+    "plan.a.price": "12 €",
+    "plan.a.unit": "250 g",
+    "plan.a.body": "El lote de la semana, molido a petición o en grano. Pasa el jueves de 16 a 19 h o te lo dejamos etiquetado.",
+    "plan.a.cta": "Reservar 250 g",
+    "plan.b.name": "Cuatro jueves",
+    "plan.b.price": "44 €",
+    "plan.b.unit": "4 × 250 g",
+    "plan.b.body": "Un pago. Cuatro lotes seguidos. Si un jueves no hay saco, te avisamos y se corre. El café no se sustituye por otro.",
+    "plan.b.cta": "Apuntarme",
+    "plan.b.flag": "El que sale primero",
+    "plan.c.name": "Saco de barra",
+    "plan.c.price": "a consultar",
+    "plan.c.unit": "5 kg",
+    "plan.c.body": "Para cafeterías que quieren el mismo perfil dos semanas. Curva incluida. Hablamos por correo, no hay checkout.",
+    "plan.c.cta": "Escribir",
+    "faq.title": "Preguntas que nos hacen en la ventana.",
+    "faq.q1": "¿Moléis el café?",
+    "faq.a1": "Sí, si lo pides al reservar. Trae el método: V60, émbolo, espresso, moka. Si no lo decimos, sale en grano. El molino es un EK43; no hay otro.",
+    "faq.q2": "¿Enviáis a domicilio?",
+    "faq.a2": "No. El lote sale el jueves y se recoge aquí. Si no puedes, nombra a alguien en el correo de reserva. No hay paquete ni tracking.",
+    "faq.q3": "¿Por qué no publicáis puntuación SCA?",
+    "faq.a3": "Porque una nota de 86 no te dice si esta semana está más naranja o más cacao. Publicamos la curva, la densidad y lo que huele la taza. Eso sí se puede contrastar.",
+    "faq.q4": "¿Tostáis para otras marcas?",
+    "faq.a4": "No. Un tambor, un lote, nuestro nombre. Si tu cafetería quiere el saco de barra, es el mismo café que vendemos en la ventana.",
+    "visit.title": "La ventana da a la Travesía.",
+    "visit.lead": "No hay mostrador. Hay una ventana, una báscula y la curva del día pegada con cinta. Si vienes a ver tostar, llega a las 7.",
+    "visit.hours": "Jueves 16:00–19:00 · tostado 07:10–11:30",
+    "visit.addr": "Travesía de Embajadores 18, Madrid",
+    "visit.map": "Abrir en Maps",
+    "news.title": "El jueves anterior avisamos el lote.",
+    "news.lead": "Un correo. Origen, curva, gramos que quedan. Sin descuento ni secuencia automática.",
+    "news.ph": "tu@correo.com",
+    "news.cta": "Abrir el correo",
+    "news.err": "Necesitamos un correo con @ para redactar el mensaje.",
+    "news.thanks": "Se abre tu cliente de correo. Si no, escríbenos a lotes@quiebre.madrid.",
+    "news.mail_subject": "Lote QUIEBRE",
+    "news.mail_body": "Hola QUIEBRE, quiero el aviso del lote.\nMi correo: {email}",
+    "news.honest": "No hay lista oculta: el envío abre tu programa de correo hacia <a href=\"mailto:lotes@quiebre.madrid\">lotes@quiebre.madrid</a>. Si no quieres eso, no lo pulses.",
+    "cookie.body": "Solo guardamos idioma, tema y si cerraste este aviso. Nada de analítica.",
+    "cookie.ok": "De acuerdo",
+    "cookie.no": "Cerrar",
+    "foot.tag": "Tostadero de especialidad · Madrid",
+    "foot.a": "Lote",
+    "foot.b": "Sacas",
+    "foot.c": "Pasar",
+    "foot.copy": "© 2026 QUIEBRE. Un tambor. Un lote. Un jueves.",
+    "meta.title": "QUIEBRE · Tostadero de especialidad en Embajadores",
+    "meta.desc": "Tostadero de café de especialidad en Madrid: un lote a la vez, curva anotada, saca el jueves. Huila, filtro y espresso por separado.",
+    "og.title": "QUIEBRE · El crack es el momento",
+    "og.desc": "Un lote a la vez. Curva anotada a mano. Saca el jueves en Embajadores.",
+    "tw.title": "QUIEBRE · Tostadero",
+    "tw.desc": "El crack es el momento. Nosotros lo escuchamos."
+  },
+  en: {
+    "skip": "Skip to content",
+    "nav.lots": "Lot",
+    "nav.curve": "Curve",
+    "nav.day": "Thursday",
+    "nav.plans": "Drops",
+    "nav.faq": "Questions",
+    "nav.visit": "Visit",
+    "nav.cta": "Reserve this lot",
+    "theme.aria": "Switch to dark mode",
+    "theme.light": "Switch to light mode",
+    "lang.aria": "Choose language",
+    "burger.aria": "Open menu",
+    "hero.title": "First crack is the moment. <br>We listen for it.",
+    "hero.lead": "A specialty roastery on Embajadores. One lot at a time, a curve written by hand, drop on Thursday. No secret blend, no bag that promises one origin and ships another.",
+    "hero.cta": "See this week’s lot",
+    "hero.ghost": "How we roast",
+    "hero.readout": "BT 196.4 °C · first crack · 08:42",
+    "curve.charge": "Charge",
+    "curve.yellow": "Yellow",
+    "curve.fc": "First crack",
+    "curve.drop": "Drop",
+    "curve.replay": "Replay curve",
+    "curve.filter": "Filter",
+    "curve.espresso": "Espresso",
+    "curve.caption": "Actual curve of Huila lot 2508. Volt marks first crack — that’s when we stop pushing heat and start listening.",
+    "lot.title": "This week we drop Huila, El Roble.",
+    "lot.lead": "Washed Caturra, 1,720 m. Bought in parchment from Lina Herrera. 62 kg green. When it’s gone, it’s gone: no spare sack under another name.",
+    "lot.origin": "Huila, Colombia",
+    "lot.farm": "El Roble · Lina Herrera",
+    "lot.var": "Caturra",
+    "lot.process": "Washed, 36 h ferment",
+    "lot.alt": "1,720 m",
+    "lot.density": "712 g/L",
+    "lot.moisture": "10.8%",
+    "lot.notes": "Panela, orange zest, short cocoa. The finish is dry, not jammy.",
+    "lot.cta": "Reserve 250 g",
+    "lot.meta1": "Origin",
+    "lot.meta2": "Variety",
+    "lot.meta3": "Process",
+    "lot.meta4": "Density",
+    "cmp.title": "Two profiles. The same green.",
+    "cmp.lead": "We don’t roast an “omni” and sell it for everything. Filter and espresso come from different charges, with different development. Pick how you’ll drink it.",
+    "cmp.a.name": "Filter",
+    "cmp.a.drop": "Drop 204 °C · 10:05",
+    "cmp.a.body": "Charge 180 g, high airflow from minute 4. First crack lasts 48 s. Clean cup, citrus acidity, tea body. Built for V60 and press.",
+    "cmp.a.cta": "Get filter",
+    "cmp.b.name": "Espresso",
+    "cmp.b.drop": "Drop 208 °C · 11:20",
+    "cmp.b.body": "Charge 200 g, longer development. Sugar caramelises without smoke. Dense crema, cocoa and candied orange. 18 g in, 36 g out, 28 s.",
+    "cmp.b.cta": "Get espresso",
+    "day.title": "Thursday is the only day it smells like this.",
+    "day.lead": "The roaster is cold the rest of the week. Four steps, always in this order. If we miss one, the lot does not drop.",
+    "day.1.t": "07:10 · Charge",
+    "day.1.d": "Drum at 196 °C environment. Beans enter at room temp. We log moisture and density before the door shuts.",
+    "day.2.t": "08:40 · First crack",
+    "day.2.d": "You hear it. You don’t stare at a number and decide. If crack is late, we drop gas; if it’s early, we don’t push.",
+    "day.3.t": "10:05 · Drop and cool",
+    "day.3.d": "Air to 40 °C in under 3 minutes. The volt on the sight glass goes dark. The bean stops cooking.",
+    "day.4.t": "16:00 · Rest and pickup",
+    "day.4.d": "Degas in a lidded bin. At 16:00 we weigh, label, and open the window. If you reserved, you come by.",
+    "plans.title": "Three ways to take the lot.",
+    "plans.lead": "No points, no endless “seasonal” coffee. The lot lasts as long as the sack.",
+    "plan.a.name": "Single drop",
+    "plan.a.price": "€12",
+    "plan.a.unit": "250 g",
+    "plan.a.body": "This week’s lot, whole bean or ground on request. Thursday 16:00–19:00, or we leave it labelled.",
+    "plan.a.cta": "Reserve 250 g",
+    "plan.b.name": "Four Thursdays",
+    "plan.b.price": "€44",
+    "plan.b.unit": "4 × 250 g",
+    "plan.b.body": "One payment. Four lots in a row. If a Thursday has no sack, we tell you and it rolls. Coffee is never swapped.",
+    "plan.b.cta": "Sign me up",
+    "plan.b.flag": "Goes first",
+    "plan.c.name": "Bar sack",
+    "plan.c.price": "on request",
+    "plan.c.unit": "5 kg",
+    "plan.c.body": "For cafés that want the same profile for two weeks. Curve included. We talk over email — no checkout.",
+    "plan.c.cta": "Write to us",
+    "faq.title": "Questions we get at the window.",
+    "faq.q1": "Do you grind?",
+    "faq.a1": "Yes, if you ask when you reserve. Name the method: V60, press, espresso, moka. Otherwise it ships as whole bean. The grinder is an EK43; there isn’t another.",
+    "faq.q2": "Do you deliver?",
+    "faq.a2": "No. The lot drops on Thursday and is picked up here. If you can’t come, name someone in the reserve email. No parcel, no tracking.",
+    "faq.q3": "Why no SCA score?",
+    "faq.a3": "Because an 86 doesn’t tell you if this week leans orange or cocoa. We publish the curve, the density, and what the cup smells like. That you can check.",
+    "faq.q4": "Do you roast for other brands?",
+    "faq.a4": "No. One drum, one lot, our name. If your café wants the bar sack, it’s the same coffee we sell at the window.",
+    "visit.title": "The window faces the alley.",
+    "visit.lead": "No counter. A window, a scale, and the day’s curve taped up. If you want to watch a roast, be here at 7.",
+    "visit.hours": "Thu 16:00–19:00 · roasting 07:10–11:30",
+    "visit.addr": "Travesía de Embajadores 18, Madrid",
+    "visit.map": "Open in Maps",
+    "news.title": "We name the lot the Thursday before.",
+    "news.lead": "One email. Origin, curve, grams left. No discount, no drip sequence.",
+    "news.ph": "you@email.com",
+    "news.cta": "Open the email",
+    "news.err": "We need an address with @ to draft the message.",
+    "news.thanks": "Your mail app should open. If not, write to lotes@quiebre.madrid.",
+    "news.mail_subject": "QUIEBRE lot",
+    "news.mail_body": "Hello QUIEBRE, I want the lot notice.\nMy email: {email}",
+    "news.honest": "There is no hidden list: this opens your mail app to <a href=\"mailto:lotes@quiebre.madrid\">lotes@quiebre.madrid</a>. Skip it if you don’t want that.",
+    "cookie.body": "We only store language, theme, and whether you dismissed this. No analytics.",
+    "cookie.ok": "OK",
+    "cookie.no": "Close",
+    "foot.tag": "Specialty roastery · Madrid",
+    "foot.a": "Lot",
+    "foot.b": "Drops",
+    "foot.c": "Visit",
+    "foot.copy": "© 2026 QUIEBRE. One drum. One lot. One Thursday.",
+    "meta.title": "QUIEBRE · Specialty coffee roastery in Embajadores",
+    "meta.desc": "Specialty coffee roastery in Madrid: one lot at a time, a written curve, drop on Thursday. Huila, filter and espresso roasted apart.",
+    "og.title": "QUIEBRE · First crack is the moment",
+    "og.desc": "One lot at a time. Curve written by hand. Thursday drop in Embajadores.",
+    "tw.title": "QUIEBRE · Roastery",
+    "tw.desc": "First crack is the moment. We listen for it."
+  },
+  fr: {
+    "skip": "Aller au contenu",
+    "nav.lots": "Lot",
+    "nav.curve": "Courbe",
+    "nav.day": "Jeudi",
+    "nav.plans": "Sorties",
+    "nav.faq": "Questions",
+    "nav.visit": "Venir",
+    "nav.cta": "Réserver le lot",
+    "theme.aria": "Activer le mode sombre",
+    "theme.light": "Activer le mode clair",
+    "lang.aria": "Choisir la langue",
+    "burger.aria": "Ouvrir le menu",
+    "hero.title": "Le crack est le moment. <br>Nous l’écoutons.",
+    "hero.lead": "Torréfacteur de spécialité à Embajadores. Un lot à la fois, courbe notée à la main, sortie le jeudi. Pas de blend secret, pas de sac qui promet une origine et en livre une autre.",
+    "hero.cta": "Voir le lot de la semaine",
+    "hero.ghost": "Comment on torréfie",
+    "hero.readout": "BT 196,4 °C · premier crack · 08:42",
+    "curve.charge": "Charge",
+    "curve.yellow": "Jaune",
+    "curve.fc": "Premier crack",
+    "curve.drop": "Sortie",
+    "curve.replay": "Rejouer la courbe",
+    "curve.filter": "Filtre",
+    "curve.espresso": "Espresso",
+    "curve.caption": "Courbe réelle du lot Huila 2508. Le volt marque le premier crack — là on arrête de pousser la chaleur et on écoute.",
+    "lot.title": "Cette semaine : Huila, finca El Roble.",
+    "lot.lead": "Caturra lavé, 1 720 m. Acheté en parche à Lina Herrera. 62 kg verts. Quand c’est fini, c’est fini : pas de sac de rechange sous un autre nom.",
+    "lot.origin": "Huila, Colombie",
+    "lot.farm": "El Roble · Lina Herrera",
+    "lot.var": "Caturra",
+    "lot.process": "Lavé, 36 h de fermentation",
+    "lot.alt": "1 720 m",
+    "lot.density": "712 g/L",
+    "lot.moisture": "10,8 %",
+    "lot.notes": "Panela, zeste d’orange, cacao court. La finale est sèche, pas confiturée.",
+    "lot.cta": "Réserver 250 g",
+    "lot.meta1": "Origine",
+    "lot.meta2": "Variété",
+    "lot.meta3": "Procédé",
+    "lot.meta4": "Densité",
+    "cmp.title": "Deux profils. Le même vert.",
+    "cmp.lead": "On ne torréfie pas un « omni » pour tout vendre. Filtre et espresso sortent de charges distinctes, avec un développement distinct. Choisis comment tu le bois.",
+    "cmp.a.name": "Filtre",
+    "cmp.a.drop": "Sortie 204 °C · 10:05",
+    "cmp.a.body": "Charge 180 g, air fort dès la minute 4. Le premier crack dure 48 s. Tasse nette, acidité d’agrume, corps de thé. Pensé pour V60 et piston.",
+    "cmp.a.cta": "Prendre le filtre",
+    "cmp.b.name": "Espresso",
+    "cmp.b.drop": "Sortie 208 °C · 11:20",
+    "cmp.b.body": "Charge 200 g, développement plus long. Le sucre caramélise sans fumée. Crema dense, cacao et orange confite. 18 g in, 36 g out, 28 s.",
+    "cmp.b.cta": "Prendre l’espresso",
+    "day.title": "Le jeudi est le seul jour qui sent ça.",
+    "day.lead": "Le torréfacteur reste froid le reste de la semaine. Quatre étapes, toujours dans cet ordre. Si on en rate une, le lot ne sort pas.",
+    "day.1.t": "07:10 · Charge",
+    "day.1.d": "Tambour à 196 °C d’ambiance. Le grain entre à température de salle. On note humidité et densité avant de fermer la porte.",
+    "day.2.t": "08:40 · Premier crack",
+    "day.2.d": "On l’entend. On ne fixe pas un chiffre pour décider. Si le crack est tardif, on baisse le gaz ; s’il est tôt, on ne pousse pas.",
+    "day.3.t": "10:05 · Sortie et refroidissement",
+    "day.3.d": "Air à 40 °C en moins de 3 minutes. Le volt du hublot s’éteint. Le grain arrête de cuire.",
+    "day.4.t": "16:00 · Repos et retrait",
+    "day.4.d": "Dégazage en bac couvert. À 16:00 on pèse, on étiquette, on ouvre la fenêtre. Qui a réservé, passe.",
+    "plans.title": "Trois façons d’emporter le lot.",
+    "plans.lead": "Pas de points, pas de café « de saison » éternel. Le lot dure ce que dure le sac.",
+    "plan.a.name": "Sortie simple",
+    "plan.a.price": "12 €",
+    "plan.a.unit": "250 g",
+    "plan.a.body": "Le lot de la semaine, moulu sur demande ou en grain. Jeudi 16 h–19 h, ou on le laisse étiqueté.",
+    "plan.a.cta": "Réserver 250 g",
+    "plan.b.name": "Quatre jeudis",
+    "plan.b.price": "44 €",
+    "plan.b.unit": "4 × 250 g",
+    "plan.b.body": "Un paiement. Quatre lots d’affilée. Si un jeudi n’a pas de sac, on prévient et ça glisse. Le café n’est jamais remplacé.",
+    "plan.b.cta": "M’inscrire",
+    "plan.b.flag": "Part en premier",
+    "plan.c.name": "Sac de bar",
+    "plan.c.price": "sur demande",
+    "plan.c.unit": "5 kg",
+    "plan.c.body": "Pour les cafés qui veulent le même profil deux semaines. Courbe incluse. On parle par mail, pas de caisse en ligne.",
+    "plan.c.cta": "Écrire",
+    "faq.title": "Questions qu’on nous pose à la fenêtre.",
+    "faq.q1": "Vous moudrez le café ?",
+    "faq.a1": "Oui, si tu le demandes à la réservation. Indique la méthode : V60, piston, espresso, moka. Sinon, c’est en grain. Le moulin est un EK43 ; il n’y en a pas d’autre.",
+    "faq.q2": "Vous livrez ?",
+    "faq.a2": "Non. Le lot sort le jeudi et se retire ici. Si tu ne peux pas, nomme quelqu’un dans le mail de réservation. Pas de colis, pas de suivi.",
+    "faq.q3": "Pourquoi pas de note SCA ?",
+    "faq.a3": "Parce qu’un 86 ne dit pas si cette semaine penche orange ou cacao. On publie la courbe, la densité et ce que sent la tasse. Ça, on peut le vérifier.",
+    "faq.q4": "Vous torréfiez pour d’autres marques ?",
+    "faq.a4": "Non. Un tambour, un lot, notre nom. Si ton café veut le sac de bar, c’est le même café qu’à la fenêtre.",
+    "visit.title": "La fenêtre donne sur la travessa.",
+    "visit.lead": "Pas de comptoir. Une fenêtre, une balance, la courbe du jour scotchée. Pour voir torréfier, sois là à 7 h.",
+    "visit.hours": "Jeudi 16:00–19:00 · torréfaction 07:10–11:30",
+    "visit.addr": "Travesía de Embajadores 18, Madrid",
+    "visit.map": "Ouvrir dans Maps",
+    "news.title": "Le jeudi d’avant, on nomme le lot.",
+    "news.lead": "Un mail. Origine, courbe, grammes restants. Pas de promo, pas de séquence auto.",
+    "news.ph": "toi@courriel.com",
+    "news.cta": "Ouvrir le mail",
+    "news.err": "Il nous faut une adresse avec @ pour rédiger le message.",
+    "news.thanks": "Ton client mail devrait s’ouvrir. Sinon, écris à lotes@quiebre.madrid.",
+    "news.mail_subject": "Lot QUIEBRE",
+    "news.mail_body": "Bonjour QUIEBRE, je veux l’avis du lot.\nMon courriel : {email}",
+    "news.honest": "Pas de liste cachée : l’envoi ouvre ton mail vers <a href=\"mailto:lotes@quiebre.madrid\">lotes@quiebre.madrid</a>. Si tu n’en veux pas, ne clique pas.",
+    "cookie.body": "On ne stocke que la langue, le thème, et si tu as fermé cet avis. Pas d’analytique.",
+    "cookie.ok": "D’accord",
+    "cookie.no": "Fermer",
+    "foot.tag": "Torréfacteur de spécialité · Madrid",
+    "foot.a": "Lot",
+    "foot.b": "Sorties",
+    "foot.c": "Venir",
+    "foot.copy": "© 2026 QUIEBRE. Un tambour. Un lot. Un jeudi.",
+    "meta.title": "QUIEBRE · Torréfacteur de spécialité à Embajadores",
+    "meta.desc": "Torréfacteur de café de spécialité à Madrid : un lot à la fois, courbe notée, sortie le jeudi. Huila, filtre et espresso à part.",
+    "og.title": "QUIEBRE · Le crack est le moment",
+    "og.desc": "Un lot à la fois. Courbe notée à la main. Sortie le jeudi à Embajadores.",
+    "tw.title": "QUIEBRE · Torréfacteur",
+    "tw.desc": "Le crack est le moment. Nous l’écoutons."
+  },
+  de: {
+    "skip": "Zum Inhalt springen",
+    "nav.lots": "Charge",
+    "nav.curve": "Kurve",
+    "nav.day": "Donnerstag",
+    "nav.plans": "Abgaben",
+    "nav.faq": "Fragen",
+    "nav.visit": "Vorbei",
+    "nav.cta": "Charge reservieren",
+    "theme.aria": "Dunkelmodus einschalten",
+    "theme.light": "Hellmodus einschalten",
+    "lang.aria": "Sprache wählen",
+    "burger.aria": "Menü öffnen",
+    "hero.title": "Der Crack ist der Moment. <br>Wir hören hin.",
+    "hero.lead": "Spezialitätenrösterei in Embajadores. Eine Charge nach der anderen, Kurve von Hand, Abgabe donnerstags. Kein geheimer Blend, kein Beutel, der eine Herkunft verspricht und eine andere liefert.",
+    "hero.cta": "Charge der Woche ansehen",
+    "hero.ghost": "So rösten wir",
+    "hero.readout": "BT 196,4 °C · First Crack · 08:42",
+    "curve.charge": "Charge",
+    "curve.yellow": "Gelb",
+    "curve.fc": "First Crack",
+    "curve.drop": "Abgabe",
+    "curve.replay": "Kurve wiederholen",
+    "curve.filter": "Filter",
+    "curve.espresso": "Espresso",
+    "curve.caption": "Echte Kurve der Huila-Charge 2508. Volt markiert den First Crack — dort hören wir auf zu schieben und fangen an zuzuhören.",
+    "lot.title": "Diese Woche: Huila, Finca El Roble.",
+    "lot.lead": "Gewaschener Caturra, 1.720 m. Als Pergament von Lina Herrera. 62 kg Rohkaffee. Ist er leer, ist er leer: kein Ersatzsack unter anderem Namen.",
+    "lot.origin": "Huila, Kolumbien",
+    "lot.farm": "El Roble · Lina Herrera",
+    "lot.var": "Caturra",
+    "lot.process": "Gewaschen, 36 h Ferment",
+    "lot.alt": "1.720 m",
+    "lot.density": "712 g/L",
+    "lot.moisture": "10,8 %",
+    "lot.notes": "Panela, Orangenschale, kurzer Kakao. Das Finale ist trocken, nicht marmeladig.",
+    "lot.cta": "250 g reservieren",
+    "lot.meta1": "Herkunft",
+    "lot.meta2": "Sorte",
+    "lot.meta3": "Prozess",
+    "lot.meta4": "Dichte",
+    "cmp.title": "Zwei Profile. Dieselbe Bohne.",
+    "cmp.lead": "Wir rösten kein „Omni“ für alles. Filter und Espresso kommen aus anderen Chargen, mit anderer Entwicklung. Sag, wie du ihn trinkst.",
+    "cmp.a.name": "Filter",
+    "cmp.a.drop": "Drop 204 °C · 10:05",
+    "cmp.a.body": "Charge 180 g, viel Luft ab Minute 4. First Crack 48 s. Klare Tasse, Zitrus, Tee-Körper. Für V60 und Stempelkanne.",
+    "cmp.a.cta": "Filter nehmen",
+    "cmp.b.name": "Espresso",
+    "cmp.b.drop": "Drop 208 °C · 11:20",
+    "cmp.b.body": "Charge 200 g, längere Entwicklung. Zucker karamellisiert ohne Rauch. Dichte Crema, Kakao und kandierte Orange. 18 g in, 36 g out, 28 s.",
+    "cmp.b.cta": "Espresso nehmen",
+    "day.title": "Donnerstag ist der einzige Tag, der so riecht.",
+    "day.lead": "Die Trommel bleibt die Woche über kalt. Vier Schritte, immer in dieser Reihenfolge. Fehlt einer, geht die Charge nicht raus.",
+    "day.1.t": "07:10 · Charge",
+    "day.1.d": "Trommel bei 196 °C Umgebung. Die Bohne kommt mit Raumtemperatur. Feuchte und Dichte vor der Tür.",
+    "day.2.t": "08:40 · First Crack",
+    "day.2.d": "Man hört ihn. Man starrt nicht auf eine Zahl. Kommt der Crack spät, Gas runter; kommt er früh, nicht nachschieben.",
+    "day.3.t": "10:05 · Drop und Kühlung",
+    "day.3.d": "Luft auf 40 °C in unter 3 Minuten. Das Volt am Schauglas erlischt. Die Bohne hört auf zu garen.",
+    "day.4.t": "16:00 · Ruhe und Abholung",
+    "day.4.d": "Entgasen im geschlossenen Bottich. Um 16:00 wiegen, etikettieren, Fenster auf. Wer reserviert hat, kommt vorbei.",
+    "plans.title": "Drei Wege, die Charge mitzunehmen.",
+    "plans.lead": "Keine Punkte, kein ewiger „Saisonkaffee“. Die Charge hält so lange wie der Sack.",
+    "plan.a.name": "Einzelabgabe",
+    "plan.a.price": "12 €",
+    "plan.a.unit": "250 g",
+    "plan.a.body": "Die Charge der Woche, gemahlen auf Wunsch oder als Bohne. Donnerstag 16–19 Uhr, oder wir lassen sie beschriftet liegen.",
+    "plan.a.cta": "250 g reservieren",
+    "plan.b.name": "Vier Donnerstage",
+    "plan.b.price": "44 €",
+    "plan.b.unit": "4 × 250 g",
+    "plan.b.body": "Eine Zahlung. Vier Chargen hintereinander. Fehlt ein Donnerstag der Sack, sagen wir Bescheid und es verschiebt sich. Kaffee wird nicht ersetzt.",
+    "plan.b.cta": "Eintragen",
+    "plan.b.flag": "Geht zuerst raus",
+    "plan.c.name": "Thekensack",
+    "plan.c.price": "auf Anfrage",
+    "plan.c.unit": "5 kg",
+    "plan.c.body": "Für Cafés, die zwei Wochen dasselbe Profil wollen. Kurve inklusive. Wir sprechen per Mail, keine Kasse.",
+    "plan.c.cta": "Schreiben",
+    "faq.title": "Fragen am Fenster.",
+    "faq.q1": "Mahlt ihr den Kaffee?",
+    "faq.a1": "Ja, wenn du es bei der Reservierung sagst. Nenn die Methode: V60, Stempel, Espresso, Mokka. Sonst als Bohne. Die Mühle ist ein EK43; eine zweite gibt es nicht.",
+    "faq.q2": "Liefert ihr?",
+    "faq.a2": "Nein. Die Charge kommt donnerstags und wird hier abgeholt. Wenn du nicht kannst, nenn im Mail jemanden. Kein Paket, kein Tracking.",
+    "faq.q3": "Warum keine SCA-Note?",
+    "faq.a3": "Weil eine 86 nicht sagt, ob diese Woche mehr Orange oder Kakao ist. Wir veröffentlichen Kurve, Dichte und den Duft der Tasse. Das lässt sich prüfen.",
+    "faq.q4": "Röstet ihr für andere Marken?",
+    "faq.a4": "Nein. Eine Trommel, eine Charge, unser Name. Will dein Café den Thekensack, ist es derselbe Kaffee wie am Fenster.",
+    "visit.title": "Das Fenster geht zur Gasse.",
+    "visit.lead": "Keine Theke. Ein Fenster, eine Waage, die Tageskurve mit Klebeband. Wer rösten sehen will, ist um 7 da.",
+    "visit.hours": "Do 16:00–19:00 · Röstung 07:10–11:30",
+    "visit.addr": "Travesía de Embajadores 18, Madrid",
+    "visit.map": "In Maps öffnen",
+    "news.title": "Den Donnerstag davor nennen wir die Charge.",
+    "news.lead": "Eine Mail. Herkunft, Kurve, Restgramm. Kein Rabatt, keine Automatik.",
+    "news.ph": "du@mail.de",
+    "news.cta": "Mail öffnen",
+    "news.err": "Wir brauchen eine Adresse mit @, um die Nachricht zu schreiben.",
+    "news.thanks": "Dein Mailprogramm sollte aufgehen. Sonst an lotes@quiebre.madrid.",
+    "news.mail_subject": "Charge QUIEBRE",
+    "news.mail_body": "Hallo QUIEBRE, ich möchte die Charge-Benachrichtigung.\nMeine E-Mail: {email}",
+    "news.honest": "Keine versteckte Liste: der Klick öffnet dein Mailprogramm an <a href=\"mailto:lotes@quiebre.madrid\">lotes@quiebre.madrid</a>. Wenn du das nicht willst, nicht klicken.",
+    "cookie.body": "Wir speichern nur Sprache, Thema und ob du diesen Hinweis geschlossen hast. Keine Analytik.",
+    "cookie.ok": "In Ordnung",
+    "cookie.no": "Schließen",
+    "foot.tag": "Spezialitätenrösterei · Madrid",
+    "foot.a": "Charge",
+    "foot.b": "Abgaben",
+    "foot.c": "Vorbei",
+    "foot.copy": "© 2026 QUIEBRE. Eine Trommel. Eine Charge. Ein Donnerstag.",
+    "meta.title": "QUIEBRE · Spezialitätenrösterei in Embajadores",
+    "meta.desc": "Spezialitätenrösterei in Madrid: eine Charge, eine Kurve, Abgabe donnerstags. Huila, Filter und Espresso getrennt.",
+    "og.title": "QUIEBRE · Der Crack ist der Moment",
+    "og.desc": "Eine Charge. Kurve von Hand. Donnerstags in Embajadores.",
+    "tw.title": "QUIEBRE · Rösterei",
+    "tw.desc": "Der Crack ist der Moment. Wir hören hin."
+  },
+  it: {
+    "skip": "Salta al contenuto",
+    "nav.lots": "Lotto",
+    "nav.curve": "Curva",
+    "nav.day": "Giovedì",
+    "nav.plans": "Uscite",
+    "nav.faq": "Dubbi",
+    "nav.visit": "Passare",
+    "nav.cta": "Prenota il lotto",
+    "theme.aria": "Attiva la modalità scura",
+    "theme.light": "Attiva la modalità chiara",
+    "lang.aria": "Scegli la lingua",
+    "burger.aria": "Apri il menu",
+    "hero.title": "Il crack è il momento. <br>Noi lo ascoltiamo.",
+    "hero.lead": "Torrefazione di specialità a Embajadores. Un lotto alla volta, curva annotata a mano, uscita il giovedì. Niente blend segreto, niente sacchetto che promette un’origine e ne consegna un’altra.",
+    "hero.cta": "Vedi il lotto di questa settimana",
+    "hero.ghost": "Come tostiamo",
+    "hero.readout": "BT 196,4 °C · primo crack · 08:42",
+    "curve.charge": "Carica",
+    "curve.yellow": "Giallo",
+    "curve.fc": "Primo crack",
+    "curve.drop": "Uscita",
+    "curve.replay": "Rigioca la curva",
+    "curve.filter": "Filtro",
+    "curve.espresso": "Espresso",
+    "curve.caption": "Curva reale del lotto Huila 2508. Il volt segna il primo crack — lì smettiamo di spingere il calore e iniziamo ad ascoltare.",
+    "lot.title": "Questa settimana esce Huila, finca El Roble.",
+    "lot.lead": "Caturra lavato, 1.720 m. Comprato in pergamino da Lina Herrera. 62 kg verdi. Quando finisce, finisce: niente sacco di ricambio con un altro nome.",
+    "lot.origin": "Huila, Colombia",
+    "lot.farm": "El Roble · Lina Herrera",
+    "lot.var": "Caturra",
+    "lot.process": "Lavato, 36 h di fermento",
+    "lot.alt": "1.720 m",
+    "lot.density": "712 g/L",
+    "lot.moisture": "10,8 %",
+    "lot.notes": "Panela, scorza d’arancia, cacao corto. Il finale è secco, non marmellatoso.",
+    "lot.cta": "Prenota 250 g",
+    "lot.meta1": "Origine",
+    "lot.meta2": "Varietà",
+    "lot.meta3": "Processo",
+    "lot.meta4": "Densità",
+    "cmp.title": "Due profili. Lo stesso verde.",
+    "cmp.lead": "Non tostiamo un «omni» da vendere per tutto. Filtro ed espresso escono da cariche diverse, con sviluppo diverso. Scegli come lo bevi.",
+    "cmp.a.name": "Filtro",
+    "cmp.a.drop": "Uscita 204 °C · 10:05",
+    "cmp.a.body": "Carica 180 g, aria alta dal minuto 4. Il primo crack dura 48 s. Tazza pulita, acidità agrumata, corpo da tè. Pensato per V60 e french press.",
+    "cmp.a.cta": "Prendi il filtro",
+    "cmp.b.name": "Espresso",
+    "cmp.b.drop": "Uscita 208 °C · 11:20",
+    "cmp.b.body": "Carica 200 g, sviluppo più lungo. Lo zucchero caramella senza fumo. Crema densa, cacao e arancia candita. 18 g in, 36 g out, 28 s.",
+    "cmp.b.cta": "Prendi l’espresso",
+    "day.title": "Il giovedì è l’unico giorno che odora così.",
+    "day.lead": "Il tostino resta spento il resto della settimana. Quattro passi, sempre in quest’ordine. Se ne saltiamo uno, il lotto non esce.",
+    "day.1.t": "07:10 · Carica",
+    "day.1.d": "Tamburo a 196 °C di ambiente. Il chicco entra a temperatura di sala. Annotiamo umidità e densità prima di chiudere.",
+    "day.2.t": "08:40 · Primo crack",
+    "day.2.d": "Si sente. Non si guarda un numero per decidere. Se il crack arriva tardi, abbassiamo il gas; se arriva presto, non spingiamo.",
+    "day.3.t": "10:05 · Uscita e raffreddamento",
+    "day.3.d": "Aria a 40 °C in meno di 3 minuti. Il volt del vetro si spegne. Il chicco smette di cuocere.",
+    "day.4.t": "16:00 · Riposo e ritiro",
+    "day.4.d": "Degasa in vasca chiusa. Alle 16:00 si pesa, si etichetta, si apre la finestra. Chi ha prenotato, passa.",
+    "plans.title": "Tre modi per portarti il lotto.",
+    "plans.lead": "Niente punti, niente caffè «di stagione» eterno. Il lotto dura quanto il sacco.",
+    "plan.a.name": "Uscita singola",
+    "plan.a.price": "12 €",
+    "plan.a.unit": "250 g",
+    "plan.a.body": "Il lotto della settimana, macinato su richiesta o in chicco. Giovedì 16–19, o lo lasciamo etichettato.",
+    "plan.a.cta": "Prenota 250 g",
+    "plan.b.name": "Quattro giovedì",
+    "plan.b.price": "44 €",
+    "plan.b.unit": "4 × 250 g",
+    "plan.b.body": "Un pagamento. Quattro lotti di fila. Se un giovedì non c’è sacco, avvisiamo e si sposta. Il caffè non si sostituisce.",
+    "plan.b.cta": "Iscrivimi",
+    "plan.b.flag": "Esce per primo",
+    "plan.c.name": "Sacco da banco",
+    "plan.c.price": "su richiesta",
+    "plan.c.unit": "5 kg",
+    "plan.c.body": "Per i bar che vogliono lo stesso profilo due settimane. Curva inclusa. Si parla per mail, niente cassa online.",
+    "plan.c.cta": "Scrivere",
+    "faq.title": "Domande che ci fanno alla finestra.",
+    "faq.q1": "Macinate il caffè?",
+    "faq.a1": "Sì, se lo chiedi in prenotazione. Indica il metodo: V60, pressa, espresso, moka. Altrimenti esce in chicco. Il macinino è un EK43; non ce n’è un altro.",
+    "faq.q2": "Spedite a casa?",
+    "faq.a2": "No. Il lotto esce il giovedì e si ritira qui. Se non puoi, indica qualcuno nella mail. Niente pacco, niente tracking.",
+    "faq.q3": "Perché niente punteggio SCA?",
+    "faq.a3": "Perché un 86 non dice se questa settimana è più arancia o cacao. Pubblichiamo la curva, la densità e cosa sente la tazza. Quello si può verificare.",
+    "faq.q4": "Tostate per altri marchi?",
+    "faq.a4": "No. Un tamburo, un lotto, il nostro nome. Se il tuo bar vuole il sacco da banco, è lo stesso caffè della finestra.",
+    "visit.title": "La finestra dà sulla traversa.",
+    "visit.lead": "Niente bancone. Una finestra, una bilancia, la curva del giorno con lo scotch. Se vuoi vedere tostare, arriva alle 7.",
+    "visit.hours": "Giovedì 16:00–19:00 · tostatura 07:10–11:30",
+    "visit.addr": "Travesía de Embajadores 18, Madrid",
+    "visit.map": "Apri in Maps",
+    "news.title": "Il giovedì prima nominiamo il lotto.",
+    "news.lead": "Una mail. Origine, curva, grammi rimasti. Niente sconto, niente sequenza automatica.",
+    "news.ph": "tu@posta.it",
+    "news.cta": "Apri la mail",
+    "news.err": "Ci serve un indirizzo con @ per scrivere il messaggio.",
+    "news.thanks": "Dovrebbe aprirsi il client. Altrimenti scrivi a lotes@quiebre.madrid.",
+    "news.mail_subject": "Lotto QUIEBRE",
+    "news.mail_body": "Ciao QUIEBRE, voglio l’avviso del lotto.\nLa mia email: {email}",
+    "news.honest": "Niente lista nascosta: l’invio apre la mail verso <a href=\"mailto:lotes@quiebre.madrid\">lotes@quiebre.madrid</a>. Se non lo vuoi, non premere.",
+    "cookie.body": "Salviamo solo lingua, tema e se hai chiuso questo avviso. Niente analitica.",
+    "cookie.ok": "Va bene",
+    "cookie.no": "Chiudi",
+    "foot.tag": "Torrefazione di specialità · Madrid",
+    "foot.a": "Lotto",
+    "foot.b": "Uscite",
+    "foot.c": "Passare",
+    "foot.copy": "© 2026 QUIEBRE. Un tamburo. Un lotto. Un giovedì.",
+    "meta.title": "QUIEBRE · Torrefazione di specialità a Embajadores",
+    "meta.desc": "Torrefazione di caffè di specialità a Madrid: un lotto alla volta, curva annotata, uscita il giovedì. Huila, filtro ed espresso separati.",
+    "og.title": "QUIEBRE · Il crack è il momento",
+    "og.desc": "Un lotto alla volta. Curva a mano. Uscita il giovedì a Embajadores.",
+    "tw.title": "QUIEBRE · Torrefazione",
+    "tw.desc": "Il crack è il momento. Noi lo ascoltiamo."
+  },
+  pt: {
+    "skip": "Saltar para o conteúdo",
+    "nav.lots": "Lote",
+    "nav.curve": "Curva",
+    "nav.day": "Quinta",
+    "nav.plans": "Saídas",
+    "nav.faq": "Dúvidas",
+    "nav.visit": "Passar",
+    "nav.cta": "Reservar lote",
+    "theme.aria": "Ativar modo escuro",
+    "theme.light": "Ativar modo claro",
+    "lang.aria": "Escolher idioma",
+    "burger.aria": "Abrir menu",
+    "hero.title": "O crack é o momento. <br>Nós escutamos.",
+    "hero.lead": "Torrador de especialidade em Embajadores. Um lote de cada vez, curva anotada à mão, saída à quinta. Sem blend secreto nem saco que promete origem e entrega outra.",
+    "hero.cta": "Ver o lote desta semana",
+    "hero.ghost": "Como torrámos",
+    "hero.readout": "BT 196,4 °C · primeiro crack · 08:42",
+    "curve.charge": "Carga",
+    "curve.yellow": "Amarelo",
+    "curve.fc": "Primeiro crack",
+    "curve.drop": "Saída",
+    "curve.replay": "Repetir curva",
+    "curve.filter": "Filtro",
+    "curve.espresso": "Espresso",
+    "curve.caption": "Curva real do lote Huila 2508. O volt marca o primeiro crack — aí paramos de empurrar calor e começamos a escutar.",
+    "lot.title": "Esta semana sai Huila, finca El Roble.",
+    "lot.lead": "Caturra lavado, 1.720 m. Comprámos em pergaminho a Lina Herrera. 62 kg verdes. Quando acaba, acaba: não há saco de reserva com outro nome.",
+    "lot.origin": "Huila, Colômbia",
+    "lot.farm": "El Roble · Lina Herrera",
+    "lot.var": "Caturra",
+    "lot.process": "Lavado, 36 h de fermento",
+    "lot.alt": "1.720 m",
+    "lot.density": "712 g/L",
+    "lot.moisture": "10,8 %",
+    "lot.notes": "Panela, casca de laranja, cacau curto. O final é seco, não a doce de fruta.",
+    "lot.cta": "Reservar 250 g",
+    "lot.meta1": "Origem",
+    "lot.meta2": "Variedade",
+    "lot.meta3": "Processo",
+    "lot.meta4": "Densidade",
+    "cmp.title": "Dois perfis. O mesmo verde.",
+    "cmp.lead": "Não torrámos um «omni» para vender a tudo. Filtro e espresso saem de cargas distintas, com desenvolvimento distinto. Escolhe como o vais beber.",
+    "cmp.a.name": "Filtro",
+    "cmp.a.drop": "Saída 204 °C · 10:05",
+    "cmp.a.body": "Carga 180 g, ar alto a partir do minuto 4. O primeiro crack dura 48 s. Chávena limpa, acidez cítrica, corpo de chá. Pensado para V60 e êmbolo.",
+    "cmp.a.cta": "Pedir filtro",
+    "cmp.b.name": "Espresso",
+    "cmp.b.drop": "Saída 208 °C · 11:20",
+    "cmp.b.body": "Carga 200 g, desenvolvimento mais longo. O açúcar carameliza sem fumo. Crema densa, cacau e laranja confitada. 18 g in, 36 g out, 28 s.",
+    "cmp.b.cta": "Pedir espresso",
+    "day.title": "A quinta é o único dia que cheira a isto.",
+    "day.lead": "O tambor fica frio o resto da semana. Quatro passos, sempre nesta ordem. Se falharmos um, o lote não sai.",
+    "day.1.t": "07:10 · Carga",
+    "day.1.d": "Tambor a 196 °C de ambiente. O grão entra à temperatura da sala. Anotámos humidade e densidade antes de fechar a porta.",
+    "day.2.t": "08:40 · Primeiro crack",
+    "day.2.d": "Ouve-se. Não se olha para um número para decidir. Se o crack chega tarde, baixamos o gás; se chega cedo, não empurramos.",
+    "day.3.t": "10:05 · Saída e arrefecimento",
+    "day.3.d": "Ar a 40 °C em menos de 3 minutos. O volt do visor apaga-se. O grão deixa de cozer.",
+    "day.4.t": "16:00 · Repouso e recolha",
+    "day.4.d": "Desgaseifica em cuba tapada. Às 16:00 pesa-se, etiqueta-se e abre-se a janela. Quem reservou, passa.",
+    "plans.title": "Três formas de levares o lote.",
+    "plans.lead": "Sem pontos nem café «da época» eterno. O lote dura o que durar o saco.",
+    "plan.a.name": "Saída solta",
+    "plan.a.price": "12 €",
+    "plan.a.unit": "250 g",
+    "plan.a.body": "O lote da semana, moído a pedido ou em grão. Quinta das 16 às 19 h, ou deixámos etiquetado.",
+    "plan.a.cta": "Reservar 250 g",
+    "plan.b.name": "Quatro quintas",
+    "plan.b.price": "44 €",
+    "plan.b.unit": "4 × 250 g",
+    "plan.b.body": "Um pagamento. Quatro lotes seguidos. Se uma quinta não houver saco, avisámos e corre. O café não se substitui.",
+    "plan.b.cta": "Inscrever-me",
+    "plan.b.flag": "Sai primeiro",
+    "plan.c.name": "Saco de balcão",
+    "plan.c.price": "a consultar",
+    "plan.c.unit": "5 kg",
+    "plan.c.body": "Para cafés que querem o mesmo perfil duas semanas. Curva incluída. Falámos por correio, sem caixa online.",
+    "plan.c.cta": "Escrever",
+    "faq.title": "Perguntas que nos fazem à janela.",
+    "faq.q1": "Moem o café?",
+    "faq.a1": "Sim, se pedires na reserva. Diz o método: V60, êmbolo, espresso, moka. Caso contrário sai em grão. O moinho é um EK43; não há outro.",
+    "faq.q2": "Enviam para casa?",
+    "faq.a2": "Não. O lote sai à quinta e recolhe-se aqui. Se não puderes, indica alguém no correio da reserva. Sem encomenda, sem tracking.",
+    "faq.q3": "Porque não publicam nota SCA?",
+    "faq.a3": "Porque um 86 não diz se esta semana está mais laranja ou cacau. Publicámos a curva, a densidade e o cheiro da chávena. Isso sim se contrasta.",
+    "faq.q4": "Torrámos para outras marcas?",
+    "faq.a4": "Não. Um tambor, um lote, o nosso nome. Se o teu café quer o saco de balcão, é o mesmo café da janela.",
+    "visit.title": "A janela dá para a Travessa.",
+    "visit.lead": "Não há balcão. Há uma janela, uma balança e a curva do dia com fita. Se vens ver torrar, chega às 7.",
+    "visit.hours": "Quinta 16:00–19:00 · torra 07:10–11:30",
+    "visit.addr": "Travesía de Embajadores 18, Madrid",
+    "visit.map": "Abrir no Maps",
+    "news.title": "Na quinta anterior avisámos o lote.",
+    "news.lead": "Um correio. Origem, curva, gramas que restam. Sem desconto nem sequência automática.",
+    "news.ph": "tu@correio.com",
+    "news.cta": "Abrir o correio",
+    "news.err": "Precisámos de um correio com @ para redigir a mensagem.",
+    "news.thanks": "Abre o teu cliente de correio. Se não, escreve para lotes@quiebre.madrid.",
+    "news.mail_subject": "Lote QUIEBRE",
+    "news.mail_body": "Olá QUIEBRE, quero o aviso do lote.\nO meu correio: {email}",
+    "news.honest": "Não há lista escondida: o envio abre o teu correio para <a href=\"mailto:lotes@quiebre.madrid\">lotes@quiebre.madrid</a>. Se não quiseres isso, não carregues.",
+    "cookie.body": "Só guardámos idioma, tema e se fechaste este aviso. Sem analítica.",
+    "cookie.ok": "De acordo",
+    "cookie.no": "Fechar",
+    "foot.tag": "Torrador de especialidade · Madrid",
+    "foot.a": "Lote",
+    "foot.b": "Saídas",
+    "foot.c": "Passar",
+    "foot.copy": "© 2026 QUIEBRE. Um tambor. Um lote. Uma quinta.",
+    "meta.title": "QUIEBRE · Torrador de especialidade em Embajadores",
+    "meta.desc": "Torrador de café de especialidade em Madrid: um lote de cada vez, curva anotada, saída à quinta. Huila, filtro e espresso em separado.",
+    "og.title": "QUIEBRE · O crack é o momento",
+    "og.desc": "Um lote de cada vez. Curva à mão. Saída à quinta em Embajadores.",
+    "tw.title": "QUIEBRE · Torrador",
+    "tw.desc": "O crack é o momento. Nós escutamos."
+  }
+};
+  function $(sel, root) { return (root || document).querySelector(sel); }
+  function $$(sel, root) { return Array.prototype.slice.call((root || document).querySelectorAll(sel)); }
+  function getLang() {
+    try {
+      var s = localStorage.getItem(LANG_KEY);
+      if (s && I18N[s]) return s;
+    } catch (e) {}
+    var nav = (navigator.language || 'es').slice(0, 2).toLowerCase();
+    return I18N[nav] ? nav : 'es';
+  }
+  function getTheme() {
+    try {
+      var t = localStorage.getItem(THEME_KEY);
+      if (t === 'dark' || t === 'light') return t;
+    } catch (e) {}
+    return 'light';
+  }
+  function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    try { localStorage.setItem(THEME_KEY, theme); } catch (e) {}
+    var label = theme === 'dark' ? I18N[getLang()]['theme.light'] : I18N[getLang()]['theme.aria'];
+    $$('#themeToggle, #themeToggleM').forEach(function (el) { if (el) el.setAttribute('aria-label', label); });
+  }
+  $$('#themeToggle, #themeToggleM').forEach(function (t) {
+    if (t) t.addEventListener('click', function () { applyTheme(getTheme() === 'dark' ? 'light' : 'dark'); });
+  });
+  function applyLang(lang) {
+    if (!I18N[lang]) lang = 'es';
+    var dict = I18N[lang];
+    try { localStorage.setItem(LANG_KEY, lang); } catch (e) {}
+    $$('[data-i18n]').forEach(function (el) {
+      var val = dict[el.getAttribute('data-i18n')];
+      if (val !== undefined) el.textContent = val;
+    });
+    $$('[data-i18n-html]').forEach(function (el) {
+      var val = dict[el.getAttribute('data-i18n-html')];
+      if (val !== undefined) el.innerHTML = val;
+    });
+    $$('[data-i18n-aria]').forEach(function (el) {
+      var val = dict[el.getAttribute('data-i18n-aria')];
+      if (val !== undefined) el.setAttribute('aria-label', val);
+    });
+    $$('[data-i18n-ph]').forEach(function (el) {
+      var val = dict[el.getAttribute('data-i18n-ph')];
+      if (val !== undefined) el.setAttribute('placeholder', val);
+    });
+    var mt = $('#doc-title');
+    if (mt && dict['meta.title']) mt.textContent = dict['meta.title'];
+    var md = $('#meta-desc');
+    if (md && dict['meta.desc']) md.setAttribute('content', dict['meta.desc']);
+    var ogt = $('meta[property="og:title"]');
+    if (ogt && dict['og.title']) ogt.setAttribute('content', dict['og.title']);
+    var ogd = $('meta[property="og:description"]');
+    if (ogd && dict['og.desc']) ogd.setAttribute('content', dict['og.desc']);
+    var twt = $('meta[name="twitter:title"]');
+    if (twt && dict['tw.title']) twt.setAttribute('content', dict['tw.title']);
+    var twd = $('meta[name="twitter:description"]');
+    if (twd && dict['tw.desc']) twd.setAttribute('content', dict['tw.desc']);
+    document.documentElement.setAttribute('lang', lang);
+    $$('.lang-select__cur').forEach(function (el) { el.textContent = lang.toUpperCase(); });
+    $$('.lang-select__opt').forEach(function (opt) {
+      opt.setAttribute('aria-selected', opt.getAttribute('data-lang') === lang ? 'true' : 'false');
+    });
+    applyTheme(getTheme());
+  }
+  function closeLangMenus() {
+    $$('.lang-select').forEach(function (sel) {
+      var menu = $('.lang-select__menu', sel), btn = $('.lang-select__btn', sel);
+      if (menu) menu.classList.remove('open');
+      if (btn) btn.setAttribute('aria-expanded', 'false');
+    });
+  }
+  $$('.lang-select').forEach(function (sel) {
+    var btn = $('.lang-select__btn', sel), menu = $('.lang-select__menu', sel);
+    if (!btn || !menu) return;
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var open = menu.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if (open) {
+        $$('.lang-select').forEach(function (other) {
+          if (other !== sel) {
+            var om = $('.lang-select__menu', other), ob = $('.lang-select__btn', other);
+            if (om) om.classList.remove('open');
+            if (ob) ob.setAttribute('aria-expanded', 'false');
+          }
+        });
+      }
+    });
+    $$('.lang-select__opt', sel).forEach(function (opt) {
+      opt.addEventListener('click', function () {
+        applyLang(opt.getAttribute('data-lang'));
+        closeLangMenus();
+        closeMobile();
+      });
+    });
+  });
+  document.addEventListener('click', function (e) {
+    var inside = false;
+    $$('.lang-select').forEach(function (sel) { if (sel.contains(e.target)) inside = true; });
+    if (!inside) closeLangMenus();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') { closeLangMenus(); closeMobile(); }
+  });
+  var burger = $('#burger'), mobileMenu = $('#mobileMenu');
+  function closeMobile() {
+    if (!mobileMenu) return;
+    mobileMenu.classList.remove('open');
+    mobileMenu.setAttribute('aria-hidden', 'true');
+    if (burger) burger.setAttribute('aria-expanded', 'false');
+  }
+  if (burger && mobileMenu) {
+    burger.addEventListener('click', function () {
+      var open = mobileMenu.classList.toggle('open');
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      mobileMenu.setAttribute('aria-hidden', open ? 'false' : 'true');
+    });
+    $$('a', mobileMenu).forEach(function (a) { a.addEventListener('click', closeMobile); });
+  }
+  applyLang(getLang());
+  try {
+    var rvEls = $$('.rv');
+    function revealCheck() {
+      var vh = window.innerHeight || document.documentElement.clientHeight;
+      rvEls.forEach(function (el) {
+        if (el.classList.contains('in')) return;
+        var r = el.getBoundingClientRect();
+        if (r.top < vh * 0.92) el.classList.add('in');
+      });
+    }
+    var ticking = false;
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(function () { revealCheck(); ticking = false; });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    revealCheck();
+    document.documentElement.classList.remove('no-js');
+    setTimeout(revealCheck, 600);
+    setTimeout(function () {
+      var vh = window.innerHeight || document.documentElement.clientHeight;
+      var missed = false;
+      rvEls.forEach(function (el) {
+        var r = el.getBoundingClientRect();
+        if (r.top < vh * 0.92 && r.bottom > 0 && !el.classList.contains('in')) missed = true;
+      });
+      if (missed) rvEls.forEach(function (el) { el.classList.add('in'); });
+    }, 1800);
+  } catch (e) {
+    $$('.rv').forEach(function (el) { el.classList.add('in'); });
+    document.documentElement.classList.remove('no-js');
+  }
+  $$('.faq-item').forEach(function (item) {
+    var q = $('.faq-q', item), a = $('.faq-a', item);
+    if (!q || !a) return;
+    q.addEventListener('click', function () {
+      var isOpen = item.classList.contains('open');
+      $$('.faq-item.open').forEach(function (other) {
+        if (other !== item) {
+          other.classList.remove('open');
+          var oq = $('.faq-q', other), oa = $('.faq-a', other);
+          if (oq) oq.setAttribute('aria-expanded', 'false');
+          if (oa) oa.style.maxHeight = '0px';
+        }
+      });
+      item.classList.toggle('open', !isOpen);
+      q.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+      a.style.maxHeight = isOpen ? '0px' : a.scrollHeight + 'px';
+    });
+  });
+  var cookieBanner = $('#cookieBanner');
+  function hideCookie() {
+    if (!cookieBanner) return;
+    cookieBanner.classList.remove('show');
+    try { localStorage.setItem(COOKIE_KEY, '1'); } catch (e) {}
+  }
+  var ckOk = $('#cookieOk'), ckNo = $('#cookieNo');
+  if (ckOk) ckOk.addEventListener('click', hideCookie);
+  if (ckNo) ckNo.addEventListener('click', hideCookie);
+  (function () {
+    var done = false;
+    try { done = localStorage.getItem(COOKIE_KEY) === '1'; } catch (e) {}
+    if (done || !cookieBanner) return;
+    setTimeout(function () { cookieBanner.classList.add('show'); }, 3200);
+  })();
+  var newsForm = $('#newsForm');
+  if (newsForm) {
+    var nlMsg = $('#nlMsg');
+    newsForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var email = ($('#newsEmail') || {}).value || '';
+      var lang = getLang();
+      if (!email || email.indexOf('@') < 1) {
+        if (nlMsg) { nlMsg.textContent = I18N[lang]['news.err']; nlMsg.className = 'nl-msg err'; }
+        return;
+      }
+      var subject = I18N[lang]['news.mail_subject'] || 'Lote QUIEBRE';
+      var bodyTpl = I18N[lang]['news.mail_body'] || ('Hola QUIEBRE, quiero el aviso del lote.' + '\n' + 'Mi correo: {email}');
+      var body = String(bodyTpl).split('{email}').join(email);
+      window.location.href = 'mailto:lotes@quiebre.madrid?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+      if (nlMsg) { nlMsg.textContent = I18N[lang]['news.thanks']; nlMsg.className = 'nl-msg ok'; }
+    });
+  }
+  var PATH_F = 'M48 242 C 90 238, 130 210, 170 168 S 250 118, 310 108 S 390 92, 410 78 S 500 68, 590 62';
+  var PATH_E = 'M48 242 C 80 236, 120 200, 160 150 S 240 100, 300 88 S 380 70, 410 58 S 520 48, 610 40';
+  var curve = $('#curvePath');
+  var fcDot = $('#fcDot');
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function drawCurve() {
+    if (!curve) return;
+    var len = curve.getTotalLength();
+    if (reduced) {
+      curve.style.strokeDasharray = 'none';
+      curve.style.strokeDashoffset = '0';
+      return;
+    }
+    curve.style.transition = 'none';
+    curve.style.strokeDasharray = String(len);
+    curve.style.strokeDashoffset = String(len);
+    void curve.getBoundingClientRect();
+    curve.style.transition = 'stroke-dashoffset 1.6s cubic-bezier(.16,1,.3,1)';
+    curve.style.strokeDashoffset = '0';
+  }
+  function setProfile(kind) {
+    if (!curve) return;
+    curve.setAttribute('d', kind === 'esp' ? PATH_E : PATH_F);
+    if (fcDot) {
+      fcDot.setAttribute('cy', kind === 'esp' ? '58' : '78');
+    }
+    var bf = $('#btnFilter'), be = $('#btnEsp');
+    if (bf) bf.setAttribute('aria-pressed', kind === 'filter' ? 'true' : 'false');
+    if (be) be.setAttribute('aria-pressed', kind === 'esp' ? 'true' : 'false');
+    drawCurve();
+  }
+  var bf = $('#btnFilter'), be = $('#btnEsp'), rp = $('#replay');
+  if (bf) bf.addEventListener('click', function () { setProfile('filter'); });
+  if (be) be.addEventListener('click', function () { setProfile('esp'); });
+  if (rp) rp.addEventListener('click', drawCurve);
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(drawCurve);
+  } else {
+    drawCurve();
+  }
+})();
+
+</script>
+</body>
+</html>

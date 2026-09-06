@@ -1,0 +1,2324 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="meta-title">Forma & Space — Architecture & Interior Design Studio</title>
+  <meta name="description" id="meta-desc" content="Forma & Space is an architecture and interior design practice crafting spaces that balance material, light, and human experience.">
+  <link rel="canonical" href="https://forma-space.studio/">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%23c75b39'/%3E%3Cpath d='M8 24V8h6l4 8 4-8h6v16h-5V15l-5 9-5-9v9H8z' fill='%23fff'/%3E%3C/svg%3E">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Forma & Space">
+  <meta property="og:title" id="og-title" content="Forma & Space — Architecture & Interior Design Studio">
+  <meta property="og:description" id="og-desc" content="Crafting spaces that balance material, light, and human experience.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=80">
+  <meta property="og:url" content="https://forma-space.studio/">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" id="tw-title" content="Forma & Space — Architecture & Interior Design Studio">
+  <meta name="twitter:description" id="tw-desc" content="Crafting spaces that balance material, light, and human experience.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=80">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============================================================
+       DESIGN SYSTEM — Forma & Space
+       Surface: Decide/Learn (landing page — hero + one idea/section)
+       Derived from: Original editorial architecture theme
+       Family: Architecture & Interior Design
+       Style: Editorial — warm terracotta accent, serif headings, generous whitespace
+       Strategy: Committed (terracotta ~15%, warm neutures ~40%)
+       ============================================================ */
+    :root {
+      /* Colors — OKLCH-inspired hex values */
+      --color-bg: #ffffff;
+      --color-surface: #f8f6f3;
+      --color-surface-alt: #f0ece6;
+      --color-text-primary: #1c1917;
+      --color-text-secondary: #6c6560;
+      --color-text-tertiary: #a89f96;
+      --color-accent: #c75b39;
+      --color-accent-hover: #b04d2d;
+      --color-accent-subtle: #f5e3dc;
+      --color-border: #e5ded6;
+      --color-border-light: #f0ebe4;
+      --color-overlay: rgba(28, 25, 23, 0.55);
+      --color-overlay-heavy: rgba(28, 25, 23, 0.75);
+      --color-success: #2d6a4f;
+      --color-error: #c1292e;
+
+      /* Dark mode */
+      --color-bg-dark: #141210;
+      --color-surface-dark: #1c1a17;
+      --color-surface-alt-dark: #252220;
+      --color-text-primary-dark: #ede9e3;
+      --color-text-secondary-dark: #9e948a;
+      --color-border-dark: #2e2a26;
+      --color-accent-dark: #d9714f;
+
+      /* Typography */
+      --font-heading: 'Playfair Display', Georgia, 'Times New Roman', serif;
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --font-mono: 'SF Mono', 'Fira Code', monospace;
+
+      /* Spacing scale */
+      --space-xs: 0.375rem;
+      --space-sm: 0.75rem;
+      --space-md: 1.25rem;
+      --space-lg: 2rem;
+      --space-xl: 3rem;
+      --space-2xl: 4.5rem;
+      --space-3xl: 6.5rem;
+      --space-4xl: 9rem;
+
+      /* Layout */
+      --content-max: 75rem;
+      --content-narrow: 42rem;
+      --nav-height: 4.5rem;
+
+      /* Z-index scale */
+      --z-dropdown: 100;
+      --z-sticky: 200;
+      --z-nav: 300;
+      --z-modal-backdrop: 400;
+      --z-modal: 500;
+      --z-toast: 600;
+      --z-tooltip: 700;
+
+      /* Shadows */
+      --shadow-sm: 0 1px 2px rgba(28, 25, 23, 0.05);
+      --shadow-md: 0 4px 12px rgba(28, 25, 23, 0.08);
+      --shadow-lg: 0 8px 30px rgba(28, 25, 23, 0.12);
+
+      /* Border radius */
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 16px;
+
+      /* Transitions */
+      --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+      --duration-fast: 250ms;
+      --duration-normal: 400ms;
+      --duration-slow: 700ms;
+    }
+
+    /* Dark scheme */
+    [data-theme="dark"] {
+      --color-bg: var(--color-bg-dark);
+      --color-surface: var(--color-surface-dark);
+      --color-surface-alt: var(--color-surface-alt-dark);
+      --color-text-primary: var(--color-text-primary-dark);
+      --color-text-secondary: var(--color-text-secondary-dark);
+      --color-accent: var(--color-accent-dark);
+      --color-border: var(--color-border-dark);
+      --color-border-light: var(--color-border-dark);
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+      --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    /* ============================================================
+       RESET & BASE
+       ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--color-text-primary);
+      background-color: var(--color-bg);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      transition: background-color var(--duration-normal) var(--ease-out-quart),
+                  color var(--duration-normal) var(--ease-out-quart);
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    a {
+      color: var(--color-accent);
+      text-decoration: none;
+      transition: color var(--duration-fast) ease;
+    }
+    a:hover { color: var(--color-accent-hover); }
+
+    button {
+      cursor: pointer;
+      font-family: inherit;
+      border: none;
+      background: none;
+    }
+
+    /* ============================================================
+       TYPOGRAPHY
+       ============================================================ */
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-heading);
+      font-weight: 500;
+      line-height: 1.2;
+      color: var(--color-text-primary);
+      text-wrap: balance;
+    }
+
+    h1 { font-size: clamp(2.5rem, 5vw, 5.5rem); letter-spacing: -0.03em; font-weight: 600; }
+    h2 { font-size: clamp(2rem, 3.5vw, 3.5rem); letter-spacing: -0.02em; }
+    h3 { font-size: clamp(1.35rem, 2vw, 1.75rem); letter-spacing: -0.01em; }
+    h4 { font-size: 1.15rem; letter-spacing: -0.01em; }
+
+    p { max-width: var(--content-narrow); text-wrap: pretty; }
+    p + p { margin-top: 1em; }
+
+    .text-secondary { color: var(--color-text-secondary); }
+    .text-small { font-size: 0.875rem; }
+    .text-tiny { font-size: 0.75rem; letter-spacing: 0.05em; text-transform: uppercase; }
+
+    .section-label {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: var(--space-md);
+      display: block;
+    }
+
+    /* Only ONE section label on the page (hero uses it). See: ban #6 */
+
+    /* ============================================================
+       LAYOUT HELPERS
+       ============================================================ */
+    .container {
+      width: 100%;
+      max-width: var(--content-max);
+      margin: 0 auto;
+      padding: 0 var(--space-lg);
+    }
+
+    .container-narrow {
+      max-width: var(--content-narrow);
+    }
+
+    .section {
+      padding: var(--space-3xl) 0;
+    }
+
+    .section-alt {
+      background-color: var(--color-surface);
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-2xl);
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-xl);
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-lg);
+    }
+
+    .flex-center {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* ============================================================
+       BUTTONS
+       ============================================================ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      padding: 0.8rem 2rem;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      border-radius: var(--radius-sm);
+      transition: all var(--duration-fast) var(--ease-out-quart);
+      text-decoration: none;
+      line-height: 1.4;
+    }
+
+    .btn-primary {
+      background-color: var(--color-accent);
+      color: #ffffff;
+    }
+    .btn-primary:hover {
+      background-color: var(--color-accent-hover);
+      color: #ffffff;
+    }
+
+    .btn-outline {
+      border: 1px solid var(--color-border);
+      color: var(--color-text-primary);
+      background: transparent;
+    }
+    .btn-outline:hover {
+      border-color: var(--color-text-primary);
+      color: var(--color-text-primary);
+      background: transparent;
+    }
+
+    .btn-outline-light {
+      border: 1px solid rgba(255,255,255,0.3);
+      color: #ffffff;
+    }
+    .btn-outline-light:hover {
+      border-color: #ffffff;
+      color: #ffffff;
+    }
+
+    /* ============================================================
+       NAVIGATION
+       ============================================================ */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: var(--z-nav);
+      padding: 0 var(--space-lg);
+      height: var(--nav-height);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background-color var(--duration-normal) var(--ease-out-quart),
+                  box-shadow var(--duration-normal) var(--ease-out-quart);
+    }
+
+    .nav-scrolled {
+      background-color: var(--color-bg);
+      box-shadow: var(--shadow-sm);
+    }
+
+    [data-theme="dark"] .nav-scrolled {
+      background-color: var(--color-surface-dark);
+    }
+
+    .nav-logo {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--color-text-primary);
+      text-decoration: none;
+    }
+    .nav-logo:hover { color: var(--color-accent); }
+
+    .nav-logo span { color: var(--color-accent); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: var(--space-xl);
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.875rem;
+      font-weight: 400;
+      color: var(--color-text-secondary);
+      transition: color var(--duration-fast) ease;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background-color: var(--color-accent);
+      transition: width var(--duration-normal) var(--ease-out-quart);
+    }
+    .nav-links a:hover { color: var(--color-text-primary); }
+    .nav-links a:hover::after { width: 100%; }
+
+    /* Language switcher */
+    .lang-switcher {
+      position: relative;
+      z-index: var(--z-dropdown);
+    }
+
+    .lang-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.35rem 0.65rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--color-text-secondary);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      background: transparent;
+      transition: all var(--duration-fast) ease;
+    }
+    .lang-btn:hover {
+      border-color: var(--color-text-primary);
+      color: var(--color-text-primary);
+    }
+    .lang-btn svg { width: 14px; height: 14px; transition: transform var(--duration-fast) ease; }
+    .lang-btn[aria-expanded="true"] svg { transform: rotate(180deg); }
+
+    .lang-dropdown {
+      position: absolute;
+      top: calc(100% + 6px);
+      right: 0;
+      min-width: 140px;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-md);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-4px);
+      transition: all var(--duration-fast) var(--ease-out-quart);
+      overflow: hidden;
+    }
+    .lang-dropdown.open {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    .lang-dropdown button {
+      display: block;
+      width: 100%;
+      padding: 0.7rem 1rem;
+      text-align: left;
+      font-size: 0.85rem;
+      color: var(--color-text-secondary);
+      transition: all var(--duration-fast) ease;
+    }
+    .lang-dropdown button:hover {
+      background: var(--color-surface);
+      color: var(--color-text-primary);
+    }
+    .lang-dropdown button[data-active] {
+      color: var(--color-accent);
+      font-weight: 500;
+    }
+
+    /* Theme toggle */
+    .theme-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.25rem;
+      height: 2.25rem;
+      border-radius: var(--radius-sm);
+      color: var(--color-text-secondary);
+      border: 1px solid var(--color-border);
+      transition: all var(--duration-fast) ease;
+    }
+    .theme-toggle:hover {
+      border-color: var(--color-text-primary);
+      color: var(--color-text-primary);
+    }
+    .theme-toggle svg { width: 16px; height: 16px; }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+
+    /* Nav over hero — text needs to be light against dark overlay */
+    .nav:not(.nav-scrolled) .nav-links a,
+    .nav:not(.nav-scrolled) .nav-logo,
+    .nav:not(.nav-scrolled) .lang-btn,
+    .nav:not(.nav-scrolled) .theme-toggle {
+      color: rgba(255, 255, 255, 0.85);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+    .nav:not(.nav-scrolled) .nav-links a:hover,
+    .nav:not(.nav-scrolled) .nav-logo:hover,
+    .nav:not(.nav-scrolled) .lang-btn:hover,
+    .nav:not(.nav-scrolled) .theme-toggle:hover {
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.5);
+    }
+    .nav:not(.nav-scrolled) .nav-links a::after {
+      background-color: #ffffff;
+    }
+    .nav:not(.nav-scrolled) .nav-logo span {
+      color: var(--color-accent);
+    }
+
+    /* Mobile menu */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      width: 28px;
+      height: 28px;
+      align-items: center;
+      justify-content: center;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--color-text-primary);
+      transition: all var(--duration-fast) var(--ease-out-quart);
+      border-radius: 1px;
+    }
+    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(4px, 6px); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(4px, -6px); }
+
+    /* ============================================================
+       HERO
+       ============================================================ */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.05);
+      transition: transform var(--duration-slow) var(--ease-out-expo);
+    }
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--color-overlay-heavy);
+      background: linear-gradient(
+        to bottom,
+        rgba(28, 25, 23, 0.6) 0%,
+        rgba(28, 25, 23, 0.5) 50%,
+        rgba(28, 25, 23, 0.75) 100%
+      );
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: var(--space-xl) var(--space-lg);
+      max-width: var(--content-narrow);
+      margin: 0 auto;
+    }
+
+    .hero-content .section-label {
+      color: rgba(255,255,255,0.5);
+      margin-bottom: var(--space-lg);
+    }
+
+    .hero-content h1 {
+      color: #ffffff;
+      margin-bottom: var(--space-md);
+    }
+
+    .hero-content p {
+      font-size: clamp(1.05rem, 1.5vw, 1.2rem);
+      color: rgba(255,255,255,0.75);
+      margin: 0 auto;
+      max-width: 36rem;
+      line-height: 1.6;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: var(--space-md);
+      justify-content: center;
+      margin-top: var(--space-xl);
+    }
+
+    .hero-scroll-indicator {
+      position: absolute;
+      bottom: var(--space-xl);
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-xs);
+      color: rgba(255,255,255,0.4);
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      animation: bob 3s ease-in-out infinite;
+    }
+
+    .hero-scroll-indicator .line {
+      width: 1px;
+      height: 32px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.4), transparent);
+    }
+
+    @keyframes bob {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(8px); }
+    }
+
+    /* ============================================================
+       PHILOSOPHY SECTION
+       ============================================================ */
+    .philosophy {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-3xl);
+      align-items: center;
+    }
+
+    .philosophy-text {
+      padding-right: var(--space-xl);
+    }
+
+    .philosophy-text h2 {
+      margin-bottom: var(--space-lg);
+    }
+
+    .philosophy-text p {
+      color: var(--color-text-secondary);
+      font-size: 1.05rem;
+    }
+
+    .pull-quote {
+      font-family: var(--font-heading);
+      font-size: clamp(1.3rem, 2vw, 1.75rem);
+      font-style: italic;
+      line-height: 1.4;
+      color: var(--color-accent);
+      padding: var(--space-lg) 0;
+      margin: var(--space-xl) 0;
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .philosophy-image {
+      overflow: hidden;
+      border-radius: var(--radius-lg);
+    }
+    .philosophy-image img {
+      width: 100%;
+      height: 100%;
+      min-height: 500px;
+      object-fit: cover;
+      transition: transform var(--duration-slow) var(--ease-out-expo);
+    }
+    .philosophy-image:hover img {
+      transform: scale(1.04);
+    }
+
+    /* ============================================================
+       WORKS SECTION — Varying card layouts per ban #5
+       ============================================================ */
+    .works-grid {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2xl);
+    }
+
+    /* Card Layout A: full-bleed bg image + overlay at bottom */
+    .work-card-a {
+      position: relative;
+      height: 28rem;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    .work-card-a img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform var(--duration-slow) var(--ease-out-expo);
+    }
+    .work-card-a:hover img { transform: scale(1.04); }
+    .work-card-a .work-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(28,25,23,0.85) 0%, rgba(28,25,23,0.1) 60%, transparent 100%);
+    }
+    .work-card-a .work-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: var(--space-xl) var(--space-xl);
+      color: #ffffff;
+    }
+    .work-card-a .work-info h3 { color: #ffffff; }
+    .work-card-a .work-info .category {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: var(--space-xs);
+    }
+    .work-card-a .work-info p {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.9rem;
+      max-width: 30rem;
+    }
+
+    /* Card Layout B: image left, text right split */
+    .work-card-b {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: var(--color-surface);
+    }
+    .work-card-b .work-image {
+      overflow: hidden;
+    }
+    .work-card-b .work-image img {
+      width: 100%;
+      height: 100%;
+      min-height: 22rem;
+      object-fit: cover;
+      transition: transform var(--duration-slow) var(--ease-out-expo);
+    }
+    .work-card-b:hover .work-image img { transform: scale(1.04); }
+    .work-card-b .work-content {
+      padding: var(--space-2xl) var(--space-xl);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .work-card-b .work-content .category {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: var(--space-xs);
+    }
+    .work-card-b .work-content h3 { margin-bottom: var(--space-sm); }
+    .work-card-b .work-content p {
+      color: var(--color-text-secondary);
+      font-size: 0.925rem;
+    }
+    .work-card-b .work-content .location {
+      font-size: 0.8rem;
+      color: var(--color-text-tertiary);
+      margin-top: var(--space-md);
+    }
+
+    /* Card Layout C: full-width image below, text above, border frame */
+    .work-card-c {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+    }
+    .work-card-c .work-text {
+      padding: var(--space-xl) var(--space-xl) var(--space-md);
+    }
+    .work-card-c .work-text .category {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: var(--space-xs);
+    }
+    .work-card-c .work-text h3 { margin-bottom: var(--space-sm); }
+    .work-card-c .work-text p {
+      color: var(--color-text-secondary);
+      font-size: 0.9rem;
+      max-width: 100%;
+    }
+    .work-card-c .work-image {
+      overflow: hidden;
+      max-height: 22rem;
+    }
+    .work-card-c .work-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform var(--duration-slow) var(--ease-out-expo);
+    }
+    .work-card-c:hover .work-image img { transform: scale(1.03); }
+
+    /* ============================================================
+       SERVICES
+       ============================================================ */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-xl);
+    }
+
+    .service-card {
+      padding: var(--space-xl);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-border-light);
+      transition: all var(--duration-normal) var(--ease-out-quart);
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--color-accent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--duration-normal) var(--ease-out-quart);
+    }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-card:hover {
+      border-color: var(--color-accent-subtle);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .service-icon {
+      width: 2.5rem;
+      height: 2.5rem;
+      color: var(--color-accent);
+      margin-bottom: var(--space-md);
+    }
+
+    .service-card h4 {
+      margin-bottom: var(--space-sm);
+    }
+
+    .service-card p {
+      color: var(--color-text-secondary);
+      font-size: 0.925rem;
+      max-width: 100%;
+    }
+
+    /* ============================================================
+       TESTIMONIALS
+       ============================================================ */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-xl);
+    }
+
+    .testimonial-card {
+      padding: var(--space-xl);
+      border-radius: var(--radius-md);
+      background: var(--color-bg);
+      border: 1px solid var(--color-border-light);
+    }
+
+    .testimonial-card .quote-mark {
+      font-family: var(--font-heading);
+      font-size: 2.5rem;
+      line-height: 1;
+      color: var(--color-accent);
+      opacity: 0.3;
+      margin-bottom: var(--space-sm);
+    }
+
+    .testimonial-card blockquote {
+      font-size: 0.95rem;
+      color: var(--color-text-secondary);
+      line-height: 1.7;
+      font-style: italic;
+      margin-bottom: var(--space-lg);
+    }
+
+    .testimonial-card .author {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+    }
+
+    .testimonial-card .author-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      overflow: hidden;
+      background: var(--color-accent-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-heading);
+      font-size: 0.85rem;
+      color: var(--color-accent);
+      font-weight: 600;
+    }
+
+    .testimonial-card .author-info .name {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--color-text-primary);
+    }
+    .testimonial-card .author-info .role {
+      font-size: 0.8rem;
+      color: var(--color-text-tertiary);
+    }
+
+    /* ============================================================
+       CONTACT
+       ============================================================ */
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: var(--space-3xl);
+      align-items: start;
+    }
+
+    .contact-info h2 {
+      margin-bottom: var(--space-md);
+    }
+    .contact-info p {
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-xl);
+    }
+
+    .contact-detail {
+      display: flex;
+      gap: var(--space-md);
+      margin-bottom: var(--space-lg);
+    }
+    .contact-detail svg {
+      width: 20px;
+      height: 20px;
+      color: var(--color-accent);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .contact-detail div label {
+      font-size: 0.8rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-text-tertiary);
+      display: block;
+      margin-bottom: 2px;
+    }
+    .contact-detail div span {
+      color: var(--color-text-primary);
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .form-group label {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--color-text-secondary);
+    }
+
+    .form-group input,
+    .form-group textarea {
+      padding: 0.8rem 1rem;
+      font-family: var(--font-body);
+      font-size: 0.925rem;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      background: var(--color-bg);
+      color: var(--color-text-primary);
+      transition: border-color var(--duration-fast) ease;
+      outline: none;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--color-accent);
+      box-shadow: 0 0 0 3px var(--color-accent-subtle);
+    }
+    .form-group textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-md);
+    }
+
+    .contact-form .btn {
+      align-self: flex-start;
+    }
+
+    .form-status {
+      font-size: 0.875rem;
+      padding: var(--space-sm) var(--space-md);
+      border-radius: var(--radius-sm);
+      display: none;
+    }
+    .form-status.success {
+      display: block;
+      background: #d8edd4;
+      color: var(--color-success);
+    }
+    .form-status.error {
+      display: block;
+      background: #f5d6d6;
+      color: var(--color-error);
+    }
+    [data-theme="dark"] .form-status.success {
+      background: rgba(45, 106, 79, 0.2);
+    }
+    [data-theme="dark"] .form-status.error {
+      background: rgba(193, 41, 46, 0.2);
+    }
+
+    /* ============================================================
+       FOOTER
+       ============================================================ */
+    .footer {
+      padding: var(--space-3xl) 0 var(--space-xl);
+      border-top: 1px solid var(--color-border-light);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: var(--space-xl);
+      margin-bottom: var(--space-2xl);
+    }
+
+    .footer-brand .nav-logo {
+      display: inline-block;
+      margin-bottom: var(--space-md);
+    }
+    .footer-brand p {
+      color: var(--color-text-secondary);
+      font-size: 0.9rem;
+    }
+
+    .footer-col h5 {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-text-tertiary);
+      margin-bottom: var(--space-md);
+    }
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+    .footer-col a {
+      color: var(--color-text-secondary);
+      font-size: 0.9rem;
+      transition: color var(--duration-fast) ease;
+    }
+    .footer-col a:hover { color: var(--color-text-primary); }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: var(--space-lg);
+      border-top: 1px solid var(--color-border-light);
+      font-size: 0.85rem;
+      color: var(--color-text-tertiary);
+    }
+
+    .footer-social {
+      display: flex;
+      gap: var(--space-md);
+    }
+    .footer-social a {
+      color: var(--color-text-tertiary);
+      transition: color var(--duration-fast) ease;
+    }
+    .footer-social a:hover { color: var(--color-accent); }
+
+    /* ============================================================
+       COOKIE BANNER
+       ============================================================ */
+    .cookie-banner {
+      position: fixed;
+      bottom: var(--space-lg);
+      left: var(--space-lg);
+      right: var(--space-lg);
+      z-index: var(--z-toast);
+      max-width: 28rem;
+      padding: var(--space-lg);
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-lg);
+      display: none;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+    .cookie-banner.show { display: flex; }
+    .cookie-banner p {
+      font-size: 0.85rem;
+      color: var(--color-text-secondary);
+    }
+    .cookie-banner .btn { align-self: flex-start; }
+
+    /* ============================================================
+       ANIMATIONS — Scroll Reveal
+       ============================================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity var(--duration-slow) var(--ease-out-expo),
+                  transform var(--duration-slow) var(--ease-out-expo);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 100ms; }
+    .reveal-delay-2 { transition-delay: 200ms; }
+    .reveal-delay-3 { transition-delay: 300ms; }
+    .reveal-delay-4 { transition-delay: 400ms; }
+
+    /* Hero entrance */
+    .hero-entrance {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    .hero-entrance.loaded {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 1s var(--ease-out-expo),
+                  transform 1s var(--ease-out-expo);
+    }
+    .hero-entrance-delay-1 { transition-delay: 0.2s; }
+    .hero-entrance-delay-2 { transition-delay: 0.5s; }
+    .hero-entrance-delay-3 { transition-delay: 0.8s; }
+
+    /* Image parallax on hero */
+    .hero-bg img {
+      transition: transform 0.1s linear;
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      .reveal, .hero-entrance, .hero-entrance.loaded {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+      .hero-scroll-indicator { animation: none; }
+      .hero-bg img { transform: scale(1); transition: none; }
+      .work-card-a img, .work-card-b .work-image img, .work-card-c .work-image img,
+      .philosophy-image img { transition: none; }
+      .service-card::before { transition: none; }
+      html { scroll-behavior: auto; }
+    }
+
+    /* ============================================================
+       RESPONSIVE
+       ============================================================ */
+    @media (max-width: 1024px) {
+      .grid-3 { grid-template-columns: repeat(2, 1fr); }
+      .grid-4 { grid-template-columns: repeat(2, 1fr); }
+      .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: var(--space-xl); }
+    }
+
+    @media (max-width: 900px) {
+      .philosophy { grid-template-columns: 1fr; gap: var(--space-xl); }
+      .philosophy-text { padding-right: 0; }
+      .philosophy-image img { min-height: 300px; }
+      .contact-layout { grid-template-columns: 1fr; gap: var(--space-xl); }
+      .work-card-b { grid-template-columns: 1fr; }
+      .work-card-b .work-image img { min-height: 200px; max-height: 280px; }
+    }
+
+    @media (max-width: 768px) {
+      :root {
+        --space-3xl: 4rem;
+        --space-4xl: 5rem;
+      }
+
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .nav-links.open {
+        display: flex;
+        position: fixed;
+        inset: 0;
+        top: var(--nav-height);
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding: var(--space-2xl) var(--space-lg);
+        background: var(--color-bg);
+        gap: var(--space-lg);
+        z-index: var(--z-dropdown);
+      }
+      .nav-links.open a { font-size: 1.1rem; }
+
+      .grid-2 { grid-template-columns: 1fr; }
+      .grid-3 { grid-template-columns: 1fr; }
+      .grid-4 { grid-template-columns: 1fr 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; gap: var(--space-lg); }
+      .hero-actions { flex-direction: column; align-items: center; }
+      .form-row { grid-template-columns: 1fr; }
+      .work-card-a { height: 22rem; }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: var(--space-sm);
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container { padding: 0 var(--space-md); }
+      .section { padding: var(--space-2xl) 0; }
+      .work-card-a { height: 18rem; }
+      .cookie-banner { left: var(--space-md); right: var(--space-md); }
+    }
+
+    /* ============================================================
+       DARK MODE TOGGLE VISIBILITY
+       ============================================================ */
+    .icon-sun { display: block; }
+    .icon-moon { display: none; }
+    [data-theme="dark"] .icon-sun { display: none; }
+    [data-theme="dark"] .icon-moon { display: block; }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       COOKIE BANNER
+       ============================================================ -->
+  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent">
+    <p id="cookie-text">We use essential cookies to ensure the best experience on our website.</p>
+    <button class="btn btn-primary btn-small" id="cookie-accept" data-i18n="cookie.accept">Accept</button>
+  </div>
+
+  <!-- ============================================================
+       NAVIGATION
+       ============================================================ -->
+  <nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
+    <a href="#" class="nav-logo">Forma <span>&amp;</span> Space</a>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#philosophy" data-i18n="nav.philosophy">Philosophy</a></li>
+      <li><a href="#works" data-i18n="nav.works">Works</a></li>
+      <li><a href="#services" data-i18n="nav.services">Services</a></li>
+      <li><a href="#testimonials" data-i18n="nav.testimonials">Clients</a></li>
+      <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+      <li class="lang-switcher">
+        <button class="lang-btn" id="lang-btn" aria-expanded="false" aria-haspopup="true">
+          <span id="lang-current">EN</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="lang-dropdown" id="lang-dropdown" role="menu">
+          <button data-lang="en" data-active role="menuitem">English</button>
+          <button data-lang="es" role="menuitem">Español</button>
+          <button data-lang="fr" role="menuitem">Français</button>
+          <button data-lang="de" role="menuitem">Deutsch</button>
+          <button data-lang="it" role="menuitem">Italiano</button>
+          <button data-lang="pt" role="menuitem">Português</button>
+        </div>
+      </li>
+    </ul>
+
+    <div class="nav-actions">
+      <button class="theme-toggle" id="theme-toggle-mobile" aria-label="Toggle dark mode">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+      </button>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <section class="hero" id="hero">
+    <div class="hero-bg" id="hero-bg">
+      <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1920&q=85"
+           alt="Modern architecture exterior with warm lighting"
+           loading="eager"
+           fetchpriority="high">
+    </div>
+
+    <div class="hero-content">
+      <span class="section-label hero-entrance hero-entrance-delay-1" data-i18n="hero.kicker">Est. 2014</span>
+      <h1 class="hero-entrance hero-entrance-delay-1">
+        <span data-i18n="hero.title.line1">Forma</span> <span style="color:var(--color-accent)" data-i18n="hero.title.line2">&amp;</span><br>
+        <span data-i18n="hero.title.line3">Space</span>
+      </h1>
+      <p class="hero-entrance hero-entrance-delay-2" data-i18n="hero.tagline">Architecture that shapes human experience — where light, material, and proportion become poetry.</p>
+      <div class="hero-actions hero-entrance hero-entrance-delay-3">
+        <a href="#works" class="btn btn-primary" data-i18n="hero.cta1">View Our Work</a>
+        <a href="#contact" class="btn btn-outline-light" data-i18n="hero.cta2">Get in Touch</a>
+      </div>
+    </div>
+
+    <div class="hero-scroll-indicator" aria-hidden="true">
+      <span data-i18n="hero.scroll">Scroll</span>
+      <div class="line"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PHILOSOPHY
+       ============================================================ -->
+  <section class="section" id="philosophy">
+    <div class="container philosophy">
+      <div class="philosophy-text reveal">
+        <span class="section-label" data-i18n="philosophy.label">Our Ethos</span>
+        <h2 data-i18n="philosophy.title">Shaped by Light,<br>Rooted in Place</h2>
+        <p data-i18n="philosophy.p1">Every project begins with a deep understanding of site, climate, and the quiet rhythm of daily life. We believe architecture is not a imposition upon the landscape but a dialogue with it — a way of framing the world so that those who inhabit it see more clearly.</p>
+        <p data-i18n="philosophy.p2">Our practice spans residential, cultural, and civic work across three continents. Each commission is an opportunity to discover something new about how spaces shape us — in how light falls across a wall at dusk, in the grain of a material chosen for its honesty, in the unexpected view that turns a corridor into a moment.</p>
+
+        <div class="pull-quote reveal reveal-delay-1">
+          <span data-i18n="philosophy.quote">"We don't simply build structures. We craft atmospheres that unfold over time."</span>
+          <div style="font-family:var(--font-body);font-size:0.85rem;font-style:normal;color:var(--color-text-tertiary);margin-top:var(--space-sm);font-weight:400;">
+            — <span data-i18n="philosophy.attribution">Helena Voss, Founding Principal</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="philosophy-image reveal reveal-delay-2">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=85"
+             alt="Modern interior with warm natural light and clean lines"
+             loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       WORKS
+       ============================================================ -->
+  <section class="section section-alt" id="works">
+    <div class="container">
+      <span class="section-label reveal" data-i18n="works.label">Selected Projects</span>
+      <h2 class="reveal reveal-delay-1" style="margin-bottom:var(--space-2xl)" data-i18n="works.title">Featured Works</h2>
+
+      <div class="works-grid">
+
+        <!-- Work Card A — Full-bleed bg image -->
+        <article class="work-card-a reveal reveal-delay-1">
+          <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85"
+               alt="Casa Mediterránea interior living space"
+               loading="lazy">
+          <div class="work-overlay"></div>
+          <div class="work-info">
+            <div class="category" data-i18n="works.project1.category">Residential</div>
+            <h3 data-i18n="works.project1.title">Casa Mediterránea</h3>
+            <p data-i18n="works.project1.desc">A coastal dialogue between modern minimalism and Mediterranean vernacular, with courtyards that capture the shifting light.</p>
+          </div>
+        </article>
+
+        <!-- Work Card B — Image left, text right -->
+        <article class="work-card-b reveal reveal-delay-2">
+          <div class="work-image">
+            <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=800&q=85"
+                 alt="The Light House cultural center staircase"
+                 loading="lazy">
+          </div>
+          <div class="work-content">
+            <div class="category" data-i18n="works.project2.category">Cultural</div>
+            <h3 data-i18n="works.project2.title">The Light House</h3>
+            <p data-i18n="works.project2.desc">A community beacon on the Icelandic coast, where geometry channels Nordic light through a choreography of shadow and reflection.</p>
+            <div class="location" data-i18n="works.project2.location">Reykjavík, Iceland — 2023</div>
+          </div>
+        </article>
+
+        <!-- Work Card C — Text above, image below, framed -->
+        <article class="work-card-c reveal reveal-delay-3">
+          <div class="work-text">
+            <div class="category" data-i18n="works.project3.category">Mixed-Use</div>
+            <h3 data-i18n="works.project3.title">Vertical Garden Tower</h3>
+            <p data-i18n="works.project3.desc">A biophilic high-rise integrating over 8,000 plants across forty stories — a living ecosystem in the heart of the tropics, redefining urban biodiversity.</p>
+          </div>
+          <div class="work-image">
+            <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1000&q=85"
+                 alt="Vertical Garden Tower building exterior with greenery"
+                 loading="lazy">
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SERVICES
+       ============================================================ -->
+  <section class="section" id="services">
+    <div class="container">
+      <span class="section-label reveal" data-i18n="services.label">What We Do</span>
+      <h2 class="reveal reveal-delay-1" style="margin-bottom:var(--space-2xl)" data-i18n="services.title">Our Services</h2>
+
+      <div class="services-grid">
+
+        <div class="service-card reveal reveal-delay-1">
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+          <h4 data-i18n="services.item1.title">Residential Architecture</h4>
+          <p data-i18n="services.item1.desc">Custom homes designed from the inside out — responding to site, climate, and the unique ways each family inhabits space.</p>
+        </div>
+
+        <div class="service-card reveal reveal-delay-2">
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="8" rx="2" ry="2"/>
+            <rect x="2" y="14" width="20" height="8" rx="2" ry="2"/>
+            <path d="M6 6h.01M6 18h.01"/>
+          </svg>
+          <h4 data-i18n="services.item2.title">Interior Architecture</h4>
+          <p data-i18n="services.item2.desc">Spatial planning and material curation that blurs the boundary between building and inhabitant — where every surface tells a story.</p>
+        </div>
+
+        <div class="service-card reveal reveal-delay-3">
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="16 3 21 3 21 8"/>
+            <line x1="4" y1="20" x2="21" y2="3"/>
+            <polyline points="21 16 21 21 16 21"/>
+            <line x1="15" y1="15" x2="21" y2="21"/>
+            <line x1="3" y1="3" x2="9" y2="9"/>
+          </svg>
+          <h4 data-i18n="services.item3.title">Urban Design</h4>
+          <p data-i18n="services.item3.desc">Master planning and public space design that fosters community, connectivity, and a sense of belonging at every scale.</p>
+        </div>
+
+        <div class="service-card reveal reveal-delay-4">
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+            <path d="M7 11V7a5 5 0 0110 0v4"/>
+          </svg>
+          <h4 data-i18n="services.item4.title">Conservation &amp; Heritage</h4>
+          <p data-i18n="services.item4.desc">Thoughtful restoration and adaptive reuse that honors the past while reimagining spaces for contemporary life.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       TESTIMONIALS
+       ============================================================ -->
+  <section class="section section-alt" id="testimonials">
+    <div class="container">
+      <span class="section-label reveal" data-i18n="testimonials.label">Kind Words</span>
+      <h2 class="reveal reveal-delay-1" style="margin-bottom:var(--space-2xl)" data-i18n="testimonials.title">What Clients Say</h2>
+
+      <div class="testimonials-grid">
+
+        <div class="testimonial-card reveal reveal-delay-1">
+          <div class="quote-mark" aria-hidden="true">"</div>
+          <blockquote data-i18n="testimonials.item1.quote">Forma & Space understood our brief better than we did. The house they designed feels like it has always belonged to the land — and to us. Every corner invites stillness.</blockquote>
+          <div class="author">
+            <div class="author-avatar" aria-hidden="true">MR</div>
+            <div class="author-info">
+              <div class="name" data-i18n="testimonials.item1.name">Marta Rivas</div>
+              <div class="role" data-i18n="testimonials.item1.role">Homeowner, Mallorca</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card reveal reveal-delay-2">
+          <div class="quote-mark" aria-hidden="true">"</div>
+          <blockquote data-i18n="testimonials.item2.quote">A cultural center that feels both monumental and intimate. The way natural light moves through the space changes the atmosphere hourly. It's become the heart of our community.</blockquote>
+          <div class="author">
+            <div class="author-avatar" aria-hidden="true">EK</div>
+            <div class="author-info">
+              <div class="name" data-i18n="testimonials.item2.name">Einar Kristjánsson</div>
+              <div class="role" data-i18n="testimonials.item2.role">City Council, Reykjavík</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card reveal reveal-delay-3">
+          <div class="quote-mark" aria-hidden="true">"</div>
+          <blockquote data-i18n="testimonials.item3.quote">Working with Forma & Space transformed our brief into something far greater than a building. The tower breathes. It has become a landmark that belongs to the city.</blockquote>
+          <div class="author">
+            <div class="author-avatar" aria-hidden="true">AL</div>
+            <div class="author-info">
+              <div class="name" data-i18n="testimonials.item3.name">Andrew Lim</div>
+              <div class="role" data-i18n="testimonials.item3.role">Developer, Singapore</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CONTACT
+       ============================================================ -->
+  <section class="section" id="contact">
+    <div class="container contact-layout">
+      <div class="contact-info reveal">
+        <span class="section-label" data-i18n="contact.label">Connect</span>
+        <h2 data-i18n="contact.title">Begin a Conversation</h2>
+        <p data-i18n="contact.subtitle">Whether you have a project in mind or simply want to explore possibilities, we would love to hear from you.</p>
+
+        <div class="contact-detail">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div>
+            <label data-i18n="contact.address.label">Studio</label>
+            <span data-i18n="contact.address.value">42 Calle de la Luz, 28004 Madrid, Spain</span>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <div>
+            <label data-i18n="contact.email.label">Email</label>
+            <span>studio@forma-space.studio</span>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+          <div>
+            <label data-i18n="contact.phone.label">Phone</label>
+            <span>+34 91 234 5678</span>
+          </div>
+        </div>
+      </div>
+
+      <form class="contact-form reveal reveal-delay-1" id="contact-form" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="form-name" data-i18n="contact.form.name.label">Name</label>
+            <input type="text" id="form-name" name="name" required data-i18n-placeholder="contact.form.name.placeholder" placeholder="Your name">
+          </div>
+          <div class="form-group">
+            <label for="form-email" data-i18n="contact.form.email.label">Email</label>
+            <input type="email" id="form-email" name="email" required data-i18n-placeholder="contact.form.email.placeholder" placeholder="your@email.com">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="form-message" data-i18n="contact.form.message.label">Message</label>
+          <textarea id="form-message" name="message" required data-i18n-placeholder="contact.form.message.placeholder" placeholder="Tell us about your project..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" data-i18n="contact.form.submit">Send Message</button>
+        <div class="form-status" id="form-status" role="alert"></div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="nav-logo">Forma <span>&amp;</span> Space</a>
+          <p data-i18n="footer.tagline">Architecture and interior design practice crafting spaces of lasting meaning — from the Spanish coast to the Nordic fjords and beyond.</p>
+        </div>
+        <div class="footer-col">
+          <h5 data-i18n="footer.nav.title">Navigation</h5>
+          <ul>
+            <li><a href="#philosophy" data-i18n="nav.philosophy">Philosophy</a></li>
+            <li><a href="#works" data-i18n="nav.works">Works</a></li>
+            <li><a href="#services" data-i18n="nav.services">Services</a></li>
+            <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5 data-i18n="footer.practice.title">Practice</h5>
+          <ul>
+            <li><a href="#" data-i18n="footer.practice.careers">Careers</a></li>
+            <li><a href="#" data-i18n="footer.practice.news">News</a></li>
+            <li><a href="#" data-i18n="footer.practice.press">Press</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5 data-i18n="footer.legal.title">Legal</h5>
+          <ul>
+            <li><a href="#" data-i18n="footer.legal.privacy">Privacy Policy</a></li>
+            <li><a href="#" data-i18n="footer.legal.terms">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span data-i18n="footer.copyright">© 2026 Forma &amp; Space Studio. All rights reserved.</span>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" aria-label="LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="#" aria-label="Pinterest">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.5-.09-.82-.17-2.08.04-2.98.19-.82 1.22-5.18 1.22-5.18s-.31-.62-.31-1.54c0-1.44.84-2.52 1.88-2.52.88 0 1.31.66 1.31 1.46 0 .89-.57 2.22-.86 3.45-.25 1.03.52 1.87 1.54 1.87 1.85 0 3.27-1.95 3.27-4.76 0-2.49-1.79-4.23-4.34-4.23-2.96 0-4.7 2.22-4.7 4.51 0 .89.34 1.85.77 2.37.08.1.09.19.07.29-.08.32-.26 1.04-.3 1.18-.05.19-.16.23-.34.14-1.28-.6-2.08-2.47-2.08-3.98 0-3.24 2.35-6.21 6.78-6.21 3.56 0 6.33 2.54 6.33 5.93 0 3.54-2.23 6.39-5.33 6.39-1.04 0-2.02-.54-2.36-1.18l-.64 2.44c-.23.89-.86 2.01-1.28 2.69.96.3 1.98.46 3.04.46 5.52 0 10-4.48 10-10S17.52 2 12 2z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       JAVASCRIPT
+       ============================================================ -->
+  <script>
+    (function() {
+      'use strict';
+
+      /* ============================================================
+         i18n Translations
+         ============================================================ */
+      const translations = {
+        en: {
+          nav: { philosophy: 'Philosophy', works: 'Works', services: 'Services', testimonials: 'Clients', contact: 'Contact' },
+          hero: {
+            kicker: 'Est. 2014',
+            title: { line1: 'Forma', line2: '&', line3: 'Space' },
+            tagline: 'Architecture that shapes human experience — where light, material, and proportion become poetry.',
+            cta1: 'View Our Work', cta2: 'Get in Touch', scroll: 'Scroll'
+          },
+          philosophy: {
+            label: 'Our Ethos',
+            title: 'Shaped by Light,\nRooted in Place',
+            p1: 'Every project begins with a deep understanding of site, climate, and the quiet rhythm of daily life. We believe architecture is not an imposition upon the landscape but a dialogue with it — a way of framing the world so that those who inhabit it see more clearly.',
+            p2: 'Our practice spans residential, cultural, and civic work across three continents. Each commission is an opportunity to discover something new about how spaces shape us — in how light falls across a wall at dusk, in the grain of a material chosen for its honesty, in the unexpected view that turns a corridor into a moment.',
+            quote: '"We don\'t simply build structures. We craft atmospheres that unfold over time."',
+            attribution: 'Helena Voss, Founding Principal'
+          },
+          works: {
+            label: 'Selected Projects', title: 'Featured Works',
+            project1: { category: 'Residential', title: 'Casa Mediterránea', desc: 'A coastal dialogue between modern minimalism and Mediterranean vernacular, with courtyards that capture the shifting light.' },
+            project2: { category: 'Cultural', title: 'The Light House', desc: 'A community beacon on the Icelandic coast, where geometry channels Nordic light through a choreography of shadow and reflection.', location: 'Reykjavík, Iceland — 2023' },
+            project3: { category: 'Mixed-Use', title: 'Vertical Garden Tower', desc: 'A biophilic high-rise integrating over 8,000 plants across forty stories — a living ecosystem redefining urban biodiversity.' }
+          },
+          services: {
+            label: 'What We Do', title: 'Our Services',
+            item1: { title: 'Residential Architecture', desc: 'Custom homes designed from the inside out — responding to site, climate, and the unique ways each family inhabits space.' },
+            item2: { title: 'Interior Architecture', desc: 'Spatial planning and material curation that blurs the boundary between building and inhabitant — where every surface tells a story.' },
+            item3: { title: 'Urban Design', desc: 'Master planning and public space design that fosters community, connectivity, and a sense of belonging at every scale.' },
+            item4: { title: 'Conservation & Heritage', desc: 'Thoughtful restoration and adaptive reuse that honors the past while reimagining spaces for contemporary life.' }
+          },
+          testimonials: {
+            label: 'Kind Words', title: 'What Clients Say',
+            item1: { quote: 'Forma & Space understood our brief better than we did. The house they designed feels like it has always belonged to the land — and to us. Every corner invites stillness.', name: 'Marta Rivas', role: 'Homeowner, Mallorca' },
+            item2: { quote: 'A cultural center that feels both monumental and intimate. The way natural light moves through the space changes the atmosphere hourly. It\'s become the heart of our community.', name: 'Einar Kristjánsson', role: 'City Council, Reykjavík' },
+            item3: { quote: 'Working with Forma & Space transformed our brief into something far greater than a building. The tower breathes. It has become a landmark that belongs to the city.', name: 'Andrew Lim', role: 'Developer, Singapore' }
+          },
+          contact: {
+            label: 'Connect', title: 'Begin a Conversation',
+            subtitle: 'Whether you have a project in mind or simply want to explore possibilities, we would love to hear from you.',
+            address: { label: 'Studio', value: '42 Calle de la Luz, 28004 Madrid, Spain' },
+            email: { label: 'Email' },
+            phone: { label: 'Phone' },
+            form: {
+              name: { label: 'Name', placeholder: 'Your name' },
+              email: { label: 'Email', placeholder: 'your@email.com' },
+              message: { label: 'Message', placeholder: 'Tell us about your project...' },
+              submit: 'Send Message',
+              success: 'Thank you! We will respond within 48 hours.',
+              error: 'Please fill in all fields correctly.'
+            }
+          },
+          footer: {
+            tagline: 'Architecture and interior design practice crafting spaces of lasting meaning — from the Spanish coast to the Nordic fjords and beyond.',
+            nav: { title: 'Navigation' },
+            practice: { title: 'Practice', careers: 'Careers', news: 'News', press: 'Press' },
+            legal: { title: 'Legal', privacy: 'Privacy Policy', terms: 'Terms of Service' },
+            copyright: '© 2026 Forma & Space Studio. All rights reserved.'
+          },
+          cookie: { text: 'We use essential cookies to ensure the best experience on our website.', accept: 'Accept' }
+        },
+
+        es: {
+          nav: { philosophy: 'Filosofía', works: 'Obras', services: 'Servicios', testimonials: 'Clientes', contact: 'Contacto' },
+          hero: {
+            kicker: 'Est. 2014',
+            title: { line1: 'Forma', line2: '&', line3: 'Espacio' },
+            tagline: 'Arquitectura que da forma a la experiencia humana — donde la luz, el material y la proporción se convierten en poesía.',
+            cta1: 'Ver Obras', cta2: 'Contactar', scroll: 'Desplazar'
+          },
+          philosophy: {
+            label: 'Nuestra Ética',
+            title: 'Moldear la Luz,\nAnclar el Lugar',
+            p1: 'Cada proyecto comienza con una comprensión profunda del lugar, el clima y el ritmo tranquilo de la vida cotidiana. Creemos que la arquitectura no es una imposición sobre el paisaje sino un diálogo con él — una forma de encuadrar el mundo para que quienes lo habitan vean con mayor claridad.',
+            p2: 'Nuestro estudio abarca trabajo residencial, cultural y cívico en tres continentes. Cada encargo es una oportunidad para descubrir algo nuevo sobre cómo los espacios nos moldean — en cómo la luz cruza una pared al atardecer, en la textura de un material elegido por su honestidad, en la vista inesperada que convierte un pasillo en un momento.',
+            quote: '"No construimos simplemente estructuras. Creamos atmósferas que se despliegan con el tiempo."',
+            attribution: 'Helena Voss, Socia Fundadora'
+          },
+          works: {
+            label: 'Proyectos Seleccionados', title: 'Obras Destacadas',
+            project1: { category: 'Residencial', title: 'Casa Mediterránea', desc: 'Un diálogo costero entre el minimalismo moderno y la tradición mediterránea, con patios que capturan la luz cambiante.' },
+            project2: { category: 'Cultural', title: 'The Light House', desc: 'Un faro comunitario en la costa islandesa, donde la geometría canaliza la luz nórdica a través de una coreografía de sombra y reflejo.', location: 'Reykjavík, Islandia — 2023' },
+            project3: { category: 'Mixto', title: 'Torre Jardín Vertical', desc: 'Un rascacielos biofílico que integra más de 8.000 plantas en cuarenta plantas — un ecosistema vivo que redefine la biodiversidad urbana.' }
+          },
+          services: {
+            label: 'Qué Hacemos', title: 'Nuestros Servicios',
+            item1: { title: 'Arquitectura Residencial', desc: 'Hogares diseñados desde dentro hacia afuera — respondiendo al lugar, el clima y las formas únicas de habitar de cada familia.' },
+            item2: { title: 'Arquitectura Interior', desc: 'Planificación espacial y curaduría de materiales que difuminan el límite entre el edificio y el habitante — donde cada superficie cuenta una historia.' },
+            item3: { title: 'Diseño Urbano', desc: 'Planificación maestra y diseño de espacios públicos que fomentan la comunidad, la conectividad y el sentido de pertenencia a todas las escalas.' },
+            item4: { title: 'Conservación y Patrimonio', desc: 'Restauración cuidadosa y reutilización adaptativa que honra el pasado mientras reinventa espacios para la vida contemporánea.' }
+          },
+          testimonials: {
+            label: 'Testimonios', title: 'Lo Que Dicen los Clientes',
+            item1: { quote: 'Forma & Space entendió nuestro proyecto mejor que nosotros. La casa que diseñaron parece haber pertenecido siempre a la tierra — y a nosotros. Cada rincón invita a la calma.', name: 'Marta Rivas', role: 'Propietaria, Mallorca' },
+            item2: { quote: 'Un centro cultural que se siente a la vez monumental e íntimo. La forma en que la luz natural se mueve por el espacio cambia la atmósfera a cada hora. Se ha convertido en el corazón de nuestra comunidad.', name: 'Einar Kristjánsson', role: 'Ayuntamiento, Reykjavík' },
+            item3: { quote: 'Trabajar con Forma & Space transformó nuestro proyecto en algo mucho más grande que un edificio. La torre respira. Se ha convertido en un hito de la ciudad.', name: 'Andrew Lim', role: 'Promotor, Singapur' }
+          },
+          contact: {
+            label: 'Conectar', title: 'Inicia una Conversación',
+            subtitle: 'Ya sea que tengas un proyecto en mente o simplemente quieras explorar posibilidades, nos encantaría saber de ti.',
+            address: { label: 'Estudio', value: 'Calle de la Luz 42, 28004 Madrid, España' },
+            email: { label: 'Correo' },
+            phone: { label: 'Teléfono' },
+            form: {
+              name: { label: 'Nombre', placeholder: 'Tu nombre' },
+              email: { label: 'Correo', placeholder: 'tu@email.com' },
+              message: { label: 'Mensaje', placeholder: 'Cuéntanos sobre tu proyecto...' },
+              submit: 'Enviar Mensaje',
+              success: '¡Gracias! Responderemos dentro de 48 horas.',
+              error: 'Por favor completa todos los campos correctamente.'
+            }
+          },
+          footer: {
+            tagline: 'Estudio de arquitectura y diseño de interiores que crea espacios de significado perdurable — desde la costa española hasta los fiordos nórdicos y más allá.',
+            nav: { title: 'Navegación' },
+            practice: { title: 'Estudio', careers: 'Carreras', news: 'Noticias', press: 'Prensa' },
+            legal: { title: 'Legal', privacy: 'Política de Privacidad', terms: 'Términos del Servicio' },
+            copyright: '© 2026 Forma & Space Studio. Todos los derechos reservados.'
+          },
+          cookie: { text: 'Utilizamos cookies esenciales para garantizar la mejor experiencia en nuestro sitio web.', accept: 'Aceptar' }
+        },
+
+        fr: {
+          nav: { philosophy: 'Philosophie', works: 'Réalisations', services: 'Services', testimonials: 'Clients', contact: 'Contact' },
+          hero: {
+            kicker: 'Établi en 2014',
+            title: { line1: 'Forme', line2: '&', line3: 'Espace' },
+            tagline: 'Une architecture qui façonne l\'expérience humaine — où la lumière, la matière et la proportion deviennent poésie.',
+            cta1: 'Voir Nos Projets', cta2: 'Nous Contacter', scroll: 'Défiler'
+          },
+          philosophy: {
+            label: 'Notre Éthique',
+            title: 'Façonné par la Lumière,\nEnraciné dans le Lieu',
+            p1: 'Chaque projet commence par une compréhension profonde du site, du climat et du rythme silencieux de la vie quotidienne. Nous croyons que l\'architecture n\'est pas une imposition sur le paysage mais un dialogue avec lui — une manière de cadrer le monde pour que ceux qui l\'habitent voient plus clairement.',
+            p2: 'Notre pratique couvre des projets résidentiels, culturels et civiques sur trois continents. Chaque commande est une opportunité de découvrir quelque chose de nouveau sur la façon dont les espaces nous façonnent.',
+            quote: '"Nous ne construisons pas simplement des structures. Nous créons des atmosphères qui se déploient avec le temps."',
+            attribution: 'Helena Voss, Associée Fondatrice'
+          },
+          works: {
+            label: 'Projets Sélectionnés', title: 'Réalisations',
+            project1: { category: 'Résidentiel', title: 'Casa Mediterránea', desc: 'Un dialogue côtier entre minimalisme moderne et tradition méditerranéenne, avec des patios qui capturent la lumière changeante.' },
+            project2: { category: 'Culturel', title: 'The Light House', desc: 'Un phare communautaire sur la côte islandaise, où la géométrie canalise la lumière nordique.', location: 'Reykjavík, Islande — 2023' },
+            project3: { category: 'Mixte', title: 'Tour Jardin Vertical', desc: 'Une tour biophilique intégrant plus de 8 000 plantes sur quarante étages — un écosystème vivant redéfinissant la biodiversité urbaine.' }
+          },
+          services: {
+            label: 'Notre Offre', title: 'Nos Services',
+            item1: { title: 'Architecture Résidentielle', desc: 'Des maisons conçues de l\'intérieur vers l\'extérieur, en réponse au site, au climat et aux modes de vie uniques de chaque famille.' },
+            item2: { title: 'Architecture d\'Intérieur', desc: 'Planification spatiale et curation de matériaux qui effacent la frontière entre le bâtiment et l\'habitant.' },
+            item3: { title: 'Design Urbain', desc: 'Planification directrice et conception d\'espaces publics favorisant la communauté et l\'appartenance à toutes les échelles.' },
+            item4: { title: 'Conservation & Patrimoine', desc: 'Restauration réfléchie et réutilisation adaptative qui honore le passé tout en réimaginant les espaces pour la vie contemporaine.' }
+          },
+          testimonials: {
+            label: 'Témoignages', title: 'Ce Que Disent Nos Clients',
+            item1: { quote: 'Forma & Space a compris notre vision mieux que nous-mêmes. La maison qu\'ils ont conçue semble avoir toujours appartenu à la terre — et à nous.', name: 'Marta Rivas', role: 'Propriétaire, Majorque' },
+            item2: { quote: 'Un centre culturel à la fois monumental et intime. La lumière naturelle y change l\'atmosphère à chaque heure.', name: 'Einar Kristjánsson', role: 'Conseil Municipal, Reykjavík' },
+            item3: { quote: 'Travailler avec Forma & Space a transformé notre projet en quelque chose de bien plus grand qu\'un bâtiment. La tour respire.', name: 'Andrew Lim', role: 'Promoteur, Singapour' }
+          },
+          contact: {
+            label: 'Contact', title: 'Engagez la Conversation',
+            subtitle: 'Que vous ayez un projet en tête ou que vous souhaitiez explorer des possibilités, nous serions ravis de vous entendre.',
+            address: { label: 'Studio', value: '42 Calle de la Luz, 28004 Madrid, Espagne' },
+            email: { label: 'Email' },
+            phone: { label: 'Téléphone' },
+            form: {
+              name: { label: 'Nom', placeholder: 'Votre nom' },
+              email: { label: 'Email', placeholder: 'votre@email.com' },
+              message: { label: 'Message', placeholder: 'Parlez-nous de votre projet...' },
+              submit: 'Envoyer le Message',
+              success: 'Merci ! Nous répondrons sous 48 heures.',
+              error: 'Veuillez remplir tous les champs correctement.'
+            }
+          },
+          footer: {
+            tagline: 'Cabinet d\'architecture et de design d\'intérieur créant des espaces de sens durable — de la côte espagnole aux fjords nordiques et au-delà.',
+            nav: { title: 'Navigation' },
+            practice: { title: 'Cabinet', careers: 'Carrières', news: 'Actualités', press: 'Presse' },
+            legal: { title: 'Mentions Légales', privacy: 'Confidentialité', terms: 'Conditions d\'Utilisation' },
+            copyright: '© 2026 Forma & Space Studio. Tous droits réservés.'
+          },
+          cookie: { text: 'Nous utilisons des cookies essentiels pour garantir la meilleure expérience sur notre site.', accept: 'Accepter' }
+        },
+
+        de: {
+          nav: { philosophy: 'Philosophie', works: 'Arbeiten', services: 'Leistungen', testimonials: 'Kunden', contact: 'Kontakt' },
+          hero: {
+            kicker: 'Gegr. 2014',
+            title: { line1: 'Form', line2: '&', line3: 'Raum' },
+            tagline: 'Architektur, die menschliche Erfahrung formt — wo Licht, Material und Proportion zur Poesie werden.',
+            cta1: 'Unsere Arbeiten', cta2: 'Kontakt aufnehmen', scroll: 'Scrollen'
+          },
+          philosophy: {
+            label: 'Unsere Ethik',
+            title: 'Geformt vom Licht,\nVerwurzelt im Ort',
+            p1: 'Jedes Projekt beginnt mit einem tiefen Verständnis des Ortes, des Klimas und des stillen Rhythmus des täglichen Lebens. Wir glauben, dass Architektur keine Aufzwingung der Landschaft ist, sondern ein Dialog mit ihr.',
+            p2: 'Unsere Praxis umfasst Wohn-, Kultur- und Zivilbauten auf drei Kontinenten. Jeder Auftrag ist eine Gelegenheit, etwas Neues darüber zu entdecken, wie Räume uns formen.',
+            quote: '"Wir bauen nicht einfach Strukturen. Wir erschaffen Atmosphären, die sich im Laufe der Zeit entfalten."',
+            attribution: 'Helena Voss, Gründungspartnerin'
+          },
+          works: {
+            label: 'Ausgewählte Projekte', title: 'Projekte',
+            project1: { category: 'Wohnbau', title: 'Casa Mediterránea', desc: 'Ein Küstendialog zwischen modernem Minimalismus und mediterraner Tradition, mit Innenhöfen, die das wechselnde Licht einfangen.' },
+            project2: { category: 'Kultur', title: 'The Light House', desc: 'Ein Gemeinschaftsleuchtturm an der isländischen Küste, wo Geometrie nordisches Licht kanalisiert.', location: 'Reykjavík, Island — 2023' },
+            project3: { category: 'Mischnutzung', title: 'Vertikaler Gartenturm', desc: 'Ein biophiler Hochhaus mit über 8.000 Pflanzen auf vierzig Stockwerken — ein lebendiges Ökosystem.' }
+          },
+          services: {
+            label: 'Unser Angebot', title: 'Unsere Leistungen',
+            item1: { title: 'Wohnarchitektur', desc: 'Maßgeschneiderte Häuser von innen nach außen entworfen — reagierend auf Ort, Klima und Lebensweise jeder Familie.' },
+            item2: { title: 'Innenarchitektur', desc: 'Raumplanung und Materialkuratierung, die die Grenze zwischen Gebäude und Bewohner verschwimmen lassen.' },
+            item3: { title: 'Städtebau', desc: 'Masterplanung und Gestaltung öffentlicher Räume, die Gemeinschaft und Zugehörigkeit auf allen Ebenen fördern.' },
+            item4: { title: 'Denkmalpflege', desc: 'Durchdachte Restaurierung und adaptive Wiederverwendung, die die Vergangenheit ehrt und Räume für das zeitgenössische Leben neu interpretiert.' }
+          },
+          testimonials: {
+            label: 'Erfahrungen', title: 'Was Kunden Sagen',
+            item1: { quote: 'Forma & Space hat unser Konzept besser verstanden als wir selbst. Das Haus fühlt sich an, als hätte es immer zum Land gehört.', name: 'Marta Rivas', role: 'Hauseigentümerin, Mallorca' },
+            item2: { quote: 'Ein Kulturzentrum, das sowohl monumental als auch intim wirkt. Die Art, wie natürliches Licht den Raum durchflutet, verändert stündlich die Atmosphäre.', name: 'Einar Kristjánsson', role: 'Stadtrat, Reykjavík' },
+            item3: { quote: 'Die Zusammenarbeit mit Forma & Space hat unser Projekt in etwas weit Größeres als ein Gebäude verwandelt. Der Turm atmet.', name: 'Andrew Lim', role: 'Entwickler, Singapur' }
+          },
+          contact: {
+            label: 'Kontakt', title: 'Ein Gespräch Beginnen',
+            subtitle: 'Ob Sie ein Projekt im Kopf haben oder einfach nur Möglichkeiten erkunden möchten — wir freuen uns auf Ihre Nachricht.',
+            address: { label: 'Studio', value: 'Calle de la Luz 42, 28004 Madrid, Spanien' },
+            email: { label: 'E-Mail' },
+            phone: { label: 'Telefon' },
+            form: {
+              name: { label: 'Name', placeholder: 'Ihr Name' },
+              email: { label: 'E-Mail', placeholder: 'ihre@email.com' },
+              message: { label: 'Nachricht', placeholder: 'Erzählen Sie uns von Ihrem Projekt...' },
+              submit: 'Nachricht Senden',
+              success: 'Vielen Dank! Wir antworten innerhalb von 48 Stunden.',
+              error: 'Bitte füllen Sie alle Felder korrekt aus.'
+            }
+          },
+          footer: {
+            tagline: 'Architektur- und Innenarchitekturbüro, das Räume von bleibender Bedeutung schafft — von der spanischen Küste bis zu den nordischen Fjorden und darüber hinaus.',
+            nav: { title: 'Navigation' },
+            practice: { title: 'Büro', careers: 'Karriere', news: 'Neuigkeiten', press: 'Presse' },
+            legal: { title: 'Rechtliches', privacy: 'Datenschutz', terms: 'Nutzungsbedingungen' },
+            copyright: '© 2026 Forma & Space Studio. Alle Rechte vorbehalten.'
+          },
+          cookie: { text: 'Wir verwenden notwendige Cookies, um die beste Erfahrung auf unserer Website zu gewährleisten.', accept: 'Akzeptieren' }
+        },
+
+        it: {
+          nav: { philosophy: 'Filosofia', works: 'Opere', services: 'Servizi', testimonials: 'Clienti', contact: 'Contatto' },
+          hero: {
+            kicker: 'Fondato nel 2014',
+            title: { line1: 'Forma', line2: '&', line3: 'Spazio' },
+            tagline: 'Architettura che plasma l\'esperienza umana — dove luce, materia e proporzione diventano poesia.',
+            cta1: 'Vedi le Opere', cta2: 'Contattaci', scroll: 'Scorri'
+          },
+          philosophy: {
+            label: 'La Nostra Etica',
+            title: 'Plasmato dalla Luce,\nRadicato nel Luogo',
+            p1: 'Ogni progetto inizia con una profonda comprensione del sito, del clima e del ritmo silenzioso della vita quotidiana. Crediamo che l\'architettura non sia un\'imposizione sul paesaggio ma un dialogo con esso.',
+            p2: 'La nostra pratica abbraccia lavori residenziali, culturali e civici in tre continenti. Ogni incarico è un\'opportunità per scoprire qualcosa di nuovo su come gli spazi ci plasmano.',
+            quote: '"Non costruiamo semplicemente strutture. Creiamo atmosfere che si dispiegano nel tempo."',
+            attribution: 'Helena Voss, Socio Fondatore'
+          },
+          works: {
+            label: 'Progetti Selezionati', title: 'Opere in Evidenza',
+            project1: { category: 'Residenziale', title: 'Casa Mediterránea', desc: 'Un dialogo costiero tra minimalismo moderno e tradizione mediterranea, con cortili che catturano la luce mutevole.' },
+            project2: { category: 'Culturale', title: 'The Light House', desc: 'Un faro comunitario sulla costa islandese, dove la geometria incanala la luce nordica.', location: 'Reykjavík, Islanda — 2023' },
+            project3: { category: 'Misto', title: 'Torre Giardino Verticale', desc: 'Un grattacielo biofilo che integra oltre 8.000 piante in quaranta piani — un ecosistema vivente.' }
+          },
+          services: {
+            label: 'Cosa Facciamo', title: 'I Nostri Servizi',
+            item1: { title: 'Architettura Residenziale', desc: 'Case su misura progettate dall\'interno verso l\'esterno, rispondendo al sito, al clima e ai modi unici di abitare di ogni famiglia.' },
+            item2: { title: 'Architettura d\'Interni', desc: 'Pianificazione spaziale e cura dei materiali che sfuma il confine tra edificio e abitante.' },
+            item3: { title: 'Urban Design', desc: 'Pianificazione urbanistica e progettazione di spazi pubblici che favoriscono comunità e senso di appartenenza.' },
+            item4: { title: 'Conservazione e Restauro', desc: 'Restauro attento e riuso adattivo che onora il passato mentre reinventa gli spazi per la vita contemporanea.' }
+          },
+          testimonials: {
+            label: 'Testimonianze', title: 'Cosa Dicono i Clienti',
+            item1: { quote: 'Forma & Space ha capito il nostro progetto meglio di noi. La casa sembra essere sempre appartenuta alla terra — e a noi.', name: 'Marta Rivas', role: 'Proprietaria, Maiorca' },
+            item2: { quote: 'Un centro culturale che sembra allo stesso tempo monumentale e intimo. Il modo in cui la luce naturale si muove nello spazio cambia l\'atmosfera ogni ora.', name: 'Einar Kristjánsson', role: 'Consiglio Comunale, Reykjavík' },
+            item3: { quote: 'Lavorare con Forma & Space ha trasformato il nostro progetto in qualcosa di molto più grande di un edificio. La torre respira.', name: 'Andrew Lim', role: 'Promotore, Singapore' }
+          },
+          contact: {
+            label: 'Contatto', title: 'Inizia una Conversazione',
+            subtitle: 'Che tu abbia un progetto in mente o desideri semplicemente esplorare possibilità, saremo lieti di ascoltarti.',
+            address: { label: 'Studio', value: 'Calle de la Luz 42, 28004 Madrid, Spagna' },
+            email: { label: 'Email' },
+            phone: { label: 'Telefono' },
+            form: {
+              name: { label: 'Nome', placeholder: 'Il tuo nome' },
+              email: { label: 'Email', placeholder: 'tua@email.com' },
+              message: { label: 'Messaggio', placeholder: 'Parlaci del tuo progetto...' },
+              submit: 'Invia Messaggio',
+              success: 'Grazie! Ti risponderemo entro 48 ore.',
+              error: 'Compila correttamente tutti i campi.'
+            }
+          },
+          footer: {
+            tagline: 'Studio di architettura e interior design che crea spazi di significato duraturo — dalla costa spagnola ai fiordi nordici e oltre.',
+            nav: { title: 'Navigazione' },
+            practice: { title: 'Studio', careers: 'Carriere', news: 'Notizie', press: 'Stampa' },
+            legal: { title: 'Legale', privacy: 'Privacy', terms: 'Termini di Servizio' },
+            copyright: '© 2026 Forma & Space Studio. Tutti i diritti riservati.'
+          },
+          cookie: { text: 'Utilizziamo cookie essenziali per garantire la migliore esperienza sul nostro sito web.', accept: 'Accetta' }
+        },
+
+        pt: {
+          nav: { philosophy: 'Filosofia', works: 'Obras', services: 'Serviços', testimonials: 'Clientes', contact: 'Contato' },
+          hero: {
+            kicker: 'Fundado em 2014',
+            title: { line1: 'Forma', line2: '&', line3: 'Espaço' },
+            tagline: 'Arquitetura que molda a experiência humana — onde luz, material e proporção se tornam poesia.',
+            cta1: 'Ver Obras', cta2: 'Entrar em Contato', scroll: 'Rolar'
+          },
+          philosophy: {
+            label: 'Nossa Ética',
+            title: 'Moldado pela Luz,\nEnraizado no Lugar',
+            p1: 'Cada projeto começa com uma compreensão profunda do local, do clima e do ritmo silencioso da vida cotidiana. Acreditamos que a arquitetura não é uma imposição sobre a paisagem, mas um diálogo com ela.',
+            p2: 'Nossa prática abrange trabalhos residenciais, culturais e cívicos em três continentes. Cada encomenda é uma oportunidade para descobrir algo novo sobre como os espaços nos moldam.',
+            quote: '"Não construímos simplesmente estruturas. Criamos atmosferas que se desdobram com o tempo."',
+            attribution: 'Helena Voss, Sócia-Fundadora'
+          },
+          works: {
+            label: 'Projetos Selecionados', title: 'Obras em Destaque',
+            project1: { category: 'Residencial', title: 'Casa Mediterránea', desc: 'Um diálogo costeiro entre minimalismo moderno e tradição mediterrânea, com pátios que capturam a luz mutável.' },
+            project2: { category: 'Cultural', title: 'The Light House', desc: 'Um farol comunitário na costa islandesa, onde a geometria canaliza a luz nórdica.', location: 'Reykjavík, Islândia — 2023' },
+            project3: { category: 'Misto', title: 'Torre Jardim Vertical', desc: 'Um arranha-céu biofílico integrando mais de 8.000 plantas em quarenta andares — um ecossistema vivo.' }
+          },
+          services: {
+            label: 'O Que Fazemos', title: 'Nossos Serviços',
+            item1: { title: 'Arquitetura Residencial', desc: 'Casas personalizadas projetadas de dentro para fora — respondendo ao local, clima e às formas únicas de habitar de cada família.' },
+            item2: { title: 'Arquitetura de Interiores', desc: 'Planejamento espacial e curadoria de materiais que borram os limites entre edifício e habitante.' },
+            item3: { title: 'Design Urbano', desc: 'Planejamento mestre e design de espaços públicos que promovem comunidade e pertencimento em todas as escalas.' },
+            item4: { title: 'Conservação e Patrimônio', desc: 'Restauro cuidadoso e reuso adaptativo que honra o passado enquanto reinventa espaços para a vida contemporânea.' }
+          },
+          testimonials: {
+            label: 'Depoimentos', title: 'O Que os Clientes Dizem',
+            item1: { quote: 'Forma & Space entendeu nosso projeto melhor que nós. A casa parece ter sempre pertencido à terra — e a nós.', name: 'Marta Rivas', role: 'Proprietária, Maiorca' },
+            item2: { quote: 'Um centro cultural que parece ao mesmo tempo monumental e íntimo. A luz natural que atravessa o espaço muda a atmosfera a cada hora.', name: 'Einar Kristjánsson', role: 'Câmara Municipal, Reykjavík' },
+            item3: { quote: 'Trabalhar com Forma & Space transformou nosso projeto em algo muito maior que um edifício. A torre respira.', name: 'Andrew Lim', role: 'Incorporador, Singapura' }
+          },
+          contact: {
+            label: 'Contato', title: 'Inicie uma Conversa',
+            subtitle: 'Quer você tenha um projeto em mente ou simplesmente queira explorar possibilidades, adoraríamos ouvir de você.',
+            address: { label: 'Estúdio', value: 'Calle de la Luz 42, 28004 Madrid, Espanha' },
+            email: { label: 'Email' },
+            phone: { label: 'Telefone' },
+            form: {
+              name: { label: 'Nome', placeholder: 'Seu nome' },
+              email: { label: 'Email', placeholder: 'seu@email.com' },
+              message: { label: 'Mensagem', placeholder: 'Fale sobre seu projeto...' },
+              submit: 'Enviar Mensagem',
+              success: 'Obrigado! Responderemos em até 48 horas.',
+              error: 'Preencha todos os campos corretamente.'
+            }
+          },
+          footer: {
+            tagline: 'Escritório de arquitetura e design de interiores criando espaços de significado duradouro — da costa espanhola aos fiordes nórdicos e além.',
+            nav: { title: 'Navegação' },
+            practice: { title: 'Escritório', careers: 'Carreiras', news: 'Notícias', press: 'Imprensa' },
+            legal: { title: 'Legal', privacy: 'Política de Privacidade', terms: 'Termos de Serviço' },
+            copyright: '© 2026 Forma & Space Studio. Todos os direitos reservados.'
+          },
+          cookie: { text: 'Usamos cookies essenciais para garantir a melhor experiência em nosso site.', accept: 'Aceitar' }
+        }
+      };
+
+      /* ============================================================
+         i18n Engine
+         ============================================================ */
+      let currentLang = 'en';
+
+      function resolveKey(obj, path) {
+        return path.split('.').reduce(function(acc, part) { return acc && acc[part] !== undefined ? acc[part] : null; }, obj);
+      }
+
+      function translatePage(lang) {
+        currentLang = lang;
+        var t = translations[lang];
+        if (!t) return;
+
+        // data-i18n attributes
+        var els = document.querySelectorAll('[data-i18n]');
+        for (var i = 0; i < els.length; i++) {
+          var el = els[i];
+          var key = el.getAttribute('data-i18n');
+          var val = resolveKey(t, key);
+          if (val !== null) {
+            // Handle newlines for titles
+            if (val.indexOf('\n') > -1) {
+              el.innerHTML = val.replace(/\n/g, '<br>');
+            } else {
+              el.textContent = val;
+            }
+          }
+        }
+
+        // data-i18n-placeholder for inputs/textareas
+        var placeholders = document.querySelectorAll('[data-i18n-placeholder]');
+        for (var j = 0; j < placeholders.length; j++) {
+          var ph = placeholders[j];
+          var pKey = ph.getAttribute('data-i18n-placeholder');
+          var pVal = resolveKey(t, pKey);
+          if (pVal !== null) {
+            ph.setAttribute('placeholder', pVal);
+          }
+        }
+
+        // Update meta tags
+        var titles = t.hero.title;
+        var fullTitle = titles.line1 + ' ' + titles.line2 + ' ' + titles.line3 + ' — Architecture & Interior Design Studio';
+        // Actually use proper translated title
+        var brandTitle = titles.line1 + ' ' + titles.line2 + ' ' + titles.line3;
+        var metaTitle = brandTitle + ' — ' + (lang === 'en' ? 'Architecture & Interior Design Studio' :
+          lang === 'es' ? 'Estudio de Arquitectura y Diseño de Interiores' :
+          lang === 'fr' ? "Cabinet d'Architecture et de Design d'Intérieur" :
+          lang === 'de' ? 'Architektur- und Innenarchitekturbüro' :
+          lang === 'it' ? 'Studio di Architettura e Interior Design' :
+          'Escritório de Arquitetura e Design de Interiores');
+
+        var metaDesc = t.hero.tagline.replace(/<[^>]+>/g, '');
+
+        var titleEl = document.getElementById('meta-title');
+        if (titleEl) titleEl.textContent = metaTitle;
+        var descEl = document.getElementById('meta-desc');
+        if (descEl) descEl.setAttribute('content', metaDesc);
+        var ogTitle = document.getElementById('og-title');
+        if (ogTitle) ogTitle.setAttribute('content', metaTitle);
+        var ogDesc = document.getElementById('og-desc');
+        if (ogDesc) ogDesc.setAttribute('content', metaDesc);
+        var twTitle = document.getElementById('tw-title');
+        if (twTitle) twTitle.setAttribute('content', metaTitle);
+        var twDesc = document.getElementById('tw-desc');
+        if (twDesc) twDesc.setAttribute('content', metaDesc);
+
+        // Update HTML lang attribute
+        document.documentElement.setAttribute('lang', lang);
+
+        // Update the language switcher button text
+        var langCurrent = document.getElementById('lang-current');
+        if (langCurrent) langCurrent.textContent = lang.toUpperCase();
+
+        // Mark active language in dropdown
+        var langBtns = document.querySelectorAll('#lang-dropdown button');
+        for (var k = 0; k < langBtns.length; k++) {
+          if (langBtns[k].getAttribute('data-lang') === lang) {
+            langBtns[k].setAttribute('data-active', '');
+          } else {
+            langBtns[k].removeAttribute('data-active');
+          }
+        }
+      }
+
+      /* ============================================================
+         Language Detection & Initialization
+         ============================================================ */
+      function detectLanguage() {
+        var stored = localStorage.getItem('fs-lang');
+        if (stored) return stored;
+
+        var browser = (navigator.language || navigator.userLanguage || 'en').split('-')[0];
+        var supported = ['en', 'es', 'fr', 'de', 'it', 'pt'];
+        return supported.indexOf(browser) > -1 ? browser : 'en';
+      }
+
+      var initialLang = detectLanguage();
+      translatePage(initialLang);
+
+      /* ============================================================
+         Language Switcher UI
+         ============================================================ */
+      var langBtn = document.getElementById('lang-btn');
+      var langDropdown = document.getElementById('lang-dropdown');
+
+      if (langBtn && langDropdown) {
+        langBtn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          var expanded = langBtn.getAttribute('aria-expanded') === 'true' ? false : true;
+          langBtn.setAttribute('aria-expanded', expanded);
+          langDropdown.classList.toggle('open');
+        });
+
+        langDropdown.addEventListener('click', function(e) {
+          var btn = e.target.closest('button');
+          if (!btn) return;
+          var lang = btn.getAttribute('data-lang');
+          if (lang) {
+            translatePage(lang);
+            localStorage.setItem('fs-lang', lang);
+            langDropdown.classList.remove('open');
+            langBtn.setAttribute('aria-expanded', 'false');
+          }
+        });
+
+        document.addEventListener('click', function() {
+          langDropdown.classList.remove('open');
+          langBtn.setAttribute('aria-expanded', 'false');
+        });
+      }
+
+      /* ============================================================
+         Theme Toggle (Dark/Light)
+         ============================================================ */
+      function applyTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('fs-theme', theme);
+      }
+
+      function getPreferredTheme() {
+        var stored = localStorage.getItem('fs-theme');
+        if (stored) return stored;
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          return 'dark';
+        }
+        return 'light';
+      }
+
+      applyTheme(getPreferredTheme());
+
+      function toggleTheme() {
+        var current = document.documentElement.getAttribute('data-theme');
+        applyTheme(current === 'dark' ? 'light' : 'dark');
+      }
+
+      var themeBtn = document.getElementById('theme-toggle-mobile');
+      if (themeBtn) themeBtn.addEventListener('click', toggleTheme);
+
+      /* ============================================================
+         Navigation: Scroll effect + Mobile menu
+         ============================================================ */
+      var nav = document.getElementById('nav');
+      var hamburger = document.getElementById('hamburger');
+      var navLinks = document.getElementById('nav-links');
+
+      // Scroll handler for nav background
+      function handleNavScroll() {
+        if (window.scrollY > 60) {
+          nav.classList.add('nav-scrolled');
+        } else {
+          nav.classList.remove('nav-scrolled');
+        }
+      }
+      window.addEventListener('scroll', handleNavScroll, { passive: true });
+      handleNavScroll(); // initial check
+
+      // Mobile menu toggle
+      if (hamburger && navLinks) {
+        hamburger.addEventListener('click', function() {
+          var isOpen = hamburger.classList.toggle('active');
+          navLinks.classList.toggle('open');
+          hamburger.setAttribute('aria-expanded', isOpen);
+        });
+
+        // Close menu on link click
+        navLinks.querySelectorAll('a').forEach(function(link) {
+          link.addEventListener('click', function() {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('open');
+            hamburger.setAttribute('aria-expanded', 'false');
+          });
+        });
+      }
+
+      /* ============================================================
+         Smooth scroll for anchor links
+         ============================================================ */
+      document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+        anchor.addEventListener('click', function(e) {
+          var target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            e.preventDefault();
+            var offset = 80; // nav height + padding
+            var targetPos = target.getBoundingClientRect().top + window.pageYOffset - offset;
+            window.scrollTo({ top: targetPos, behavior: 'smooth' });
+          }
+        });
+      });
+
+      /* ============================================================
+         Intersection Observer — Scroll Reveal Animations
+         ============================================================ */
+      if ('IntersectionObserver' in window) {
+        var revealObserver = new IntersectionObserver(function(entries) {
+          for (var i = 0; i < entries.length; i++) {
+            if (entries[i].isIntersecting) {
+              entries[i].target.classList.add('visible');
+              revealObserver.unobserve(entries[i].target);
+            }
+          }
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.reveal').forEach(function(el) {
+          revealObserver.observe(el);
+        });
+      } else {
+        // Fallback: show all reveals immediately
+        document.querySelectorAll('.reveal').forEach(function(el) {
+          el.classList.add('visible');
+        });
+      }
+
+      /* ============================================================
+         Hero Entrance Animation
+         ============================================================ */
+      window.addEventListener('load', function() {
+        document.querySelectorAll('.hero-entrance').forEach(function(el, i) {
+          el.classList.add('loaded');
+        });
+      });
+
+      /* ============================================================
+         Hero Parallax (subtle mouse-based)
+         ============================================================ */
+      var heroBg = document.getElementById('hero-bg');
+      if (heroBg && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        var heroSection = document.getElementById('hero');
+        heroSection.addEventListener('mousemove', function(e) {
+          var rect = heroSection.getBoundingClientRect();
+          var x = (e.clientX / rect.width - 0.5) * 0.04;
+          var y = (e.clientY / rect.height - 0.5) * 0.04;
+          heroBg.querySelector('img').style.transform = 'scale(1.05) translate(' + (x * 100) + 'px, ' + (y * 100) + 'px)';
+        });
+
+        heroSection.addEventListener('mouseleave', function() {
+          heroBg.querySelector('img').style.transform = 'scale(1.05) translate(0, 0)';
+        });
+
+        // Scroll-based parallax
+        window.addEventListener('scroll', function() {
+          var scrollY = window.pageYOffset;
+          var heroHeight = heroSection.offsetHeight;
+          if (scrollY <= heroHeight) {
+            var progress = scrollY / heroHeight;
+            var img = heroBg.querySelector('img');
+            img.style.transform = 'scale(1.05) translateY(' + (progress * 40) + 'px)';
+          }
+        }, { passive: true });
+      }
+
+      /* ============================================================
+         Contact Form
+         ============================================================ */
+      var contactForm = document.getElementById('contact-form');
+      var formStatus = document.getElementById('form-status');
+
+      if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+
+          var name = document.getElementById('form-name').value.trim();
+          var email = document.getElementById('form-email').value.trim();
+          var message = document.getElementById('form-message').value.trim();
+
+          if (!name || !email || !message) {
+            var t = translations[currentLang];
+            if (formStatus) {
+              formStatus.textContent = t.contact.form.error;
+              formStatus.className = 'form-status error';
+            }
+            return;
+          }
+
+          // Simulate sending
+          var submitBtn = contactForm.querySelector('button[type="submit"]');
+          var origText = submitBtn.textContent;
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Sending...';
+
+          setTimeout(function() {
+            var t = translations[currentLang];
+            if (formStatus) {
+              formStatus.textContent = t.contact.form.success;
+              formStatus.className = 'form-status success';
+            }
+            contactForm.reset();
+            submitBtn.disabled = false;
+            submitBtn.textContent = origText;
+          }, 1200);
+        });
+      }
+
+      /* ============================================================
+         Cookie Consent
+         ============================================================ */
+      (function() {
+        if (localStorage.getItem('fs-cookie')) return;
+        var banner = document.getElementById('cookie-banner');
+        var acceptBtn = document.getElementById('cookie-accept');
+        if (banner) banner.classList.add('show');
+        if (acceptBtn) {
+          acceptBtn.addEventListener('click', function() {
+            localStorage.setItem('fs-cookie', 'accepted');
+            if (banner) banner.classList.remove('show');
+          });
+        }
+      })();
+
+    })();
+  </script>
+
+</body>
+</html>

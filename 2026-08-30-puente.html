@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="es" class="no-js" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="doc-title">PUENTE · Atelier de montura óptica en Chamberí</title>
+<meta id="meta-desc" name="description" content="Atelier óptico en Madrid: medimos el puente, la distancia pupilar y la inclinación pantoscópica. Montura a medida, no de pasarela.">
+<link rel="canonical" href="https://proyectos.cristiancode.dev/landings/2026-08-30-puente.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="PUENTE · La montura se decide en el puente">
+<meta property="og:description" content="Medimos el puente de tu cara. Acetato o titanio, a medida en Chamberí.">
+<meta property="og:url" content="https://proyectos.cristiancode.dev/landings/2026-08-30-puente.html">
+<meta property="og:image" content="https://cristiancode.dev/assets/landing-2026-08-30-puente.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="PUENTE · Atelier óptico">
+<meta name="twitter:description" content="La montura se decide en el puente, no en la pasarela.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#0B3D4A">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230B3D4A'/%3E%3Cellipse cx='11' cy='16' rx='6' ry='5' fill='none' stroke='%23F3C36A' stroke-width='2'/%3E%3Cellipse cx='21' cy='16' rx='6' ry='5' fill='none' stroke='%23F3C36A' stroke-width='2'/%3E%3Cpath d='M17 16h-2' stroke='%23F3C36A' stroke-width='2'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   DESIGN SYSTEM — PUENTE · Atelier de montura óptica
+   Surface: Decide/Learn (landing; hero correct). Secondary
+            Configure in the fitting sequence, Compare in
+            acetate vs titanium, Operate in the PD caliper.
+   Derived from: Original — optical prescription sheet.
+            Apple-like whitespace discipline without Apple
+            blue; no Inter, no indigo, no cream paper.
+   Family: Fashion / Eyewear atelier
+   Style: Editorial optical chart — cool paper, deep teal,
+          tortoise amber, oldstyle serif + hyperlegible body
+   Strategy: Restrained (cool gray paper + teal ≤10% + amber)
+   Type: Cormorant Garamond 600/700 (display) + Atkinson
+         Hyperlegible (body — designed for low vision)
+   Impeccable: no gradient text, no glass, no side-stripe,
+         no 3 equal tiles, no hero-metrics, no uppercase
+         eyebrows, numbers only on the real fitting sequence,
+         no Inter, no indigo.
+   ============================================================ */
+:root{
+  --z-nav:30; --z-banner:40; --z-menu:45; --z-toast:60;
+  --bg:#F3F5F7; --bg-2:#E8ECF0; --card:#FFFFFF;
+  --ink:#14161A; --muted:#3D4450; --faint:#5A6270;
+  --line:#D5DCE2; --line-strong:#B7C0C8;
+  --teal:#0B3D4A; --teal-hover:#08323C; --cta:#0B3D4A; --cta-ink:#FFFFFF;
+  --link:#0B3D4A;
+  --amber:#F3C36A; --amber-ink:#1A1208;
+  --ok:#0B3D4A; --err:#9B1C1C;
+  --stage:#0B3D4A; --stage-ink:#E8F4F6; --stage-muted:#C5D0D4;
+  --disp:'Cormorant Garamond',Georgia,'Times New Roman',serif;
+  --sans:'Atkinson Hyperlegible',system-ui,'Segoe UI',sans-serif;
+  --r:6px; --r-lg:14px;
+  --ease:cubic-bezier(.16,1,.3,1);
+  --nav-h:64px;
+}
+[data-theme="dark"]{
+  --bg:#0C1114; --bg-2:#141A1E; --card:#141A1E;
+  --ink:#F2F4F6; --muted:#B7C2C8; --faint:#9AA7AE;
+  --line:rgba(80,96,104,.7); --line-strong:#5A6A72;
+  --link:#8EC9D4;
+  --cta:#0B3D4A; --cta-ink:#FFFFFF;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+html.no-js .rv, html.reduced .rv{opacity:1!important;transform:none!important}
+@media print{
+  .rv{opacity:1!important;transform:none!important}
+  .cookie,.mobile-menu{display:none!important}
+}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:1.0625rem;line-height:1.55;font-weight:400;-webkit-font-smoothing:antialiased}
+img,svg{display:block;max-width:100%}
+a{color:var(--link);text-decoration:none}
+a:hover{color:var(--teal-hover)}
+[data-theme="dark"] a:not(.btn){color:var(--link)}
+[data-theme="dark"] a:not(.btn):hover{color:#B8E0E8}
+/* Dark: --teal stays the CTA fill (#0B3D4A). Do not reuse it as text on --bg/--card (~1.49:1). */
+[data-theme="dark"] .fit-num,
+[data-theme="dark"] .faq-q .ic,
+[data-theme="dark"] .lang-select__opt[aria-selected="true"]{color:var(--link)}
+h1,h2,h3{font-family:var(--disp);font-weight:700;letter-spacing:-0.02em;line-height:1.08;text-wrap:balance;margin:0;color:var(--ink)}
+p,li{text-wrap:pretty}
+.visually-hidden{position:absolute;width:1px;height:1px;margin:-1px;padding:0;border:0;clip:rect(0 0 0 0);overflow:hidden;white-space:nowrap}
+.wrap{width:100%;max-width:1160px;margin:0 auto;padding:0 22px}
+section{scroll-margin-top:calc(var(--nav-h) + 12px)}
+.skip{position:absolute;left:12px;top:-80px;background:var(--teal);color:#fff;padding:.5rem 1rem;z-index:var(--z-toast);border-radius:var(--r);font-weight:700}
+.skip:focus{top:12px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:.45rem;
+  min-height:44px;padding:.75rem 1.4rem;border-radius:var(--r);
+  font-family:var(--sans);font-size:.95rem;font-weight:700;line-height:1;
+  border:1px solid transparent;cursor:pointer;text-decoration:none;
+  transition:background .25s var(--ease),color .25s var(--ease),border-color .25s var(--ease),transform .25s var(--ease);
+}
+.btn:focus-visible{outline:2px solid var(--amber);outline-offset:3px}
+.btn-primary, a.btn-primary{
+  background:var(--cta);color:var(--cta-ink);border-color:var(--teal);
+}
+.btn-primary:hover, a.btn-primary:hover{background:var(--teal-hover);color:#fff}
+.btn-ghost, a.btn-ghost{
+  background:transparent;color:var(--ink);border-color:var(--line-strong);
+}
+.btn-ghost:hover, a.btn-ghost:hover{background:var(--bg-2);color:var(--ink)}
+.btn-amber, a.btn-amber{
+  background:var(--amber);color:var(--amber-ink);border-color:#1A1208;
+}
+.btn-amber:hover, a.btn-amber:hover{background:#E8B45A;color:#1A1208}
+.nav{position:sticky;top:0;z-index:var(--z-nav);background:var(--bg);border-bottom:1px solid var(--line);height:var(--nav-h)}
+.nav-inner{display:flex;align-items:center;gap:16px;height:var(--nav-h)}
+.logo{display:flex;align-items:center;gap:10px;color:var(--ink);font-family:var(--disp);font-weight:700;letter-spacing:-0.02em;font-size:1.35rem}
+.logo-mark{width:28px;height:16px;flex:0 0 28px}
+.nav-links{display:flex;gap:1.2rem;list-style:none;margin:0;padding:0;margin-left:auto}
+.nav-links a{color:var(--ink);font-size:.92rem;font-weight:700}
+.nav-links a:hover{color:var(--link)}
+.nav-actions{display:flex;align-items:center;gap:8px}
+.icon-btn{width:40px;height:40px;border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:var(--r);cursor:pointer;display:inline-flex;align-items:center;justify-content:center}
+.icon-btn:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.burger{display:none}
+.lang-select{position:relative}
+.lang-select__btn{
+  display:inline-flex;align-items:center;gap:.45rem;height:40px;padding:0 .8rem;
+  border:1px solid var(--line);border-radius:var(--r);background:transparent;color:var(--ink);
+  font-family:var(--sans);font-size:.8125rem;font-weight:700;cursor:pointer;
+}
+.lang-select__btn:hover, .lang-select__btn[aria-expanded="true"]{border-color:var(--teal)}
+.lang-select__chev{transition:transform .2s var(--ease)}
+.lang-select__btn[aria-expanded="true"] .lang-select__chev{transform:rotate(180deg)}
+.lang-select__menu{
+  position:absolute;top:calc(100% + 8px);right:0;z-index:var(--z-menu);
+  min-width:170px;padding:.4rem;
+  background:var(--card);border:1px solid var(--line);border-radius:10px;
+  box-shadow:0 12px 32px rgba(11,61,74,.12);
+  opacity:0;visibility:hidden;transform:translateY(-4px);
+  transition:opacity .2s var(--ease),transform .2s var(--ease),visibility .2s;
+}
+.lang-select__menu.open{opacity:1;visibility:visible;transform:translateY(0)}
+.lang-select__opt{
+  display:flex;align-items:center;gap:.5rem;width:100%;
+  padding:.5rem .7rem;border:none;background:none;
+  font-family:var(--sans);font-size:.84375rem;color:var(--ink);
+  text-align:left;border-radius:6px;cursor:pointer;
+}
+.lang-select__opt:hover{background:var(--bg-2)}
+.lang-select__opt[aria-selected="true"]{color:var(--teal);font-weight:700}
+.lang-select__opt[aria-selected="true"]::after{content:'\2713';margin-left:auto}
+.mobile-menu{
+  display:none;position:fixed;inset:var(--nav-h) 0 auto 0;z-index:var(--z-menu);
+  background:var(--bg);border-bottom:1px solid var(--line);padding:16px 22px 22px;
+  transform:translateY(-8px);opacity:0;visibility:hidden;pointer-events:none;
+}
+.mobile-menu.open{opacity:1;visibility:visible;pointer-events:auto;transform:none}
+.mobile-menu a{display:block;padding:.7rem 0;color:var(--ink);font-weight:700;border-bottom:1px solid var(--line)}
+.mobile-menu a.btn-primary, .mobile-menu a.btn-primary:hover{
+  color:#fff;background:var(--cta);padding:.75rem 1.4rem;margin-top:12px;border:1px solid var(--teal);text-align:center;
+}
+.mobile-menu .m-tools{display:flex;gap:8px;align-items:center;margin-top:14px}
+
+/* HERO */
+.hero{padding:clamp(2rem,5vw,4.2rem) 0 clamp(2.4rem,6vw,4.8rem)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(1.5rem,4vw,3.5rem);align-items:center}
+.hero-copy h1{font-size:clamp(2.2rem,5.2vw,4.6rem);max-width:16ch;margin-bottom:.8rem}
+.hero-lead{font-size:1.12rem;color:var(--muted);max-width:42ch;margin:0 0 1.4rem}
+.hero-cta{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:1rem}
+.hero-note{font-size:.9rem;color:var(--muted);margin:0}
+.hero-art{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:18px 18px 14px;position:relative;
+}
+.art-meta{display:flex;justify-content:space-between;gap:12px;font-size:.78rem;color:var(--muted);margin-bottom:8px;font-weight:700;letter-spacing:.02em}
+.caliper{width:100%;height:auto}
+.iris{transition:transform .12s linear}
+.aperture-row{display:flex;align-items:center;gap:12px;margin-top:10px}
+.aperture-row label{font-size:.8rem;font-weight:700;color:var(--muted);white-space:nowrap}
+.aperture-row input[type=range]{flex:1;accent-color:var(--teal)}
+.pd-read{font-family:var(--disp);font-size:1.35rem;font-weight:700;color:var(--ink);min-width:4.5ch}
+
+/* FIT — real sequence, numbers earn their place */
+.fit{padding:clamp(3rem,7vw,5.5rem) 0;background:var(--bg-2)}
+.fit h2,.frames h2,.cmp h2,.faq h2,.news h2{font-size:clamp(1.9rem,3.6vw,3.1rem);margin-bottom:.5rem}
+.lead{color:var(--muted);max-width:62ch;margin:0 0 1.8rem}
+.fit-rail{display:grid;grid-template-columns:1fr;gap:0;border-top:1px solid var(--line-strong)}
+.fit-step{display:grid;grid-template-columns:7.5rem 1fr;gap:18px;padding:1.15rem 0;border-bottom:1px solid var(--line)}
+.fit-num{font-family:var(--disp);font-size:1.7rem;font-weight:700;color:var(--teal)}
+.fit-step h3{font-size:1.35rem;margin-bottom:.3rem}
+.fit-step p{margin:0;color:var(--muted);max-width:62ch}
+
+/* FRAMES — asymmetric, not identical tiles */
+.frames{padding:clamp(3rem,7vw,5.5rem) 0}
+.frame-grid{display:grid;grid-template-columns:1.35fr .9fr;grid-template-rows:auto auto;gap:16px}
+.frame{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:1.35rem 1.4rem 1.5rem;display:flex;flex-direction:column;gap:.55rem}
+.frame.hot{background:var(--amber);border-color:#1A1208;color:var(--amber-ink);grid-row:1 / span 2}
+.frame.hot h2, .frame.hot h3{color:var(--amber-ink)}
+.frame.hot p{color:#3A2A14}
+.frame-svg{margin:6px 0 8px}
+.frame h3{font-size:1.55rem}
+.frame .meta{font-size:.82rem;font-weight:700;color:var(--muted)}
+.frame.hot .meta{color:#3A2A14}
+.frame p{margin:0;color:var(--muted)}
+.frame .btn{margin-top:auto;align-self:flex-start}
+
+.cmp{padding:clamp(3rem,7vw,5.5rem) 0;background:var(--card)}
+[data-theme="dark"] .cmp{background:var(--bg-2)}
+.cmp-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.mat{padding:0;border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;background:var(--bg)}
+.mat-visual{height:140px;display:flex;align-items:center;justify-content:center}
+.mat-a .mat-visual{background:#2A1810}
+.mat-b .mat-visual{background:#DDE3E8}
+[data-theme="dark"] .mat-b .mat-visual{background:#1C2428}
+.mat-body{padding:1.2rem 1.3rem 1.4rem}
+.mat h3{font-size:1.5rem;margin-bottom:.4rem}
+.mat p{margin:0 0 1rem;color:var(--muted)}
+
+.visit{padding:clamp(3rem,7vw,5.2rem) 0;background:var(--stage);color:var(--stage-ink)}
+.visit h2{color:#fff;font-size:clamp(1.9rem,3.6vw,3.1rem);margin-bottom:.5rem}
+.visit .lead{color:var(--stage-muted)}
+.visit-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:end}
+.visit a.map{color:#fff;font-weight:700;border-bottom:1px solid var(--amber);display:inline-block;margin-top:.6rem}
+.visit a.map:hover{color:var(--amber)}
+.hours{font-family:var(--disp);font-size:1.45rem;font-weight:700;color:#fff;margin:.4rem 0 0}
+
+.faq{padding:clamp(3rem,7vw,5.5rem) 0}
+.faq-list{max-width:720px}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-q{
+  width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;
+  background:none;border:0;padding:1rem 0;font-family:var(--sans);font-size:1.05rem;font-weight:700;
+  color:var(--ink);text-align:left;cursor:pointer;
+}
+.faq-q:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.faq-q .ic{flex:0 0 auto;font-size:1.3rem;line-height:1;color:var(--teal)}
+.faq-item.open .ic{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s var(--ease)}
+.faq-a p{margin:0 0 1rem;color:var(--muted);max-width:65ch}
+
+.news{padding:clamp(2.6rem,6vw,4.4rem) 0 4.2rem}
+.news-box{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+form{display:flex;flex-wrap:wrap;gap:8px}
+input[type=email]{
+  flex:1;min-width:200px;min-height:44px;padding:.7rem 1rem;border:1px solid var(--line-strong);
+  border-radius:var(--r);background:var(--card);color:var(--ink);font-family:var(--sans);font-size:1rem;
+}
+input[type=email]:focus{outline:2px solid var(--teal);outline-offset:2px}
+.nl-msg{display:none;margin-top:.7rem;font-size:.9rem}
+.nl-msg.ok,.nl-msg.err{display:block}
+.nl-msg.ok{color:var(--ok)}
+.nl-msg.err{color:var(--err)}
+[data-theme="dark"] .nl-msg.ok{color:#8EC9D4}
+.news-honest{font-size:.88rem;color:var(--muted);margin:.8rem 0 0;max-width:48ch}
+.news-honest a{font-weight:700}
+
+.foot{border-top:1px solid var(--line);padding:1.6rem 0 2rem;font-size:.9rem;color:var(--muted)}
+.foot-inner{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between}
+.foot a{color:var(--ink);font-weight:700}
+.foot .tag{font-family:var(--disp);font-size:1.2rem;color:var(--ink)}
+
+.cookie{
+  position:fixed;right:12px;bottom:12px;left:auto;z-index:var(--z-banner);
+  width:min(340px, calc(100vw - 24px));
+  background:#fff;color:#0C1114;border:1px solid #D5DCE2;border-radius:var(--r-lg);
+  padding:14px 14px 12px;box-shadow:0 10px 28px rgba(11,61,74,.16);
+  transform:translateY(calc(100% + 2rem));opacity:0;pointer-events:none;transition:transform .4s var(--ease),opacity .4s var(--ease);
+}
+.cookie.show{transform:none;opacity:1;pointer-events:auto}
+.cookie p{margin:0 0 10px;font-size:.85rem;color:#3D4450}
+.cookie-actions{display:flex;gap:8px}
+.cookie .accept{background:#0B3D4A;color:#fff;border:1px solid #0B3D4A}
+.cookie .accept:hover{background:#08323C;color:#fff}
+.cookie .deny{background:#fff;color:#0C1114;border:1px solid #B7C0C8}
+
+.rv{opacity:0;transform:translateY(16px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.rv.in{opacity:1;transform:none}
+
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  .rv,.cookie,.lang-select__menu,.mobile-menu,.faq-a,.iris,.btn,.caliper-draw{
+    transition:none!important;animation:none!important
+  }
+  .rv{opacity:1;transform:none}
+  .caliper-draw{stroke-dasharray:none!important;stroke-dashoffset:0!important}
+}
+@keyframes drawStroke{
+  to{stroke-dashoffset:0}
+}
+.caliper-draw{
+  stroke-dasharray:900;stroke-dashoffset:900;
+  animation:drawStroke 1.5s cubic-bezier(.16,1,.3,1) forwards;
+}
+
+@media (max-width:900px){
+  .nav-links,.nav-desktop-only{display:none}
+  .burger{display:inline-flex}
+  .mobile-menu{display:block}
+  .hero-grid,.frame-grid,.cmp-grid,.visit-grid,.news-box{grid-template-columns:1fr}
+  .frame.hot{grid-row:auto}
+  .fit-step{grid-template-columns:1fr;gap:4px}
+  .hero{padding-top:1.6rem}
+  .hero-copy h1{max-width:none}
+}
+@media (max-width:700px){
+  .wrap{padding:0 16px}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main" data-i18n="skip">Saltar al contenido</a>
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="logo" href="#hero" aria-label="PUENTE">
+      <svg class="logo-mark" viewBox="0 0 28 16" aria-hidden="true"><ellipse cx="8" cy="8" rx="7" ry="6" fill="none" stroke="currentColor" stroke-width="1.6"/><ellipse cx="20" cy="8" rx="7" ry="6" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M15 8H13" stroke="currentColor" stroke-width="1.6"/></svg>
+      PUENTE
+    </a>
+    <nav class="nav-desktop-only" aria-label="Principal">
+      <ul class="nav-links">
+        <li><a href="#ajuste" data-i18n="nav.fit">Ajuste</a></li>
+        <li><a href="#monturas" data-i18n="nav.frames">Monturas</a></li>
+        <li><a href="#cita" data-i18n="nav.visit">Cita</a></li>
+        <li><a href="#preguntas" data-i18n="nav.faq">Preguntas</a></li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <div class="lang-select nav-desktop-only">
+        <button class="lang-select__btn" type="button" aria-haspopup="listbox" aria-expanded="false" data-i18n-aria="lang.aria" aria-label="Idioma">
+          <span class="lang-select__cur">ES</span>
+          <svg class="lang-select__chev" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </button>
+        <div class="lang-select__menu" role="listbox" aria-label="Idioma">
+          <button class="lang-select__opt" role="option" data-lang="en" aria-selected="false">English</button>
+          <button class="lang-select__opt" role="option" data-lang="es" aria-selected="true">Español</button>
+          <button class="lang-select__opt" role="option" data-lang="fr" aria-selected="false">Français</button>
+          <button class="lang-select__opt" role="option" data-lang="de" aria-selected="false">Deutsch</button>
+          <button class="lang-select__opt" role="option" data-lang="it" aria-selected="false">Italiano</button>
+          <button class="lang-select__opt" role="option" data-lang="pt" aria-selected="false">Português</button>
+        </div>
+      </div>
+      <button class="icon-btn nav-desktop-only" id="themeToggle" type="button" data-i18n-aria="theme.aria" aria-label="Cambiar tema">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+      <a class="btn btn-primary nav-desktop-only" href="#cita" data-i18n="cta.book">Pedir cita</a>
+      <button class="icon-btn burger" id="burger" type="button" aria-expanded="false" aria-controls="mobileMenu" data-i18n-aria="menu.aria" aria-label="Menú">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <a href="#ajuste" data-i18n="nav.fit">Ajuste</a>
+  <a href="#monturas" data-i18n="nav.frames">Monturas</a>
+  <a href="#cita" data-i18n="nav.visit">Cita</a>
+  <a href="#preguntas" data-i18n="nav.faq">Preguntas</a>
+  <a class="btn btn-primary" href="#cita" data-i18n="cta.book">Pedir cita</a>
+  <div class="m-tools">
+    <div class="lang-select">
+      <button class="lang-select__btn" type="button" aria-haspopup="listbox" aria-expanded="false" data-i18n-aria="lang.aria" aria-label="Idioma">
+        <span class="lang-select__cur">ES</span>
+        <svg class="lang-select__chev" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </button>
+      <div class="lang-select__menu" role="listbox">
+        <button class="lang-select__opt" role="option" data-lang="en">English</button>
+        <button class="lang-select__opt" role="option" data-lang="es">Español</button>
+        <button class="lang-select__opt" role="option" data-lang="fr">Français</button>
+        <button class="lang-select__opt" role="option" data-lang="de">Deutsch</button>
+        <button class="lang-select__opt" role="option" data-lang="it">Italiano</button>
+        <button class="lang-select__opt" role="option" data-lang="pt">Português</button>
+      </div>
+    </div>
+    <button class="icon-btn" id="themeToggleM" type="button" data-i18n-aria="theme.aria" aria-label="Cambiar tema">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    </button>
+  </div>
+</div>
+
+<main id="main">
+<section class="hero" id="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <h1 id="hero-title" data-i18n-html="hero.title">La montura se decide <br>en el puente, no en la pasarela.</h1>
+      <p class="hero-lead" data-i18n="hero.lead">En Chamberí medimos la cara, no el escaparate. Distancia pupilar, envolvente e inclinación pantoscópica antes de hablar de color.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#cita" data-i18n="hero.cta">Reservar medición</a>
+        <a class="btn btn-ghost" href="#ajuste" data-i18n="hero.ghost">Cómo ajustamos</a>
+      </div>
+      <p class="hero-note" data-i18n="hero.note">Cita de 40 minutos. Un par, no un catálogo de mil.</p>
+    </div>
+    <figure class="hero-art" id="heroArt" aria-label="Calibre óptico">
+      <div class="art-meta">
+        <span data-i18n="hero.pd">DP · distancia pupilar</span>
+        <span id="pdValue" class="pd-read">62.0 mm</span>
+      </div>
+      <svg class="caliper" id="caliper" viewBox="0 0 560 300" role="img" aria-labelledby="artTitle artDesc">
+        <title id="artTitle">Montura en calibre</title>
+        <desc id="artDesc">Dibujo de una gafa con el puente marcado y dos iris que siguen el cursor.</desc>
+        <rect x="8" y="8" width="544" height="284" fill="none" stroke="currentColor" stroke-opacity=".12"/>
+        <!-- temples -->
+        <path class="caliper-draw" d="M86 142 L18 128 M474 142 L542 128" fill="none" stroke="#0B3D4A" stroke-width="3" stroke-linecap="round"/>
+        <!-- lenses -->
+        <ellipse class="caliper-draw" cx="180" cy="150" rx="92" ry="70" fill="rgba(11,61,74,.06)" stroke="#0B3D4A" stroke-width="5"/>
+        <ellipse class="caliper-draw" cx="380" cy="150" rx="92" ry="70" fill="rgba(11,61,74,.06)" stroke="#0B3D4A" stroke-width="5"/>
+        <!-- bridge -->
+        <path class="caliper-draw" d="M272 148 C 280 132, 280 132, 288 148" fill="none" stroke="#0B3D4A" stroke-width="5" stroke-linecap="round"/>
+        <!-- PD dimension -->
+        <path d="M180 248 L380 248" stroke="#B86A1A" stroke-width="1.4"/>
+        <path d="M180 242 v12 M380 242 v12" stroke="#B86A1A" stroke-width="1.4"/>
+        <text x="280" y="272" text-anchor="middle" fill="#B86A1A" font-size="13" font-family="Atkinson Hyperlegible,sans-serif" font-weight="700">PD</text>
+        <!-- irises -->
+        <g id="irisL" class="iris">
+          <circle cx="180" cy="150" r="28" fill="#0B3D4A"/>
+          <circle id="pupilL" cx="180" cy="150" r="12" fill="#14161A"/>
+          <circle id="glintL" cx="172" cy="142" r="4" fill="#F3C36A"/>
+        </g>
+        <g id="irisR" class="iris">
+          <circle cx="380" cy="150" r="28" fill="#0B3D4A"/>
+          <circle id="pupilR" cx="380" cy="150" r="12" fill="#14161A"/>
+          <circle id="glintR" cx="372" cy="142" r="4" fill="#F3C36A"/>
+        </g>
+        <!-- aperture overlay -->
+        <circle id="apL" cx="180" cy="150" r="70" fill="none" stroke="#F3C36A" stroke-width="2" stroke-dasharray="4 6" opacity=".85"/>
+        <circle id="apR" cx="380" cy="150" r="70" fill="none" stroke="#F3C36A" stroke-width="2" stroke-dasharray="4 6" opacity=".85"/>
+      </svg>
+      <div class="aperture-row">
+        <label for="aperture" data-i18n="hero.aperture">Apertura</label>
+        <input id="aperture" type="range" min="22" max="70" value="44" aria-valuemin="22" aria-valuemax="70">
+        <span id="apRead" class="pd-read">f/4</span>
+      </div>
+    </figure>
+  </div>
+</section>
+
+<section class="fit" id="ajuste">
+  <div class="wrap">
+    <h2 class="rv" data-i18n="fit.title">Cuatro medidas. En este orden.</h2>
+    <p class="lead rv" data-i18n="fit.lead">Si saltamos una, la montura toca la mejilla o se va de la oreja. No hay atajo de «talla M».</p>
+    <div class="fit-rail">
+      <article class="fit-step rv">
+        <div class="fit-num">1</div>
+        <div>
+          <h3 data-i18n="fit.1.t">Puente y apoyo nasal</h3>
+          <p data-i18n="fit.1.d">Ahí carga el peso. Medimos ancho y caída. Un puente mal copiado es la montura que te deja marca a las dos horas.</p>
+        </div>
+      </article>
+      <article class="fit-step rv">
+        <div class="fit-num">2</div>
+        <div>
+          <h3 data-i18n="fit.2.t">Distancia pupilar</h3>
+          <p data-i18n="fit.2.d">Faros, no promedio de catálogo. Ojo izquierdo y derecho por separado, a la distancia a la que lees y a la que cruzas la calle.</p>
+        </div>
+      </article>
+      <article class="fit-step rv">
+        <div class="fit-num">3</div>
+        <div>
+          <h3 data-i18n="fit.3.t">Inclinación pantoscópica</h3>
+          <p data-i18n="fit.3.d">El ángulo con el que la lente mira al suelo. Sin esto, el progresivo «no se encuentra» y culpas al cristal.</p>
+        </div>
+      </article>
+      <article class="fit-step rv">
+        <div class="fit-num">4</div>
+        <div>
+          <h3 data-i18n="fit.4.t">Envolvente y varilla</h3>
+          <p data-i18n="fit.4.d">Cómo abraza la sien y dónde dobla detrás de la oreja. La varilla se recorta aquí, no se espera a que «se haga».</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="frames" id="monturas">
+  <div class="wrap">
+    <h2 class="rv" data-i18n="fr.title">Tres formas. El resto es ruido.</h2>
+    <p class="lead rv" data-i18n="fr.lead">No tenemos pared de 400 modelos. Hay un acetato de carey de Mazzucchelli, un titanio de beta y una montura de lectura para mesa.</p>
+    <div class="frame-grid">
+      <article class="frame hot rv">
+        <span class="meta" data-i18n="fr.a.meta">Acetato · 8 mm · Mazzucchelli 1849</span>
+        <h3 data-i18n="fr.a.name">Carey de puente bajo</h3>
+        <svg class="frame-svg" viewBox="0 0 280 90" aria-hidden="true" height="90">
+          <ellipse cx="78" cy="48" rx="54" ry="32" fill="none" stroke="#1A1208" stroke-width="8"/>
+          <ellipse cx="202" cy="48" rx="54" ry="32" fill="none" stroke="#1A1208" stroke-width="8"/>
+          <path d="M132 46 C 140 36, 140 36, 148 46" fill="none" stroke="#1A1208" stroke-width="6"/>
+          <path d="M24 42 L4 36 M256 42 L276 36" stroke="#1A1208" stroke-width="5" stroke-linecap="round"/>
+        </svg>
+        <p data-i18n="fr.a.body">El carey no es un estampado: son capas de acetato pulidas a mano. El puente bajo sujeta caras con raíz nasal marcada sin clavar las almohadillas.</p>
+        <a class="btn btn-primary" href="#cita" data-i18n="fr.a.cta">Probar en cita</a>
+      </article>
+      <article class="frame rv">
+        <span class="meta" data-i18n="fr.b.meta">Beta-titanio · 3.2 g por varilla</span>
+        <h3 data-i18n="fr.b.name">Línea de aire</h3>
+        <svg class="frame-svg" viewBox="0 0 220 70" aria-hidden="true" height="70">
+          <rect x="18" y="18" width="78" height="40" rx="6" fill="none" stroke="#0B3D4A" stroke-width="2.2"/>
+          <rect x="124" y="18" width="78" height="40" rx="6" fill="none" stroke="#0B3D4A" stroke-width="2.2"/>
+          <path d="M96 38 h28" stroke="#0B3D4A" stroke-width="2"/>
+        </svg>
+        <p data-i18n="fr.b.body">Sin tornillo en la frente. Soldadura en el puente. Si sudas o corres, no se abre el círculo.</p>
+      </article>
+      <article class="frame rv">
+        <span class="meta" data-i18n="fr.c.meta">Lectura · +1.00 a +2.50</span>
+        <h3 data-i18n="fr.c.name">Mesa de trabajo</h3>
+        <svg class="frame-svg" viewBox="0 0 220 70" aria-hidden="true" height="70">
+          <ellipse cx="70" cy="38" rx="42" ry="26" fill="none" stroke="#0B3D4A" stroke-width="3.5"/>
+          <ellipse cx="150" cy="38" rx="42" ry="26" fill="none" stroke="#0B3D4A" stroke-width="3.5"/>
+          <path d="M112 38 h16" stroke="#0B3D4A" stroke-width="3"/>
+        </svg>
+        <p data-i18n="fr.c.body">Para quien ya ve de lejos y solo quiere el párrafo de cerca nítido. Se dejan en el escritorio; no se llevan al metro.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="cmp" id="material">
+  <div class="wrap">
+    <h2 class="rv" data-i18n="cmp.title">Acetato o titanio. Elige el trabajo, no la moda.</h2>
+    <p class="lead rv" data-i18n="cmp.lead">Uno pesa y calienta el color. El otro desaparece en la cara. No combinamos los dos en el mismo par «por si acaso».</p>
+    <div class="cmp-grid">
+      <article class="mat mat-a rv">
+        <div class="mat-visual" aria-hidden="true">
+          <svg width="160" height="90" viewBox="0 0 160 90">
+            <rect x="8" y="18" width="144" height="54" rx="8" fill="#6B3E2A"/>
+            <rect x="20" y="30" width="50" height="30" rx="4" fill="#C48A4A" opacity=".7"/>
+            <rect x="90" y="30" width="50" height="30" rx="4" fill="#3A2218" opacity=".8"/>
+          </svg>
+        </div>
+        <div class="mat-body">
+          <h3 data-i18n="cmp.a.name">Acetato</h3>
+          <p data-i18n="cmp.a.body">Bloque italiano de 8 mm. Se talla, no se inyecta. Aguanta años si no lo dejas en el salpicadero. Color que no es una película de pintura.</p>
+          <a class="btn btn-amber" href="#cita" data-i18n="cmp.a.cta">Quiero acetato</a>
+        </div>
+      </article>
+      <article class="mat mat-b rv">
+        <div class="mat-visual" aria-hidden="true">
+          <svg width="160" height="90" viewBox="0 0 160 90">
+            <path d="M12 48 H148" stroke="#0B3D4A" stroke-width="1.4"/>
+            <rect x="28" y="28" width="44" height="40" rx="2" fill="none" stroke="#0B3D4A" stroke-width="1.6"/>
+            <rect x="88" y="28" width="44" height="40" rx="2" fill="none" stroke="#0B3D4A" stroke-width="1.6"/>
+          </svg>
+        </div>
+        <div class="mat-body">
+          <h3 data-i18n="cmp.b.name">Beta-titanio</h3>
+          <p data-i18n="cmp.b.body">Alambre que vuelve a su forma. Para quien ya tuvo una montura que se abrió en un año. El color es el metal, no un barniz.</p>
+          <a class="btn btn-primary" href="#cita" data-i18n="cmp.b.cta">Quiero titanio</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="visit" id="cita">
+  <div class="wrap visit-grid">
+    <div class="rv">
+      <h2 data-i18n="visit.title">La cita es la medición. No una venta de 12 minutos.</h2>
+      <p class="lead" data-i18n="visit.lead">Trae la receta. Si no tienes, te mandamos a óptica de confianza antes de tallar. El taller no sustituye un examen de retina.</p>
+      <p class="hours" data-i18n="visit.hours">Mar–sáb 11:00–19:30 · un asiento, una persona</p>
+      <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Calle+de+Trafalgar+12+Madrid" target="_blank" rel="noopener" data-i18n="visit.map">Calle de Trafalgar 12, Chamberí · abrir Maps</a>
+    </div>
+    <div class="rv">
+      <a class="btn btn-amber" id="visitMail" href="mailto:puente@cristiancode.dev?subject=Cita%20PUENTE" data-i18n="visit.cta">Escribir para reservar</a>
+    </div>
+  </div>
+</section>
+
+<section class="faq" id="preguntas">
+  <div class="wrap">
+    <h2 class="rv" data-i18n="faq.title">Lo que preguntáis al sentaros.</h2>
+    <div class="faq-list">
+      <div class="faq-item rv">
+        <button class="faq-q" type="button" aria-expanded="false"><span data-i18n="faq.q1">¿Hacéis la receta aquí?</span><span class="ic" aria-hidden="true">+</span></button>
+        <div class="faq-a"><p data-i18n="faq.a1">No. Somos taller de montura. El graduado lo hace un óptico-optometrista. Si vienes sin receta de menos de un año, te damos tres nombres en el barrio.</p></div>
+      </div>
+      <div class="faq-item rv">
+        <button class="faq-q" type="button" aria-expanded="false"><span data-i18n="faq.q2">¿Cuánto tarda un par?</span><span class="ic" aria-hidden="true">+</span></button>
+        <div class="faq-a"><p data-i18n="faq.a2">Acetato, 12 días laborables cuando el bloque está en casa. Titanio, 8. Si hay que pedir varilla, te lo decimos el mismo día de la medición, no a la semana.</p></div>
+      </div>
+      <div class="faq-item rv">
+        <button class="faq-q" type="button" aria-expanded="false"><span data-i18n="faq.q3">¿Arregláis gafas de otra marca?</span><span class="ic" aria-hidden="true">+</span></button>
+        <div class="faq-a"><p data-i18n="faq.a3">Soldamos titanio y recortamos varilla de acetato si el material lo permite. No prometemos milagros con un inyectado que ya cuarteó.</p></div>
+      </div>
+      <div class="faq-item rv">
+        <button class="faq-q" type="button" aria-expanded="false"><span data-i18n="faq.q4">¿Envíais a casa?</span><span class="ic" aria-hidden="true">+</span></button>
+        <div class="faq-a"><p data-i18n="faq.a4">El primer par se recoge aquí: hay que ver el asiento real. Recambios de plaquetas, sí, por correo. La montura nueva, no.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="news" id="aviso">
+  <div class="wrap news-box">
+    <div class="rv">
+      <h2 data-i18n="news.title">Cuando entra un bloque de carey, avisamos.</h2>
+      <p class="lead" data-i18n="news.lead">Un correo. Qué acetato llegó y cuántos pares salen de él. Sin descuento ni secuencia automática.</p>
+    </div>
+    <div class="rv">
+      <form id="newsForm" novalidate>
+        <label class="visually-hidden" for="newsEmail" data-i18n="news.ph">tu@correo.com</label>
+        <input id="newsEmail" name="email" type="email" autocomplete="email" required data-i18n-ph="news.ph" placeholder="tu@correo.com">
+        <button class="btn btn-primary" type="submit" data-i18n="news.cta">Abrir el correo</button>
+      </form>
+      <p class="nl-msg" id="nlMsg" role="status"></p>
+      <p class="news-honest" data-i18n-html="news.honest">No hay lista oculta: el envío abre tu correo hacia <a href="mailto:puente@cristiancode.dev">puente@cristiancode.dev</a>. Si no quieres eso, no pulses.</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-inner">
+    <div>
+      <div class="tag">PUENTE</div>
+      <p data-i18n="foot.tag">Atelier de montura · Chamberí</p>
+    </div>
+    <div>
+      <a href="#ajuste" data-i18n="foot.a">Ajuste</a> ·
+      <a href="#monturas" data-i18n="foot.b">Monturas</a> ·
+      <a href="#cita" data-i18n="foot.c">Cita</a>
+    </div>
+    <p data-i18n="foot.copy">© 2026 PUENTE. Un puente. Un par. Una cara.</p>
+  </div>
+</footer>
+
+<div class="cookie" id="cookieBanner" role="dialog" aria-live="polite">
+  <p data-i18n="cookie.body">Solo guardamos idioma, tema y si cerraste este aviso. Sin analítica.</p>
+  <div class="cookie-actions">
+    <button class="btn accept" id="cookieOk" type="button" data-i18n="cookie.ok">De acuerdo</button>
+    <button class="btn deny" id="cookieNo" type="button" data-i18n="cookie.no">Cerrar</button>
+  </div>
+</div>
+<script>
+(function () {
+  var LANGS = ['es', 'en', 'fr', 'de', 'it', 'pt'];
+  var THEME_KEY = 'kairos-theme';
+  var LANG_KEY = 'puente-lang';
+  var COOKIE_KEY = 'puente-cookie';
+  var I18N = {es: {"skip": "Saltar al contenido", "nav.fit": "Ajuste", "nav.frames": "Monturas", "nav.visit": "Cita", "nav.faq": "Preguntas", "cta.book": "Pedir cita", "lang.aria": "Elegir idioma", "theme.aria": "Activar tema oscuro", "theme.light": "Activar tema claro", "menu.aria": "Abrir menú", "hero.title": "La montura se decide <br>en el puente, no en la pasarela.", "hero.lead": "En Chamberí medimos la cara, no el escaparate. Distancia pupilar, envolvente e inclinación pantoscópica antes de hablar de color.", "hero.cta": "Reservar medición", "hero.ghost": "Cómo ajustamos", "hero.note": "Cita de 40 minutos. Un par, no un catálogo de mil.", "hero.pd": "DP · distancia pupilar", "hero.aperture": "Apertura", "fit.title": "Cuatro medidas. En este orden.", "fit.lead": "Si saltamos una, la montura toca la mejilla o se va de la oreja. No hay atajo de «talla M».", "fit.1.t": "Puente y apoyo nasal", "fit.1.d": "Ahí carga el peso. Medimos ancho y caída. Un puente mal copiado es la montura que te deja marca a las dos horas.", "fit.2.t": "Distancia pupilar", "fit.2.d": "Faros, no promedio de catálogo. Ojo izquierdo y derecho por separado, a la distancia a la que lees y a la que cruzas la calle.", "fit.3.t": "Inclinación pantoscópica", "fit.3.d": "El ángulo con el que la lente mira al suelo. Sin esto, el progresivo «no se encuentra» y culpas al cristal.", "fit.4.t": "Envolvente y varilla", "fit.4.d": "Cómo abraza la sien y dónde dobla detrás de la oreja. La varilla se recorta aquí, no se espera a que «se haga».", "fr.title": "Tres formas. El resto es ruido.", "fr.lead": "No tenemos pared de 400 modelos. Hay un acetato de carey de Mazzucchelli, un titanio de beta y una montura de lectura para mesa.", "fr.a.meta": "Acetato · 8 mm · Mazzucchelli 1849", "fr.a.name": "Carey de puente bajo", "fr.a.body": "El carey no es un estampado: son capas de acetato pulidas a mano. El puente bajo sujeta caras con raíz nasal marcada sin clavar las almohadillas.", "fr.a.cta": "Probar en cita", "fr.b.meta": "Beta-titanio · 3.2 g por varilla", "fr.b.name": "Línea de aire", "fr.b.body": "Sin tornillo en la frente. Soldadura en el puente. Si sudas o corres, no se abre el círculo.", "fr.c.meta": "Lectura · +1.00 a +2.50", "fr.c.name": "Mesa de trabajo", "fr.c.body": "Para quien ya ve de lejos y solo quiere el párrafo de cerca nítido. Se dejan en el escritorio; no se llevan al metro.", "cmp.title": "Acetato o titanio. Elige el trabajo, no la moda.", "cmp.lead": "Uno pesa y calienta el color. El otro desaparece en la cara. No combinamos los dos en el mismo par «por si acaso».", "cmp.a.name": "Acetato", "cmp.a.body": "Bloque italiano de 8 mm. Se talla, no se inyecta. Aguanta años si no lo dejas en el salpicadero. Color que no es una película de pintura.", "cmp.a.cta": "Quiero acetato", "cmp.b.name": "Beta-titanio", "cmp.b.body": "Alambre que vuelve a su forma. Para quien ya tuvo una montura que se abrió en un año. El color es el metal, no un barniz.", "cmp.b.cta": "Quiero titanio", "visit.title": "La cita es la medición. No una venta de 12 minutos.", "visit.lead": "Trae la receta. Si no tienes, te mandamos a óptica de confianza antes de tallar. El taller no sustituye un examen de retina.", "visit.hours": "Mar–sáb 11:00–19:30 · un asiento, una persona", "visit.map": "Calle de Trafalgar 12, Chamberí · abrir Maps", "visit.cta": "Escribir para reservar", "faq.title": "Lo que preguntáis al sentaros.", "faq.q1": "¿Hacéis la receta aquí?", "faq.a1": "No. Somos taller de montura. El graduado lo hace un óptico-optometrista. Si vienes sin receta de menos de un año, te damos tres nombres en el barrio.", "faq.q2": "¿Cuánto tarda un par?", "faq.a2": "Acetato, 12 días laborables cuando el bloque está en casa. Titanio, 8. Si hay que pedir varilla, te lo decimos el mismo día de la medición, no a la semana.", "faq.q3": "¿Arregláis gafas de otra marca?", "faq.a3": "Soldamos titanio y recortamos varilla de acetato si el material lo permite. No prometemos milagros con un inyectado que ya cuarteó.", "faq.q4": "¿Envíais a casa?", "faq.a4": "El primer par se recoge aquí: hay que ver el asiento real. Recambios de plaquetas, sí, por correo. La montura nueva, no.", "news.title": "Cuando entra un bloque de carey, avisamos.", "news.lead": "Un correo. Qué acetato llegó y cuántos pares salen de él. Sin descuento ni secuencia automática.", "news.ph": "tu@correo.com", "news.cta": "Abrir el correo", "news.err": "Necesitamos un correo con @ para redactar el mensaje.", "news.thanks": "Abre tu cliente de correo. Si no, escribe a puente@cristiancode.dev.", "news.mail_subject": "Aviso de acetato PUENTE", "news.mail_body": "Hola PUENTE, quiero el aviso cuando entre un bloque.\\nMi correo: {email}", "news.honest": "No hay lista oculta: el envío abre tu correo hacia <a href=\"mailto:puente@cristiancode.dev\">puente@cristiancode.dev</a>. Si no quieres eso, no pulses.", "cookie.body": "Solo guardamos idioma, tema y si cerraste este aviso. Sin analítica.", "cookie.ok": "De acuerdo", "cookie.no": "Cerrar", "foot.tag": "Atelier de montura · Chamberí", "foot.a": "Ajuste", "foot.b": "Monturas", "foot.c": "Cita", "foot.copy": "© 2026 PUENTE. Un puente. Un par. Una cara.", "meta.title": "PUENTE · Atelier de montura óptica en Chamberí", "meta.desc": "Atelier óptico en Madrid: medimos el puente, la distancia pupilar y la inclinación pantoscópica. Montura a medida, no de pasarela.", "og.title": "PUENTE · La montura se decide en el puente", "og.desc": "Medimos el puente de tu cara. Acetato o titanio, a medida en Chamberí.", "tw.title": "PUENTE · Atelier óptico", "tw.desc": "La montura se decide en el puente, no en la pasarela.", "visit.mail_subject": "Cita PUENTE"}, en: {"skip": "Skip to content", "nav.fit": "Fit", "nav.frames": "Frames", "nav.visit": "Visit", "nav.faq": "Questions", "cta.book": "Book a visit", "lang.aria": "Choose language", "theme.aria": "Switch to dark theme", "theme.light": "Switch to light theme", "menu.aria": "Open menu", "hero.title": "The frame is decided <br>at the bridge, not on the runway.", "hero.lead": "In Chamberí we measure the face, not the window display. Pupillary distance, wrap and pantoscopic tilt before anyone talks colour.", "hero.cta": "Book a measuring", "hero.ghost": "How we fit", "hero.note": "A 40-minute appointment. One pair, not a wall of a thousand.", "hero.pd": "PD · pupillary distance", "hero.aperture": "Aperture", "fit.title": "Four measurements. In this order.", "fit.lead": "Skip one and the frame kisses the cheek or walks off the ear. There is no Medium shortcut.", "fit.1.t": "Bridge and nose rest", "fit.1.d": "That is where the weight sits. We measure width and drop. A copied bridge is the mark on your nose two hours later.", "fit.2.t": "Pupillary distance", "fit.2.d": "Headlights, not a catalogue average. Left and right separately, at reading distance and at street distance.", "fit.3.t": "Pantoscopic tilt", "fit.3.d": "The angle the lens makes with the floor. Without it a progressive 'cannot be found' and you blame the glass.", "fit.4.t": "Wrap and temple", "fit.4.d": "How it hugs the temple and where it bends behind the ear. We cut the temple here; we do not wait for it to 'settle'.", "fr.title": "Three shapes. The rest is noise.", "fr.lead": "We do not keep a wall of 400 models. One Mazzucchelli tortoise acetate, one beta-titanium, one desk reading frame.", "fr.a.meta": "Acetate · 8 mm · Mazzucchelli 1849", "fr.a.name": "Low-bridge tortoise", "fr.a.body": "Tortoise is not a print: it is layered acetate polished by hand. The low bridge holds a marked nasal root without digging pads in.", "fr.a.cta": "Try it in a visit", "fr.b.meta": "Beta-titanium · 3.2 g per temple", "fr.b.name": "Air line", "fr.b.body": "No screw on the brow. A weld at the bridge. If you sweat or run, the circle does not open.", "fr.c.meta": "Reading · +1.00 to +2.50", "fr.c.name": "Desk pair", "fr.c.body": "For people who already see far and only want the paragraph up close. They stay on the desk; they do not ride the metro.", "cmp.title": "Acetate or titanium. Pick the work, not the trend.", "cmp.lead": "One carries weight and warms the colour. The other vanishes on the face. We do not mix both in one pair 'just in case'.", "cmp.a.name": "Acetate", "cmp.a.body": "An 8 mm Italian block. Carved, not injected. It lasts years if you keep it off the dashboard. Colour that is not a paint film.", "cmp.a.cta": "I want acetate", "cmp.b.name": "Beta-titanium", "cmp.b.body": "Wire that returns to shape. For anyone who already owned a frame that opened in a year. The colour is the metal, not a varnish.", "cmp.b.cta": "I want titanium", "visit.title": "The visit is the measuring. Not a 12-minute sale.", "visit.lead": "Bring the prescription. If you have none, we send you to a trusted optometrist before we cut. The workshop is not a retina exam.", "visit.hours": "Tue–Sat 11:00–19:30 · one seat, one person", "visit.map": "Calle de Trafalgar 12, Chamberí · open Maps", "visit.cta": "Write to book", "faq.title": "What you ask once you sit down.", "faq.q1": "Do you write the prescription here?", "faq.a1": "No. We are a frame workshop. An optometrist writes the Rx. If you arrive without one less than a year old, we give you three names in the barrio.", "faq.q2": "How long for a pair?", "faq.a2": "Acetate, 12 working days when the block is in house. Titanium, 8. If we must order a temple, we say so the day we measure, not a week later.", "faq.q3": "Do you repair other brands?", "faq.a3": "We weld titanium and recut acetate temples when the material allows. We do not promise miracles on injected plastic that already crazing.", "faq.q4": "Do you ship home?", "faq.a4": "The first pair is collected here: we need to see the real sit. Pad spares, yes, by post. A new frame, no.", "news.title": "When a tortoise block arrives, we write.", "news.lead": "One email. Which acetate landed and how many pairs it will cut. No discount, no drip sequence.", "news.ph": "you@mail.com", "news.cta": "Open mail", "news.err": "We need an address with @ to draft the message.", "news.thanks": "Your mail client should open. If not, write to puente@cristiancode.dev.", "news.mail_subject": "PUENTE acetate notice", "news.mail_body": "Hello PUENTE, please notify me when a block arrives.\\nMy email: {email}", "news.honest": "There is no hidden list: submit opens your mail to <a href=\"mailto:puente@cristiancode.dev\">puente@cristiancode.dev</a>. If you do not want that, do not press.", "cookie.body": "We only store language, theme and whether you closed this notice. No analytics.", "cookie.ok": "Agreed", "cookie.no": "Close", "foot.tag": "Frame atelier · Chamberí", "foot.a": "Fit", "foot.b": "Frames", "foot.c": "Visit", "foot.copy": "© 2026 PUENTE. One bridge. One pair. One face.", "meta.title": "PUENTE · Optical frame atelier in Chamberí", "meta.desc": "Optical atelier in Madrid: we measure the bridge, pupillary distance and pantoscopic tilt. A made-to-fit frame, not a runway one.", "og.title": "PUENTE · The frame is decided at the bridge", "og.desc": "We measure the bridge of your face. Acetate or titanium, made in Chamberí.", "tw.title": "PUENTE · Optical atelier", "tw.desc": "The frame is decided at the bridge, not on the runway.", "visit.mail_subject": "PUENTE appointment"}, fr: {"skip": "Aller au contenu", "nav.fit": "Ajustement", "nav.frames": "Montures", "nav.visit": "Rendez-vous", "nav.faq": "Questions", "cta.book": "Prendre rendez-vous", "lang.aria": "Choisir la langue", "theme.aria": "Activer le thème sombre", "theme.light": "Activer le thème clair", "menu.aria": "Ouvrir le menu", "hero.title": "La monture se décide <br>au pont, pas sur le podium.", "hero.lead": "À Chamberí on mesure le visage, pas la vitrine. Écart pupillaire, cambrure et angle pantoscopique avant de parler couleur.", "hero.cta": "Réserver la mesure", "hero.ghost": "Comment on ajuste", "hero.note": "Rendez-vous de 40 minutes. Une paire, pas un mur de mille.", "hero.pd": "EP · écart pupillaire", "hero.aperture": "Ouverture", "fit.title": "Quatre mesures. Dans cet ordre.", "fit.lead": "On en saute une, la monture touche la joue ou quitte l'oreille. Il n'y a pas de raccourci « taille M ».", "fit.1.t": "Pont et appui nasal", "fit.1.d": "C'est là que porte le poids. On mesure largeur et chute. Un pont copié, c'est la marque sur le nez deux heures plus tard.", "fit.2.t": "Écart pupillaire", "fit.2.d": "Des phares, pas une moyenne de catalogue. Œil gauche et droit séparément, à la distance de lecture et à celle de la rue.", "fit.3.t": "Angle pantoscopique", "fit.3.d": "L'angle que la lentille fait avec le sol. Sans ça, le progressif « ne se trouve pas » et on accuse le verre.", "fit.4.t": "Cambrure et branche", "fit.4.d": "Comment ça serre la tempe et où ça plie derrière l'oreille. La branche se coupe ici ; on n'attend pas qu'elle « se fasse ».", "fr.title": "Trois formes. Le reste est du bruit.", "fr.lead": "Pas de mur de 400 modèles. Un acétate écailles Mazzucchelli, un bêta-titane, une monture de lecture de bureau.", "fr.a.meta": "Acétate · 8 mm · Mazzucchelli 1849", "fr.a.name": "Écailles à pont bas", "fr.a.body": "L'écaille n'est pas un imprimé : ce sont des couches d'acétate polies à la main. Le pont bas tient une racine nasale marquée sans enfoncer les plaquettes.", "fr.a.cta": "Essayer sur rendez-vous", "fr.b.meta": "Bêta-titane · 3,2 g par branche", "fr.b.name": "Ligne d'air", "fr.b.body": "Pas de vis sur le front. Une soudure au pont. Si vous transpirez ou courez, le cercle ne s'ouvre pas.", "fr.c.meta": "Lecture · +1,00 à +2,50", "fr.c.name": "Paire de bureau", "fr.c.body": "Pour qui voit déjà de loin et veut seulement le paragraphe net. Elles restent sur le bureau ; elles ne prennent pas le métro.", "cmp.title": "Acétate ou titane. Choisissez le travail, pas la mode.", "cmp.lead": "L'un pèse et réchauffe la couleur. L'autre disparaît sur le visage. On ne mélange pas les deux dans la même paire « au cas où ».", "cmp.a.name": "Acétate", "cmp.a.body": "Un bloc italien de 8 mm. Taillé, pas injecté. Il dure des années hors du tableau de bord. Une couleur qui n'est pas un film de peinture.", "cmp.a.cta": "Je veux l'acétate", "cmp.b.name": "Bêta-titane", "cmp.b.body": "Un fil qui reprend sa forme. Pour qui a déjà eu une monture ouverte en un an. La couleur est le métal, pas un vernis.", "cmp.b.cta": "Je veux le titane", "visit.title": "Le rendez-vous, c'est la mesure. Pas une vente de 12 minutes.", "visit.lead": "Apportez l'ordonnance. Sinon, on vous envoie chez un opticien de confiance avant de tailler. L'atelier ne remplace pas un fond d'œil.", "visit.hours": "Mar–sam 11:00–19:30 · un siège, une personne", "visit.map": "Calle de Trafalgar 12, Chamberí · ouvrir Maps", "visit.cta": "Écrire pour réserver", "faq.title": "Ce que vous demandez une fois assis.", "faq.q1": "Vous faites l'ordonnance ici ?", "faq.a1": "Non. Nous sommes un atelier de monture. L'optométriste rédige la correction. Sans ordonnance de moins d'un an, on vous donne trois noms dans le quartier.", "faq.q2": "Combien de temps pour une paire ?", "faq.a2": "Acétate, 12 jours ouvrés si le bloc est en atelier. Titane, 8. S'il faut commander une branche, on le dit le jour de la mesure, pas la semaine suivante.", "faq.q3": "Vous réparez d'autres marques ?", "faq.a3": "On soude le titane et on recoupe les branches d'acétate si la matière le permet. Pas de miracle sur un injecté déjà fendillé.", "faq.q4": "Vous envoyez à domicile ?", "faq.a4": "La première paire se retire ici : il faut voir l'assise réelle. Plaquettes de rechange, oui, par courrier. Une monture neuve, non.", "news.title": "Quand un bloc d'écaille arrive, on écrit.", "news.lead": "Un courriel. Quel acétate est entré et combien de paires il donnera. Sans remise ni séquence automatique.", "news.ph": "vous@courriel.com", "news.cta": "Ouvrir le courrier", "news.err": "Il nous faut une adresse avec @ pour rédiger le message.", "news.thanks": "Votre client mail devrait s'ouvrir. Sinon, écrivez à puente@cristiancode.dev.", "news.mail_subject": "Avis acétate PUENTE", "news.mail_body": "Bonjour PUENTE, prévenez-moi à l'arrivée d'un bloc.\\nMon courriel : {email}", "news.honest": "Pas de liste cachée : l'envoi ouvre votre courrier vers <a href=\"mailto:puente@cristiancode.dev\">puente@cristiancode.dev</a>. Si vous n'en voulez pas, n'appuyez pas.", "cookie.body": "Nous ne stockons que la langue, le thème et si vous avez fermé cet avis. Pas d'analytique.", "cookie.ok": "D'accord", "cookie.no": "Fermer", "foot.tag": "Atelier de monture · Chamberí", "foot.a": "Ajustement", "foot.b": "Montures", "foot.c": "Rendez-vous", "foot.copy": "© 2026 PUENTE. Un pont. Une paire. Un visage.", "meta.title": "PUENTE · Atelier de monture optique à Chamberí", "meta.desc": "Atelier optique à Madrid : nous mesurons le pont, l'écart pupillaire et l'angle pantoscopique. Une monture ajustée, pas une monture de podium.", "og.title": "PUENTE · La monture se décide au pont", "og.desc": "Nous mesurons le pont de votre visage. Acétate ou titane, à Chamberí.", "tw.title": "PUENTE · Atelier optique", "tw.desc": "La monture se décide au pont, pas sur le podium.", "visit.mail_subject": "Rendez-vous PUENTE"}, de: {"skip": "Zum Inhalt springen", "nav.fit": "Anpassung", "nav.frames": "Fassungen", "nav.visit": "Termin", "nav.faq": "Fragen", "cta.book": "Termin anfragen", "lang.aria": "Sprache wählen", "theme.aria": "Dunkles Thema aktivieren", "theme.light": "Helles Thema aktivieren", "menu.aria": "Menü öffnen", "hero.title": "Die Fassung entscheidet sich <br>an der Brücke, nicht auf dem Laufsteg.", "hero.lead": "In Chamberí messen wir das Gesicht, nicht das Schaufenster. Pupillendistanz, Fassungsschluss und pantoskopische Neigung, bevor Farbe zur Sprache kommt.", "hero.cta": "Messung buchen", "hero.ghost": "So passen wir an", "hero.note": "Termin von 40 Minuten. Ein Paar, keine Wand mit tausend Modellen.", "hero.pd": "PD · Pupillendistanz", "hero.aperture": "Blende", "fit.title": "Vier Maße. In dieser Reihenfolge.", "fit.lead": "Fehlt eines, drückt die Fassung auf die Wange oder rutscht vom Ohr. Es gibt keine Abkürzung «Größe M».", "fit.1.t": "Brücke und Nasenauflage", "fit.1.d": "Dort lastet das Gewicht. Wir messen Breite und Fall. Eine kopierte Brücke ist die Marke auf der Nase nach zwei Stunden.", "fit.2.t": "Pupillendistanz", "fit.2.d": "Scheinwerfer, kein Katalogmittel. Links und rechts getrennt, in Lese- und in Straßendistanz.", "fit.3.t": "Pantoskopische Neigung", "fit.3.d": "Der Winkel, den die Linse zum Boden bildet. Ohne ihn «findet» sich das Gleitsichtglas nicht — und Sie beschuldigen das Glas.", "fit.4.t": "Fassungsschluss und Bügel", "fit.4.d": "Wie sie die Schläfe umfasst und wo sie hinter dem Ohr knickt. Der Bügel wird hier gekürzt; wir warten nicht, bis er «sich einläuft».", "fr.title": "Drei Formen. Der Rest ist Lärm.", "fr.lead": "Keine Wand mit 400 Modellen. Ein Mazzucchelli-Acetat in Schildpatt, ein Beta-Titan, eine Lesebrille für den Schreibtisch.", "fr.a.meta": "Acetat · 8 mm · Mazzucchelli 1849", "fr.a.name": "Schildpatt, niedrige Brücke", "fr.a.body": "Schildpatt ist kein Druck: geschichtetes, von Hand poliertes Acetat. Die niedrige Brücke hält eine markante Nasenwurzel, ohne Pads einzudrücken.", "fr.a.cta": "Im Termin anprobieren", "fr.b.meta": "Beta-Titan · 3,2 g je Bügel", "fr.b.name": "Luftlinie", "fr.b.body": "Keine Schraube an der Stirn. Eine Schweißnaht an der Brücke. Beim Schwitzen oder Laufen öffnet sich der Kreis nicht.", "fr.c.meta": "Lesen · +1,00 bis +2,50", "fr.c.name": "Schreibtischpaar", "fr.c.body": "Für alle, die in die Ferne schon sehen und nur den Absatz nah scharf wollen. Sie bleiben auf dem Tisch; sie fahren nicht U-Bahn.", "cmp.title": "Acetat oder Titan. Wählen Sie die Arbeit, nicht die Mode.", "cmp.lead": "Eines trägt Gewicht und wärmt die Farbe. Das andere verschwindet im Gesicht. Beides in einem Paar «falls doch» mischen wir nicht.", "cmp.a.name": "Acetat", "cmp.a.body": "Italienischer Block, 8 mm. Geschnitten, nicht gespritzt. Hält Jahre, wenn er nicht auf dem Armaturenbrett liegt. Farbe, die kein Lackfilm ist.", "cmp.a.cta": "Ich will Acetat", "cmp.b.name": "Beta-Titan", "cmp.b.body": "Draht, der in Form zurückkehrt. Für alle, deren Fassung sich in einem Jahr geöffnet hat. Die Farbe ist das Metall, kein Lack.", "cmp.b.cta": "Ich will Titan", "visit.title": "Der Termin ist die Messung. Kein 12-Minuten-Verkauf.", "visit.lead": "Bringen Sie das Rezept. Fehlt es, schicken wir Sie vor dem Schneiden zu einer vertrauten Optik. Die Werkstatt ersetzt keine Netzhautuntersuchung.", "visit.hours": "Di–Sa 11:00–19:30 · ein Sitz, eine Person", "visit.map": "Calle de Trafalgar 12, Chamberí · Maps öffnen", "visit.cta": "Schreiben zum Buchen", "faq.title": "Was Sie fragen, sobald Sie sitzen.", "faq.q1": "Schreiben Sie das Rezept hier?", "faq.a1": "Nein. Wir sind Fassungsatelier. Die Korrektur schreibt ein Optometrist. Ohne Rezept jünger als ein Jahr nennen wir drei Adressen im Viertel.", "faq.q2": "Wie lange dauert ein Paar?", "faq.a2": "Acetat: 12 Werktage, wenn der Block im Haus ist. Titan: 8. Müssen wir einen Bügel bestellen, sagen wir es am Messtag, nicht eine Woche später.", "faq.q3": "Reparieren Sie andere Marken?", "faq.a3": "Wir schweißen Titan und kürzen Acetatbügel, wenn das Material es zulässt. Keine Wunder bei gespritztem Kunststoff, der schon reißt.", "faq.q4": "Liefern Sie nach Hause?", "faq.a4": "Das erste Paar wird hier abgeholt: der Sitz muss stimmen. Pad-Ersatz ja, per Post. Eine neue Fassung nein.", "news.title": "Kommt ein Schildpatt-Block, schreiben wir.", "news.lead": "Eine Mail. Welches Acetat ankam und wie viele Paare daraus werden. Kein Rabatt, keine automatische Sequenz.", "news.ph": "du@post.de", "news.cta": "Mail öffnen", "news.err": "Wir brauchen eine Adresse mit @, um die Nachricht zu schreiben.", "news.thanks": "Ihr Mailprogramm sollte sich öffnen. Sonst schreiben Sie an puente@cristiancode.dev.", "news.mail_subject": "PUENTE Acetat-Hinweis", "news.mail_body": "Hallo PUENTE, bitte benachrichtigen, wenn ein Block ankommt.\\nMeine Mail: {email}", "news.honest": "Keine versteckte Liste: Absenden öffnet Ihre Mail an <a href=\"mailto:puente@cristiancode.dev\">puente@cristiancode.dev</a>. Wenn Sie das nicht wollen, nicht drücken.", "cookie.body": "Wir speichern nur Sprache, Thema und ob Sie diesen Hinweis geschlossen haben. Keine Analytik.", "cookie.ok": "Einverstanden", "cookie.no": "Schließen", "foot.tag": "Fassungsatelier · Chamberí", "foot.a": "Anpassung", "foot.b": "Fassungen", "foot.c": "Termin", "foot.copy": "© 2026 PUENTE. Eine Brücke. Ein Paar. Ein Gesicht.", "meta.title": "PUENTE · Optisches Fassungsatelier in Chamberí", "meta.desc": "Optikatelier in Madrid: wir messen Brücke, Pupillendistanz und pantoskopische Neigung. Eine angepasste Fassung, keine vom Laufsteg.", "og.title": "PUENTE · Die Fassung entscheidet sich an der Brücke", "og.desc": "Wir messen die Brücke Ihres Gesichts. Acetat oder Titan, in Chamberí.", "tw.title": "PUENTE · Optikatelier", "tw.desc": "Die Fassung entscheidet sich an der Brücke, nicht auf dem Laufsteg.", "visit.mail_subject": "Termin PUENTE"}, it: {"skip": "Salta al contenuto", "nav.fit": "Calzata", "nav.frames": "Montature", "nav.visit": "Appuntamento", "nav.faq": "Domande", "cta.book": "Prenota visita", "lang.aria": "Scegli la lingua", "theme.aria": "Attiva tema scuro", "theme.light": "Attiva tema chiaro", "menu.aria": "Apri il menu", "hero.title": "La montatura si decide <br>sul ponte, non in passerella.", "hero.lead": "A Chamberí misuriamo il viso, non la vetrina. Distanza pupillare, avvolgenza e inclinazione pantoscopica prima di parlare di colore.", "hero.cta": "Prenota la misura", "hero.ghost": "Come regoliamo", "hero.note": "Appuntamento di 40 minuti. Un paio, non un muro di mille.", "hero.pd": "DP · distanza pupillare", "hero.aperture": "Apertura", "fit.title": "Quattro misure. In quest'ordine.", "fit.lead": "Se ne saltiamo una, la montatura tocca la guancia o lascia l'orecchio. Non c'è scorciatoia «taglia M».", "fit.1.t": "Ponte e appoggio nasale", "fit.1.d": "Lì scarica il peso. Misuriamo larghezza e caduta. Un ponte copiato è il segno sul naso due ore dopo.", "fit.2.t": "Distanza pupillare", "fit.2.d": "Fari, non una media da catalogo. Occhio sinistro e destro separati, alla distanza di lettura e a quella della strada.", "fit.3.t": "Inclinazione pantoscopica", "fit.3.d": "L'angolo che la lente fa con il pavimento. Senza, il progressivo «non si trova» e dai la colpa al vetro.", "fit.4.t": "Avvolgenza e stecca", "fit.4.d": "Come abbraccia la tempia e dove piega dietro l'orecchio. La stecca si taglia qui; non si aspetta che «si assesti».", "fr.title": "Tre forme. Il resto è rumore.", "fr.lead": "Non abbiamo un muro di 400 modelli. Un acetato tartaruga Mazzucchelli, un beta-titanio, una montatura da lettura da tavolo.", "fr.a.meta": "Acetato · 8 mm · Mazzucchelli 1849", "fr.a.name": "Tartaruga a ponte basso", "fr.a.body": "La tartaruga non è una stampa: strati di acetato lucidati a mano. Il ponte basso sostiene una radice nasale marcata senza infossare i naselli.", "fr.a.cta": "Provala in visita", "fr.b.meta": "Beta-titanio · 3,2 g per stecca", "fr.b.name": "Linea d'aria", "fr.b.body": "Niente vite sulla fronte. Una saldatura sul ponte. Se sudi o corri, il cerchio non si apre.", "fr.c.meta": "Lettura · +1,00 a +2,50", "fr.c.name": "Paio da tavolo", "fr.c.body": "Per chi già vede lontano e vuole solo il paragrafo nitido da vicino. Restano sulla scrivania; non prendono la metro.", "cmp.title": "Acetato o titanio. Scegli il lavoro, non la moda.", "cmp.lead": "Uno pesa e scalda il colore. L'altro scompare sul viso. Non mischiamo i due nello stesso paio «casomai».", "cmp.a.name": "Acetato", "cmp.a.body": "Blocco italiano da 8 mm. Intagliato, non iniettato. Dura anni se non lo lasci sul cruscotto. Un colore che non è una pellicola di vernice.", "cmp.a.cta": "Voglio l'acetato", "cmp.b.name": "Beta-titanio", "cmp.b.body": "Filo che torna in forma. Per chi ha già avuto una montatura aperta in un anno. Il colore è il metallo, non una vernice.", "cmp.b.cta": "Voglio il titanio", "visit.title": "L'appuntamento è la misura. Non una vendita di 12 minuti.", "visit.lead": "Porta la ricetta. Se non ce l'hai, ti mandiamo da un ottico di fiducia prima di tagliare. Il laboratorio non sostituisce un esame del fondo.", "visit.hours": "Mar–sab 11:00–19:30 · un sedile, una persona", "visit.map": "Calle de Trafalgar 12, Chamberí · apri Maps", "visit.cta": "Scrivi per prenotare", "faq.title": "Quello che chiedete appena vi sedete.", "faq.q1": "Fate la ricetta qui?", "faq.a1": "No. Siamo laboratorio di montature. La correzione la scrive un ottico-optometrista. Senza ricetta di meno di un anno, diamo tre nomi nel quartiere.", "faq.q2": "Quanto ci vuole per un paio?", "faq.a2": "Acetato, 12 giorni lavorativi se il blocco è in casa. Titanio, 8. Se serve ordinare una stecca, lo diciamo il giorno della misura, non una settimana dopo.", "faq.q3": "Riparate altre marche?", "faq.a3": "Saldamo il titanio e ritagliamo le stecche in acetato se il materiale lo permette. Niente miracoli su un iniettato già crepato.", "faq.q4": "Spedite a casa?", "faq.a4": "Il primo paio si ritira qui: bisogna vedere l'appoggio vero. Naselli di ricambio sì, per posta. Una montatura nuova no.", "news.title": "Quando arriva un blocco tartaruga, scriviamo.", "news.lead": "Una mail. Quale acetato è arrivato e quanti paia ne escono. Senza sconto né sequenza automatica.", "news.ph": "tu@posta.it", "news.cta": "Apri la mail", "news.err": "Serve un indirizzo con @ per scrivere il messaggio.", "news.thanks": "Il client di posta dovrebbe aprirsi. Altrimenti scrivi a puente@cristiancode.dev.", "news.mail_subject": "Avviso acetato PUENTE", "news.mail_body": "Ciao PUENTE, avvisatemi quando arriva un blocco.\\nLa mia mail: {email}", "news.honest": "Nessuna lista nascosta: l'invio apre la tua mail verso <a href=\"mailto:puente@cristiancode.dev\">puente@cristiancode.dev</a>. Se non lo vuoi, non premere.", "cookie.body": "Salviamo solo lingua, tema e se hai chiuso questo avviso. Niente analitica.", "cookie.ok": "D'accordo", "cookie.no": "Chiudi", "foot.tag": "Atelier di montature · Chamberí", "foot.a": "Calzata", "foot.b": "Montature", "foot.c": "Appuntamento", "foot.copy": "© 2026 PUENTE. Un ponte. Un paio. Un viso.", "meta.title": "PUENTE · Atelier di montature ottiche a Chamberí", "meta.desc": "Atelier ottico a Madrid: misuriamo ponte, distanza pupillare e inclinazione pantoscopica. Una montatura su misura, non da passerella.", "og.title": "PUENTE · La montatura si decide sul ponte", "og.desc": "Misuriamo il ponte del tuo viso. Acetato o titanio, a Chamberí.", "tw.title": "PUENTE · Atelier ottico", "tw.desc": "La montatura si decide sul ponte, non in passerella.", "visit.mail_subject": "Appuntamento PUENTE"}, pt: {"skip": "Saltar para o conteúdo", "nav.fit": "Ajuste", "nav.frames": "Armações", "nav.visit": "Consulta", "nav.faq": "Perguntas", "cta.book": "Pedir consulta", "lang.aria": "Escolher idioma", "theme.aria": "Ativar tema escuro", "theme.light": "Ativar tema claro", "menu.aria": "Abrir menu", "hero.title": "A armação decide-se <br>na ponte, não na passarela.", "hero.lead": "Em Chamberí medimos a cara, não a montra. Distância pupilar, envolvente e inclinação pantoscópica antes de falar de cor.", "hero.cta": "Reservar medição", "hero.ghost": "Como ajustamos", "hero.note": "Consulta de 40 minutos. Um par, não uma parede de mil.", "hero.pd": "DP · distância pupilar", "hero.aperture": "Abertura", "fit.title": "Quatro medidas. Nesta ordem.", "fit.lead": "Se saltarmos uma, a armação toca a face ou sai da orelha. Não há atalho de «tamanho M».", "fit.1.t": "Ponte e apoio nasal", "fit.1.d": "É aí que o peso assenta. Medimos largura e queda. Uma ponte copiada é a marca no nariz duas horas depois.", "fit.2.t": "Distância pupilar", "fit.2.d": "Faróis, não uma média de catálogo. Olho esquerdo e direito em separado, à distância de leitura e à da rua.", "fit.3.t": "Inclinação pantoscópica", "fit.3.d": "O ângulo que a lente faz com o chão. Sem isto, o progressivo «não se encontra» e culpas o cristal.", "fit.4.t": "Envolvente e haste", "fit.4.d": "Como abraça a têmpora e onde dobra atrás da orelha. A haste corta-se aqui; não se espera que «assente».", "fr.title": "Três formas. O resto é ruído.", "fr.lead": "Não temos parede de 400 modelos. Um acetato tartaruga Mazzucchelli, um beta-titânio, uma armação de leitura de secretária.", "fr.a.meta": "Acetato · 8 mm · Mazzucchelli 1849", "fr.a.name": "Tartaruga de ponte baixa", "fr.a.body": "A tartaruga não é um padrão impresso: camadas de acetato polidas à mão. A ponte baixa segura uma raiz nasal marcada sem cravar as plaquetas.", "fr.a.cta": "Experimentar na consulta", "fr.b.meta": "Beta-titânio · 3,2 g por haste", "fr.b.name": "Linha de ar", "fr.b.body": "Sem parafuso na testa. Solda na ponte. Se transpiras ou corres, o círculo não abre.", "fr.c.meta": "Leitura · +1,00 a +2,50", "fr.c.name": "Par de secretária", "fr.c.body": "Para quem já vê ao longe e só quer o parágrafo nítido ao perto. Ficam na secretária; não vão no metro.", "cmp.title": "Acetato ou titânio. Escolhe o trabalho, não a moda.", "cmp.lead": "Um pesa e aquece a cor. O outro desaparece na cara. Não misturamos os dois no mesmo par «por se acaso».", "cmp.a.name": "Acetato", "cmp.a.body": "Bloco italiano de 8 mm. Talhado, não injetado. Aguenta anos se não o deixares no tablier. Cor que não é película de tinta.", "cmp.a.cta": "Quero acetato", "cmp.b.name": "Beta-titânio", "cmp.b.body": "Arame que volta à forma. Para quem já teve uma armação que abriu num ano. A cor é o metal, não um verniz.", "cmp.b.cta": "Quero titânio", "visit.title": "A consulta é a medição. Não uma venda de 12 minutos.", "visit.lead": "Traz a receita. Se não tens, mandamos-te a um óptico de confiança antes de talhar. A oficina não substitui um exame de retina.", "visit.hours": "Ter–sáb 11:00–19:30 · um assento, uma pessoa", "visit.map": "Calle de Trafalgar 12, Chamberí · abrir Maps", "visit.cta": "Escrever para reservar", "faq.title": "O que perguntam quando se sentam.", "faq.q1": "Fazem a receita aqui?", "faq.a1": "Não. Somos oficina de armação. A graduação faz um óptico-optometrista. Sem receita com menos de um ano, damos três nomes no bairro.", "faq.q2": "Quanto demora um par?", "faq.a2": "Acetato, 12 dias úteis quando o bloco está em casa. Titânio, 8. Se for preciso pedir haste, dizemos no dia da medição, não uma semana depois.", "faq.q3": "Arranjam óculos de outra marca?", "faq.a3": "Soldamos titânio e recortamos hastes de acetato se o material deixar. Sem milagres num injetado que já fendilhou.", "faq.q4": "Enviam para casa?", "faq.a4": "O primeiro par recolhe-se aqui: é preciso ver o assento real. Sobresselentes de plaquetas, sim, por correio. Armação nova, não.", "news.title": "Quando entra um bloco de tartaruga, avisamos.", "news.lead": "Um correio. Que acetato chegou e quantos pares saem dele. Sem desconto nem sequência automática.", "news.ph": "tu@correio.com", "news.cta": "Abrir o correio", "news.err": "Precisamos de um correio com @ para redigir a mensagem.", "news.thanks": "Abre o teu cliente de correio. Se não, escreve para puente@cristiancode.dev.", "news.mail_subject": "Aviso de acetato PUENTE", "news.mail_body": "Olá PUENTE, quero aviso quando entrar um bloco.\\nO meu correio: {email}", "news.honest": "Não há lista escondida: o envio abre o teu correio para <a href=\"mailto:puente@cristiancode.dev\">puente@cristiancode.dev</a>. Se não quiseres isso, não carregues.", "cookie.body": "Só guardamos idioma, tema e se fechaste este aviso. Sem analítica.", "cookie.ok": "De acordo", "cookie.no": "Fechar", "foot.tag": "Atelier de armação · Chamberí", "foot.a": "Ajuste", "foot.b": "Armações", "foot.c": "Consulta", "foot.copy": "© 2026 PUENTE. Uma ponte. Um par. Uma cara.", "meta.title": "PUENTE · Atelier de armação óptica em Chamberí", "meta.desc": "Atelier óptico em Madrid: medimos a ponte, a distância pupilar e a inclinação pantoscópica. Armação à medida, não de passarela.", "og.title": "PUENTE · A armação decide-se na ponte", "og.desc": "Medimos a ponte da tua cara. Acetato ou titânio, em Chamberí.", "tw.title": "PUENTE · Atelier óptico", "tw.desc": "A armação decide-se na ponte, não na passarela.", "visit.mail_subject": "Consulta PUENTE"}};
+  function $(sel, root) { return (root || document).querySelector(sel); }
+  function $$(sel, root) { return Array.prototype.slice.call((root || document).querySelectorAll(sel)); }
+  function getLang() {
+    try {
+      var s = localStorage.getItem(LANG_KEY);
+      if (s && I18N[s]) return s;
+    } catch (e) {}
+    var nav = (navigator.language || 'es').slice(0, 2).toLowerCase();
+    return I18N[nav] ? nav : 'es';
+  }
+  function getTheme() {
+    try {
+      var t = localStorage.getItem(THEME_KEY);
+      if (t === 'dark' || t === 'light') return t;
+    } catch (e) {}
+    return 'light';
+  }
+  function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    try { localStorage.setItem(THEME_KEY, theme); } catch (e) {}
+    var dict = I18N[getLang()] || I18N.es;
+    var label = theme === 'dark' ? dict['theme.light'] : dict['theme.aria'];
+    $$('#themeToggle, #themeToggleM').forEach(function (el) { if (el) el.setAttribute('aria-label', label); });
+  }
+  $$('#themeToggle, #themeToggleM').forEach(function (t) {
+    if (t) t.addEventListener('click', function () { applyTheme(getTheme() === 'dark' ? 'light' : 'dark'); });
+  });
+  function applyLang(lang) {
+    if (!I18N[lang]) lang = 'es';
+    var dict = I18N[lang];
+    try { localStorage.setItem(LANG_KEY, lang); } catch (e) {}
+    $$('[data-i18n]').forEach(function (el) {
+      var val = dict[el.getAttribute('data-i18n')];
+      if (val !== undefined) el.textContent = val;
+    });
+    $$('[data-i18n-html]').forEach(function (el) {
+      var val = dict[el.getAttribute('data-i18n-html')];
+      if (val !== undefined) el.innerHTML = val;
+    });
+    $$('[data-i18n-aria]').forEach(function (el) {
+      var val = dict[el.getAttribute('data-i18n-aria')];
+      if (val !== undefined) el.setAttribute('aria-label', val);
+    });
+    $$('[data-i18n-ph]').forEach(function (el) {
+      var val = dict[el.getAttribute('data-i18n-ph')];
+      if (val !== undefined) el.setAttribute('placeholder', val);
+    });
+    var mt = $('#doc-title');
+    if (mt && dict['meta.title']) mt.textContent = dict['meta.title'];
+    var md = $('#meta-desc');
+    if (md && dict['meta.desc']) md.setAttribute('content', dict['meta.desc']);
+    var ogt = $('meta[property="og:title"]');
+    if (ogt && dict['og.title']) ogt.setAttribute('content', dict['og.title']);
+    var ogd = $('meta[property="og:description"]');
+    if (ogd && dict['og.desc']) ogd.setAttribute('content', dict['og.desc']);
+    var twt = $('meta[name="twitter:title"]');
+    if (twt && dict['tw.title']) twt.setAttribute('content', dict['tw.title']);
+    var twd = $('meta[name="twitter:description"]');
+    if (twd && dict['tw.desc']) twd.setAttribute('content', dict['tw.desc']);
+    document.documentElement.setAttribute('lang', lang);
+    $$('.lang-select__cur').forEach(function (el) { el.textContent = lang.toUpperCase(); });
+    $$('.lang-select__opt').forEach(function (opt) {
+      opt.setAttribute('aria-selected', opt.getAttribute('data-lang') === lang ? 'true' : 'false');
+    });
+    var visitMail = $('#visitMail');
+    if (visitMail) {
+      var vsubj = dict['visit.mail_subject'] || 'PUENTE';
+      visitMail.setAttribute('href', 'mailto:puente@cristiancode.dev?subject=' + encodeURIComponent(vsubj));
+    }
+    applyTheme(getTheme());
+  }
+  function closeLangMenus() {
+    $$('.lang-select').forEach(function (sel) {
+      var menu = $('.lang-select__menu', sel), btn = $('.lang-select__btn', sel);
+      if (menu) menu.classList.remove('open');
+      if (btn) btn.setAttribute('aria-expanded', 'false');
+    });
+  }
+  $$('.lang-select').forEach(function (sel) {
+    var btn = $('.lang-select__btn', sel), menu = $('.lang-select__menu', sel);
+    if (!btn || !menu) return;
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var open = menu.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if (open) {
+        $$('.lang-select').forEach(function (other) {
+          if (other !== sel) {
+            var om = $('.lang-select__menu', other), ob = $('.lang-select__btn', other);
+            if (om) om.classList.remove('open');
+            if (ob) ob.setAttribute('aria-expanded', 'false');
+          }
+        });
+      }
+    });
+    $$('.lang-select__opt', sel).forEach(function (opt) {
+      opt.addEventListener('click', function () {
+        applyLang(opt.getAttribute('data-lang'));
+        closeLangMenus();
+        closeMobile();
+      });
+    });
+  });
+  document.addEventListener('click', function (e) {
+    var inside = false;
+    $$('.lang-select').forEach(function (sel) { if (sel.contains(e.target)) inside = true; });
+    if (!inside) closeLangMenus();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') { closeLangMenus(); closeMobile(); }
+  });
+  var burger = $('#burger'), mobileMenu = $('#mobileMenu');
+  function closeMobile() {
+    if (!mobileMenu) return;
+    mobileMenu.classList.remove('open');
+    mobileMenu.setAttribute('aria-hidden', 'true');
+    if (burger) burger.setAttribute('aria-expanded', 'false');
+  }
+  if (burger && mobileMenu) {
+    burger.addEventListener('click', function () {
+      var open = mobileMenu.classList.toggle('open');
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      mobileMenu.setAttribute('aria-hidden', open ? 'false' : 'true');
+    });
+    $$('a', mobileMenu).forEach(function (a) { a.addEventListener('click', closeMobile); });
+  }
+  applyLang(getLang());
+  try {
+    var rvEls = $$('.rv');
+    function revealCheck() {
+      var vh = window.innerHeight || document.documentElement.clientHeight;
+      rvEls.forEach(function (el) {
+        if (el.classList.contains('in')) return;
+        var r = el.getBoundingClientRect();
+        if (r.top < vh * 0.92) el.classList.add('in');
+      });
+    }
+    var ticking = false;
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(function () { revealCheck(); ticking = false; });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    revealCheck();
+    document.documentElement.classList.remove('no-js');
+    setTimeout(revealCheck, 600);
+    setTimeout(function () {
+      var vh = window.innerHeight || document.documentElement.clientHeight;
+      var missed = false;
+      rvEls.forEach(function (el) {
+        var r = el.getBoundingClientRect();
+        if (r.top < vh * 0.92 && r.bottom > 0 && !el.classList.contains('in')) missed = true;
+      });
+      if (missed) rvEls.forEach(function (el) { el.classList.add('in'); });
+    }, 1800);
+  } catch (e) {
+    $$('.rv').forEach(function (el) { el.classList.add('in'); });
+    document.documentElement.classList.remove('no-js');
+  }
+  $$('.faq-item').forEach(function (item) {
+    var q = $('.faq-q', item), a = $('.faq-a', item);
+    if (!q || !a) return;
+    q.addEventListener('click', function () {
+      var isOpen = item.classList.contains('open');
+      $$('.faq-item.open').forEach(function (other) {
+        if (other !== item) {
+          other.classList.remove('open');
+          var oq = $('.faq-q', other), oa = $('.faq-a', other);
+          if (oq) oq.setAttribute('aria-expanded', 'false');
+          if (oa) oa.style.maxHeight = '0px';
+        }
+      });
+      item.classList.toggle('open', !isOpen);
+      q.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+      a.style.maxHeight = isOpen ? '0px' : a.scrollHeight + 'px';
+    });
+  });
+  var cookieBanner = $('#cookieBanner');
+  function hideCookie() {
+    if (!cookieBanner) return;
+    cookieBanner.classList.remove('show');
+    try { localStorage.setItem(COOKIE_KEY, '1'); } catch (e) {}
+  }
+  var ckOk = $('#cookieOk'), ckNo = $('#cookieNo');
+  if (ckOk) ckOk.addEventListener('click', hideCookie);
+  if (ckNo) ckNo.addEventListener('click', hideCookie);
+  (function () {
+    var done = false;
+    try { done = localStorage.getItem(COOKIE_KEY) === '1'; } catch (e) {}
+    if (done || !cookieBanner) return;
+    setTimeout(function () { cookieBanner.classList.add('show'); }, 3200);
+  })();
+  var newsForm = $('#newsForm');
+  if (newsForm) {
+    var nlMsg = $('#nlMsg');
+    newsForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var email = ($('#newsEmail') || {}).value || '';
+      var lang = getLang();
+      if (!email || email.indexOf('@') < 1) {
+        if (nlMsg) { nlMsg.textContent = I18N[lang]['news.err']; nlMsg.className = 'nl-msg err'; }
+        return;
+      }
+      var subject = I18N[lang]['news.mail_subject'] || 'PUENTE';
+      var bodyTpl = I18N[lang]['news.mail_body'] || 'Hola PUENTE\n{email}';
+      var body = String(bodyTpl).split('{email}').join(email);
+      window.location.href = 'mailto:puente@cristiancode.dev?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+      if (nlMsg) { nlMsg.textContent = I18N[lang]['news.thanks']; nlMsg.className = 'nl-msg ok'; }
+    });
+  }
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced) document.documentElement.classList.add('reduced');
+  var art = $('#heroArt');
+  var irisL = $('#irisL'), irisR = $('#irisR');
+  var pdEl = $('#pdValue');
+  function moveIris(ev) {
+    if (reduced || !art || !irisL) return;
+    var r = art.getBoundingClientRect();
+    var nx = ((ev.clientX - r.left) / r.width) * 2 - 1;
+    var ny = ((ev.clientY - r.top) / r.height) * 2 - 1;
+    var dx = Math.max(-1, Math.min(1, nx)) * 10;
+    var dy = Math.max(-1, Math.min(1, ny)) * 8;
+    irisL.setAttribute('transform', 'translate(' + dx + ' ' + dy + ')');
+    irisR.setAttribute('transform', 'translate(' + dx + ' ' + dy + ')');
+    if (pdEl) pdEl.textContent = (62 + dx * 0.08).toFixed(1) + ' mm';
+  }
+  if (art) {
+    art.addEventListener('pointermove', moveIris);
+    art.addEventListener('pointerleave', function () {
+      if (irisL) irisL.setAttribute('transform', 'translate(0 0)');
+      if (irisR) irisR.setAttribute('transform', 'translate(0 0)');
+      if (pdEl) pdEl.textContent = '62.0 mm';
+    });
+  }
+  var ap = $('#aperture'), apL = $('#apL'), apR = $('#apR'), apRead = $('#apRead');
+  function setAp(v) {
+    v = Number(v);
+    if (apL) apL.setAttribute('r', String(v));
+    if (apR) apR.setAttribute('r', String(v));
+    if (apRead) {
+      var f = Math.round(16 * (70 / Math.max(v, 22)));
+      apRead.textContent = 'f/' + Math.max(2, Math.min(16, Math.round(f / 2)));
+    }
+  }
+  if (ap) {
+    ap.addEventListener('input', function () { setAp(ap.value); });
+    setAp(ap.value);
+  }
+  if (reduced) {
+    $$('.caliper-draw').forEach(function (el) {
+      el.style.strokeDasharray = 'none';
+      el.style.strokeDashoffset = '0';
+      el.style.animation = 'none';
+    });
+  }
+})();
+</script>
+</body>
+</html>

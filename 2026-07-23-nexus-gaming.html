@@ -1,0 +1,2909 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="meta-title">Nexus Gaming — Where Players Become Legends</title>
+  <meta name="description" id="meta-desc" content="Nexus Gaming is the premier competitive gaming platform. Join tournaments, climb leaderboards, and forge your legacy across multiple game modes.">
+  <link rel="canonical" href="https://nexusgaming.gg/">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23a855f7'/%3E%3Cpath d='M10 22V10l4 4 4-4v12h-3v-7l-2 2-2-2v7H10z' fill='%23fff'/%3E%3C/svg%3E">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Nexus Gaming">
+  <meta property="og:title" id="og-title" content="Nexus Gaming — Where Players Become Legends">
+  <meta property="og:description" id="og-desc" content="Premier competitive gaming platform. Tournaments, leaderboards, and community.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=1200&q=80">
+  <meta property="og:url" content="https://nexusgaming.gg/">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" id="tw-title" content="Nexus Gaming — Where Players Become Legends">
+  <meta name="twitter:description" id="tw-desc" content="Premier competitive gaming platform. Tournaments, leaderboards, and community.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=1200&q=80">
+
+  <!-- Fonts: Space Grotesk (headings) + DM Sans (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============================================================
+       DESIGN TOKENS — Nexus Gaming
+       Surface: Decide/Learn (landing page — competitive gaming showcase)
+       Derived from: Original gaming neon theme
+       Family: Gaming / Competitive Esports
+       Style: Dark Futuristic — purple/cyan neon on deep indigo
+       Strategy: Committed (purple ~30%, cyan accent ~8%)
+       ============================================================ */
+    :root {
+      /* Colors */
+      --color-bg: #08060f;
+      --color-surface: #100c1f;
+      --color-surface-alt: #1a1535;
+      --color-surface-hover: #221d42;
+      --color-text-primary: #f1f5f9;
+      --color-text-secondary: #8b83ba;
+      --color-text-tertiary: #5e5490;
+      --color-accent: #a855f7;
+      --color-accent-hover: #c084fc;
+      --color-accent-glow: rgba(168, 85, 247, 0.25);
+      --color-accent-secondary: #22d3ee;
+      --color-accent-secondary-hover: #67e8f9;
+      --color-border: #1e1b3a;
+      --color-border-light: #2a2550;
+      --color-success: #10b981;
+      --color-error: #ef4444;
+      --color-warning: #f59e0b;
+
+      /* Typography */
+      --font-heading: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --font-mono: 'SF Mono', 'Fira Code', 'JetBrains Mono', monospace;
+
+      /* Spacing scale */
+      --space-xs: 0.375rem;
+      --space-sm: 0.75rem;
+      --space-md: 1.25rem;
+      --space-lg: 2rem;
+      --space-xl: 3rem;
+      --space-2xl: 4.5rem;
+      --space-3xl: 6.5rem;
+      --space-4xl: 9rem;
+
+      /* Layout */
+      --content-max: 78rem;
+      --content-narrow: 44rem;
+      --nav-height: 4.25rem;
+
+      /* Z-index */
+      --z-dropdown: 100;
+      --z-sticky: 200;
+      --z-nav: 300;
+      --z-modal-backdrop: 400;
+      --z-modal: 500;
+      --z-toast: 600;
+      --z-tooltip: 700;
+
+      /* Shadows */
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.4);
+      --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.5);
+      --shadow-glow: 0 0 30px var(--color-accent-glow);
+
+      /* Border radius */
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      --radius-lg: 20px;
+
+      /* Transitions */
+      --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+      --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+      --duration-fast: 200ms;
+      --duration-normal: 400ms;
+      --duration-slow: 700ms;
+    }
+
+    /* ============================================================
+       RESET & BASE
+       ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      line-height: 1.65;
+      color: var(--color-text-primary);
+      background-color: var(--color-bg);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    a {
+      color: var(--color-accent);
+      text-decoration: none;
+      transition: color var(--duration-fast) var(--ease-out-quart);
+    }
+    a:hover { color: var(--color-accent-hover); }
+
+    button {
+      cursor: pointer;
+      font-family: inherit;
+      border: none;
+      background: none;
+    }
+
+    ul { list-style: none; }
+
+    /* ============================================================
+       TYPOGRAPHY
+       ============================================================ */
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      line-height: 1.15;
+      color: var(--color-text-primary);
+      text-wrap: balance;
+    }
+
+    h1 {
+      font-size: clamp(2.75rem, 6vw, 5.5rem);
+      letter-spacing: -0.03em;
+      font-weight: 700;
+    }
+    h2 {
+      font-size: clamp(2rem, 4vw, 3.25rem);
+      letter-spacing: -0.02em;
+    }
+    h3 {
+      font-size: clamp(1.3rem, 2vw, 1.65rem);
+      letter-spacing: -0.015em;
+    }
+    h4 {
+      font-size: 1.1rem;
+      letter-spacing: -0.01em;
+    }
+    h5 {
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: 0;
+    }
+
+    p { max-width: var(--content-narrow); text-wrap: pretty; }
+    p + p { margin-top: 1em; }
+
+    .text-secondary { color: var(--color-text-secondary); }
+    .text-tertiary { color: var(--color-text-tertiary); }
+    .text-small { font-size: 0.875rem; }
+    .text-mono {
+      font-family: var(--font-mono);
+      letter-spacing: 0;
+    }
+
+    .text-accent { color: var(--color-accent); }
+    .text-accent-secondary { color: var(--color-accent-secondary); }
+
+    .section-heading {
+      margin-bottom: var(--space-sm);
+    }
+
+    .section-sub {
+      color: var(--color-text-secondary);
+      font-size: 1.05rem;
+      max-width: 36rem;
+    }
+
+    /* ============================================================
+       LAYOUT HELPERS
+       ============================================================ */
+    .container {
+      width: 100%;
+      max-width: var(--content-max);
+      margin: 0 auto;
+      padding: 0 var(--space-lg);
+    }
+
+    .container-narrow {
+      max-width: var(--content-narrow);
+    }
+
+    .section {
+      padding: var(--space-3xl) 0;
+    }
+
+    .section-alt {
+      background-color: var(--color-surface);
+    }
+
+    .flex-center {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .gap-sm { gap: var(--space-sm); }
+    .gap-md { gap: var(--space-md); }
+    .gap-lg { gap: var(--space-lg); }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* Reveal animation base */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity var(--duration-slow) var(--ease-out-expo),
+                  transform var(--duration-slow) var(--ease-out-expo);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 100ms; }
+    .reveal-delay-2 { transition-delay: 200ms; }
+    .reveal-delay-3 { transition-delay: 350ms; }
+
+    /* ============================================================
+       BUTTONS
+       ============================================================ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      padding: 0.85rem 2rem;
+      font-family: var(--font-heading);
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      border-radius: var(--radius-sm);
+      transition: all var(--duration-fast) var(--ease-out-quart);
+      text-decoration: none;
+      line-height: 1.3;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary {
+      background: var(--color-accent);
+      color: #ffffff;
+      box-shadow: 0 0 20px rgba(168, 85, 247, 0.15);
+    }
+    .btn-primary:hover {
+      background: var(--color-accent-hover);
+      color: #ffffff;
+      box-shadow: 0 0 30px rgba(168, 85, 247, 0.3);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: var(--color-accent-secondary);
+      color: #0c0a1a;
+    }
+    .btn-secondary:hover {
+      background: var(--color-accent-secondary-hover);
+      color: #0c0a1a;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      border: 1px solid var(--color-border-light);
+      color: var(--color-text-primary);
+      background: transparent;
+    }
+    .btn-outline:hover {
+      border-color: var(--color-accent);
+      color: var(--color-accent);
+      background: rgba(168, 85, 247, 0.06);
+      transform: translateY(-2px);
+    }
+
+    .btn-sm {
+      padding: 0.55rem 1.25rem;
+      font-size: 0.8rem;
+    }
+
+    /* ============================================================
+       NAVIGATION
+       ============================================================ */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: var(--z-nav);
+      padding: 0 var(--space-lg);
+      height: var(--nav-height);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background-color var(--duration-normal) var(--ease-out-quart),
+                  box-shadow var(--duration-normal) var(--ease-out-quart),
+                  border-color var(--duration-normal) var(--ease-out-quart);
+      border-bottom: 1px solid transparent;
+    }
+
+    .nav-scrolled {
+      background-color: rgba(8, 6, 15, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom-color: var(--color-border);
+    }
+
+    .nav-logo {
+      font-family: var(--font-heading);
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--color-text-primary);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+    .nav-logo:hover { color: var(--color-accent); }
+
+    .nav-logo .logo-icon {
+      width: 28px;
+      height: 28px;
+      background: var(--color-accent);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: var(--space-xl);
+    }
+
+    .nav-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: var(--color-text-secondary);
+      transition: color var(--duration-fast) ease;
+      font-family: var(--font-body);
+    }
+    .nav-links a:hover {
+      color: var(--color-text-primary);
+    }
+
+    /* Language switcher */
+    .lang-switcher {
+      position: relative;
+      z-index: var(--z-dropdown);
+    }
+
+    .lang-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.35rem 0.6rem;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--color-text-secondary);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      background: transparent;
+      transition: all var(--duration-fast) ease;
+      font-family: var(--font-body);
+    }
+    .lang-btn:hover {
+      border-color: var(--color-text-tertiary);
+      color: var(--color-text-primary);
+    }
+    .lang-btn svg {
+      width: 12px;
+      height: 12px;
+      transition: transform var(--duration-fast) ease;
+    }
+    .lang-btn[aria-expanded="true"] svg { transform: rotate(180deg); }
+
+    .lang-dropdown {
+      position: absolute;
+      top: calc(100% + 6px);
+      right: 0;
+      min-width: 145px;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-lg);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-6px);
+      transition: all var(--duration-fast) var(--ease-out-quart);
+      overflow: hidden;
+    }
+    .lang-dropdown.open {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    .lang-dropdown button {
+      display: block;
+      width: 100%;
+      padding: 0.65rem 1rem;
+      text-align: left;
+      font-size: 0.85rem;
+      color: var(--color-text-secondary);
+      transition: all var(--duration-fast) ease;
+      font-family: var(--font-body);
+    }
+    .lang-dropdown button:hover {
+      background: var(--color-surface-alt);
+      color: var(--color-text-primary);
+    }
+    .lang-dropdown button[data-active] {
+      color: var(--color-accent);
+      font-weight: 500;
+    }
+
+    /* Mobile menu */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      width: 30px;
+      height: 30px;
+      align-items: center;
+      justify-content: center;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--color-text-primary);
+      transition: all var(--duration-fast) var(--ease-out-quart);
+      border-radius: 1px;
+    }
+    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(4px, 5px); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(4px, -5px); }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+    }
+
+    /* ============================================================
+       HERO
+       ============================================================ */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding-top: var(--nav-height);
+    }
+
+    /* Animated grid background */
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+      opacity: 0.5;
+    }
+    .hero-grid::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(168, 85, 247, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(168, 85, 247, 0.06) 1px, transparent 1px);
+      background-size: 60px 60px;
+      animation: gridDrift 20s linear infinite;
+    }
+    .hero-grid::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 40%, rgba(168, 85, 247, 0.12) 0%, transparent 60%);
+    }
+
+    @keyframes gridDrift {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(60px, 60px); }
+    }
+
+    /* Floating particles */
+    .hero-particles {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      overflow: hidden;
+      pointer-events: none;
+    }
+    .particle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: var(--color-accent);
+      border-radius: 50%;
+      opacity: 0.3;
+      animation: particleFloat var(--duration) ease-in-out infinite;
+      animation-delay: var(--delay);
+    }
+    .particle:nth-child(odd) {
+      background: var(--color-accent-secondary);
+      width: 3px;
+      height: 3px;
+    }
+
+    @keyframes particleFloat {
+      0%, 100% { transform: translateY(0) scale(1); opacity: 0.2; }
+      50% { transform: translateY(-80px) scale(1.5); opacity: 0.6; }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: var(--space-xl) var(--space-lg);
+      max-width: var(--content-narrow);
+      margin: 0 auto;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.4rem 1rem;
+      background: rgba(168, 85, 247, 0.1);
+      border: 1px solid rgba(168, 85, 247, 0.2);
+      border-radius: 100px;
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--color-accent);
+      margin-bottom: var(--space-lg);
+      animation: fadeSlideUp 0.8s var(--ease-out-expo) 0.2s both;
+    }
+    .hero-badge .dot {
+      width: 6px;
+      height: 6px;
+      background: var(--color-success);
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-content h1 {
+      margin-bottom: var(--space-md);
+      animation: fadeSlideUp 0.8s var(--ease-out-expo) 0.3s both;
+    }
+
+    .hero-content h1 .highlight {
+      color: var(--color-accent);
+    }
+
+    .hero-content h1 .highlight-alt {
+      color: var(--color-accent-secondary);
+    }
+
+    .hero-content .hero-sub {
+      font-size: clamp(1.05rem, 1.4vw, 1.2rem);
+      color: var(--color-text-secondary);
+      margin: 0 auto 0;
+      line-height: 1.6;
+      animation: fadeSlideUp 0.8s var(--ease-out-expo) 0.4s both;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: var(--space-md);
+      justify-content: center;
+      margin-top: var(--space-xl);
+      flex-wrap: wrap;
+      animation: fadeSlideUp 0.8s var(--ease-out-expo) 0.5s both;
+    }
+
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-2xl);
+      margin-top: var(--space-2xl);
+      animation: fadeSlideUp 0.8s var(--ease-out-expo) 0.6s both;
+    }
+
+    .hero-stat {
+      text-align: center;
+    }
+    .hero-stat .number {
+      font-family: var(--font-heading);
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      font-weight: 700;
+      color: var(--color-text-primary);
+      display: block;
+    }
+    .hero-stat .number[data-counted]::after {
+      content: '+';
+      color: var(--color-accent);
+    }
+    .hero-stat .label {
+      font-size: 0.8rem;
+      color: var(--color-text-tertiary);
+      font-weight: 400;
+      margin-top: 2px;
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: var(--space-xl);
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-sm);
+      color: var(--color-text-tertiary);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-family: var(--font-heading);
+    }
+    .hero-scroll .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--color-text-tertiary), transparent);
+      animation: scrollPulse 2.5s ease-in-out infinite;
+    }
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 1; transform: scaleY(1); }
+      50% { opacity: 0.3; transform: scaleY(0.6); }
+    }
+
+    /* ============================================================
+       FEATURES — Bento Grid (varied cell sizes)
+       ============================================================ */
+    .features-bento {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-auto-rows: minmax(180px, auto);
+      gap: var(--space-md);
+    }
+
+    .bento-cell {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: var(--space-xl);
+      transition: all var(--duration-normal) var(--ease-out-quart);
+      position: relative;
+      overflow: hidden;
+    }
+    .bento-cell:hover {
+      border-color: var(--color-accent);
+      background: var(--color-surface-hover);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(168, 85, 247, 0.08);
+    }
+
+    .bento-cell .cell-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--space-md);
+      font-size: 1.3rem;
+    }
+    .bento-cell .cell-icon.purple {
+      background: rgba(168, 85, 247, 0.12);
+      color: var(--color-accent);
+    }
+    .bento-cell .cell-icon.cyan {
+      background: rgba(34, 211, 238, 0.12);
+      color: var(--color-accent-secondary);
+    }
+    .bento-cell .cell-icon.green {
+      background: rgba(16, 185, 129, 0.12);
+      color: var(--color-success);
+    }
+    .bento-cell .cell-icon.amber {
+      background: rgba(245, 158, 11, 0.12);
+      color: var(--color-warning);
+    }
+    .bento-cell .cell-icon.pink {
+      background: rgba(236, 72, 153, 0.12);
+      color: #ec4899;
+    }
+    .bento-cell .cell-icon.blue {
+      background: rgba(59, 130, 246, 0.12);
+      color: #3b82f6;
+    }
+
+    .bento-cell h4 {
+      margin-bottom: var(--space-xs);
+    }
+    .bento-cell p {
+      color: var(--color-text-secondary);
+      font-size: 0.9rem;
+      max-width: 100%;
+    }
+
+    /* Bento cell size variants */
+    .bento-wide {
+      grid-column: span 2;
+    }
+    .bento-tall {
+      grid-row: span 2;
+    }
+    .bento-large {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+    .bento-featured {
+      grid-column: span 2;
+      grid-row: span 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /* Featured bento cell with gradient corner glow */
+    .bento-featured::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      right: -2px;
+      width: 80px;
+      height: 80px;
+      background: radial-gradient(circle at top right, rgba(168, 85, 247, 0.15), transparent 70%);
+      pointer-events: none;
+    }
+
+    /* game mode tag */
+    .mode-tag {
+      display: inline-block;
+      padding: 0.2rem 0.6rem;
+      font-size: 0.7rem;
+      font-weight: 500;
+      border-radius: 100px;
+      font-family: var(--font-mono);
+      letter-spacing: 0.04em;
+      margin-bottom: var(--space-sm);
+    }
+    .mode-tag.purple {
+      background: rgba(168, 85, 247, 0.12);
+      color: var(--color-accent);
+    }
+    .mode-tag.cyan {
+      background: rgba(34, 211, 238, 0.12);
+      color: var(--color-accent-secondary);
+    }
+    .mode-tag.green {
+      background: rgba(16, 185, 129, 0.12);
+      color: var(--color-success);
+    }
+    .mode-tag.amber {
+      background: rgba(245, 158, 11, 0.12);
+      color: var(--color-warning);
+    }
+    .mode-tag.pink {
+      background: rgba(236, 72, 153, 0.12);
+      color: #ec4899;
+    }
+    .mode-tag.blue {
+      background: rgba(59, 130, 246, 0.12);
+      color: #3b82f6;
+    }
+
+    .bento-cell .player-count {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.8rem;
+      color: var(--color-text-tertiary);
+      margin-top: var(--space-sm);
+      font-family: var(--font-mono);
+    }
+
+    /* ============================================================
+       TOURNAMENTS — Timeline
+       ============================================================ */
+    .tournaments-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-lg);
+    }
+
+    .tournament-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: var(--space-lg);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-lg);
+      transition: all var(--duration-normal) var(--ease-out-quart);
+    }
+    .tournament-card:hover {
+      border-color: var(--color-border-light);
+      background: var(--color-surface-hover);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .tournament-info {
+      flex: 1;
+    }
+    .tournament-info .game {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 500;
+      color: var(--color-accent);
+      margin-bottom: 0.25rem;
+      font-family: var(--font-heading);
+    }
+    .tournament-info .name {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+    .tournament-info .meta {
+      display: flex;
+      gap: var(--space-md);
+      font-size: 0.8rem;
+      color: var(--color-text-tertiary);
+      font-family: var(--font-mono);
+    }
+    .tournament-info .meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .tournament-info .meta svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    .tournament-prize {
+      text-align: right;
+      flex-shrink: 0;
+    }
+    .tournament-prize .amount {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--color-accent-secondary);
+      display: block;
+    }
+    .tournament-prize .label {
+      font-size: 0.7rem;
+      color: var(--color-text-tertiary);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* ============================================================
+       LEADERBOARD
+       ============================================================ */
+    .leaderboard-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+      max-width: 42rem;
+      margin: 0 auto;
+    }
+
+    .lb-entry {
+      display: flex;
+      align-items: center;
+      gap: var(--space-lg);
+      padding: var(--space-md) var(--space-lg);
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      transition: all var(--duration-normal) var(--ease-out-quart);
+    }
+    .lb-entry:hover {
+      border-color: var(--color-border-light);
+      background: var(--color-surface-hover);
+      transform: translateX(4px);
+    }
+
+    .lb-entry:nth-child(1) { border-color: rgba(245, 158, 11, 0.3); }
+    .lb-entry:nth-child(2) { border-color: rgba(148, 163, 184, 0.2); }
+    .lb-entry:nth-child(3) { border-color: rgba(180, 83, 9, 0.2); }
+
+    .lb-rank {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 700;
+      width: 2.5rem;
+      text-align: center;
+      color: var(--color-text-tertiary);
+    }
+    .lb-entry:nth-child(1) .lb-rank { color: var(--color-warning); }
+    .lb-entry:nth-child(2) .lb-rank { color: var(--color-text-secondary); }
+    .lb-entry:nth-child(3) .lb-rank { color: #b45309; }
+
+    .lb-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .lb-avatar.gold { background: linear-gradient(135deg, #f59e0b, #d97706); color: #fff; }
+    .lb-avatar.silver { background: linear-gradient(135deg, #94a3b8, #64748b); color: #fff; }
+    .lb-avatar.bronze { background: linear-gradient(135deg, #b45309, #92400e); color: #fff; }
+
+    .lb-player {
+      flex: 1;
+    }
+    .lb-player .name {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    .lb-player .handle {
+      font-size: 0.8rem;
+      color: var(--color-text-tertiary);
+      font-family: var(--font-mono);
+    }
+
+    .lb-stats {
+      display: flex;
+      gap: var(--space-xl);
+      text-align: right;
+    }
+    .lb-stats .stat {
+      font-size: 0.85rem;
+    }
+    .lb-stats .stat .value {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      color: var(--color-text-primary);
+    }
+    .lb-stats .stat .lbl {
+      font-size: 0.7rem;
+      color: var(--color-text-tertiary);
+      display: block;
+    }
+
+    /* ============================================================
+       TESTIMONIALS
+       ============================================================ */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-lg);
+    }
+
+    .testimonial-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: var(--space-lg);
+      transition: all var(--duration-normal) var(--ease-out-quart);
+    }
+    .testimonial-card:hover {
+      border-color: var(--color-border-light);
+      transform: translateY(-3px);
+    }
+
+    .testimonial-card blockquote {
+      font-size: 0.925rem;
+      color: var(--color-text-secondary);
+      line-height: 1.7;
+      margin-bottom: var(--space-lg);
+      position: relative;
+      padding-left: var(--space-lg);
+    }
+    .testimonial-card blockquote::before {
+      content: '"';
+      position: absolute;
+      left: 0;
+      top: -4px;
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      line-height: 1;
+      color: var(--color-accent);
+      opacity: 0.4;
+    }
+
+    .testimonial-card .author {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+    }
+    .testimonial-card .author-avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.9rem;
+      background: var(--color-surface-alt);
+      color: var(--color-accent);
+      flex-shrink: 0;
+    }
+    .testimonial-card .author-info .name {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      font-family: var(--font-heading);
+    }
+    .testimonial-card .author-info .role {
+      font-size: 0.78rem;
+      color: var(--color-text-tertiary);
+    }
+
+    /* ============================================================
+       CTA / COMMUNITY
+       ============================================================ */
+    .cta-section {
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, rgba(168, 85, 247, 0.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .cta-section h2 {
+      margin-bottom: var(--space-md);
+    }
+
+    .cta-section p {
+      margin: 0 auto var(--space-xl);
+      color: var(--color-text-secondary);
+    }
+
+    .cta-form {
+      display: flex;
+      gap: var(--space-sm);
+      max-width: 28rem;
+      margin: 0 auto;
+    }
+    .cta-form input {
+      flex: 1;
+      padding: 0.85rem 1rem;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      background: var(--color-surface);
+      color: var(--color-text-primary);
+      outline: none;
+      transition: border-color var(--duration-fast) ease;
+    }
+    .cta-form input:focus {
+      border-color: var(--color-accent);
+      box-shadow: 0 0 0 3px var(--color-accent-glow);
+    }
+    .cta-form input::placeholder {
+      color: var(--color-text-tertiary);
+    }
+
+    .cta-form-status {
+      font-size: 0.85rem;
+      margin-top: var(--space-sm);
+      display: none;
+    }
+    .cta-form-status.success {
+      display: block;
+      color: var(--color-success);
+    }
+    .cta-form-status.error {
+      display: block;
+      color: var(--color-error);
+    }
+
+    /* ============================================================
+       FOOTER
+       ============================================================ */
+    .footer {
+      padding: var(--space-3xl) 0 var(--space-xl);
+      border-top: 1px solid var(--color-border);
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: var(--space-xl);
+      margin-bottom: var(--space-2xl);
+    }
+
+    .footer-brand .nav-logo {
+      margin-bottom: var(--space-md);
+    }
+    .footer-brand p {
+      font-size: 0.85rem;
+      color: var(--color-text-tertiary);
+      max-width: 24rem;
+    }
+
+    .footer-col h5 {
+      color: var(--color-text-primary);
+      margin-bottom: var(--space-md);
+      font-family: var(--font-heading);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .footer-col a {
+      display: block;
+      font-size: 0.85rem;
+      color: var(--color-text-tertiary);
+      margin-bottom: var(--space-sm);
+      transition: color var(--duration-fast) ease;
+    }
+    .footer-col a:hover {
+      color: var(--color-text-primary);
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: var(--space-lg);
+      border-top: 1px solid var(--color-border);
+      font-size: 0.8rem;
+      color: var(--color-text-tertiary);
+    }
+
+    .footer-social {
+      display: flex;
+      gap: var(--space-md);
+    }
+    .footer-social a {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--color-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-text-tertiary);
+      transition: all var(--duration-fast) ease;
+    }
+    .footer-social a:hover {
+      border-color: var(--color-accent);
+      color: var(--color-accent);
+      background: rgba(168, 85, 247, 0.06);
+    }
+    .footer-social a svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    /* ============================================================
+       COOKIE BANNER
+       ============================================================ */
+    .cookie-banner {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: var(--z-toast);
+      background: var(--color-surface);
+      border-top: 1px solid var(--color-border);
+      padding: var(--space-md) var(--space-lg);
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-lg);
+    }
+    .cookie-banner.visible {
+      display: flex;
+    }
+    .cookie-banner p {
+      font-size: 0.85rem;
+      color: var(--color-text-secondary);
+      max-width: 48rem;
+      margin: 0;
+    }
+    .cookie-banner .cookie-actions {
+      display: flex;
+      gap: var(--space-sm);
+      flex-shrink: 0;
+    }
+
+    /* ============================================================
+       RESPONSIVE
+       ============================================================ */
+    @media (max-width: 1024px) {
+      .features-bento {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .bento-wide,
+      .bento-featured,
+      .bento-large {
+        grid-column: span 2;
+      }
+      .bento-tall {
+        grid-row: span 1;
+      }
+
+      .tournaments-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .testimonials-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        position: fixed;
+        top: var(--nav-height);
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--color-bg);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: var(--space-xl);
+        z-index: var(--z-nav);
+      }
+      .nav-links.open {
+        display: flex;
+      }
+      .nav-links a {
+        font-size: 1.2rem;
+        font-weight: 500;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .hero-stats {
+        flex-direction: column;
+        gap: var(--space-lg);
+      }
+
+      .features-bento {
+        grid-template-columns: 1fr;
+      }
+      .bento-wide,
+      .bento-featured,
+      .bento-large {
+        grid-column: span 1;
+      }
+
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .tournament-card {
+        flex-direction: column;
+        text-align: center;
+      }
+      .tournament-prize {
+        text-align: center;
+      }
+      .tournament-info .meta {
+        justify-content: center;
+      }
+
+      .lb-entry {
+        flex-wrap: wrap;
+        gap: var(--space-sm);
+      }
+      .lb-stats {
+        gap: var(--space-md);
+        width: 100%;
+        justify-content: flex-end;
+      }
+
+      .cta-form {
+        flex-direction: column;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr;
+        gap: var(--space-xl);
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: var(--space-md);
+        text-align: center;
+      }
+
+      .cookie-banner {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .section {
+        padding: var(--space-2xl) 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 var(--space-md);
+      }
+      .tournament-info .meta {
+        flex-wrap: wrap;
+      }
+    }
+
+    /* ============================================================
+       PREFERS-REDUCED-MOTION
+       ============================================================ */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      html { scroll-behavior: auto; }
+      .hero-grid::before {
+        animation: none;
+      }
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    /* ============================================================
+       SCROLLBAR
+       ============================================================ */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--color-bg);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--color-border-light);
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--color-text-tertiary);
+    }
+
+    /* ============================================================
+       FLOATING CTA
+       ============================================================ */
+    .floating-cta {
+      position: fixed;
+      bottom: var(--space-xl);
+      right: var(--space-xl);
+      z-index: var(--z-toast);
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--color-accent);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(168, 85, 247, 0.35);
+      transition: all var(--duration-fast) var(--ease-out-quart);
+      opacity: 0;
+      transform: scale(0.8);
+      pointer-events: none;
+    }
+    .floating-cta.visible {
+      opacity: 1;
+      transform: scale(1);
+      pointer-events: auto;
+    }
+    .floating-cta:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 30px rgba(168, 85, 247, 0.5);
+    }
+    .floating-cta svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .floating-cta {
+        transition: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       NAVIGATION
+       ============================================================ -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <a href="#" class="nav-logo" data-i18n="brand.name">
+      <span class="logo-icon">N</span>
+      Nexus Gaming
+    </a>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#features" data-i18n="nav.features">Game Modes</a></li>
+      <li><a href="#tournaments" data-i18n="nav.tournaments">Tournaments</a></li>
+      <li><a href="#leaderboard" data-i18n="nav.leaderboard">Leaderboard</a></li>
+      <li><a href="#testimonials" data-i18n="nav.testimonials">Pros</a></li>
+      <li><a href="#community" data-i18n="nav.community">Community</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <div class="lang-switcher" id="lang-switcher">
+        <button class="lang-btn" id="lang-btn" aria-expanded="false" aria-haspopup="true">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" x2="22" y1="12" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <span id="current-lang">EN</span>
+        </button>
+        <div class="lang-dropdown" id="lang-dropdown" role="menu">
+          <button role="menuitem" data-lang="en" data-active>English</button>
+          <button role="menuitem" data-lang="es">Español</button>
+          <button role="menuitem" data-lang="fr">Français</button>
+          <button role="menuitem" data-lang="de">Deutsch</button>
+          <button role="menuitem" data-lang="it">Italiano</button>
+          <button role="menuitem" data-lang="pt">Português</button>
+        </div>
+      </div>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <section class="hero" id="hero" aria-label="Hero">
+    <div class="hero-grid" aria-hidden="true"></div>
+
+    <div class="hero-particles" aria-hidden="true">
+      <div class="particle" style="left:10%;top:20%;--duration:7s;--delay:0s;"></div>
+      <div class="particle" style="left:25%;top:60%;--duration:9s;--delay:1.2s;"></div>
+      <div class="particle" style="left:45%;top:15%;--duration:8s;--delay:0.6s;"></div>
+      <div class="particle" style="left:60%;top:70%;--duration:11s;--delay:2s;"></div>
+      <div class="particle" style="left:75%;top:30%;--duration:7.5s;--delay:0.3s;"></div>
+      <div class="particle" style="left:85%;top:80%;--duration:10s;--delay:1.5s;"></div>
+      <div class="particle" style="left:15%;top:85%;--duration:8.5s;--delay:0.8s;"></div>
+      <div class="particle" style="left:90%;top:45%;--duration:9.5s;--delay:1.8s;"></div>
+      <div class="particle" style="left:35%;top:40%;--duration:6.5s;--delay:0.1s;"></div>
+      <div class="particle" style="left:55%;top:90%;--duration:12s;--delay:2.5s;"></div>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="dot" aria-hidden="true"></span>
+        <span data-i18n="hero.badge">Season 4 — Now Live</span>
+      </div>
+
+      <h1 data-i18n="hero.title">
+        Where Players<br>
+        <span class="highlight">Become Legends</span>
+      </h1>
+
+      <p class="hero-sub" data-i18n="hero.sub">
+        Compete in high-stakes tournaments, dominate global leaderboards, and forge your legacy across the most thrilling competitive game modes ever created.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#community" class="btn btn-primary" data-i18n="hero.cta1">Join the Arena</a>
+        <a href="#features" class="btn btn-outline" data-i18n="hero.cta2">Explore Games</a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="number" data-target="25000">0</span>
+          <span class="label" data-i18n="hero.stat1">Players Online</span>
+        </div>
+        <div class="hero-stat">
+          <span class="number" data-target="840">0</span>
+          <span class="label" data-i18n="hero.stat2">Tournaments Hosted</span>
+        </div>
+        <div class="hero-stat">
+          <span class="number" data-target="2.5">0</span>
+          <span class="label" data-i18n="hero.stat3">Prize Pool (Millions)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-scroll" aria-hidden="true">
+      <span data-i18n="hero.scroll">Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FEATURES — Bento Grid Game Modes
+       ============================================================ -->
+  <section class="section section-alt" id="features" aria-label="Game modes">
+    <div class="container">
+      <div class="reveal">
+        <h2 class="section-heading" data-i18n="features.heading">Game Modes</h2>
+        <p class="section-sub" data-i18n="features.sub">Six distinct competitive arenas, each with its own strategy, pace, and path to glory. Find your battleground.</p>
+      </div>
+
+      <div class="features-bento" style="margin-top:var(--space-xl)">
+
+        <!-- Cell 1: Featured (wide) -->
+        <div class="bento-cell bento-featured reveal reveal-delay-1">
+          <span class="mode-tag purple" data-i18n="features.tag1">Featured</span>
+          <div class="cell-icon purple">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <h4 data-i18n="features.arena.name">Arena Clash</h4>
+          <p data-i18n="features.arena.desc">5v5 competitive team battles with real-time strategy. Coordinate with your squad, outmaneuver opponents, and claim victory in iconic arenas.</p>
+          <span class="player-count">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <span data-i18n="features.arena.players">14,230 active players</span>
+          </span>
+        </div>
+
+        <!-- Cell 2: Standard -->
+        <div class="bento-cell reveal reveal-delay-1">
+          <span class="mode-tag cyan" data-i18n="features.tag2">Tactical</span>
+          <div class="cell-icon cyan">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h4 data-i18n="features.shadow.name">Shadow Ops</h4>
+          <p data-i18n="features.shadow.desc">Tactical stealth operations where precision and patience triumph. Infiltrate, execute, extract — one life is all you get.</p>
+          <span class="player-count">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            8,940 active
+          </span>
+        </div>
+
+        <!-- Cell 3: Tall -->
+        <div class="bento-cell bento-tall reveal reveal-delay-2" style="display:flex;flex-direction:column;justify-content:center;">
+          <span class="mode-tag amber" data-i18n="features.tag3">Arcade</span>
+          <div class="cell-icon amber">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+          </div>
+          <h4 data-i18n="features.velocity.name">Velocity Drift</h4>
+          <p data-i18n="features.velocity.desc">High-speed arcade racing with nitro boosts, drift mechanics, and gravity-defying tracks. React in milliseconds or eat dust.</p>
+          <span class="player-count">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            6,310 active
+          </span>
+        </div>
+
+        <!-- Cell 4: Standard -->
+        <div class="bento-cell reveal reveal-delay-2">
+          <span class="mode-tag green" data-i18n="features.tag4">Strategy</span>
+          <div class="cell-icon green">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+          </div>
+          <h4 data-i18n="features.crystal.name">Crystal Siege</h4>
+          <p data-i18n="features.crystal.desc">Tower defense meets MOBA. Build fortifications, summon champions, and breach the enemy nexus in this deep strategy hybrid.</p>
+          <span class="player-count">9,200 active</span>
+        </div>
+
+        <!-- Cell 5: Standard -->
+        <div class="bento-cell reveal reveal-delay-3">
+          <span class="mode-tag pink" data-i18n="features.tag5">Space</span>
+          <div class="cell-icon pink">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <h4 data-i18n="features.nebula.name">Nebula Wars</h4>
+          <p data-i18n="features.nebula.desc">Command your fleet in massive space battles. Customize ships, form alliances, and conquer the galaxy sector by sector.</p>
+          <span class="player-count">5,780 active</span>
+        </div>
+
+        <!-- Cell 6: Wide -->
+        <div class="bento-cell bento-wide reveal reveal-delay-3">
+          <span class="mode-tag blue" data-i18n="features.tag6">Battle Royale</span>
+          <div class="cell-icon blue">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="M5 20V8l7-5 7 5v12"/><path d="M12 4v4"/><path d="M10 12h4"/><path d="M12 16h.01"/></svg>
+          </div>
+          <h4 data-i18n="features.zenith.name">Zenith Fall</h4>
+          <p data-i18n="features.zenith.desc">100 players, one island, zero rules. The ultimate battle royale experience with dynamic storm zones, loot tiers, and respawn mechanics that keep every match unpredictable.</p>
+          <span class="player-count">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            18,500 active
+          </span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       TOURNAMENTS
+       ============================================================ -->
+  <section class="section" id="tournaments" aria-label="Tournaments">
+    <div class="container">
+      <div class="reveal" style="text-align:center;margin-bottom:var(--space-xl);">
+        <h2 class="section-heading" data-i18n="tournaments.heading">Upcoming Tournaments</h2>
+        <p class="section-sub" style="margin:0 auto;" data-i18n="tournaments.sub">Compete for glory and substantial prize pools. Register now and prove your worth on the global stage.</p>
+      </div>
+
+      <div class="tournaments-grid">
+
+        <div class="tournament-card reveal reveal-delay-1">
+          <div class="tournament-info">
+            <div class="game" data-i18n="tournaments.arena.game">Arena Clash</div>
+            <div class="name" data-i18n="tournaments.arena.name">Nexus Championship Series</div>
+            <div class="meta">
+              <span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+                <span data-i18n="tournaments.arena.date">Aug 15–18, 2026</span>
+              </span>
+              <span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                5v5
+              </span>
+            </div>
+          </div>
+          <div class="tournament-prize">
+            <span class="amount">$50,000</span>
+            <span class="label" data-i18n="tournaments.arena.prize">Prize Pool</span>
+          </div>
+        </div>
+
+        <div class="tournament-card reveal reveal-delay-2">
+          <div class="tournament-info">
+            <div class="game" data-i18n="tournaments.zenith.game">Zenith Fall</div>
+            <div class="name" data-i18n="tournaments.zenith.name">Last Squad Standing</div>
+            <div class="meta">
+              <span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+                <span data-i18n="tournaments.zenith.date">Aug 22–24, 2026</span>
+              </span>
+              <span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                Squad (4)
+              </span>
+            </div>
+          </div>
+          <div class="tournament-prize">
+            <span class="amount">$35,000</span>
+            <span class="label" data-i18n="tournaments.zenith.prize">Prize Pool</span>
+          </div>
+        </div>
+
+        <div class="tournament-card reveal reveal-delay-1">
+          <div class="tournament-info">
+            <div class="game" data-i18n="tournaments.shadow.game">Shadow Ops</div>
+            <div class="name" data-i18n="tournaments.shadow.name">Ghost Protocol Invitational</div>
+            <div class="meta">
+              <span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+                <span data-i18n="tournaments.shadow.date">Sep 5–7, 2026</span>
+              </span>
+              <span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                3v3
+              </span>
+            </div>
+          </div>
+          <div class="tournament-prize">
+            <span class="amount">$25,000</span>
+            <span class="label" data-i18n="tournaments.shadow.prize">Prize Pool</span>
+          </div>
+        </div>
+
+        <div class="tournament-card reveal reveal-delay-2">
+          <div class="tournament-info">
+            <div class="game" data-i18n="tournaments.crystal.game">Crystal Siege</div>
+            <div class="name" data-i18n="tournaments.crystal.name">Fortress Fall Classic</div>
+            <div class="meta">
+              <span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+                <span data-i18n="tournaments.crystal.date">Sep 12–14, 2026</span>
+              </span>
+              <span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                2v2
+              </span>
+            </div>
+          </div>
+          <div class="tournament-prize">
+            <span class="amount">$20,000</span>
+            <span class="label" data-i18n="tournaments.crystal.prize">Prize Pool</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       LEADERBOARD
+       ============================================================ -->
+  <section class="section section-alt" id="leaderboard" aria-label="Leaderboard">
+    <div class="container">
+      <div class="reveal" style="text-align:center;margin-bottom:var(--space-xl);">
+        <h2 class="section-heading" data-i18n="leaderboard.heading">Top Players</h2>
+        <p class="section-sub" style="margin:0 auto;" data-i18n="leaderboard.sub">The elite few who have risen to the top. Their stats speak louder than words.</p>
+      </div>
+
+      <div class="leaderboard-list">
+
+        <div class="lb-entry reveal reveal-delay-1">
+          <span class="lb-rank">#1</span>
+          <div class="lb-avatar gold">X</div>
+          <div class="lb-player">
+            <div class="name">Xenith</div>
+            <div class="handle">@xenith_pro</div>
+          </div>
+          <div class="lb-stats">
+            <div class="stat">
+              <span class="value">2,847</span>
+              <span class="lbl" data-i18n="leaderboard.rating">Rating</span>
+            </div>
+            <div class="stat">
+              <span class="value">847</span>
+              <span class="lbl" data-i18n="leaderboard.wins">Wins</span>
+            </div>
+            <div class="stat">
+              <span class="value">68%</span>
+              <span class="lbl" data-i18n="leaderboard.winrate">Win Rate</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="lb-entry reveal reveal-delay-2">
+          <span class="lb-rank">#2</span>
+          <div class="lb-avatar silver">N</div>
+          <div class="lb-player">
+            <div class="name">Nyx</div>
+            <div class="handle">@nyx_storm</div>
+          </div>
+          <div class="lb-stats">
+            <div class="stat">
+              <span class="value">2,691</span>
+              <span class="lbl">Rating</span>
+            </div>
+            <div class="stat">
+              <span class="value">782</span>
+              <span class="lbl">Wins</span>
+            </div>
+            <div class="stat">
+              <span class="value">64%</span>
+              <span class="lbl">Win Rate</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="lb-entry reveal reveal-delay-3">
+          <span class="lb-rank">#3</span>
+          <div class="lb-avatar bronze">K</div>
+          <div class="lb-player">
+            <div class="name">Kraken</div>
+            <div class="handle">@kraken_gg</div>
+          </div>
+          <div class="lb-stats">
+            <div class="stat">
+              <span class="value">2,534</span>
+              <span class="lbl">Rating</span>
+            </div>
+            <div class="stat">
+              <span class="value">723</span>
+              <span class="lbl">Wins</span>
+            </div>
+            <div class="stat">
+              <span class="value">61%</span>
+              <span class="lbl">Win Rate</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       TESTIMONIALS
+       ============================================================ -->
+  <section class="section" id="testimonials" aria-label="Pro testimonials">
+    <div class="container">
+      <div class="reveal" style="text-align:center;margin-bottom:var(--space-xl);">
+        <h2 class="section-heading" data-i18n="testimonials.heading">Pro Voices</h2>
+        <p class="section-sub" style="margin:0 auto;" data-i18n="testimonials.sub">Hear from the players who live and breathe Nexus Gaming every day.</p>
+      </div>
+
+      <div class="testimonials-grid">
+
+        <div class="testimonial-card reveal reveal-delay-1">
+          <blockquote data-i18n="testimonials.q1">
+            I've competed in every major platform, and Nexus is the only one that actually respects player skill. The matchmaking is flawless, the tournaments are well-organized, and the community is second to none.
+          </blockquote>
+          <div class="author">
+            <div class="author-avatar">V</div>
+            <div class="author-info">
+              <div class="name">Vexia</div>
+              <div class="role" data-i18n="testimonials.r1">Arena Clash — Rank #4 Global</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card reveal reveal-delay-2">
+          <blockquote data-i18n="testimonials.q2">
+            The prize pools alone make Nexus stand out, but it's the production quality that keeps me coming back. Every tournament feels like a major esports event. This is where careers are built.
+          </blockquote>
+          <div class="author">
+            <div class="author-avatar">F</div>
+            <div class="author-info">
+              <div class="name">Fury</div>
+              <div class="role" data-i18n="testimonials.r2">Zenith Fall — Season 3 Champion</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card reveal reveal-delay-3">
+          <blockquote data-i18n="testimonials.q3">
+            What sets Nexus apart is how they treat their community. The devs actually listen. They balance based on real data, not just loud voices. That's rare in this industry and it's why I've been here since day one.
+          </blockquote>
+          <div class="author">
+            <div class="author-avatar">S</div>
+            <div class="author-info">
+              <div class="name">Shadow</div>
+              <div class="role" data-i18n="testimonials.r3">Shadow Ops — Top 10 Global</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       COMMUNITY CTA
+       ============================================================ -->
+  <section class="section section-alt cta-section" id="community" aria-label="Join the community">
+    <div class="container container-narrow">
+      <div class="reveal">
+        <h2 data-i18n="community.heading">Ready to Compete?</h2>
+        <p data-i18n="community.sub">Join over 2 million players worldwide. Sign up for early access, tournament alerts, and exclusive in-game rewards delivered straight to your inbox.</p>
+      </div>
+
+      <div class="reveal reveal-delay-1">
+        <form class="cta-form" id="cta-form" novalidate>
+          <input type="email" id="cta-email" placeholder="Enter your email" aria-label="Email address" required data-i18n="community.placeholder">
+          <button type="submit" class="btn btn-primary" data-i18n="community.cta">Join Free</button>
+        </form>
+        <div class="cta-form-status" id="cta-status" role="status"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="#" class="nav-logo">
+            <span class="logo-icon">N</span>
+            Nexus Gaming
+          </a>
+          <p data-i18n="footer.tagline">The premier competitive gaming platform where players from around the world compete, connect, and forge their legacy.</p>
+        </div>
+        <div class="footer-col">
+          <h5 data-i18n="footer.games">Games</h5>
+          <a href="#" data-i18n="footer.g1">Arena Clash</a>
+          <a href="#" data-i18n="footer.g2">Shadow Ops</a>
+          <a href="#" data-i18n="footer.g3">Velocity Drift</a>
+          <a href="#" data-i18n="footer.g4">Crystal Siege</a>
+          <a href="#" data-i18n="footer.g5">Zenith Fall</a>
+        </div>
+        <div class="footer-col">
+          <h5 data-i18n="footer.community">Community</h5>
+          <a href="#" data-i18n="footer.c1">Discord</a>
+          <a href="#" data-i18n="footer.c2">Forums</a>
+          <a href="#" data-i18n="footer.c3">Twitch</a>
+          <a href="#" data-i18n="footer.c4">YouTube</a>
+          <a href="#" data-i18n="footer.c5">Twitter / X</a>
+        </div>
+        <div class="footer-col">
+          <h5 data-i18n="footer.support">Support</h5>
+          <a href="#" data-i18n="footer.s1">Help Center</a>
+          <a href="#" data-i18n="footer.s2">Contact Us</a>
+          <a href="#" data-i18n="footer.s3">Privacy Policy</a>
+          <a href="#" data-i18n="footer.s4">Terms of Service</a>
+          <a href="#" data-i18n="footer.s5">Cookie Policy</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span data-i18n="footer.copyright">&copy; 2026 Nexus Gaming. All rights reserved.</span>
+        <div class="footer-social">
+          <a href="#" aria-label="Discord" title="Discord">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="24" height="24" rx="5" ry="5"/><path d="M8 8h8M8 12h6M8 16h4"/></svg>
+          </a>
+          <a href="#" aria-label="Twitch" title="Twitch">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="M12 8v4M16 8v4"/></svg>
+          </a>
+          <a href="#" aria-label="Twitter" title="Twitter / X">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l11.733 16h4.267l-11.733 -16zM4 20l6.768 -6.768M19.5 4l-6.768 6.768"/></svg>
+          </a>
+          <a href="#" aria-label="YouTube" title="YouTube">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="10 9 16 12 10 15 10 9"/><rect width="20" height="14" x="2" y="5" rx="2"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       COOKIE BANNER
+       ============================================================ -->
+  <div class="cookie-banner" id="cookie-banner" role="alert" aria-live="polite">
+    <p data-i18n="cookie.text">Nexus Gaming uses cookies to enhance your experience, analyze traffic, and serve personalized content. By continuing, you agree to our use of cookies.</p>
+    <div class="cookie-actions">
+      <button class="btn btn-sm btn-secondary" id="cookie-accept" data-i18n="cookie.accept">Accept</button>
+      <button class="btn btn-sm btn-outline" id="cookie-decline" data-i18n="cookie.decline">Decline</button>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       FLOATING CTA
+       ============================================================ -->
+  <a href="#community" class="floating-cta" id="floating-cta" aria-label="Join now">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+  </a>
+
+  <!-- ============================================================
+       JAVASCRIPT
+       ============================================================ -->
+  <script>
+    (function() {
+      'use strict';
+
+      /* ================================================================
+         i18n — Translations
+         ================================================================ */
+      const LANG_STORAGE_KEY = 'nexus-lang';
+      const translations = {
+        en: {
+          'brand.name': 'Nexus Gaming',
+          'nav.features': 'Game Modes',
+          'nav.tournaments': 'Tournaments',
+          'nav.leaderboard': 'Leaderboard',
+          'nav.testimonials': 'Pros',
+          'nav.community': 'Community',
+          'hero.badge': 'Season 4 — Now Live',
+          'hero.title': 'Where Players<br><span class="highlight">Become Legends</span>',
+          'hero.sub': 'Compete in high-stakes tournaments, dominate global leaderboards, and forge your legacy across the most thrilling competitive game modes ever created.',
+          'hero.cta1': 'Join the Arena',
+          'hero.cta2': 'Explore Games',
+          'hero.stat1': 'Players Online',
+          'hero.stat2': 'Tournaments Hosted',
+          'hero.stat3': 'Prize Pool (Millions)',
+          'hero.scroll': 'Scroll',
+          'features.heading': 'Game Modes',
+          'features.sub': 'Six distinct competitive arenas, each with its own strategy, pace, and path to glory. Find your battleground.',
+          'features.tag1': 'Featured',
+          'features.tag2': 'Tactical',
+          'features.tag3': 'Arcade',
+          'features.tag4': 'Strategy',
+          'features.tag5': 'Space',
+          'features.tag6': 'Battle Royale',
+          'features.arena.name': 'Arena Clash',
+          'features.arena.desc': '5v5 competitive team battles with real-time strategy. Coordinate with your squad, outmaneuver opponents, and claim victory in iconic arenas.',
+          'features.arena.players': '14,230 active players',
+          'features.shadow.name': 'Shadow Ops',
+          'features.shadow.desc': 'Tactical stealth operations where precision and patience triumph. Infiltrate, execute, extract — one life is all you get.',
+          'features.velocity.name': 'Velocity Drift',
+          'features.velocity.desc': 'High-speed arcade racing with nitro boosts, drift mechanics, and gravity-defying tracks. React in milliseconds or eat dust.',
+          'features.crystal.name': 'Crystal Siege',
+          'features.crystal.desc': 'Tower defense meets MOBA. Build fortifications, summon champions, and breach the enemy nexus in this deep strategy hybrid.',
+          'features.nebula.name': 'Nebula Wars',
+          'features.nebula.desc': 'Command your fleet in massive space battles. Customize ships, form alliances, and conquer the galaxy sector by sector.',
+          'features.zenith.name': 'Zenith Fall',
+          'features.zenith.desc': '100 players, one island, zero rules. The ultimate battle royale experience with dynamic storm zones, loot tiers, and respawn mechanics.',
+          'tournaments.heading': 'Upcoming Tournaments',
+          'tournaments.sub': 'Compete for glory and substantial prize pools. Register now and prove your worth on the global stage.',
+          'tournaments.arena.game': 'Arena Clash',
+          'tournaments.arena.name': 'Nexus Championship Series',
+          'tournaments.arena.date': 'Aug 15–18, 2026',
+          'tournaments.arena.prize': 'Prize Pool',
+          'tournaments.zenith.game': 'Zenith Fall',
+          'tournaments.zenith.name': 'Last Squad Standing',
+          'tournaments.zenith.date': 'Aug 22–24, 2026',
+          'tournaments.zenith.prize': 'Prize Pool',
+          'tournaments.shadow.game': 'Shadow Ops',
+          'tournaments.shadow.name': 'Ghost Protocol Invitational',
+          'tournaments.shadow.date': 'Sep 5–7, 2026',
+          'tournaments.shadow.prize': 'Prize Pool',
+          'tournaments.crystal.game': 'Crystal Siege',
+          'tournaments.crystal.name': 'Fortress Fall Classic',
+          'tournaments.crystal.date': 'Sep 12–14, 2026',
+          'tournaments.crystal.prize': 'Prize Pool',
+          'leaderboard.heading': 'Top Players',
+          'leaderboard.sub': 'The elite few who have risen to the top. Their stats speak louder than words.',
+          'leaderboard.rating': 'Rating',
+          'leaderboard.wins': 'Wins',
+          'leaderboard.winrate': 'Win Rate',
+          'testimonials.heading': 'Pro Voices',
+          'testimonials.sub': 'Hear from the players who live and breathe Nexus Gaming every day.',
+          'testimonials.q1': 'I\'ve competed in every major platform, and Nexus is the only one that actually respects player skill. The matchmaking is flawless, the tournaments are well-organized, and the community is second to none.',
+          'testimonials.r1': 'Arena Clash — Rank #4 Global',
+          'testimonials.q2': 'The prize pools alone make Nexus stand out, but it\'s the production quality that keeps me coming back. Every tournament feels like a major esports event.',
+          'testimonials.r2': 'Zenith Fall — Season 3 Champion',
+          'testimonials.q3': 'What sets Nexus apart is how they treat their community. The devs actually listen. They balance based on real data, not just loud voices.',
+          'testimonials.r3': 'Shadow Ops — Top 10 Global',
+          'community.heading': 'Ready to Compete?',
+          'community.sub': 'Join over 2 million players worldwide. Sign up for early access, tournament alerts, and exclusive in-game rewards delivered straight to your inbox.',
+          'community.placeholder': 'Enter your email',
+          'community.cta': 'Join Free',
+          'footer.tagline': 'The premier competitive gaming platform where players from around the world compete, connect, and forge their legacy.',
+          'footer.games': 'Games',
+          'footer.g1': 'Arena Clash',
+          'footer.g2': 'Shadow Ops',
+          'footer.g3': 'Velocity Drift',
+          'footer.g4': 'Crystal Siege',
+          'footer.g5': 'Zenith Fall',
+          'footer.community': 'Community',
+          'footer.c1': 'Discord',
+          'footer.c2': 'Forums',
+          'footer.c3': 'Twitch',
+          'footer.c4': 'YouTube',
+          'footer.c5': 'Twitter / X',
+          'footer.support': 'Support',
+          'footer.s1': 'Help Center',
+          'footer.s2': 'Contact Us',
+          'footer.s3': 'Privacy Policy',
+          'footer.s4': 'Terms of Service',
+          'footer.s5': 'Cookie Policy',
+          'footer.copyright': '© 2026 Nexus Gaming. All rights reserved.',
+          'cookie.text': 'Nexus Gaming uses cookies to enhance your experience, analyze traffic, and serve personalized content. By continuing, you agree to our use of cookies.',
+          'cookie.accept': 'Accept',
+          'cookie.decline': 'Decline',
+          'meta.title': 'Nexus Gaming — Where Players Become Legends',
+          'meta.desc': 'Nexus Gaming is the premier competitive gaming platform. Join tournaments, climb leaderboards, and forge your legacy across multiple game modes.',
+        },
+        es: {
+          'brand.name': 'Nexus Gaming',
+          'nav.features': 'Modos de Juego',
+          'nav.tournaments': 'Torneos',
+          'nav.leaderboard': 'Clasificación',
+          'nav.testimonials': 'Pros',
+          'nav.community': 'Comunidad',
+          'hero.badge': 'Temporada 4 — Ya disponible',
+          'hero.title': 'Donde los jugadores<br><span class="highlight">se convierten en leyendas</span>',
+          'hero.sub': 'Compite en torneos de alto riesgo, domina las clasificaciones globales y forja tu legado en los modos de juego competitivos más emocionantes jamás creados.',
+          'hero.cta1': 'Únete a la Arena',
+          'hero.cta2': 'Explorar Juegos',
+          'hero.stat1': 'Jugadores en Línea',
+          'hero.stat2': 'Torneos Realizados',
+          'hero.stat3': 'Premios (Millones)',
+          'hero.scroll': 'Desplázate',
+          'features.heading': 'Modos de Juego',
+          'features.sub': 'Seis arenas competitivas distintas, cada una con su propia estrategia, ritmo y camino a la gloria. Encuentra tu campo de batalla.',
+          'features.tag1': 'Destacado',
+          'features.tag2': 'Táctico',
+          'features.tag3': 'Arcade',
+          'features.tag4': 'Estrategia',
+          'features.tag5': 'Espacial',
+          'features.tag6': 'Battle Royale',
+          'features.arena.name': 'Arena Clash',
+          'features.arena.desc': 'Batallas competitivas 5v5 con estrategia en tiempo real. Coordina con tu escuadrón, supera a tus oponentes y reclama la victoria en arenas icónicas.',
+          'features.arena.players': '14.230 jugadores activos',
+          'features.shadow.name': 'Shadow Ops',
+          'features.shadow.desc': 'Operaciones tácticas de sigilo donde la precisión y la paciencia triunfan. Infíltrate, ejecuta, extrae — solo tienes una vida.',
+          'features.velocity.name': 'Velocity Drift',
+          'features.velocity.desc': 'Carreras arcade de alta velocidad con nitro, mecánicas de derrape y pistas que desafían la gravedad. Reacciona en milisegundos o come polvo.',
+          'features.crystal.name': 'Crystal Siege',
+          'features.crystal.desc': 'Tower defense se encuentra con MOBA. Construye fortificaciones, invoca campeones y atraviesa el nexo enemigo en este híbrido de estrategia profunda.',
+          'features.nebula.name': 'Nebula Wars',
+          'features.nebula.desc': 'Comanda tu flota en batallas espaciales masivas. Personaliza naves, forma alianzas y conquista la galaxia sector por sector.',
+          'features.zenith.name': 'Zenith Fall',
+          'features.zenith.desc': '100 jugadores, una isla, cero reglas. La experiencia definitiva de battle royale con zonas de tormenta dinámicas, niveles de botín y mecánicas de reaparición.',
+          'tournaments.heading': 'Próximos Torneos',
+          'tournaments.sub': 'Compite por la gloria y premios sustanciales. Regístrate ahora y demuestra tu valía en el escenario global.',
+          'tournaments.arena.game': 'Arena Clash',
+          'tournaments.arena.name': 'Serie Campeonato Nexus',
+          'tournaments.arena.date': '15–18 Ago, 2026',
+          'tournaments.arena.prize': 'Premio',
+          'tournaments.zenith.game': 'Zenith Fall',
+          'tournaments.zenith.name': 'Último Escuadrón en Pie',
+          'tournaments.zenith.date': '22–24 Ago, 2026',
+          'tournaments.zenith.prize': 'Premio',
+          'tournaments.shadow.game': 'Shadow Ops',
+          'tournaments.shadow.name': 'Invitacional Protocolo Fantasma',
+          'tournaments.shadow.date': '5–7 Sep, 2026',
+          'tournaments.shadow.prize': 'Premio',
+          'tournaments.crystal.game': 'Crystal Siege',
+          'tournaments.crystal.name': 'Clásico Fortress Fall',
+          'tournaments.crystal.date': '12–14 Sep, 2026',
+          'tournaments.crystal.prize': 'Premio',
+          'leaderboard.heading': 'Mejores Jugadores',
+          'leaderboard.sub': 'Los pocos elegidos que han llegado a la cima. Sus estadísticas hablan más que las palabras.',
+          'leaderboard.rating': 'Puntuación',
+          'leaderboard.wins': 'Victorias',
+          'leaderboard.winrate': 'Tasa de Victoria',
+          'testimonials.heading': 'Voces Pro',
+          'testimonials.sub': 'Escucha a los jugadores que viven y respiran Nexus Gaming cada día.',
+          'testimonials.q1': 'He competido en todas las plataformas importantes, y Nexus es la única que realmente respeta la habilidad del jugador. El emparejamiento es impecable, los torneos están bien organizados y la comunidad es inigualable.',
+          'testimonials.r1': 'Arena Clash — Puesto #4 Global',
+          'testimonials.q2': 'Los premios ya hacen destacar a Nexus, pero es la calidad de producción lo que me hace volver. Cada torneo se siente como un gran evento de esports.',
+          'testimonials.r2': 'Zenith Fall — Campeón Temporada 3',
+          'testimonials.q3': 'Lo que diferencia a Nexus es cómo tratan a su comunidad. Los desarrolladores realmente escuchan. Equilibran basándose en datos reales, no solo en voces ruidosas.',
+          'testimonials.r3': 'Shadow Ops — Top 10 Global',
+          'community.heading': '¿Listo para Competir?',
+          'community.sub': 'Únete a más de 2 millones de jugadores en todo el mundo. Regístrate para acceso anticipado, alertas de torneos y recompensas exclusivas en el juego.',
+          'community.placeholder': 'Ingresa tu correo',
+          'community.cta': 'Únete Gratis',
+          'footer.tagline': 'La plataforma de juegos competitivos premium donde jugadores de todo el mundo compiten, se conectan y forjan su legado.',
+          'footer.games': 'Juegos',
+          'footer.g1': 'Arena Clash',
+          'footer.g2': 'Shadow Ops',
+          'footer.g3': 'Velocity Drift',
+          'footer.g4': 'Crystal Siege',
+          'footer.g5': 'Zenith Fall',
+          'footer.community': 'Comunidad',
+          'footer.c1': 'Discord',
+          'footer.c2': 'Foros',
+          'footer.c3': 'Twitch',
+          'footer.c4': 'YouTube',
+          'footer.c5': 'Twitter / X',
+          'footer.support': 'Soporte',
+          'footer.s1': 'Centro de Ayuda',
+          'footer.s2': 'Contáctanos',
+          'footer.s3': 'Política de Privacidad',
+          'footer.s4': 'Términos de Servicio',
+          'footer.s5': 'Política de Cookies',
+          'footer.copyright': '© 2026 Nexus Gaming. Todos los derechos reservados.',
+          'cookie.text': 'Nexus Gaming utiliza cookies para mejorar tu experiencia, analizar el tráfico y ofrecer contenido personalizado. Al continuar, aceptas nuestro uso de cookies.',
+          'cookie.accept': 'Aceptar',
+          'cookie.decline': 'Rechazar',
+          'meta.title': 'Nexus Gaming — Donde los jugadores se convierten en leyendas',
+          'meta.desc': 'Nexus Gaming es la plataforma de juegos competitivos premium. Únete a torneos, sube en las clasificaciones y forja tu legado en múltiples modos de juego.',
+        },
+        fr: {
+          'brand.name': 'Nexus Gaming',
+          'nav.features': 'Modes de Jeu',
+          'nav.tournaments': 'Tournois',
+          'nav.leaderboard': 'Classement',
+          'nav.testimonials': 'Pros',
+          'nav.community': 'Communauté',
+          'hero.badge': 'Saison 4 — Disponible maintenant',
+          'hero.title': 'Là où les joueurs<br><span class="highlight">deviennent des légendes</span>',
+          'hero.sub': 'Participez à des tournois à enjeux élevés, dominez les classements mondiaux et forgez votre légende à travers les modes de jeu compétitifs les plus palpitants jamais créés.',
+          'hero.cta1': 'Rejoindre l\'Arène',
+          'hero.cta2': 'Explorer les Jeux',
+          'hero.stat1': 'Joueurs en Ligne',
+          'hero.stat2': 'Tournois Organisés',
+          'hero.stat3': 'Cagnotte (Millions)',
+          'hero.scroll': 'Défiler',
+          'features.heading': 'Modes de Jeu',
+          'features.sub': 'Six arènes compétitives distinctes, chacune avec sa propre stratégie, son rythme et son chemin vers la gloire. Trouvez votre champ de bataille.',
+          'features.tag1': 'En Vedette',
+          'features.tag2': 'Tactique',
+          'features.tag3': 'Arcade',
+          'features.tag4': 'Stratégie',
+          'features.tag5': 'Spatial',
+          'features.tag6': 'Battle Royale',
+          'features.arena.name': 'Arena Clash',
+          'features.arena.desc': 'Batailles d\'équipe compétitives 5c5 avec stratégie en temps réel. Coordonnez-vous avec votre escouade et remportez la victoire dans des arènes emblématiques.',
+          'features.arena.players': '14 230 joueurs actifs',
+          'features.shadow.name': 'Shadow Ops',
+          'features.shadow.desc': 'Opérations tactiques furtives où la précision et la patience triomphent. Infiltrez, exécutez, extrayez — une seule vie.',
+          'features.velocity.name': 'Velocity Drift',
+          'features.velocity.desc': 'Course arcade à grande vitesse avec nitro, dérapages et pistes défiant la gravité. Réagissez en millisecondes ou restez dans la poussière.',
+          'features.crystal.name': 'Crystal Siege',
+          'features.crystal.desc': 'Tower defense rencontre MOBA. Construisez des fortifications, invoquez des champions et brisez le nexus ennemi.',
+          'features.nebula.name': 'Nebula Wars',
+          'features.nebula.desc': 'Commandez votre flotte dans des batailles spatiales massives. Personnalisez vos vaisseaux, formez des alliances et conquérez la galaxie.',
+          'features.zenith.name': 'Zenith Fall',
+          'features.zenith.desc': '100 joueurs, une île, zéro règle. L\'expérience battle royale ultime avec des zones de tempête dynamiques et des mécaniques de réapparition.',
+          'tournaments.heading': 'Tournois à Venir',
+          'tournaments.sub': 'Competez pour la gloire et des cagnottes substantielles. Inscrivez-vous maintenant.',
+          'tournaments.arena.game': 'Arena Clash',
+          'tournaments.arena.name': 'Nexus Championship Series',
+          'tournaments.arena.date': '15–18 Août 2026',
+          'tournaments.arena.prize': 'Cagnotte',
+          'tournaments.zenith.game': 'Zenith Fall',
+          'tournaments.zenith.name': 'Last Squad Standing',
+          'tournaments.zenith.date': '22–24 Août 2026',
+          'tournaments.zenith.prize': 'Cagnotte',
+          'tournaments.shadow.game': 'Shadow Ops',
+          'tournaments.shadow.name': 'Ghost Protocol Invitational',
+          'tournaments.shadow.date': '5–7 Sep 2026',
+          'tournaments.shadow.prize': 'Cagnotte',
+          'tournaments.crystal.game': 'Crystal Siege',
+          'tournaments.crystal.name': 'Fortress Fall Classic',
+          'tournaments.crystal.date': '12–14 Sep 2026',
+          'tournaments.crystal.prize': 'Cagnotte',
+          'leaderboard.heading': 'Meilleurs Joueurs',
+          'leaderboard.sub': 'L\'élite qui a atteint le sommet. Leurs statistiques parlent d\'elles-mêmes.',
+          'leaderboard.rating': 'Classement',
+          'leaderboard.wins': 'Victoires',
+          'leaderboard.winrate': 'Taux de Victoire',
+          'testimonials.heading': 'Voix Pro',
+          'testimonials.sub': 'Écoutez les joueurs qui vivent Nexus Gaming au quotidien.',
+          'testimonials.q1': 'J\'ai participé à toutes les grandes plateformes, et Nexus est la seule qui respecte vraiment le talent des joueurs. Le matchmaking est parfait.',
+          'testimonials.r1': 'Arena Clash — Rang #4 Mondial',
+          'testimonials.q2': 'Les cagnottes seules font ressortir Nexus, mais c\'est la qualité de production qui me fait revenir. Chaque tournoi est un véritable événement esports.',
+          'testimonials.r2': 'Zenith Fall — Champion Saison 3',
+          'testimonials.q3': 'Ce qui distingue Nexus, c\'est la façon dont ils traitent leur communauté. Les développeurs écoutent vraiment.',
+          'testimonials.r3': 'Shadow Ops — Top 10 Mondial',
+          'community.heading': 'Prêt à Compétitionner?',
+          'community.sub': 'Rejoignez plus de 2 millions de joueurs dans le monde. Inscrivez-vous pour un accès anticipé, des alertes et des récompenses exclusives.',
+          'community.placeholder': 'Entrez votre email',
+          'community.cta': 'Rejoindre Gratuitement',
+          'footer.tagline': 'La plateforme de jeu compétitive premium où les joueurs du monde entier compétitionnent, se connectent et forgent leur légende.',
+          'footer.games': 'Jeux',
+          'footer.g1': 'Arena Clash',
+          'footer.g2': 'Shadow Ops',
+          'footer.g3': 'Velocity Drift',
+          'footer.g4': 'Crystal Siege',
+          'footer.g5': 'Zenith Fall',
+          'footer.community': 'Communauté',
+          'footer.c1': 'Discord',
+          'footer.c2': 'Forums',
+          'footer.c3': 'Twitch',
+          'footer.c4': 'YouTube',
+          'footer.c5': 'Twitter / X',
+          'footer.support': 'Support',
+          'footer.s1': 'Centre d\'Aide',
+          'footer.s2': 'Nous Contacter',
+          'footer.s3': 'Politique de Confidentialité',
+          'footer.s4': 'Conditions d\'Utilisation',
+          'footer.s5': 'Politique de Cookies',
+          'footer.copyright': '© 2026 Nexus Gaming. Tous droits réservés.',
+          'cookie.text': 'Nexus Gaming utilise des cookies pour améliorer votre expérience, analyser le trafic et proposer du contenu personnalisé.',
+          'cookie.accept': 'Accepter',
+          'cookie.decline': 'Refuser',
+          'meta.title': 'Nexus Gaming — Là où les joueurs deviennent des légendes',
+          'meta.desc': 'Nexus Gaming est la plateforme de jeu compétitive premium. Rejoignez les tournois, gravissez les classements.',
+        },
+        de: {
+          'brand.name': 'Nexus Gaming',
+          'nav.features': 'Spielmodi',
+          'nav.tournaments': 'Turniere',
+          'nav.leaderboard': 'Rangliste',
+          'nav.testimonials': 'Profis',
+          'nav.community': 'Community',
+          'hero.badge': 'Saison 4 — Jetzt live',
+          'hero.title': 'Wo Spieler<br><span class="highlight">zu Legenden werden</span>',
+          'hero.sub': 'Tritt in hochkarätigen Turnieren an, dominiere globale Ranglisten und schmiede dein Vermächtnis in den spannendsten kompetitiven Spielmodi.',
+          'hero.cta1': 'Betritt die Arena',
+          'hero.cta2': 'Spiele entdecken',
+          'hero.stat1': 'Spieler Online',
+          'hero.stat2': 'Turniere Ausgetragen',
+          'hero.stat3': 'Preisgeld (Millionen)',
+          'hero.scroll': 'Scrollen',
+          'features.heading': 'Spielmodi',
+          'features.sub': 'Sechs verschiedene Wettkampfarenen mit eigener Strategie, Geschwindigkeit und Weg zum Ruhm. Finde dein Schlachtfeld.',
+          'features.tag1': 'Vorgestellt',
+          'features.tag2': 'Taktisch',
+          'features.tag3': 'Arcade',
+          'features.tag4': 'Strategie',
+          'features.tag5': 'Weltraum',
+          'features.tag6': 'Battle Royale',
+          'features.arena.name': 'Arena Clash',
+          'features.arena.desc': '5v5 kompetitive Teamkämpfe mit Echtzeitstrategie. Koordiniere mit deinem Team und erringe den Sieg in ikonischen Arenen.',
+          'features.arena.players': '14.230 aktive Spieler',
+          'features.shadow.name': 'Shadow Ops',
+          'features.shadow.desc': 'Taktische Stealth-Operationen, bei denen Präzision und Geduld triumphieren. Infiltriere, exekutiere, extrahiere — ein Leben ist alles.',
+          'features.velocity.name': 'Velocity Drift',
+          'features.velocity.desc': 'Hochgeschwindigkeits-Arcade-Rennen mit Nitro-Boosts, Drift-Mechaniken und schwerelosen Strecken.',
+          'features.crystal.name': 'Crystal Siege',
+          'features.crystal.desc': 'Tower Defense trifft MOBA. Baue Befestigungen, rufe Helden und durchbrich den feindlichen Nexus.',
+          'features.nebula.name': 'Nebula Wars',
+          'features.nebula.desc': 'Befehlige deine Flotte in massiven Weltraumschlachten. Passe Schiffe an, bilde Allianzen und erobere die Galaxie.',
+          'features.zenith.name': 'Zenith Fall',
+          'features.zenith.desc': '100 Spieler, eine Insel, null Regeln. Das ultimative Battle-Royale-Erlebnis mit dynamischen Sturmzonen.',
+          'tournaments.heading': 'Bevorstehende Turniere',
+          'tournaments.sub': 'Kämpfe um Ruhm und beträchtliche Preisgelder. Melde dich jetzt an.',
+          'tournaments.arena.game': 'Arena Clash',
+          'tournaments.arena.name': 'Nexus Championship Series',
+          'tournaments.arena.date': '15.–18. Aug 2026',
+          'tournaments.arena.prize': 'Preisgeld',
+          'tournaments.zenith.game': 'Zenith Fall',
+          'tournaments.zenith.name': 'Last Squad Standing',
+          'tournaments.zenith.date': '22.–24. Aug 2026',
+          'tournaments.zenith.prize': 'Preisgeld',
+          'tournaments.shadow.game': 'Shadow Ops',
+          'tournaments.shadow.name': 'Ghost Protocol Invitational',
+          'tournaments.shadow.date': '5.–7. Sep 2026',
+          'tournaments.shadow.prize': 'Preisgeld',
+          'tournaments.crystal.game': 'Crystal Siege',
+          'tournaments.crystal.name': 'Fortress Fall Classic',
+          'tournaments.crystal.date': '12.–14. Sep 2026',
+          'tournaments.crystal.prize': 'Preisgeld',
+          'leaderboard.heading': 'Top Spieler',
+          'leaderboard.sub': 'Die Elite, die an die Spitze aufgestiegen ist. Ihre Statistiken sprechen für sich.',
+          'leaderboard.rating': 'Wertung',
+          'leaderboard.wins': 'Siege',
+          'leaderboard.winrate': 'Siegesrate',
+          'testimonials.heading': 'Pro-Stimmen',
+          'testimonials.sub': 'Höre von den Spielern, die Nexus Gaming jeden Tag leben.',
+          'testimonials.q1': 'Ich habe auf allen großen Plattformen gespielt, und Nexus ist die einzige, die das Können der Spieler respektiert. Das Matchmaking ist einwandfrei.',
+          'testimonials.r1': 'Arena Clash — Rang #4 Global',
+          'testimonials.q2': 'Allein die Preispools machen Nexus besonders, aber es ist die Produktionsqualität, die mich zurückbringt. Jedes Turnier fühlt sich wie ein großes Esports-Event an.',
+          'testimonials.r2': 'Zenith Fall — Season 3 Champion',
+          'testimonials.q3': 'Was Nexus auszeichnet, ist der Umgang mit der Community. Die Entwickler hören wirklich zu.',
+          'testimonials.r3': 'Shadow Ops — Top 10 Global',
+          'community.heading': 'Bereit zum Wettkampf?',
+          'community.sub': 'Schließe dich über 2 Millionen Spielern weltweit an. Melde dich für Early Access, Turnier-Benachrichtigungen und exklusive Belohnungen an.',
+          'community.placeholder': 'E-Mail eingeben',
+          'community.cta': 'Kostenlos beitreten',
+          'footer.tagline': 'Die führende kompetitive Gaming-Plattform, auf der Spieler aus aller Welt gegeneinander antreten, sich vernetzen und ihr Vermächtnis schmieden.',
+          'footer.games': 'Spiele',
+          'footer.g1': 'Arena Clash',
+          'footer.g2': 'Shadow Ops',
+          'footer.g3': 'Velocity Drift',
+          'footer.g4': 'Crystal Siege',
+          'footer.g5': 'Zenith Fall',
+          'footer.community': 'Community',
+          'footer.c1': 'Discord',
+          'footer.c2': 'Foren',
+          'footer.c3': 'Twitch',
+          'footer.c4': 'YouTube',
+          'footer.c5': 'Twitter / X',
+          'footer.support': 'Support',
+          'footer.s1': 'Hilfe-Center',
+          'footer.s2': 'Kontakt',
+          'footer.s3': 'Datenschutz',
+          'footer.s4': 'Nutzungsbedingungen',
+          'footer.s5': 'Cookie-Richtlinie',
+          'footer.copyright': '© 2026 Nexus Gaming. Alle Rechte vorbehalten.',
+          'cookie.text': 'Nexus Gaming verwendet Cookies, um Ihr Erlebnis zu verbessern, den Verkehr zu analysieren und personalisierte Inhalte anzubieten.',
+          'cookie.accept': 'Akzeptieren',
+          'cookie.decline': 'Ablehnen',
+          'meta.title': 'Nexus Gaming — Wo Spieler zu Legenden werden',
+          'meta.desc': 'Nexus Gaming ist die führende kompetitive Gaming-Plattform. Nimm an Turnieren teil.',
+        },
+        it: {
+          'brand.name': 'Nexus Gaming',
+          'nav.features': 'Modalità di Gioco',
+          'nav.tournaments': 'Tornei',
+          'nav.leaderboard': 'Classifica',
+          'nav.testimonials': 'Pro',
+          'nav.community': 'Community',
+          'hero.badge': 'Stagione 4 — Ora dal vivo',
+          'hero.title': 'Dove i giocatori<br><span class="highlight">diventano leggende</span>',
+          'hero.sub': 'Gareggia in tornei ad alta posta in gioco, domina le classifiche globali e forgia la tua leggenda nelle più emozionanti modalità competitive.',
+          'hero.cta1': 'Entra nell\'Arena',
+          'hero.cta2': 'Esplora i Giochi',
+          'hero.stat1': 'Giocatori Online',
+          'hero.stat2': 'Tornei Ospitati',
+          'hero.stat3': 'Montepremi (Milioni)',
+          'hero.scroll': 'Scorri',
+          'features.heading': 'Modalità di Gioco',
+          'features.sub': 'Sei arene competitive distinte, ognuna con la propria strategia, ritmo e via per la gloria. Trova il tuo campo di battaglia.',
+          'features.tag1': 'In Primo Piano',
+          'features.tag2': 'Tattico',
+          'features.tag3': 'Arcade',
+          'features.tag4': 'Strategia',
+          'features.tag5': 'Spaziale',
+          'features.tag6': 'Battle Royale',
+          'features.arena.name': 'Arena Clash',
+          'features.arena.desc': 'Battaglie di squadra 5v5 con strategia in tempo reale. Coordinati con la tua squadra e rivendica la vittoria in arene iconiche.',
+          'features.arena.players': '14.230 giocatori attivi',
+          'features.shadow.name': 'Shadow Ops',
+          'features.shadow.desc': 'Operazioni tattiche stealth dove precisione e pazienza trionfano. Infiltrati, esegui, estrai — una vita è tutto ciò che hai.',
+          'features.velocity.name': 'Velocity Drift',
+          'features.velocity.desc': 'Gare arcade ad alta velocità con nitro, meccaniche di drift e piste che sfidano la gravità.',
+          'features.crystal.name': 'Crystal Siege',
+          'features.crystal.desc': 'Tower defense incontra MOBA. Costruisci fortificazioni, evoca campioni e irrompi nel nexus nemico.',
+          'features.nebula.name': 'Nebula Wars',
+          'features.nebula.desc': 'Comanda la tua flotta in battaglie spaziali massive. Personalizza navi, forma alleanze e conquista la galassia.',
+          'features.zenith.name': 'Zenith Fall',
+          'features.zenith.desc': '100 giocatori, un\'isola, zero regole. L\'esperienza battle royale definitiva con zone di tempesta dinamiche.',
+          'tournaments.heading': 'Prossimi Tornei',
+          'tournaments.sub': 'Gareggia per la gloria e montepremi sostanziali. Iscriviti ora.',
+          'tournaments.arena.game': 'Arena Clash',
+          'tournaments.arena.name': 'Nexus Championship Series',
+          'tournaments.arena.date': '15–18 Ago, 2026',
+          'tournaments.arena.prize': 'Montepremi',
+          'tournaments.zenith.game': 'Zenith Fall',
+          'tournaments.zenith.name': 'Last Squad Standing',
+          'tournaments.zenith.date': '22–24 Ago, 2026',
+          'tournaments.zenith.prize': 'Montepremi',
+          'tournaments.shadow.game': 'Shadow Ops',
+          'tournaments.shadow.name': 'Ghost Protocol Invitational',
+          'tournaments.shadow.date': '5–7 Set, 2026',
+          'tournaments.shadow.prize': 'Montepremi',
+          'tournaments.crystal.game': 'Crystal Siege',
+          'tournaments.crystal.name': 'Fortress Fall Classic',
+          'tournaments.crystal.date': '12–14 Set, 2026',
+          'tournaments.crystal.prize': 'Montepremi',
+          'leaderboard.heading': 'Migliori Giocatori',
+          'leaderboard.sub': 'I pochi eletti che sono saliti in cima. Le loro statistiche parlano più delle parole.',
+          'leaderboard.rating': 'Valutazione',
+          'leaderboard.wins': 'Vittorie',
+          'leaderboard.winrate': 'Tasso di Vittoria',
+          'testimonials.heading': 'Voci Pro',
+          'testimonials.sub': 'Ascolta i giocatori che vivono e respirano Nexus Gaming ogni giorno.',
+          'testimonials.q1': 'Ho gareggiato su tutte le grandi piattaforme, e Nexus è l\'unica che rispetta veramente l\'abilità del giocatore. Il matchmaking è impeccabile.',
+          'testimonials.r1': 'Arena Clash — Grado #4 Globale',
+          'testimonials.q2': 'I montepremi da soli fanno risaltare Nexus, ma è la qualità di produzione che mi fa tornare. Ogni torneo sembra un grande evento esports.',
+          'testimonials.r2': 'Zenith Fall — Campione Stagione 3',
+          'testimonials.q3': 'Ciò che distingue Nexus è come trattano la loro comunità. Gli sviluppatori ascoltano davvero.',
+          'testimonials.r3': 'Shadow Ops — Top 10 Globale',
+          'community.heading': 'Pronto a Competere?',
+          'community.sub': 'Unisciti a oltre 2 milioni di giocatori in tutto il mondo. Iscriviti per accesso anticipato e ricompense esclusive.',
+          'community.placeholder': 'Inserisci la tua email',
+          'community.cta': 'Iscriviti Gratis',
+          'footer.tagline': 'La piattaforma di gioco competitiva premium dove giocatori di tutto il mondo competono, si connettono e forgiano la loro leggenda.',
+          'footer.games': 'Giochi',
+          'footer.g1': 'Arena Clash',
+          'footer.g2': 'Shadow Ops',
+          'footer.g3': 'Velocity Drift',
+          'footer.g4': 'Crystal Siege',
+          'footer.g5': 'Zenith Fall',
+          'footer.community': 'Community',
+          'footer.c1': 'Discord',
+          'footer.c2': 'Forum',
+          'footer.c3': 'Twitch',
+          'footer.c4': 'YouTube',
+          'footer.c5': 'Twitter / X',
+          'footer.support': 'Supporto',
+          'footer.s1': 'Centro Assistenza',
+          'footer.s2': 'Contattaci',
+          'footer.s3': 'Privacy Policy',
+          'footer.s4': 'Termini di Servizio',
+          'footer.s5': 'Cookie Policy',
+          'footer.copyright': '© 2026 Nexus Gaming. Tutti i diritti riservati.',
+          'cookie.text': 'Nexus Gaming utilizza cookie per migliorare l\'esperienza, analizzare il traffico e offrire contenuti personalizzati.',
+          'cookie.accept': 'Accetta',
+          'cookie.decline': 'Rifiuta',
+          'meta.title': 'Nexus Gaming — Dove i giocatori diventano leggende',
+          'meta.desc': 'Nexus Gaming è la piattaforma di gioco competitiva premium. Unisciti ai tornei.',
+        },
+        pt: {
+          'brand.name': 'Nexus Gaming',
+          'nav.features': 'Modos de Jogo',
+          'nav.tournaments': 'Torneios',
+          'nav.leaderboard': 'Classificação',
+          'nav.testimonials': 'Pros',
+          'nav.community': 'Comunidade',
+          'hero.badge': 'Temporada 4 — Agora ao Vivo',
+          'hero.title': 'Onde os jogadores<br><span class="highlight">se tornam lendas</span>',
+          'hero.sub': 'Compita em torneios de alto risco, domine as classificações globais e forje seu legado nos modos de jogo competitivos mais emocionantes já criados.',
+          'hero.cta1': 'Entre na Arena',
+          'hero.cta2': 'Explorar Jogos',
+          'hero.stat1': 'Jogadores Online',
+          'hero.stat2': 'Torneios Realizados',
+          'hero.stat3': 'Prêmios (Milhões)',
+          'hero.scroll': 'Rolar',
+          'features.heading': 'Modos de Jogo',
+          'features.sub': 'Seis arenas competitivas distintas, cada uma com sua própria estratégia, ritmo e caminho para a glória. Encontre seu campo de batalha.',
+          'features.tag1': 'Destaque',
+          'features.tag2': 'Tático',
+          'features.tag3': 'Arcade',
+          'features.tag4': 'Estratégia',
+          'features.tag5': 'Espacial',
+          'features.tag6': 'Battle Royale',
+          'features.arena.name': 'Arena Clash',
+          'features.arena.desc': 'Batalhas competitivas 5v5 com estratégia em tempo real. Coordene com seu esquadrão e conquiste a vitória em arenas icônicas.',
+          'features.arena.players': '14.230 jogadores ativos',
+          'features.shadow.name': 'Shadow Ops',
+          'features.shadow.desc': 'Operações táticas furtivas onde precisão e paciência triunfam. Infiltre-se, execute, extraia — você só tem uma vida.',
+          'features.velocity.name': 'Velocity Drift',
+          'features.velocity.desc': 'Corridas arcade de alta velocidade com nitro, mecânicas de derrapagem e pistas que desafiam a gravidade.',
+          'features.crystal.name': 'Crystal Siege',
+          'features.crystal.desc': 'Tower defense encontra MOBA. Construa fortificações, invoque campeões e rompa o nexus inimigo.',
+          'features.nebula.name': 'Nebula Wars',
+          'features.nebula.desc': 'Comande sua frota em batalhas espaciais massivas. Personalize naves, forme alianças e conquiste a galáxia.',
+          'features.zenith.name': 'Zenith Fall',
+          'features.zenith.desc': '100 jogadores, uma ilha, zero regras. A experiência battle royale definitiva com zonas de tempestade dinâmicas.',
+          'tournaments.heading': 'Próximos Torneios',
+          'tournaments.sub': 'Compita pela glória e prêmios substanciais. Inscreva-se agora.',
+          'tournaments.arena.game': 'Arena Clash',
+          'tournaments.arena.name': 'Nexus Championship Series',
+          'tournaments.arena.date': '15–18 Ago, 2026',
+          'tournaments.arena.prize': 'Prêmio',
+          'tournaments.zenith.game': 'Zenith Fall',
+          'tournaments.zenith.name': 'Last Squad Standing',
+          'tournaments.zenith.date': '22–24 Ago, 2026',
+          'tournaments.zenith.prize': 'Prêmio',
+          'tournaments.shadow.game': 'Shadow Ops',
+          'tournaments.shadow.name': 'Ghost Protocol Invitational',
+          'tournaments.shadow.date': '5–7 Set, 2026',
+          'tournaments.shadow.prize': 'Prêmio',
+          'tournaments.crystal.game': 'Crystal Siege',
+          'tournaments.crystal.name': 'Fortress Fall Classic',
+          'tournaments.crystal.date': '12–14 Set, 2026',
+          'tournaments.crystal.prize': 'Prêmio',
+          'leaderboard.heading': 'Melhores Jogadores',
+          'leaderboard.sub': 'A elite que chegou ao topo. Suas estatísticas falam mais alto que palavras.',
+          'leaderboard.rating': 'Pontuação',
+          'leaderboard.wins': 'Vitórias',
+          'leaderboard.winrate': 'Taxa de Vitória',
+          'testimonials.heading': 'Vozes Pro',
+          'testimonials.sub': 'Ouça os jogadores que vivem e respiram Nexus Gaming todos os dias.',
+          'testimonials.q1': 'Competi em todas as grandes plataformas, e Nexus é a única que realmente respeita a habilidade do jogador. O matchmaking é impecável.',
+          'testimonials.r1': 'Arena Clash — Rank #4 Global',
+          'testimonials.q2': 'Os prêmios por si só fazem Nexus se destacar, mas é a qualidade de produção que me faz voltar. Cada torneio parece um grande evento de esports.',
+          'testimonials.r2': 'Zenith Fall — Campeão Temporada 3',
+          'testimonials.q3': 'O que diferencia a Nexus é como eles tratam sua comunidade. Os desenvolvedores realmente ouvem.',
+          'testimonials.r3': 'Shadow Ops — Top 10 Global',
+          'community.heading': 'Pronto para Competir?',
+          'community.sub': 'Junte-se a mais de 2 milhões de jogadores em todo o mundo. Inscreva-se para acesso antecipado e recompensas exclusivas.',
+          'community.placeholder': 'Digite seu email',
+          'community.cta': 'Junte-se Grátis',
+          'footer.tagline': 'A plataforma de jogos competitivos premium onde jogadores de todo o mundo competem, se conectam e forjam seu legado.',
+          'footer.games': 'Jogos',
+          'footer.g1': 'Arena Clash',
+          'footer.g2': 'Shadow Ops',
+          'footer.g3': 'Velocity Drift',
+          'footer.g4': 'Crystal Siege',
+          'footer.g5': 'Zenith Fall',
+          'footer.community': 'Comunidade',
+          'footer.c1': 'Discord',
+          'footer.c2': 'Fóruns',
+          'footer.c3': 'Twitch',
+          'footer.c4': 'YouTube',
+          'footer.c5': 'Twitter / X',
+          'footer.support': 'Suporte',
+          'footer.s1': 'Central de Ajuda',
+          'footer.s2': 'Fale Conosco',
+          'footer.s3': 'Política de Privacidade',
+          'footer.s4': 'Termos de Serviço',
+          'footer.s5': 'Política de Cookies',
+          'footer.copyright': '© 2026 Nexus Gaming. Todos os direitos reservados.',
+          'cookie.text': 'A Nexus Gaming usa cookies para melhorar sua experiência, analisar o tráfego e oferecer conteúdo personalizado.',
+          'cookie.accept': 'Aceitar',
+          'cookie.decline': 'Recusar',
+          'meta.title': 'Nexus Gaming — Onde os jogadores se tornam lendas',
+          'meta.desc': 'Nexus Gaming é a plataforma de jogos competitivos premium. Junte-se aos torneios.',
+        }
+      };
+
+      /* ================================================================
+         i18n Utilities
+         ================================================================ */
+      let currentLang = 'en';
+
+      function detectBrowserLang() {
+        const langs = navigator.languages || [navigator.language || 'en'];
+        for (const l of langs) {
+          const code = l.split('-')[0];
+          if (translations[code]) return code;
+        }
+        return 'en';
+      }
+
+      function setLang(lang) {
+        if (!translations[lang]) lang = 'en';
+        currentLang = lang;
+        localStorage.setItem(LANG_STORAGE_KEY, lang);
+
+        const t = translations[lang];
+
+        // Update all [data-i18n] elements
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+          const key = el.getAttribute('data-i18n');
+          if (t[key] !== undefined) {
+            if (el.isContentEditable || el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+              el.placeholder = t[key];
+            } else {
+              el.innerHTML = t[key];
+            }
+          }
+        });
+
+        // Update SEO meta
+        document.title = t['meta.title'] || t['brand.name'];
+        const metaDesc = document.getElementById('meta-desc');
+        if (metaDesc) metaDesc.content = t['meta.desc'] || '';
+        const ogTitle = document.getElementById('og-title');
+        if (ogTitle) ogTitle.textContent = t['meta.title'] || t['brand.name'];
+        const ogDesc = document.getElementById('og-desc');
+        if (ogDesc) ogDesc.content = t['meta.desc'] || '';
+        const twTitle = document.getElementById('tw-title');
+        if (twTitle) twTitle.textContent = t['meta.title'] || t['brand.name'];
+        const twDesc = document.getElementById('tw-desc');
+        if (twDesc) twDesc.content = t['meta.desc'] || '';
+
+        // Update lang attribute
+        document.documentElement.lang = lang;
+
+        // Update current-lang display
+        const cl = document.getElementById('current-lang');
+        if (cl) cl.textContent = lang.toUpperCase();
+
+        // Update active state in dropdown
+        document.querySelectorAll('.lang-dropdown button[data-lang]').forEach(btn => {
+          if (btn.getAttribute('data-lang') === lang) {
+            btn.setAttribute('data-active', '');
+          } else {
+            btn.removeAttribute('data-active');
+          }
+        });
+
+        // Close dropdown
+        closeLangDropdown();
+      }
+
+      function getCurrentLang() {
+        return currentLang;
+      }
+
+      /* ================================================================
+         Lang Dropdown
+         ================================================================ */
+      let langMenuOpen = false;
+
+      function toggleLangDropdown() {
+        langMenuOpen = !langMenuOpen;
+        const dd = document.getElementById('lang-dropdown');
+        const btn = document.getElementById('lang-btn');
+        if (dd) dd.classList.toggle('open', langMenuOpen);
+        if (btn) btn.setAttribute('aria-expanded', String(langMenuOpen));
+      }
+
+      function closeLangDropdown() {
+        langMenuOpen = false;
+        const dd = document.getElementById('lang-dropdown');
+        const btn = document.getElementById('lang-btn');
+        if (dd) dd.classList.remove('open');
+        if (btn) btn.setAttribute('aria-expanded', 'false');
+      }
+
+      /* ================================================================
+         Counter Animation
+         ================================================================ */
+      function animateCounters() {
+        document.querySelectorAll('.hero-stat .number[data-target]').forEach(el => {
+          const target = parseFloat(el.getAttribute('data-target'));
+          const duration = 2000;
+          const start = performance.now();
+          const isFloat = target % 1 !== 0;
+
+          function update(now) {
+            const elapsed = now - start;
+            const progress = Math.min(elapsed / duration, 1);
+            // Ease-out cubic
+            const eased = 1 - Math.pow(1 - progress, 3);
+            const current = eased * target;
+            el.textContent = isFloat ? current.toFixed(1) : Math.floor(current);
+            if (progress < 1) {
+              requestAnimationFrame(update);
+            } else {
+              el.textContent = isFloat ? target.toFixed(1) : Math.floor(target);
+              el.setAttribute('data-counted', '');
+            }
+          }
+          requestAnimationFrame(update);
+        });
+      }
+
+      /* ================================================================
+         Intersection Observer — Reveal Animation
+         ================================================================ */
+      function setupRevealObserver() {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.reveal').forEach(el => {
+          observer.observe(el);
+        });
+      }
+
+      /* ================================================================
+         Scroll Effects
+         ================================================================ */
+      function setupScrollEffects() {
+        const nav = document.querySelector('.nav');
+        const floatingCta = document.getElementById('floating-cta');
+
+        function onScroll() {
+          const y = window.scrollY;
+          const heroHeight = document.getElementById('hero')?.offsetHeight || 600;
+
+          nav.classList.toggle('nav-scrolled', y > 60);
+
+          // Floating CTA
+          if (floatingCta) {
+            floatingCta.classList.toggle('visible', y > heroHeight * 0.7);
+          }
+        }
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll(); // initial
+      }
+
+      /* ================================================================
+         Mobile Menu
+         ================================================================ */
+      function setupMobileMenu() {
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('nav-links');
+
+        if (!hamburger || !navLinks) return;
+
+        hamburger.addEventListener('click', () => {
+          const isOpen = navLinks.classList.toggle('open');
+          hamburger.classList.toggle('active', isOpen);
+          hamburger.setAttribute('aria-expanded', String(isOpen));
+          document.body.style.overflow = isOpen ? 'hidden' : '';
+        });
+
+        // Close menu on link click
+        navLinks.querySelectorAll('a').forEach(a => {
+          a.addEventListener('click', () => {
+            navLinks.classList.remove('open');
+            hamburger.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+          });
+        });
+      }
+
+      /* ================================================================
+         CTA Form
+         ================================================================ */
+      function setupCtaForm() {
+        const form = document.getElementById('cta-form');
+        const status = document.getElementById('cta-status');
+        if (!form) return;
+
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const email = document.getElementById('cta-email').value.trim();
+          if (!email || !email.includes('@')) {
+            status.textContent = 'Please enter a valid email address.';
+            status.className = 'cta-form-status error';
+            return;
+          }
+          status.textContent = 'Thanks for joining! Check your inbox for confirmation.';
+          status.className = 'cta-form-status success';
+          form.reset();
+        });
+      }
+
+      /* ================================================================
+         Cookie Banner
+         ================================================================ */
+      function setupCookieBanner() {
+        if (localStorage.getItem('nexus-cookie-consent')) return;
+
+        const banner = document.getElementById('cookie-banner');
+        if (!banner) return;
+        banner.classList.add('visible');
+
+        document.getElementById('cookie-accept').addEventListener('click', () => {
+          localStorage.setItem('nexus-cookie-consent', 'accepted');
+          banner.classList.remove('visible');
+        });
+
+        document.getElementById('cookie-decline').addEventListener('click', () => {
+          localStorage.setItem('nexus-cookie-consent', 'declined');
+          banner.classList.remove('visible');
+        });
+      }
+
+      /* ================================================================
+         Smooth Scroll for anchor links
+         ================================================================ */
+      function setupSmoothScroll() {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener('click', (e) => {
+            const target = document.querySelector(anchor.getAttribute('href'));
+            if (target) {
+              e.preventDefault();
+              const offset = 80;
+              const top = target.getBoundingClientRect().top + window.scrollY - offset;
+              window.scrollTo({ top, behavior: 'smooth' });
+            }
+          });
+        });
+      }
+
+      /* ================================================================
+         Init
+         ================================================================ */
+      function init() {
+        // Language detection / restoration
+        const saved = localStorage.getItem(LANG_STORAGE_KEY);
+        const lang = saved || detectBrowserLang();
+        setLang(lang);
+
+        // Language switcher
+        const langBtn = document.getElementById('lang-btn');
+        if (langBtn) {
+          langBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleLangDropdown();
+          });
+        }
+
+        document.querySelectorAll('.lang-dropdown button[data-lang]').forEach(btn => {
+          btn.addEventListener('click', () => {
+            setLang(btn.getAttribute('data-lang'));
+          });
+        });
+
+        document.addEventListener('click', () => {
+          if (langMenuOpen) closeLangDropdown();
+        });
+
+        // Init modules
+        setupRevealObserver();
+        setupScrollEffects();
+        setupMobileMenu();
+        setupCtaForm();
+        setupCookieBanner();
+        setupSmoothScroll();
+
+        // Counter animation after a small delay (let hero be visible)
+        setTimeout(animateCounters, 600);
+
+        // Re-observe reveal elements after language change (content height may change)
+        setTimeout(setupRevealObserver, 100);
+      }
+
+      // Run on DOM ready
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+      } else {
+        init();
+      }
+
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,1846 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="meta-title">Aegis — Self-Custody Crypto Savings | Own Your Key, Earn Yield</title>
+  <meta name="description" id="meta-desc" content="Aegis is a self-custody savings platform for bitcoin and stablecoins. Institutional-grade security, audited smart contracts, and yield paid daily. You hold the keys — we do the work.">
+  <link rel="canonical" href="https://aegis.savings/">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230052ff'/%3E%3Cpath d='M10 22V10l12 12V10' stroke='white' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Aegis">
+  <meta property="og:title" id="og-title" content="Aegis — Self-Custody Crypto Savings">
+  <meta property="og:description" id="og-desc" content="Bitcoin &amp; stablecoin savings with institutional-grade security. You hold the keys — we do the work. Yield paid daily.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1639322537228-f710d846310a?w=1200&q=80">
+  <meta property="og:url" content="https://aegis.savings/">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" id="tw-title" content="Aegis — Self-Custody Crypto Savings">
+  <meta name="twitter:description" id="tw-desc" content="Bitcoin &amp; stablecoin savings. You hold the keys — we do the work. Audited, insured, daily yield.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1639322537228-f710d846310a?w=1200&q=80">
+  <meta name="twitter:site" content="@aegissavings">
+
+  <!-- Fonts: DM Sans (CoinbaseDisplay/Sans substitute) — single family, full weight range.
+       Display headings use 400 weight at tight line-height 1.0, per Coinbase template.
+       Mono stack for rates/numbers. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+
+  <style>
+    /* ================================================================
+       DESIGN SYSTEM — AEGIS
+       Family: Crypto / Fintech — self-custody savings platform
+       Style: Coinbase-inspired (popular-web-designs template) — clean,
+              trustworthy blue + white + near-black binary palette,
+              56px pill CTAs, ultra-tight display headings, minimal
+              shadow system; depth comes from dark/light section contrast.
+       Surface: Decide/Learn (landing page — asymmetric hero with live
+              portfolio preview on the right; Compare surface as a
+              secondary section: Aegis vs traditional bank table)
+       Color strategy: Committed — one saturated blue (Coinbase Blue
+              #0052ff) used functionally only (CTAs, links, active
+              states) on white and near-black surfaces.
+       Typography: DM Sans single family — display 400/tight,
+              body 400/600. Mono for financial figures.
+       Motion: marquee price ticker, count-up stats, SVG chart draw,
+              scroll reveals, pill hover micro-interactions.
+              Exponential ease-out only. prefers-reduced-motion respected.
+       z-index scale: header 40 → cookie 50 → modal 60
+       ================================================================ */
+
+    /* ---------- Tokens ---------- */
+    :root {
+      --blue: #0052ff;            /* Coinbase Blue — functional accent */
+      --blue-hover: #578bfa;
+      --blue-ink: #ffffff;        /* text on blue fills */
+      --white: #ffffff;
+      --black: #0a0b0d;           /* near-black text + dark sections */
+      --dark-card: #282b31;       /* dark elevated surface */
+      --cool: #eef0f3;            /* cool gray secondary surface */
+      --muted: #5b616e;           /* muted body text — 5.3:1 on white */
+      --line: rgba(91, 97, 110, 0.2);
+      --font: 'DM Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);   /* ease-out-quart */
+      --r-sm: 12px;
+      --r-md: 20px;
+      --r-lg: 32px;
+      --r-pill: 56px;
+      --maxw: 1180px;
+      --gutter: clamp(1.25rem, 4vw, 2.5rem);
+    }
+
+    [data-theme="dark"] {
+      --blue: #578bfa;            /* lighter blue for dark surfaces — 7:1 on #0a0b0d */
+      --blue-hover: #7ea6ff;
+      --white: #0a0b0d;           /* surface flips */
+      --black: #f5f6f8;           /* text flips */
+      --dark-card: #1a1d21;
+      --cool: #14171c;
+      --muted: #a3a8b3;           /* muted on dark — 7.4:1 */
+      --line: rgba(163, 168, 179, 0.22);
+    }
+
+    /* ---------- Reset / base ---------- */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+
+    body {
+      font-family: var(--font);
+      font-size: 1.0625rem;              /* 17px */
+      line-height: 1.6;
+      color: var(--black);
+      background: var(--white);
+      transition: background-color .35s var(--ease), color .35s var(--ease);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img, svg { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+    input, select { font-family: inherit; }
+
+    h1, h2, h3 {
+      font-weight: 400;
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+      text-wrap: balance;
+    }
+
+    p { text-wrap: pretty; max-width: 68ch; }
+
+    .visually-hidden {
+      position: absolute; width: 1px; height: 1px;
+      margin: -1px; padding: 0; border: 0;
+      clip: rect(0 0 0 0); clip-path: inset(50%);
+      overflow: hidden; white-space: nowrap;
+    }
+
+    .container { max-width: var(--maxw); margin-inline: auto; padding-inline: var(--gutter); }
+
+    /* Focus states */
+    :focus-visible {
+      outline: 2px solid var(--blue);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    .skip-link {
+      position: absolute; left: -9999px; top: 0; z-index: 70;
+      background: var(--blue); color: #fff; padding: .75rem 1.25rem;
+      border-radius: 0 0 12px 0; font-weight: 600;
+    }
+    .skip-link:focus { left: 0; }
+
+    /* ---------- Buttons (Coinbase: 56px pill radius) ---------- */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+      border-radius: var(--r-pill);
+      padding: 1rem 2rem;
+      font-size: 1rem; font-weight: 600; line-height: 1.2; letter-spacing: .01em;
+      transition: background-color .25s var(--ease), color .25s var(--ease),
+                  border-color .25s var(--ease), transform .2s var(--ease);
+      min-height: 48px;
+    }
+    .btn:active { transform: scale(0.98); }
+
+    .btn-dark { background: var(--black); color: var(--white); border: 1px solid var(--black); }
+    .btn-dark:hover { background: var(--blue); border-color: var(--blue); color: #fff; }
+
+    .btn-blue { background: var(--blue); color: #fff; border: 1px solid var(--blue); }
+    .btn-blue:hover { background: var(--blue-hover); border-color: var(--blue-hover); }
+
+    .btn-ghost { background: transparent; color: var(--blue); border: 1px solid var(--blue); }
+    .btn-ghost:hover { background: var(--blue); color: #fff; }
+
+    .btn-sm { padding: .6rem 1.25rem; min-height: 40px; font-size: .9375rem; }
+
+    /* ---------- Header ---------- */
+    .site-header {
+      position: sticky; top: 0; z-index: 40;
+      background: var(--white);
+      border-bottom: 1px solid var(--line);
+      transition: background-color .3s var(--ease), border-color .3s var(--ease);
+    }
+    .nav {
+      display: flex; align-items: center; gap: 2rem;
+      height: 72px;
+    }
+    .logo {
+      display: inline-flex; align-items: center; gap: .6rem;
+      font-size: 1.35rem; font-weight: 700; letter-spacing: -0.02em;
+    }
+    .logo-mark {
+      width: 34px; height: 34px; border-radius: 9px;
+      background: var(--blue); display: grid; place-items: center;
+    }
+    .logo-mark svg { width: 18px; height: 18px; }
+
+    .nav-links {
+      display: flex; gap: 1.75rem; margin-left: 1rem;
+      font-size: .95rem; font-weight: 500; color: var(--muted);
+    }
+    .nav-links a { transition: color .2s var(--ease); }
+    .nav-links a:hover { color: var(--blue); }
+
+    .nav-tools {
+      display: flex; align-items: center; gap: .75rem; margin-left: auto;
+    }
+
+    /* Language select — native, accessible */
+    .lang-wrap { position: relative; }
+    .lang-wrap svg { position: absolute; left: .85rem; top: 50%; transform: translateY(-50%); width: 16px; height: 16px; pointer-events: none; color: var(--muted); }
+    .lang-select {
+      appearance: none; -webkit-appearance: none;
+      background: var(--cool); color: var(--black);
+      border: 1px solid var(--line); border-radius: var(--r-pill);
+      padding: .55rem 2.1rem .55rem 2.5rem;
+      font-size: .875rem; font-weight: 600;
+      cursor: pointer;
+      transition: border-color .2s var(--ease);
+    }
+    .lang-select:hover { border-color: var(--blue); }
+    .lang-wrap::after {
+      content: ''; position: absolute; right: .9rem; top: 50%;
+      width: 7px; height: 7px;
+      border-right: 2px solid var(--muted); border-bottom: 2px solid var(--muted);
+      transform: translateY(-70%) rotate(45deg);
+      pointer-events: none;
+    }
+
+    /* Theme toggle */
+    .theme-btn {
+      width: 42px; height: 42px; border-radius: 50%;
+      background: var(--cool); color: var(--black);
+      display: grid; place-items: center;
+      border: 1px solid var(--line);
+      transition: background-color .25s var(--ease), color .25s var(--ease), border-color .25s var(--ease);
+    }
+    .theme-btn:hover { border-color: var(--blue); color: var(--blue); }
+    .theme-btn svg { width: 18px; height: 18px; }
+    .theme-btn .icon-moon { display: none; }
+    [data-theme="dark"] .theme-btn .icon-sun { display: none; }
+    [data-theme="dark"] .theme-btn .icon-moon { display: block; }
+
+    /* Mobile nav */
+    .nav-burger { display: none; }
+    .mobile-menu {
+      display: none;
+      position: fixed; inset: 72px 0 0 0; z-index: 39;
+      background: var(--white);
+      padding: 2rem var(--gutter);
+      flex-direction: column; gap: 1.5rem;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-size: 1.5rem; font-weight: 500; letter-spacing: -0.02em; }
+
+    /* ---------- Hero ---------- */
+    .hero { padding: clamp(3.5rem, 8vw, 6.5rem) 0 clamp(3rem, 6vw, 5rem); }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: clamp(2.5rem, 5vw, 5rem);
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: var(--cool);
+      border: 1px solid var(--line);
+      border-radius: var(--r-pill);
+      padding: .45rem 1rem;
+      font-size: .8125rem; font-weight: 600; color: var(--muted);
+      margin-bottom: 1.75rem;
+    }
+    .hero-badge .dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: #16c784; /* positive-trend green — functional, not decorative */
+    }
+
+    .hero h1 {
+      font-size: clamp(2.6rem, 6vw, 4.75rem);
+      line-height: 1.0;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 em { font-style: normal; color: var(--blue); }
+
+    .hero-sub {
+      font-size: clamp(1.0625rem, 1.6vw, 1.25rem);
+      color: var(--muted);
+      line-height: 1.55;
+      margin-bottom: 2.25rem;
+    }
+
+    .hero-cta { display: flex; flex-wrap: wrap; gap: .875rem; margin-bottom: 2.5rem; }
+
+    .hero-trust {
+      display: flex; align-items: center; gap: 1rem;
+      font-size: .875rem; color: var(--muted);
+    }
+    .avatar-stack { display: flex; }
+    .avatar-stack span {
+      width: 34px; height: 34px; border-radius: 50%;
+      border: 2px solid var(--white);
+      background: var(--cool);
+      display: grid; place-items: center;
+      font-size: .75rem; font-weight: 700; color: var(--black);
+      margin-left: -8px;
+    }
+    .avatar-stack span:first-child { margin-left: 0; }
+    .avatar-stack span:nth-child(1) { background: #dbe7ff; }
+    .avatar-stack span:nth-child(2) { background: #ffe3d6; }
+    .avatar-stack span:nth-child(3) { background: #e3f6e8; }
+    .avatar-stack span:nth-child(4) { background: #ece4ff; }
+    .hero-trust .stars { color: #f5a623; letter-spacing: .1em; font-size: .875rem; }
+    .hero-trust strong { color: var(--black); font-weight: 700; }
+
+    /* Hero right — portfolio preview card (product mockup, Monitor-flavored) */
+    .hero-visual { position: relative; }
+    .preview-card {
+      background: var(--cool);
+      border: 1px solid var(--line);
+      border-radius: var(--r-lg);
+      padding: 1.75rem;
+      box-shadow: 0 24px 60px -24px rgba(10, 11, 13, 0.25);
+      transition: background-color .3s var(--ease), border-color .3s var(--ease);
+    }
+    .preview-head { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem; }
+    .preview-label { font-size: .8125rem; font-weight: 600; color: var(--muted); }
+    .preview-balance {
+      font-family: var(--mono);
+      font-size: clamp(1.75rem, 3vw, 2.25rem);
+      font-weight: 700; letter-spacing: -0.02em;
+      margin-top: .25rem;
+    }
+    .preview-change {
+      display: inline-flex; align-items: center; gap: .3rem;
+      font-family: var(--mono); font-size: .8125rem; font-weight: 600;
+      color: #16c784; background: rgba(22, 199, 132, 0.12);
+      padding: .3rem .6rem; border-radius: 999px;
+      margin-left: .75rem; vertical-align: middle;
+    }
+    .preview-chart { margin-bottom: 1.5rem; }
+    .preview-chart svg { width: 100%; height: auto; }
+    .chart-area { fill: rgba(0, 82, 255, 0.08); }
+    .chart-line {
+      fill: none; stroke: var(--blue); stroke-width: 2.5;
+      stroke-linecap: round; stroke-linejoin: round;
+      stroke-dasharray: 1200; stroke-dashoffset: 1200;
+    }
+    .chart-line.in { animation: drawLine 1.6s var(--ease) forwards; }
+    @keyframes drawLine { to { stroke-dashoffset: 0; } }
+
+    .preview-alloc { display: grid; gap: .75rem; }
+    .alloc-row { display: grid; grid-template-columns: 1fr auto; gap: .5rem; align-items: center; }
+    .alloc-name { font-size: .875rem; font-weight: 600; }
+    .alloc-track {
+      grid-column: 1 / -1;
+      height: 6px; border-radius: 99px; background: var(--line);
+      overflow: hidden;
+    }
+    .alloc-fill { height: 100%; border-radius: 99px; }
+    .alloc-fill.btc { background: #f7931a; }
+    .alloc-fill.eth { background: #627eea; }
+    .alloc-fill.usd { background: #16c784; }
+    .alloc-val { font-family: var(--mono); font-size: .8125rem; color: var(--muted); }
+
+    /* Floating chip over the card */
+    .preview-float {
+      position: absolute; top: -2.25rem; right: 1.5rem;
+      background: var(--black); color: var(--white);
+      border-radius: var(--r-md);
+      padding: .85rem 1.25rem;
+      display: flex; align-items: center; gap: .75rem;
+      box-shadow: 0 16px 40px -12px rgba(10, 11, 13, 0.45);
+      font-size: .8125rem; font-weight: 600;
+    }
+    [data-theme="dark"] .preview-float { background: var(--dark-card); }
+    .preview-float .lock { width: 32px; height: 32px; border-radius: 9px; background: var(--blue); display: grid; place-items: center; flex: none; }
+    .preview-float .lock svg { width: 16px; height: 16px; }
+    .preview-float small { display: block; font-weight: 400; color: var(--muted); }
+
+    /* ---------- Ticker marquee ---------- */
+    .ticker {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: var(--white);
+      overflow: hidden;
+      padding: .9rem 0;
+    }
+    .ticker-track {
+      display: flex; gap: 3rem; width: max-content;
+      animation: ticker 32s linear infinite;
+      will-change: transform;
+    }
+    .ticker:hover .ticker-track { animation-play-state: paused; }
+    @keyframes ticker { to { transform: translateX(-50%); } }
+    .ticker-item {
+      display: flex; align-items: center; gap: .6rem;
+      font-family: var(--mono); font-size: .875rem; white-space: nowrap;
+    }
+    .ticker-item .sym { font-weight: 700; }
+    .ticker-item .price { color: var(--muted); }
+    .ticker-item .chg { font-weight: 600; }
+    .chg-up { color: #16c784; }
+    .chg-down { color: #ea3943; }
+
+    /* ---------- Sections ---------- */
+    section { padding: clamp(4rem, 8vw, 6.5rem) 0; }
+
+    .section-head { max-width: 640px; margin-bottom: clamp(2.5rem, 5vw, 4rem); }
+    .section-head h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.05;
+      margin-bottom: 1rem;
+    }
+    .section-head p { color: var(--muted); font-size: 1.0625rem; }
+
+    /* ---------- Stats strip ---------- */
+    .stats { border-bottom: 1px solid var(--line); }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+    }
+    .stat .num {
+      font-family: var(--mono);
+      font-size: clamp(1.75rem, 3vw, 2.5rem);
+      font-weight: 700; letter-spacing: -0.02em;
+    }
+    .stat .num[data-count] { color: var(--blue); }
+    .stat .lbl { font-size: .9375rem; color: var(--muted); margin-top: .35rem; }
+
+    /* ---------- How it works (numbered — a real 3-step sequence) ---------- */
+    .how-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border: 1px solid var(--line);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      background: var(--white);
+      transition: background-color .3s var(--ease);
+    }
+    .how-step { padding: 2.25rem 2rem; position: relative; }
+    .how-step + .how-step { border-left: 1px solid var(--line); }
+    .step-num {
+      font-family: var(--mono);
+      font-size: .875rem; font-weight: 700;
+      color: var(--blue);
+      margin-bottom: 1.25rem;
+      display: block;
+    }
+    .how-step h3 { font-size: 1.4rem; margin-bottom: .75rem; line-height: 1.15; }
+    .how-step p { color: var(--muted); font-size: .96875rem; }
+    .step-arrow {
+      position: absolute; right: 1rem; top: 50%; transform: translateY(-50%);
+      color: var(--line); width: 20px; height: 20px;
+    }
+
+    /* ---------- Compare table (Compare surface: Aegis vs bank) ---------- */
+    .compare-wrap {
+      border: 1px solid var(--line);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      background: var(--white);
+      transition: background-color .3s var(--ease);
+    }
+    .compare-table { width: 100%; border-collapse: collapse; }
+    .compare-table th, .compare-table td {
+      text-align: left; padding: 1.1rem 1.5rem;
+      border-bottom: 1px solid var(--line);
+      font-size: .96875rem;
+    }
+    .compare-table thead th { font-size: .8125rem; font-weight: 700; letter-spacing: .04em; text-transform: none; color: var(--muted); }
+    .compare-table thead th:first-child { font-size: 1.05rem; color: var(--black); letter-spacing: 0; font-weight: 600; }
+    .compare-table tbody tr:last-child td { border-bottom: 0; }
+    .compare-table td:first-child { color: var(--muted); }
+    .col-aegis { background: rgba(0, 82, 255, 0.05); }
+    [data-theme="dark"] .col-aegis { background: rgba(87, 139, 250, 0.08); }
+    .compare-table .check { color: var(--blue); font-weight: 700; }
+    .compare-table .cross { color: var(--muted); opacity: .5; }
+    .aegis-tag {
+      display: inline-block; font-size: .6875rem; font-weight: 700;
+      color: var(--blue); letter-spacing: .06em;
+      border: 1px solid var(--blue);
+      border-radius: 999px; padding: .15rem .55rem;
+      margin-left: .6rem; vertical-align: middle;
+    }
+
+    /* ---------- Security (dark section — Coinbase near-black) ---------- */
+    .security { background: var(--black); color: var(--white); border-radius: var(--r-lg); margin-inline: var(--gutter); padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 4vw, 4rem); }
+    [data-theme="dark"] .security { background: var(--dark-card); }
+    .security .section-head h2 { color: var(--white); }
+    [data-theme="dark"] .security .section-head h2 { color: var(--black); }
+    .security .section-head p { color: var(--muted); }
+    .sec-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--r-md); overflow: hidden; }
+    .sec-item { background: var(--black); padding: 1.75rem; }
+    [data-theme="dark"] .sec-item { background: var(--dark-card); }
+    .sec-item .sec-icon {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: rgba(87, 139, 250, 0.15);
+      display: grid; place-items: center;
+      margin-bottom: 1.1rem;
+    }
+    .sec-item .sec-icon svg { width: 20px; height: 20px; color: var(--blue); }
+    .sec-item h3 { font-size: 1.15rem; margin-bottom: .5rem; line-height: 1.2; }
+    .sec-item p { color: var(--muted); font-size: .9375rem; }
+
+    /* ---------- Testimonials (asymmetric composition) ---------- */
+    .testi-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 1.5rem;
+      align-items: stretch;
+    }
+    .testi {
+      border: 1px solid var(--line);
+      border-radius: var(--r-md);
+      padding: 2rem;
+      background: var(--white);
+      transition: background-color .3s var(--ease);
+      display: flex; flex-direction: column; justify-content: space-between; gap: 1.5rem;
+    }
+    .testi.lead { grid-row: span 2; background: var(--cool); }
+    [data-theme="dark"] .testi.lead { background: var(--dark-card); }
+    .testi blockquote { font-size: 1.125rem; line-height: 1.5; }
+    .testi.lead blockquote { font-size: 1.35rem; line-height: 1.45; }
+    .testi blockquote::before { content: '“'; color: var(--blue); font-weight: 700; }
+    .testi blockquote::after { content: '”'; color: var(--blue); font-weight: 700; }
+    .testi-meta { display: flex; align-items: center; gap: .875rem; }
+    .testi-avatar {
+      width: 44px; height: 44px; border-radius: 50%;
+      display: grid; place-items: center;
+      font-weight: 700; font-size: .875rem; color: #fff;
+      flex: none;
+    }
+    .testi-avatar.a1 { background: #0052ff; }
+    .testi-avatar.a2 { background: #627eea; }
+    .testi-avatar.a3 { background: #16c784; }
+    .testi-name { font-weight: 700; font-size: .9375rem; }
+    .testi-role { font-size: .8125rem; color: var(--muted); }
+
+    /* ---------- FAQ accordion ---------- */
+    .faq-list { max-width: 760px; }
+    .faq-item { border-bottom: 1px solid var(--line); }
+    .faq-item:first-child { border-top: 1px solid var(--line); }
+    .faq-q {
+      width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 1.5rem;
+      padding: 1.4rem 0.25rem;
+      font-size: 1.0625rem; font-weight: 600; text-align: left;
+      transition: color .2s var(--ease);
+    }
+    .faq-q:hover { color: var(--blue); }
+    .faq-q .chev {
+      width: 20px; height: 20px; flex: none;
+      color: var(--blue);
+      transition: transform .3s var(--ease);
+    }
+    .faq-item.open .chev { transform: rotate(180deg); }
+    .faq-a {
+      max-height: 0; overflow: hidden;
+      transition: max-height .45s var(--ease);
+    }
+    .faq-a-inner { padding: 0 0 1.4rem; color: var(--muted); font-size: .96875rem; line-height: 1.65; }
+
+    /* ---------- CTA band + newsletter ---------- */
+    .cta-band {
+      background: var(--cool);
+      border: 1px solid var(--line);
+      border-radius: var(--r-lg);
+      padding: clamp(2.5rem, 5vw, 4rem);
+      text-align: center;
+    }
+    .cta-band h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1rem; }
+    .cta-band p { color: var(--muted); margin: 0 auto 2rem; }
+
+    .newsletter {
+      display: flex; gap: .75rem; max-width: 460px; margin: 0 auto;
+    }
+    .newsletter input {
+      flex: 1; min-width: 0;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--r-pill);
+      padding: 1rem 1.5rem;
+      font-size: 1rem; color: var(--black);
+      transition: border-color .2s var(--ease);
+    }
+    .newsletter input:focus { outline: none; border-color: var(--blue); }
+    .newsletter input::placeholder { color: var(--muted); }
+    .newsletter-status { margin-top: 1rem; font-size: .875rem; color: #16c784; font-weight: 600; min-height: 1.4em; }
+    .newsletter-status.err { color: #ea3943; }
+
+    /* ---------- Footer ---------- */
+    .site-footer { border-top: 1px solid var(--line); padding: 3.5rem 0 2.5rem; }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 2.5rem;
+      margin-bottom: 3rem;
+    }
+    .footer-brand p { color: var(--muted); font-size: .9375rem; margin-top: 1rem; max-width: 34ch; }
+    .footer-col h4 { font-size: .8125rem; font-weight: 700; letter-spacing: .05em; margin-bottom: 1.1rem; }
+    .footer-col ul { list-style: none; display: grid; gap: .7rem; }
+    .footer-col a { color: var(--muted); font-size: .9375rem; transition: color .2s var(--ease); }
+    .footer-col a:hover { color: var(--blue); }
+    .footer-bottom {
+      border-top: 1px solid var(--line);
+      padding-top: 1.75rem;
+      display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between;
+      color: var(--muted); font-size: .8125rem;
+    }
+    .footer-bottom .mono { font-family: var(--mono); }
+
+    /* ---------- Cookie banner ---------- */
+    .cookie {
+      position: fixed; right: 1rem; bottom: 1rem; left: auto; z-index: 50;
+      max-width: 360px;
+      background: var(--black); color: var(--white);
+      border-radius: var(--r-md);
+      padding: 1.25rem 1.35rem;
+      box-shadow: 0 24px 60px -20px rgba(10, 11, 13, 0.5);
+      transform: translateY(calc(100% + 1rem));
+      transition: transform .5s var(--ease);
+    }
+    [data-theme="dark"] .cookie { background: var(--dark-card); }
+    .cookie.show { transform: translateY(0); }
+    .cookie p { font-size: .875rem; color: var(--muted); margin-bottom: 1.1rem; }
+    .cookie-actions { display: flex; gap: .6rem; }
+
+    /* ---------- Reveal on scroll ---------- */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
+    .reveal.in { opacity: 1; transform: none; }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 960px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero-visual { max-width: 520px; margin-inline: auto; }
+      .testi-grid { grid-template-columns: 1fr; }
+      .testi.lead { grid-row: auto; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .nav-links { display: none; }
+      .nav-burger { display: grid; }
+      .nav-tools .btn-nav { display: none; }
+      .how-grid { grid-template-columns: 1fr; }
+      .how-step + .how-step { border-left: 0; border-top: 1px solid var(--line); }
+      .step-arrow { display: none; }
+    }
+    @media (max-width: 640px) {
+      .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+      .sec-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .newsletter { flex-direction: column; }
+      .compare-table th, .compare-table td { padding: .9rem .75rem; font-size: .875rem; }
+      .preview-float { right: 1rem; }
+    }
+
+    /* ---------- Reduced motion ---------- */
+    @media (prefers-reduced-motion: reduce) {
+      .ticker-track { animation: none; }
+      .chart-line { stroke-dasharray: none; stroke-dashoffset: 0; }
+      .chart-line.in { animation: none; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .faq-a { transition: none; }
+      .cookie { transition: none; }
+      html { scroll-behavior: auto; }
+      * { animation-duration: 0.001s !important; transition-duration: 0.001s !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
+
+  <!-- ================= HEADER ================= -->
+  <header class="site-header">
+    <div class="container nav">
+      <a class="logo" href="#top" aria-label="Aegis home">
+        <span class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="none"><path d="M9 22V10l14 14V10" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        Aegis
+      </a>
+
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#how" data-i18n="navHow">How it works</a>
+        <a href="#compare" data-i18n="navCompare">Why Aegis</a>
+        <a href="#security" data-i18n="navSecurity">Security</a>
+        <a href="#faq" data-i18n="navFaq">FAQ</a>
+      </nav>
+
+      <div class="nav-tools">
+        <div class="lang-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <select class="lang-select" id="lang-select" aria-label="Language">
+            <option value="en">English</option>
+            <option value="es">Español</option>
+            <option value="fr">Français</option>
+            <option value="de">Deutsch</option>
+            <option value="it">Italiano</option>
+            <option value="pt">Português</option>
+          </select>
+        </div>
+
+        <button class="theme-btn" id="theme-toggle" aria-label="Toggle dark mode">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        </button>
+
+        <a class="btn btn-dark btn-sm btn-nav" href="#cta" data-i18n="navCta">Get started</a>
+        <button class="theme-btn nav-burger" id="nav-burger" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#how" data-i18n="navHow">How it works</a>
+    <a href="#compare" data-i18n="navCompare">Why Aegis</a>
+    <a href="#security" data-i18n="navSecurity">Security</a>
+    <a href="#faq" data-i18n="navFaq">FAQ</a>
+    <a class="btn btn-dark" href="#cta" data-i18n="navCta">Get started</a>
+  </div>
+
+  <main id="main">
+    <!-- ================= HERO ================= -->
+    <section class="hero" id="top">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="hero-badge reveal"><span class="dot" aria-hidden="true"></span><span data-i18n="heroBadge">Fully audited · Self-custody · Insured</span></span>
+          <h1 class="reveal" data-i18n="heroH1">Your savings.<br><em>Your keys.</em><br>Your future.</h1>
+          <p class="hero-sub reveal" data-i18n="heroSub">Aegis turns bitcoin and stablecoins into a secure savings account — institutional-grade custody, audited smart contracts, and yield paid daily. You hold the keys. We do the work.</p>
+          <div class="hero-cta reveal">
+            <a class="btn btn-dark" href="#cta" data-i18n="heroCta1">Create your vault</a>
+            <a class="btn btn-ghost" href="#compare" data-i18n="heroCta2">Compare with a bank</a>
+          </div>
+          <div class="hero-trust reveal">
+            <span class="avatar-stack" aria-hidden="true">
+              <span>MK</span><span>JL</span><span>RS</span><span>+2k</span>
+            </span>
+            <span>
+              <span class="stars" aria-hidden="true">★★★★★</span>
+              <span><strong data-i18n="heroRating">4.9/5</strong> <span data-i18n="heroRatingNote">from 12,400+ reviews</span></span>
+            </span>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal">
+          <div class="preview-float" aria-hidden="true">
+            <span class="lock">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+            </span>
+            <span>
+              <span data-i18n="floatTitle">Your keys, on-device</span>
+              <small data-i18n="floatSub">Biometric + passkey vault</small>
+            </span>
+          </div>
+
+          <div class="preview-card">
+            <div class="preview-head">
+              <div>
+                <div class="preview-label" data-i18n="pvLabel">Portfolio balance</div>
+                <div class="preview-balance"><span data-count="48420" data-prefix="€">€48,420.16</span>
+                  <span class="preview-change" aria-label="+12.4% this month">▲ +12.4%</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="preview-chart" role="img" aria-label="Portfolio growth chart, steady upward trend over the last year">
+              <svg viewBox="0 0 480 180" preserveAspectRatio="none">
+                <defs>
+                  <linearGradient id="areaFill" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#0052ff" stop-opacity="0.14"/>
+                    <stop offset="100%" stop-color="#0052ff" stop-opacity="0"/>
+                  </linearGradient>
+                </defs>
+                <path class="chart-area" d="M0,150 C40,142 60,128 90,126 C120,124 140,138 170,130 C200,122 220,96 250,92 C280,88 300,104 330,92 C360,80 380,58 410,50 C440,42 460,36 474,30 L474,180 L0,180 Z"/>
+                <path class="chart-line" d="M0,150 C40,142 60,128 90,126 C120,124 140,138 170,130 C200,122 220,96 250,92 C280,88 300,104 330,92 C360,80 380,58 410,50 C440,42 460,36 474,30"/>
+              </svg>
+            </div>
+
+            <div class="preview-alloc">
+              <div class="alloc-row">
+                <span class="alloc-name">Bitcoin</span>
+                <span class="alloc-val">62%</span>
+                <span class="alloc-track"><span class="alloc-fill btc" style="width:62%"></span></span>
+              </div>
+              <div class="alloc-row">
+                <span class="alloc-name">Ethereum</span>
+                <span class="alloc-val">23%</span>
+                <span class="alloc-track"><span class="alloc-fill eth" style="width:23%"></span></span>
+              </div>
+              <div class="alloc-row">
+                <span class="alloc-name">USD Coin</span>
+                <span class="alloc-val">15%</span>
+                <span class="alloc-track"><span class="alloc-fill usd" style="width:15%"></span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PRICE TICKER ================= -->
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track" id="ticker-track">
+        <span class="ticker-item"><span class="sym">BTC</span><span class="price">€64,210</span><span class="chg chg-up">+2.4%</span></span>
+        <span class="ticker-item"><span class="sym">ETH</span><span class="price">€3,185</span><span class="chg chg-up">+1.8%</span></span>
+        <span class="ticker-item"><span class="sym">SOL</span><span class="price">€142.60</span><span class="chg chg-up">+4.1%</span></span>
+        <span class="ticker-item"><span class="sym">USDC</span><span class="price">€0.92</span><span class="chg chg-up">+0.01%</span></span>
+        <span class="ticker-item"><span class="sym">ADA</span><span class="price">€0.38</span><span class="chg chg-down">−1.2%</span></span>
+        <span class="ticker-item"><span class="sym">DOT</span><span class="price">€6.41</span><span class="chg chg-up">+0.9%</span></span>
+        <span class="ticker-item"><span class="sym">MATIC</span><span class="price">€0.52</span><span class="chg chg-down">−0.6%</span></span>
+        <span class="ticker-item"><span class="sym">LINK</span><span class="price">€15.30</span><span class="chg chg-up">+3.2%</span></span>
+      </div>
+    </div>
+
+    <!-- ================= STATS ================= -->
+    <section class="stats" aria-label="Platform statistics">
+      <div class="container stats-grid">
+        <div class="stat reveal">
+          <div class="num" data-count="2840000" data-suffix="+" aria-label="2.84 million accounts">2,840,000+</div>
+          <div class="lbl" data-i18n="stat1">Accounts self-custodying</div>
+        </div>
+        <div class="stat reveal">
+          <div class="num" data-count="1800000000" data-prefix="€" aria-label="1.8 billion secured">€1.8B</div>
+          <div class="lbl" data-i18n="stat2">Assets under protection</div>
+        </div>
+        <div class="stat reveal">
+          <div class="num" data-count="99" data-suffix=".9%" aria-label="99.9 percent uptime">99.9%</div>
+          <div class="lbl" data-i18n="stat3">Infrastructure uptime</div>
+        </div>
+        <div class="stat reveal">
+          <div class="num" data-count="0" data-suffix="%" aria-label="zero percent custody fees">0%</div>
+          <div class="lbl" data-i18n="stat4">Custody fees, always</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= HOW IT WORKS ================= -->
+    <section id="how">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 data-i18n="howH2">Set up in ten minutes, not a weekend</h2>
+          <p data-i18n="howSub">No paperwork, no minimums, no permission. Three steps between you and a vault that answers to no one but you.</p>
+        </div>
+        <div class="how-grid reveal">
+          <div class="how-step">
+            <span class="step-num" data-i18n="step1Num">STEP 01</span>
+            <h3 data-i18n="step1Title">Create your vault</h3>
+            <p data-i18n="step1Body">Generate your keys on-device with biometrics and a passkey. They never leave your phone — not even we can see them.</p>
+          </div>
+          <div class="how-step">
+            <span class="step-num" data-i18n="step2Num">STEP 02</span>
+            <h3 data-i18n="step2Title">Fund with fiat or crypto</h3>
+            <p data-i18n="step2Body">Buy bitcoin and stablecoins with a card or bank transfer, or move coins in from any wallet. Settles in minutes.</p>
+          </div>
+          <div class="how-step">
+            <span class="step-num" data-i18n="step3Num">STEP 03</span>
+            <h3 data-i18n="step3Title">Earn while you hold</h3>
+            <p data-i18n="step3Body">Yield compounds daily on your stablecoins, and your bitcoin stays 100% yours. Withdraw to your own address anytime.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= COMPARE ================= -->
+    <section id="compare" style="background: var(--cool); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 data-i18n="cmpH2">The honest comparison</h2>
+          <p data-i18n="cmpSub">Banks charge you to store your money. Aegis pays you to keep it. Here's what that actually looks like.</p>
+        </div>
+        <div class="compare-wrap reveal">
+          <table class="compare-table">
+            <caption class="visually-hidden" data-i18n="cmpCaption">Comparison of Aegis versus a traditional bank</caption>
+            <thead>
+              <tr>
+                <th data-i18n="cmpCol1">What matters</th>
+                <th class="col-aegis">Aegis<span class="aegis-tag" data-i18n="cmpTag">YOU CHOOSE</span></th>
+                <th data-i18n="cmpCol2">Traditional bank</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-i18n="cmpR1c1">Who owns your money</td>
+                <td class="col-aegis"><span class="check" data-i18n="cmpR1aeg">You — self-custody</span></td>
+                <td><span class="cross" data-i18n="cmpR1bank">The bank</span></td>
+              </tr>
+              <tr>
+                <td data-i18n="cmpR2c1">Interest on savings</td>
+                <td class="col-aegis"><span class="check" data-i18n="cmpR2aeg">Up to 6.2% APY, daily</span></td>
+                <td><span class="cross" data-i18n="cmpR2bank">0.01% – 0.5% APY</span></td>
+              </tr>
+              <tr>
+                <td data-i18n="cmpR3c1">Custody fees</td>
+                <td class="col-aegis"><span class="check" data-i18n="cmpR3aeg">€0, always</span></td>
+                <td><span class="cross" data-i18n="cmpR3bank">€5–€25 / month</span></td>
+              </tr>
+              <tr>
+                <td data-i18n="cmpR4c1">Freeze your account</td>
+                <td class="col-aegis"><span class="check" data-i18n="cmpR4aeg">No one can</span></td>
+                <td><span class="cross" data-i18n="cmpR4bank">Anytime, any reason</span></td>
+              </tr>
+              <tr>
+                <td data-i18n="cmpR5c1">Open in 10 minutes</td>
+                <td class="col-aegis"><span class="check" data-i18n="cmpR5aeg">Yes</span></td>
+                <td><span class="cross" data-i18n="cmpR5bank">Usually 2–3 weeks</span></td>
+              </tr>
+              <tr>
+                <td data-i18n="cmpR6c1">Your assets, 24/7</td>
+                <td class="col-aegis"><span class="check" data-i18n="cmpR6aeg">Yes — even weekends</span></td>
+                <td><span class="cross" data-i18n="cmpR6bank">Business hours only</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SECURITY (dark) ================= -->
+    <section id="security">
+      <div class="container">
+        <div class="security reveal">
+          <div class="section-head">
+            <h2 data-i18n="secH2">Security you can verify, not just trust</h2>
+            <p data-i18n="secSub">Every layer of Aegis is open source and audited. If it can't be verified, it doesn't ship.</p>
+          </div>
+          <div class="sec-grid">
+            <div class="sec-item">
+              <div class="sec-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+              </div>
+              <h3 data-i18n="sec1Title">Self-custody by default</h3>
+              <p data-i18n="sec1Body">Your private keys are generated and stored on your device, protected by biometrics and passkeys. Aegis can never move your funds without you.</p>
+            </div>
+            <div class="sec-item">
+              <div class="sec-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5.25 3.4 10.1 8 11 4.6-.9 8-5.75 8-11V5l-8-3z"/><path d="m9 12 2 2 4-4"/></svg>
+              </div>
+              <h3 data-i18n="sec2Title">Audited smart contracts</h3>
+              <p data-i18n="sec2Body">Four independent firms audit every contract before release. The full source is public — 11 audits passed, zero critical findings.</p>
+            </div>
+            <div class="sec-item">
+              <div class="sec-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              </div>
+              <h3 data-i18n="sec3Title">Insurance on every vault</h3>
+              <p data-i18n="sec3Body">Funds held by Aegis are covered by a €200M insurance policy against theft and protocol loss. Your risk ends where ours begins.</p>
+            </div>
+            <div class="sec-item">
+              <div class="sec-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              </div>
+              <h3 data-i18n="sec4Title">Regulated where it counts</h3>
+              <p data-i18n="sec4Body">Aegis operates under an EU MiCA license and a registered VASP in the UK. KYC once, quietly, with your data encrypted end to end.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TESTIMONIALS ================= -->
+    <section id="testimonials">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 data-i18n="tsH2">People who stopped renting their money</h2>
+          <p data-i18n="tsSub">Real accounts, real numbers, real freedom.</p>
+        </div>
+        <div class="testi-grid">
+          <figure class="testi lead reveal">
+            <blockquote data-i18n="ts1Quote">I moved my emergency fund out of a bank that paid 0.05% and into Aegis stablecoins. Same peace of mind, sixty times the yield, and I'm the only one who can touch it. I sleep better than I did with the bank.</blockquote>
+            <figcaption class="testi-meta">
+              <span class="testi-avatar a1" aria-hidden="true">MK</span>
+              <span>
+                <span class="testi-name" data-i18n="ts1Name">Marta Kowalska</span>
+                <span class="testi-role" data-i18n="ts1Role">Product designer, Berlin</span>
+              </span>
+            </figcaption>
+          </figure>
+          <figure class="testi reveal">
+            <blockquote data-i18n="ts2Quote">Two years of daily compound interest on my savings, zero custody fees, and I've never once been locked out. The weekly audit reports are a nice touch.</blockquote>
+            <figcaption class="testi-meta">
+              <span class="testi-avatar a2" aria-hidden="true">JL</span>
+              <span>
+                <span class="testi-name" data-i18n="ts2Name">João Lima</span>
+                <span class="testi-role" data-i18n="ts2Role">Freelance engineer, Lisbon</span>
+              </span>
+            </figcaption>
+          </figure>
+          <figure class="testi reveal">
+            <blockquote data-i18n="ts3Quote">I kept 40% of my savings in bitcoin through Aegis. The passkey vault took five minutes to set up. My bank asked for three visits and a notary.</blockquote>
+            <figcaption class="testi-meta">
+              <span class="testi-avatar a3" aria-hidden="true">RS</span>
+              <span>
+                <span class="testi-name" data-i18n="ts3Name">Rosa Schmidt</span>
+                <span class="testi-role" data-i18n="ts3Role">Clinic owner, Munich</span>
+              </span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FAQ ================= -->
+    <section id="faq">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 data-i18n="faqH2">Questions, answered straight</h2>
+          <p data-i18n="faqSub">If yours isn't here, our support team answers in under an hour — real humans, seven days a week.</p>
+        </div>
+        <div class="faq-list reveal">
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              <span data-i18n="q1">What does "self-custody" actually mean?</span>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="faq-a"><div class="faq-a-inner" data-i18n="a1">It means your private keys — the only way to move your funds — are generated and stored on your own device, never on our servers. We build the vault and the tools; you own the key. Lose your key and we can't recover it, which is exactly why we build recovery flows with your passkey and a secret share.</div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              <span data-i18n="q2">How is the yield generated?</span>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="faq-a"><div class="faq-a-inner" data-i18n="a2">Stablecoins in your vault are routed into audited lending protocols and short-term government-backed instruments through a transparent strategy. Every position is published weekly. Rates float with the market — currently 4.8%–6.2% APY — and interest lands in your vault daily.</div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              <span data-i18n="q3">Is my money insured?</span>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="faq-a"><div class="faq-a-inner" data-i18n="a3">Yes. Vaults are covered by a €200M policy against theft and protocol failure, held with a leading Lloyd's syndicate. Funds in your own wallet — the self-custody part — are yours alone; the insurance covers assets in Aegis-managed strategies.</div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              <span data-i18n="q4">What happens if I lose my phone?</span>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="faq-a"><div class="faq-a-inner" data-i18n="a4">Your recovery phrase is split into encrypted shares using Shamir's Secret Sharing, and one share lives in your passkey provider (iCloud, Google, or 1Password). Reinstall the app, authenticate with your passkey, and your vault is back — without us ever seeing your keys.</div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              <span data-i18n="q5">Are there any fees?</span>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="faq-a"><div class="faq-a-inner" data-i18n="a5">Custody is free forever. We earn a transparent spread on fiat-to-crypto purchases (0.4%) and on protocol yield (0.25%). No hidden monthly fees, no minimum balance, no inactivity charges. Everything is itemised in your vault ledger.</div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              <span data-i18n="q6">Can I withdraw to my own wallet?</span>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="faq-a"><div class="faq-a-inner" data-i18n="a6">Anytime, to any address, with no approval and no waiting period. Network fees apply on-chain only. You'll never need to ask permission to move your own money — that's the whole point.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CTA + NEWSLETTER ================= -->
+    <section id="cta">
+      <div class="container">
+        <div class="cta-band reveal">
+          <h2 data-i18n="ctaH2">Your money shouldn't ask permission.</h2>
+          <p data-i18n="ctaSub">Join 2.8 million people keeping their savings where they can actually see it. Free to create, free to hold, free to leave.</p>
+          <div class="newsletter" role="form" aria-label="Email signup">
+            <input type="email" id="nl-email" inputmode="email" autocomplete="email" placeholder="you@example.com" data-i18n="nlPlaceholder" aria-label="Email address">
+            <button class="btn btn-blue" id="nl-submit" data-i18n="nlBtn">Claim your spot</button>
+          </div>
+          <div class="newsletter-status" id="nl-status" role="status" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="logo" href="#top" aria-label="Aegis home">
+            <span class="logo-mark" aria-hidden="true">
+              <svg viewBox="0 0 32 32" fill="none"><path d="M9 22V10l14 14V10" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            Aegis
+          </a>
+          <p data-i18n="footBrand">Self-custody savings for bitcoin and stablecoins. Audited, insured, and owned by you.</p>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footCol1">Product</h4>
+          <ul>
+            <li><a href="#how" data-i18n="footL1">Vaults</a></li>
+            <li><a href="#compare" data-i18n="footL2">Yield strategies</a></li>
+            <li><a href="#security" data-i18n="footL3">Security</a></li>
+            <li><a href="#faq" data-i18n="footL4">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footCol2">Company</h4>
+          <ul>
+            <li><a href="#" data-i18n="footL5">About</a></li>
+            <li><a href="#" data-i18n="footL6">Audit reports</a></li>
+            <li><a href="#" data-i18n="footL7">Careers</a></li>
+            <li><a href="#" data-i18n="footL8">Press</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footCol3">Legal</h4>
+          <ul>
+            <li><a href="#" data-i18n="footL9">Terms</a></li>
+            <li><a href="#" data-i18n="footL10">Privacy</a></li>
+            <li><a href="#" data-i18n="footL11">Risk disclosure</a></li>
+            <li><a href="#" data-i18n="footL12">Licenses</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="mono">© 2026 Aegis Savings · MiCA-licensed</span>
+        <span data-i18n="footNote">Crypto assets are volatile. Not financial advice. Past yield is not a promise of future yield.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= COOKIE BANNER ================= -->
+  <div class="cookie" id="cookie-banner" role="dialog" aria-label="Cookie consent">
+    <p data-i18n="cookieText">We use essential cookies to keep your vault secure, plus optional analytics cookies to improve the product. Your choice is stored locally.</p>
+    <div class="cookie-actions">
+      <button class="btn btn-blue btn-sm" id="cookie-accept" data-i18n="cookieAccept">Accept all</button>
+      <button class="btn btn-ghost btn-sm" id="cookie-decline" data-i18n="cookieDecline">Essential only</button>
+    </div>
+  </div>
+
+  <script>
+    /* ================================================================
+       AEGIS — interaction layer
+       i18n (6 languages, data-i18n keys, SEO meta per language),
+       theme (kairos-theme key — shared with capture pipeline),
+       ticker marquee, count-up stats, chart draw, FAQ accordion,
+       cookie banner, newsletter validation, mobile menu.
+       ================================================================ */
+    (function () {
+      'use strict';
+
+      var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var LANG_KEY = 'aegis-lang';
+      var THEME_KEY = 'kairos-theme'; /* shared key — capture pipeline forces light via this key */
+
+      /* ================================================================
+         i18n dictionary — native-level copy for each locale
+         ================================================================ */
+      var I18N = {
+        en: {
+          skip: 'Skip to content',
+          navHow: 'How it works', navCompare: 'Why Aegis', navSecurity: 'Security', navFaq: 'FAQ', navCta: 'Get started',
+          heroBadge: 'Fully audited · Self-custody · Insured',
+          heroH1: 'Your savings.<br><em>Your keys.</em><br>Your future.',
+          heroSub: 'Aegis turns bitcoin and stablecoins into a secure savings account — institutional-grade custody, audited smart contracts, and yield paid daily. You hold the keys. We do the work.',
+          heroCta1: 'Create your vault', heroCta2: 'Compare with a bank',
+          heroRating: '4.9/5', heroRatingNote: 'from 12,400+ reviews',
+          floatTitle: 'Your keys, on-device', floatSub: 'Biometric + passkey vault',
+          pvLabel: 'Portfolio balance',
+          stat1: 'Accounts self-custodying', stat2: 'Assets under protection', stat3: 'Infrastructure uptime', stat4: 'Custody fees, always',
+          howH2: 'Set up in ten minutes, not a weekend',
+          howSub: 'No paperwork, no minimums, no permission. Three steps between you and a vault that answers to no one but you.',
+          step1Num: 'STEP 01', step1Title: 'Create your vault', step1Body: 'Generate your keys on-device with biometrics and a passkey. They never leave your phone — not even we can see them.',
+          step2Num: 'STEP 02', step2Title: 'Fund with fiat or crypto', step2Body: 'Buy bitcoin and stablecoins with a card or bank transfer, or move coins in from any wallet. Settles in minutes.',
+          step3Num: 'STEP 03', step3Title: 'Earn while you hold', step3Body: 'Yield compounds daily on your stablecoins, and your bitcoin stays 100% yours. Withdraw to your own address anytime.',
+          cmpH2: 'The honest comparison',
+          cmpSub: 'Banks charge you to store your money. Aegis pays you to keep it. Here\'s what that actually looks like.',
+          cmpCaption: 'Comparison of Aegis versus a traditional bank',
+          cmpCol1: 'What matters', cmpTag: 'YOU CHOOSE', cmpCol2: 'Traditional bank',
+          cmpR1c1: 'Who owns your money', cmpR1aeg: 'You — self-custody', cmpR1bank: 'The bank',
+          cmpR2c1: 'Interest on savings', cmpR2aeg: 'Up to 6.2% APY, daily', cmpR2bank: '0.01% – 0.5% APY',
+          cmpR3c1: 'Custody fees', cmpR3aeg: '€0, always', cmpR3bank: '€5–€25 / month',
+          cmpR4c1: 'Freeze your account', cmpR4aeg: 'No one can', cmpR4bank: 'Anytime, any reason',
+          cmpR5c1: 'Open in 10 minutes', cmpR5aeg: 'Yes', cmpR5bank: 'Usually 2–3 weeks',
+          cmpR6c1: 'Your assets, 24/7', cmpR6aeg: 'Yes — even weekends', cmpR6bank: 'Business hours only',
+          secH2: 'Security you can verify, not just trust',
+          secSub: 'Every layer of Aegis is open source and audited. If it can\'t be verified, it doesn\'t ship.',
+          sec1Title: 'Self-custody by default', sec1Body: 'Your private keys are generated and stored on your device, protected by biometrics and passkeys. Aegis can never move your funds without you.',
+          sec2Title: 'Audited smart contracts', sec2Body: 'Four independent firms audit every contract before release. The full source is public — 11 audits passed, zero critical findings.',
+          sec3Title: 'Insurance on every vault', sec3Body: 'Funds held by Aegis are covered by a €200M insurance policy against theft and protocol loss. Your risk ends where ours begins.',
+          sec4Title: 'Regulated where it counts', sec4Body: 'Aegis operates under an EU MiCA license and a registered VASP in the UK. KYC once, quietly, with your data encrypted end to end.',
+          tsH2: 'People who stopped renting their money', tsSub: 'Real accounts, real numbers, real freedom.',
+          ts1Quote: 'I moved my emergency fund out of a bank that paid 0.05% and into Aegis stablecoins. Same peace of mind, sixty times the yield, and I\'m the only one who can touch it. I sleep better than I did with the bank.',
+          ts1Name: 'Marta Kowalska', ts1Role: 'Product designer, Berlin',
+          ts2Quote: 'Two years of daily compound interest on my savings, zero custody fees, and I\'ve never once been locked out. The weekly audit reports are a nice touch.',
+          ts2Name: 'João Lima', ts2Role: 'Freelance engineer, Lisbon',
+          ts3Quote: 'I kept 40% of my savings in bitcoin through Aegis. The passkey vault took five minutes to set up. My bank asked for three visits and a notary.',
+          ts3Name: 'Rosa Schmidt', ts3Role: 'Clinic owner, Munich',
+          faqH2: 'Questions, answered straight',
+          faqSub: 'If yours isn\'t here, our support team answers in under an hour — real humans, seven days a week.',
+          q1: 'What does "self-custody" actually mean?',
+          a1: 'It means your private keys — the only way to move your funds — are generated and stored on your own device, never on our servers. We build the vault and the tools; you own the key. Lose your key and we can\'t recover it, which is exactly why we build recovery flows with your passkey and a secret share.',
+          q2: 'How is the yield generated?',
+          a2: 'Stablecoins in your vault are routed into audited lending protocols and short-term government-backed instruments through a transparent strategy. Every position is published weekly. Rates float with the market — currently 4.8%–6.2% APY — and interest lands in your vault daily.',
+          q3: 'Is my money insured?',
+          a3: 'Yes. Vaults are covered by a €200M policy against theft and protocol failure, held with a leading Lloyd\'s syndicate. Funds in your own wallet — the self-custody part — are yours alone; the insurance covers assets in Aegis-managed strategies.',
+          q4: 'What happens if I lose my phone?',
+          a4: 'Your recovery phrase is split into encrypted shares using Shamir\'s Secret Sharing, and one share lives in your passkey provider (iCloud, Google, or 1Password). Reinstall the app, authenticate with your passkey, and your vault is back — without us ever seeing your keys.',
+          q5: 'Are there any fees?',
+          a5: 'Custody is free forever. We earn a transparent spread on fiat-to-crypto purchases (0.4%) and on protocol yield (0.25%). No hidden monthly fees, no minimum balance, no inactivity charges. Everything is itemised in your vault ledger.',
+          q6: 'Can I withdraw to my own wallet?',
+          a6: 'Anytime, to any address, with no approval and no waiting period. Network fees apply on-chain only. You\'ll never need to ask permission to move your own money — that\'s the whole point.',
+          ctaH2: 'Your money shouldn\'t ask permission.',
+          ctaSub: 'Join 2.8 million people keeping their savings where they can actually see it. Free to create, free to hold, free to leave.',
+          nlPlaceholder: 'you@example.com', nlBtn: 'Claim your spot',
+          nlOk: 'You\'re on the list — welcome to Aegis.', nlErr: 'Please enter a valid email address.',
+          footBrand: 'Self-custody savings for bitcoin and stablecoins. Audited, insured, and owned by you.',
+          footCol1: 'Product', footCol2: 'Company', footCol3: 'Legal',
+          footL1: 'Vaults', footL2: 'Yield strategies', footL3: 'Security', footL4: 'FAQ',
+          footL5: 'About', footL6: 'Audit reports', footL7: 'Careers', footL8: 'Press',
+          footL9: 'Terms', footL10: 'Privacy', footL11: 'Risk disclosure', footL12: 'Licenses',
+          footNote: 'Crypto assets are volatile. Not financial advice. Past yield is not a promise of future yield.',
+          cookieText: 'We use essential cookies to keep your vault secure, plus optional analytics cookies to improve the product. Your choice is stored locally.',
+          cookieAccept: 'Accept all', cookieDecline: 'Essential only',
+          metaTitle: 'Aegis — Self-Custody Crypto Savings | Own Your Key, Earn Yield',
+          metaDesc: 'Aegis is a self-custody savings platform for bitcoin and stablecoins. Institutional-grade security, audited smart contracts, and yield paid daily. You hold the keys — we do the work.',
+          ogTitle: 'Aegis — Self-Custody Crypto Savings',
+          ogDesc: 'Bitcoin & stablecoin savings with institutional-grade security. You hold the keys — we do the work. Yield paid daily.',
+          twTitle: 'Aegis — Self-Custody Crypto Savings',
+          twDesc: 'Bitcoin & stablecoin savings. You hold the keys — we do the work. Audited, insured, daily yield.'
+        },
+        es: {
+          skip: 'Saltar al contenido',
+          navHow: 'Cómo funciona', navCompare: 'Por qué Aegis', navSecurity: 'Seguridad', navFaq: 'FAQ', navCta: 'Empezar',
+          heroBadge: 'Auditado · Autocustodia · Asegurado',
+          heroH1: 'Tu dinero.<br><em>Tus llaves.</em><br>Tu futuro.',
+          heroSub: 'Aegis convierte bitcoin y stablecoins en una cuenta de ahorro segura: custodia de nivel institucional, contratos inteligentes auditados y rendimiento diario. Tú tienes las llaves. Nosotros hacemos el trabajo.',
+          heroCta1: 'Crea tu bóveda', heroCta2: 'Compara con un banco',
+          heroRating: '4,9/5', heroRatingNote: 'de más de 12.400 reseñas',
+          floatTitle: 'Tus llaves, en tu dispositivo', floatSub: 'Bóveda biométrica + passkey',
+          pvLabel: 'Saldo de la cartera',
+          stat1: 'Cuentas en autocustodia', stat2: 'Activos protegidos', stat3: 'Disponibilidad de la infraestructura', stat4: 'Comisiones de custodia, siempre',
+          howH2: 'Configúralo en diez minutos, no en un fin de semana',
+          howSub: 'Sin papeleo, sin mínimos, sin permisos. Tres pasos entre tú y una bóveda que solo obedece a ti.',
+          step1Num: 'PASO 01', step1Title: 'Crea tu bóveda', step1Body: 'Genera tus llaves en tu dispositivo con biometría y passkey. Nunca salen de tu teléfono — ni siquiera nosotros podemos verlas.',
+          step2Num: 'PASO 02', step2Title: 'Fondéala con fiat o cripto', step2Body: 'Compra bitcoin y stablecoins con tarjeta o transferencia, o mueve monedas desde cualquier wallet. Se liquida en minutos.',
+          step3Num: 'PASO 03', step3Title: 'Gana mientras mantienes', step3Body: 'El rendimiento se compone a diario sobre tus stablecoins, y tu bitcoin sigue siendo 100% tuyo. Retira a tu propia dirección cuando quieras.',
+          cmpH2: 'La comparación honesta',
+          cmpSub: 'Los bancos te cobran por guardar tu dinero. Aegis te paga por conservarlo. Así se ve en la práctica.',
+          cmpCaption: 'Comparación entre Aegis y un banco tradicional',
+          cmpCol1: 'Lo que importa', cmpTag: 'TÚ ELIGES', cmpCol2: 'Banco tradicional',
+          cmpR1c1: 'Quién es dueño de tu dinero', cmpR1aeg: 'Tú — autocustodia', cmpR1bank: 'El banco',
+          cmpR2c1: 'Interés sobre el ahorro', cmpR2aeg: 'Hasta 6,2% TAE, a diario', cmpR2bank: '0,01% – 0,5% TAE',
+          cmpR3c1: 'Comisiones de custodia', cmpR3aeg: '0 €, siempre', cmpR3bank: '5–25 € / mes',
+          cmpR4c1: 'Congelar tu cuenta', cmpR4aeg: 'Nadie puede', cmpR4bank: 'Cuando quiera, por cualquier motivo',
+          cmpR5c1: 'Abrir en 10 minutos', cmpR5aeg: 'Sí', cmpR5bank: 'Normalmente 2–3 semanas',
+          cmpR6c1: 'Tus activos, 24/7', cmpR6aeg: 'Sí — incluso los fines de semana', cmpR6bank: 'Solo en horario laboral',
+          secH2: 'Seguridad que puedes verificar, no solo confiar',
+          secSub: 'Cada capa de Aegis es de código abierto y está auditada. Si no se puede verificar, no se publica.',
+          sec1Title: 'Autocustodia por defecto', sec1Body: 'Tus llaves privadas se generan y guardan en tu dispositivo, protegidas por biometría y passkeys. Aegis jamás puede mover tus fondos sin ti.',
+          sec2Title: 'Contratos inteligentes auditados', sec2Body: 'Cuatro firmas independientes auditan cada contrato antes de publicarlo. El código completo es público: 11 auditorías aprobadas, cero hallazgos críticos.',
+          sec3Title: 'Seguro en cada bóveda', sec3Body: 'Los fondos gestionados por Aegis están cubiertos por una póliza de 200 M€ contra robo y pérdida de protocolo. Tu riesgo termina donde empieza el nuestro.',
+          sec4Title: 'Regulado donde importa', sec4Body: 'Aegis opera con licencia MiCA de la UE y VASP registrado en el Reino Unido. KYC una vez, de forma discreta, con tus datos cifrados de extremo a extremo.',
+          tsH2: 'Personas que dejaron de alquilar su dinero', tsSub: 'Cuentas reales, cifras reales, libertad real.',
+          ts1Quote: 'Saqué mi fondo de emergencia de un banco que pagaba 0,05% y lo pasé a stablecoins de Aegis. La misma tranquilidad, sesenta veces más rendimiento, y solo yo puedo tocarlo. Duermo mejor que con el banco.',
+          ts1Name: 'Marta Kowalska', ts1Role: 'Diseñadora de producto, Berlín',
+          ts2Quote: 'Dos años de interés compuesto diario sobre mis ahorros, cero comisiones de custodia, y nunca me he quedado fuera. Los informes de auditoría semanales son un buen detalle.',
+          ts2Name: 'João Lima', ts2Role: 'Ingeniero freelance, Lisboa',
+          ts3Quote: 'Mantuve el 40% de mis ahorros en bitcoin a través de Aegis. La bóveda con passkey tardó cinco minutos. Mi banco pidió tres visitas y un notario.',
+          ts3Name: 'Rosa Schmidt', ts3Role: 'Dueña de clínica, Múnich',
+          faqH2: 'Preguntas, respondidas sin rodeos',
+          faqSub: 'Si la tuya no está aquí, nuestro equipo de soporte responde en menos de una hora — humanos reales, siete días a la semana.',
+          q1: '¿Qué significa "autocustodia" realmente?',
+          a1: 'Que tus llaves privadas — la única forma de mover tus fondos — se generan y guardan en tu propio dispositivo, nunca en nuestros servidores. Nosotros construimos la bóveda y las herramientas; tú eres dueño de la llave. Si la pierdes, no podemos recuperarla, por eso creamos flujos de recuperación con tu passkey y una parte secreta compartida.',
+          q2: '¿Cómo se genera el rendimiento?',
+          a2: 'Las stablecoins de tu bóveda se dirigen a protocolos de préstamo auditados e instrumentos gubernamentales a corto plazo mediante una estrategia transparente. Cada posición se publica semanalmente. Las tasas flotan con el mercado — actualmente 4,8%–6,2% TAE — y los intereses llegan a tu bóveda a diario.',
+          q3: '¿Mi dinero está asegurado?',
+          a3: 'Sí. Las bóvedas están cubiertas por una póliza de 200 M€ contra robo y fallo de protocolo, suscrita con un sindicato líder de Lloyd\'s. Los fondos de tu propia wallet — la parte de autocustodia — son solo tuyos; el seguro cubre los activos en estrategias gestionadas por Aegis.',
+          q4: '¿Qué pasa si pierdo el móvil?',
+          a4: 'Tu frase de recuperación se divide en partes cifradas con el esquema de Shamir, y una parte vive en tu proveedor de passkey (iCloud, Google o 1Password). Reinstala la app, autentícate con tu passkey y tu bóveda vuelve — sin que nosotros veamos tus llaves.',
+          q5: '¿Hay comisiones?',
+          a5: 'La custodia es gratis para siempre. Ganamos un diferencial transparente en las compras fiat-cripto (0,4%) y en el rendimiento del protocolo (0,25%). Sin comisiones mensuales ocultas, sin saldo mínimo, sin cargos por inactividad. Todo se detalla en el libro mayor de tu bóveda.',
+          q6: '¿Puedo retirar a mi propia wallet?',
+          a6: 'Cuando quieras, a cualquier dirección, sin aprobaciones ni periodos de espera. Solo se aplican comisiones de red en cadena. Nunca tendrás que pedir permiso para mover tu propio dinero — esa es la idea.',
+          ctaH2: 'Tu dinero no debería pedir permiso.',
+          ctaSub: 'Únete a 2,8 millones de personas que guardan sus ahorros donde realmente pueden verlos. Gratis para crear, gratis para mantener, gratis para irse.',
+          nlPlaceholder: 'tu@ejemplo.com', nlBtn: 'Reserva tu sitio',
+          nlOk: 'Estás en la lista — bienvenido a Aegis.', nlErr: 'Introduce una dirección de correo válida.',
+          footBrand: 'Ahorro en autocustodia para bitcoin y stablecoins. Auditado, asegurado y tuyo.',
+          footCol1: 'Producto', footCol2: 'Empresa', footCol3: 'Legal',
+          footL1: 'Bóvedas', footL2: 'Estrategias de rendimiento', footL3: 'Seguridad', footL4: 'FAQ',
+          footL5: 'Nosotros', footL6: 'Informes de auditoría', footL7: 'Empleo', footL8: 'Prensa',
+          footL9: 'Términos', footL10: 'Privacidad', footL11: 'Aviso de riesgo', footL12: 'Licencias',
+          footNote: 'Los criptoactivos son volátiles. No es asesoramiento financiero. El rendimiento pasado no garantiza el futuro.',
+          cookieText: 'Usamos cookies esenciales para mantener segura tu bóveda, más cookies opcionales de análisis para mejorar el producto. Tu elección se guarda localmente.',
+          cookieAccept: 'Aceptar todo', cookieDecline: 'Solo esenciales',
+          metaTitle: 'Aegis — Ahorro en cripto con autocustodia | Tus llaves, tu rendimiento',
+          metaDesc: 'Aegis es una plataforma de ahorro con autocustodia para bitcoin y stablecoins. Seguridad de nivel institucional, contratos auditados y rendimiento diario. Tú tienes las llaves — nosotros hacemos el trabajo.',
+          ogTitle: 'Aegis — Ahorro en cripto con autocustodia',
+          ogDesc: 'Ahorro en bitcoin y stablecoins con seguridad institucional. Tú tienes las llaves — nosotros hacemos el trabajo. Rendimiento diario.',
+          twTitle: 'Aegis — Ahorro en cripto con autocustodia',
+          twDesc: 'Ahorro en bitcoin y stablecoins. Tú tienes las llaves — nosotros hacemos el trabajo. Auditado, asegurado, rendimiento diario.'
+        },
+        fr: {
+          skip: 'Aller au contenu',
+          navHow: 'Comment ça marche', navCompare: 'Pourquoi Aegis', navSecurity: 'Sécurité', navFaq: 'FAQ', navCta: 'Commencer',
+          heroBadge: 'Audité · Auto-conservation · Assuré',
+          heroH1: 'Votre épargne.<br><em>Vos clés.</em><br>Votre avenir.',
+          heroSub: 'Aegis transforme le bitcoin et les stablecoins en compte d\'épargne sécurisé — conservation de niveau institutionnel, contrats intelligents audités et rendement versé chaque jour. Vous gardez les clés. Nous faisons le travail.',
+          heroCta1: 'Créer votre coffre', heroCta2: 'Comparer avec une banque',
+          heroRating: '4,9/5', heroRatingNote: 'sur plus de 12 400 avis',
+          floatTitle: 'Vos clés, sur votre appareil', floatSub: 'Coffre biométrique + passkey',
+          pvLabel: 'Solde du portefeuille',
+          stat1: 'Comptes en auto-conservation', stat2: 'Actifs protégés', stat3: 'Disponibilité de l\'infrastructure', stat4: 'Frais de conservation, toujours',
+          howH2: 'Configuré en dix minutes, pas en un week-end',
+          howSub: 'Aucun paperasse, aucun minimum, aucune permission. Trois étapes entre vous et un coffre qui n\'obéit qu\'à vous.',
+          step1Num: 'ÉTAPE 01', step1Title: 'Créez votre coffre', step1Body: 'Générez vos clés sur votre appareil avec biométrie et passkey. Elles ne quittent jamais votre téléphone — même nous ne pouvons pas les voir.',
+          step2Num: 'ÉTAPE 02', step2Title: 'Alimentez en fiat ou en crypto', step2Body: 'Achetez du bitcoin et des stablecoins par carte ou virement, ou importez des fonds depuis n\'importe quel wallet. Réglé en quelques minutes.',
+          step3Num: 'ÉTAPE 03', step3Title: 'Gagnez pendant que vous gardez', step3Body: 'Les intérêts composent chaque jour sur vos stablecoins, et votre bitcoin reste 100 % à vous. Retirez à votre propre adresse à tout moment.',
+          cmpH2: 'La comparaison honnête',
+          cmpSub: 'Les banques vous facturent pour garder votre argent. Aegis vous paie pour le conserver. Voici à quoi cela ressemble.',
+          cmpCaption: 'Comparaison entre Aegis et une banque traditionnelle',
+          cmpCol1: 'Ce qui compte', cmpTag: 'VOUS CHOISISSEZ', cmpCol2: 'Banque traditionnelle',
+          cmpR1c1: 'À qui appartient votre argent', cmpR1aeg: 'À vous — auto-conservation', cmpR1bank: 'À la banque',
+          cmpR2c1: 'Intérêts sur l\'épargne', cmpR2aeg: 'Jusqu\'à 6,2 % TAEG, chaque jour', cmpR2bank: '0,01 % – 0,5 % TAEG',
+          cmpR3c1: 'Frais de conservation', cmpR3aeg: '0 €, toujours', cmpR3bank: '5–25 € / mois',
+          cmpR4c1: 'Geler votre compte', cmpR4aeg: 'Personne ne peut', cmpR4bank: 'À tout moment, pour n\'importe quelle raison',
+          cmpR5c1: 'Ouvert en 10 minutes', cmpR5aeg: 'Oui', cmpR5bank: 'En général 2–3 semaines',
+          cmpR6c1: 'Vos actifs, 24h/24', cmpR6aeg: 'Oui — même le week-end', cmpR6bank: 'Heures de bureau uniquement',
+          secH2: 'Une sécurité que vous vérifiez, pas seulement que vous croyez',
+          secSub: 'Chaque couche d\'Aegis est open source et audité. Si ce n\'est pas vérifiable, cela ne sort pas.',
+          sec1Title: 'Auto-conservation par défaut', sec1Body: 'Vos clés privées sont générées et stockées sur votre appareil, protégées par biométrie et passkeys. Aegis ne peut jamais déplacer vos fonds sans vous.',
+          sec2Title: 'Contrats intelligents audités', sec2Body: 'Quatre cabinets indépendants auditent chaque contrat avant sa publication. Le code source complet est public — 11 audits validés, zéro constat critique.',
+          sec3Title: 'Assurance sur chaque coffre', sec3Body: 'Les fonds gérés par Aegis sont couverts par une police de 200 M€ contre le vol et la perte de protocole. Votre risque s\'arrête là où le nôtre commence.',
+          sec4Title: 'Régulé là où cela compte', sec4Body: 'Aegis opère sous licence MiCA de l\'UE et VASP enregistré au Royaume-Uni. KYC une fois, discrètement, avec vos données chiffrées de bout en bout.',
+          tsH2: 'Des gens qui ont arrêté de louer leur argent', tsSub: 'De vrais comptes, de vrais chiffres, une vraie liberté.',
+          ts1Quote: 'J\'ai sorti mon fonds d\'urgence d\'une banque qui payait 0,05 % et je l\'ai mis en stablecoins Aegis. Même sérénité, soixante fois plus de rendement, et je suis le seul à pouvoir y toucher. Je dors mieux qu\'avec la banque.',
+          ts1Name: 'Marta Kowalska', ts1Role: 'Designer produit, Berlin',
+          ts2Quote: 'Deux ans d\'intérêts composés quotidiens sur mes économies, zéro frais de conservation, et jamais de blocage. Les rapports d\'audit hebdomadaires sont une belle attention.',
+          ts2Name: 'João Lima', ts2Role: 'Ingénieur freelance, Lisbonne',
+          ts3Quote: 'J\'ai gardé 40 % de mes économies en bitcoin via Aegis. Le coffre passkey a pris cinq minutes. Ma banque demandait trois rendez-vous et un notaire.',
+          ts3Name: 'Rosa Schmidt', ts3Role: 'Directrice de clinique, Munich',
+          faqH2: 'Des questions, des réponses directes',
+          faqSub: 'Si la vôtre n\'est pas ici, notre équipe d\'assistance répond en moins d\'une heure — de vrais humains, sept jours sur sept.',
+          q1: 'Que signifie réellement « auto-conservation » ?',
+          a1: 'Cela signifie que vos clés privées — le seul moyen de déplacer vos fonds — sont générées et stockées sur votre propre appareil, jamais sur nos serveurs. Nous construisons le coffre et les outils ; vous possédez la clé. Perdez votre clé et nous ne pouvons pas la récupérer, c\'est exactement pourquoi nous avons créé des flux de récupération avec votre passkey et une part secrète.',
+          q2: 'Comment le rendement est-il généré ?',
+          a2: 'Les stablecoins de votre coffre sont orientés vers des protocoles de prêt audités et des instruments publics à court terme via une stratégie transparente. Chaque position est publiée chaque semaine. Les taux suivent le marché — actuellement 4,8 %–6,2 % TAEG — et les intérêts arrivent chaque jour.',
+          q3: 'Mon argent est-il assuré ?',
+          a3: 'Oui. Les coffres sont couverts par une police de 200 M€ contre le vol et la défaillance de protocole, souscrite auprès d\'un syndicat Lloyd\'s de premier plan. Les fonds de votre propre wallet — la partie auto-conservation — vous appartiennent seuls ; l\'assurance couvre les actifs dans les stratégies gérées par Aegis.',
+          q4: 'Que se passe-t-il si je perds mon téléphone ?',
+          a4: 'Votre phrase de récupération est divisée en parts chiffrées avec le partage secret de Shamir, et une part vit chez votre fournisseur de passkey (iCloud, Google ou 1Password). Réinstallez l\'application, authentifiez-vous avec votre passkey, et votre coffre revient — sans que nous voyions jamais vos clés.',
+          q5: 'Y a-t-il des frais ?',
+          a5: 'La conservation est gratuite pour toujours. Nous gagnons une marge transparente sur les achats fiat-crypto (0,4 %) et sur le rendement du protocole (0,25 %). Pas de frais mensuels cachés, pas de solde minimum, pas de frais d\'inactivité. Tout est détaillé dans le grand livre de votre coffre.',
+          q6: 'Puis-je retirer vers mon propre wallet ?',
+          a6: 'À tout moment, vers n\'importe quelle adresse, sans approbation ni délai d\'attente. Seuls les frais de réseau on-chain s\'appliquent. Vous n\'aurez jamais à demander la permission de déplacer votre propre argent — c\'est tout l\'intérêt.',
+          ctaH2: 'Votre argent ne devrait pas demander la permission.',
+          ctaSub: 'Rejoignez 2,8 millions de personnes qui gardent leur épargne là où elles peuvent vraiment la voir. Gratuit à créer, gratuit à conserver, gratuit à quitter.',
+          nlPlaceholder: 'vous@exemple.com', nlBtn: 'Réserver ma place',
+          nlOk: 'Vous êtes sur la liste — bienvenue chez Aegis.', nlErr: 'Veuillez saisir une adresse e-mail valide.',
+          footBrand: 'Épargne en auto-conservation pour le bitcoin et les stablecoins. Audité, assuré, et à vous.',
+          footCol1: 'Produit', footCol2: 'Entreprise', footCol3: 'Juridique',
+          footL1: 'Coffres', footL2: 'Stratégies de rendement', footL3: 'Sécurité', footL4: 'FAQ',
+          footL5: 'À propos', footL6: 'Rapports d\'audit', footL7: 'Carrières', footL8: 'Presse',
+          footL9: 'Conditions', footL10: 'Confidentialité', footL11: 'Avertissement sur les risques', footL12: 'Licences',
+          footNote: 'Les crypto-actifs sont volatils. Ceci n\'est pas un conseil financier. Les rendements passés ne préjugent pas de l\'avenir.',
+          cookieText: 'Nous utilisons des cookies essentiels pour sécuriser votre coffre, plus des cookies d\'analyse facultatifs pour améliorer le produit. Votre choix est stocké localement.',
+          cookieAccept: 'Tout accepter', cookieDecline: 'Essentiels uniquement',
+          metaTitle: 'Aegis — Épargne crypto en auto-conservation | Vos clés, votre rendement',
+          metaDesc: 'Aegis est une plateforme d\'épargne en auto-conservation pour le bitcoin et les stablecoins. Sécurité de niveau institutionnel, contrats audités et rendement quotidien. Vous gardez les clés — nous faisons le travail.',
+          ogTitle: 'Aegis — Épargne crypto en auto-conservation',
+          ogDesc: 'Épargne en bitcoin et stablecoins avec une sécurité institutionnelle. Vous gardez les clés — nous faisons le travail. Rendement quotidien.',
+          twTitle: 'Aegis — Épargne crypto en auto-conservation',
+          twDesc: 'Épargne en bitcoin et stablecoins. Vous gardez les clés — nous faisons le travail. Audité, assuré, rendement quotidien.'
+        },
+        de: {
+          skip: 'Zum Inhalt springen',
+          navHow: 'So funktioniert\'s', navCompare: 'Warum Aegis', navSecurity: 'Sicherheit', navFaq: 'FAQ', navCta: 'Loslegen',
+          heroBadge: 'Geprüft · Self-Custody · Versichert',
+          heroH1: 'Dein Erspartes.<br><em>Deine Keys.</em><br>Deine Zukunft.',
+          heroSub: 'Aegis macht aus Bitcoin und Stablecoins ein sicheres Sparkonto — institutionelle Verwahrung, geprüfte Smart Contracts und tägliche Rendite. Du behältst die Keys. Wir erledigen den Rest.',
+          heroCta1: 'Vault erstellen', heroCta2: 'Mit Bank vergleichen',
+          heroRating: '4,9/5', heroRatingNote: 'aus über 12.400 Bewertungen',
+          floatTitle: 'Deine Keys, auf deinem Gerät', floatSub: 'Biometrischer + Passkey-Vault',
+          pvLabel: 'Portfolioguthaben',
+          stat1: 'Konten in Self-Custody', stat2: 'Geschützte Vermögenswerte', stat3: 'Verfügbarkeit der Infrastruktur', stat4: 'Verwahrgebühren, immer',
+          howH2: 'In zehn Minuten eingerichtet, nicht an einem Wochenende',
+          howSub: 'Kein Papierkram, keine Mindestbeträge, keine Genehmigung. Drei Schritte zwischen dir und einem Vault, der nur dir gehorcht.',
+          step1Num: 'SCHRITT 01', step1Title: 'Erstelle deinen Vault', step1Body: 'Erzeuge deine Keys auf deinem Gerät mit Biometrie und Passkey. Sie verlassen dein Handy nie — nicht einmal wir können sie sehen.',
+          step2Num: 'SCHRITT 02', step2Title: 'Mit Fiat oder Krypto einzahlen', step2Body: 'Kaufe Bitcoin und Stablecoins per Karte oder Überweisung oder schiebe Coins aus jeder Wallet hinüber. Abrechnung in Minuten.',
+          step3Num: 'SCHRITT 03', step3Title: 'Verdiene, während du hältst', step3Body: 'Rendite wird täglich auf deine Stablecoins gutgeschrieben, und dein Bitcoin bleibt zu 100 % deiner. Hebe jederzeit an deine eigene Adresse ab.',
+          cmpH2: 'Der ehrliche Vergleich',
+          cmpSub: 'Banken verlangen Geld dafür, dein Geld zu verwahren. Aegis bezahlt dich dafür, es zu behalten. So sieht das in der Praxis aus.',
+          cmpCaption: 'Vergleich zwischen Aegis und einer traditionellen Bank',
+          cmpCol1: 'Was zählt', cmpTag: 'DU ENTSCHEIDEST', cmpCol2: 'Traditionelle Bank',
+          cmpR1c1: 'Wem dein Geld gehört', cmpR1aeg: 'Dir — Self-Custody', cmpR1bank: 'Der Bank',
+          cmpR2c1: 'Zinsen auf Ersparnisse', cmpR2aeg: 'Bis zu 6,2 % p.a., täglich', cmpR2bank: '0,01 % – 0,5 % p.a.',
+          cmpR3c1: 'Verwahrgebühren', cmpR3aeg: '0 €, immer', cmpR3bank: '5–25 € / Monat',
+          cmpR4c1: 'Konto einfrieren', cmpR4aeg: 'Niemand kann', cmpR4bank: 'Jederzeit, aus jedem Grund',
+          cmpR5c1: 'In 10 Minuten eröffnet', cmpR5aeg: 'Ja', cmpR5bank: 'Meist 2–3 Wochen',
+          cmpR6c1: 'Deine Assets, rund um die Uhr', cmpR6aeg: 'Ja — auch am Wochenende', cmpR6bank: 'Nur zu Geschäftszeiten',
+          secH2: 'Sicherheit, die du prüfen kannst — nicht nur vertrauen',
+          secSub: 'Jede Schicht von Aegis ist Open Source und geprüft. Was sich nicht verifizieren lässt, wird nicht veröffentlicht.',
+          sec1Title: 'Self-Custody als Standard', sec1Body: 'Deine privaten Keys werden auf deinem Gerät erzeugt und gespeichert, geschützt durch Biometrie und Passkeys. Aegis kann deine Gelder nie ohne dich bewegen.',
+          sec2Title: 'Geprüfte Smart Contracts', sec2Body: 'Vier unabhängige Firmen prüfen jeden Contract vor der Veröffentlichung. Der vollständige Quellcode ist öffentlich — 11 Audits bestanden, null kritische Befunde.',
+          sec3Title: 'Versicherung für jeden Vault', sec3Body: 'Von Aegis verwaltete Gelder sind durch eine 200-Mio.-€-Police gegen Diebstahl und Protokollverlust abgesichert. Dein Risiko endet, wo unseres beginnt.',
+          sec4Title: 'Reguliert, wo es zählt', sec4Body: 'Aegis arbeitet unter einer EU-MiCA-Lizenz und als registrierter VASP im Vereinigten Königreich. KYC einmal, diskret, mit Ende-zu-Ende verschlüsselten Daten.',
+          tsH2: 'Menschen, die ihr Geld nicht mehr mieten', tsSub: 'Echte Konten, echte Zahlen, echte Freiheit.',
+          ts1Quote: 'Ich habe meinen Notgroschen von einer Bank mit 0,05 % Zinsen zu Aegis-Stablecoins verlagert. Gleiche Ruhe, sechzigmal mehr Rendite, und nur ich kann daran. Ich schlafe besser als mit der Bank.',
+          ts1Name: 'Marta Kowalska', ts1Role: 'Produktdesignerin, Berlin',
+          ts2Quote: 'Zwei Jahre täglicher Zinseszins auf meine Ersparnisse, null Verwahrgebühren, und nie ausgesperrt. Die wöchentlichen Audit-Berichte sind ein nettes Extra.',
+          ts2Name: 'João Lima', ts2Role: 'Freiberuflicher Ingenieur, Lissabon',
+          ts3Quote: 'Ich habe 40 % meiner Ersparnisse über Aegis in Bitcoin gehalten. Der Passkey-Vault war in fünf Minuten eingerichtet. Meine Bank wollte drei Termine und einen Notar.',
+          ts3Name: 'Rosa Schmidt', ts3Role: 'Klinikleiterin, München',
+          faqH2: 'Fragen, direkt beantwortet',
+          faqSub: 'Deine Frage ist nicht dabei? Unser Support antwortet in unter einer Stunde — echte Menschen, sieben Tage die Woche.',
+          q1: 'Was bedeutet „Self-Custody“ wirklich?',
+          a1: 'Es bedeutet, dass deine privaten Keys — der einzige Weg, deine Gelder zu bewegen — auf deinem eigenen Gerät erzeugt und gespeichert werden, nie auf unseren Servern. Wir bauen den Vault und die Werkzeuge; du besitzt den Key. Verlierst du ihn, können wir ihn nicht wiederherstellen — genau deshalb gibt es Wiederherstellungsflüsse mit deinem Passkey und einem geheimen Anteil.',
+          q2: 'Wie entsteht die Rendite?',
+          a2: 'Stablecoins aus deinem Vault fließen über eine transparente Strategie in geprüfte Lending-Protokolle und kurzfristige Staatsanleihen. Jede Position wird wöchentlich veröffentlicht. Die Zinsen folgen dem Markt — aktuell 4,8 %–6,2 % p.a. — und werden täglich gutgeschrieben.',
+          q3: 'Ist mein Geld versichert?',
+          a3: 'Ja. Vaults sind durch eine 200-Mio.-€-Police gegen Diebstahl und Protokollversagen abgesichert, bei einem führenden Lloyd\'s-Syndikat. Gelder in deiner eigenen Wallet — der Self-Custody-Teil — gehören nur dir; die Versicherung deckt Assets in von Aegis verwalteten Strategien.',
+          q4: 'Was passiert, wenn ich mein Handy verliere?',
+          a4: 'Deine Recovery-Phrase wird mit Shamir\'s Secret Sharing in verschlüsselte Anteile aufgeteilt; ein Anteil liegt bei deinem Passkey-Anbieter (iCloud, Google oder 1Password). App neu installieren, mit dem Passkey authentifizieren, und dein Vault ist zurück — ohne dass wir jemals deine Keys sehen.',
+          q5: 'Gibt es Gebühren?',
+          a5: 'Verwahrung ist für immer kostenlos. Wir verdienen eine transparente Marge bei Fiat-Krypto-Käufen (0,4 %) und an der Protokoll-Rendite (0,25 %). Keine versteckten Monatsgebühren, kein Mindestguthaben, keine Inaktivitätsgebühren. Alles wird in deinem Vault-Hauptbuch aufgeschlüsselt.',
+          q6: 'Kann ich an meine eigene Wallet abheben?',
+          a6: 'Jederzeit, an jede Adresse, ohne Genehmigung und ohne Wartezeit. Es fallen nur On-Chain-Netzwerkgebühren an. Du musst nie um Erlaubnis fragen, um dein eigenes Geld zu bewegen — genau darum geht es.',
+          ctaH2: 'Dein Geld sollte nicht um Erlaubnis fragen.',
+          ctaSub: 'Schließe dich 2,8 Millionen Menschen an, die ihre Ersparnisse dort aufbewahren, wo sie sie wirklich sehen können. Kostenlos zu erstellen, kostenlos zu halten, kostenlos zu verlassen.',
+          nlPlaceholder: 'du@beispiel.de', nlBtn: 'Platz sichern',
+          nlOk: 'Du bist auf der Liste — willkommen bei Aegis.', nlErr: 'Bitte gib eine gültige E-Mail-Adresse ein.',
+          footBrand: 'Self-Custody-Sparen für Bitcoin und Stablecoins. Geprüft, versichert und dein.',
+          footCol1: 'Produkt', footCol2: 'Unternehmen', footCol3: 'Rechtliches',
+          footL1: 'Vaults', footL2: 'Renditestrategien', footL3: 'Sicherheit', footL4: 'FAQ',
+          footL5: 'Über uns', footL6: 'Audit-Berichte', footL7: 'Karriere', footL8: 'Presse',
+          footL9: 'AGB', footL10: 'Datenschutz', footL11: 'Risikohinweis', footL12: 'Lizenzen',
+          footNote: 'Krypto-Anlagen sind volatil. Keine Finanzberatung. Frühere Renditen sind keine Garantie für die Zukunft.',
+          cookieText: 'Wir verwenden essenzielle Cookies für die Sicherheit deines Vaults sowie optionale Analyse-Cookies zur Produktverbesserung. Deine Wahl wird lokal gespeichert.',
+          cookieAccept: 'Alle akzeptieren', cookieDecline: 'Nur essenzielle',
+          metaTitle: 'Aegis — Self-Custody-Krypto-Sparen | Deine Keys, deine Rendite',
+          metaDesc: 'Aegis ist eine Self-Custody-Sparplattform für Bitcoin und Stablecoins. Institutionelle Sicherheit, geprüfte Smart Contracts und tägliche Rendite. Du behältst die Keys — wir erledigen den Rest.',
+          ogTitle: 'Aegis — Self-Custody-Krypto-Sparen',
+          ogDesc: 'Sparen in Bitcoin und Stablecoins mit institutioneller Sicherheit. Du behältst die Keys — wir erledigen den Rest. Tägliche Rendite.',
+          twTitle: 'Aegis — Self-Custody-Krypto-Sparen',
+          twDesc: 'Sparen in Bitcoin und Stablecoins. Du behältst die Keys — wir erledigen den Rest. Geprüft, versichert, tägliche Rendite.'
+        },
+        it: {
+          skip: 'Salta al contenuto',
+          navHow: 'Come funziona', navCompare: 'Perché Aegis', navSecurity: 'Sicurezza', navFaq: 'FAQ', navCta: 'Inizia',
+          heroBadge: 'Auditato · Auto-custodia · Assicurato',
+          heroH1: 'I tuoi risparmi.<br><em>Le tue chiavi.</em><br>Il tuo futuro.',
+          heroSub: 'Aegis trasforma bitcoin e stablecoin in un conto di risparmio sicuro: custodia di livello istituzionale, smart contract auditati e rendimento pagato ogni giorno. Le chiavi restano tue. Al resto pensiamo noi.',
+          heroCta1: 'Crea il tuo vault', heroCta2: 'Confronta con una banca',
+          heroRating: '4,9/5', heroRatingNote: 'da oltre 12.400 recensioni',
+          floatTitle: 'Le tue chiavi, sul tuo dispositivo', floatSub: 'Vault biometrico + passkey',
+          pvLabel: 'Saldo del portafoglio',
+          stat1: 'Conti in auto-custodia', stat2: 'Asset protetti', stat3: 'Disponibilità dell\'infrastruttura', stat4: 'Commissioni di custodia, sempre',
+          howH2: 'Configurato in dieci minuti, non in un weekend',
+          howSub: 'Niente burocrazia, niente minimi, niente permessi. Tre passi tra te e un vault che obbedisce solo a te.',
+          step1Num: 'PASSO 01', step1Title: 'Crea il tuo vault', step1Body: 'Genera le tue chiavi sul dispositivo con biometria e passkey. Non lasciano mai il tuo telefono — nemmeno noi possiamo vederle.',
+          step2Num: 'PASSO 02', step2Title: 'Finanzia con fiat o cripto', step2Body: 'Compra bitcoin e stablecoin con carta o bonifico, oppure sposta monete da qualsiasi wallet. Saldo in pochi minuti.',
+          step3Num: 'PASSO 03', step3Title: 'Guadagna mentre mantieni', step3Body: 'Il rendimento si compone ogni giorno sulle tue stablecoin, e il tuo bitcoin resta 100% tuo. Preleva al tuo indirizzo quando vuoi.',
+          cmpH2: 'Il confronto onesto',
+          cmpSub: 'Le banche ti fanno pagare per custodire i tuoi soldi. Aegis ti paga per tenerli. Ecco come appare davvero.',
+          cmpCaption: 'Confronto tra Aegis e una banca tradizionale',
+          cmpCol1: 'Ciò che conta', cmpTag: 'SCEGLI TU', cmpCol2: 'Banca tradizionale',
+          cmpR1c1: 'A chi appartengono i tuoi soldi', cmpR1aeg: 'A te — auto-custodia', cmpR1bank: 'Alla banca',
+          cmpR2c1: 'Interessi sui risparmi', cmpR2aeg: 'Fino al 6,2% TAEG, ogni giorno', cmpR2bank: '0,01% – 0,5% TAEG',
+          cmpR3c1: 'Commissioni di custodia', cmpR3aeg: '0 €, sempre', cmpR3bank: '5–25 € / mese',
+          cmpR4c1: 'Congelare il conto', cmpR4aeg: 'Nessuno può', cmpR4bank: 'In qualsiasi momento, per qualsiasi motivo',
+          cmpR5c1: 'Apertura in 10 minuti', cmpR5aeg: 'Sì', cmpR5bank: 'Di solito 2–3 settimane',
+          cmpR6c1: 'I tuoi asset, 24/7', cmpR6aeg: 'Sì — anche nel weekend', cmpR6bank: 'Solo in orario d\'ufficio',
+          secH2: 'Sicurezza che puoi verificare, non solo fidarti',
+          secSub: 'Ogni livello di Aegis è open source e auditato. Se non è verificabile, non viene pubblicato.',
+          sec1Title: 'Auto-custodia di default', sec1Body: 'Le tue chiavi private vengono generate e conservate sul tuo dispositivo, protette da biometria e passkey. Aegis non può mai spostare i tuoi fondi senza di te.',
+          sec2Title: 'Smart contract auditati', sec2Body: 'Quattro società indipendenti controllano ogni contratto prima della pubblicazione. Il codice completo è pubblico: 11 audit superati, zero criticità.',
+          sec3Title: 'Assicurazione su ogni vault', sec3Body: 'I fondi gestiti da Aegis sono coperti da una polizza da 200 M€ contro furti e perdite di protocollo. Il tuo rischio finisce dove inizia il nostro.',
+          sec4Title: 'Regolamentato dove conta', sec4Body: 'Aegis opera con licenza MiCA UE e VASP registrato nel Regno Unito. KYC una sola volta, in modo discreto, con i tuoi dati cifrati end-to-end.',
+          tsH2: 'Persone che hanno smesso di affittare i propri soldi', tsSub: 'Conti veri, numeri veri, libertà vera.',
+          ts1Quote: 'Ho spostato il mio fondo di emergenza da una banca che pagava lo 0,05% alle stablecoin di Aegis. Stessa serenità, sessanta volte il rendimento, e solo io posso toccarlo. Dormo meglio di quando stavo in banca.',
+          ts1Name: 'Marta Kowalska', ts1Role: 'Product designer, Berlino',
+          ts2Quote: 'Due anni di interesse composto giornaliero sui risparmi, zero commissioni di custodia, e mai un blocco. I report di audit settimanali sono un tocco in più.',
+          ts2Name: 'João Lima', ts2Role: 'Ingegnere freelance, Lisbona',
+          ts3Quote: 'Ho tenuto il 40% dei miei risparmi in bitcoin tramite Aegis. Il vault con passkey è pronto in cinque minuti. La mia banca voleva tre visite e un notaio.',
+          ts3Name: 'Rosa Schmidt', ts3Role: 'Titolare di clinica, Monaco',
+          faqH2: 'Domande, risposte dirette',
+          faqSub: 'Se la tua non è qui, il nostro supporto risponde in meno di un\'ora — persone vere, sette giorni su sette.',
+          q1: 'Cosa significa davvero "auto-custodia"?',
+          a1: 'Significa che le tue chiavi private — l\'unico modo per spostare i tuoi fondi — vengono generate e conservate sul tuo dispositivo, mai sui nostri server. Noi costruiamo il vault e gli strumenti; tu possiedi la chiave. Se la perdi non possiamo recuperarla, ed è per questo che abbiamo creato flussi di recupero con la tua passkey e una quota segreta.',
+          q2: 'Come viene generato il rendimento?',
+          a2: 'Le stablecoin del tuo vault vengono instradate verso protocolli di prestito auditati e strumenti governativi a breve termine tramite una strategia trasparente. Ogni posizione viene pubblicata settimanalmente. I tassi seguono il mercato — attualmente 4,8%–6,2% TAEG — e gli interessi arrivano ogni giorno.',
+          q3: 'I miei soldi sono assicurati?',
+          a3: 'Sì. I vault sono coperti da una polizza da 200 M€ contro furti e guasti di protocollo, stipulata con un sindacato Lloyd\'s di primo piano. I fondi nel tuo wallet — la parte in auto-custodia — sono solo tuoi; l\'assicurazione copre gli asset nelle strategie gestite da Aegis.',
+          q4: 'Cosa succede se perdo il telefono?',
+          a4: 'La tua frase di recupero viene divisa in quote cifrate con il secret sharing di Shamir, e una quota vive nel tuo provider passkey (iCloud, Google o 1Password). Reinstalla l\'app, autenticati con la passkey e il tuo vault torna — senza che noi vediamo mai le tue chiavi.',
+          q5: 'Ci sono commissioni?',
+          a5: 'La custodia è gratuita per sempre. Guadagniamo uno spread trasparente sugli acquisti fiat-crypto (0,4%) e sul rendimento del protocollo (0,25%). Niente commissioni mensili nascoste, niente saldo minimo, niente costi di inattività. Tutto è dettagliato nel registro del tuo vault.',
+          q6: 'Posso prelevare sul mio wallet?',
+          a6: 'In qualsiasi momento, verso qualsiasi indirizzo, senza approvazioni né attese. Si applicano solo le commissioni di rete on-chain. Non dovrai mai chiedere il permesso per spostare i tuoi soldi — è proprio questo il punto.',
+          ctaH2: 'I tuoi soldi non dovrebbero chiedere il permesso.',
+          ctaSub: 'Unisciti a 2,8 milioni di persone che tengono i propri risparmi dove possono davvero vederli. Gratis da creare, gratis da tenere, gratis da lasciare.',
+          nlPlaceholder: 'tu@esempio.com', nlBtn: 'Prenota il tuo posto',
+          nlOk: 'Sei in lista — benvenuto su Aegis.', nlErr: 'Inserisci un indirizzo e-mail valido.',
+          footBrand: 'Risparmio in auto-custodia per bitcoin e stablecoin. Auditato, assicurato e tuo.',
+          footCol1: 'Prodotto', footCol2: 'Azienda', footCol3: 'Legale',
+          footL1: 'Vault', footL2: 'Strategie di rendimento', footL3: 'Sicurezza', footL4: 'FAQ',
+          footL5: 'Chi siamo', footL6: 'Report di audit', footL7: 'Carriere', footL8: 'Stampa',
+          footL9: 'Termini', footL10: 'Privacy', footL11: 'Informativa sul rischio', footL12: 'Licenze',
+          footNote: 'Le criptovalute sono volatili. Non è una consulenza finanziaria. I rendimenti passati non garantiscono il futuro.',
+          cookieText: 'Usiamo cookie essenziali per proteggere il tuo vault, più cookie analitici opzionali per migliorare il prodotto. La tua scelta è salvata localmente.',
+          cookieAccept: 'Accetta tutto', cookieDecline: 'Solo essenziali',
+          metaTitle: 'Aegis — Risparmio crypto in auto-custodia | Le tue chiavi, il tuo rendimento',
+          metaDesc: 'Aegis è una piattaforma di risparmio in auto-custodia per bitcoin e stablecoin. Sicurezza di livello istituzionale, contratti auditati e rendimento giornaliero. Le chiavi restano tue — al resto pensiamo noi.',
+          ogTitle: 'Aegis — Risparmio crypto in auto-custodia',
+          ogDesc: 'Risparmio in bitcoin e stablecoin con sicurezza istituzionale. Le chiavi restano tue — al resto pensiamo noi. Rendimento giornaliero.',
+          twTitle: 'Aegis — Risparmio crypto in auto-custodia',
+          twDesc: 'Risparmio in bitcoin e stablecoin. Le chiavi restano tue — al resto pensiamo noi. Auditato, assicurato, rendimento giornaliero.'
+        },
+        pt: {
+          skip: 'Pular para o conteúdo',
+          navHow: 'Como funciona', navCompare: 'Por que Aegis', navSecurity: 'Segurança', navFaq: 'FAQ', navCta: 'Começar',
+          heroBadge: 'Auditado · Autocustódia · Segurado',
+          heroH1: 'Suas economias.<br><em>Suas chaves.</em><br>Seu futuro.',
+          heroSub: 'Aegis transforma bitcoin e stablecoins em uma conta poupança segura — custódia de nível institucional, contratos inteligentes auditados e rendimento pago diariamente. Você guarda as chaves. Nós fazemos o trabalho.',
+          heroCta1: 'Crie seu cofre', heroCta2: 'Compare com um banco',
+          heroRating: '4,9/5', heroRatingNote: 'de mais de 12.400 avaliações',
+          floatTitle: 'Suas chaves, no seu dispositivo', floatSub: 'Cofre biométrico + passkey',
+          pvLabel: 'Saldo do portfólio',
+          stat1: 'Contas em autocustódia', stat2: 'Ativos protegidos', stat3: 'Disponibilidade da infraestrutura', stat4: 'Taxas de custódia, sempre',
+          howH2: 'Configurado em dez minutos, não em um fim de semana',
+          howSub: 'Sem burocracia, sem mínimos, sem permissão. Três passos entre você e um cofre que só obedece a você.',
+          step1Num: 'PASSO 01', step1Title: 'Crie seu cofre', step1Body: 'Gere suas chaves no seu dispositivo com biometria e passkey. Elas nunca saem do seu celular — nem nós podemos vê-las.',
+          step2Num: 'PASSO 02', step2Title: 'Deposite com fiat ou cripto', step2Body: 'Compre bitcoin e stablecoins com cartão ou transferência, ou mova moedas de qualquer carteira. Liquida em minutos.',
+          step3Num: 'PASSO 03', step3Title: 'Ganhe enquanto mantém', step3Body: 'O rendimento é composto diariamente sobre suas stablecoins, e seu bitcoin continua 100% seu. Saque para o seu próprio endereço quando quiser.',
+          cmpH2: 'A comparação honesta',
+          cmpSub: 'Bancos cobram para guardar seu dinheiro. Aegis paga você para mantê-lo. É assim que parece na prática.',
+          cmpCaption: 'Comparação entre Aegis e um banco tradicional',
+          cmpCol1: 'O que importa', cmpTag: 'VOCÊ ESCOLHE', cmpCol2: 'Banco tradicional',
+          cmpR1c1: 'A quem pertence seu dinheiro', cmpR1aeg: 'A você — autocustódia', cmpR1bank: 'Ao banco',
+          cmpR2c1: 'Juros sobre a poupança', cmpR2aeg: 'Até 6,2% ao ano, diário', cmpR2bank: '0,01% – 0,5% ao ano',
+          cmpR3c1: 'Taxas de custódia', cmpR3aeg: '€0, sempre', cmpR3bank: '€5–€25 / mês',
+          cmpR4c1: 'Congelar sua conta', cmpR4aeg: 'Ninguém pode', cmpR4bank: 'A qualquer momento, por qualquer motivo',
+          cmpR5c1: 'Abertura em 10 minutos', cmpR5aeg: 'Sim', cmpR5bank: 'Geralmente 2–3 semanas',
+          cmpR6c1: 'Seus ativos, 24/7', cmpR6aeg: 'Sim — inclusive nos fins de semana', cmpR6bank: 'Somente em horário comercial',
+          secH2: 'Segurança que você verifica, não apenas confia',
+          secSub: 'Cada camada da Aegis é open source e auditada. Se não pode ser verificado, não é publicado.',
+          sec1Title: 'Autocustódia por padrão', sec1Body: 'Suas chaves privadas são geradas e armazenadas no seu dispositivo, protegidas por biometria e passkeys. Aegis nunca pode mover seus fundos sem você.',
+          sec2Title: 'Contratos inteligentes auditados', sec2Body: 'Quatro empresas independentes auditam cada contrato antes do lançamento. O código completo é público — 11 auditorias aprovadas, zero achados críticos.',
+          sec3Title: 'Seguro em cada cofre', sec3Body: 'Os fundos gerenciados pela Aegis são cobertos por uma apólice de €200M contra roubo e perda de protocolo. Seu risco termina onde o nosso começa.',
+          sec4Title: 'Regulamentado onde importa', sec4Body: 'A Aegis opera sob licença MiCA da UE e VASP registrado no Reino Unido. KYC uma vez, discretamente, com seus dados criptografados de ponta a ponta.',
+          tsH2: 'Pessoas que pararam de alugar seu dinheiro', tsSub: 'Contas reais, números reais, liberdade real.',
+          ts1Quote: 'Tirei meu fundo de emergência de um banco que pagava 0,05% e coloquei em stablecoins da Aegis. A mesma tranquilidade, sessenta vezes mais rendimento, e só eu posso tocar. Durmo melhor do que com o banco.',
+          ts1Name: 'Marta Kowalska', ts1Role: 'Designer de produto, Berlim',
+          ts2Quote: 'Dois anos de juros compostos diários sobre minhas economias, zero taxas de custódia, e nunca fui bloqueado. Os relatórios semanais de auditoria são um bom toque.',
+          ts2Name: 'João Lima', ts2Role: 'Engenheiro freelancer, Lisboa',
+          ts3Quote: 'Mantive 40% das minhas economias em bitcoin pela Aegis. O cofre com passkey levou cinco minutos. Meu banco pediu três visitas e um tabelião.',
+          ts3Name: 'Rosa Schmidt', ts3Role: 'Dona de clínica, Munique',
+          faqH2: 'Perguntas, respostas diretas',
+          faqSub: 'Se a sua não está aqui, nosso time de suporte responde em menos de uma hora — humanos de verdade, sete dias por semana.',
+          q1: 'O que "autocustódia" significa de verdade?',
+          a1: 'Significa que suas chaves privadas — o único jeito de mover seus fundos — são geradas e armazenadas no seu próprio dispositivo, nunca nos nossos servidores. Nós construímos o cofre e as ferramentas; você é dono da chave. Perdeu a chave e não podemos recuperá-la, por isso criamos fluxos de recuperação com sua passkey e uma parte secreta.',
+          q2: 'Como o rendimento é gerado?',
+          a2: 'As stablecoins do seu cofre são direcionadas a protocolos de empréstimo auditados e instrumentos públicos de curto prazo por meio de uma estratégia transparente. Cada posição é publicada semanalmente. As taxas seguem o mercado — atualmente 4,8%–6,2% ao ano — e os juros caem no seu cofre diariamente.',
+          q3: 'Meu dinheiro é segurado?',
+          a3: 'Sim. Os cofres são cobertos por uma apólice de €200M contra roubo e falha de protocolo, contratada com um sindicato líder da Lloyd\'s. Os fundos na sua carteira — a parte de autocustódia — são só seus; o seguro cobre ativos em estratégias gerenciadas pela Aegis.',
+          q4: 'E se eu perder o celular?',
+          a4: 'Sua frase de recuperação é dividida em partes criptografadas com o esquema de Shamir, e uma parte vive no seu provedor de passkey (iCloud, Google ou 1Password). Reinstale o app, autentique com sua passkey e seu cofre volta — sem que nunca vejamos suas chaves.',
+          q5: 'Existem taxas?',
+          a5: 'A custódia é gratuita para sempre. Ganhamos um spread transparente nas compras fiat-cripto (0,4%) e no rendimento do protocolo (0,25%). Sem taxas mensais ocultas, sem saldo mínimo, sem cobranças por inatividade. Tudo é detalhado no livro-razão do seu cofre.',
+          q6: 'Posso sacar para a minha própria carteira?',
+          a6: 'Quando quiser, para qualquer endereço, sem aprovação e sem espera. Apenas taxas de rede on-chain se aplicam. Você nunca precisará pedir permissão para mover seu próprio dinheiro — essa é a ideia.',
+          ctaH2: 'Seu dinheiro não deveria pedir permissão.',
+          ctaSub: 'Junte-se a 2,8 milhões de pessoas que guardam suas economias onde realmente podem vê-las. Grátis para criar, grátis para manter, grátis para sair.',
+          nlPlaceholder: 'voce@exemplo.com', nlBtn: 'Garanta seu lugar',
+          nlOk: 'Você está na lista — bem-vindo à Aegis.', nlErr: 'Digite um endereço de e-mail válido.',
+          footBrand: 'Poupança em autocustódia para bitcoin e stablecoins. Auditado, segurado e seu.',
+          footCol1: 'Produto', footCol2: 'Empresa', footCol3: 'Legal',
+          footL1: 'Cofres', footL2: 'Estratégias de rendimento', footL3: 'Segurança', footL4: 'FAQ',
+          footL5: 'Sobre', footL6: 'Relatórios de auditoria', footL7: 'Carreiras', footL8: 'Imprensa',
+          footL9: 'Termos', footL10: 'Privacidade', footL11: 'Aviso de risco', footL12: 'Licenças',
+          footNote: 'Criptoativos são voláteis. Não é aconselhamento financeiro. Rendimento passado não garante o futuro.',
+          cookieText: 'Usamos cookies essenciais para manter seu cofre seguro, além de cookies analíticos opcionais para melhorar o produto. Sua escolha é salva localmente.',
+          cookieAccept: 'Aceitar tudo', cookieDecline: 'Somente essenciais',
+          metaTitle: 'Aegis — Poupança cripto em autocustódia | Suas chaves, seu rendimento',
+          metaDesc: 'Aegis é uma plataforma de poupança em autocustódia para bitcoin e stablecoins. Segurança de nível institucional, contratos auditados e rendimento diário. Você guarda as chaves — nós fazemos o trabalho.',
+          ogTitle: 'Aegis — Poupança cripto em autocustódia',
+          ogDesc: 'Poupança em bitcoin e stablecoins com segurança institucional. Você guarda as chaves — nós fazemos o trabalho. Rendimento diário.',
+          twTitle: 'Aegis — Poupança cripto em autocustódia',
+          twDesc: 'Poupança em bitcoin e stablecoins. Você guarda as chaves — nós fazemos o trabalho. Auditado, segurado, rendimento diário.'
+        }
+      };
+
+      /* ================================================================
+         Language — detect browser, persist, translate everything
+         ================================================================ */
+      var SUPPORTED = ['en', 'es', 'fr', 'de', 'it', 'pt'];
+
+      function detectLang() {
+        var saved = null;
+        try { saved = localStorage.getItem(LANG_KEY); } catch (e) {}
+        if (saved && SUPPORTED.indexOf(saved) !== -1) return saved;
+        var nav = (navigator.language || 'en').toLowerCase().slice(0, 2);
+        return SUPPORTED.indexOf(nav) !== -1 ? nav : 'en';
+      }
+
+      function setLang(lang, persist) {
+        var dict = I18N[lang];
+        if (!dict) lang = 'en', dict = I18N.en;
+
+        var nodes = document.querySelectorAll('[data-i18n]');
+        for (var i = 0; i < nodes.length; i++) {
+          var key = nodes[i].getAttribute('data-i18n');
+          if (dict[key] !== undefined) nodes[i].innerHTML = dict[key];
+        }
+
+        document.getElementById('meta-title').textContent = dict.metaTitle;
+        document.getElementById('meta-desc').setAttribute('content', dict.metaDesc);
+        document.getElementById('og-title').setAttribute('content', dict.ogTitle);
+        document.getElementById('og-desc').setAttribute('content', dict.ogDesc);
+        document.getElementById('tw-title').setAttribute('content', dict.twTitle);
+        document.getElementById('tw-desc').setAttribute('content', dict.twDesc);
+        document.querySelector('meta[property="og:locale"]').setAttribute('content',
+          { en: 'en_US', es: 'es_ES', fr: 'fr_FR', de: 'de_DE', it: 'it_IT', pt: 'pt_BR' }[lang]);
+        document.documentElement.lang = lang;
+
+        var sel = document.getElementById('lang-select');
+        if (sel) sel.value = lang;
+
+        if (persist !== false) {
+          try { localStorage.setItem(LANG_KEY, lang); } catch (e) {}
+        }
+      }
+
+      /* ================================================================
+         Theme — light/dark with persistence (kairos-theme shared key)
+         ================================================================ */
+      function applyTheme(theme, persist) {
+        document.documentElement.setAttribute('data-theme', theme);
+        if (persist !== false) {
+          try { localStorage.setItem(THEME_KEY, theme); } catch (e) {}
+        }
+      }
+
+      function initTheme() {
+        var saved = null;
+        try { saved = localStorage.getItem(THEME_KEY); } catch (e) {}
+        if (saved === 'dark' || saved === 'light') applyTheme(saved, false);
+        /* default: light */
+      }
+
+      /* ================================================================
+         Marquee ticker — duplicate track for seamless loop
+         ================================================================ */
+      function dupTrack(id) {
+        var track = document.getElementById(id);
+        if (!track) return;
+        var copy = track.cloneNode(true);
+        track.parentNode.appendChild(copy);
+      }
+
+      /* ================================================================
+         Scroll reveal (IntersectionObserver)
+         ================================================================ */
+      function initReveals() {
+        var items = document.querySelectorAll('.reveal');
+        if (prefersReduced || !('IntersectionObserver' in window)) {
+          for (var i = 0; i < items.length; i++) items[i].classList.add('in');
+          return;
+        }
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('in');
+              io.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+        for (var j = 0; j < items.length; j++) io.observe(items[j]);
+      }
+
+      /* ================================================================
+         Chart line draw
+         ================================================================ */
+      function initChart() {
+        var line = document.querySelector('.chart-line');
+        if (!line) return;
+        if (prefersReduced) {
+          line.classList.add('in');
+          return;
+        }
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              line.classList.add('in');
+              io.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.3 });
+        io.observe(line);
+      }
+
+      /* ================================================================
+         Count-up stats
+         ================================================================ */
+      function initCountUp() {
+        var els = document.querySelectorAll('[data-count]');
+        if (prefersReduced) return;
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            var el = entry.target;
+            io.unobserve(el);
+            var target = parseFloat(el.getAttribute('data-count'));
+            var prefix = el.getAttribute('data-prefix') || '';
+            var suffix = el.getAttribute('data-suffix') || '';
+            var dur = 1400;
+            var start = null;
+            function tick(ts) {
+              if (!start) start = ts;
+              var p = Math.min((ts - start) / dur, 1);
+              var eased = 1 - Math.pow(1 - p, 4); /* ease-out-quart */
+              var val = target * eased;
+              var formatted;
+              if (target >= 1e9) {
+                formatted = (val / 1e9).toFixed(1) + 'B';
+              } else if (target >= 1e8) {
+                formatted = Math.round(val / 1e6).toLocaleString('en-US') + 'M';
+              } else {
+                formatted = Math.round(val).toLocaleString('en-US');
+              }
+              el.textContent = prefix + formatted + suffix;
+              if (p < 1) requestAnimationFrame(tick);
+            }
+            requestAnimationFrame(tick);
+          });
+        }, { threshold: 0.4 });
+        for (var i = 0; i < els.length; i++) io.observe(els[i]);
+      }
+
+      /* ================================================================
+         FAQ accordion
+         ================================================================ */
+      function initFaq() {
+        var items = document.querySelectorAll('.faq-item');
+        for (var i = 0; i < items.length; i++) {
+          (function (item) {
+            var btn = item.querySelector('.faq-q');
+            var panel = item.querySelector('.faq-a');
+            btn.addEventListener('click', function () {
+              var isOpen = item.classList.contains('open');
+              /* close all */
+              for (var j = 0; j < items.length; j++) {
+                items[j].classList.remove('open');
+                items[j].querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+                items[j].querySelector('.faq-a').style.maxHeight = null;
+              }
+              if (!isOpen) {
+                item.classList.add('open');
+                btn.setAttribute('aria-expanded', 'true');
+                panel.style.maxHeight = panel.scrollHeight + 'px';
+              }
+            });
+          })(items[i]);
+        }
+      }
+
+      /* ================================================================
+         Cookie banner
+         ================================================================ */
+      function initCookie() {
+        var banner = document.getElementById('cookie-banner');
+        var COOKIE_KEY = 'aegis-cookie';
+        var done = false;
+        try { done = localStorage.getItem(COOKIE_KEY) === '1'; } catch (e) {}
+        if (done || prefersReduced) return;
+        setTimeout(function () { banner.classList.add('show'); }, 3200);
+        function close() {
+          banner.classList.remove('show');
+          try { localStorage.setItem(COOKIE_KEY, '1'); } catch (e) {}
+        }
+        document.getElementById('cookie-accept').addEventListener('click', close);
+        document.getElementById('cookie-decline').addEventListener('click', close);
+      }
+
+      /* ================================================================
+         Newsletter validation
+         ================================================================ */
+      function initNewsletter() {
+        var input = document.getElementById('nl-email');
+        var btn = document.getElementById('nl-submit');
+        var status = document.getElementById('nl-status');
+        var lang = detectLang();
+        function submit() {
+          var email = input.value.trim();
+          var ok = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
+          status.classList.remove('err');
+          if (!ok) {
+            status.classList.add('err');
+            status.textContent = I18N[lang].nlErr;
+            input.focus();
+            return;
+          }
+          status.textContent = I18N[lang].nlOk;
+          input.value = '';
+        }
+        btn.addEventListener('click', submit);
+        input.addEventListener('keydown', function (e) { if (e.key === 'Enter') submit(); });
+      }
+
+      /* ================================================================
+         Mobile menu
+         ================================================================ */
+      function initMobileMenu() {
+        var burger = document.getElementById('nav-burger');
+        var menu = document.getElementById('mobile-menu');
+        burger.addEventListener('click', function () {
+          var open = menu.classList.toggle('open');
+          burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+        var links = menu.querySelectorAll('a');
+        for (var i = 0; i < links.length; i++) {
+          links[i].addEventListener('click', function () {
+            menu.classList.remove('open');
+            burger.setAttribute('aria-expanded', 'false');
+          });
+        }
+      }
+
+      /* ================================================================
+         Boot
+         ================================================================ */
+      function boot() {
+        initTheme();
+        setLang(detectLang(), false);
+        dupTrack('ticker-track');
+        initReveals();
+        initChart();
+        initCountUp();
+        initFaq();
+        initCookie();
+        initNewsletter();
+        initMobileMenu();
+
+        document.getElementById('lang-select').addEventListener('change', function (e) {
+          setLang(e.target.value, true);
+        });
+        document.getElementById('theme-toggle').addEventListener('click', function () {
+          var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+          applyTheme(next, true);
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', boot);
+      } else {
+        boot();
+      }
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,2728 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="meta-title">Lumin — Financial Intelligence for Modern Business</title>
+  <meta name="description" id="meta-desc" content="Lumin connects your bank accounts, payment processors, and accounting software into one intelligent dashboard. Automate reconciliation, track cash flow, and make data-driven decisions.">
+  <link rel="canonical" href="https://lumin-platform.com/">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23533afd'/%3E%3Cpath d='M10 22l6-12 6 12' fill='none' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='16' cy='14' r='2' fill='white'/%3E%3C/svg%3E">
+  <meta name="theme-color" content="#061b31">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Lumin">
+  <meta property="og:title" id="og-title" content="Lumin — Financial Intelligence for Modern Business">
+  <meta property="og:description" id="og-desc" content="Connect your bank accounts, payment processors, and accounting software into one intelligent dashboard. Automate reconciliation, track cash flow, and make data-driven decisions.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80">
+  <meta property="og:url" content="https://lumin-platform.com/">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" id="tw-title" content="Lumin — Financial Intelligence for Modern Business">
+  <meta name="twitter:description" id="tw-desc" content="Connect your bank accounts, payment processors, and accounting software into one intelligent dashboard.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80">
+  <meta name="twitter:site" content="@luminplatform">
+
+  <!-- Fonts: Source Sans 3 (Stripe substitute) + Source Code Pro (mono) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700&family=Source+Code+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ================================================================
+       DESIGN SYSTEM — Lumin Platform
+       Derived from: Stripe (popular-web-designs)
+       Palette: Stripe Purple + Deep Navy + Slate + White + Brand Dark
+       Strategy: Committed (purple ~30%, navy headings)
+       Style: Precision Fintech — light-weight typography, conservative radius
+       Family: Fintech / Financial Intelligence
+       Surface: Decide/Learn (landing page)
+       ================================================================ */
+
+    /* ----- CSS Reset & Base ----- */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      /* Colors — Light Mode */
+      --color-primary: #533afd;
+      --color-primary-hover: #4434d4;
+      --color-primary-light: #eef0ff;
+      --color-primary-ghost: rgba(83, 58, 253, 0.08);
+      --color-heading: #061b31;
+      --color-body: #64748b;
+      --color-label: #273951;
+      --color-bg: #ffffff;
+      --color-surface: #ffffff;
+      --color-surface-alt: #f8fafc;
+      --color-elevated: #ffffff;
+      --color-border: #e2e8f0;
+      --color-border-light: #f1f5f9;
+      --color-border-active: #b9b9f9;
+      --color-text-dark: #1e293b;
+      --color-success: #15be53;
+      --color-success-text: #108c3d;
+      --color-error: #ef4444;
+      --color-overlay: rgba(6, 27, 49, 0.5);
+      --color-accent-ruby: #ea2261;
+      --color-accent-magenta: #f96bee;
+
+      /* Colors — Dark Mode */
+      --color-bg-dark: #0b1120;
+      --color-surface-dark: #111827;
+      --color-surface-alt-dark: #1e293b;
+      --color-elevated-dark: #1a2235;
+      --color-text-primary-dark: #f1f5f9;
+      --color-text-secondary-dark: #94a3b8;
+      --color-text-tertiary-dark: #64748b;
+      --color-heading-dark: #f1f5f9;
+      --color-border-dark: #1e293b;
+      --color-border-light-dark: #334155;
+      --color-primary-dark: #818cf8;
+      --color-primary-hover-dark: #6366f1;
+      --color-success-dark: #4ade80;
+
+      /* Typography */
+      --font-body: 'Source Sans 3', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      --font-mono: 'Source Code Pro', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+
+      /* Spacing */
+      --space-1: 0.25rem;
+      --space-2: 0.5rem;
+      --space-3: 0.75rem;
+      --space-4: 1rem;
+      --space-5: 1.25rem;
+      --space-6: 1.5rem;
+      --space-8: 2rem;
+      --space-10: 2.5rem;
+      --space-12: 3rem;
+      --space-16: 4rem;
+      --space-20: 5rem;
+      --space-24: 6rem;
+      --space-32: 8rem;
+
+      /* Radii */
+      --radius-sm: 4px;
+      --radius-md: 6px;
+      --radius-lg: 8px;
+
+      /* Shadows (Stripe blue-tinted multi-layer) */
+      --shadow-ambient: rgba(23, 23, 23, 0.06) 0px 3px 6px;
+      --shadow-standard: rgba(23, 23, 23, 0.08) 0px 15px 35px;
+      --shadow-elevated: rgba(50, 50, 93, 0.25) 0px 30px 45px -30px, rgba(0, 0, 0, 0.1) 0px 18px 36px -18px;
+      --shadow-deep: rgba(3, 3, 39, 0.25) 0px 14px 21px -14px, rgba(0, 0, 0, 0.1) 0px 8px 17px -8px;
+
+      /* Z-index scale */
+      --z-base: 1;
+      --z-dropdown: 10;
+      --z-sticky: 20;
+      --z-modal-backdrop: 30;
+      --z-modal: 40;
+      --z-toast: 50;
+      --z-tooltip: 60;
+    }
+
+    /* Dark mode applied via data-theme */
+    [data-theme="dark"] {
+      --color-primary: var(--color-primary-dark);
+      --color-primary-hover: var(--color-primary-hover-dark);
+      --color-primary-light: rgba(129, 140, 248, 0.12);
+      --color-primary-ghost: rgba(129, 140, 248, 0.08);
+      --color-heading: var(--color-heading-dark);
+      --color-body: var(--color-text-secondary-dark);
+      --color-label: #cbd5e1;
+      --color-bg: var(--color-bg-dark);
+      --color-surface: var(--color-surface-dark);
+      --color-surface-alt: var(--color-surface-alt-dark);
+      --color-elevated: var(--color-elevated-dark);
+      --color-border: var(--color-border-dark);
+      --color-border-light: var(--color-border-light-dark);
+      --color-border-active: #6366f1;
+      --color-text-dark: var(--color-text-primary-dark);
+      --color-success: var(--color-success-dark);
+      --color-overlay: rgba(0, 0, 0, 0.6);
+      --shadow-ambient: rgba(0, 0, 0, 0.2) 0px 3px 6px;
+      --shadow-standard: rgba(0, 0, 0, 0.25) 0px 15px 35px;
+      --shadow-elevated: rgba(129, 140, 248, 0.15) 0px 30px 45px -30px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+      --shadow-deep: rgba(0, 0, 0, 0.4) 0px 14px 21px -14px, rgba(0, 0, 0, 0.3) 0px 8px 17px -8px;
+    }
+
+    /* ----- Base Styles ----- */
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-weight: 400;
+      color: var(--color-body);
+      background: var(--color-bg);
+      line-height: 1.6;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    /* Font feature settings — Stripe's ss01 equivalent for Source Sans 3 */
+    body, button, input, select, textarea {
+      font-feature-settings: "ss01" on, "ss03" on;
+      font-variant-numeric: lining-nums;
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: var(--color-primary); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: var(--color-primary-hover); }
+    ul { list-style: none; }
+
+    /* ----- Typography ----- */
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-body);
+      font-weight: 300;
+      color: var(--color-heading);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      text-wrap: balance;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      letter-spacing: -0.035em;
+      line-height: 1.1;
+    }
+
+    h2 {
+      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+      letter-spacing: -0.03em;
+      line-height: 1.12;
+    }
+
+    h3 {
+      font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+      letter-spacing: -0.025em;
+      line-height: 1.15;
+    }
+
+    h4 {
+      font-size: clamp(1.1rem, 1.8vw, 1.375rem);
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      font-weight: 400;
+    }
+
+    p {
+      max-width: 65ch;
+      text-wrap: pretty;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--color-primary);
+      margin-bottom: var(--space-3);
+    }
+
+    /* ----- Utilities ----- */
+    .container {
+      width: 100%;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 var(--space-6);
+    }
+
+    .text-center { text-align: center; }
+    .text-center p { margin-left: auto; margin-right: auto; }
+
+    .section {
+      padding: var(--space-24) 0;
+    }
+
+    .section-alt {
+      background: var(--color-surface-alt);
+    }
+
+    .section-dark-brand {
+      background: #1c1e54;
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .section-dark-brand h2,
+    .section-dark-brand h3,
+    .section-dark-brand h4 {
+      color: #ffffff;
+    }
+
+    .section-dark-brand p {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
+    }
+
+    /* ----- Buttons (Stripe style) ----- */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1;
+      padding: 0.625rem 1.25rem;
+      border-radius: var(--radius-sm);
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+      font-feature-settings: "ss01" on;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--color-primary);
+      color: #ffffff;
+    }
+    .btn-primary:hover {
+      background: var(--color-primary-hover);
+      color: #ffffff;
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--color-primary);
+      border: 1px solid var(--color-border-active);
+    }
+    .btn-ghost:hover {
+      background: var(--color-primary-ghost);
+      color: var(--color-primary);
+    }
+
+    .btn-white {
+      background: #ffffff;
+      color: #1c1e54;
+    }
+    .btn-white:hover {
+      background: #f1f5f9;
+      color: #1c1e54;
+    }
+
+    .btn-large {
+      padding: 0.75rem 1.75rem;
+      font-size: 1.125rem;
+    }
+
+    /* ----- Navigation ----- */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: var(--z-sticky);
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--color-border-light);
+      transition: background 0.3s, border-color 0.3s;
+    }
+
+    [data-theme="dark"] .nav {
+      background: rgba(11, 17, 32, 0.85);
+      border-bottom-color: var(--color-border);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--color-heading);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+    .nav-logo:hover { color: var(--color-primary); }
+
+    .nav-logo-icon {
+      width: 28px;
+      height: 28px;
+      background: var(--color-primary);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .nav-logo-icon svg { width: 16px; height: 16px; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: var(--space-8);
+    }
+
+    .nav-links a {
+      font-size: 0.875rem;
+      font-weight: 400;
+      color: var(--color-heading);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--color-primary); }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+    }
+
+    .theme-toggle {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--color-border);
+      background: transparent;
+      color: var(--color-heading);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+      font-size: 1rem;
+    }
+    .theme-toggle:hover {
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+    }
+
+    .lang-select {
+      position: relative;
+    }
+
+    .lang-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--color-border);
+      background: transparent;
+      color: var(--color-heading);
+      cursor: pointer;
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    .lang-btn:hover {
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+    }
+
+    .lang-dropdown {
+      position: absolute;
+      top: calc(100% + 4px);
+      right: 0;
+      background: var(--color-elevated);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-elevated);
+      min-width: 140px;
+      padding: var(--space-1);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-4px);
+      transition: all 0.2s;
+      z-index: var(--z-dropdown);
+    }
+
+    .lang-dropdown.open {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .lang-dropdown button {
+      display: block;
+      width: 100%;
+      padding: var(--space-2) var(--space-3);
+      background: none;
+      border: none;
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      color: var(--color-body);
+      text-align: left;
+      cursor: pointer;
+      border-radius: var(--radius-sm);
+      transition: all 0.15s;
+    }
+    .lang-dropdown button:hover {
+      background: var(--color-primary-ghost);
+      color: var(--color-primary);
+    }
+    .lang-dropdown button.active {
+      color: var(--color-primary);
+      font-weight: 500;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--color-border);
+      background: transparent;
+      cursor: pointer;
+      color: var(--color-heading);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+    }
+    .mobile-menu-btn span {
+      display: block;
+      width: 16px;
+      height: 1.5px;
+      background: currentColor;
+      border-radius: 1px;
+      transition: all 0.2s;
+    }
+
+    /* ----- Hero ----- */
+    .hero {
+      padding-top: calc(64px + var(--space-24));
+      padding-bottom: var(--space-24);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: 50%;
+      width: 800px;
+      height: 800px;
+      transform: translate(-50%, -30%);
+      background: radial-gradient(circle, rgba(83, 58, 253, 0.04) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: 0.25rem 0.75rem;
+      border-radius: 100px;
+      background: var(--color-primary-ghost);
+      border: 1px solid var(--color-border-active);
+      font-size: 0.8125rem;
+      color: var(--color-primary);
+      margin-bottom: var(--space-6);
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .hero-badge:hover {
+      background: var(--color-primary-light);
+      color: var(--color-primary-hover);
+    }
+
+    .hero h1 {
+      margin-bottom: var(--space-4);
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      font-weight: 300;
+      line-height: 1.5;
+      color: var(--color-body);
+      max-width: 600px;
+      margin: 0 auto var(--space-8);
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-4);
+      margin-bottom: var(--space-16);
+      flex-wrap: wrap;
+    }
+
+    .hero-actions .hint {
+      font-size: 0.8125rem;
+      color: var(--color-body);
+    }
+
+    .hero-visual {
+      position: relative;
+      max-width: 920px;
+      margin: 0 auto;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-elevated);
+      border: 1px solid var(--color-border-light);
+      background: var(--color-surface-alt);
+      transition: all 0.3s;
+    }
+
+    .hero-visual img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* ----- Logo Cloud ----- */
+    .logo-cloud {
+      padding: var(--space-16) 0;
+      border-bottom: 1px solid var(--color-border-light);
+    }
+
+    .logo-cloud-label {
+      text-align: center;
+      font-size: 0.8125rem;
+      font-weight: 400;
+      color: var(--color-body);
+      margin-bottom: var(--space-8);
+      letter-spacing: 0.02em;
+    }
+
+    .logo-grid {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-12);
+      flex-wrap: wrap;
+      opacity: 0.5;
+    }
+
+    .logo-grid svg {
+      height: 24px;
+      width: auto;
+      color: var(--color-body);
+    }
+
+    /* ----- Features (varied layout - not identical cards) ----- */
+    .features-header {
+      text-align: center;
+      margin-bottom: var(--space-16);
+    }
+
+    .features-header h2 {
+      margin-bottom: var(--space-4);
+    }
+
+    .features-header p {
+      max-width: 540px;
+      margin: 0 auto;
+    }
+
+    .feature-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-16);
+      align-items: center;
+      padding: var(--space-16) 0;
+    }
+
+    .feature-block + .feature-block {
+      border-top: 1px solid var(--color-border-light);
+    }
+
+    .feature-block.reverse .feature-content {
+      order: 2;
+    }
+    .feature-block.reverse .feature-visual {
+      order: 1;
+    }
+
+    .feature-content h3 {
+      margin-bottom: var(--space-3);
+    }
+
+    .feature-content p {
+      margin-bottom: var(--space-4);
+      font-weight: 300;
+    }
+
+    .feature-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+
+    .feature-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-3);
+      font-size: 0.9375rem;
+      font-weight: 300;
+    }
+
+    .feature-list li svg {
+      width: 18px;
+      height: 18px;
+      color: var(--color-primary);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .feature-visual {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: var(--color-surface-alt);
+      border: 1px solid var(--color-border-light);
+      box-shadow: var(--shadow-standard);
+      transition: box-shadow 0.3s;
+    }
+
+    .feature-visual:hover {
+      box-shadow: var(--shadow-elevated);
+    }
+
+    .feature-visual img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .feature-variant-card {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+
+    .feature-steps {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-6);
+    }
+
+    .feature-step {
+      display: flex;
+      gap: var(--space-4);
+    }
+
+    .feature-step-num {
+      width: 32px;
+      height: 32px;
+      border-radius: var(--radius-sm);
+      background: var(--color-primary-light);
+      color: var(--color-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.875rem;
+      font-weight: 500;
+      flex-shrink: 0;
+    }
+
+    .feature-step h4 {
+      margin-bottom: var(--space-1);
+    }
+
+    .feature-step p {
+      font-size: 0.9375rem;
+      font-weight: 300;
+    }
+
+    /* ----- Feature cards variant (3-column, not identical) ----- */
+    .feature-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: var(--space-6);
+      margin-top: var(--space-12);
+    }
+
+    .feature-card {
+      padding: var(--space-8);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border-light);
+      background: var(--color-surface);
+      transition: box-shadow 0.3s;
+    }
+
+    .feature-card:hover {
+      box-shadow: var(--shadow-elevated);
+    }
+
+    .feature-card:nth-child(1) {
+      border-top: 3px solid var(--color-primary);
+    }
+
+    .feature-card:nth-child(2) {
+      border-top: 3px solid var(--color-accent-ruby);
+    }
+
+    .feature-card:nth-child(3) {
+      border-top: 3px solid var(--color-success);
+    }
+
+    .feature-card-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--space-4);
+    }
+
+    .feature-card:nth-child(1) .feature-card-icon { background: var(--color-primary-light); color: var(--color-primary); }
+    .feature-card:nth-child(2) .feature-card-icon { background: rgba(234, 34, 97, 0.1); color: var(--color-accent-ruby); }
+    .feature-card:nth-child(3) .feature-card-icon { background: rgba(21, 190, 83, 0.1); color: var(--color-success); }
+
+    .feature-card h4 {
+      margin-bottom: var(--space-2);
+      font-weight: 400;
+      letter-spacing: -0.015em;
+    }
+
+    .feature-card p {
+      font-size: 0.9375rem;
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    .feature-card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-1);
+      margin-top: var(--space-4);
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--color-primary);
+    }
+
+    .feature-card-link:hover {
+      color: var(--color-primary-hover);
+    }
+
+    /* ----- Testimonials ----- */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-6);
+      margin-top: var(--space-10);
+    }
+
+    .testimonial-card {
+      padding: var(--space-8);
+      border: 1px solid var(--color-border-light);
+      border-radius: var(--radius-md);
+      background: var(--color-surface);
+      transition: box-shadow 0.3s;
+    }
+
+    .testimonial-card:hover {
+      box-shadow: var(--shadow-standard);
+    }
+
+    .testimonial-card blockquote {
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.6;
+      color: var(--color-heading);
+      margin-bottom: var(--space-6);
+      font-style: normal;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+    }
+
+    .testimonial-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--color-primary-light);
+      color: var(--color-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
+
+    .testimonial-name {
+      font-size: 0.9375rem;
+      font-weight: 500;
+      color: var(--color-heading);
+    }
+
+    .testimonial-role {
+      font-size: 0.8125rem;
+      color: var(--color-body);
+    }
+
+    /* ----- Stats ----- */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-8);
+      margin-top: var(--space-10);
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: clamp(2rem, 3.5vw, 2.75rem);
+      font-weight: 300;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      color: var(--color-heading);
+      margin-bottom: var(--space-2);
+    }
+
+    .stat-label {
+      font-size: 0.9375rem;
+      font-weight: 300;
+      color: var(--color-body);
+    }
+
+    /* ----- Pricing ----- */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: var(--space-6);
+      margin-top: var(--space-10);
+      align-items: start;
+    }
+
+    .pricing-card {
+      padding: var(--space-8);
+      border: 1px solid var(--color-border-light);
+      border-radius: var(--radius-lg);
+      background: var(--color-surface);
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+
+    .pricing-card:hover {
+      box-shadow: var(--shadow-elevated);
+      transform: translateY(-2px);
+    }
+
+    .pricing-card.featured {
+      border-color: var(--color-primary);
+      box-shadow: var(--shadow-elevated);
+      position: relative;
+    }
+
+    .pricing-card.featured::before {
+      content: attr(data-popular);
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--color-primary);
+      color: #ffffff;
+      padding: 0.25rem 1rem;
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      font-family: var(--font-mono);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .pricing-name {
+      font-size: 1.125rem;
+      font-weight: 400;
+      color: var(--color-heading);
+      margin-bottom: var(--space-2);
+    }
+
+    .pricing-amount {
+      font-size: clamp(2.25rem, 3vw, 2.75rem);
+      font-weight: 300;
+      letter-spacing: -0.035em;
+      color: var(--color-heading);
+      margin-bottom: var(--space-1);
+    }
+
+    .pricing-amount span {
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--color-body);
+    }
+
+    .pricing-desc {
+      font-size: 0.875rem;
+      font-weight: 300;
+      color: var(--color-body);
+      margin-bottom: var(--space-6);
+    }
+
+    .pricing-features {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      margin-bottom: var(--space-8);
+    }
+
+    .pricing-features li {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-size: 0.9375rem;
+      font-weight: 300;
+    }
+
+    .pricing-features li svg {
+      width: 16px;
+      height: 16px;
+      color: var(--color-success);
+      flex-shrink: 0;
+    }
+
+    .pricing-card .btn {
+      width: 100%;
+      justify-content: center;
+    }
+
+    /* ----- FAQ ----- */
+    .faq-list {
+      max-width: 720px;
+      margin: var(--space-10) auto 0;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-1);
+      border-top: 1px solid var(--color-border-light);
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--color-border-light);
+    }
+
+    .faq-question {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+      padding: var(--space-5) 0;
+      background: none;
+      border: none;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--color-heading);
+      text-align: left;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .faq-question:hover {
+      color: var(--color-primary);
+    }
+
+    .faq-question svg {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      transition: transform 0.3s;
+      color: var(--color-body);
+    }
+
+    .faq-item.open .faq-question svg {
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out, padding 0.3s;
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 300px;
+      padding-bottom: var(--space-5);
+    }
+
+    .faq-answer p {
+      font-size: 0.9375rem;
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--color-body);
+    }
+
+    /* ----- Dark CTA Section ----- */
+    .cta-section {
+      padding: var(--space-24) 0;
+      background: #1c1e54;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: 50%;
+      width: 600px;
+      height: 600px;
+      transform: translate(-50%, -30%);
+      background: radial-gradient(circle, rgba(83, 58, 253, 0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-section h2 {
+      color: #ffffff;
+      margin-bottom: var(--space-4);
+      font-weight: 300;
+    }
+
+    .cta-section p {
+      color: rgba(255, 255, 255, 0.7);
+      margin: 0 auto var(--space-8);
+      max-width: 520px;
+      font-weight: 300;
+    }
+
+    .cta-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+    }
+
+    .cta-actions .hint {
+      font-size: 0.8125rem;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .btn-outline-white {
+      background: transparent;
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    .btn-outline-white:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.5);
+    }
+
+    /* ----- Footer ----- */
+    .footer {
+      padding: var(--space-16) 0 var(--space-8);
+      border-top: 1px solid var(--color-border-light);
+      background: var(--color-bg);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: var(--space-12);
+      margin-bottom: var(--space-12);
+    }
+
+    .footer-brand p {
+      font-size: 0.9375rem;
+      font-weight: 300;
+      margin-top: var(--space-3);
+      max-width: 300px;
+    }
+
+    .footer-col h5 {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-label);
+      margin-bottom: var(--space-4);
+    }
+
+    .footer-col a {
+      display: block;
+      font-size: 0.9375rem;
+      font-weight: 300;
+      color: var(--color-body);
+      padding: var(--space-1) 0;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover {
+      color: var(--color-primary);
+    }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: var(--space-8);
+      border-top: 1px solid var(--color-border-light);
+      font-size: 0.8125rem;
+      color: var(--color-body);
+    }
+
+    .footer-bottom-links {
+      display: flex;
+      gap: var(--space-6);
+    }
+
+    .footer-bottom-links a {
+      font-size: 0.8125rem;
+      color: var(--color-body);
+    }
+
+    /* ===== Reveal Animations ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                  transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+      html { scroll-behavior: auto; }
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 1024px) {
+      .pricing-grid,
+      .feature-cards {
+        grid-template-columns: 1fr 1fr;
+      }
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-8);
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-8);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .mobile-menu-btn { display: flex; }
+
+      .feature-block {
+        grid-template-columns: 1fr;
+        gap: var(--space-8);
+        padding: var(--space-10) 0;
+      }
+      .feature-block.reverse .feature-content {
+        order: 1;
+      }
+      .feature-block.reverse .feature-visual {
+        order: 2;
+      }
+
+      .hero { padding-top: calc(64px + var(--space-16)); }
+      .section { padding: var(--space-16) 0; }
+
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pricing-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .feature-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: var(--space-4);
+        text-align: center;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .hero-actions .btn {
+        justify-content: center;
+      }
+      .nav-actions {
+        gap: var(--space-2);
+      }
+      .container {
+        padding: 0 var(--space-4);
+      }
+      .stats-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .cta-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .cta-actions .btn {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== Navigation ===== -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <a href="#" class="nav-logo" data-i18n="nav_logo">
+        <span class="nav-logo-icon">
+          <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5 11l3-6 3 6" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="8" cy="7" r="1.5" fill="white"/>
+          </svg>
+        </span>
+        Lumin
+      </a>
+
+      <div class="nav-links">
+        <a href="#features" data-i18n="nav_features">Features</a>
+        <a href="#pricing" data-i18n="nav_pricing">Pricing</a>
+        <a href="#faq" data-i18n="nav_faq">FAQ</a>
+        <a href="#docs" data-i18n="nav_docs">Docs</a>
+      </div>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <svg id="themeIcon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+            <path d="M10 2a8 8 0 1 0 0 16 8 8 0 0 0 0-16zm0 13.5V4.5a5.5 5.5 0 0 1 0 11z"/>
+          </svg>
+        </button>
+
+        <div class="lang-select">
+          <button class="lang-btn" id="langBtn" aria-label="Change language" data-i18n="lang_btn">EN</button>
+          <div class="lang-dropdown" id="langDropdown" role="menu">
+            <button data-lang="en" class="active" role="menuitem">English</button>
+            <button data-lang="es" role="menuitem">Español</button>
+            <button data-lang="fr" role="menuitem">Français</button>
+            <button data-lang="de" role="menuitem">Deutsch</button>
+            <button data-lang="it" role="menuitem">Italiano</button>
+            <button data-lang="pt" role="menuitem">Português</button>
+          </div>
+        </div>
+
+        <a href="#" class="btn btn-primary" data-i18n="nav_cta">Sign in</a>
+
+        <button class="mobile-menu-btn" aria-label="Toggle menu" id="mobileMenuBtn">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- ===== Hero ===== -->
+    <section class="hero">
+      <div class="container">
+        <div class="reveal visible">
+          <a href="#" class="hero-badge">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M7 1v12M1 7h12"/>
+            </svg>
+            <span data-i18n="hero_badge">New — AI-powered cash flow forecasting</span>
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+              <path d="M5 3l4 4-4 4"/>
+            </svg>
+          </a>
+        </div>
+
+        <h1 class="reveal visible reveal-delay-1" data-i18n="hero_title">See your finances clearly.<br>Move with confidence.</h1>
+
+        <p class="hero-subtitle reveal visible reveal-delay-2" data-i18n="hero_subtitle">
+          Lumin connects your bank accounts, payment processors, and accounting software into one intelligent dashboard. Automate reconciliation, track cash flow in real time, and make data-driven decisions — without spreadsheets.
+        </p>
+
+        <div class="hero-actions reveal visible reveal-delay-3">
+          <a href="#" class="btn btn-primary btn-large" data-i18n="hero_cta_primary">Start free trial</a>
+          <a href="#" class="btn btn-ghost btn-large" data-i18n="hero_cta_secondary">See how it works</a>
+          <span class="hint" data-i18n="hero_hint">No credit card required</span>
+        </div>
+
+        <div class="hero-visual reveal visible reveal-delay-4">
+          <img
+            src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=920&q=80&auto=format&fit=crop"
+            alt="Lumin financial dashboard showing cash flow analytics, transaction tables, and revenue charts"
+            loading="lazy"
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Logo Cloud ===== -->
+    <section class="logo-cloud" aria-label="Trusted by companies">
+      <div class="container">
+        <p class="logo-cloud-label reveal" data-i18n="logo_label">Trusted by finance teams at thousands of companies</p>
+        <div class="logo-grid reveal">
+          <!-- Logo 1 -->
+          <svg viewBox="0 0 80 24" fill="currentColor" aria-label="Company logo">
+            <rect x="0" y="4" width="18" height="4" rx="1" opacity="0.3"/>
+            <rect x="0" y="12" width="14" height="4" rx="1" opacity="0.5"/>
+            <rect x="0" y="20" width="16" height="2" rx="1" opacity="0.2"/>
+            <text x="24" y="16" font-size="12" font-weight="600" letter-spacing="-0.3">AlphaCorp</text>
+          </svg>
+          <!-- Logo 2 -->
+          <svg viewBox="0 0 80 24" fill="currentColor" aria-label="Company logo">
+            <circle cx="8" cy="12" r="6" opacity="0.3"/>
+            <text x="20" y="16" font-size="12" font-weight="600" letter-spacing="-0.3">BridgePay</text>
+          </svg>
+          <!-- Logo 3 -->
+          <svg viewBox="0 0 80 24" fill="currentColor" aria-label="Company logo">
+            <rect x="0" y="6" width="16" height="12" rx="2" opacity="0.3"/>
+            <text x="22" y="16" font-size="12" font-weight="600" letter-spacing="-0.3">Crestline</text>
+          </svg>
+          <!-- Logo 4 -->
+          <svg viewBox="0 0 80 24" fill="currentColor" aria-label="Company logo">
+            <path d="M4 20L8 4l4 16" opacity="0.3"/>
+            <text x="18" y="16" font-size="12" font-weight="600" letter-spacing="-0.3">Dovetail</text>
+          </svg>
+          <!-- Logo 5 -->
+          <svg viewBox="0 0 80 24" fill="currentColor" aria-label="Company logo">
+            <rect x="0" y="4" width="8" height="16" rx="1" opacity="0.3"/>
+            <rect x="10" y="4" width="8" height="12" rx="1" opacity="0.2"/>
+            <text x="22" y="16" font-size="12" font-weight="600" letter-spacing="-0.3">Empire</text>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Stats Overview ===== -->
+    <section class="section" aria-label="Key metrics">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-item reveal">
+            <div class="stat-number">$12B+</div>
+            <p class="stat-label" data-i18n="stat_1">Transactions processed annually</p>
+          </div>
+          <div class="stat-item reveal reveal-delay-1">
+            <div class="stat-number">40K+</div>
+            <p class="stat-label" data-i18n="stat_2">Active businesses on Lumin</p>
+          </div>
+          <div class="stat-item reveal reveal-delay-2">
+            <div class="stat-number">99.9%</div>
+            <p class="stat-label" data-i18n="stat_3">Platform uptime SLA</p>
+          </div>
+          <div class="stat-item reveal reveal-delay-3">
+            <div class="stat-number">5.2x</div>
+            <p class="stat-label" data-i18n="stat_4">Average month-end close speed</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Features (varied layouts) ===== -->
+    <section class="section section-alt" id="features">
+      <div class="container">
+        <div class="features-header reveal">
+          <span class="eyebrow" data-i18n="features_eyebrow">Platform</span>
+          <h2 data-i18n="features_title">Everything you need to run your finances</h2>
+          <p data-i18n="features_desc">From daily reconciliation to board-ready reports — Lumin replaces spreadsheets, late-night data entry, and the anxiety of not knowing your cash position.</p>
+        </div>
+
+        <!-- Feature 1: text left, visual right -->
+        <div class="feature-block reveal">
+          <div class="feature-content">
+            <h3 data-i18n="f1_title">Real-time cash flow visibility</h3>
+            <p data-i18n="f1_desc">Connect every bank account, payment gateway, and wallet. Watch your money move with live dashboards that update in seconds — not overnight batch jobs.</p>
+            <ul class="feature-list">
+              <li>
+                <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 9A6 6 0 1 1 3 9a6 6 0 0 1 12 0z"/><path d="M9 5.5V9l2.5 1.5"/></svg>
+                <span data-i18n="f1_b1">Live balance aggregation across 15,000+ financial institutions</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 9A6 6 0 1 1 3 9a6 6 0 0 1 12 0z"/><path d="M9 5.5V9l2.5 1.5"/></svg>
+                <span data-i18n="f1_b2">AI-powered cash flow forecasts with 95% accuracy</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 9A6 6 0 1 1 3 9a6 6 0 0 1 12 0z"/><path d="M9 5.5V9l2.5 1.5"/></svg>
+                <span data-i18n="f1_b3">Custom alerts for low balances, large deposits, or unusual activity</span>
+              </li>
+            </ul>
+          </div>
+          <div class="feature-visual">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&q=80&auto=format&fit=crop" alt="Cash flow dashboard visualization" loading="lazy">
+          </div>
+        </div>
+
+        <!-- Feature 2: visual left, text right (reversed) -->
+        <div class="feature-block reverse reveal">
+          <div class="feature-content">
+            <h3 data-i18n="f2_title">Smart reconciliation, automated</h3>
+            <p data-i18n="f2_desc">Lumin learns your transaction patterns and matches payments to invoices automatically. Handle 95% of reconciliation without touching a spreadsheet.</p>
+            <ul class="feature-list">
+              <li>
+                <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 9A6 6 0 1 1 3 9a6 6 0 0 1 12 0z"/><path d="M9 5.5V9l2.5 1.5"/></svg>
+                <span data-i18n="f2_b1">Rule-based and ML matching — works with Stripe, Shopify, QuickBooks, Xero</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 9A6 6 0 1 1 3 9a6 6 0 0 1 12 0z"/><path d="M9 5.5V9l2.5 1.5"/></svg>
+                <span data-i18n="f2_b2">Flag exceptions with one click — no more digging through PDFs</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 9A6 6 0 1 1 3 9a6 6 0 0 1 12 0z"/><path d="M9 5.5V9l2.5 1.5"/></svg>
+                <span data-i18n="f2_b3">Audit-ready trail with full timestamp history</span>
+              </li>
+            </ul>
+          </div>
+          <div class="feature-visual">
+            <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=500&q=80&auto=format&fit=crop" alt="Reconciliation dashboard interface" loading="lazy">
+          </div>
+        </div>
+
+        <!-- Feature 3: stepped process layout -->
+        <div class="feature-block reveal">
+          <div class="feature-content">
+            <h3 data-i18n="f3_title">Board-ready reports in minutes</h3>
+            <p data-i18n="f3_desc">Stop rebuilding the same reports every month. Lumin generates executive summaries, P&L snapshots, and investor-ready decks from your live data — no finance team required.</p>
+            <div class="feature-steps">
+              <div class="feature-step">
+                <div class="feature-step-num">1</div>
+                <div>
+                  <h4 data-i18n="f3_s1">Connect your data sources</h4>
+                  <p data-i18n="f3_s1d">Bank accounts, payment processors, ERPs — one integration per source.</p>
+                </div>
+              </div>
+              <div class="feature-step">
+                <div class="feature-step-num">2</div>
+                <div>
+                  <h4 data-i18n="f3_s2">Lumin reconciles and enriches</h4>
+                  <p data-i18n="f3_s2d">Transactions are matched, categorized, and normalized automatically.</p>
+                </div>
+              </div>
+              <div class="feature-step">
+                <div class="feature-step-num">3</div>
+                <div>
+                  <h4 data-i18n="f3_s3">Export or present</h4>
+                  <p data-i18n="f3_s3d">Download CSV, share a link, or present directly from Lumin.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="feature-visual">
+            <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=500&q=80&auto=format&fit=crop" alt="Financial reports and analytics" loading="lazy">
+          </div>
+        </div>
+
+        <!-- Feature Cards (3-column, varied accent tops) -->
+        <div class="feature-cards">
+          <div class="feature-card reveal">
+            <div class="feature-card-icon">
+              <svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="22" height="22">
+                <rect x="2" y="2" width="18" height="18" rx="3"/>
+                <path d="M2 8h18"/>
+                <path d="M8 2v18"/>
+              </svg>
+            </div>
+            <h4 data-i18n="f4_title">Multi-entity consolidation</h4>
+            <p data-i18n="f4_desc">Roll up financials across subsidiaries, currencies, and tax structures. One view of your entire organization.</p>
+            <a href="#" class="feature-card-link" data-i18n="f4_link">
+              Learn more
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" width="14" height="14"><path d="M6 4l4 4-4 4"/></svg>
+            </a>
+          </div>
+          <div class="feature-card reveal reveal-delay-1">
+            <div class="feature-card-icon">
+              <svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="22" height="22">
+                <path d="M12 2l-4 8h8l-4 8"/>
+                <circle cx="12" cy="12" r="10"/>
+              </svg>
+            </div>
+            <h4 data-i18n="f5_title">Real-time compliance</h4>
+            <p data-i18n="f5_desc">Automated tax categorization, IFRS/GAAP mapping, and regulatory filing prep. Minimize audit risk with every transaction tagged and traceable.</p>
+            <a href="#" class="feature-card-link" data-i18n="f5_link">
+              Learn more
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" width="14" height="14"><path d="M6 4l4 4-4 4"/></svg>
+            </a>
+          </div>
+          <div class="feature-card reveal reveal-delay-2">
+            <div class="feature-card-icon">
+              <svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="22" height="22">
+                <path d="M21 12a9 9 0 1 1-9-9"/>
+                <path d="M21 3v9h-9"/>
+              </svg>
+            </div>
+            <h4 data-i18n="f6_title">API-first architecture</h4>
+            <p data-i18n="f6_desc">Every data point exposed via REST API and webhooks. Build custom integrations, trigger workflows, and pipe data into your existing stack.</p>
+            <a href="#" class="feature-card-link" data-i18n="f6_link">
+              Learn more
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" width="14" height="14"><path d="M6 4l4 4-4 4"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Testimonials ===== -->
+    <section class="section" aria-label="Customer testimonials">
+      <div class="container">
+        <div class="features-header reveal">
+          <span class="eyebrow" data-i18n="test_eyebrow">Testimonials</span>
+          <h2 data-i18n="test_title">Trusted by finance leaders</h2>
+          <p data-i18n="test_desc">Companies of every size use Lumin to close books faster, reduce manual work, and make smarter financial decisions.</p>
+        </div>
+
+        <div class="testimonials-grid">
+          <div class="testimonial-card reveal">
+            <blockquote data-i18n="test_q1">"We cut our month-end close from twelve days to three. That's not an incremental improvement — it fundamentally changed how we operate. Our team now spends time analyzing data instead of chasing it."</blockquote>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">SC</div>
+              <div>
+                <div class="testimonial-name" data-i18n="test_a1n">Sarah Chen</div>
+                <div class="testimonial-role" data-i18n="test_a1r">CFO, Relay Logistics</div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card reveal reveal-delay-1">
+            <blockquote data-i18n="test_q2">"I used to spend three hours every Monday morning consolidating cash positions across six bank accounts. Lumin does it in real time. I get a push notification before my coffee is ready."</blockquote>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">MJ</div>
+              <div>
+                <div class="testimonial-name" data-i18n="test_a2n">Marcus Johnson</div>
+                <div class="testimonial-role" data-i18n="test_a2r">CEO, OpenGrid Systems</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Pricing ===== -->
+    <section class="section section-alt" id="pricing">
+      <div class="container">
+        <div class="features-header reveal">
+          <span class="eyebrow" data-i18n="pricing_eyebrow">Pricing</span>
+          <h2 data-i18n="pricing_title">Simple, transparent pricing</h2>
+          <p data-i18n="pricing_desc">No hidden fees, no surprise overages. All plans include a 14-day free trial — no credit card needed.</p>
+        </div>
+
+        <div class="pricing-grid">
+          <div class="pricing-card reveal">
+            <div class="pricing-name" data-i18n="plan1_name">Starter</div>
+            <div class="pricing-amount">$29<span>/mo</span></div>
+            <p class="pricing-desc" data-i18n="plan1_desc">For small teams getting started with financial automation.</p>
+            <ul class="pricing-features">
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 4L6 12l-3-3"/></svg><span data-i18n="plan1_f1">Up to 10,000 transactions/month</span></li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 4L6 12l-3-3"/></svg><span data-i18n="plan1_f2">5 bank connections</span></li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 4L6 12l-3-3"/></svg><span data-i18n="plan1_f3">Basic reports & dashboards</span></li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 4L6 12l-3-3"/></svg><span data-i18n="plan1_f4">Email support</span></li>
+            </ul>
+            <a href="#" class="btn btn-ghost" data-i18n="plan1_cta">Start free trial</a>
+          </div>
+
+          <div class="pricing-card featured reveal reveal-delay-1" data-popular="Most popular">
+            <div class="pricing-name" data-i18n="plan2_name">Growth</div>
+            <div class="pricing-amount">$79<span>/mo</span></div>
+            <p class="pricing-desc" data-i18n="plan2_desc">For growing teams that need advanced analytics and controls.</p>
+            <ul class="pricing-features">
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 4L6 12l-3-3"/></svg><span data-i18n="plan2_f1">Up to 100,000 transactions/month</span></li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 4L6 12l-3-3"/></svg><span data-i18n="plan2_f2">Unlimited bank connections</span></li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 4L6 12l-3-3"/></svg><span data-i18n="plan2_f3">Advanced analytics + forecasting</span></li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 4L6 12l-3-3"/></svg><span data-i18n="plan2_f4">Multi-user access (up to 10)</span></li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 4L6 12l-3-3"/></svg><span data-i18n="plan2_f5">API access + webhooks</span></li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 4L6 12l-3-3"/></svg><span data-i18n="plan2_f6">Priority support</span></li>
+            </ul>
+            <a href="#" class="btn btn-primary" data-i18n="plan2_cta">Start free trial</a>
+          </div>
+
+          <div class="pricing-card reveal reveal-delay-2">
+            <div class="pricing-name" data-i18n="plan3_name">Enterprise</div>
+            <div class="pricing-amount" data-i18n="plan3_price">Custom</div>
+            <p class="pricing-desc" data-i18n="plan3_desc">For organizations with complex requirements and dedicated needs.</p>
+            <ul class="pricing-features">
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 4L6 12l-3-3"/></svg><span data-i18n="plan3_f1">Unlimited transactions</span></li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 4L6 12l-3-3"/></svg><span data-i18n="plan3_f2">Custom integrations & onboarding</span></li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 4L6 12l-3-3"/></svg><span data-i18n="plan3_f3">Dedicated account manager</span></li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 4L6 12l-3-3"/></svg><span data-i18n="plan3_f4">SSO & role-based access control</span></li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 4L6 12l-3-3"/></svg><span data-i18n="plan3_f5">99.99% SLA guarantee</span></li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 4L6 12l-3-3"/></svg><span data-i18n="plan3_f6">24/7 phone + Slack support</span></li>
+            </ul>
+            <a href="#" class="btn btn-ghost" data-i18n="plan3_cta">Contact sales</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="features-header reveal">
+          <span class="eyebrow" data-i18n="faq_eyebrow">FAQ</span>
+          <h2 data-i18n="faq_title">Frequently asked questions</h2>
+        </div>
+
+        <div class="faq-list reveal">
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" data-i18n="faq_q1">
+              <span>How does Lumin connect to my bank accounts?</span>
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M10 4v12M4 10h12"/></svg>
+            </button>
+            <div class="faq-answer">
+              <p data-i18n="faq_a1">Lumin uses Plaid and Yodlee as our data aggregation partners, giving you access to 15,000+ financial institutions across the US, Canada, UK, and EU. Connections are read-only and encrypted end-to-end. You grant access per account and can revoke it at any time.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" data-i18n="faq_q2">
+              <span>Is my financial data secure?</span>
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M10 4v12M4 10h12"/></svg>
+            </button>
+            <div class="faq-answer">
+              <p data-i18n="faq_a2">Yes. Lumin is SOC 2 Type II certified and uses AES-256 encryption at rest and TLS 1.3 in transit. We never store raw banking credentials — all connections use OAuth-based token exchange. Data is isolated per tenant with row-level security.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" data-i18n="faq_q3">
+              <span>Can I export my data if I leave?</span>
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M10 4v12M4 10h12"/></svg>
+            </button>
+            <div class="faq-answer">
+              <p data-i18n="faq_a3">Absolutely. You can export all your data as CSV or JSON at any time — no lock-in. We also support direct migration to major accounting platforms. Your data belongs to you, period.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" data-i18n="faq_q4">
+              <span>What happens when a transaction doesn't match?</span>
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M10 4v12M4 10h12"/></svg>
+            </button>
+            <div class="faq-answer">
+              <p data-i18n="faq_a4">Unmatched transactions appear in your exceptions queue with suggested matches based on our ML models. You can approve, reassign, or flag them with a single click. Over time, Lumin learns your patterns and exceptions become rare.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" data-i18n="faq_q5">
+              <span>Do you offer discounts for nonprofits?</span>
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M10 4v12M4 10h12"/></svg>
+            </button>
+            <div class="faq-answer">
+              <p data-i18n="faq_a5">Yes. We offer a 50% discount for registered nonprofit organizations on all plans. Contact our sales team with your proof of nonprofit status and we'll set it up within one business day.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CTA Section (Dark Brand) ===== -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="reveal">
+          <h2 data-i18n="cta_title">Ready to see your finances clearly?</h2>
+          <p data-i18n="cta_desc">Join 40,000+ businesses that use Lumin to automate their financial operations and make better decisions — starting today.</p>
+          <div class="cta-actions">
+            <a href="#" class="btn btn-white btn-large" data-i18n="cta_primary">Start your free trial</a>
+            <a href="#" class="btn btn-outline-white btn-large" data-i18n="cta_secondary">Talk to sales</a>
+          </div>
+          <p class="hint" style="margin-top: var(--space-4);" data-i18n="cta_hint">14-day free trial · No credit card required · Cancel anytime</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="nav-logo">
+            <span class="nav-logo-icon">
+              <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 11l3-6 3 6" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="8" cy="7" r="1.5" fill="white"/>
+              </svg>
+            </span>
+            Lumin
+          </a>
+          <p data-i18n="footer_tagline">Financial intelligence for modern businesses. Automate reconciliation, track cash flow, and make data-driven decisions.</p>
+        </div>
+        <div class="footer-col">
+          <h5 data-i18n="footer_product">Product</h5>
+          <a href="#" data-i18n="footer_f1">Features</a>
+          <a href="#" data-i18n="footer_f2">Integrations</a>
+          <a href="#" data-i18n="footer_f3">Pricing</a>
+          <a href="#" data-i18n="footer_f4">Changelog</a>
+        </div>
+        <div class="footer-col">
+          <h5 data-i18n="footer_company">Company</h5>
+          <a href="#" data-i18n="footer_c1">About</a>
+          <a href="#" data-i18n="footer_c2">Blog</a>
+          <a href="#" data-i18n="footer_c3">Careers</a>
+          <a href="#" data-i18n="footer_c4">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h5 data-i18n="footer_legal">Legal</h5>
+          <a href="#" data-i18n="footer_l1">Privacy</a>
+          <a href="#" data-i18n="footer_l2">Terms</a>
+          <a href="#" data-i18n="footer_l3">Security</a>
+          <a href="#" data-i18n="footer_l4">Cookies</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span data-i18n="footer_copy">&copy; 2026 Lumin Platform, Inc. All rights reserved.</span>
+        <div class="footer-bottom-links">
+          <a href="#" data-i18n="footer_status">Status</a>
+          <a href="#" data-i18n="footer_docs">API Docs</a>
+          <a href="#" data-i18n="footer_support">Support</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* ==============================================================
+       LUMIN PLATFORM — Main Application Script
+       i18n, theme toggle, animations, FAQ accordion, language select
+       ============================================================== */
+
+    // --- i18n Strings ---
+    const LANGUAGES = {
+      en: {
+        lang_name: 'English',
+        nav_logo: 'Lumin',
+        nav_features: 'Features',
+        nav_pricing: 'Pricing',
+        nav_faq: 'FAQ',
+        nav_docs: 'Docs',
+        nav_cta: 'Sign in',
+        lang_btn: 'EN',
+        hero_badge: 'New — AI-powered cash flow forecasting',
+        hero_title: 'See your finances clearly.<br>Move with confidence.',
+        hero_subtitle: 'Lumin connects your bank accounts, payment processors, and accounting software into one intelligent dashboard. Automate reconciliation, track cash flow in real time, and make data-driven decisions — without spreadsheets.',
+        hero_cta_primary: 'Start free trial',
+        hero_cta_secondary: 'See how it works',
+        hero_hint: 'No credit card required',
+        logo_label: 'Trusted by finance teams at thousands of companies',
+        stat_1: 'Transactions processed annually',
+        stat_2: 'Active businesses on Lumin',
+        stat_3: 'Platform uptime SLA',
+        stat_4: 'Average month-end close speed',
+        features_eyebrow: 'Platform',
+        features_title: 'Everything you need to run your finances',
+        features_desc: 'From daily reconciliation to board-ready reports — Lumin replaces spreadsheets, late-night data entry, and the anxiety of not knowing your cash position.',
+        f1_title: 'Real-time cash flow visibility',
+        f1_desc: 'Connect every bank account, payment gateway, and wallet. Watch your money move with live dashboards that update in seconds — not overnight batch jobs.',
+        f1_b1: 'Live balance aggregation across 15,000+ financial institutions',
+        f1_b2: 'AI-powered cash flow forecasts with 95% accuracy',
+        f1_b3: 'Custom alerts for low balances, large deposits, or unusual activity',
+        f2_title: 'Smart reconciliation, automated',
+        f2_desc: 'Lumin learns your transaction patterns and matches payments to invoices automatically. Handle 95% of reconciliation without touching a spreadsheet.',
+        f2_b1: 'Rule-based and ML matching — works with Stripe, Shopify, QuickBooks, Xero',
+        f2_b2: 'Flag exceptions with one click — no more digging through PDFs',
+        f2_b3: 'Audit-ready trail with full timestamp history',
+        f3_title: 'Board-ready reports in minutes',
+        f3_desc: 'Stop rebuilding the same reports every month. Lumin generates executive summaries, P&L snapshots, and investor-ready decks from your live data — no finance team required.',
+        f3_s1: 'Connect your data sources',
+        f3_s1d: 'Bank accounts, payment processors, ERPs — one integration per source.',
+        f3_s2: 'Lumin reconciles and enriches',
+        f3_s2d: 'Transactions are matched, categorized, and normalized automatically.',
+        f3_s3: 'Export or present',
+        f3_s3d: 'Download CSV, share a link, or present directly from Lumin.',
+        f4_title: 'Multi-entity consolidation',
+        f4_desc: 'Roll up financials across subsidiaries, currencies, and tax structures. One view of your entire organization.',
+        f4_link: 'Learn more',
+        f5_title: 'Real-time compliance',
+        f5_desc: 'Automated tax categorization, IFRS/GAAP mapping, and regulatory filing prep. Minimize audit risk with every transaction tagged and traceable.',
+        f5_link: 'Learn more',
+        f6_title: 'API-first architecture',
+        f6_desc: 'Every data point exposed via REST API and webhooks. Build custom integrations, trigger workflows, and pipe data into your existing stack.',
+        f6_link: 'Learn more',
+        test_eyebrow: 'Testimonials',
+        test_title: 'Trusted by finance leaders',
+        test_desc: 'Companies of every size use Lumin to close books faster, reduce manual work, and make smarter financial decisions.',
+        test_q1: '"We cut our month-end close from twelve days to three. That\'s not an incremental improvement — it fundamentally changed how we operate. Our team now spends time analyzing data instead of chasing it."',
+        test_a1n: 'Sarah Chen',
+        test_a1r: 'CFO, Relay Logistics',
+        test_q2: '"I used to spend three hours every Monday morning consolidating cash positions across six bank accounts. Lumin does it in real time. I get a push notification before my coffee is ready."',
+        test_a2n: 'Marcus Johnson',
+        test_a2r: 'CEO, OpenGrid Systems',
+        pricing_eyebrow: 'Pricing',
+        pricing_title: 'Simple, transparent pricing',
+        pricing_desc: 'No hidden fees, no surprise overages. All plans include a 14-day free trial — no credit card needed.',
+        plan1_name: 'Starter',
+        plan1_desc: 'For small teams getting started with financial automation.',
+        plan1_f1: 'Up to 10,000 transactions/month',
+        plan1_f2: '5 bank connections',
+        plan1_f3: 'Basic reports & dashboards',
+        plan1_f4: 'Email support',
+        plan1_cta: 'Start free trial',
+        plan2_name: 'Growth',
+        plan2_desc: 'For growing teams that need advanced analytics and controls.',
+        plan2_f1: 'Up to 100,000 transactions/month',
+        plan2_f2: 'Unlimited bank connections',
+        plan2_f3: 'Advanced analytics + forecasting',
+        plan2_f4: 'Multi-user access (up to 10)',
+        plan2_f5: 'API access + webhooks',
+        plan2_f6: 'Priority support',
+        plan2_cta: 'Start free trial',
+        plan3_name: 'Enterprise',
+        plan3_price: 'Custom',
+        plan3_desc: 'For organizations with complex requirements and dedicated needs.',
+        plan3_f1: 'Unlimited transactions',
+        plan3_f2: 'Custom integrations & onboarding',
+        plan3_f3: 'Dedicated account manager',
+        plan3_f4: 'SSO & role-based access control',
+        plan3_f5: '99.99% SLA guarantee',
+        plan3_f6: '24/7 phone + Slack support',
+        plan3_cta: 'Contact sales',
+        faq_eyebrow: 'FAQ',
+        faq_title: 'Frequently asked questions',
+        faq_q1: 'How does Lumin connect to my bank accounts?',
+        faq_a1: 'Lumin uses Plaid and Yodlee as our data aggregation partners, giving you access to 15,000+ financial institutions across the US, Canada, UK, and EU. Connections are read-only and encrypted end-to-end. You grant access per account and can revoke it at any time.',
+        faq_q2: 'Is my financial data secure?',
+        faq_a2: 'Yes. Lumin is SOC 2 Type II certified and uses AES-256 encryption at rest and TLS 1.3 in transit. We never store raw banking credentials — all connections use OAuth-based token exchange. Data is isolated per tenant with row-level security.',
+        faq_q3: 'Can I export my data if I leave?',
+        faq_a3: 'Absolutely. You can export all your data as CSV or JSON at any time — no lock-in. We also support direct migration to major accounting platforms. Your data belongs to you, period.',
+        faq_q4: "What happens when a transaction doesn't match?",
+        faq_a4: 'Unmatched transactions appear in your exceptions queue with suggested matches based on our ML models. You can approve, reassign, or flag them with a single click. Over time, Lumin learns your patterns and exceptions become rare.',
+        faq_q5: 'Do you offer discounts for nonprofits?',
+        faq_a5: 'Yes. We offer a 50% discount for registered nonprofit organizations on all plans. Contact our sales team with your proof of nonprofit status and we\'ll set it up within one business day.',
+        cta_title: 'Ready to see your finances clearly?',
+        cta_desc: 'Join 40,000+ businesses that use Lumin to automate their financial operations and make better decisions — starting today.',
+        cta_primary: 'Start your free trial',
+        cta_secondary: 'Talk to sales',
+        cta_hint: '14-day free trial · No credit card required · Cancel anytime',
+        footer_tagline: 'Financial intelligence for modern businesses. Automate reconciliation, track cash flow, and make data-driven decisions.',
+        footer_product: 'Product',
+        footer_f1: 'Features',
+        footer_f2: 'Integrations',
+        footer_f3: 'Pricing',
+        footer_f4: 'Changelog',
+        footer_company: 'Company',
+        footer_c1: 'About',
+        footer_c2: 'Blog',
+        footer_c3: 'Careers',
+        footer_c4: 'Contact',
+        footer_legal: 'Legal',
+        footer_l1: 'Privacy',
+        footer_l2: 'Terms',
+        footer_l3: 'Security',
+        footer_l4: 'Cookies',
+        footer_copy: '\u00a9 2026 Lumin Platform, Inc. All rights reserved.',
+        footer_status: 'Status',
+        footer_docs: 'API Docs',
+        footer_support: 'Support'
+      },
+      es: {
+        lang_name: 'Español',
+        nav_logo: 'Lumin',
+        nav_features: 'Funciones',
+        nav_pricing: 'Precios',
+        nav_faq: 'Preguntas',
+        nav_docs: 'Docs',
+        nav_cta: 'Iniciar sesión',
+        lang_btn: 'ES',
+        hero_badge: 'Nuevo — Previsión de flujo de caja con IA',
+        hero_title: 'Ve tus finanzas con claridad.<br>Actúa con confianza.',
+        hero_subtitle: 'Lumin conecta tus cuentas bancarias, procesadores de pago y software de contabilidad en un panel inteligente. Automatiza conciliaciones, rastrea el flujo de caja en tiempo real y toma decisiones basadas en datos — sin hojas de cálculo.',
+        hero_cta_primary: 'Prueba gratuita',
+        hero_cta_secondary: 'Ver cómo funciona',
+        hero_hint: 'Sin tarjeta de crédito',
+        logo_label: 'Utilizado por equipos financieros de miles de empresas',
+        stat_1: 'Transacciones procesadas al año',
+        stat_2: 'Empresas activas en Lumin',
+        stat_3: 'SLA de disponibilidad',
+        stat_4: 'Velocidad de cierre mensual promedio',
+        features_eyebrow: 'Plataforma',
+        features_title: 'Todo lo que necesitas para gestionar tus finanzas',
+        features_desc: 'Desde la conciliación diaria hasta informes listos para la junta directiva — Lumin reemplaza las hojas de cálculo, la entrada de datos nocturna y la ansiedad de no conocer tu posición de efectivo.',
+        f1_title: 'Visibilidad del flujo de caja en tiempo real',
+        f1_desc: 'Conecta cada cuenta bancaria, pasarela de pago y billetera. Observa cómo se mueve tu dinero con paneles en vivo que se actualizan en segundos.',
+        f1_b1: 'Agregación de saldos en vivo en más de 15,000 instituciones financieras',
+        f1_b2: 'Pronósticos de flujo de caja impulsados por IA con 95% de precisión',
+        f1_b3: 'Alertas personalizadas para saldos bajos, depósitos grandes o actividad inusual',
+        f2_title: 'Conciliación inteligente automatizada',
+        f2_desc: 'Lumin aprende tus patrones de transacciones y iguala pagos con facturas automáticamente. Maneja el 95% de la conciliación sin tocar una hoja de cálculo.',
+        f2_b1: 'Igualación basada en reglas y ML — funciona con Stripe, Shopify, QuickBooks, Xero',
+        f2_b2: 'Marca excepciones con un clic — no más búsqueda en PDFs',
+        f2_b3: 'Registro de auditoría con historial completo de marcas de tiempo',
+        f3_title: 'Informes listos para la junta en minutos',
+        f3_desc: 'Deja de reconstruir los mismos informes cada mes. Lumin genera resúmenes ejecutivos, instantáneas de PyG y presentaciones para inversores desde tus datos en vivo.',
+        f3_s1: 'Conecta tus fuentes de datos',
+        f3_s1d: 'Cuentas bancarias, procesadores de pago, ERPs — una integración por fuente.',
+        f3_s2: 'Lumin concilia y enriquece',
+        f3_s2d: 'Las transacciones se igualan, categorizan y normalizan automáticamente.',
+        f3_s3: 'Exporta o presenta',
+        f3_s3d: 'Descarga CSV, comparte un enlace o presenta directamente desde Lumin.',
+        f4_title: 'Consolidación multi-entidad',
+        f4_desc: 'Consolida finanzas entre subsidiarias, monedas y estructuras fiscales. Una vista de toda tu organización.',
+        f4_link: 'Más información',
+        f5_title: 'Cumplimiento en tiempo real',
+        f5_desc: 'Categorización fiscal automatizada, mapeo IFRS/GAAP y preparación de presentaciones regulatorias.',
+        f5_link: 'Más información',
+        f6_title: 'Arquitectura API-first',
+        f6_desc: 'Cada dato expuesto vía REST API y webhooks. Crea integraciones personalizadas y conecta con tu stack existente.',
+        f6_link: 'Más información',
+        test_eyebrow: 'Testimonios',
+        test_title: 'Recomendado por líderes financieros',
+        test_desc: 'Empresas de todos los tamaños usan Lumin para cerrar libros más rápido y tomar mejores decisiones financieras.',
+        test_q1: '"Redujimos nuestro cierre mensual de doce días a tres. Eso no es una mejora incremental — cambió fundamentalmente nuestra operación."',
+        test_a1n: 'Sarah Chen',
+        test_a1r: 'CFO, Relay Logistics',
+        test_q2: '"Antes pasaba tres horas cada lunes consolidando posiciones de efectivo. Lumin lo hace en tiempo real."',
+        test_a2n: 'Marcus Johnson',
+        test_a2r: 'CEO, OpenGrid Systems',
+        pricing_eyebrow: 'Precios',
+        pricing_title: 'Precios simples y transparentes',
+        pricing_desc: 'Sin cargos ocultos ni sorpresas. Todos los planes incluyen 14 días de prueba gratuita.',
+        plan1_name: 'Inicial',
+        plan1_desc: 'Para equipos pequeños que inician con la automatización financiera.',
+        plan1_f1: 'Hasta 10,000 transacciones/mes',
+        plan1_f2: '5 conexiones bancarias',
+        plan1_f3: 'Informes y paneles básicos',
+        plan1_f4: 'Soporte por correo electrónico',
+        plan1_cta: 'Prueba gratuita',
+        plan2_name: 'Crecimiento',
+        plan2_desc: 'Para equipos en crecimiento que necesitan análisis avanzados.',
+        plan2_f1: 'Hasta 100,000 transacciones/mes',
+        plan2_f2: 'Conexiones bancarias ilimitadas',
+        plan2_f3: 'Analítica avanzada + pronósticos',
+        plan2_f4: 'Acceso multi-usuario (hasta 10)',
+        plan2_f5: 'API + webhooks',
+        plan2_f6: 'Soporte prioritario',
+        plan2_cta: 'Prueba gratuita',
+        plan3_name: 'Empresarial',
+        plan3_price: 'Personalizado',
+        plan3_desc: 'Para organizaciones con requisitos complejos.',
+        plan3_f1: 'Transacciones ilimitadas',
+        plan3_f2: 'Integraciones personalizadas',
+        plan3_f3: 'Gerente de cuenta dedicado',
+        plan3_f4: 'SSO y control de acceso por roles',
+        plan3_f5: 'Garantía SLA 99.99%',
+        plan3_f6: 'Soporte telefónico 24/7 + Slack',
+        plan3_cta: 'Contactar ventas',
+        faq_eyebrow: 'FAQ',
+        faq_title: 'Preguntas frecuentes',
+        faq_q1: '¿Cómo se conecta Lumin a mis cuentas bancarias?',
+        faq_a1: 'Lumin utiliza Plaid y Yodlee como socios de agregación de datos, dándote acceso a más de 15,000 instituciones financieras. Las conexiones son de solo lectura y están cifradas de extremo a extremo.',
+        faq_q2: '¿Están seguros mis datos financieros?',
+        faq_a2: 'Sí. Lumin cuenta con certificación SOC 2 Tipo II y utiliza cifrado AES-256 en reposo y TLS 1.3 en tránsito. Nunca almacenamos credenciales bancarias sin procesar.',
+        faq_q3: '¿Puedo exportar mis datos si me voy?',
+        faq_a3: 'Absolutamente. Puedes exportar todos tus datos como CSV o JSON en cualquier momento. Tus datos te pertenecen.',
+        faq_q4: '¿Qué pasa cuando una transacción no coincide?',
+        faq_a4: 'Las transacciones no coincidentes aparecen en tu cola de excepciones con coincidencias sugeridas basadas en nuestros modelos de ML. Con el tiempo, Lumin aprende tus patrones.',
+        faq_q5: '¿Ofrecen descuentos para organizaciones sin fines de lucro?',
+        faq_a5: 'Sí. Ofrecemos un 50% de descuento para organizaciones sin fines de lucro registradas en todos los planes.',
+        cta_title: '¿Listo para ver tus finanzas con claridad?',
+        cta_desc: 'Únete a más de 40,000 empresas que usan Lumin para automatizar sus operaciones financieras.',
+        cta_primary: 'Comienza tu prueba gratuita',
+        cta_secondary: 'Hablar con ventas',
+        cta_hint: '14 días de prueba · Sin tarjeta de crédito · Cancela cuando quieras',
+        footer_tagline: 'Inteligencia financiera para empresas modernas.',
+        footer_product: 'Producto',
+        footer_f1: 'Funciones',
+        footer_f2: 'Integraciones',
+        footer_f3: 'Precios',
+        footer_f4: 'Novedades',
+        footer_company: 'Empresa',
+        footer_c1: 'Acerca de',
+        footer_c2: 'Blog',
+        footer_c3: 'Carreras',
+        footer_c4: 'Contacto',
+        footer_legal: 'Legal',
+        footer_l1: 'Privacidad',
+        footer_l2: 'Términos',
+        footer_l3: 'Seguridad',
+        footer_l4: 'Cookies',
+        footer_copy: '\u00a9 2026 Lumin Platform, Inc. Todos los derechos reservados.',
+        footer_status: 'Estado',
+        footer_docs: 'API Docs',
+        footer_support: 'Soporte'
+      },
+      fr: {
+        lang_name: 'Français',
+        nav_logo: 'Lumin',
+        nav_features: 'Fonctionnalités',
+        nav_pricing: 'Tarifs',
+        nav_faq: 'FAQ',
+        nav_docs: 'Docs',
+        nav_cta: 'Connexion',
+        lang_btn: 'FR',
+        hero_badge: 'Nouveau — Prévisions de trésorerie par IA',
+        hero_title: 'Voyez vos finances clairement.<br>Agissez en toute confiance.',
+        hero_subtitle: 'Lumin connecte vos comptes bancaires, processeurs de paiement et logiciels comptables en un tableau de bord intelligent. Automatisez les rapprochements, suivez les flux de trésorerie en temps réel.',
+        hero_cta_primary: 'Essai gratuit',
+        hero_cta_secondary: 'Voir comment ça marche',
+        hero_hint: 'Sans carte de crédit',
+        logo_label: 'Utilisé par des équipes financières de milliers d\'entreprises',
+        stat_1: 'Transactions traitées par an',
+        stat_2: 'Entreprises actives sur Lumin',
+        stat_3: 'SLA de disponibilité',
+        stat_4: 'Vitesse de clôture mensuelle moyenne',
+        features_eyebrow: 'Plateforme',
+        features_title: 'Tout pour gérer vos finances',
+        features_desc: 'Du rapprochement quotidien aux rapports prêts pour le conseil — Lumin remplace les feuilles de calcul et l\'anxiété liée à la trésorerie.',
+        f1_title: 'Visibilité en temps réel des flux de trésorerie',
+        f1_desc: 'Connectez chaque compte bancaire et passerelle de paiement. Observez vos mouvements d\'argent avec des tableaux de bord en direct.',
+        f1_b1: 'Agrégation de soldes en direct sur 15 000+ institutions',
+        f1_b2: 'Prévisions de trésorerie par IA avec 95% de précision',
+        f1_b3: 'Alertes personnalisées pour soldes faibles ou activités inhabituelles',
+        f2_title: 'Rapprochement intelligent automatisé',
+        f2_desc: 'Lumin apprend vos modèles de transactions et fait correspondre les paiements aux factures automatiquement.',
+        f2_b1: 'Correspondance par règles et ML — compatible Stripe, Shopify, QuickBooks',
+        f2_b2: 'Signalez les exceptions en un clic',
+        f2_b3: 'Piste d\'audit avec historique complet',
+        f3_title: 'Rapports prêts en minutes',
+        f3_desc: 'Lumin génère des résumés exécutifs et des présentations pour investisseurs à partir de vos données en direct.',
+        f3_s1: 'Connectez vos sources de données',
+        f3_s1d: 'Comptes bancaires, processeurs de paiement, ERP.',
+        f3_s2: 'Lumin rapproche et enrichit',
+        f3_s2d: 'Les transactions sont appariées et catégorisées automatiquement.',
+        f3_s3: 'Exportez ou présentez',
+        f3_s3d: 'Téléchargez CSV, partagez un lien ou présentez depuis Lumin.',
+        f4_title: 'Consolidation multi-entités',
+        f4_desc: 'Consolidez les finances entre filiales, devises et structures fiscales.',
+        f4_link: 'En savoir plus',
+        f5_title: 'Conformité en temps réel',
+        f5_desc: 'Catégorisation fiscale automatisée et préparation des dépôts réglementaires.',
+        f5_link: 'En savoir plus',
+        f6_title: 'Architecture API-first',
+        f6_desc: 'Chaque donnée exposée via API REST et webhooks.',
+        f6_link: 'En savoir plus',
+        test_eyebrow: 'Témoignages',
+        test_title: 'Recommandé par des leaders financiers',
+        test_desc: 'Des entreprises de toutes tailles utilisent Lumin pour clôturer plus rapidement.',
+        test_q1: '"Nous sommes passés d\'une clôture mensuelle de douze jours à trois jours."',
+        test_a1n: 'Sarah Chen',
+        test_a1r: 'CFO, Relay Logistics',
+        test_q2: '"Je passais trois heures chaque lundi à consolider la trésorerie. Lumin le fait en temps réel."',
+        test_a2n: 'Marcus Johnson',
+        test_a2r: 'CEO, OpenGrid Systems',
+        pricing_eyebrow: 'Tarifs',
+        pricing_title: 'Tarifs simples et transparents',
+        pricing_desc: 'Sans frais cachés. Tous les plans incluent 14 jours d\'essai gratuit.',
+        plan1_name: 'Débutant',
+        plan1_desc: 'Pour les petites équipes qui débutent.',
+        plan1_f1: 'Jusqu\'à 10 000 transactions/mois',
+        plan1_f2: '5 connexions bancaires',
+        plan1_f3: 'Rapports de base',
+        plan1_f4: 'Support par email',
+        plan1_cta: 'Essai gratuit',
+        plan2_name: 'Croissance',
+        plan2_desc: 'Pour les équipes en croissance.',
+        plan2_f1: 'Jusqu\'à 100 000 transactions/mois',
+        plan2_f2: 'Connexions bancaires illimitées',
+        plan2_f3: 'Analytique avancée + prévisions',
+        plan2_f4: 'Accès multi-utilisateur (jusqu\'à 10)',
+        plan2_f5: 'API + webhooks',
+        plan2_f6: 'Support prioritaire',
+        plan2_cta: 'Essai gratuit',
+        plan3_name: 'Entreprise',
+        plan3_price: 'Sur mesure',
+        plan3_desc: 'Pour les organisations avec des besoins complexes.',
+        plan3_f1: 'Transactions illimitées',
+        plan3_f2: 'Intégrations personnalisées',
+        plan3_f3: 'Gestionnaire de compte dédié',
+        plan3_f4: 'SSO et contrôle d\'accès',
+        plan3_f5: 'Garantie SLA 99.99%',
+        plan3_f6: 'Support 24/7 téléphone + Slack',
+        plan3_cta: 'Contacter ventes',
+        faq_eyebrow: 'FAQ',
+        faq_title: 'Questions fréquentes',
+        faq_q1: 'Comment Lumin se connecte à mes comptes bancaires?',
+        faq_a1: 'Lumin utilise Plaid et Yodlee pour vous donner accès à plus de 15 000 institutions financières.',
+        faq_q2: 'Mes données financières sont-elles sécurisées?',
+        faq_a2: 'Oui. Lumin est certifié SOC 2 Type II avec chiffrement AES-256 et TLS 1.3.',
+        faq_q3: 'Puis-je exporter mes données?',
+        faq_a3: 'Absolument. Exportez vos données en CSV ou JSON à tout moment.',
+        faq_q4: 'Que se passe-t-il si une transaction ne correspond pas?',
+        faq_a4: 'Les transactions non appariées apparaissent dans votre file d\'attente avec des correspondances suggérées.',
+        faq_q5: 'Offrez-vous des réductions pour les associations?',
+        faq_a5: 'Oui. 50% de réduction pour les organisations à but non lucratif.',
+        cta_title: 'Prêt à voir vos finances clairement?',
+        cta_desc: 'Rejoignez plus de 40 000 entreprises qui utilisent Lumin.',
+        cta_primary: 'Commencez votre essai gratuit',
+        cta_secondary: 'Parler aux ventes',
+        cta_hint: '14 jours d\'essai · Sans carte de crédit · Annulez à tout moment',
+        footer_tagline: 'Intelligence financière pour les entreprises modernes.',
+        footer_product: 'Produit',
+        footer_f1: 'Fonctionnalités',
+        footer_f2: 'Intégrations',
+        footer_f3: 'Tarifs',
+        footer_f4: 'Mises à jour',
+        footer_company: 'Société',
+        footer_c1: 'À propos',
+        footer_c2: 'Blog',
+        footer_c3: 'Carrières',
+        footer_c4: 'Contact',
+        footer_legal: 'Juridique',
+        footer_l1: 'Confidentialité',
+        footer_l2: 'Conditions',
+        footer_l3: 'Sécurité',
+        footer_l4: 'Cookies',
+        footer_copy: '\u00a9 2026 Lumin Platform, Inc. Tous droits réservés.',
+        footer_status: 'Statut',
+        footer_docs: 'API Docs',
+        footer_support: 'Support'
+      },
+      de: {
+        lang_name: 'Deutsch',
+        nav_logo: 'Lumin',
+        nav_features: 'Funktionen',
+        nav_pricing: 'Preise',
+        nav_faq: 'FAQ',
+        nav_docs: 'Dokumentation',
+        nav_cta: 'Anmelden',
+        lang_btn: 'DE',
+        hero_badge: 'Neu — KI-gestützte Cashflow-Prognose',
+        hero_title: 'Sieh deine Finanzen klar.<br>Handle mit Zuversicht.',
+        hero_subtitle: 'Lumin verbindet deine Bankkonten, Zahlungsabwickler und Buchhaltungssoftware in einem intelligenten Dashboard. Automatisiere Abstimmungen, verfolge Cashflow in Echtzeit.',
+        hero_cta_primary: 'Kostenlos testen',
+        hero_cta_secondary: 'So funktioniert es',
+        hero_hint: 'Keine Kreditkarte erforderlich',
+        logo_label: 'Vertrauenswürdig für Finanzteams tausender Unternehmen',
+        stat_1: 'Transaktionen pro Jahr',
+        stat_2: 'Aktive Unternehmen auf Lumin',
+        stat_3: 'Verfügbarkeits-SLA',
+        stat_4: 'Durchschnittliche Monatsabschlussgeschwindigkeit',
+        features_eyebrow: 'Plattform',
+        features_title: 'Alles für deine Finanzen',
+        features_desc: 'Von der täglichen Abstimmung bis zu berichtsfertigen Analysen — Lumin ersetzt Tabellenkalkulationen und nächtliche Dateneingabe.',
+        f1_title: 'Echtzeit-Cashflow-Transparenz',
+        f1_desc: 'Verbinde jedes Bankkonto und Zahlungsgateway. Sieh deine Geldbewegungen mit Live-Dashboards.',
+        f1_b1: 'Live-Saldo-Aggregation über 15.000+ Finanzinstitute',
+        f1_b2: 'KI-gestützte Cashflow-Prognosen mit 95% Genauigkeit',
+        f1_b3: 'Benutzerdefinierte Benachrichtigungen',
+        f2_title: 'Intelligente Automatisierung von Abstimmungen',
+        f2_desc: 'Lumin lernt deine Transaktionsmuster und gleicht Zahlungen automatisch mit Rechnungen ab.',
+        f2_b1: 'Regelbasierte und ML-gestützte Zuordnung',
+        f2_b2: 'Ausnahmen mit einem Klick markieren',
+        f2_b3: 'Prüffreundlicher Verlauf',
+        f3_title: 'Berichte in Minuten',
+        f3_desc: 'Lumin erstellt Executive Summaries und investorenbereite Präsentationen aus deinen Live-Daten.',
+        f3_s1: 'Verbinde deine Datenquellen',
+        f3_s1d: 'Bankkonten, Zahlungsabwickler, ERPs.',
+        f3_s2: 'Lumin gleicht ab und reichert an',
+        f3_s2d: 'Transaktionen werden automatisch zugeordnet und kategorisiert.',
+        f3_s3: 'Exportieren oder präsentieren',
+        f3_s3d: 'CSV herunterladen, Link teilen oder direkt präsentieren.',
+        f4_title: 'Multi-Entity-Konsolidierung',
+        f4_desc: 'Konsolidiere Finanzen über Tochtergesellschaften und Währungen hinweg.',
+        f4_link: 'Mehr erfahren',
+        f5_title: 'Echtzeit-Compliance',
+        f5_desc: 'Automatisierte Steuerkategorisierung und IFRS/GAAP-Zuordnung.',
+        f5_link: 'Mehr erfahren',
+        f6_title: 'API-first-Architektur',
+        f6_desc: 'Jeder Datenpunkt über REST API und Webhooks verfügbar.',
+        f6_link: 'Mehr erfahren',
+        test_eyebrow: 'Testimonials',
+        test_title: 'Empfohlen von Finanzverantwortlichen',
+        test_desc: 'Unternehmen jeder Größe nutzen Lumin für schnellere Abschlüsse.',
+        test_q1: '"Wir haben unseren Monatsabschluss von zwölf auf drei Tage reduziert."',
+        test_a1n: 'Sarah Chen',
+        test_a1r: 'CFO, Relay Logistics',
+        test_q2: '"Früher brauchte ich drei Stunden am Montagmorgen. Lumin erledigt es in Echtzeit."',
+        test_a2n: 'Marcus Johnson',
+        test_a2r: 'CEO, OpenGrid Systems',
+        pricing_eyebrow: 'Preise',
+        pricing_title: 'Einfache, transparente Preise',
+        pricing_desc: 'Keine versteckten Gebühren. Alle Pläne beinhalten 14 Tage kostenlose Testphase.',
+        plan1_name: 'Starter',
+        plan1_desc: 'Für kleine Teams.',
+        plan1_f1: 'Bis zu 10.000 Transaktionen/Monat',
+        plan1_f2: '5 Bankverbindungen',
+        plan1_f3: 'Basisberichte',
+        plan1_f4: 'E-Mail-Support',
+        plan1_cta: 'Kostenlos testen',
+        plan2_name: 'Wachstum',
+        plan2_desc: 'Für wachsende Teams.',
+        plan2_f1: 'Bis zu 100.000 Transaktionen/Monat',
+        plan2_f2: 'Unbegrenzte Bankverbindungen',
+        plan2_f3: 'Erweiterte Analysen',
+        plan2_f4: 'Multi-Benutzerzugriff (bis zu 10)',
+        plan2_f5: 'API + Webhooks',
+        plan2_f6: 'Prioritäts-Support',
+        plan2_cta: 'Kostenlos testen',
+        plan3_name: 'Enterprise',
+        plan3_price: 'Individuell',
+        plan3_desc: 'Für Organisationen mit komplexen Anforderungen.',
+        plan3_f1: 'Unbegrenzte Transaktionen',
+        plan3_f2: 'Maßgeschneiderte Integrationen',
+        plan3_f3: 'Dedizierter Account-Manager',
+        plan3_f4: 'SSO und rollenbasierte Zugriffskontrolle',
+        plan3_f5: '99.99% SLA-Garantie',
+        plan3_f6: '24/7 Telefon- + Slack-Support',
+        plan3_cta: 'Verkauf kontaktieren',
+        faq_eyebrow: 'FAQ',
+        faq_title: 'Häufig gestellte Fragen',
+        faq_q1: 'Wie verbindet sich Lumin mit meinen Bankkonten?',
+        faq_a1: 'Lumin nutzt Plaid und Yodlee für den Zugriff auf über 15.000 Finanzinstitute.',
+        faq_q2: 'Sind meine Finanzdaten sicher?',
+        faq_a2: 'Ja. Lumin ist SOC 2 Typ II zertifiziert mit AES-256-Verschlüsselung.',
+        faq_q3: 'Kann ich meine Daten exportieren?',
+        faq_a3: 'Absolut. Exportiere jederzeit alle Daten als CSV oder JSON.',
+        faq_q4: 'Was passiert bei einer nicht zugeordneten Transaktion?',
+        faq_a4: 'Nicht zugeordnete Transaktionen erscheinen in der Ausnahmeliste mit vorgeschlagenen Zuordnungen.',
+        faq_q5: 'Gibt es Rabatte für gemeinnützige Organisationen?',
+        faq_a5: 'Ja. 50% Rabatt für registrierte gemeinnützige Organisationen.',
+        cta_title: 'Bereit, deine Finanzen klar zu sehen?',
+        cta_desc: 'Schließe dich über 40.000 Unternehmen an, die Lumin nutzen.',
+        cta_primary: 'Kostenlose Testversion starten',
+        cta_secondary: 'Verkauf kontaktieren',
+        cta_hint: '14 Tage Testversion · Keine Kreditkarte · Jederzeit kündbar',
+        footer_tagline: 'Finanzintelligenz für moderne Unternehmen.',
+        footer_product: 'Produkt',
+        footer_f1: 'Funktionen',
+        footer_f2: 'Integrationen',
+        footer_f3: 'Preise',
+        footer_f4: 'Änderungsprotokoll',
+        footer_company: 'Unternehmen',
+        footer_c1: 'Über uns',
+        footer_c2: 'Blog',
+        footer_c3: 'Karriere',
+        footer_c4: 'Kontakt',
+        footer_legal: 'Rechtliches',
+        footer_l1: 'Datenschutz',
+        footer_l2: 'AGB',
+        footer_l3: 'Sicherheit',
+        footer_l4: 'Cookies',
+        footer_copy: '\u00a9 2026 Lumin Platform, Inc. Alle Rechte vorbehalten.',
+        footer_status: 'Status',
+        footer_docs: 'API-Dokumentation',
+        footer_support: 'Support'
+      },
+      it: {
+        lang_name: 'Italiano',
+        nav_logo: 'Lumin',
+        nav_features: 'Funzionalità',
+        nav_pricing: 'Prezzi',
+        nav_faq: 'FAQ',
+        nav_docs: 'Documentazione',
+        nav_cta: 'Accedi',
+        lang_btn: 'IT',
+        hero_badge: 'Nuovo — Previsioni di cassa con IA',
+        hero_title: 'Vedi le tue finanze con chiarezza.<br>Agisci con sicurezza.',
+        hero_subtitle: 'Lumin collega conti bancari, processori di pagamento e software contabile in un\'unica dashboard intelligente. Automatizza le riconciliazioni e monitora il flusso di cassa in tempo reale.',
+        hero_cta_primary: 'Prova gratuita',
+        hero_cta_secondary: 'Come funziona',
+        hero_hint: 'Nessuna carta di credito',
+        logo_label: 'Utilizzato da team finanziari di migliaia di aziende',
+        stat_1: 'Transazioni elaborate all\'anno',
+        stat_2: 'Aziende attive su Lumin',
+        stat_3: 'SLA di disponibilità',
+        stat_4: 'Velocità media di chiusura mensile',
+        features_eyebrow: 'Piattaforma',
+        features_title: 'Tutto per gestire le tue finanze',
+        features_desc: 'Dalla riconciliazione quotidiana ai report pronti per il consiglio — Lumin sostituisce i fogli di calcolo.',
+        f1_title: 'Visibilità del flusso di cassa in tempo reale',
+        f1_desc: 'Collega ogni conto bancario e gateway di pagamento. Osserva i movimenti di denaro con dashboard in diretta.',
+        f1_b1: 'Aggregazione saldi live su 15.000+ istituzioni',
+        f1_b2: 'Previsioni di cassa con IA con precisione del 95%',
+        f1_b3: 'Avvisi personalizzati per saldi bassi o attività insolite',
+        f2_title: 'Riconciliazione intelligente automatizzata',
+        f2_desc: 'Lumin apprende i tuoi modelli di transazione e abbina pagamenti alle fatture automaticamente.',
+        f2_b1: 'Abbinamento basato su regole e ML',
+        f2_b2: 'Segnala eccezioni con un clic',
+        f2_b3: 'Traccia di audit con cronologia completa',
+        f3_title: 'Report pronti in minuti',
+        f3_desc: 'Lumin genera sintesi esecutive e presentazioni per investitori dai tuoi dati live.',
+        f3_s1: 'Collega le tue fonti dati',
+        f3_s1d: 'Conti bancari, processori di pagamento, ERP.',
+        f3_s2: 'Lumin riconcilia e arricchisce',
+        f3_s2d: 'Le transazioni vengono abbinate e categorizzate automaticamente.',
+        f3_s3: 'Esporta o presenta',
+        f3_s3d: 'Scarica CSV, condividi un link o presenta da Lumin.',
+        f4_title: 'Consolidamento multi-entità',
+        f4_desc: 'Consolida le finanze tra filiali, valute e strutture fiscali.',
+        f4_link: 'Scopri di più',
+        f5_title: 'Conformità in tempo reale',
+        f5_desc: 'Categorizzazione fiscale automatizzata e mappatura IFRS/GAAP.',
+        f5_link: 'Scopri di più',
+        f6_title: 'Architettura API-first',
+        f6_desc: 'Ogni dato esposto tramite API REST e webhook.',
+        f6_link: 'Scopri di più',
+        test_eyebrow: 'Testimonianze',
+        test_title: 'Consigliato da leader finanziari',
+        test_desc: 'Aziende di ogni dimensione usano Lumin per chiudere i bilanci più velocemente.',
+        test_q1: '"Abbiamo ridotto la chiusura mensile da dodici giorni a tre."',
+        test_a1n: 'Sarah Chen',
+        test_a1r: 'CFO, Relay Logistics',
+        test_q2: '"Passavo tre ore ogni lunedì a consolidare la liquidità. Lumin lo fa in tempo reale."',
+        test_a2n: 'Marcus Johnson',
+        test_a2r: 'CEO, OpenGrid Systems',
+        pricing_eyebrow: 'Prezzi',
+        pricing_title: 'Prezzi semplici e trasparenti',
+        pricing_desc: 'Nessun costo nascosto. Tutti i piani includono 14 giorni di prova gratuita.',
+        plan1_name: 'Base',
+        plan1_desc: 'Per piccoli team che iniziano.',
+        plan1_f1: 'Fino a 10.000 transazioni/mese',
+        plan1_f2: '5 connessioni bancarie',
+        plan1_f3: 'Report e dashboard base',
+        plan1_f4: 'Supporto email',
+        plan1_cta: 'Prova gratuita',
+        plan2_name: 'Crescita',
+        plan2_desc: 'Per team in crescita.',
+        plan2_f1: 'Fino a 100.000 transazioni/mese',
+        plan2_f2: 'Connessioni bancarie illimitate',
+        plan2_f3: 'Analisi avanzate + previsioni',
+        plan2_f4: 'Accesso multi-utente (fino a 10)',
+        plan2_f5: 'API + webhook',
+        plan2_f6: 'Supporto prioritario',
+        plan2_cta: 'Prova gratuita',
+        plan3_name: 'Enterprise',
+        plan3_price: 'Personalizzato',
+        plan3_desc: 'Per organizzazioni con esigenze complesse.',
+        plan3_f1: 'Transazioni illimitate',
+        plan3_f2: 'Integrazioni personalizzate',
+        plan3_f3: 'Account manager dedicato',
+        plan3_f4: 'SSO e controllo accessi',
+        plan3_f5: 'Garanzia SLA 99.99%',
+        plan3_f6: 'Supporto 24/7 telefono + Slack',
+        plan3_cta: 'Contatta vendite',
+        faq_eyebrow: 'FAQ',
+        faq_title: 'Domande frequenti',
+        faq_q1: 'Come si collega Lumin ai miei conti bancari?',
+        faq_a1: 'Lumin utilizza Plaid e Yodlee per l\'accesso a oltre 15.000 istituzioni finanziarie.',
+        faq_q2: 'I miei dati finanziari sono sicuri?',
+        faq_a2: 'Sì. Lumin è certificato SOC 2 Tipo II con crittografia AES-256.',
+        faq_q3: 'Posso esportare i miei dati?',
+        faq_a3: 'Assolutamente. Esporta tutti i dati come CSV o JSON in qualsiasi momento.',
+        faq_q4: 'Cosa succede se una transazione non corrisponde?',
+        faq_a4: 'Le transazioni non corrisposte appaiono nella coda eccezioni con corrispondenze suggerite.',
+        faq_q5: 'Offrite sconti per organizzazioni no-profit?',
+        faq_a5: 'Sì. Sconto del 50% per organizzazioni no-profit registrate.',
+        cta_title: 'Pronto a vedere le tue finanze con chiarezza?',
+        cta_desc: 'Unisciti a oltre 40.000 aziende che usano Lumin.',
+        cta_primary: 'Inizia la prova gratuita',
+        cta_secondary: 'Parla con le vendite',
+        cta_hint: '14 giorni di prova · Senza carta di credito · Annulla quando vuoi',
+        footer_tagline: 'Intelligenza finanziaria per aziende moderne.',
+        footer_product: 'Prodotto',
+        footer_f1: 'Funzionalità',
+        footer_f2: 'Integrazioni',
+        footer_f3: 'Prezzi',
+        footer_f4: 'Novità',
+        footer_company: 'Azienda',
+        footer_c1: 'Chi siamo',
+        footer_c2: 'Blog',
+        footer_c3: 'Carriere',
+        footer_c4: 'Contatto',
+        footer_legal: 'Legale',
+        footer_l1: 'Privacy',
+        footer_l2: 'Termini',
+        footer_l3: 'Sicurezza',
+        footer_l4: 'Cookie',
+        footer_copy: '\u00a9 2026 Lumin Platform, Inc. Tutti i diritti riservati.',
+        footer_status: 'Stato',
+        footer_docs: 'API Docs',
+        footer_support: 'Supporto'
+      },
+      pt: {
+        lang_name: 'Português',
+        nav_logo: 'Lumin',
+        nav_features: 'Recursos',
+        nav_pricing: 'Preços',
+        nav_faq: 'FAQ',
+        nav_docs: 'Docs',
+        nav_cta: 'Entrar',
+        lang_btn: 'PT',
+        hero_badge: 'Novo — Previsão de fluxo de caixa com IA',
+        hero_title: 'Veja suas finanças com clareza.<br>Aja com confiança.',
+        hero_subtitle: 'Lumin conecta suas contas bancárias, processadores de pagamento e softwares de contabilidade em um painel inteligente. Automatize conciliações e acompanhe o fluxo de caixa em tempo real.',
+        hero_cta_primary: 'Teste grátis',
+        hero_cta_secondary: 'Como funciona',
+        hero_hint: 'Sem cartão de crédito',
+        logo_label: 'Usado por equipes financeiras de milhares de empresas',
+        stat_1: 'Transações processadas por ano',
+        stat_2: 'Empresas ativas na Lumin',
+        stat_3: 'SLA de disponibilidade',
+        stat_4: 'Velocidade média de fechamento mensal',
+        features_eyebrow: 'Plataforma',
+        features_title: 'Tudo que você precisa para gerenciar suas finanças',
+        features_desc: 'Da conciliação diária a relatórios prontos para o conselho — Lumin substitui planilhas e a ansiedade de não saber sua posição de caixa.',
+        f1_title: 'Visibilidade do fluxo de caixa em tempo real',
+        f1_desc: 'Conecte cada conta bancária e gateway de pagamento. Observe seu dinheiro com painéis ao vivo.',
+        f1_b1: 'Agregação de saldos ao vivo em mais de 15.000 instituições',
+        f1_b2: 'Previsões de fluxo de caixa com IA com 95% de precisão',
+        f1_b3: 'Alertas personalizados para saldos baixos ou atividades incomuns',
+        f2_title: 'Conciliação inteligente automatizada',
+        f2_desc: 'Lumin aprende seus padrões de transação e combina pagamentos com faturas automaticamente.',
+        f2_b1: 'Combinação baseada em regras e ML',
+        f2_b2: 'Sinalize exceções com um clique',
+        f2_b3: 'Trilha de auditoria com histórico completo',
+        f3_title: 'Relatórios prontos em minutos',
+        f3_desc: 'Lumin gera resumos executivos e apresentações para investidores a partir de seus dados ao vivo.',
+        f3_s1: 'Conecte suas fontes de dados',
+        f3_s1d: 'Contas bancárias, processadores de pagamento, ERPs.',
+        f3_s2: 'Lumin concilia e enriquece',
+        f3_s2d: 'As transações são combinadas e categorizadas automaticamente.',
+        f3_s3: 'Exporte ou apresente',
+        f3_s3d: 'Baixe CSV, compartilhe um link ou apresente diretamente do Lumin.',
+        f4_title: 'Consolidação multi-entidade',
+        f4_desc: 'Consolide finanças entre subsidiárias, moedas e estruturas fiscais.',
+        f4_link: 'Saiba mais',
+        f5_title: 'Conformidade em tempo real',
+        f5_desc: 'Categorização fiscal automatizada e mapeamento IFRS/GAAP.',
+        f5_link: 'Saiba mais',
+        f6_title: 'Arquitetura API-first',
+        f6_desc: 'Cada dado exposto via API REST e webhooks.',
+        f6_link: 'Saiba mais',
+        test_eyebrow: 'Depoimentos',
+        test_title: 'Recomendado por líderes financeiros',
+        test_desc: 'Empresas de todos os tamanhos usam Lumin para fechar livros mais rápido.',
+        test_q1: '"Reduzimos nosso fechamento mensal de doze para três dias."',
+        test_a1n: 'Sarah Chen',
+        test_a1r: 'CFO, Relay Logistics',
+        test_q2: '"Eu passava três horas toda segunda-feira consolidando caixa. Lumin faz em tempo real."',
+        test_a2n: 'Marcus Johnson',
+        test_a2r: 'CEO, OpenGrid Systems',
+        pricing_eyebrow: 'Preços',
+        pricing_title: 'Preços simples e transparentes',
+        pricing_desc: 'Sem taxas ocultas. Todos os planos incluem 14 dias de teste gratuito.',
+        plan1_name: 'Inicial',
+        plan1_desc: 'Para pequenas equipes começando.',
+        plan1_f1: 'Até 10.000 transações/mês',
+        plan1_f2: '5 conexões bancárias',
+        plan1_f3: 'Relatórios e painéis básicos',
+        plan1_f4: 'Suporte por e-mail',
+        plan1_cta: 'Teste grátis',
+        plan2_name: 'Crescimento',
+        plan2_desc: 'Para equipes em crescimento.',
+        plan2_f1: 'Até 100.000 transações/mês',
+        plan2_f2: 'Conexões bancárias ilimitadas',
+        plan2_f3: 'Análises avançadas + previsões',
+        plan2_f4: 'Acesso multi-usuário (até 10)',
+        plan2_f5: 'API + webhooks',
+        plan2_f6: 'Suporte prioritário',
+        plan2_cta: 'Teste grátis',
+        plan3_name: 'Empresarial',
+        plan3_price: 'Personalizado',
+        plan3_desc: 'Para organizações com necessidades complexas.',
+        plan3_f1: 'Transações ilimitadas',
+        plan3_f2: 'Integrações personalizadas',
+        plan3_f3: 'Gerente de conta dedicado',
+        plan3_f4: 'SSO e controle de acesso baseado em funções',
+        plan3_f5: 'Garantia SLA 99.99%',
+        plan3_f6: 'Suporte 24/7 telefone + Slack',
+        plan3_cta: 'Falar com vendas',
+        faq_eyebrow: 'FAQ',
+        faq_title: 'Perguntas frequentes',
+        faq_q1: 'Como o Lumin se conecta às minhas contas bancárias?',
+        faq_a1: 'Lumin usa Plaid e Yodlee para acesso a mais de 15.000 instituições financeiras.',
+        faq_q2: 'Meus dados financeiros estão seguros?',
+        faq_a2: 'Sim. Lumin é certificado SOC 2 Tipo II com criptografia AES-256.',
+        faq_q3: 'Posso exportar meus dados?',
+        faq_a3: 'Com certeza. Exporte todos os dados como CSV ou JSON a qualquer momento.',
+        faq_q4: 'O que acontece quando uma transação não corresponde?',
+        faq_a4: 'Transações não correspondidas aparecem na fila de exceções com correspondências sugeridas.',
+        faq_q5: 'Vocês oferecem descontos para organizações sem fins lucrativos?',
+        faq_a5: 'Sim. 50% de desconto para organizações sem fins lucrativos registradas.',
+        cta_title: 'Pronto para ver suas finanças com clareza?',
+        cta_desc: 'Junte-se a mais de 40.000 empresas que usam Lumin.',
+        cta_primary: 'Inicie seu teste gratuito',
+        cta_secondary: 'Falar com vendas',
+        cta_hint: '14 dias de teste · Sem cartão de crédito · Cancele quando quiser',
+        footer_tagline: 'Inteligência financeira para empresas modernas.',
+        footer_product: 'Produto',
+        footer_f1: 'Recursos',
+        footer_f2: 'Integrações',
+        footer_f3: 'Preços',
+        footer_f4: 'Novidades',
+        footer_company: 'Empresa',
+        footer_c1: 'Sobre',
+        footer_c2: 'Blog',
+        footer_c3: 'Carreiras',
+        footer_c4: 'Contato',
+        footer_legal: 'Legal',
+        footer_l1: 'Privacidade',
+        footer_l2: 'Termos',
+        footer_l3: 'Segurança',
+        footer_l4: 'Cookies',
+        footer_copy: '\u00a9 2026 Lumin Platform, Inc. Todos os direitos reservados.',
+        footer_status: 'Status',
+        footer_docs: 'API Docs',
+        footer_support: 'Suporte'
+      }
+    };
+
+    // --- i18n Engine ---
+    let currentLang = localStorage.getItem('lumin-lang') || 'en';
+
+    function detectBrowserLang() {
+      const langs = navigator.languages || [navigator.language || 'en'];
+      for (const l of langs) {
+        const code = l.split('-')[0];
+        if (LANGUAGES[code]) return code;
+      }
+      return 'en';
+    }
+
+    function applyLang(lang) {
+      if (!LANGUAGES[lang]) lang = 'en';
+      currentLang = lang;
+      localStorage.setItem('lumin-lang', lang);
+
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        const text = LANGUAGES[lang][key];
+        if (text !== undefined) {
+          if (el.tagName === 'META') {
+            el.setAttribute('content', text);
+          } else {
+            el.innerHTML = text;
+          }
+        }
+      });
+
+      // Update language button label
+      const langBtn = document.getElementById('langBtn');
+      if (langBtn) langBtn.textContent = LANGUAGES[lang].lang_btn || lang.toUpperCase();
+
+      // Update active state in dropdown
+      document.querySelectorAll('.lang-dropdown button').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+      });
+
+      // Update html lang attribute
+      document.documentElement.lang = lang;
+    }
+
+    // --- Theme ---
+    function initTheme() {
+      const stored = localStorage.getItem('lumin-theme');
+      if (stored === 'dark' || (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    }
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('lumin-theme', next);
+    }
+
+    // --- FAQ Accordion ---
+    function initFAQ() {
+      document.querySelectorAll('.faq-question').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const item = btn.closest('.faq-item');
+          const isOpen = item.classList.contains('open');
+
+          // Close all
+          document.querySelectorAll('.faq-item.open').forEach(i => {
+            i.classList.remove('open');
+            i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+          });
+
+          // Open clicked
+          if (!isOpen) {
+            item.classList.add('open');
+            btn.setAttribute('aria-expanded', 'true');
+          }
+        });
+      });
+    }
+
+    // --- Language Selector ---
+    function initLangSelector() {
+      const langBtn = document.getElementById('langBtn');
+      const langDropdown = document.getElementById('langDropdown');
+
+      if (langBtn && langDropdown) {
+        langBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          langDropdown.classList.toggle('open');
+        });
+
+        document.addEventListener('click', () => {
+          langDropdown.classList.remove('open');
+        });
+
+        langDropdown.querySelectorAll('button').forEach(btn => {
+          btn.addEventListener('click', () => {
+            applyLang(btn.dataset.lang);
+            langDropdown.classList.remove('open');
+          });
+        });
+      }
+    }
+
+    // --- Scroll Reveal ---
+    function initReveal() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      document.querySelectorAll('.reveal:not(.visible)').forEach(el => {
+        observer.observe(el);
+      });
+    }
+
+    // --- Init ---
+    document.addEventListener('DOMContentLoaded', () => {
+      // Theme
+      initTheme();
+      document.getElementById('themeToggle')?.addEventListener('click', toggleTheme);
+
+      // i18n
+      const stored = localStorage.getItem('lumin-lang');
+      applyLang(stored || detectBrowserLang());
+
+      // FAQ
+      initFAQ();
+
+      // Lang selector
+      initLangSelector();
+
+      // Reveal
+      initReveal();
+
+      // Mobile menu placeholder
+      document.getElementById('mobileMenuBtn')?.addEventListener('click', () => {
+        alert('Mobile menu toggle — implement mobile nav drawer here');
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,1665 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SOLSTICE — Three Nights of Sound · Music Festival 2027</title>
+<meta name="description" content="SOLSTICE is a three-night music festival at the edge of summer. 40+ artists, three stages, one sunrise. June 19–21, 2027.">
+<link rel="canonical" href="https://proyectos.cristiancode.dev/landings/2026-08-15-solstice-festival.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="SOLSTICE — Three Nights of Sound">
+<meta property="og:description" content="40+ artists, three stages, one sunrise. June 19–21, 2027.">
+<meta property="og:image" content="https://proyectos.cristiancode.dev/landings/2026-08-15-solstice-festival.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SOLSTICE — Three Nights of Sound">
+<meta name="twitter:description" content="40+ artists, three stages, one sunrise. June 19–21, 2027.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23101012'/><circle cx='50' cy='50' r='34' fill='none' stroke='%23B8F131' stroke-width='10'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   DESIGN SYSTEM — SOLSTICE
+   Surface: Decide/Learn (landing; hero correct). Secondary
+            Compare in tickets — three tiers side by side,
+            one emphasized. Schedule is a real sequence, so
+            day markers 1-3 earn their place there.
+   Derived from: Original festival-poster composition
+            (principles from popular-web-designs: committed
+            two-accent palette, no glass, no gradient text)
+   Family: Events / Music Festival
+   Style: Neo-brutalist poster — massive condensed display,
+          raw grid lines, duotone photography, hard shadows.
+          Day mode = printed paper; Night mode = stage lights.
+   Strategy: Committed (near-black ink + paper + lime accent
+             + one coral accent; ≤25% of surfaces colored)
+   Type: Anton (display, condensed impact) + Manrope (body,
+         humanist geometric). Contrast axis: condensed vs round.
+   Motion: ease-out-quart reveals, linear marquee ticker,
+           float orbs, magnetic CTAs. All reduced-motion safe.
+   ============================================================ */
+
+:root{
+  --paper:#F6F6F4;        /* neutral off-white, chroma 0 */
+  --paper-2:#ECECEA;
+  --ink:#101012;          /* near-black ink */
+  --ink-2:#56565E;        /* muted body — 6.4:1 on paper */
+  --line:rgba(16,16,18,.14);
+  --lime:#B8F131;         /* accent 1 — festival acid */
+  --lime-deep:#9AD50F;
+  --coral:#FF4D5A;        /* accent 2 — stage light (decorative) */
+  --coral-deep:#B82330;   /* text on paper 5.8:1, on lime 4.7:1 */
+  --coral-ink:#C62B39;    /* bg under white text: 6.7:1 */
+  --stage:#101012;        /* fixed near-black (tickets/night section) */
+  --stage-ink:#F6F6F4;    /* fixed near-white on stage */
+  --stage-muted:#A6A6AC;  /* fixed muted on stage */
+  --shadow:8px 8px 0 var(--ink);
+  --shadow-sm:4px 4px 0 var(--ink);
+  --font-disp:'Anton',Impact,'Arial Black',sans-serif;
+  --font-body:'Manrope',system-ui,sans-serif;
+  --ease:cubic-bezier(.25,1,.35,1);
+}
+[data-theme="dark"]{
+  --paper:#0D0D10;
+  --paper-2:#16161A;
+  --ink:#F4F4F0;
+  --ink-2:#A6A6AC;
+  --line:rgba(244,244,240,.16);
+  --shadow:8px 8px 0 #000;
+  --shadow-sm:4px 4px 0 #000;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font-body);
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.6;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  transition:background .35s var(--ease),color .35s var(--ease);
+}
+::selection{background:var(--lime);color:var(--ink)}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer}
+.container{width:min(1180px,92%);margin-inline:auto}
+.skip-link{
+  position:fixed;top:-100px;left:16px;z-index:200;
+  background:var(--lime);color:var(--ink);
+  padding:10px 18px;font-weight:700;border-radius:2px;
+  transition:top .2s var(--ease);
+}
+.skip-link:focus{top:16px}
+
+/* ============ TYPOGRAPHY ============ */
+.display{
+  font-family:var(--font-disp);
+  font-weight:400;
+  text-transform:uppercase;
+  letter-spacing:-0.01em;
+  line-height:.92;
+  text-wrap:balance;
+}
+.h-display{font-size:clamp(3rem,9vw,6rem)}
+.h-section{font-size:clamp(2.2rem,6vw,4.2rem)}
+.h-sub{font-size:clamp(1.4rem,3.4vw,2.2rem)}
+.body{max-width:68ch;text-wrap:pretty}
+.lead{font-size:clamp(1.05rem,1.6vw,1.2rem);font-weight:500}
+.label{
+  font-family:var(--font-disp);
+  text-transform:uppercase;
+  letter-spacing:.14em;
+  font-size:.8rem;
+  display:inline-flex;align-items:center;gap:10px;
+}
+.label::before{content:"";width:26px;height:3px;background:var(--coral)}
+.muted{color:var(--ink-2)}
+
+/* ============ NAV ============ */
+.nav{
+  position:fixed;inset:0 0 auto 0;z-index:100;
+  background:var(--paper);
+  border-bottom:2px solid var(--ink);
+  transition:transform .3s var(--ease);
+}
+.nav-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:16px;padding:14px 0;
+}
+.logo{
+  font-family:var(--font-disp);
+  font-size:1.5rem;letter-spacing:.06em;
+  display:flex;align-items:center;gap:10px;
+}
+.logo .sun{
+  width:26px;height:26px;border-radius:50%;
+  border:4px solid var(--ink);
+  background:var(--lime);
+  box-shadow:0 0 0 4px var(--paper);
+}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{
+  font-weight:700;font-size:.95rem;
+  position:relative;padding:4px 0;
+}
+.nav-links a::after{
+  content:"";position:absolute;left:0;bottom:0;
+  width:100%;height:3px;background:var(--lime);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .25s var(--ease);
+}
+.nav-links a:hover::after{transform:scaleX(1)}
+.nav-actions{display:flex;align-items:center;gap:12px}
+.nav-cta{
+  font-family:var(--font-disp);text-transform:uppercase;
+  font-size:.85rem;letter-spacing:.08em;
+  background:var(--ink);color:var(--paper);
+  border:2px solid var(--ink);
+  padding:10px 18px;border-radius:2px;
+  transition:background .2s var(--ease),color .2s var(--ease),transform .2s var(--ease);
+}
+.nav-cta:hover{background:var(--lime);color:#101012}
+.nav-toggle{
+  display:none;width:44px;height:44px;
+  background:transparent;border:2px solid var(--ink);
+  border-radius:2px;position:relative;
+}
+.nav-toggle span,.nav-toggle::before,.nav-toggle::after{
+  content:"";position:absolute;left:9px;right:9px;height:3px;background:var(--ink);
+  transition:transform .25s var(--ease),top .25s var(--ease);
+}
+.nav-toggle span{top:19px}
+.nav-toggle::before{top:10px}
+.nav-toggle::after{top:28px}
+.nav-toggle.open span{opacity:0}
+.nav-toggle.open::before{top:19px;transform:rotate(45deg)}
+.nav-toggle.open::after{top:19px;transform:rotate(-45deg)}
+
+/* mobile menu */
+.mobile-menu{color:#101012;
+  position:fixed;inset:0;z-index:90;
+  background:var(--lime);
+  display:flex;flex-direction:column;
+  justify-content:center;gap:6px;padding:24px 8%;
+  transform:translateX(100%);
+  transition:transform .35s var(--ease);
+}
+.mobile-menu.open{transform:translateX(0)}
+.mobile-menu a{
+  font-family:var(--font-disp);text-transform:uppercase;
+  font-size:2.4rem;line-height:1.1;
+  padding:6px 0;border-bottom:2px solid rgba(16,16,18,.25);
+}
+.mobile-menu a:hover{color:var(--coral-deep)}
+.mobile-menu .m-cta{
+  margin-top:18px;display:inline-block;width:max-content;
+  background:#101012;color:var(--lime);
+  padding:12px 26px;font-size:1.4rem;border-radius:2px;
+}
+
+/* ============ LANG SWITCHER ============ */
+.lang-switch{position:relative}
+.lang-btn{
+  display:flex;align-items:center;gap:8px;
+  background:var(--paper-2);border:2px solid var(--ink);
+  border-radius:2px;padding:9px 14px;font-weight:800;font-size:.85rem;
+  transition:background .2s var(--ease);
+}
+.lang-btn:hover{background:var(--lime)}
+.lang-btn .globe{width:15px;height:15px}
+.lang-list{
+  position:absolute;right:0;top:calc(100% + 8px);
+  background:var(--paper);border:2px solid var(--ink);
+  box-shadow:var(--shadow-sm);border-radius:2px;
+  list-style:none;min-width:150px;overflow:hidden;
+  opacity:0;pointer-events:none;transform:translateY(-6px);
+  transition:opacity .2s var(--ease),transform .2s var(--ease);
+  z-index:120;
+}
+.lang-switch.open .lang-list{opacity:1;pointer-events:auto;transform:translateY(0)}
+.lang-list button{
+  display:block;width:100%;text-align:left;
+  background:transparent;border:none;padding:10px 16px;
+  font-weight:700;font-size:.9rem;color:var(--ink);
+}
+.lang-list button:hover{background:var(--lime);color:#101012}
+.lang-list button.active{background:var(--lime-deep)}
+
+/* ============ THEME TOGGLE ============ */
+.theme-toggle{
+  width:44px;height:44px;border-radius:2px;
+  border:2px solid var(--ink);background:var(--paper-2);
+  display:grid;place-items:center;color:var(--ink);
+  transition:background .2s var(--ease);
+}
+.theme-toggle:hover{background:var(--lime);color:#101012}
+.theme-toggle svg{width:20px;height:20px}
+.theme-toggle .sun-ic{display:none}
+[data-theme="dark"] .theme-toggle .sun-ic{display:block}
+[data-theme="dark"] .theme-toggle .moon-ic{display:none}
+
+/* ============ HERO ============ */
+.hero{
+  padding-top:150px;
+  position:relative;
+  overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;z-index:-2;
+  background:
+    radial-gradient(60% 80% at 85% 10%, rgba(184,241,49,.16), transparent 60%),
+    radial-gradient(50% 70% at 8% 80%, rgba(255,77,90,.14), transparent 60%),
+    var(--paper);
+}
+.hero-grid{
+  position:absolute;inset:0;z-index:-1;opacity:.5;
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size:72px 72px;
+  mask-image:linear-gradient(180deg,#000 0%,transparent 85%);
+  -webkit-mask-image:linear-gradient(180deg,#000 0%,transparent 85%);
+}
+.hero-inner{
+  display:grid;
+  grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);
+  gap:48px;align-items:end;
+  padding-bottom:clamp(48px,7vh,88px);
+}
+.hero-kicker{color:#101012;
+  font-family:var(--font-disp);text-transform:uppercase;
+  letter-spacing:.22em;font-size:clamp(.75rem,1.4vw,.95rem);
+  display:inline-flex;align-items:center;gap:12px;
+  border:2px solid var(--ink);border-radius:2px;
+  padding:8px 16px;background:var(--lime);
+  color:#101012;
+  box-shadow:var(--shadow-sm);
+  margin-bottom:26px;
+}
+.hero-kicker .dot{width:9px;height:9px;border-radius:50%;background:var(--coral);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.hero h1{font-size:clamp(4rem,12.5vw,8rem);margin-bottom:6px}
+.hero h1 .lime{color:var(--lime-deep);-webkit-text-stroke:2px #101012;text-shadow:4px 4px 0 var(--coral)}
+.hero .subtitle{max-width:56ch;margin-top:20px;font-size:clamp(1.05rem,1.7vw,1.25rem);font-weight:500}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:16px;margin-top:34px}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--font-disp);text-transform:uppercase;
+  font-size:1rem;letter-spacing:.09em;
+  padding:16px 28px;border-radius:2px;
+  border:2px solid var(--ink);
+  transition:transform .18s var(--ease),box-shadow .18s var(--ease),background .2s var(--ease),color .2s var(--ease);
+}
+.btn:active{transform:translate(2px,2px);box-shadow:none}
+.btn-primary{background:#101012;color:#F6F6F4;box-shadow:var(--shadow-sm)}
+.btn-primary:hover{background:var(--coral-ink);color:#fff}
+.btn-ghost{background:transparent;color:var(--ink)}
+.btn-ghost:hover{background:var(--lime);color:#101012}
+.btn-lime{background:var(--lime);color:#101012;box-shadow:var(--shadow-sm)}
+.btn-lime:hover{background:#101012;color:var(--lime)}
+
+/* hero side panel */
+.hero-side{position:relative}
+.hero-card{
+  background:var(--paper-2);
+  border:2px solid var(--ink);
+  box-shadow:var(--shadow);
+  padding:26px;border-radius:2px;
+}
+.countdown-label{
+  font-family:var(--font-disp);text-transform:uppercase;
+  letter-spacing:.16em;font-size:.78rem;color:var(--ink-2);
+  margin-bottom:14px;
+}
+.countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.cd-cell{
+  background:var(--paper);border:2px solid var(--ink);
+  border-radius:2px;padding:12px 6px;text-align:center;
+}
+.cd-cell .num{
+  font-family:var(--font-disp);font-size:clamp(1.4rem,2.6vw,2rem);
+  line-height:1;font-variant-numeric:tabular-nums;
+}
+.cd-cell .unit{font-size:.66rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);margin-top:5px;display:block}
+.hero-date{
+  margin-top:18px;padding-top:16px;border-top:2px dashed var(--line);
+  font-weight:800;font-size:1.02rem;
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+}
+.hero-date svg{width:18px;height:18px;flex:none}
+.hero-loc{margin-top:8px;font-size:.92rem;color:var(--ink-2);font-weight:600;display:flex;gap:8px;align-items:center}
+.hero-loc svg{width:16px;height:16px;flex:none}
+.scroll-hint{
+  position:absolute;bottom:-34px;left:0;right:0;text-align:center;
+  font-size:.75rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-2);
+  display:flex;flex-direction:column;align-items:center;gap:6px;
+}
+.scroll-hint .arrow{animation:bob 1.6s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+
+/* orbs */
+.orb{
+  position:absolute;border-radius:50%;z-index:-1;
+  opacity:.5;pointer-events:none;
+}
+.orb-a{width:150px;height:150px;background:var(--lime);top:12%;left:6%;animation:float 9s ease-in-out infinite}
+.orb-b{width:70px;height:70px;background:var(--coral);top:55%;right:34%;animation:float 7s ease-in-out infinite reverse}
+.orb-c{width:40px;height:40px;background:var(--ink);bottom:10%;left:40%;animation:float 6s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-22px) rotate(6deg)}}
+
+/* ============ MARQUEE ============ */
+.marquee{color:#101012;
+  background:var(--lime);
+  border-block:2px solid var(--ink);
+  overflow:hidden;padding:14px 0;
+  transform:rotate(-1.2deg) scale(1.02);
+  margin-block:clamp(30px,5vh,60px);
+  z-index:2;position:relative;
+}
+.marquee-track{
+  display:flex;gap:0;width:max-content;
+  animation:scroll-x 34s linear infinite;
+}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.marquee span{color:#101012;
+  font-family:var(--font-disp);text-transform:uppercase;
+  font-size:clamp(1.2rem,2.6vw,1.7rem);letter-spacing:.05em;
+  color:#101012;white-space:nowrap;
+  padding-right:28px;display:inline-flex;align-items:center;gap:28px;
+}
+.marquee span::after{content:"✦";color:var(--coral-deep);font-size:.8em}
+@keyframes scroll-x{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ============ SECTIONS ============ */
+section{position:relative;padding:clamp(64px,10vh,110px) 0}
+.section-head{margin-bottom:clamp(38px,6vh,60px);max-width:820px}
+.section-head .label{margin-bottom:16px}
+.section-head p.body{margin-top:18px;font-size:1.05rem}
+
+/* ============ STATEMENT ============ */
+.statement{background:var(--paper)}
+.statement-grid{
+  display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,.6fr);
+  gap:clamp(32px,6vw,80px);align-items:start;
+}
+.statement .big{
+  font-family:var(--font-disp);text-transform:uppercase;
+  font-size:clamp(1.8rem,4.4vw,3rem);line-height:1.05;
+  text-wrap:balance;letter-spacing:-.01em;
+}
+.statement .big .hi{background:var(--lime);color:#101012;box-shadow:var(--shadow-sm);padding:0 8px;display:inline-block}
+.statement .num-col{display:flex;flex-direction:column;gap:22px;padding-left:0}
+.statement .num-col>div{padding-left:22px;position:relative}
+.statement .num-col>div::before{content:"";position:absolute;left:0;top:6px;width:10px;height:10px;background:var(--coral);border-radius:2px}
+.statement .num-col .n{font-family:var(--font-disp);font-size:2.6rem;line-height:1;color:var(--coral-deep)}
+.statement .num-col .t{font-weight:700;font-size:.95rem}
+.statement .num-col .d{font-size:.88rem;color:var(--ink-2)}
+
+/* ============ LINEUP ============ */
+.lineup{background:var(--paper-2);border-block:2px solid var(--ink)}
+.lineup-grid{
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  gap:16px;
+}
+.artist{
+  position:relative;overflow:hidden;
+  border:2px solid var(--ink);border-radius:2px;
+  background:var(--ink);
+  grid-column:span 4;aspect-ratio:4/5;
+  display:flex;align-items:flex-end;
+  transition:transform .25s var(--ease),box-shadow .25s var(--ease);
+}
+.artist:hover{transform:translate(-4px,-4px);box-shadow:var(--shadow-sm)}
+.artist:nth-child(6n+1){grid-column:span 5}
+.artist:nth-child(6n+2){grid-column:span 7;aspect-ratio:16/9}
+.artist:nth-child(6n+3){grid-column:span 7;aspect-ratio:16/9}
+.artist:nth-child(6n+4){grid-column:span 5}
+.artist:nth-child(6n+5){grid-column:span 6}
+.artist:nth-child(6n+6){grid-column:span 6}
+.artist img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  filter:grayscale(1) contrast(1.08);
+  transition:filter .35s var(--ease),transform .5s var(--ease);
+}
+.artist:hover img{filter:grayscale(0) contrast(1);transform:scale(1.04)}
+.artist .veil{
+  position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 40%,rgba(10,10,12,.88) 100%);
+}
+.artist .info{position:relative;z-index:2;padding:20px 18px;width:100%}
+.artist .name{
+  font-family:var(--font-disp);text-transform:uppercase;
+  font-size:clamp(1.2rem,2.4vw,1.7rem);line-height:1;color:#fff;
+  letter-spacing:.02em;text-wrap:balance;
+}
+.artist .genre{font-size:.72rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--lime);margin-top:8px;display:block}
+.artist:nth-child(3n) .genre{color:#FF8A93}
+.lineup-more{
+  margin-top:38px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;
+  border:2px dashed var(--line);border-radius:2px;padding:20px 24px;
+}
+.lineup-more p{font-weight:700;max-width:46ch}
+.lineup-more .plus{font-family:var(--font-disp);font-size:1.6rem;color:var(--coral-deep)}
+
+/* ============ SCHEDULE (tabs) ============ */
+.schedule{background:var(--paper)}
+.stage-tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:34px}
+.stage-tab{
+  font-family:var(--font-disp);text-transform:uppercase;
+  font-size:.95rem;letter-spacing:.08em;
+  border:2px solid var(--ink);border-radius:2px;
+  background:transparent;color:var(--ink);
+  padding:12px 22px;
+  transition:background .2s var(--ease),color .2s var(--ease);
+}
+.stage-tab:hover{background:var(--paper-2)}
+.stage-tab.active{background:#101012;color:#F6F6F4}
+.stage-panel{display:none}
+.stage-panel.active{display:block;animation:fade-up .4s var(--ease)}
+@keyframes fade-up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.sched-row{
+  display:grid;grid-template-columns:110px 1fr auto;
+  gap:18px;align-items:center;
+  padding:18px 10px;border-bottom:1px solid var(--line);
+}
+.sched-row:first-of-type{border-top:2px solid var(--ink)}
+.sched-time{font-family:var(--font-disp);font-size:1.25rem;letter-spacing:.04em}
+.sched-artist{font-weight:800;font-size:1.06rem}
+.sched-genre{font-size:.74rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2)}
+.sched-badge{
+  font-family:var(--font-disp);text-transform:uppercase;font-size:.72rem;letter-spacing:.1em;
+  background:var(--lime);border:2px solid var(--ink);border-radius:2px;
+  padding:5px 10px;color:var(--ink);white-space:nowrap;
+}
+.sched-badge.sun{background:var(--coral-ink);color:#fff}
+
+/* ============ TICKETS (Compare) ============ */
+.tickets{background:var(--stage);color:var(--stage-ink);border-block:2px solid #000}
+.tickets .label::before{background:var(--lime)}
+.tickets .section-head p.body{color:var(--stage-ink)}
+.tickets .muted{color:var(--stage-muted)}
+.ticket-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:24px;align-items:stretch;
+}
+.ticket{
+  background:#F6F6F4;color:#101012;
+  border:2px solid var(--paper);
+  border-radius:2px;padding:30px 26px;
+  display:flex;flex-direction:column;
+  position:relative;
+  transition:transform .25s var(--ease),box-shadow .25s var(--ease);
+}
+.ticket:hover{transform:translateY(-6px)}
+.ticket .tier{
+  font-family:var(--font-disp);text-transform:uppercase;
+  letter-spacing:.12em;font-size:.85rem;color:#56565E;
+}
+.ticket .price{
+  font-family:var(--font-disp);font-size:3.2rem;line-height:1;
+  margin:14px 0 4px;
+}
+.ticket .price small{font-size:1.1rem;letter-spacing:.04em;color:#56565E}
+.ticket .per{font-size:.82rem;font-weight:700;color:#56565E;margin-bottom:18px}
+.ticket ul{list-style:none;margin-bottom:26px;display:flex;flex-direction:column;gap:11px;flex:1}
+.ticket li{display:flex;gap:10px;align-items:flex-start;font-size:.93rem;font-weight:600}
+.ticket li::before{content:"✓";font-weight:800;color:var(--lime-deep);flex:none;background:#101012;width:19px;height:19px;border-radius:50%;display:grid;place-items:center;font-size:.62rem;color:var(--lime);margin-top:2px}
+.ticket .btn{width:100%;justify-content:center}
+.ticket .btn-ghost{color:#101012}
+.ticket .btn-ghost:hover{background:var(--lime);color:#101012}
+.ticket.hot{
+  background:var(--lime);
+  box-shadow:var(--shadow);transform:scale(1.03);
+}
+.ticket.hot:hover{transform:scale(1.03) translateY(-6px)}
+.ticket.hot .tier{color:#56565E}
+.ticket.hot .btn{background:#101012;color:var(--lime)}
+.ticket.hot .btn:hover{background:var(--coral-ink);color:#fff}
+.flag{
+  position:absolute;top:-14px;left:50%;transform:translateX(-50%);
+  background:var(--coral-ink);color:#fff;
+  font-family:var(--font-disp);text-transform:uppercase;
+  font-size:.72rem;letter-spacing:.14em;
+  padding:6px 14px;border:2px solid var(--ink);border-radius:2px;
+  white-space:nowrap;
+}
+.ticket-note{
+  margin-top:30px;text-align:center;
+  font-size:.9rem;color:var(--stage-muted);font-weight:600;
+}
+.ticket-note a{color:var(--lime);text-decoration:underline;text-underline-offset:3px}
+.ticket-note a:hover{color:#fff}
+
+/* ============ FAQ ============ */
+.faq-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(32px,6vw,80px);align-items:start}
+.faq-side .faq-contact{
+  margin-top:26px;border:2px solid var(--line);border-radius:2px;
+  padding:20px;background:var(--paper-2);
+}
+.faq-contact p{font-size:.92rem;margin-top:6px}
+.faq-contact a{font-weight:800;text-decoration:underline;text-underline-offset:3px}
+.faq-list{display:flex;flex-direction:column;gap:12px}
+.faq-item{border:2px solid var(--line);border-radius:2px;background:var(--paper);overflow:hidden}
+.faq-item.open{border-color:var(--ink)}
+.faq-q{
+  width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;
+  background:transparent;border:none;color:var(--ink);
+  font-weight:800;font-size:1.02rem;text-align:left;
+  padding:18px 20px;
+}
+.faq-q .ic{flex:none;width:28px;height:28px;border:2px solid var(--ink);border-radius:2px;display:grid;place-items:center;font-size:1.1rem;font-weight:800;transition:transform .25s var(--ease),background .2s var(--ease)}
+.faq-item.open .faq-q .ic{transform:rotate(45deg);background:var(--lime);color:#101012}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s var(--ease)}
+.faq-a p{padding:0 20px 20px;font-size:.95rem;color:var(--ink-2);max-width:62ch}
+
+/* ============ NEWSLETTER ============ */
+.newsletter{background:var(--lime);border-block:2px solid #101012;color:#101012}
+.newsletter .nl-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(28px,5vw,60px);align-items:center}
+.newsletter .label::before{background:#101012}
+.newsletter h2{font-size:clamp(2rem,5vw,3.4rem)}
+.newsletter p{font-weight:600;max-width:50ch}
+.nl-form{display:flex;gap:0;flex-wrap:wrap}
+.nl-form input{
+  flex:1;min-width:200px;
+  font-family:var(--font-body);font-weight:700;font-size:1rem;
+  border:2px solid var(--ink);border-right:none;border-radius:0;
+  padding:16px 18px;background:var(--paper);color:var(--ink);
+  outline:none;
+}
+.nl-form input:focus{box-shadow:inset 0 0 0 2px var(--coral)}
+.nl-form .btn{border-left:none}
+.nl-msg{margin-top:12px;font-weight:800;font-size:.92rem;display:none}
+.nl-msg.ok{display:block}
+.nl-msg.err{display:block;color:var(--coral-deep)}
+
+/* ============ FOOTER ============ */
+footer{background:var(--paper);border-top:2px solid var(--ink);padding:56px 0 30px}
+.foot-grid{
+  display:grid;grid-template-columns:1.4fr repeat(3,1fr);
+  gap:36px;margin-bottom:44px;
+}
+.foot-brand .logo{margin-bottom:14px}
+.foot-brand p{font-size:.92rem;color:var(--ink-2);max-width:34ch}
+.foot-col h4{font-family:var(--font-disp);text-transform:uppercase;letter-spacing:.1em;font-size:.9rem;margin-bottom:16px}
+.foot-col ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.foot-col a{font-size:.92rem;font-weight:600;color:var(--ink-2);transition:color .2s var(--ease)}
+.foot-col a:hover{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+.foot-bottom{
+  border-top:2px solid var(--line);padding-top:22px;
+  display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;
+  font-size:.82rem;color:var(--ink-2);font-weight:600;
+}
+.socials{display:flex;gap:10px}
+.socials a{
+  width:38px;height:38px;border:2px solid var(--ink);border-radius:2px;
+  display:grid;place-items:center;color:var(--ink);
+  transition:background .2s var(--ease),transform .2s var(--ease);
+}
+.socials a:hover{background:var(--lime);color:#101012;transform:translateY(-2px)}
+.socials svg{width:16px;height:16px}
+
+/* ============ COOKIE ============ */
+.cookie{
+  position:fixed;right:18px;bottom:18px;z-index:150;
+  background:var(--stage);color:var(--stage-ink);
+  border:2px solid var(--stage-ink);border-radius:2px;
+  box-shadow:var(--shadow-sm);
+  max-width:340px;padding:20px;
+  transform:translateY(calc(100% + 24px));
+  transition:transform .45s var(--ease);
+}
+.cookie.show{transform:translateY(0)}
+.cookie p{font-size:.86rem;font-weight:600;color:var(--ink-2);margin-bottom:14px}
+.cookie-btns{display:flex;gap:10px}
+.cookie-btns button{
+  flex:1;font-weight:800;font-size:.82rem;letter-spacing:.04em;
+  border:2px solid var(--stage-ink);border-radius:2px;
+  padding:9px 12px;background:transparent;color:var(--stage-ink);
+  transition:background .2s var(--ease);
+}
+.cookie-btns button.accept{background:var(--lime);color:#101012;border-color:var(--lime)}
+.cookie-btns button.accept:hover{background:var(--lime-deep)}
+.cookie-btns button:hover{background:rgba(244,244,240,.14)}
+
+/* ============ REVEAL ============ */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.reveal.in{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.08s}
+.reveal-delay-2{transition-delay:.16s}
+.reveal-delay-3{transition-delay:.24s}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width:960px){
+  .hero-inner{grid-template-columns:1fr;align-items:start}
+  .hero-side{max-width:440px}
+  .statement-grid{grid-template-columns:1fr}
+  .statement .num-col{padding-left:0;padding-top:18px;flex-direction:row;flex-wrap:wrap;gap:26px}
+  .statement .num-col>div{padding-left:22px}
+  .ticket-grid{grid-template-columns:1fr;max-width:440px}
+  .ticket.hot{transform:none;order:-1}
+  .ticket.hot:hover{transform:translateY(-6px)}
+  .faq-grid{grid-template-columns:1fr}
+  .newsletter .nl-grid{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .artist{grid-column:span 6 !important;aspect-ratio:4/5 !important}
+  .nav-links{display:none}
+  .nav-toggle{display:block}
+  .nav-cta{display:none}
+}
+@media (max-width:560px){
+  .artist{grid-column:span 12 !important}
+  .sched-row{grid-template-columns:74px 1fr;gap:12px}
+  .sched-genre{display:none}
+  .sched-badge{grid-column:1/-1;justify-self:start}
+  .cookie{left:14px;right:14px;max-width:none}
+  .lang-btn span.txt{display:none}
+}
+
+/* ============ REDUCED MOTION ============ */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none}
+  .marquee{color:#101012;transform:none}
+  .orb{animation:none}
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="container nav-inner">
+    <a class="logo" href="#top" aria-label="SOLSTICE"><span class="sun" aria-hidden="true"></span><span>SOLSTICE</span></a>
+    <nav aria-label="Main navigation">
+      <ul class="nav-links">
+        <li><a href="#lineup" data-i18n="nav_lineup">Lineup</a></li>
+        <li><a href="#schedule" data-i18n="nav_schedule">Schedule</a></li>
+        <li><a href="#tickets" data-i18n="nav_tickets">Tickets</a></li>
+        <li><a href="#faq" data-i18n="nav_faq">FAQ</a></li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn" id="langBtn" aria-haspopup="listbox" aria-expanded="false" aria-label="Change language">
+          <svg class="globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.7 3.8 9S14.5 18.4 12 21c-2.5-2.6-3.8-5.7-3.8-9S9.5 5.6 12 3z"/></svg>
+          <span class="txt" id="langCurrent">EN</span>
+        </button>
+        <ul class="lang-list" role="listbox" aria-label="Language list">
+          <li><button data-lang="en" class="active" role="option">English</button></li>
+          <li><button data-lang="es" role="option">Español</button></li>
+          <li><button data-lang="fr" role="option">Français</button></li>
+          <li><button data-lang="de" role="option">Deutsch</button></li>
+          <li><button data-lang="it" role="option">Italiano</button></li>
+          <li><button data-lang="pt" role="option">Português</button></li>
+        </ul>
+      </div>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <svg class="moon-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="sun-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+      <a href="#tickets" class="nav-cta" data-i18n="nav_cta">Get tickets</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- mobile menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#lineup" data-i18n="nav_lineup">Lineup</a>
+  <a href="#schedule" data-i18n="nav_schedule">Schedule</a>
+  <a href="#tickets" data-i18n="nav_tickets">Tickets</a>
+  <a href="#faq" data-i18n="nav_faq">FAQ</a>
+  <a href="#tickets" class="m-cta" data-i18n="nav_cta">Get tickets</a>
+</div>
+
+<main id="main">
+<!-- ============ HERO ============ -->
+<section class="hero" id="hero">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-grid" aria-hidden="true"></div>
+  <span class="orb orb-a" aria-hidden="true"></span>
+  <span class="orb orb-b" aria-hidden="true"></span>
+  <span class="orb orb-c" aria-hidden="true"></span>
+
+  <div class="container hero-inner">
+    <div class="hero-copy">
+      <p class="hero-kicker"><span class="dot" aria-hidden="true"></span><span data-i18n="hero_kicker">Three nights of sound</span></p>
+      <h1 class="display">SOL<span class="lime">STICE</span></h1>
+      <p class="subtitle body" data-i18n="hero_sub">The longest weekend of the year, soundtracked by 40+ artists across three stages — from first light of the summer solstice to the last beat before dawn.</p>
+      <div class="hero-ctas">
+        <a href="#tickets" class="btn btn-lime" data-i18n="hero_cta1">Get tickets</a>
+        <a href="#lineup" class="btn btn-ghost" data-i18n="hero_cta2">See the lineup</a>
+      </div>
+    </div>
+
+    <div class="hero-side">
+      <div class="hero-card" role="timer" aria-label="Countdown to festival">
+        <p class="countdown-label" data-i18n="cd_label">Opening night in</p>
+        <div class="countdown" id="countdown">
+          <div class="cd-cell"><span class="num" id="cdDays">00</span><span class="unit" data-i18n="cd_days">days</span></div>
+          <div class="cd-cell"><span class="num" id="cdHours">00</span><span class="unit" data-i18n="cd_hours">hrs</span></div>
+          <div class="cd-cell"><span class="num" id="cdMins">00</span><span class="unit" data-i18n="cd_mins">min</span></div>
+          <div class="cd-cell"><span class="num" id="cdSecs">00</span><span class="unit" data-i18n="cd_secs">sec</span></div>
+        </div>
+        <p class="hero-date">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4m8-4v4M3 10h18"/></svg>
+          <span>19 — 21 June 2027</span>
+        </p>
+        <p class="hero-loc">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          <span data-i18n="hero_loc">Pine Hollow Valley, Sierra Norte</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track" id="marqueeTrack">
+    <span>Velvet Static</span><span>Moon Cabin</span><span>Saffron Hour</span><span>AXIOM</span><span>Palo Dulce</span><span>Neon Orchid</span><span>Glass Sea</span><span>Midnight Marrow</span><span>Tunnel Vision</span><span>Oak &amp; Ember</span>
+  </div>
+</div>
+
+<!-- ============ STATEMENT ============ -->
+<section class="statement" id="about">
+  <div class="container statement-grid">
+    <div class="reveal">
+      <p class="label" data-i18n="st_label">The idea</p>
+      <h2 class="display h-section" style="margin-bottom:22px" data-i18n="st_title">A festival built around <span class="hi">one long night</span> of light.</h2>
+      <p class="body lead" data-i18n="st_body">Solstice isn't a lineup stapled to a field. It's a single, continuous piece of sound — programmed like a mixtape that peaks with the sun. From the first chord at golden hour to the ambient closer as the sky turns violet, every act is placed for a reason, and the crowd moves as one body through the night.</p>
+    </div>
+    <div class="num-col reveal reveal-delay-1">
+      <div><div class="n">40+</div><div class="t" data-i18n="st_n1t">Artists</div><div class="d" data-i18n="st_n1d">across three stages and two secret sets</div></div>
+      <div><div class="n">72h</div><div class="t" data-i18n="st_n2t">Non-stop music</div><div class="d" data-i18n="st_n2d">the festival never fully sleeps</div></div>
+      <div><div class="n">8k</div><div class="t" data-i18n="st_n3t">People</div><div class="d" data-i18n="st_n3d">one valley, one weekend, no phone signal</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LINEUP ============ -->
+<section class="lineup" id="lineup">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="label" data-i18n="lu_label">Lineup</p>
+      <h2 class="display h-section" data-i18n="lu_title">Ten reasons to miss your train home.</h2>
+      <p class="body" data-i18n="lu_body">A hand-picked cross-section of the most exciting live acts right now — headliners, hidden gems and everything between. Full 40+ artist grid drops in April.</p>
+    </div>
+
+    <div class="lineup-grid">
+      <article class="artist reveal">
+        <img src="https://picsum.photos/seed/solstice-velvet/800/1000" alt="Velvet Static" loading="lazy">
+        <div class="veil" aria-hidden="true"></div>
+        <div class="info"><h3 class="name">Velvet Static</h3><span class="genre" data-i18n="g1">Synth-pop</span></div>
+      </article>
+      <article class="artist reveal reveal-delay-1">
+        <img src="https://picsum.photos/seed/solstice-mooncabin/800/1000" alt="Moon Cabin" loading="lazy">
+        <div class="veil" aria-hidden="true"></div>
+        <div class="info"><h3 class="name">Moon Cabin</h3><span class="genre" data-i18n="g2">Indie folk</span></div>
+      </article>
+      <article class="artist reveal reveal-delay-2">
+        <img src="https://picsum.photos/seed/solstice-saffron/800/1000" alt="Saffron Hour" loading="lazy">
+        <div class="veil" aria-hidden="true"></div>
+        <div class="info"><h3 class="name">Saffron Hour</h3><span class="genre" data-i18n="g3">Live electronics</span></div>
+      </article>
+      <article class="artist reveal">
+        <img src="https://picsum.photos/seed/solstice-axiom/800/1000" alt="AXIOM" loading="lazy">
+        <div class="veil" aria-hidden="true"></div>
+        <div class="info"><h3 class="name">AXIOM</h3><span class="genre" data-i18n="g4">Techno</span></div>
+      </article>
+      <article class="artist reveal reveal-delay-1">
+        <img src="https://picsum.photos/seed/solstice-palodulce/800/1000" alt="Palo Dulce" loading="lazy">
+        <div class="veil" aria-hidden="true"></div>
+        <div class="info"><h3 class="name">Palo Dulce</h3><span class="genre" data-i18n="g5">Latin fusion</span></div>
+      </article>
+      <article class="artist reveal reveal-delay-2">
+        <img src="https://picsum.photos/seed/solstice-neonorchid/800/1000" alt="Neon Orchid" loading="lazy">
+        <div class="veil" aria-hidden="true"></div>
+        <div class="info"><h3 class="name">Neon Orchid</h3><span class="genre" data-i18n="g6">Synthwave</span></div>
+      </article>
+      <article class="artist reveal">
+        <img src="https://picsum.photos/seed/solstice-glasssea/800/1000" alt="Glass Sea" loading="lazy">
+        <div class="veil" aria-hidden="true"></div>
+        <div class="info"><h3 class="name">Glass Sea</h3><span class="genre" data-i18n="g7">Dream pop</span></div>
+      </article>
+      <article class="artist reveal reveal-delay-1">
+        <img src="https://picsum.photos/seed/solstice-marrow/800/1000" alt="Midnight Marrow" loading="lazy">
+        <div class="veil" aria-hidden="true"></div>
+        <div class="info"><h3 class="name">Midnight Marrow</h3><span class="genre" data-i18n="g8">Darkwave</span></div>
+      </article>
+      <article class="artist reveal reveal-delay-2">
+        <img src="https://picsum.photos/seed/solstice-tunnel/800/1000" alt="Tunnel Vision" loading="lazy">
+        <div class="veil" aria-hidden="true"></div>
+        <div class="info"><h3 class="name">Tunnel Vision</h3><span class="genre" data-i18n="g9">House</span></div>
+      </article>
+      <article class="artist reveal">
+        <img src="https://picsum.photos/seed/solstice-oakember/800/1000" alt="Oak &amp; Ember" loading="lazy">
+        <div class="veil" aria-hidden="true"></div>
+        <div class="info"><h3 class="name">Oak &amp; Ember</h3><span class="genre" data-i18n="g10">Americana</span></div>
+      </article>
+    </div>
+
+    <div class="lineup-more reveal">
+      <p data-i18n="lu_more">Plus 30 more acts across electronic, indie, hip-hop and world music — the full grid lands with the April announcement.</p>
+      <span class="plus" aria-hidden="true">+ 30 MORE</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SCHEDULE ============ -->
+<section class="schedule" id="schedule">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="label" data-i18n="sch_label">Schedule</p>
+      <h2 class="display h-section" data-i18n="sch_title">Three stages. One river of sound.</h2>
+      <p class="body" data-i18n="sch_body">Each stage has its own personality. Jump between them, or stay planted and let the music come to you — every transition is timed so you never miss a drop.</p>
+    </div>
+
+    <div class="stage-tabs reveal" role="tablist" aria-label="Stages">
+      <button class="stage-tab active" role="tab" aria-selected="true" data-stage="0" data-i18n="stage1">Solar Stage</button>
+      <button class="stage-tab" role="tab" aria-selected="false" data-stage="1" data-i18n="stage2">Lunar Dome</button>
+      <button class="stage-tab" role="tab" aria-selected="false" data-stage="2" data-i18n="stage3">Afterhours</button>
+    </div>
+
+    <div class="stage-panel active" data-panel="0">
+      <div class="sched-row"><span class="sched-time">18:00</span><span class="sched-artist">Oak &amp; Ember</span><span class="sched-genre" data-i18n="g10">Americana</span><span class="sched-badge" data-i18n="sch_open">Opening</span></div>
+      <div class="sched-row"><span class="sched-time">19:30</span><span class="sched-artist">Glass Sea</span><span class="sched-genre" data-i18n="g7">Dream pop</span><span></span></div>
+      <div class="sched-row"><span class="sched-time">21:00</span><span class="sched-artist">Moon Cabin</span><span class="sched-genre" data-i18n="g2">Indie folk</span><span></span></div>
+      <div class="sched-row"><span class="sched-time">22:45</span><span class="sched-artist">Neon Orchid</span><span class="sched-genre" data-i18n="g6">Synthwave</span><span></span></div>
+      <div class="sched-row"><span class="sched-time">00:30</span><span class="sched-artist">Velvet Static</span><span class="sched-genre" data-i18n="g1">Synth-pop</span><span class="sched-badge sun" data-i18n="sch_headline">Headline</span></div>
+    </div>
+
+    <div class="stage-panel" data-panel="1">
+      <div class="sched-row"><span class="sched-time">17:00</span><span class="sched-artist">Saffron Hour</span><span class="sched-genre" data-i18n="g3">Live electronics</span><span class="sched-badge" data-i18n="sch_open">Opening</span></div>
+      <div class="sched-row"><span class="sched-time">19:00</span><span class="sched-artist">Palo Dulce</span><span class="sched-genre" data-i18n="g5">Latin fusion</span><span></span></div>
+      <div class="sched-row"><span class="sched-time">20:45</span><span class="sched-artist">Tunnel Vision</span><span class="sched-genre" data-i18n="g9">House</span><span></span></div>
+      <div class="sched-row"><span class="sched-time">22:30</span><span class="sched-artist">AXIOM</span><span class="sched-genre" data-i18n="g4">Techno</span><span class="sched-badge sun" data-i18n="sch_headline">Headline</span></div>
+      <div class="sched-row"><span class="sched-time">01:00</span><span class="sched-artist">Midnight Marrow</span><span class="sched-genre" data-i18n="g8">Darkwave</span><span></span></div>
+    </div>
+
+    <div class="stage-panel" data-panel="2">
+      <div class="sched-row"><span class="sched-time">23:00</span><span class="sched-artist">Tunnel Vision</span><span class="sched-genre" data-i18n="g9">House</span><span class="sched-badge sun" data-i18n="sch_headline">Headline</span></div>
+      <div class="sched-row"><span class="sched-time">01:30</span><span class="sched-artist">AXIOM</span><span class="sched-genre" data-i18n="g4">Techno</span><span></span></div>
+      <div class="sched-row"><span class="sched-time">03:00</span><span class="sched-artist">Velvet Static</span><span class="sched-genre" data-i18n="g1">Synth-pop</span><span></span></div>
+      <div class="sched-row"><span class="sched-time">04:45</span><span class="sched-artist">Saffron Hour</span><span class="sched-genre" data-i18n="g3">Live electronics</span><span class="sched-badge" data-i18n="sch_sunrise">Sunrise set</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TICKETS ============ -->
+<section class="tickets" id="tickets">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="label" data-i18n="tk_label">Tickets</p>
+      <h2 class="display h-section" data-i18n="tk_title">Pick your night.</h2>
+      <p class="body" data-i18n="tk_body">Early-bird pricing locked until March 1. All tickets include camping, water refill points and access to the valley's river swimming hole.</p>
+    </div>
+
+    <div class="ticket-grid">
+      <article class="ticket reveal">
+        <h3 class="tier" data-i18n="tk_t1name">Day Pass</h3>
+        <p class="price">€79<small> /day</small></p>
+        <p class="per" data-i18n="tk_t1per">One day, any stage</p>
+        <ul>
+          <li data-i18n="tk_t1f1">Access to all three stages</li>
+          <li data-i18n="tk_t1f2">Camping on day ticket</li>
+          <li data-i18n="tk_t1f3">Water refill &amp; showers</li>
+          <li data-i18n="tk_t1f4">River swimming hole access</li>
+        </ul>
+        <a href="#newsletter" class="btn btn-ghost" data-i18n="tk_cta">Reserve</a>
+      </article>
+
+      <article class="ticket hot reveal reveal-delay-1">
+        <span class="flag" data-i18n="tk_flag">Most loved</span>
+        <h3 class="tier" data-i18n="tk_t2name">Weekend</h3>
+        <p class="price">€179<small> /3 days</small></p>
+        <p class="per" data-i18n="tk_t2per">The full experience</p>
+        <ul>
+          <li data-i18n="tk_t2f1">Everything in Day Pass</li>
+          <li data-i18n="tk_t2f2">All three nights &amp; sunrise sets</li>
+          <li data-i18n="tk_t2f3">Secret stage access</li>
+          <li data-i18n="tk_t2f4">Priority entry lanes</li>
+          <li data-i18n="tk_t2f5">Solstice tote + poster</li>
+        </ul>
+        <a href="#newsletter" class="btn" data-i18n="tk_cta">Reserve</a>
+      </article>
+
+      <article class="ticket reveal reveal-delay-2">
+        <h3 class="tier" data-i18n="tk_t3name">Solstice+</h3>
+        <p class="price">€279<small> /3 days</small></p>
+        <p class="per" data-i18n="tk_t3per">Glamping &amp; extras</p>
+        <ul>
+          <li data-i18n="tk_t3f1">Everything in Weekend</li>
+          <li data-i18n="tk_t3f2">Pre-pitched bell tent</li>
+          <li data-i18n="tk_t3f3">Breakfast each morning</li>
+          <li data-i18n="tk_t3f4">Backstage viewing platform</li>
+          <li data-i18n="tk_t3f5">Artist meet &amp; greet</li>
+        </ul>
+        <a href="#newsletter" class="btn btn-ghost" data-i18n="tk_cta">Reserve</a>
+      </article>
+    </div>
+
+    <p class="ticket-note" data-i18n="tk_note">Under 18? You're welcome with a guardian. <a href="#faq" data-i18n="tk_note_link">Read the fine print →</a></p>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="faq" id="faq">
+  <div class="container faq-grid">
+    <div class="faq-side reveal">
+      <p class="label" data-i18n="faq_label">Questions</p>
+      <h2 class="display h-section" style="margin-bottom:18px" data-i18n="faq_title">Before you pack the tent.</h2>
+      <p class="body" data-i18n="faq_sub">Everything people usually ask. Something else on your mind?</p>
+      <div class="faq-contact">
+        <strong data-i18n="faq_contact_t">Still curious?</strong>
+        <p><a href="mailto:hello@solstice.fest" data-i18n="faq_contact_mail">hello@solstice.fest</a> <span data-i18n="faq_contact_h">— we reply within 24h.</span></p>
+      </div>
+    </div>
+
+    <div class="faq-list reveal reveal-delay-1">
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false"><span data-i18n="fq1_q">Can I bring my own food and drink?</span><span class="ic" aria-hidden="true">+</span></button>
+        <div class="faq-a"><p data-i18n="fq1_a">Yes — bring your own food, and water in reusable bottles. Glass containers and alcohol are not allowed inside the arena, but the campsite has a full market with local vendors and a 24h kitchen.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false"><span data-i18n="fq2_q">How do I get to the valley?</span><span class="ic" aria-hidden="true">+</span></button>
+        <div class="faq-a"><p data-i18n="fq2_a">Shuttle buses run from Sierra Norte station every 20 minutes throughout the weekend, included in your ticket. If you drive, buy a parking pass in advance — spaces sell out weeks ahead.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false"><span data-i18n="fq3_q">What's the weather like in June?</span><span class="ic" aria-hidden="true">+</span></button>
+        <div class="faq-a"><p data-i18n="fq3_a">Hot days (28–32°C) and cool nights (12–15°C). Bring a warm layer for the afterhours stage and sunscreen for the solar stage. There are shade zones and misting stations across the site.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false"><span data-i18n="fq4_q">Can I come alone?</span><span class="ic" aria-hidden="true">+</span></button>
+        <div class="faq-a"><p data-i18n="fq4_a">Half our crowd comes solo. There's a dedicated solo-camper zone, a meet-up on Friday afternoon, and volunteers patrolling 24/7. The valley is a safe, friendly place to meet people.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false"><span data-i18n="fq5_q">Are tickets refundable?</span><span class="ic" aria-hidden="true">+</span></button>
+        <div class="faq-a"><p data-i18n="fq5_a">Full refunds until May 1. After that, tickets are transferable — you can change the name on a ticket for free up to 48h before the gates open.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NEWSLETTER ============ -->
+<section class="newsletter" id="newsletter">
+  <div class="container nl-grid">
+    <div class="reveal">
+      <p class="label" data-i18n="nl_label">First access</p>
+      <h2 class="display" data-i18n="nl_title">Be first in the queue.</h2>
+      <p class="body" style="margin-top:14px" data-i18n="nl_body">Lineup drops, presale codes and secret-stage hints — straight to your inbox, no spam, one email a month at most.</p>
+    </div>
+    <form class="nl-form reveal reveal-delay-1" id="nlForm" novalidate>
+      <label class="skip-link" for="nlEmail" style="position:absolute;top:auto;left:-9999px" data-i18n="nl_placeholder">Email address</label>
+      <input type="email" id="nlEmail" name="email" placeholder="you@example.com" autocomplete="email" required data-i18n-ph="nl_placeholder">
+      <button type="submit" class="btn btn-primary" data-i18n="nl_btn">Join the list</button>
+    </form>
+    <p class="nl-msg ok" id="nlOk" data-i18n="nl_ok">You're in! Check your inbox for the welcome email.</p>
+    <p class="nl-msg err" id="nlErr" data-i18n="nl_err">That email doesn't look right — try again?</p>
+  </div>
+</section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="logo" href="#top"><span class="sun" aria-hidden="true"></span>SOLSTICE</a>
+        <p data-i18n="ft_tag">Three nights at the edge of summer. Made by a small crew of sound and light obsessives since 2019.</p>
+      </div>
+      <div class="foot-col">
+        <h4 data-i18n="ft_c1">Festival</h4>
+        <ul>
+          <li><a href="#lineup" data-i18n="nav_lineup">Lineup</a></li>
+          <li><a href="#schedule" data-i18n="nav_schedule">Schedule</a></li>
+          <li><a href="#tickets" data-i18n="nav_tickets">Tickets</a></li>
+          <li><a href="#faq" data-i18n="nav_faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4 data-i18n="ft_c2">Info</h4>
+        <ul>
+          <li><a href="#faq" data-i18n="ft_i1">Getting there</a></li>
+          <li><a href="#faq" data-i18n="ft_i2">Camping rules</a></li>
+          <li><a href="#faq" data-i18n="ft_i3">Accessibility</a></li>
+          <li><a href="#faq" data-i18n="ft_i4">Sustainability</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4 data-i18n="ft_c3">Connect</h4>
+        <ul>
+          <li><a href="mailto:hello@solstice.fest">hello@solstice.fest</a></li>
+          <li><a href="#top" data-i18n="ft_c4">Instagram</a></li>
+          <li><a href="#top" data-i18n="ft_c5">YouTube</a></li>
+          <li><a href="#top" data-i18n="ft_c6">Spotify</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2027 SOLSTICE Festival</span>
+      <div class="socials">
+        <a href="#top" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor"/></svg></a>
+        <a href="#top" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12s0-3.8-.5-5.5a2.8 2.8 0 0 0-2-2C18 4 12 4 12 4s-6 0-7.5.5a2.8 2.8 0 0 0-2 2C2 8.2 2 12 2 12s0 3.8.5 5.5a2.8 2.8 0 0 0 2 2C6 20 12 20 12 20s6 0 7.5-.5a2.8 2.8 0 0 0 2-2C22 15.8 22 12 22 12z"/><path d="M10 9.5v5l4.5-2.5z" fill="currentColor"/></svg></a>
+        <a href="#top" aria-label="Spotify"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M7.5 10.2c3.2-1 6.4-.8 9 .8M7.8 13.2c2.6-.8 5.1-.6 7.2.7M8.2 16c2-.6 3.9-.4 5.5.6"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ COOKIE ============ -->
+<div class="cookie" id="cookieBanner" role="dialog" aria-label="Cookie notice">
+  <p data-i18n="ck_text">We use a few cookies to keep the site fast and remember your language and theme. No tracking, no selling data — ever.</p>
+  <div class="cookie-btns">
+    <button class="accept" id="cookieOk" data-i18n="ck_accept">Got it</button>
+    <button id="cookieNo" data-i18n="ck_decline">Decline</button>
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   SOLSTICE — interactions
+   - i18n: 6 languages, browser detect, localStorage persist
+   - theme: day/night with kairos-theme key (capture compatible)
+   - countdown, marquee dup, stage tabs, faq, reveal, cookie
+   ============================================================ */
+(function(){
+"use strict";
+
+/* ---------- i18n ---------- */
+var TRANSLATIONS = {
+en:{
+  skip:"Skip to content",
+  nav_lineup:"Lineup", nav_schedule:"Schedule", nav_tickets:"Tickets", nav_faq:"FAQ", nav_cta:"Get tickets",
+  hero_kicker:"Three nights of sound",
+  hero_sub:"The longest weekend of the year, soundtracked by 40+ artists across three stages — from first light of the summer solstice to the last beat before dawn.",
+  hero_cta1:"Get tickets", hero_cta2:"See the lineup",
+  cd_label:"Opening night in", cd_days:"days", cd_hours:"hrs", cd_mins:"min", cd_secs:"sec",
+  hero_loc:"Pine Hollow Valley, Sierra Norte",
+  st_label:"The idea",
+  st_title:"A festival built around <span class=\"hi\">one long night</span> of light.",
+  st_body:"Solstice isn't a lineup stapled to a field. It's a single, continuous piece of sound — programmed like a mixtape that peaks with the sun. From the first chord at golden hour to the ambient closer as the sky turns violet, every act is placed for a reason, and the crowd moves as one body through the night.",
+  st_n1t:"Artists", st_n1d:"across three stages and two secret sets",
+  st_n2t:"Non-stop music", st_n2d:"the festival never fully sleeps",
+  st_n3t:"People", st_n3d:"one valley, one weekend, no phone signal",
+  lu_label:"Lineup",
+  lu_title:"Ten reasons to miss your train home.",
+  lu_body:"A hand-picked cross-section of the most exciting live acts right now — headliners, hidden gems and everything between. Full 40+ artist grid drops in April.",
+  lu_more:"Plus 30 more acts across electronic, indie, hip-hop and world music — the full grid lands with the April announcement.",
+  g1:"Synth-pop", g2:"Indie folk", g3:"Live electronics", g4:"Techno", g5:"Latin fusion", g6:"Synthwave", g7:"Dream pop", g8:"Darkwave", g9:"House", g10:"Americana",
+  sch_label:"Schedule",
+  sch_title:"Three stages. One river of sound.",
+  sch_body:"Each stage has its own personality. Jump between them, or stay planted and let the music come to you — every transition is timed so you never miss a drop.",
+  stage1:"Solar Stage", stage2:"Lunar Dome", stage3:"Afterhours",
+  sch_open:"Opening", sch_headline:"Headline", sch_sunrise:"Sunrise set",
+  tk_label:"Tickets",
+  tk_title:"Pick your night.",
+  tk_body:"Early-bird pricing locked until March 1. All tickets include camping, water refill points and access to the valley's river swimming hole.",
+  tk_t1name:"Day Pass", tk_t1per:"One day, any stage", tk_t1f1:"Access to all three stages", tk_t1f2:"Camping on day ticket", tk_t1f3:"Water refill & showers", tk_t1f4:"River swimming hole access",
+  tk_t2name:"Weekend", tk_t2per:"The full experience", tk_t2f1:"Everything in Day Pass", tk_t2f2:"All three nights & sunrise sets", tk_t2f3:"Secret stage access", tk_t2f4:"Priority entry lanes", tk_t2f5:"Solstice tote + poster",
+  tk_t3name:"Solstice+", tk_t3per:"Glamping & extras", tk_t3f1:"Everything in Weekend", tk_t3f2:"Pre-pitched bell tent", tk_t3f3:"Breakfast each morning", tk_t3f4:"Backstage viewing platform", tk_t3f5:"Artist meet & greet",
+  tk_cta:"Reserve", tk_flag:"Most loved",
+  tk_note:"Under 18? You're welcome with a guardian.", tk_note_link:"Read the fine print →",
+  faq_label:"Questions",
+  faq_title:"Before you pack the tent.",
+  faq_sub:"Everything people usually ask. Something else on your mind?",
+  faq_contact_t:"Still curious?", faq_contact_mail:"hello@solstice.fest", faq_contact_h:"— we reply within 24h.",
+  fq1_q:"Can I bring my own food and drink?",
+  fq1_a:"Yes — bring your own food, and water in reusable bottles. Glass containers and alcohol are not allowed inside the arena, but the campsite has a full market with local vendors and a 24h kitchen.",
+  fq2_q:"How do I get to the valley?",
+  fq2_a:"Shuttle buses run from Sierra Norte station every 20 minutes throughout the weekend, included in your ticket. If you drive, buy a parking pass in advance — spaces sell out weeks ahead.",
+  fq3_q:"What's the weather like in June?",
+  fq3_a:"Hot days (28–32°C) and cool nights (12–15°C). Bring a warm layer for the afterhours stage and sunscreen for the solar stage. There are shade zones and misting stations across the site.",
+  fq4_q:"Can I come alone?",
+  fq4_a:"Half our crowd comes solo. There's a dedicated solo-camper zone, a meet-up on Friday afternoon, and volunteers patrolling 24/7. The valley is a safe, friendly place to meet people.",
+  fq5_q:"Are tickets refundable?",
+  fq5_a:"Full refunds until May 1. After that, tickets are transferable — you can change the name on a ticket for free up to 48h before the gates open.",
+  nl_label:"First access",
+  nl_title:"Be first in the queue.",
+  nl_body:"Lineup drops, presale codes and secret-stage hints — straight to your inbox, no spam, one email a month at most.",
+  nl_placeholder:"Email address", nl_btn:"Join the list", nl_ok:"You're in! Check your inbox for the welcome email.", nl_err:"That email doesn't look right — try again?",
+  ft_tag:"Three nights at the edge of summer. Made by a small crew of sound and light obsessives since 2019.",
+  ft_c1:"Festival", ft_c2:"Info", ft_c3:"Connect",
+  ft_i1:"Getting there", ft_i2:"Camping rules", ft_i3:"Accessibility", ft_i4:"Sustainability",
+  ft_c4:"Instagram", ft_c5:"YouTube", ft_c6:"Spotify",
+  ck_text:"We use a few cookies to keep the site fast and remember your language and theme. No tracking, no selling data — ever.",
+  ck_accept:"Got it", ck_decline:"Decline",
+  meta_title:"SOLSTICE — Three Nights of Sound · Music Festival 2027",
+  meta_desc:"SOLSTICE is a three-night music festival at the edge of summer. 40+ artists, three stages, one sunrise. June 19–21, 2027."
+},
+es:{
+  skip:"Saltar al contenido",
+  nav_lineup:"Cartel", nav_schedule:"Horarios", nav_tickets:"Entradas", nav_faq:"FAQ", nav_cta:"Comprar entradas",
+  hero_kicker:"Tres noches de sonido",
+  hero_sub:"El fin de semana más largo del año, con más de 40 artistas en tres escenarios — desde la primera luz del solsticio de verano hasta el último beat antes del amanecer.",
+  hero_cta1:"Comprar entradas", hero_cta2:"Ver el cartel",
+  cd_label:"La noche inaugural en", cd_days:"días", cd_hours:"horas", cd_mins:"min", cd_secs:"seg",
+  hero_loc:"Valle de Pino Hueco, Sierra Norte",
+  st_label:"La idea",
+  st_title:"Un festival construido alrededor de <span class=\"hi\">una noche interminable</span> de luz.",
+  st_body:"Solstice no es un cartel clavado en un campo. Es una única pieza continua de sonido — programada como una mixtape que culmina con el sol. Desde el primer acorde en la hora dorada hasta el cierre ambiental cuando el cielo se tiñe de violeta, cada actuación está colocada por una razón, y el público se mueve como un solo cuerpo durante toda la noche.",
+  st_n1t:"Artistas", st_n1d:"en tres escenarios y dos sets sorpresa",
+  st_n2t:"Música sin parar", st_n2d:"el festival nunca duerme del todo",
+  st_n3t:"Personas", st_n3d:"un valle, un fin de semana, sin cobertura",
+  lu_label:"Cartel",
+  lu_title:"Diez razones para perder el último tren.",
+  lu_body:"Una selección hecha a mano de los directos más emocionantes del momento — cabezas de cartel, joyas ocultas y todo lo demás. El cartel completo de 40+ artistas llega en abril.",
+  lu_more:"Más 30 actuaciones entre electrónica, indie, hip-hop y world music — la parrilla completa llega con el anuncio de abril.",
+  g1:"Synth-pop", g2:"Folk indie", g3:"Electrónica en vivo", g4:"Techno", g5:"Fusión latina", g6:"Synthwave", g7:"Dream pop", g8:"Darkwave", g9:"House", g10:"Americana",
+  sch_label:"Horarios",
+  sch_title:"Tres escenarios. Un río de sonido.",
+  sch_body:"Cada escenario tiene su propia personalidad. Salta entre ellos, o quédate quieto y deja que la música venga a ti — cada transición está calculada para que nunca te pierdas un drop.",
+  stage1:"Escenario Solar", stage2:"Cúpula Lunar", stage3:"Madrugada",
+  sch_open:"Apertura", sch_headline:"Cabeza de cartel", sch_sunrise:"Set al amanecer",
+  tk_label:"Entradas",
+  tk_title:"Elige tu noche.",
+  tk_body:"Precio de preventa asegurado hasta el 1 de marzo. Todas las entradas incluyen camping, puntos de agua y acceso al pozo de baño del río del valle.",
+  tk_t1name:"Día", tk_t1per:"Un día, cualquier escenario", tk_t1f1:"Acceso a los tres escenarios", tk_t1f2:"Camping con entrada de día", tk_t1f3:"Agua y duchas", tk_t1f4:"Acceso al pozo de baño del río",
+  tk_t2name:"Fin de semana", tk_t2per:"La experiencia completa", tk_t2f1:"Todo lo del pase de día", tk_t2f2:"Las tres noches y los sets del amanecer", tk_t2f3:"Acceso al escenario secreto", tk_t2f4:"Colas prioritarias", tk_t2f5:"Tote bag y póster de Solstice",
+  tk_t3name:"Solstice+", tk_t3per:"Glamping y extras", tk_t3f1:"Todo lo del fin de semana", tk_t3f2:"Tienda bell montada", tk_t3f3:"Desayuno cada mañana", tk_t3f4:"Plataforma de vistas backstage", tk_t3f5:"Meet & greet con artistas",
+  tk_cta:"Reservar", tk_flag:"El más querido",
+  tk_note:"¿Menor de 18? Bienvenido con un adulto.", tk_note_link:"Lee la letra pequeña →",
+  faq_label:"Preguntas",
+  faq_title:"Antes de hacer la mochila.",
+  faq_sub:"Todo lo que la gente suele preguntar. ¿Algo más en mente?",
+  faq_contact_t:"¿Sigues con dudas?", faq_contact_mail:"hello@solstice.fest", faq_contact_h:"— respondemos en 24h.",
+  fq1_q:"¿Puedo llevar mi propia comida y bebida?",
+  fq1_a:"Sí — trae tu propia comida y agua en botellas reutilizables. No se permite vidrio ni alcohol dentro del recinto, pero el camping tiene un mercado completo con vendedores locales y una cocina abierta 24h.",
+  fq2_q:"¿Cómo llego al valle?",
+  fq2_a:"Hay autobuses lanzadera desde la estación de Sierra Norte cada 20 minutos durante todo el fin de semana, incluidos en tu entrada. Si vienes en coche, compra el pase de aparcamiento con antelación — se agotan semanas antes.",
+  fq3_q:"¿Qué tiempo hace en junio?",
+  fq3_a:"Días calurosos (28–32°C) y noches frescas (12–15°C). Trae una capa de abrigo para el escenario de madrugada y protección solar para el escenario solar. Hay zonas de sombra y pulverizadores de agua por todo el recinto.",
+  fq4_q:"¿Puedo venir solo?",
+  fq4_a:"La mitad de nuestro público viene en solitario. Hay una zona dedicada para campistas solos, una quedada el viernes por la tarde y voluntarios patrullando 24/7. El valle es un lugar seguro y amable para conocer gente.",
+  fq5_q:"¿Las entradas son reembolsables?",
+  fq5_a:"Reembolso completo hasta el 1 de mayo. Después, las entradas son transferibles — puedes cambiar el nombre de una entrada gratis hasta 48h antes de abrir las puertas.",
+  nl_label:"Acceso anticipado",
+  nl_title:"Sé el primero en la fila.",
+  nl_body:"Novedades del cartel, códigos de preventa y pistas del escenario secreto — directo a tu bandeja, sin spam, como mucho un correo al mes.",
+  nl_placeholder:"Tu email", nl_btn:"Apuntarme", nl_ok:"¡Dentro! Revisa tu bandeja para el correo de bienvenida.", nl_err:"Ese email no parece correcto — ¿lo intentas otra vez?",
+  ft_tag:"Tres noches al borde del verano. Hecho por un pequeño equipo de obsesos del sonido y la luz desde 2019.",
+  ft_c1:"Festival", ft_c2:"Info", ft_c3:"Contacto",
+  ft_i1:"Cómo llegar", ft_i2:"Normas de camping", ft_i3:"Accesibilidad", ft_i4:"Sostenibilidad",
+  ft_c4:"Instagram", ft_c5:"YouTube", ft_c6:"Spotify",
+  ck_text:"Usamos unas pocas cookies para que el sitio vaya rápido y recordar tu idioma y tema. Sin rastreo, sin vender datos — nunca.",
+  ck_accept:"Entendido", ck_decline:"Rechazar",
+  meta_title:"SOLSTICE — Tres noches de sonido · Festival de música 2027",
+  meta_desc:"SOLSTICE es un festival de música de tres noches al borde del verano. Más de 40 artistas, tres escenarios, un amanecer. 19–21 de junio de 2027."
+},
+fr:{
+  skip:"Aller au contenu",
+  nav_lineup:"Line-up", nav_schedule:"Programme", nav_tickets:"Billets", nav_faq:"FAQ", nav_cta:"Billets",
+  hero_kicker:"Trois nuits de son",
+  hero_sub:"Le week-end le plus long de l'année, porté par plus de 40 artistes sur trois scènes — de la première lumière du solstice d'été au dernier beat avant l'aube.",
+  hero_cta1:"Billets", hero_cta2:"Voir le line-up",
+  cd_label:"Ouverture dans", cd_days:"jours", cd_hours:"h", cd_mins:"min", cd_secs:"s",
+  hero_loc:"Vallée des Pins Creux, Sierra Norte",
+  st_label:"L'idée",
+  st_title:"Un festival construit autour d'<span class=\"hi\">une nuit infinie</span> de lumière.",
+  st_body:"Solstice n'est pas un line-up planté dans un champ. C'est une seule pièce de son continue — programmée comme une mixtape qui culmine avec le soleil. Du premier accord à l'heure dorée jusqu'au closer ambient quand le ciel vire au violet, chaque artiste a sa place, et la foule avance d'un seul corps à travers la nuit.",
+  st_n1t:"Artistes", st_n1d:"sur trois scènes et deux sets secrets",
+  st_n2t:"Musique en continu", st_n2d:"le festival ne dort jamais vraiment",
+  st_n3t:"Personnes", st_n3d:"une vallée, un week-end, aucun réseau",
+  lu_label:"Line-up",
+  lu_title:"Dix raisons de rater votre train.",
+  lu_body:"Une sélection faite main des concerts live les plus excitants du moment — têtes d'affiche, pépites cachées et tout le reste. La grille complète de 40+ artistes arrive en avril.",
+  lu_more:"Plus 30 autres artistes entre électro, indie, hip-hop et musiques du monde — la grille complète arrive avec l'annonce d'avril.",
+  g1:"Synth-pop", g2:"Folk indie", g3:"Électro live", g4:"Techno", g5:"Fusion latine", g6:"Synthwave", g7:"Dream pop", g8:"Darkwave", g9:"House", g10:"Americana",
+  sch_label:"Programme",
+  sch_title:"Trois scènes. Une rivière de son.",
+  sch_body:"Chaque scène a sa propre personnalité. Sautez de l'une à l'autre, ou restez planté et laissez la musique venir à vous — chaque transition est minutée pour ne jamais rater un drop.",
+  stage1:"Scène Solaire", stage2:"Dôme Lunaire", stage3:"Afterhours",
+  sch_open:"Ouverture", sch_headline:"Tête d'affiche", sch_sunrise:"Set au lever du soleil",
+  tk_label:"Billets",
+  tk_title:"Choisissez votre nuit.",
+  tk_body:"Prix early-bird verrouillés jusqu'au 1er mars. Tous les billets incluent le camping, les points d'eau et l'accès au trou de baignade de la rivière.",
+  tk_t1name:"Pass Jour", tk_t1per:"Un jour, n'importe quelle scène", tk_t1f1:"Accès aux trois scènes", tk_t1f2:"Camping avec billet jour", tk_t1f3:"Eau et douches", tk_t1f4:"Accès au trou de baignade",
+  tk_t2name:"Week-end", tk_t2per:"L'expérience complète", tk_t2f1:"Tout le Pass Jour", tk_t2f2:"Les trois nuits et les sets du lever", tk_t2f3:"Accès à la scène secrète", tk_t2f4:"Files prioritaires", tk_t2f5:"Tote bag + poster Solstice",
+  tk_t3name:"Solstice+", tk_t3per:"Glamping et extras", tk_t3f1:"Tout le Week-end", tk_t3f2:"Tente bell montée", tk_t3f3:"Petit-déjeuner chaque matin", tk_t3f4:"Plateforme vue backstage", tk_t3f5:"Rencontre avec les artistes",
+  tk_cta:"Réserver", tk_flag:"Le plus aimé",
+  tk_note:"Mineur ? Bienvenue avec un adulte.", tk_note_link:"Lire les petites lignes →",
+  faq_label:"Questions",
+  faq_title:"Avant de faire le sac.",
+  faq_sub:"Tout ce qu'on nous demande souvent. Autre chose en tête ?",
+  faq_contact_t:"Encore curieux ?", faq_contact_mail:"hello@solstice.fest", faq_contact_h:"— réponse sous 24h.",
+  fq1_q:"Puis-je apporter ma propre nourriture et boisson ?",
+  fq1_a:"Oui — apportez votre nourriture et de l'eau dans des bouteilles réutilisables. Le verre et l'alcool ne sont pas autorisés dans l'arène, mais le camping a un vrai marché avec des vendeurs locaux et une cuisine ouverte 24h/24.",
+  fq2_q:"Comment arriver dans la vallée ?",
+  fq2_a:"Des navettes partent de la gare de Sierra Norte toutes les 20 minutes pendant tout le week-end, incluses dans votre billet. En voiture ? Achetez le pass parking à l'avance — les places partent des semaines avant.",
+  fq3_q:"Quel temps fait-il en juin ?",
+  fq3_a:"Journées chaudes (28–32°C) et nuits fraîches (12–15°C). Prévoyez une couche chaude pour la scène afterhours et de la crème solaire pour la scène solaire. Zones d'ombre et brumisateurs sur tout le site.",
+  fq4_q:"Puis-je venir seul ?",
+  fq4_a:"La moitié de notre public vient en solo. Il y a une zone dédiée aux campeurs solos, un meet-up vendredi après-midi et des bénévoles 24h/24. La vallée est un endroit sûr et chaleureux pour rencontrer du monde.",
+  fq5_q:"Les billets sont-ils remboursables ?",
+  fq5_a:"Remboursement intégral jusqu'au 1er mai. Ensuite, les billets sont transférables — changement de nom gratuit jusqu'à 48h avant l'ouverture des portes.",
+  nl_label:"Premier accès",
+  nl_title:"Soyez les premiers dans la file.",
+  nl_body:"Sorties de line-up, codes de prévente et indices sur la scène secrète — dans votre boîte mail, sans spam, un email par mois maximum.",
+  nl_placeholder:"Votre email", nl_btn:"Je m'inscris", nl_ok:"C'est fait ! Vérifiez votre boîte pour l'email de bienvenue.", nl_err:"Cet email n'a pas l'air bon — réessayez ?",
+  ft_tag:"Trois nuits au bord de l'été. Fait par une petite équipe d'obsédés du son et de la lumière depuis 2019.",
+  ft_c1:"Festival", ft_c2:"Infos", ft_c3:"Contact",
+  ft_i1:"Y aller", ft_i2:"Règles du camping", ft_i3:"Accessibilité", ft_i4:"Écologie",
+  ft_c4:"Instagram", ft_c5:"YouTube", ft_c6:"Spotify",
+  ck_text:"Quelques cookies pour un site rapide et pour mémoriser votre langue et votre thème. Pas de tracking, aucune vente de données — jamais.",
+  ck_accept:"Compris", ck_decline:"Refuser",
+  meta_title:"SOLSTICE — Trois nuits de son · Festival de musique 2027",
+  meta_desc:"SOLSTICE est un festival de trois nuits au bord de l'été. Plus de 40 artistes, trois scènes, un lever de soleil. 19–21 juin 2027."
+},
+de:{
+  skip:"Zum Inhalt springen",
+  nav_lineup:"Line-up", nav_schedule:"Programm", nav_tickets:"Tickets", nav_faq:"FAQ", nav_cta:"Tickets holen",
+  hero_kicker:"Drei Nächte Sound",
+  hero_sub:"Das längste Wochenende des Jahres, mit über 40 Acts auf drei Bühnen — vom ersten Licht der Sommersonnenwende bis zum letzten Beat vor der Dämmerung.",
+  hero_cta1:"Tickets holen", hero_cta2:"Line-up ansehen",
+  cd_label:"Eröffnungsnacht in", cd_days:"Tage", cd_hours:"Std", cd_mins:"Min", cd_secs:"Sek",
+  hero_loc:"Pine Hollow Valley, Sierra Norte",
+  st_label:"Die Idee",
+  st_title:"Ein Festival um <span class=\"hi\">eine endlose Nacht</span> aus Licht gebaut.",
+  st_body:"Solstice ist kein Line-up, das auf ein Feld geheftet wird. Es ist ein einziges, durchgehendes Stück Sound — programmiert wie eine Mixtape, die mit der Sonne ihren Höhepunkt erreicht. Vom ersten Akkord zur goldenen Stunde bis zum Ambient-Closer, wenn der Himmel violett wird, hat jeder Act seinen Platz, und die Menge bewegt sich als ein Körper durch die Nacht.",
+  st_n1t:"Acts", st_n1d:"auf drei Bühnen und zwei Secret Sets",
+  st_n2t:"Musik nonstop", st_n2d:"das Festival schläft nie ganz",
+  st_n3t:"Menschen", st_n3d:"ein Tal, ein Wochenende, kein Empfang",
+  lu_label:"Line-up",
+  lu_title:"Zehn Gründe, deinen Zug zu verpassen.",
+  lu_body:"Eine handverlesene Auswahl der aufregendsten Live-Acts gerade jetzt — Headliner, versteckte Perlen und alles dazwischen. Das volle 40+-Grid kommt im April.",
+  lu_more:"Plus 30 weitere Acts aus Elektro, Indie, Hip-Hop und Weltmusik — das komplette Grid landet mit der April-Ankündigung.",
+  g1:"Synth-Pop", g2:"Indie-Folk", g3:"Live-Elektronik", g4:"Techno", g5:"Latin Fusion", g6:"Synthwave", g7:"Dream Pop", g8:"Darkwave", g9:"House", g10:"Americana",
+  sch_label:"Programm",
+  sch_title:"Drei Bühnen. Ein Fluss aus Sound.",
+  sch_body:"Jede Bühne hat ihre eigene Persönlichkeit. Spring zwischen ihnen hin und her, oder bleib stehen und lass die Musik zu dir kommen — jede Transition ist getaktet, damit du nie einen Drop verpasst.",
+  stage1:"Solar-Bühne", stage2:"Lunar-Kuppel", stage3:"Afterhours",
+  sch_open:"Eröffnung", sch_headline:"Headliner", sch_sunrise:"Sonnenaufgangs-Set",
+  tk_label:"Tickets",
+  tk_title:"Such dir deine Nacht aus.",
+  tk_body:"Early-Bird-Preise bis 1. März gesichert. Alle Tickets inklusive Camping, Wasserstationen und Zugang zum Flussschwimmbecken im Tal.",
+  tk_t1name:"Tagesticket", tk_t1per:"Ein Tag, jede Bühne", tk_t1f1:"Zugang zu allen drei Bühnen", tk_t1f2:"Camping mit Tagesticket", tk_t1f3:"Wasser & Duschen", tk_t1f4:"Zugang zum Flussschwimmbecken",
+  tk_t2name:"Wochenende", tk_t2per:"Die volle Erfahrung", tk_t2f1:"Alles aus dem Tagesticket", tk_t2f2:"Alle drei Nächte & Sunrise-Sets", tk_t2f3:"Zugang zur Secret Stage", tk_t2f4:"Priority-Einlass", tk_t2f5:"Solstice-Tote + Poster",
+  tk_t3name:"Solstice+", tk_t3per:"Glamping & Extras", tk_t3f1:"Alles aus dem Wochenende", tk_t3f2:"Vorgebaute Bell-Tent", tk_t3f3:"Frühstück jeden Morgen", tk_t3f4:"Backstage-Aussichtsplattform", tk_t3f5:"Meet & Greet mit Acts",
+  tk_cta:"Reservieren", tk_flag:"Am beliebtesten",
+  tk_note:"Unter 18? Willkommen mit Begleitung.", tk_note_link:"Kleingedrucktes lesen →",
+  faq_label:"Fragen",
+  faq_title:"Bevor du das Zelt packst.",
+  faq_sub:"Alles, was man uns oft fragt. Noch was auf dem Herzen?",
+  faq_contact_t:"Noch neugierig?", faq_contact_mail:"hello@solstice.fest", faq_contact_h:"— wir antworten innerhalb von 24h.",
+  fq1_q:"Darf ich eigenes Essen und Trinken mitbringen?",
+  fq1_a:"Ja — bring dein eigenes Essen und Wasser in Mehrwegflaschen mit. Glas und Alkohol sind im Arena-Bereich nicht erlaubt, aber auf dem Campingplatz gibt es einen vollen Markt mit lokalen Anbietern und eine 24h-Küche.",
+  fq2_q:"Wie komme ich ins Tal?",
+  fq2_a:"Shuttle-Busse fahren am gesamten Wochenende alle 20 Minuten vom Bahnhof Sierra Norte — im Ticket enthalten. Mit dem Auto? Parkticket vorab kaufen, die Plätze sind wochenlang vorher ausverkauft.",
+  fq3_q:"Wie ist das Wetter im Juni?",
+  fq3_a:"Heiße Tage (28–32°C) und kühle Nächte (12–15°C). Pack eine warme Schicht für die Afterhours-Bühne und Sonnencreme für die Solar-Bühne. Es gibt Schattenzonen und Sprühstationen auf dem gesamten Gelände.",
+  fq4_q:"Kann ich allein kommen?",
+  fq4_a:"Die Hälfte unserer Crowd kommt solo. Es gibt eine eigene Zone für Allein-Camper, ein Meet-up am Freitagnachmittag und Volunteers, die rund um die Uhr patrouillieren. Das Tal ist ein sicherer, freundlicher Ort zum Leute kennenlernen.",
+  fq5_q:"Sind Tickets erstattbar?",
+  fq5_a:"Volle Rückerstattung bis 1. Mai. Danach sind Tickets übertragbar — du kannst den Namen auf einem Ticket bis 48h vor Einlass kostenlos ändern.",
+  nl_label:"Erstzugang",
+  nl_title:"Sei der Erste in der Schlange.",
+  nl_body:"Line-up-News, Presale-Codes und Secret-Stage-Hinweise — direkt ins Postfach, kein Spam, höchstens eine Mail im Monat.",
+  nl_placeholder:"Deine E-Mail", nl_btn:"Anmelden", nl_ok:"Du bist drin! Check dein Postfach für die Willkommensmail.", nl_err:"Diese E-Mail sieht nicht richtig aus — nochmal?",
+  ft_tag:"Drei Nächte am Rand des Sommers. Von einem kleinen Team aus Sound- und Licht-Nerds seit 2019.",
+  ft_c1:"Festival", ft_c2:"Info", ft_c3:"Kontakt",
+  ft_i1:"Anreise", ft_i2:"Campingregeln", ft_i3:"Barrierefreiheit", ft_i4:"Nachhaltigkeit",
+  ft_c4:"Instagram", ft_c5:"YouTube", ft_c6:"Spotify",
+  ck_text:"Wir nutzen ein paar Cookies, damit die Seite schnell ist und wir Sprache und Theme merken. Kein Tracking, keine Datenverkäufe — niemals.",
+  ck_accept:"Verstanden", ck_decline:"Ablehnen",
+  meta_title:"SOLSTICE — Drei Nächte Sound · Musikfestival 2027",
+  meta_desc:"SOLSTICE ist ein dreitägiges Musikfestival am Rand des Sommers. Über 40 Acts, drei Bühnen, ein Sonnenaufgang. 19.–21. Juni 2027."
+},
+it:{
+  skip:"Vai al contenuto",
+  nav_lineup:"Line-up", nav_schedule:"Programma", nav_tickets:"Biglietti", nav_faq:"FAQ", nav_cta:"Biglietti",
+  hero_kicker:"Tre notti di suono",
+  hero_sub:"Il weekend più lungo dell'anno, con oltre 40 artisti su tre palchi — dalla prima luce del solstizio d'estate all'ultimo beat prima dell'alba.",
+  hero_cta1:"Biglietti", hero_cta2:"Guarda il line-up",
+  cd_label:"La serata inaugurale tra", cd_days:"giorni", cd_hours:"ore", cd_mins:"min", cd_secs:"sec",
+  hero_loc:"Valle dei Pini Cavi, Sierra Norte",
+  st_label:"L'idea",
+  st_title:"Un festival costruito attorno a <span class=\"hi\">una notte infinita</span> di luce.",
+  st_body:"Solstice non è un line-up appiccicato a un campo. È un unico, continuo pezzo di suono — programmato come una mixtape che raggiunge il picco col sole. Dal primo accordo all'ora d'oro fino al closer ambient quando il cielo diventa viola, ogni artista ha un posto preciso, e il pubblico si muove come un corpo solo attraverso la notte.",
+  st_n1t:"Artisti", st_n1d:"su tre palchi e due set segreti",
+  st_n2t:"Musica senza sosta", st_n2d:"il festival non dorme mai del tutto",
+  st_n3t:"Persone", st_n3d:"una valle, un weekend, niente segnale",
+  lu_label:"Line-up",
+  lu_title:"Dieci motivi per perdere il treno.",
+  lu_body:"Una selezione fatta a mano dei live più emozionanti del momento — headliner, gemme nascoste e tutto il resto. La griglia completa di 40+ artisti arriva ad aprile.",
+  lu_more:"Più 30 altri artisti tra elettronica, indie, hip-hop e world music — la griglia completa arriva con l'annuncio di aprile.",
+  g1:"Synth-pop", g2:"Folk indie", g3:"Elettronica live", g4:"Techno", g5:"Fusione latina", g6:"Synthwave", g7:"Dream pop", g8:"Darkwave", g9:"House", g10:"Americana",
+  sch_label:"Programma",
+  sch_title:"Tre palchi. Un fiume di suono.",
+  sch_body:"Ogni palco ha la sua personalità. Salta da uno all'altro, o resta fermo e lascia che la musica venga da te — ogni transizione è calibrata perché non perda mai un drop.",
+  stage1:"Palco Solare", stage2:"Cupola Lunare", stage3:"Afterhours",
+  sch_open:"Apertura", sch_headline:"Headliner", sch_sunrise:"Set all'alba",
+  tk_label:"Biglietti",
+  tk_title:"Scegli la tua notte.",
+  tk_body:"Prezzi early-bird bloccati fino al 1° marzo. Tutti i biglietti includono campeggio, punti d'acqua e accesso alla pozza del fiume.",
+  tk_t1name:"Pass Giornaliero", tk_t1per:"Un giorno, qualsiasi palco", tk_t1f1:"Accesso a tutti e tre i palchi", tk_t1f2:"Campeggio col biglietto giornaliero", tk_t1f3:"Acqua e docce", tk_t1f4:"Accesso alla pozza del fiume",
+  tk_t2name:"Weekend", tk_t2per:"L'esperienza completa", tk_t2f1:"Tutto dal Pass Giornaliero", tk_t2f2:"Tutte e tre le notti e i set all'alba", tk_t2f3:"Accesso al palco segreto", tk_t2f4:"Ingresso prioritario", tk_t2f5:"Tote bag + poster Solstice",
+  tk_t3name:"Solstice+", tk_t3per:"Glamping ed extra", tk_t3f1:"Tutto dal Weekend", tk_t3f2:"Tenda bell già montata", tk_t3f3:"Colazione ogni mattina", tk_t3f4:"Piattaforma vista backstage", tk_t3f5:"Meet & greet con gli artisti",
+  tk_cta:"Prenota", tk_flag:"Il più amato",
+  tk_note:"Minorenne? Benvenuto con un adulto.", tk_note_link:"Leggi le clausole →",
+  faq_label:"Domande",
+  faq_title:"Prima di fare lo zaino.",
+  faq_sub:"Tutto quello che la gente chiede di solito. Qualcos'altro in mente?",
+  faq_contact_t:"Ancora curioso?", faq_contact_mail:"hello@solstice.fest", faq_contact_h:"— rispondiamo entro 24h.",
+  fq1_q:"Posso portare cibo e bevande miei?",
+  fq1_a:"Sì — porta il tuo cibo e acqua in borracce riutilizzabili. Vetro e alcol non sono ammessi nell'arena, ma il campeggio ha un vero mercato con venditori locali e una cucina aperta 24h.",
+  fq2_q:"Come arrivo alla valle?",
+  fq2_a:"Navette dalla stazione di Sierra Norte ogni 20 minuti per tutto il weekend, incluse nel biglietto. In macchina? Compra il pass parcheggio in anticipo — i posti finiscono settimane prima.",
+  fq3_q:"Com'è il tempo a giugno?",
+  fq3_a:"Giornate calde (28–32°C) e notti fresche (12–15°C). Porta un livello caldo per il palco afterhours e crema solare per il palco solare. Ci sono zone d'ombra e nebulizzatori in tutto il sito.",
+  fq4_q:"Posso venire da solo?",
+  fq4_a:"Metà del nostro pubblico viene in solitaria. C'è una zona dedicata ai campeggiatori soli, un meet-up venerdì pomeriggio e volontari che pattugliano 24/7. La valle è un posto sicuro e accogliente per conoscere gente.",
+  fq5_q:"I biglietti sono rimborsabili?",
+  fq5_a:"Rimborso completo fino al 1° maggio. Dopo, i biglietti sono trasferibili — puoi cambiare il nome su un biglietto gratis fino a 48h prima dell'apertura dei cancelli.",
+  nl_label:"Primo accesso",
+  nl_title:"Sii il primo in fila.",
+  nl_body:"Novità del line-up, codici presale e indizi sul palco segreto — dritti nella tua casella, niente spam, al massimo una mail al mese.",
+  nl_placeholder:"La tua email", nl_btn:"Iscriviti", nl_ok:"Ci sei! Controlla la casella per l'email di benvenuto.", nl_err:"Quell'email non sembra giusta — riprova?",
+  ft_tag:"Tre notti al confine dell'estate. Fatto da un piccolo team di ossessionati del suono e della luce dal 2019.",
+  ft_c1:"Festival", ft_c2:"Info", ft_c3:"Contatti",
+  ft_i1:"Come arrivare", ft_i2:"Regole del campeggio", ft_i3:"Accessibilità", ft_i4:"Sostenibilità",
+  ft_c4:"Instagram", ft_c5:"YouTube", ft_c6:"Spotify",
+  ck_text:"Usiamo qualche cookie per rendere il sito veloce e ricordare lingua e tema. Niente tracciamento, nessuna vendita di dati — mai.",
+  ck_accept:"Ok", ck_decline:"Rifiuta",
+  meta_title:"SOLSTICE — Tre notti di suono · Festival musicale 2027",
+  meta_desc:"SOLSTICE è un festival musicale di tre notti al confine dell'estate. Oltre 40 artisti, tre palchi, un'alba. 19–21 giugno 2027."
+},
+pt:{
+  skip:"Pular para o conteúdo",
+  nav_lineup:"Line-up", nav_schedule:"Programação", nav_tickets:"Bilhetes", nav_faq:"FAQ", nav_cta:"Comprar bilhetes",
+  hero_kicker:"Três noites de som",
+  hero_sub:"O fim de semana mais longo do ano, com mais de 40 artistas em três palcos — desde a primeira luz do solstício de verão até ao último beat antes do amanhecer.",
+  hero_cta1:"Comprar bilhetes", hero_cta2:"Ver o line-up",
+  cd_label:"A noite de abertura em", cd_days:"dias", cd_hours:"horas", cd_mins:"min", cd_secs:"seg",
+  hero_loc:"Vale dos Pinheiros Ocos, Serra Norte",
+  st_label:"A ideia",
+  st_title:"Um festival construído em volta de <span class=\"hi\">uma noite sem fim</span> de luz.",
+  st_body:"O Solstice não é um line-up pregado num campo. É uma única peça contínua de som — programada como uma mixtape que atinge o pico com o sol. Desde o primeiro acorde na hora dourada até ao closer ambiente quando o céu fica violeta, cada atuação tem uma razão de estar, e o público move-se como um só corpo durante a noite.",
+  st_n1t:"Artistas", st_n1d:"em três palcos e dois sets secretos",
+  st_n2t:"Música sem parar", st_n2d:"o festival nunca dorme por completo",
+  st_n3t:"Pessoas", st_n3d:"um vale, um fim de semana, sem rede",
+  lu_label:"Line-up",
+  lu_title:"Dez razões para perder o comboio.",
+  lu_body:"Uma seleção feita à mão dos concertos ao vivo mais emocionantes do momento — cabeças de cartaz, pérolas escondidas e tudo pelo meio. A grelha completa de 40+ artistas chega em abril.",
+  lu_more:"Mais 30 atuações entre eletrónica, indie, hip-hop e world music — a grelha completa chega com o anúncio de abril.",
+  g1:"Synth-pop", g2:"Folk indie", g3:"Eletrónica ao vivo", g4:"Techno", g5:"Fusão latina", g6:"Synthwave", g7:"Dream pop", g8:"Darkwave", g9:"House", g10:"Americana",
+  sch_label:"Programação",
+  sch_title:"Três palcos. Um rio de som.",
+  sch_body:"Cada palco tem a sua personalidade. Salta entre eles, ou fica quieto e deixa a música vir ter contigo — cada transição está calculada para nunca perderes um drop.",
+  stage1:"Palco Solar", stage2:"Cúpula Lunar", stage3:"Afterhours",
+  sch_open:"Abertura", sch_headline:"Cabeça de cartaz", sch_sunrise:"Set ao amanhecer",
+  tk_label:"Bilhetes",
+  tk_title:"Escolhe a tua noite.",
+  tk_body:"Preços early-bird garantidos até 1 de março. Todos os bilhetes incluem campismo, pontos de água e acesso ao poço de banho do rio.",
+  tk_t1name:"Passe Diário", tk_t1per:"Um dia, qualquer palco", tk_t1f1:"Acesso aos três palcos", tk_t1f2:"Campismo com bilhete diário", tk_t1f3:"Água e duches", tk_t1f4:"Acesso ao poço de banho do rio",
+  tk_t2name:"Fim de semana", tk_t2per:"A experiência completa", tk_t2f1:"Tudo do Passe Diário", tk_t2f2:"As três noites e os sets do amanhecer", tk_t2f3:"Acesso ao palco secreto", tk_t2f4:"Filas prioritárias", tk_t2f5:"Tote bag + cartaz Solstice",
+  tk_t3name:"Solstice+", tk_t3per:"Glamping e extras", tk_t3f1:"Tudo do Fim de semana", tk_t3f2:"Tenda bell montada", tk_t3f3:"Pequeno-almoço todas as manhãs", tk_t3f4:"Plataforma com vista para o backstage", tk_t3f5:"Meet & greet com artistas",
+  tk_cta:"Reservar", tk_flag:"O mais querido",
+  tk_note:"Menor de 18? És bem-vindo com um adulto.", tk_note_link:"Lê as letras pequenas →",
+  faq_label:"Perguntas",
+  faq_title:"Antes de fazeres a mochila.",
+  faq_sub:"Tudo o que costumam perguntar. Mais alguma coisa na cabeça?",
+  faq_contact_t:"Ainda curioso?", faq_contact_mail:"hello@solstice.fest", faq_contact_h:"— respondemos em 24h.",
+  fq1_q:"Posso levar a minha própria comida e bebida?",
+  fq1_a:"Sim — leva a tua comida e água em garrafas reutilizáveis. Vidro e álcool não são permitidos dentro da arena, mas o campismo tem um mercado completo com vendedores locais e uma cozinha aberta 24h.",
+  fq2_q:"Como chego ao vale?",
+  fq2_a:"Autocarros shuttle partem da estação da Serra Norte a cada 20 minutos durante todo o fim de semana, incluídos no bilhete. Se vens de carro, compra o passe de estacionamento com antecedência — esgotam semanas antes.",
+  fq3_q:"Como está o tempo em junho?",
+  fq3_a:"Dias quentes (28–32°C) e noites frescas (12–15°C). Leva uma camada quente para o palco afterhours e protetor solar para o palco solar. Há zonas de sombra e estações de névoa por todo o recinto.",
+  fq4_q:"Posso vir sozinho?",
+  fq4_a:"Metade do nosso público vem sozinho. Há uma zona dedicada a campistas solos, um encontro na tarde de sexta e voluntários a patrulhar 24/7. O vale é um lugar seguro e acolhedor para conhecer pessoas.",
+  fq5_q:"Os bilhetes são reembolsáveis?",
+  fq5_a:"Reembolso total até 1 de maio. Depois, os bilhetes são transferíveis — podes mudar o nome num bilhete gratuitamente até 48h antes da abertura dos portões.",
+  nl_label:"Primeiro acesso",
+  nl_title:"Sê o primeiro na fila.",
+  nl_body:"Novidades do line-up, códigos de pré-venda e pistas do palco secreto — direto para o teu email, sem spam, no máximo um email por mês.",
+  nl_placeholder:"O teu email", nl_btn:"Inscrever-me", nl_ok:"Estás dentro! Verifica o teu email para a mensagem de boas-vindas.", nl_err:"Esse email não parece certo — tentas outra vez?",
+  ft_tag:"Três noites no limite do verão. Feito por uma pequena equipa de obcecados por som e luz desde 2019.",
+  ft_c1:"Festival", ft_c2:"Info", ft_c3:"Contactos",
+  ft_i1:"Como chegar", ft_i2:"Regras do campismo", ft_i3:"Acessibilidade", ft_i4:"Sustentabilidade",
+  ft_c4:"Instagram", ft_c5:"YouTube", ft_c6:"Spotify",
+  ck_text:"Usamos alguns cookies para o site ser rápido e para lembrar a tua língua e tema. Sem rastreio, sem vender dados — nunca.",
+  ck_accept:"Percebido", ck_decline:"Recusar",
+  meta_title:"SOLSTICE — Três noites de som · Festival de música 2027",
+  meta_desc:"SOLSTICE é um festival de música de três noites no limite do verão. Mais de 40 artistas, três palcos, um amanhecer. 19–21 de junho de 2027."
+}
+};
+
+var LANG_KEYS = Object.keys(TRANSLATIONS.en);
+var ALLOW_HTML = { st_title:1, nl_ok:1 };
+var SUPPORTED = ["en","es","fr","de","it","pt"];
+
+function detectLang(){
+  var saved = null;
+  try{ saved = localStorage.getItem("solstice-lang"); }catch(e){}
+  if(saved && SUPPORTED.indexOf(saved) > -1) return saved;
+  var nav = (navigator.language || "en").toLowerCase().slice(0,2);
+  return SUPPORTED.indexOf(nav) > -1 ? nav : "en";
+}
+
+var currentLang = detectLang();
+
+function applyLang(lang){
+  currentLang = lang;
+  var t = TRANSLATIONS[lang];
+  if(!t) return;
+  document.documentElement.lang = lang;
+  LANG_KEYS.forEach(function(key){
+    var val = t[key];
+    if(val === undefined) return;
+    var nodes = document.querySelectorAll('[data-i18n="'+key+'"]');
+    for(var i=0;i<nodes.length;i++){
+      if(ALLOW_HTML[key]){
+        nodes[i].innerHTML = val;
+      }else{
+        nodes[i].textContent = val;
+      }
+    }
+  });
+  document.querySelectorAll("[data-i18n-ph]").forEach(function(el){
+    var ph = t[el.getAttribute("data-i18n-ph")];
+    if(ph) el.setAttribute("placeholder", ph);
+  });
+  var current = document.getElementById("langCurrent");
+  if(current) current.textContent = lang.toUpperCase();
+  document.querySelectorAll(".lang-list button").forEach(function(b){
+    b.classList.toggle("active", b.getAttribute("data-lang") === lang);
+  });
+  var metaT = document.querySelector('meta[property="og:title"]');
+  var metaD = document.querySelector('meta[name="description"]');
+  var title = document.querySelector("title");
+  if(title && t.meta_title) title.textContent = t.meta_title;
+  if(metaD && t.meta_desc) metaD.setAttribute("content", t.meta_desc);
+  if(metaT && t.meta_title) metaT.setAttribute("content", t.meta_title);
+  try{ localStorage.setItem("solstice-lang", lang); }catch(e){}
+}
+
+/* lang switcher UI */
+var langSwitch = document.getElementById("langSwitch");
+var langBtn = document.getElementById("langBtn");
+if(langBtn){
+  langBtn.addEventListener("click", function(e){
+    e.stopPropagation();
+    langSwitch.classList.toggle("open");
+    langBtn.setAttribute("aria-expanded", langSwitch.classList.contains("open"));
+  });
+  document.addEventListener("click", function(e){
+    if(!langSwitch.contains(e.target)) langSwitch.classList.remove("open");
+  });
+}
+document.querySelectorAll(".lang-list button").forEach(function(btn){
+  btn.addEventListener("click", function(){
+    applyLang(btn.getAttribute("data-lang"));
+    langSwitch.classList.remove("open");
+  });
+});
+
+/* ---------- theme (day/night) ---------- */
+var themeToggle = document.getElementById("themeToggle");
+function getTheme(){
+  var saved = null;
+  try{ saved = localStorage.getItem("kairos-theme"); }catch(e){}
+  return saved === "dark" ? "dark" : "light";
+}
+function setTheme(t){
+  document.documentElement.setAttribute("data-theme", t);
+  try{ localStorage.setItem("kairos-theme", t); }catch(e){}
+}
+setTheme(getTheme());
+if(themeToggle){
+  themeToggle.addEventListener("click", function(){
+    setTheme(document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark");
+  });
+}
+
+/* ---------- mobile menu ---------- */
+var navToggle = document.getElementById("navToggle");
+var mobileMenu = document.getElementById("mobileMenu");
+if(navToggle){
+  navToggle.addEventListener("click", function(){
+    var open = mobileMenu.classList.toggle("open");
+    navToggle.classList.toggle("open", open);
+    navToggle.setAttribute("aria-expanded", open);
+    navToggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    document.body.style.overflow = open ? "hidden" : "";
+  });
+  mobileMenu.querySelectorAll("a").forEach(function(a){
+    a.addEventListener("click", function(){
+      mobileMenu.classList.remove("open");
+      navToggle.classList.remove("open");
+      navToggle.setAttribute("aria-expanded","false");
+      document.body.style.overflow = "";
+    });
+  });
+}
+
+/* ---------- countdown ---------- */
+var FEST_DATE = new Date("2027-06-19T18:00:00");
+var cdD = document.getElementById("cdDays"),
+    cdH = document.getElementById("cdHours"),
+    cdM = document.getElementById("cdMins"),
+    cdS = document.getElementById("cdSecs");
+function pad(n){ return n < 10 ? "0"+n : ""+n; }
+function tick(){
+  var diff = FEST_DATE - new Date();
+  if(diff <= 0){ cdD.textContent="00"; cdH.textContent="00"; cdM.textContent="00"; cdS.textContent="00"; return; }
+  cdD.textContent = pad(Math.floor(diff/86400000));
+  cdH.textContent = pad(Math.floor(diff/3600000)%24);
+  cdM.textContent = pad(Math.floor(diff/60000)%60);
+  cdS.textContent = pad(Math.floor(diff/1000)%60);
+}
+tick();
+setInterval(tick, 1000);
+
+/* ---------- marquee (duplicate for seamless loop) ---------- */
+var track = document.getElementById("marqueeTrack");
+if(track){
+  track.innerHTML += track.innerHTML;
+}
+
+/* ---------- stage tabs ---------- */
+var tabs = document.querySelectorAll(".stage-tab");
+var panels = document.querySelectorAll(".stage-panel");
+tabs.forEach(function(tab){
+  tab.addEventListener("click", function(){
+    tabs.forEach(function(t){ t.classList.remove("active"); t.setAttribute("aria-selected","false"); });
+    panels.forEach(function(p){ p.classList.remove("active"); });
+    tab.classList.add("active");
+    tab.setAttribute("aria-selected","true");
+    var idx = tab.getAttribute("data-stage");
+    document.querySelector('[data-panel="'+idx+'"]').classList.add("active");
+  });
+});
+
+/* ---------- FAQ ---------- */
+document.querySelectorAll(".faq-item").forEach(function(item){
+  var q = item.querySelector(".faq-q");
+  var a = item.querySelector(".faq-a");
+  q.addEventListener("click", function(){
+    var open = item.classList.contains("open");
+    document.querySelectorAll(".faq-item").forEach(function(i){
+      i.classList.remove("open");
+      i.querySelector(".faq-q").setAttribute("aria-expanded","false");
+      i.querySelector(".faq-a").style.maxHeight = null;
+    });
+    if(!open){
+      item.classList.add("open");
+      q.setAttribute("aria-expanded","true");
+      a.style.maxHeight = a.scrollHeight + "px";
+    }
+  });
+});
+
+/* ---------- newsletter ---------- */
+var nlForm = document.getElementById("nlForm");
+if(nlForm){
+  nlForm.addEventListener("submit", function(e){
+    e.preventDefault();
+    var email = document.getElementById("nlEmail");
+    var ok = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.value.trim());
+    document.getElementById("nlOk").style.display = ok ? "block" : "none";
+    document.getElementById("nlErr").style.display = ok ? "none" : "block";
+    if(ok) email.value = "";
+  });
+}
+
+/* ---------- reveal on scroll ---------- */
+var reveals = document.querySelectorAll(".reveal");
+if("IntersectionObserver" in window && reveals.length){
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){
+        en.target.classList.add("in");
+        io.unobserve(en.target);
+      }
+    });
+  },{ threshold:.12, rootMargin:"0px 0px -6% 0px" });
+  reveals.forEach(function(el){ io.observe(el); });
+}else{
+  reveals.forEach(function(el){ el.classList.add("in"); });
+}
+
+/* ---------- cookie banner ---------- */
+var cookie = document.getElementById("cookieBanner");
+var cookieAccepted = null;
+try{ cookieAccepted = localStorage.getItem("solstice-cookie"); }catch(e){}
+if(cookie && cookieAccepted !== "1" && cookieAccepted !== "0"){
+  var showTimer = setTimeout(function(){
+    cookie.classList.add("show");
+    showTimer = null;
+  }, 2500);
+  var dismiss = function(v){
+    try{ localStorage.setItem("solstice-cookie", v); }catch(e){}
+    cookie.classList.remove("show");
+    if(showTimer){ clearTimeout(showTimer); showTimer = null; }
+  };
+  document.getElementById("cookieOk").addEventListener("click", function(){ dismiss("1"); });
+  document.getElementById("cookieNo").addEventListener("click", function(){ dismiss("0"); });
+}
+
+/* ---------- magnetic buttons (desktop only) ---------- */
+if(window.matchMedia("(pointer:fine)").matches && !window.matchMedia("(prefers-reduced-motion: reduce)").matches){
+  document.querySelectorAll(".hero-ctas .btn").forEach(function(btn){
+    btn.addEventListener("mousemove", function(e){
+      var r = btn.getBoundingClientRect();
+      var x = (e.clientX - r.left - r.width/2) * .12;
+      var y = (e.clientY - r.top - r.height/2) * .18;
+      btn.style.transform = "translate("+x.toFixed(1)+"px,"+y.toFixed(1)+"px)";
+    });
+    btn.addEventListener("mouseleave", function(){
+      btn.style.transform = "";
+    });
+  });
+}
+
+/* ---------- init ---------- */
+applyLang(currentLang);
+})();
+</script>
+</body>
+</html>

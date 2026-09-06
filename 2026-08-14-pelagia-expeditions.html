@@ -1,0 +1,1834 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PELAGIA — Deep-Sea Research Expeditions</title>
+  <meta name="description" content="Join civilian deep-sea research expeditions to the twilight zone, the abyssal plain and the hadal trenches. Real ships, real dives, open data.">
+  <meta name="theme-color" content="#050d1a">
+  <link rel="canonical" href="https://proyectos.cristiancode.dev/landings/2026-08-14-pelagia-expeditions.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="PELAGIA — Deep-Sea Research Expeditions">
+  <meta property="og:description" content="Join civilian deep-sea research expeditions to the twilight zone, the abyssal plain and the hadal trenches. Real ships, real dives, open data.">
+  <meta property="og:url" content="https://proyectos.cristiancode.dev/landings/2026-08-14-pelagia-expeditions.html">
+  <meta property="og:image" content="https://cristiancode.dev/assets/landing-2026-08-14-pelagia-expeditions.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="PELAGIA — Deep-Sea Research Expeditions">
+  <meta name="twitter:description" content="Join civilian deep-sea research expeditions to the twilight zone, the abyssal plain and the hadal trenches. Real ships, real dives, open data.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='none' stroke='%232ee6c8' stroke-width='2.5'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%232ee6c8'/%3E%3Cpath d='M16 2v5M16 25v5M2 16h5M25 16h5' stroke='%232ee6c8' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Archivo:ital,wght@0,400;0,500;0,600;1,400&family=Chivo+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Organization","name":"Pelagia Expeditions","description":"Civilian deep-sea research expeditions — twilight zone, abyssal plain and hadal trenches.","url":"https://proyectos.cristiancode.dev/landings/2026-08-14-pelagia-expeditions.html"}
+  </script>
+  <style>
+  /* ============================================================
+     DESIGN SYSTEM — PELAGIA
+     Surface: Decide/Learn (landing; hero correct). Secondary
+              Monitor touches: live sonar telemetry panel + a
+              scroll-linked depth gauge that maps page scroll to
+              meters of descent (0 m → −10,928 m).
+     Derived from: Original deep-ocean expedition theme
+     Family: Marine Science / Ocean Exploration
+     Style: Deep-ocean expedition — abyssal navy canvas (Drenched),
+            bioluminescent teal accent used sparingly (≤10%),
+            sonar/radar sweep art, bathymetric contour lines,
+            Chivo Mono instrument readouts, hard-edged control
+            panel UI. Theme toggle = Surface (light) / Abyss (dark).
+     Strategy: Drenched (surface IS the ocean) + restrained accent
+     ============================================================ */
+
+  /* ---- Tokens ---- */
+  :root {
+    --bg:        #050d1a;   /* abyss */
+    --bg-2:      #081527;   /* surface wells */
+    --bg-3:      #0c1e33;   /* raised panels */
+    --ink:       #e6f0f5;   /* primary text */
+    --ink-2:     #9fb8c8;   /* secondary text */
+    --ink-3:     #6e8ca0;   /* tertiary / captions */
+    --line:      rgba(158, 196, 220, 0.16);
+    --line-soft: rgba(158, 196, 220, 0.09);
+    --accent:        #2ee6c8;   /* bioluminescent teal */
+    --accent-text:   #2ee6c8;   /* accent used for small text */
+    --accent-ink:    #04150f;   /* text on accent */
+    --accent-soft:   rgba(46, 230, 200, 0.10);
+    --cyan:       #7db8e8;
+    --alert:      #ff7b7b;
+    --amber:      #ffc24d;
+    --sonar-ring: rgba(158, 196, 220, 0.22);
+    --sonar-tick: rgba(158, 196, 220, 0.45);
+    --sonar-sweep: conic-gradient(from 0deg, rgba(46,230,200,0.55), rgba(46,230,200,0.05) 22%, transparent 32%);
+    --hero-bg:    #050d1a;   /* the hero is the ocean itself — always abyssal */
+    --hero-ink:   #e6f0f5;
+    --hero-accent:#2ee6c8;
+    --hero-ink2:  rgba(158, 196, 220, 0.62);
+    --shadow: 0 24px 64px -24px rgba(0, 0, 0, 0.65);
+
+    --font-display: 'Syne', sans-serif;
+    --font-body: 'Archivo', system-ui, sans-serif;
+    --font-mono: 'Chivo Mono', ui-monospace, monospace;
+
+    --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+    --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+    /* semantic z-index scale */
+    --z-gauge: 30;
+    --z-nav: 40;
+    --z-menu: 50;
+    --z-cookie: 60;
+
+    --radius: 10px;
+    --maxw: 1180px;
+  }
+
+  [data-theme="light"] {
+    --bg:        #eef5f7;   /* sunlit surface water */
+    --bg-2:      #ffffff;
+    --bg-3:      #e1edf1;
+    --ink:       #0b2233;
+    --ink-2:     #3d5a6b;
+    --ink-3:     #59778a;
+    --line:      rgba(11, 34, 51, 0.14);
+    --line-soft: rgba(11, 34, 51, 0.08);
+    --accent:        #0c6e5d;
+    --accent-text:   #0a5447;
+    --accent-ink:    #ffffff;
+    --accent-soft:   rgba(12, 110, 93, 0.10);
+    --cyan:       #15639d;
+    --alert:      #c62f2f;
+    --amber:      #9a6a00;
+    --sonar-ring: rgba(158, 196, 220, 0.22);
+    --sonar-tick: rgba(158, 196, 220, 0.45);
+    --sonar-sweep: conic-gradient(from 0deg, rgba(46,230,200,0.55), rgba(46,230,200,0.05) 22%, transparent 32%);
+    --hero-bg:    #050d1a;   /* hero stays abyssal in both themes */
+    --hero-ink:   #e6f0f5;
+    --hero-accent:#2ee6c8;
+    --hero-ink2:  rgba(158, 196, 220, 0.62);
+    --shadow: 0 24px 64px -32px rgba(11, 34, 51, 0.28);
+  }
+
+  /* ---- Reset & base ---- */
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body {
+    margin: 0;
+    font-family: var(--font-body);
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: var(--ink);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    transition: background-color .45s var(--ease-out), color .45s var(--ease-out);
+  }
+  h1, h2, h3 { font-family: var(--font-display); line-height: 1.08; text-wrap: balance; letter-spacing: -0.03em; margin: 0; }
+  p { margin: 0; text-wrap: pretty; }
+  a { color: var(--accent-text); }
+  img { display: block; max-width: 100%; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+  ::selection { background: var(--accent); color: var(--accent-ink); }
+  .container { max-width: var(--maxw); margin-inline: auto; padding-inline: clamp(1.25rem, 4vw, 2.5rem); }
+  .section { padding-block: clamp(4.5rem, 9vw, 8rem); }
+  .mono { font-family: var(--font-mono); }
+  .visually-hidden {
+    position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
+    overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+  }
+
+  /* ---- Buttons (control panel) ---- */
+  .btn {
+    display: inline-flex; align-items: center; gap: .6rem;
+    font-family: var(--font-mono); font-size: .8125rem; font-weight: 500;
+    letter-spacing: .08em; text-transform: uppercase; text-decoration: none;
+    padding: .95rem 1.6rem; border-radius: var(--radius);
+    border: 1px solid transparent; cursor: pointer;
+    transition: transform .3s var(--ease-out), background-color .3s var(--ease-out),
+                border-color .3s var(--ease-out), box-shadow .3s var(--ease-out);
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-primary { background: var(--accent); color: var(--accent-ink); }
+  .btn-primary:hover { box-shadow: 0 12px 32px -12px var(--accent); }
+  .btn-ghost { background: transparent; border-color: var(--line); color: var(--ink); }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent-text); }
+  .btn-sm { padding: .7rem 1.15rem; font-size: .75rem; }
+
+  /* ---- Nav ---- */
+  .nav {
+    position: fixed; inset: 0 0 auto 0; z-index: var(--z-nav);
+    transition: background-color .35s var(--ease-out), border-color .35s var(--ease-out);
+    border-bottom: 1px solid transparent;
+  }
+  .nav-scrolled { background: var(--bg); border-color: var(--line-soft); }
+  .nav__inner { display: flex; align-items: center; gap: 1.5rem; height: 72px; }
+  .nav__logo {
+    display: inline-flex; align-items: center; gap: .65rem;
+    font-family: var(--font-display); font-weight: 800; font-size: 1.15rem;
+    letter-spacing: .04em; text-decoration: none; color: var(--ink);
+    margin-right: auto;
+  }
+  .nav__logo svg { flex: none; }
+  .nav-links { display: flex; gap: 1.4rem; list-style: none; margin: 0; padding: 0; }
+  .nav-links a {
+    font-family: var(--font-mono); font-size: .78rem; letter-spacing: .05em;
+    text-transform: uppercase; text-decoration: none; color: var(--ink-2);
+    transition: color .25s var(--ease-out);
+  }
+  .nav-links a:hover { color: var(--accent-text); }
+  .nav__actions { display: flex; align-items: center; gap: .8rem; }
+  .theme-toggle {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 42px; height: 42px; border-radius: var(--radius);
+    border: 1px solid var(--line); background: transparent; color: var(--ink); cursor: pointer;
+    transition: border-color .25s var(--ease-out), color .25s var(--ease-out);
+  }
+  .theme-toggle:hover { border-color: var(--accent); color: var(--accent-text); }
+  .theme-toggle .ico-sun { display: none; }
+  [data-theme="light"] .theme-toggle .ico-sun { display: block; }
+  [data-theme="light"] .theme-toggle .ico-moon { display: none; }
+  .menu-btn { display: none; }
+
+  /* Nav over hero: transparent, light-on-dark hero */
+  .nav:not(.nav-scrolled) .nav__logo { color: var(--hero-ink); }
+  .nav:not(.nav-scrolled) .nav-links a { color: rgba(230, 240, 245, 0.8); }
+  .nav:not(.nav-scrolled) .nav-links a:hover { color: #ffffff; }
+  .nav:not(.nav-scrolled) .theme-toggle { color: var(--hero-ink); border-color: rgba(230, 240, 245, 0.25); }
+
+  /* ---- Language dropdown ---- */
+  .lang-select { position: relative; }
+  .lang-select__btn {
+    display: inline-flex; align-items: center; gap: .5rem;
+    font-family: var(--font-mono); font-size: .78rem; letter-spacing: .05em;
+    padding: .55rem .8rem; border-radius: var(--radius);
+    border: 1px solid var(--line); background: transparent; color: var(--ink); cursor: pointer;
+    transition: border-color .25s var(--ease-out);
+  }
+  .lang-select__btn:hover { border-color: var(--accent); }
+  .lang-select__chev { transition: transform .25s var(--ease-out); }
+  .lang-select.open .lang-select__chev { transform: rotate(180deg); }
+  .lang-select__menu {
+    display: none; position: absolute; top: calc(100% + 6px); right: 0; min-width: 150px;
+    background: var(--bg-2); border: 1px solid var(--line); border-radius: var(--radius);
+    box-shadow: var(--shadow); padding: .35rem; z-index: 5;
+  }
+  .lang-select.open .lang-select__menu { display: block; }
+  .lang-select__opt {
+    display: block; width: 100%; text-align: left;
+    font-family: var(--font-body); font-size: .9rem;
+    padding: .5rem .7rem; border: 0; border-radius: 6px; background: transparent; color: var(--ink); cursor: pointer;
+  }
+  .lang-select__opt:hover, .lang-select__opt[aria-selected="true"] { background: var(--accent-soft); color: var(--accent-text); }
+  .mobile-actions .lang-select__menu { right: auto; left: 0; }
+
+  /* ---- Mobile menu ---- */
+  .mobile-menu {
+    position: fixed; inset: 0; z-index: var(--z-menu);
+    background: var(--bg); padding: 96px clamp(1.25rem, 4vw, 2.5rem) 2rem;
+    display: none; flex-direction: column; gap: .4rem; overflow-y: auto;
+  }
+  .mobile-menu.open { display: flex; }
+  .m-link {
+    font-family: var(--font-display); font-weight: 700; font-size: 1.7rem;
+    text-decoration: none; color: var(--ink); padding: .55rem 0;
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .m-link:hover { color: var(--accent-text); }
+  .mobile-actions { display: flex; align-items: center; gap: .8rem; margin-top: 1.5rem; flex-wrap: wrap; }
+
+  /* ---- Hero ---- */
+  .hero {
+    position: relative; overflow: hidden;
+    min-height: max(720px, 88vh);
+    display: grid; align-items: center;
+    background: var(--hero-bg); color: var(--hero-ink);
+  }
+  .hero__inner {
+    display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    gap: clamp(2rem, 5vw, 4.5rem); align-items: center;
+    padding-block: clamp(5.5rem, 9vh, 6.5rem) clamp(3rem, 6vh, 4.5rem);
+  }
+  .hero__label {
+    display: inline-flex; align-items: center; gap: .6rem;
+    font-family: var(--font-mono); font-size: .76rem; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--hero-accent); margin-bottom: 1.4rem;
+  }
+  .hero__label::before { content: ""; width: 26px; height: 1px; background: var(--hero-accent); }
+  .pulse-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--hero-accent); margin-right: .4rem; }
+  .hero h1 { font-size: clamp(2.2rem, 4.4vw, 4.15rem); font-weight: 800; }
+  .hero h1 .abyss-word { color: var(--hero-accent); }
+  .hero__sub { margin-top: 1.4rem; max-width: 56ch; color: var(--hero-ink2); font-size: 1.06rem; }
+  .hero__ctas { display: flex; flex-wrap: wrap; gap: .9rem; margin-top: 2.2rem; }
+  /* hero stays abyssal in both themes — CTAs need fixed hero styling */
+  .hero .btn-primary { background: var(--hero-accent); color: #04150f; }
+  .hero .btn-primary:hover { box-shadow: 0 12px 32px -12px var(--hero-accent); }
+  .hero .btn-ghost { border-color: rgba(158, 196, 220, 0.32); color: var(--hero-ink); }
+  .hero .btn-ghost:hover { border-color: var(--hero-accent); color: var(--hero-accent); }
+
+  /* Sonar panel */
+  .sonar {
+    position: relative; aspect-ratio: 1 / 1; max-width: 520px; margin-inline: auto; width: 100%;
+  }
+  .sonar__rings { position: absolute; inset: 0; }
+  .sonar__sweep {
+    position: absolute; inset: 6%;
+    border-radius: 50%;
+    background: var(--sonar-sweep);
+    animation: sweep 9s linear infinite;
+  }
+  @keyframes sweep { to { transform: rotate(360deg); } }
+  .sonar__core {
+    position: absolute; top: 50%; left: 50%; width: 14px; height: 14px;
+    transform: translate(-50%, -50%); border-radius: 50%; background: var(--hero-accent);
+    box-shadow: 0 0 0 6px rgba(46, 230, 200, 0.10), 0 0 24px var(--hero-accent);
+  }
+  .sonar__blip { position: absolute; width: 10px; height: 10px; border-radius: 50%; background: var(--hero-accent); }
+  .sonar__blip::after {
+    content: ""; position: absolute; inset: -4px; border-radius: 50%;
+    border: 1.5px solid var(--hero-accent); animation: ping 2.6s var(--ease-out) infinite;
+  }
+  .sonar__blip.b1 { top: 26%; left: 64%; }
+  .sonar__blip.b2 { top: 58%; left: 30%; animation-delay: .8s; }
+  .sonar__blip.b3 { top: 66%; left: 68%; animation-delay: 1.6s; }
+  .sonar__blip.b4 { top: 38%; left: 44%; animation-delay: 2.2s; }
+  @keyframes ping { 0% { transform: scale(.6); opacity: .9; } 100% { transform: scale(2.6); opacity: 0; } }
+  .sonar__readout {
+    position: absolute; left: 0; right: 0; bottom: 4%;
+    display: grid; grid-template-columns: 1fr 1fr; gap: .4rem .8rem;
+    padding: .9rem 1rem; border: 1px solid rgba(158, 196, 220, 0.18); border-radius: var(--radius);
+    background: rgba(5, 13, 26, 0.72);
+    font-family: var(--font-mono); font-size: .72rem; letter-spacing: .06em;
+  }
+  .sonar__readout dt { color: var(--hero-ink2); text-transform: uppercase; }
+  .sonar__readout dd { margin: 0; color: var(--hero-accent); font-weight: 500; text-align: right; }
+  .sonar__tag {
+    position: absolute; top: -2.2rem; left: 0;
+    font-family: var(--font-mono); font-size: .7rem; letter-spacing: .16em; text-transform: uppercase;
+    color: var(--hero-ink2);
+  }
+  .sonar__tag::after { content: ""; display: block; width: 100%; height: 1px; background: rgba(158, 196, 220, 0.18); margin-top: .45rem; }
+
+  .hero__scroll {
+    position: absolute; bottom: 1.6rem; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: .4rem;
+    font-family: var(--font-mono); font-size: .66rem; letter-spacing: .22em; text-transform: uppercase; color: var(--hero-ink2);
+  }
+  .hero__scroll span { display: block; width: 1px; height: 34px; background: rgba(158, 196, 220, 0.18); overflow: hidden; position: relative; }
+  .hero__scroll span::after {
+    content: ""; position: absolute; top: -40%; left: 0; width: 100%; height: 40%;
+    background: var(--hero-accent); animation: drop 2.2s var(--ease-out) infinite;
+  }
+  @keyframes drop { 0% { top: -40%; } 100% { top: 110%; } }
+
+  /* Bathymetric contour divider */
+  .contours { display: block; width: 100%; height: 90px; color: var(--line); }
+  .contours path { stroke: currentColor; fill: none; }
+  .contours__drift { animation: drift 34s linear infinite; }
+  @keyframes drift { from { transform: translateX(0); } to { transform: translateX(-400px); } }
+  .contours--flip { transform: scaleY(-1); }
+
+  /* ---- Manifest (status board) ---- */
+  .manifest { border-block: 1px solid var(--line-soft); background: var(--bg-2); }
+  .manifest__grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+  }
+  .manifest__cell { padding: 1.6rem 1.4rem; border-right: 1px solid var(--line-soft); }
+  .manifest__cell:last-child { border-right: 0; }
+  .manifest__label {
+    font-family: var(--font-mono); font-size: .68rem; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--ink-3); display: block; margin-bottom: .6rem;
+  }
+  .manifest__value {
+    font-family: var(--font-display); font-weight: 700; font-size: clamp(1.4rem, 2.4vw, 1.9rem);
+    color: var(--accent-text); letter-spacing: -0.02em;
+  }
+  .manifest__value small { font-family: var(--font-mono); font-size: .72rem; letter-spacing: 0; color: var(--ink-3); }
+
+  /* ---- Section headers ---- */
+  .sec-head { max-width: 62ch; margin-bottom: clamp(2.5rem, 5vw, 4rem); }
+  .sec-head--center { margin-inline: auto; text-align: center; }
+  .sec-kicker {
+    font-family: var(--font-mono); font-size: .74rem; letter-spacing: .16em; text-transform: uppercase;
+    color: var(--accent-text); display: flex; align-items: center; gap: .7rem; margin-bottom: 1.1rem;
+  }
+  .sec-kicker::before { content: ""; width: 22px; height: 1px; background: var(--accent); }
+  .sec-head--center .sec-kicker { justify-content: center; }
+  .sec-head--center .sec-kicker::after { content: ""; width: 22px; height: 1px; background: var(--accent); }
+  .sec-title { font-size: clamp(2rem, 4.2vw, 3.3rem); font-weight: 700; }
+  .sec-sub { margin-top: 1.1rem; color: var(--ink-2); max-width: 60ch; }
+  .sec-head--center .sec-sub { margin-inline: auto; }
+
+  /* ---- Depth ladder (expeditions) ---- */
+  .ladder { position: relative; }
+  .ladder__rail {
+    position: absolute; top: 0; bottom: 0; left: 5.2rem;
+    width: 1px; background: var(--line);
+  }
+  .ladder__rail::before, .ladder__rail::after {
+    content: ""; position: absolute; left: -3px; width: 7px; height: 7px; border-radius: 50%;
+    background: var(--accent);
+  }
+  .ladder__rail::before { top: -4px; } .ladder__rail::after { bottom: -4px; }
+  .ladder__stop {
+    position: relative; display: grid; grid-template-columns: 5.2rem 1fr; gap: 1.8rem;
+    padding-block: 2.4rem; border-bottom: 1px solid var(--line-soft);
+  }
+  .ladder__stop:first-child { padding-top: 0; }
+  .ladder__stop:last-child { border-bottom: 0; padding-bottom: 0; }
+  .ladder__depth { padding-top: .3rem; }
+  .ladder__depth strong {
+    font-family: var(--font-mono); font-size: 1.05rem; font-weight: 700; color: var(--accent-text);
+    display: block; letter-spacing: -.02em;
+  }
+  .ladder__depth span {
+    font-family: var(--font-mono); font-size: .66rem; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3);
+  }
+  .ladder__body { max-width: 640px; }
+  .ladder__meta {
+    font-family: var(--font-mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase;
+    color: var(--ink-3); display: flex; flex-wrap: wrap; gap: .4rem 1.2rem; margin-bottom: .7rem;
+  }
+  .ladder__body h3 { font-size: clamp(1.45rem, 2.6vw, 2rem); font-weight: 700; display: flex; align-items: center; gap: .8rem; flex-wrap: wrap; }
+  .flag {
+    font-family: var(--font-mono); font-size: .62rem; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--accent-ink); background: var(--accent); border-radius: 999px; padding: .28rem .7rem;
+    font-weight: 700;
+  }
+  .ladder__body p { color: var(--ink-2); margin-block: .9rem 1.4rem; max-width: 58ch; }
+
+  /* ---- Vessels ---- */
+  .vessel {
+    display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(1.6rem, 4vw, 3.5rem);
+    align-items: center; padding-block: 2.6rem; border-bottom: 1px solid var(--line-soft);
+  }
+  .vessel:first-of-type { padding-top: 0; }
+  .vessel:last-of-type { border-bottom: 0; }
+  .vessel:nth-of-type(even) { direction: rtl; }
+  .vessel:nth-of-type(even) > * { direction: ltr; }
+  .vessel__photo {
+    border-radius: var(--radius); overflow: hidden; position: relative;
+    box-shadow: var(--shadow);
+  }
+  .vessel__photo img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+  .vessel__photo::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 55%, rgba(5, 13, 26, 0.55));
+  }
+  .vessel__code {
+    position: absolute; bottom: .8rem; left: .9rem; z-index: 1;
+    font-family: var(--font-mono); font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; color: #cfe3ee;
+  }
+  .vessel__class {
+    font-family: var(--font-mono); font-size: .74rem; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--accent-text); margin-bottom: .6rem; display: block;
+  }
+  .vessel h3 { font-size: clamp(1.5rem, 2.8vw, 2.2rem); font-weight: 700; }
+  .vessel p { color: var(--ink-2); margin-top: .8rem; max-width: 56ch; }
+  .vessel__specs {
+    margin-top: 1.5rem; display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px;
+    background: var(--line-soft); border: 1px solid var(--line-soft); border-radius: var(--radius); overflow: hidden;
+  }
+  .vessel__specs div { background: var(--bg); padding: .8rem .7rem; }
+  .vessel__specs dt { font-family: var(--font-mono); font-size: .62rem; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); }
+  .vessel__specs dd { margin: .35rem 0 0; font-family: var(--font-mono); font-size: .92rem; font-weight: 500; color: var(--ink); }
+
+  /* ---- Research ---- */
+  .research-stack { display: grid; gap: 2rem; }
+  .res-block { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(1.6rem, 4vw, 3.5rem); align-items: center; }
+  .res-block--photo { background: var(--bg-2); border: 1px solid var(--line-soft); border-radius: calc(var(--radius) + 6px); padding: clamp(1.2rem, 3vw, 2rem); }
+  .res-block__art { border-radius: var(--radius); overflow: hidden; }
+  .res-block__art img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
+  .res-block__kicker { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent-text); display: block; margin-bottom: .6rem; }
+  .res-block h3 { font-size: clamp(1.4rem, 2.6vw, 2rem); font-weight: 700; }
+  .res-block p { color: var(--ink-2); margin-top: .8rem; }
+  .res-block__data { margin-top: 1.4rem; display: flex; flex-wrap: wrap; gap: .7rem; }
+  .res-block__data span {
+    font-family: var(--font-mono); font-size: .74rem; letter-spacing: .04em;
+    border: 1px solid var(--line); border-radius: 999px; padding: .45rem .9rem; color: var(--ink-2);
+  }
+  .res-block__data span strong { color: var(--accent-text); font-weight: 700; }
+
+  /* Bioluminescence art (SVG) */
+  .bio-art { position: relative; border-radius: var(--radius); background: var(--bg-3); border: 1px solid var(--line-soft); aspect-ratio: 16 / 10; overflow: hidden; }
+  .bio-art__medusa { position: absolute; animation: float 7s ease-in-out infinite; }
+  .bio-art__medusa.m1 { top: 18%; left: 16%; animation-delay: 0s; }
+  .bio-art__medusa.m2 { top: 52%; left: 46%; animation-delay: 1.4s; }
+  .bio-art__medusa.m3 { top: 28%; right: 14%; animation-delay: 2.6s; }
+  @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-14px); } }
+  .bio-art__dots { position: absolute; inset: 0; }
+
+  /* ---- Dive log timeline ---- */
+  .log { position: relative; }
+  .log__item {
+    position: relative; display: grid; grid-template-columns: 9.5rem minmax(0, 1fr); gap: 1.6rem;
+    padding-block: 1.9rem; border-bottom: 1px solid var(--line-soft);
+  }
+  .log__item:last-child { border-bottom: 0; }
+  .log__time { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .08em; color: var(--ink-3); padding-top: .35rem; }
+  .log__time strong { display: block; color: var(--accent-text); font-size: .9rem; letter-spacing: 0; margin-top: .25rem; }
+  .log__body h3 { font-size: 1.25rem; font-weight: 700; }
+  .log__body p { color: var(--ink-2); margin-top: .45rem; max-width: 62ch; }
+
+  /* ---- Quote ---- */
+  .quote-band { background: var(--bg-2); border-block: 1px solid var(--line-soft); }
+  .quote { max-width: 44rem; margin-inline: auto; text-align: center; padding-block: clamp(3.5rem, 7vw, 5.5rem); }
+  .quote blockquote {
+    margin: 0; font-family: var(--font-display); font-weight: 600;
+    font-size: clamp(1.35rem, 2.6vw, 1.95rem); line-height: 1.4; letter-spacing: -0.015em; text-wrap: balance;
+  }
+  .quote blockquote::before { content: "“"; display: block; font-size: 3rem; line-height: .6; color: var(--accent-text); margin-bottom: .8rem; }
+  .quote footer { margin-top: 1.6rem; font-family: var(--font-mono); font-size: .78rem; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); }
+  .quote footer strong { display: block; color: var(--accent-text); font-weight: 700; letter-spacing: .06em; margin-bottom: .2rem; }
+
+  /* ---- Fellowship (Compare) ---- */
+  .fel-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; align-items: stretch; }
+  .fel-card {
+    display: flex; flex-direction: column; gap: 1.1rem;
+    background: var(--bg-2); border: 1px solid var(--line); border-radius: calc(var(--radius) + 4px);
+    padding: 1.8rem 1.6rem; position: relative;
+  }
+  .fel-card--hot { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent), var(--shadow); }
+  .fel-card__flag {
+    position: absolute; top: -0.8rem; left: 1.2rem;
+    font-family: var(--font-mono); font-size: .62rem; letter-spacing: .12em; text-transform: uppercase; font-weight: 700;
+    color: var(--accent-ink); background: var(--accent); border-radius: 999px; padding: .28rem .75rem;
+  }
+  .fel-card h3 { font-family: var(--font-display); font-size: 1.35rem; font-weight: 700; }
+  .fel-card__price { font-family: var(--font-mono); font-size: 1.7rem; font-weight: 700; color: var(--accent-text); letter-spacing: -.02em; }
+  .fel-card__price small { font-size: .8rem; color: var(--ink-3); font-weight: 400; letter-spacing: 0; }
+  .fel-card__desc { color: var(--ink-2); font-size: .98rem; margin: -.4rem 0 0; }
+  .fel-card ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .55rem; }
+  .fel-card li { padding-left: 1.4rem; position: relative; color: var(--ink-2); font-size: .95rem; }
+  .fel-card li::before {
+    content: ""; position: absolute; left: 0; top: .55em; width: 7px; height: 7px;
+    border-radius: 50%; background: var(--accent);
+  }
+  .fel-card .btn { margin-top: auto; justify-content: center; }
+
+  /* ---- Crew ---- */
+  .crew-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.4rem; }
+  .crew-card { background: var(--bg-2); border: 1px solid var(--line-soft); border-radius: var(--radius); padding: 1.6rem 1.4rem; }
+  .crew-card__avatar {
+    width: 56px; height: 56px; border-radius: 50%;
+    display: grid; place-items: center;
+    font-family: var(--font-display); font-weight: 700; font-size: 1.15rem;
+    margin-bottom: 1.1rem; border: 1.5px solid currentColor;
+  }
+  .crew-card__avatar.t1 { background: var(--accent-soft); color: var(--accent-text); }
+  .crew-card__avatar.t2 { background: color-mix(in srgb, var(--cyan) 14%, transparent); color: var(--cyan); }
+  .crew-card__avatar.t3 { background: color-mix(in srgb, var(--amber) 14%, transparent); color: var(--amber); }
+  .crew-card__avatar.t4 { background: color-mix(in srgb, var(--alert) 12%, transparent); color: var(--alert); }
+  .crew-card h3 { font-size: 1.1rem; font-weight: 700; }
+  .crew-card p { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); margin-top: .3rem; }
+
+  /* ---- FAQ ---- */
+  .faq { max-width: 46rem; }
+  .faq-item { border-bottom: 1px solid var(--line-soft); }
+  .faq-item:first-of-type { border-top: 1px solid var(--line-soft); }
+  .faq-q {
+    width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 1rem; text-align: left;
+    background: none; border: 0; cursor: pointer; color: var(--ink);
+    font-family: var(--font-display); font-weight: 600; font-size: 1.12rem; padding: 1.35rem 0;
+    transition: color .25s var(--ease-out);
+  }
+  .faq-q:hover { color: var(--accent-text); }
+  .faq-q svg { flex: none; transition: transform .3s var(--ease-out); }
+  .faq-item.open .faq-q svg { transform: rotate(45deg); }
+  .faq-a { max-height: 0; overflow: hidden; transition: max-height .45s var(--ease-out); }
+  .faq-a p { color: var(--ink-2); padding: 0 2.6rem 1.35rem 0; max-width: 64ch; }
+
+  /* ---- Newsletter ---- */
+  .split-2 { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(2.5rem, 6vw, 5rem); align-items: start; }
+  .news-band { background: var(--bg-2); border: 1px solid var(--line-soft); border-radius: calc(var(--radius) + 6px); }
+  .news { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: clamp(1.6rem, 4vw, 3.5rem); align-items: center; }
+  .news__stub { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .16em; text-transform: uppercase; color: var(--accent-text); display: block; margin-bottom: .8rem; }
+  .news h2 { font-size: clamp(1.8rem, 3.6vw, 2.6rem); font-weight: 700; }
+  .news p { color: var(--ink-2); margin-top: .9rem; max-width: 52ch; }
+  .news__form { display: flex; gap: .7rem; flex-wrap: wrap; }
+  .news__form input {
+    flex: 1 1 220px; font-family: var(--font-body); font-size: 1rem; color: var(--ink);
+    background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: .95rem 1.1rem; transition: border-color .25s var(--ease-out);
+  }
+  .news__form input::placeholder { color: var(--ink-3); }
+  .news__form input:focus { border-color: var(--accent); outline: none; }
+  .news__thanks { font-family: var(--font-mono); font-size: .9rem; color: var(--accent-text); margin-top: 1rem; display: none; }
+  .news__thanks.show { display: block; }
+
+  /* ---- Footer ---- */
+  .footer { border-top: 1px solid var(--line-soft); background: var(--bg-2); }
+  .footer__grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 2rem; padding-block: clamp(3rem, 6vw, 4.5rem) 2.5rem; }
+  .footer h4 { font-family: var(--font-mono); font-size: .7rem; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 1rem; }
+  .footer p { color: var(--ink-2); font-size: .95rem; max-width: 34ch; }
+  .footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .55rem; }
+  .footer a { color: var(--ink-2); text-decoration: none; font-size: .95rem; transition: color .25s var(--ease-out); }
+  .footer a:hover { color: var(--accent-text); }
+  .footer__bottom {
+    border-top: 1px solid var(--line-soft); padding-block: 1.4rem;
+    display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap;
+    font-family: var(--font-mono); font-size: .72rem; letter-spacing: .06em; color: var(--ink-3);
+  }
+  .footer__sonar { display: inline-flex; align-items: center; gap: .5rem; }
+
+  /* ---- Depth gauge (scroll-linked) ---- */
+  .depth-gauge {
+    position: fixed; right: 1.1rem; top: 50%; transform: translateY(-50%);
+    z-index: var(--z-gauge); display: flex; flex-direction: column; align-items: center; gap: .6rem;
+    font-family: var(--font-mono);
+  }
+  .depth-gauge__label { font-size: .6rem; letter-spacing: .2em; text-transform: uppercase; color: var(--ink-3); writing-mode: vertical-rl; }
+  .depth-gauge__read {
+    font-size: .8rem; font-weight: 700; color: var(--accent-text); letter-spacing: -.02em;
+    background: var(--bg-2); border: 1px solid var(--line); border-radius: 999px; padding: .5rem .7rem;
+    white-space: nowrap; transition: color .2s linear;
+  }
+  .depth-gauge__rail { position: relative; width: 1px; height: 120px; background: var(--line); }
+  .depth-gauge__marker {
+    position: absolute; top: 0; left: 50%; transform: translate(-50%, -50%);
+    width: 9px; height: 9px; border-radius: 50%; background: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-soft);
+  }
+
+  /* ---- Cookie banner ---- */
+  .cookie {
+    position: fixed; right: 1.1rem; bottom: 1.1rem; z-index: var(--z-cookie);
+    max-width: 380px; background: var(--bg-2); border: 1px solid var(--line); border-radius: var(--radius);
+    box-shadow: var(--shadow); padding: 1.1rem 1.2rem;
+    transform: translateY(calc(100% + 2rem)); opacity: 0; pointer-events: none;
+    transition: transform .5s var(--ease-expo), opacity .4s var(--ease-out);
+  }
+  .cookie.show { transform: none; opacity: 1; pointer-events: auto; }
+  .cookie p { font-size: .9rem; color: var(--ink-2); margin-bottom: .9rem; }
+  .cookie__actions { display: flex; gap: .6rem; }
+  .cookie__actions .btn { flex: 1; justify-content: center; }
+
+  /* ---- Reveal on scroll ---- */
+  .js .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s var(--ease-out), transform .8s var(--ease-out); transition-delay: var(--d, 0s); }
+  .js .reveal.in { opacity: 1; transform: none; }
+
+  /* ---- Reduced motion ---- */
+  @media (prefers-reduced-motion: reduce) {
+    .js .reveal { opacity: 1; transform: none; transition: none; }
+    .sonar__sweep, .sonar__blip::after, .hero__scroll span::after, .contours__drift,
+    .bio-art__medusa, .pulse-dot { animation: none !important; }
+    .depth-gauge__marker { transition: none; }
+  }
+
+  /* ---- Responsive ---- */
+  @media (max-width: 1024px) {
+    .nav-links { display: none; }
+    .menu-btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 42px; height: 42px; border-radius: var(--radius); border: 1px solid var(--line);
+      background: transparent; color: var(--ink); cursor: pointer;
+    }
+    .hero__inner { grid-template-columns: 1fr; gap: 3.2rem; }
+    .sonar { max-width: 440px; }
+    .manifest__grid { grid-template-columns: repeat(2, 1fr); }
+    .manifest__cell:nth-child(2) { border-right: 0; }
+    .manifest__cell:nth-child(-n+2) { border-bottom: 1px solid var(--line-soft); }
+    .vessel { grid-template-columns: 1fr; }
+    .vessel:nth-of-type(even) { direction: ltr; }
+    .fel-grid { grid-template-columns: 1fr; }
+    .crew-grid { grid-template-columns: repeat(2, 1fr); }
+    .news { grid-template-columns: 1fr; }
+    .split-2 { grid-template-columns: 1fr; }
+    .footer__grid { grid-template-columns: 1fr 1fr; }
+    .depth-gauge { display: none; }
+  }
+  @media (max-width: 640px) {
+    .hero h1 { font-size: clamp(2.1rem, 8.5vw, 2.9rem); }
+    .ladder__stop { grid-template-columns: 1fr; gap: .6rem; }
+    .ladder__rail { display: none; }
+    .res-block { grid-template-columns: 1fr; }
+    .crew-grid { grid-template-columns: 1fr; }
+    .vessel__specs { grid-template-columns: repeat(2, 1fr); }
+    .log__item { grid-template-columns: 1fr; gap: .5rem; }
+    .footer__grid { grid-template-columns: 1fr; }
+    .nav__cta { display: none; }
+    .contours { height: 54px; }
+  }
+  </style>
+</head>
+<body>
+  <a class="visually-hidden" href="#expeditions" data-i18n="skip">Skip to content</a>
+
+  <!-- ================= NAV ================= -->
+  <nav class="nav" id="nav" aria-label="Main">
+    <div class="container nav__inner">
+      <a class="nav__logo" href="#top" aria-label="Pelagia — home">
+        <svg width="26" height="26" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <circle cx="16" cy="16" r="13" stroke="currentColor" stroke-width="2.5"/>
+          <circle cx="16" cy="16" r="4.5" fill="currentColor"/>
+          <path d="M16 3v4M16 25v4M3 16h4M25 16h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        PELAGIA
+      </a>
+      <ul class="nav-links">
+        <li><a href="#expeditions" data-i18n="nav.expeditions">Expeditions</a></li>
+        <li><a href="#vessels" data-i18n="nav.vessels">Vessels</a></li>
+        <li><a href="#research" data-i18n="nav.research">Research</a></li>
+        <li><a href="#log" data-i18n="nav.log">Dive log</a></li>
+        <li><a href="#crew" data-i18n="nav.crew">Crew</a></li>
+        <li><a href="#fellowship" data-i18n="nav.fellowship">Fellowship</a></li>
+      </ul>
+      <div class="nav__actions">
+        <div class="lang-select" id="langSelectDesk">
+          <button class="lang-select__btn" type="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Select language" data-i18n-aria="aria.lang">
+            <span class="lang-select__cur">EN</span>
+            <svg class="lang-select__chev" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="lang-select__menu" role="listbox" aria-label="Choose language">
+            <button class="lang-select__opt" role="option" data-lang="en" aria-selected="false">English</button>
+            <button class="lang-select__opt" role="option" data-lang="es" aria-selected="false">Español</button>
+            <button class="lang-select__opt" role="option" data-lang="fr" aria-selected="false">Français</button>
+            <button class="lang-select__opt" role="option" data-lang="de" aria-selected="false">Deutsch</button>
+            <button class="lang-select__opt" role="option" data-lang="it" aria-selected="false">Italiano</button>
+            <button class="lang-select__opt" role="option" data-lang="pt" aria-selected="false">Português</button>
+          </div>
+        </div>
+        <button class="theme-toggle" type="button" aria-label="Toggle surface / abyss mode" data-i18n-aria="aria.theme">
+          <svg class="ico-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+          <svg class="ico-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.8"/><path d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M5.3 5.3l1.7 1.7M17 17l1.7 1.7M18.7 5.3 17 7M7 17l-1.7 1.7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </button>
+        <a href="#fellowship" class="btn btn-primary btn-sm nav__cta" data-i18n="nav.book">Book a berth</a>
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu" data-i18n-aria="aria.menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <a class="m-link" href="#expeditions" data-i18n="nav.expeditions">Expeditions</a>
+    <a class="m-link" href="#vessels" data-i18n="nav.vessels">Vessels</a>
+    <a class="m-link" href="#research" data-i18n="nav.research">Research</a>
+    <a class="m-link" href="#log" data-i18n="nav.log">Dive log</a>
+    <a class="m-link" href="#crew" data-i18n="nav.crew">Crew</a>
+    <a class="m-link" href="#fellowship" data-i18n="nav.fellowship">Fellowship</a>
+    <div class="mobile-actions">
+      <div class="lang-select" id="langSelectMob">
+        <button class="lang-select__btn" type="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Select language" data-i18n-aria="aria.lang">
+          <span class="lang-select__cur">EN</span>
+          <svg class="lang-select__chev" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="lang-select__menu" role="listbox" aria-label="Choose language">
+          <button class="lang-select__opt" role="option" data-lang="en" aria-selected="false">English</button>
+          <button class="lang-select__opt" role="option" data-lang="es" aria-selected="false">Español</button>
+          <button class="lang-select__opt" role="option" data-lang="fr" aria-selected="false">Français</button>
+          <button class="lang-select__opt" role="option" data-lang="de" aria-selected="false">Deutsch</button>
+          <button class="lang-select__opt" role="option" data-lang="it" aria-selected="false">Italiano</button>
+          <button class="lang-select__opt" role="option" data-lang="pt" aria-selected="false">Português</button>
+        </div>
+      </div>
+      <button class="theme-toggle" type="button" aria-label="Toggle surface / abyss mode" data-i18n-aria="aria.theme">
+        <svg class="ico-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+        <svg class="ico-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.8"/><path d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M5.3 5.3l1.7 1.7M17 17l1.7 1.7M18.7 5.3 17 7M7 17l-1.7 1.7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+      <a href="#fellowship" class="btn btn-primary btn-sm" data-i18n="nav.book">Book a berth</a>
+    </div>
+  </div>
+
+  <!-- ================= HERO ================= -->
+  <header class="hero" id="hero">
+    <div class="container hero__inner">
+      <div>
+        <p class="hero__label"><span class="pulse-dot" aria-hidden="true"></span><span data-i18n="hero.label">Pelagia Research · Dive log 2026</span></p>
+        <h1><span data-i18n="hero.h1a">The deep ocean is the last</span> <span class="abyss-word" data-i18n="hero.h1b">unmapped place on Earth.</span></h1>
+        <p class="hero__sub" data-i18n="hero.sub">Pelagia runs civilian deep-sea research expeditions — dives to the twilight zone, the abyssal plain and the hadal trenches, crewed by scientists and open to anyone who wants to go down with them. Real ships. Real dives. Open data.</p>
+        <div class="hero__ctas">
+          <a href="#fellowship" class="btn btn-primary" data-i18n="hero.cta1">Book a berth</a>
+          <a href="#log" class="btn btn-ghost" data-i18n="hero.cta2">Read the dive log</a>
+        </div>
+      </div>
+
+      <div class="sonar" role="img" aria-label="Live sonar display — Pelagia survey vessel scanning the deep">
+        <svg class="sonar__rings" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+          <circle cx="100" cy="100" r="88" stroke="var(--sonar-ring)" stroke-width="1"/>
+          <circle cx="100" cy="100" r="66" stroke="var(--sonar-ring)" stroke-width="1"/>
+          <circle cx="100" cy="100" r="44" stroke="var(--sonar-ring)" stroke-width="1"/>
+          <circle cx="100" cy="100" r="22" stroke="var(--sonar-ring)" stroke-width="1"/>
+          <path d="M100 12v10M100 178v10M12 100h10M178 100h10" stroke="var(--sonar-tick)" stroke-width="1.4" stroke-linecap="round"/>
+          <path d="M38 38l7 7M155 155l7 7M162 38l-7 7M45 155l-7 7" stroke="var(--sonar-tick)" stroke-width="1.4" stroke-linecap="round"/>
+        </svg>
+        <div class="sonar__sweep" aria-hidden="true"></div>
+        <span class="sonar__blip b1" aria-hidden="true"></span>
+        <span class="sonar__blip b2" aria-hidden="true"></span>
+        <span class="sonar__blip b3" aria-hidden="true"></span>
+        <span class="sonar__blip b4" aria-hidden="true"></span>
+        <div class="sonar__core" aria-hidden="true"></div>
+        <p class="sonar__tag" data-i18n="sonar.tag">Sonar lock · Challenger sector</p>
+        <dl class="sonar__readout">
+          <dt data-i18n="sonar.depth">Depth</dt><dd id="heroDepth">0 m</dd>
+          <dt data-i18n="sonar.pressure">Pressure</dt><dd id="heroPressure">101.3 kPa</dd>
+          <dt data-i18n="sonar.temp">Temp</dt><dd id="heroTemp">17.2 °C</dd>
+          <dt data-i18n="sonar.o2">Oxygen</dt><dd>20.9 %</dd>
+        </dl>
+      </div>
+    </div>
+    <p class="hero__scroll" aria-hidden="true"><span data-i18n="hero.descend">Descend</span><span></span></p>
+  </header>
+
+  <!-- Bathymetric contour divider -->
+  <svg class="contours" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true">
+    <g class="contours__drift">
+      <path d="M0 62 C 120 50, 240 74, 360 62 S 600 50, 720 62 S 960 74, 1080 62 S 1320 50, 1440 62 S 1680 74, 1800 62"/>
+      <path d="M0 46 C 140 34, 260 58, 400 46 S 640 34, 780 46 S 1020 58, 1160 46 S 1400 34, 1540 46 S 1780 58, 1920 46"/>
+      <path d="M0 30 C 160 20, 300 40, 440 30 S 680 20, 820 30 S 1060 40, 1200 30 S 1440 20, 1580 30 S 1820 40, 1960 30"/>
+      <path d="M0 14 C 180 6, 340 22, 480 14 S 720 6, 860 14 S 1100 22, 1240 14 S 1480 6, 1620 14 S 1860 22, 2000 14"/>
+    </g>
+  </svg>
+
+  <!-- ================= MANIFEST ================= -->
+  <section class="manifest" aria-label="Expedition status">
+    <div class="container manifest__grid">
+      <div class="manifest__cell reveal">
+        <span class="manifest__label" data-i18n="mani.op">Operations completed</span>
+        <span class="manifest__value" data-i18n="mani.opv">47</span>
+      </div>
+      <div class="manifest__cell reveal" style="--d:.06s">
+        <span class="manifest__label" data-i18n="mani.deep">Deepest penetration</span>
+        <span class="manifest__value">−10,928 <small>m</small></span>
+      </div>
+      <div class="manifest__cell reveal" style="--d:.12s">
+        <span class="manifest__label" data-i18n="mani.sp">Species catalogued</span>
+        <span class="manifest__value" data-i18n="mani.spv">3,412</span>
+      </div>
+      <div class="manifest__cell reveal" style="--d:.18s">
+        <span class="manifest__label" data-i18n="mani.berth">Berths · season 2026</span>
+        <span class="manifest__value" data-i18n="mani.berthv">96</span>
+      </div>
+    </div>
+  </section>
+
+  <main id="top">
+
+    <!-- ================= EXPEDITIONS (depth ladder) ================= -->
+    <section class="section" id="expeditions" aria-labelledby="expTitle">
+      <div class="container">
+        <div class="sec-head reveal">
+          <p class="sec-kicker" data-i18n="exp.kicker">Sector 01 · Choose your depth</p>
+          <h2 class="sec-title" id="expTitle" data-i18n="exp.title">Three expeditions. Three depths.</h2>
+          <p class="sec-sub" data-i18n="exp.sub">Every expedition carries a full science team and publishes its dataset under an open licence within a year. You join as crew, not as a passenger.</p>
+        </div>
+
+        <div class="ladder">
+          <div class="ladder__rail" aria-hidden="true"></div>
+
+          <article class="ladder__stop reveal">
+            <div class="ladder__depth" aria-hidden="true">
+              <strong>−200 m</strong><span data-i18n="exp1.zone">Twilight</span>
+            </div>
+            <div class="ladder__body">
+              <p class="ladder__meta"><span data-i18n="exp1.dur">5 days at sea</span><span data-i18n="exp1.crew">Crew 14</span><span data-i18n="exp1.ship">R/V Alcyone</span></p>
+              <h3 data-i18n="exp1.name">Continental Shelf</h3>
+              <p data-i18n="exp1.body">Kelp forests, cold-water corals and the daily vertical migration — the busiest layer of the ocean, seen from inside. First dive at 06:00, alongside the plankton.</p>
+              <a href="#fellowship" class="btn btn-ghost btn-sm" data-i18n="exp1.cta">See the berths</a>
+            </div>
+          </article>
+
+          <article class="ladder__stop reveal" style="--d:.08s">
+            <div class="ladder__depth" aria-hidden="true">
+              <strong>−4,000 m</strong><span data-i18n="exp2.zone">Midnight</span>
+            </div>
+            <div class="ladder__body">
+              <p class="ladder__meta"><span data-i18n="exp2.dur">12 days at sea</span><span data-i18n="exp2.crew">Crew 22</span><span data-i18n="exp2.ship">R/V Alcyone</span></p>
+              <h3 data-i18n="exp2.name">Abyssal Plain</h3>
+              <p data-i18n="exp2.body">The midnight zone. Benthic sleds, baited cameras and the great detritus fall. This is where most of the planet's seafloor actually lives — and almost none of it has been named.</p>
+              <a href="#fellowship" class="btn btn-ghost btn-sm" data-i18n="exp2.cta">See the berths</a>
+            </div>
+          </article>
+
+          <article class="ladder__stop reveal" style="--d:.16s">
+            <div class="ladder__depth" aria-hidden="true">
+              <strong>−10,928 m</strong><span data-i18n="exp3.zone">Hadal</span>
+            </div>
+            <div class="ladder__body">
+              <p class="ladder__meta"><span data-i18n="exp3.dur">21 days at sea</span><span data-i18n="exp3.crew">Crew 18</span><span data-i18n="exp3.ship">R/V Alcyone + Bathynaut</span></p>
+              <h3><span data-i18n="exp3.name">Hadal Trench</span><span class="flag" data-i18n="exp3.flag">Flagship</span></h3>
+              <p data-i18n="exp3.body">Challenger Deep and the trenches beyond. A three-week campaign with a full-ocean-depth lander, two manned dives and 90 hours of hadal video nobody has seen yet.</p>
+              <a href="#fellowship" class="btn btn-primary btn-sm" data-i18n="exp3.cta">See the berths</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= VESSELS ================= -->
+    <section class="section" id="vessels" aria-labelledby="vesTitle" style="background: var(--bg-2); border-block: 1px solid var(--line-soft);">
+      <div class="container">
+        <div class="sec-head reveal">
+          <p class="sec-kicker" data-i18n="ves.kicker">Sector 02 · The fleet</p>
+          <h2 class="sec-title" id="vesTitle" data-i18n="ves.title">Built for the pressure.</h2>
+          <p class="sec-sub" data-i18n="ves.sub">Two ships and a submersible — designed for deep work, run by a crew that has been diving together for a decade.</p>
+        </div>
+
+        <article class="vessel reveal">
+          <div class="vessel__photo">
+            <img src="https://images.unsplash.com/photo-1559825481-12a05cc00344?q=80&w=1400&auto=format&fit=crop" alt="Research vessel Alcyone at sea" width="1400" height="1050" loading="lazy" data-i18n-alt="img.v1">
+            <span class="vessel__code">R/V-01</span>
+          </div>
+          <div>
+            <span class="vessel__class" data-i18n="v1.class">Research vessel</span>
+            <h3 data-i18n="v1.name">R/V Alcyone</h3>
+            <p data-i18n="v1.body">The mother ship — wet and dry labs, a moon pool, the deep-sea lander hangar and berths for thirty-two. Alcyone has crossed every ocean basin since 2014.</p>
+            <dl class="vessel__specs">
+              <div><dt data-i18n="ves.spec.len">Length</dt><dd>86 m</dd></div>
+              <div><dt data-i18n="ves.spec.depth">Lander depth</dt><dd>12,000 m</dd></div>
+              <div><dt data-i18n="ves.spec.crew">Crew</dt><dd>32</dd></div>
+              <div><dt data-i18n="ves.spec.payload">Payload</dt><dd>420 t</dd></div>
+              <div><dt data-i18n="ves.spec.speed">Cruise</dt><dd>12 kn</dd></div>
+            </dl>
+          </div>
+        </article>
+
+        <article class="vessel reveal">
+          <div class="vessel__photo">
+            <img src="https://images.unsplash.com/photo-1518998053901-5348d3961a04?q=80&w=1400&auto=format&fit=crop" alt="Submersible Bathynaut before a dive" width="1400" height="1050" loading="lazy" data-i18n-alt="img.v2">
+            <span class="vessel__code">DSRV-02</span>
+          </div>
+          <div>
+            <span class="vessel__class" data-i18n="v2.class">Manned submersible</span>
+            <h3 data-i18n="v2.name">DSRV Bathynaut</h3>
+            <p data-i18n="v2.body">Three seats, one titanium sphere, ninety-plus dives past nine thousand metres. Bathynaut is the only civilian submersible certified to the full depth of the ocean.</p>
+            <dl class="vessel__specs">
+              <div><dt data-i18n="ves.spec.len">Length</dt><dd>7.2 m</dd></div>
+              <div><dt data-i18n="ves.spec.depth">Max depth</dt><dd>10,928 m</dd></div>
+              <div><dt data-i18n="ves.spec.crew">Crew</dt><dd>3</dd></div>
+              <div><dt data-i18n="ves.spec.payload">Payload</dt><dd>300 kg</dd></div>
+              <div><dt data-i18n="ves.spec.speed">Cruise</dt><dd>2.5 kn</dd></div>
+            </dl>
+          </div>
+        </article>
+
+        <article class="vessel reveal">
+          <div class="vessel__photo">
+            <img src="https://images.unsplash.com/photo-1560275619-4662e36fa65c?q=80&w=1400&auto=format&fit=crop" alt="AUV Lamprey being deployed from the ship" width="1400" height="1050" loading="lazy" data-i18n-alt="img.v3">
+            <span class="vessel__code">AUV-03</span>
+          </div>
+          <div>
+            <span class="vessel__class" data-i18n="v3.class">Autonomous surveyor</span>
+            <h3 data-i18n="v3.name">AUV Lamprey</h3>
+            <p data-i18n="v3.body">The quiet mapper — a torpedo of sensors that runs 210-kilometre grids while the humans sleep. Lamprey drew the first continuous maps of two hadal escarpments.</p>
+            <dl class="vessel__specs">
+              <div><dt data-i18n="ves.spec.len">Length</dt><dd>4.1 m</dd></div>
+              <div><dt data-i18n="ves.spec.depth">Max depth</dt><dd>6,000 m</dd></div>
+              <div><dt data-i18n="ves.spec.crew">Crew</dt><dd>0</dd></div>
+              <div><dt data-i18n="ves.spec.payload">Payload</dt><dd>120 kg</dd></div>
+              <div><dt data-i18n="ves.spec.speed">Cruise</dt><dd>4 kn</dd></div>
+            </dl>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ================= RESEARCH ================= -->
+    <section class="section" id="research" aria-labelledby="resTitle">
+      <div class="container">
+        <div class="sec-head reveal">
+          <p class="sec-kicker" data-i18n="res.kicker">Sector 03 · Field science</p>
+          <h2 class="sec-title" id="resTitle" data-i18n="res.title">Science the surface can't see.</h2>
+          <p class="sec-sub" data-i18n="res.sub">Every expedition ships a research question. A few of the ones we keep returning to.</p>
+        </div>
+
+        <div class="research-stack">
+          <!-- Vents: photo block -->
+          <article class="res-block res-block--photo reveal">
+            <div class="res-block__art">
+              <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=1600&auto=format&fit=crop" alt="Hydrothermal vent field on the seafloor" width="1600" height="1000" loading="lazy" data-i18n-alt="img.res1">
+            </div>
+            <div>
+              <span class="res-block__kicker" data-i18n="res1.kicker">Hydrothermal vents</span>
+              <h3 data-i18n="res1.title">Chemosynthesis</h3>
+              <p data-i18n="res1.body">In 1977, nobody believed an ecosystem could live without sunlight. The vent fields we survey still rewrite the textbooks — tube worms, yeti crabs, microbes that eat rock.</p>
+              <div class="res-block__data">
+                <span><strong data-i18n="res1.d1">400 °C</strong>&nbsp;<span data-i18n="res1.d1l">vent fluids</span></span>
+                <span><strong data-i18n="res1.d2">2 m</strong>&nbsp;<span data-i18n="res1.d2l">tube worm colonies</span></span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Bioluminescence: SVG art block -->
+          <article class="res-block reveal">
+            <div class="bio-art" aria-hidden="true">
+              <svg class="bio-art__dots" viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice">
+                <circle cx="40" cy="60" r="1.6" fill="var(--accent)"/><circle cx="90" cy="30" r="1.2" fill="var(--accent)"/>
+                <circle cx="150" cy="70" r="1.4" fill="var(--accent)"/><circle cx="60" cy="140" r="1.5" fill="var(--accent)"/>
+                <circle cx="200" cy="40" r="1.3" fill="var(--accent)"/><circle cx="260" cy="90" r="1.6" fill="var(--accent)"/>
+                <circle cx="320" cy="50" r="1.2" fill="var(--accent)"/><circle cx="370" cy="120" r="1.5" fill="var(--accent)"/>
+                <circle cx="100" cy="180" r="1.3" fill="var(--accent)"/><circle cx="180" cy="150" r="1.5" fill="var(--accent)"/>
+                <circle cx="290" cy="170" r="1.4" fill="var(--accent)"/><circle cx="350" cy="200" r="1.2" fill="var(--accent)"/>
+                <circle cx="230" cy="210" r="1.6" fill="var(--accent)"/><circle cx="30" cy="220" r="1.3" fill="var(--accent)"/>
+              </svg>
+              <svg class="bio-art__medusa m1" width="74" height="88" viewBox="0 0 74 88" fill="none">
+                <path d="M37 14c-13 0-24 8.6-24 22 0 6.4 2.6 11 7 14.4V70c0 8 4.4 12.4 9 12.4S38 78 38 70V50.4c4.4-3.4 7-8 7-14.4 0-13.4-11-22-24-22h16Z" fill="none" stroke="var(--accent-text)" stroke-width="1.6"/>
+                <path d="M25 36c-5.4 0-9 2-11.6 5.4M49 36c5.4 0 9 2 11.6 5.4" stroke="var(--accent-text)" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M30 58h-7l4.4 12h7L30 58Zm14 0h7l-4.4 12h-7l4.4-12Z" stroke="var(--accent-text)" stroke-width="1.4" stroke-linejoin="round"/>
+                <circle cx="37" cy="10" r="3" fill="var(--accent)"/>
+              </svg>
+              <svg class="bio-art__medusa m2" width="52" height="62" viewBox="0 0 74 88" fill="none">
+                <path d="M37 14c-13 0-24 8.6-24 22 0 6.4 2.6 11 7 14.4V70c0 8 4.4 12.4 9 12.4S38 78 38 70V50.4c4.4-3.4 7-8 7-14.4 0-13.4-11-22-24-22h16Z" fill="none" stroke="var(--cyan)" stroke-width="1.6"/>
+                <path d="M25 36c-5.4 0-9 2-11.6 5.4M49 36c5.4 0 9 2 11.6 5.4" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M30 58h-7l4.4 12h7L30 58Zm14 0h7l-4.4 12h-7l4.4-12Z" stroke="var(--cyan)" stroke-width="1.4" stroke-linejoin="round"/>
+                <circle cx="37" cy="10" r="3" fill="var(--cyan)"/>
+              </svg>
+              <svg class="bio-art__medusa m3" width="60" height="72" viewBox="0 0 74 88" fill="none">
+                <path d="M37 14c-13 0-24 8.6-24 22 0 6.4 2.6 11 7 14.4V70c0 8 4.4 12.4 9 12.4S38 78 38 70V50.4c4.4-3.4 7-8 7-14.4 0-13.4-11-22-24-22h16Z" fill="none" stroke="var(--accent-text)" stroke-width="1.6"/>
+                <path d="M25 36c-5.4 0-9 2-11.6 5.4M49 36c5.4 0 9 2 11.6 5.4" stroke="var(--accent-text)" stroke-width="1.6" stroke-linecap="round"/>
+                <circle cx="37" cy="10" r="3" fill="var(--accent)"/>
+              </svg>
+            </div>
+            <div>
+              <span class="res-block__kicker" data-i18n="res2.kicker">Bioluminescence</span>
+              <h3 data-i18n="res2.title">Light in the dark</h3>
+              <p data-i18n="res2.body">Three quarters of the animals in the deep make their own light. We map the patterns, the colours and the timing — and we have only just begun to catalogue them.</p>
+              <div class="res-block__data">
+                <span><strong data-i18n="res2.d1">92%</strong>&nbsp;<span data-i18n="res2.d1l">of deep species glow</span></span>
+                <span><strong data-i18n="res2.d2">3,412</strong>&nbsp;<span data-i18n="res2.d2l">species catalogued</span></span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Carbon pump: data block -->
+          <article class="res-block res-block--photo reveal">
+            <div class="res-block__art">
+              <img src="https://images.unsplash.com/photo-1439405326854-014607f694d7?q=80&w=1600&auto=format&fit=crop" alt="Deep blue ocean water column" width="1600" height="1000" loading="lazy" data-i18n-alt="img.res3">
+            </div>
+            <div>
+              <span class="res-block__kicker" data-i18n="res3.kicker">Carbon pump</span>
+              <h3 data-i18n="res3.title">The ocean's memory</h3>
+              <p data-i18n="res3.body">The deep is the planet's largest carbon store. What sinks, stays. Our sediment cores trace 800,000 years of climate — and tell us what we are doing to it now.</p>
+              <div class="res-block__data">
+                <span><strong data-i18n="res3.d1">38 Gt</strong>&nbsp;<span data-i18n="res3.d1l">CO₂ absorbed yearly</span></span>
+                <span><strong data-i18n="res3.d2">800 kyr</strong>&nbsp;<span data-i18n="res3.d2l">of archived climate</span></span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= DIVE LOG ================= -->
+    <section class="section" id="log" aria-labelledby="logTitle" style="background: var(--bg-2); border-block: 1px solid var(--line-soft);">
+      <div class="container">
+        <div class="sec-head reveal">
+          <p class="sec-kicker" data-i18n="log.kicker">Sector 04 · The log</p>
+          <h2 class="sec-title" id="logTitle" data-i18n="log.title">Expedition log, 2024–2026.</h2>
+          <p class="sec-sub" data-i18n="log.sub">Raw entries from the ships — dates, depths and what came back up with us.</p>
+        </div>
+
+        <div class="log">
+          <article class="log__item reveal">
+            <div class="log__time" data-i18n="log1.date">14 May 2026<strong>−10,928 m</strong></div>
+            <div class="log__body">
+              <h3 data-i18n="log1.name">Trench-6, Mariana</h3>
+              <p data-i18n="log1.body">Full-ocean-depth lander returned with the first images of a hadal snailfish swarm at 10,700 metres. Forty-one new observations logged before the batteries died.</p>
+            </div>
+          </article>
+          <article class="log__item reveal">
+            <div class="log__time" data-i18n="log2.date">02 Feb 2026<strong>−4,050 m</strong></div>
+            <div class="log__body">
+              <h3 data-i18n="log2.name">Guaymas Basin</h3>
+              <p data-i18n="log2.body">Baited cameras recorded a forty-minute aggregation of yeti crabs at a new vent field. Samples under analysis in Bergen.</p>
+            </div>
+          </article>
+          <article class="log__item reveal">
+            <div class="log__time" data-i18n="log3.date">17 Sep 2025<strong>−6,000 m</strong></div>
+            <div class="log__body">
+              <h3 data-i18n="log3.name">Kermadec Trench</h3>
+              <p data-i18n="log3.body">AUV Lamprey completed a 210-kilometre grid — the first continuous map of a hadal fault escarpment, made while the surface crew slept.</p>
+            </div>
+          </article>
+          <article class="log__item reveal">
+            <div class="log__time" data-i18n="log4.date">03 Apr 2025<strong>−1,200 m</strong></div>
+            <div class="log__body">
+              <h3 data-i18n="log4.name">Porcupine Seabight</h3>
+              <p data-i18n="log4.body">Cold-water coral garden, four hectares, previously unmapped. Proposed to the regional marine park authority for protection.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= QUOTE ================= -->
+    <section class="quote-band" aria-label="Quote">
+      <div class="container quote reveal">
+        <blockquote data-i18n="quote.text">We go down because the answers are down there. Every time we come back, the map of the planet has changed a little — and that little is enormous.</blockquote>
+        <footer>
+          <strong data-i18n="quote.author">Dr. Ingrid Sørensen</strong>
+          <span data-i18n="quote.role">Chief scientist, Pelagia Expeditions</span>
+        </footer>
+      </div>
+    </section>
+
+    <!-- ================= FELLOWSHIP (Compare) ================= -->
+    <section class="section" id="fellowship" aria-labelledby="felTitle">
+      <div class="container">
+        <div class="sec-head sec-head--center reveal">
+          <p class="sec-kicker" data-i18n="fel.kicker">Sector 05 · Support the dives</p>
+          <h2 class="sec-title" id="felTitle" data-i18n="fel.title">Fund a berth, or take one.</h2>
+          <p class="sec-sub" data-i18n="fel.sub">Berths sell out months ahead. Fellowships fund the science berths we keep open for researchers who can't pay their own way.</p>
+        </div>
+
+        <div class="fel-grid">
+          <article class="fel-card reveal">
+            <h3 data-i18n="f1.name">Citizen</h3>
+            <p class="fel-card__price">€9 <small data-i18n="fel.per">/ month</small></p>
+            <p class="fel-card__desc" data-i18n="f1.desc">Underwrite a water sample.</p>
+            <ul>
+              <li data-i18n="f1.f1">Monthly dive log, straight from the ship</li>
+              <li data-i18n="f1.f2">Species of the month, photographed on board</li>
+              <li data-i18n="f1.f3">Your name in the expedition credits</li>
+            </ul>
+            <a href="#" class="btn btn-ghost" data-i18n="f1.cta">Become a citizen</a>
+          </article>
+
+          <article class="fel-card fel-card--hot reveal" style="--d:.08s">
+            <span class="fel-card__flag" data-i18n="f2.flag">Funds most berths</span>
+            <h3 data-i18n="f2.name">Fellow</h3>
+            <p class="fel-card__price">€49 <small data-i18n="fel.per">/ month</small></p>
+            <p class="fel-card__desc" data-i18n="f2.desc">Fund a full science berth.</p>
+            <ul>
+              <li data-i18n="f2.f1">Everything in Citizen</li>
+              <li data-i18n="f2.f2">Live comms during manned dives</li>
+              <li data-i18n="f2.f3">Quarterly Q&amp;A with the science crew</li>
+              <li data-i18n="f2.f4">Your name on a dive of the season</li>
+            </ul>
+            <a href="#" class="btn btn-primary" data-i18n="f2.cta">Become a fellow</a>
+          </article>
+
+          <article class="fel-card reveal" style="--d:.16s">
+            <h3 data-i18n="f3.name">Patron</h3>
+            <p class="fel-card__price">€240 <small data-i18n="fel.per">/ month</small></p>
+            <p class="fel-card__desc" data-i18n="f3.desc">Fund a full lander mission.</p>
+            <ul>
+              <li data-i18n="f3.f1">Everything in Fellow</li>
+              <li data-i18n="f3.f2">Dedicated access to raw datasets</li>
+              <li data-i18n="f3.f3">Priority berth reservation</li>
+              <li data-i18n="f3.f4">A mission named after you, painted on a vessel</li>
+            </ul>
+            <a href="#" class="btn btn-ghost" data-i18n="f3.cta">Become a patron</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CREW ================= -->
+    <section class="section" id="crew" aria-labelledby="crewTitle" style="background: var(--bg-2); border-block: 1px solid var(--line-soft);">
+      <div class="container">
+        <div class="sec-head reveal">
+          <p class="sec-kicker" data-i18n="crew.kicker">Sector 06 · The crew</p>
+          <h2 class="sec-title" id="crewTitle" data-i18n="crew.title">The people who go down.</h2>
+        </div>
+        <div class="crew-grid">
+          <article class="crew-card reveal">
+            <div class="crew-card__avatar t1" aria-hidden="true">IS</div>
+            <h3 data-i18n="c1.name">Dr. Ingrid Sørensen</h3>
+            <p data-i18n="c1.role">Chief scientist · marine biology</p>
+          </article>
+          <article class="crew-card reveal" style="--d:.06s">
+            <div class="crew-card__avatar t2" aria-hidden="true">MR</div>
+            <h3 data-i18n="c2.name">Capt. Mateo Ríos</h3>
+            <p data-i18n="c2.role">Expedition captain · R/V Alcyone</p>
+          </article>
+          <article class="crew-card reveal" style="--d:.12s">
+            <div class="crew-card__avatar t3" aria-hidden="true">AO</div>
+            <h3 data-i18n="c3.name">Dr. Amara Okafor</h3>
+            <p data-i18n="c3.role">Geochemist · sediment cores</p>
+          </article>
+          <article class="crew-card reveal" style="--d:.18s">
+            <div class="crew-card__avatar t4" aria-hidden="true">LW</div>
+            <h3 data-i18n="c4.name">Lin Wei</h3>
+            <p data-i18n="c4.role">Submersible pilot · Bathynaut</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FAQ + NEWSLETTER ================= -->
+    <section class="section" id="faq" aria-labelledby="faqTitle">
+      <div class="container split-2">
+        <div>
+          <div class="sec-head reveal" style="margin-bottom: 1.6rem;">
+            <p class="sec-kicker" data-i18n="faq.kicker">Sector 07 · Small print</p>
+            <h2 class="sec-title" id="faqTitle" data-i18n="faq.title">Asked on deck.</h2>
+          </div>
+          <div class="faq">
+            <div class="faq-item reveal">
+              <button class="faq-q" type="button" aria-expanded="false">
+                <span data-i18n="faq.q1">Do I need diving or science experience?</span>
+                <svg class="faq-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+              </button>
+              <div class="faq-a"><p data-i18n="faq.a1">None. Every berth includes a two-week training package before you board, and on the ship you are crew — you learn the watches, the sampling and the cameras from the people who do this professionally. The only requirement is being comfortable at sea.</p></div>
+            </div>
+            <div class="faq-item reveal">
+              <button class="faq-q" type="button" aria-expanded="false">
+                <span data-i18n="faq.q2">How safe is a manned dive to 10,000 m?</span>
+                <svg class="faq-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+              </button>
+              <div class="faq-a"><p data-i18n="faq.a2">Our submersible is certified to 11,000 m and has made ninety-plus dives past 9,000 m without a critical incident. Every dive follows a written plan, a dedicated surface team and a 72-hour pre-dive checklist. The ocean is not safe; we make the operation as safe as engineering allows.</p></div>
+            </div>
+            <div class="faq-item reveal">
+              <button class="faq-q" type="button" aria-expanded="false">
+                <span data-i18n="faq.q3">What happens to the data?</span>
+                <svg class="faq-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+              </button>
+              <div class="faq-a"><p data-i18n="faq.a3">It is published openly within twelve months — raw sensor logs, video, sample metadata — under a CC-BY licence. You get early access as crew, and your name goes in the dataset credits.</p></div>
+            </div>
+            <div class="faq-item reveal">
+              <button class="faq-q" type="button" aria-expanded="false">
+                <span data-i18n="faq.q4">Can I cancel a berth?</span>
+                <svg class="faq-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+              </button>
+              <div class="faq-a"><p data-i18n="faq.a4">Yes. Up to 90 days before departure you are refunded in full; up to 30 days, 50%. If the ship can't sail — weather, politics, a pandemic — you are refunded entirely and offered priority for the next season.</p></div>
+            </div>
+            <div class="faq-item reveal">
+              <button class="faq-q" type="button" aria-expanded="false">
+                <span data-i18n="faq.q5">How much does a berth cost?</span>
+                <svg class="faq-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+              </button>
+              <div class="faq-a"><p data-i18n="faq.a5">Shelf berths start at €4,200, Abyssal at €9,800 and Hadal at €18,500 — all-inclusive: ship, training, meals, dive time and insurance. Fellowships cover the science berths, never the paid ones.</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="news-band" style="border: 1px solid var(--line-soft); border-radius: calc(var(--radius) + 6px);">
+          <div class="container" style="padding-block: clamp(2.2rem, 4vw, 3.2rem);">
+            <span class="news__stub" data-i18n="news.stub">Quarterly · Free</span>
+            <h2 data-i18n="news.title">The Dive Log</h2>
+            <p data-i18n="news.body">Four letters a year from the ships: expedition stories, raw data highlights and the species we met. Written by the crew, at sea.</p>
+            <form class="news__form" id="newsForm" novalidate>
+              <label class="visually-hidden" for="newsEmail" data-i18n="news.ph">Your email</label>
+              <input type="email" id="newsEmail" placeholder="your@email.com" autocomplete="email" required data-i18n-ph="news.ph">
+              <button type="submit" class="btn btn-primary" data-i18n="news.btn">Subscribe</button>
+            </form>
+            <p class="news__thanks" id="newsThanks" role="status"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div>
+        <a class="nav__logo" href="#top" style="margin-bottom: 1rem; display: inline-flex;">
+          <svg width="22" height="22" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <circle cx="16" cy="16" r="13" stroke="currentColor" stroke-width="2.5"/>
+            <circle cx="16" cy="16" r="4.5" fill="currentColor"/>
+            <path d="M16 3v4M16 25v4M3 16h4M25 16h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          PELAGIA
+        </a>
+        <p data-i18n="footer.desc">Civilian deep-sea research expeditions since 2014. Based in Bergen; diving in the Atlantic, the Pacific and the trenches.</p>
+      </div>
+      <nav aria-label="Explore">
+        <h4 data-i18n="footer.explore">Explore</h4>
+        <ul>
+          <li><a href="#expeditions" data-i18n="footer.e1">The expeditions</a></li>
+          <li><a href="#vessels" data-i18n="footer.e2">Vessels</a></li>
+          <li><a href="#research" data-i18n="footer.e3">Research</a></li>
+          <li><a href="#log" data-i18n="footer.e4">Dive log</a></li>
+          <li><a href="#crew" data-i18n="footer.e5">Crew</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Legal">
+        <h4 data-i18n="footer.legal">Legal</h4>
+        <ul>
+          <li><a href="#" data-i18n="footer.tos">Terms of service</a></li>
+          <li><a href="#" data-i18n="footer.privacy">Privacy</a></li>
+          <li><a href="#" data-i18n="footer.policy">Cookie policy</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h4 data-i18n="footer.base">The base</h4>
+        <ul>
+          <li><a href="#" data-i18n="footer.b1">Bergen, Norway</a></li>
+          <li><a href="#" data-i18n="footer.b2">hello@pelagia.expeditions</a></li>
+          <li><a href="#" data-i18n="footer.b3">Press room</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer__bottom">
+      <span class="footer__sonar"><svg width="14" height="14" viewBox="0 0 32 32" fill="none" aria-hidden="true"><circle cx="16" cy="16" r="13" stroke="currentColor" stroke-width="2.5"/><circle cx="16" cy="16" r="4.5" fill="currentColor"/></svg><span data-i18n="footer.made">Built on the surface, for the deep</span></span>
+      <span data-i18n="footer.y">© 2026 Pelagia Expeditions AS</span>
+    </div>
+  </footer>
+
+  <!-- Depth gauge (scroll-linked descent) -->
+  <div class="depth-gauge" aria-hidden="true">
+    <span class="depth-gauge__label" data-i18n="gauge.label">Depth</span>
+    <span class="depth-gauge__read" id="gaugeRead">0 m</span>
+    <span class="depth-gauge__rail"><span class="depth-gauge__marker" id="gaugeMarker"></span></span>
+  </div>
+
+  <!-- Cookie banner -->
+  <div class="cookie" id="cookie" role="dialog" aria-live="polite" aria-label="Cookie notice">
+    <p data-i18n="cookie.text">We store only what the ship needs — your language and your seat. Nothing leaves the vessel.</p>
+    <div class="cookie__actions">
+      <button class="btn btn-primary btn-sm" id="cookieOk" type="button" data-i18n="cookie.accept">Accept</button>
+      <button class="btn btn-ghost btn-sm" id="cookieNo" type="button" data-i18n="cookie.decline">Decline</button>
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    'use strict';
+    document.documentElement.classList.add('js');
+
+    /* ============ I18N ============ */
+    var LANGS = ['en', 'es', 'fr', 'de', 'it', 'pt'];
+    var I18N = {
+      en: {
+        'skip': 'Skip to content',
+        'nav.expeditions': 'Expeditions', 'nav.vessels': 'Vessels', 'nav.research': 'Research', 'nav.log': 'Dive log', 'nav.crew': 'Crew', 'nav.fellowship': 'Fellowship', 'nav.book': 'Book a berth',
+        'hero.label': 'Pelagia Research · Dive log 2026', 'hero.h1a': 'The deep ocean is the last', 'hero.h1b': 'unmapped place on Earth.', 'hero.sub': 'Pelagia runs civilian deep-sea research expeditions — dives to the twilight zone, the abyssal plain and the hadal trenches, crewed by scientists and open to anyone who wants to go down with them. Real ships. Real dives. Open data.', 'hero.cta1': 'Book a berth', 'hero.cta2': 'Read the dive log', 'hero.descend': 'Descend',
+        'sonar.tag': 'Sonar lock · Challenger sector', 'sonar.depth': 'Depth', 'sonar.pressure': 'Pressure', 'sonar.temp': 'Temp', 'sonar.o2': 'Oxygen',
+        'mani.op': 'Operations completed', 'mani.opv': '47', 'mani.deep': 'Deepest penetration', 'mani.sp': 'Species catalogued', 'mani.spv': '3,412', 'mani.berth': 'Berths · season 2026', 'mani.berthv': '96',
+        'exp.kicker': 'Sector 01 · Choose your depth', 'exp.title': 'Three expeditions. Three depths.', 'exp.sub': 'Every expedition carries a full science team and publishes its dataset under an open licence within a year. You join as crew, not as a passenger.',
+        'exp1.zone': 'Twilight', 'exp1.dur': '5 days at sea', 'exp1.crew': 'Crew 14', 'exp1.ship': 'R/V Alcyone', 'exp1.name': 'Continental Shelf', 'exp1.body': 'Kelp forests, cold-water corals and the daily vertical migration — the busiest layer of the ocean, seen from inside. First dive at 06:00, alongside the plankton.', 'exp1.cta': 'See the berths',
+        'exp2.zone': 'Midnight', 'exp2.dur': '12 days at sea', 'exp2.crew': 'Crew 22', 'exp2.ship': 'R/V Alcyone', 'exp2.name': 'Abyssal Plain', 'exp2.body': 'The midnight zone. Benthic sleds, baited cameras and the great detritus fall. This is where most of the planet\u2019s seafloor actually lives — and almost none of it has been named.', 'exp2.cta': 'See the berths',
+        'exp3.zone': 'Hadal', 'exp3.dur': '21 days at sea', 'exp3.crew': 'Crew 18', 'exp3.ship': 'R/V Alcyone + Bathynaut', 'exp3.name': 'Hadal Trench', 'exp3.flag': 'Flagship', 'exp3.body': 'Challenger Deep and the trenches beyond. A three-week campaign with a full-ocean-depth lander, two manned dives and 90 hours of hadal video nobody has seen yet.', 'exp3.cta': 'See the berths',
+        'ves.kicker': 'Sector 02 · The fleet', 'ves.title': 'Built for the pressure.', 'ves.sub': 'Two ships and a submersible — designed for deep work, run by a crew that has been diving together for a decade.',
+        'ves.spec.len': 'Length', 'ves.spec.depth': 'Max depth', 'ves.spec.crew': 'Crew', 'ves.spec.payload': 'Payload', 'ves.spec.speed': 'Cruise',
+        'v1.class': 'Research vessel', 'v1.name': 'R/V Alcyone', 'v1.body': 'The mother ship — wet and dry labs, a moon pool, the deep-sea lander hangar and berths for thirty-two. Alcyone has crossed every ocean basin since 2014.',
+        'v2.class': 'Manned submersible', 'v2.name': 'DSRV Bathynaut', 'v2.body': 'Three seats, one titanium sphere, ninety-plus dives past nine thousand metres. Bathynaut is the only civilian submersible certified to the full depth of the ocean.',
+        'v3.class': 'Autonomous surveyor', 'v3.name': 'AUV Lamprey', 'v3.body': 'The quiet mapper — a torpedo of sensors that runs 210-kilometre grids while the humans sleep. Lamprey drew the first continuous maps of two hadal escarpments.',
+        'res.kicker': 'Sector 03 · Field science', 'res.title': 'Science the surface can\u2019t see.', 'res.sub': 'Every expedition ships a research question. A few of the ones we keep returning to.',
+        'res1.kicker': 'Hydrothermal vents', 'res1.title': 'Chemosynthesis', 'res1.body': 'In 1977, nobody believed an ecosystem could live without sunlight. The vent fields we survey still rewrite the textbooks — tube worms, yeti crabs, microbes that eat rock.', 'res1.d1': '400 °C', 'res1.d1l': 'vent fluids', 'res1.d2': '2 m', 'res1.d2l': 'tube worm colonies',
+        'res2.kicker': 'Bioluminescence', 'res2.title': 'Light in the dark', 'res2.body': 'Three quarters of the animals in the deep make their own light. We map the patterns, the colours and the timing — and we have only just begun to catalogue them.', 'res2.d1': '92%', 'res2.d1l': 'of deep species glow', 'res2.d2': '3,412', 'res2.d2l': 'species catalogued',
+        'res3.kicker': 'Carbon pump', 'res3.title': 'The ocean\u2019s memory', 'res3.body': 'The deep is the planet\u2019s largest carbon store. What sinks, stays. Our sediment cores trace 800,000 years of climate — and tell us what we are doing to it now.', 'res3.d1': '38 Gt', 'res3.d1l': 'CO₂ absorbed yearly', 'res3.d2': '800 kyr', 'res3.d2l': 'of archived climate',
+        'log.kicker': 'Sector 04 · The log', 'log.title': 'Expedition log, 2024–2026.', 'log.sub': 'Raw entries from the ships — dates, depths and what came back up with us.',
+        'log1.date': '14 May 2026', 'log1.depth': '−10,928 m', 'log1.name': 'Trench-6, Mariana', 'log1.body': 'Full-ocean-depth lander returned with the first images of a hadal snailfish swarm at 10,700 metres. Forty-one new observations logged before the batteries died.',
+        'log2.date': '02 Feb 2026', 'log2.depth': '−4,050 m', 'log2.name': 'Guaymas Basin', 'log2.body': 'Baited cameras recorded a forty-minute aggregation of yeti crabs at a new vent field. Samples under analysis in Bergen.',
+        'log3.date': '17 Sep 2025', 'log3.depth': '−6,000 m', 'log3.name': 'Kermadec Trench', 'log3.body': 'AUV Lamprey completed a 210-kilometre grid — the first continuous map of a hadal fault escarpment, made while the surface crew slept.',
+        'log4.date': '03 Apr 2025', 'log4.depth': '−1,200 m', 'log4.name': 'Porcupine Seabight', 'log4.body': 'Cold-water coral garden, four hectares, previously unmapped. Proposed to the regional marine park authority for protection.',
+        'quote.text': 'We go down because the answers are down there. Every time we come back, the map of the planet has changed a little — and that little is enormous.', 'quote.author': 'Dr. Ingrid Sørensen', 'quote.role': 'Chief scientist, Pelagia Expeditions',
+        'fel.kicker': 'Sector 05 · Support the dives', 'fel.title': 'Fund a berth, or take one.', 'fel.sub': 'Berths sell out months ahead. Fellowships fund the science berths we keep open for researchers who can\u2019t pay their own way.', 'fel.per': '/ month',
+        'f1.name': 'Citizen', 'f1.desc': 'Underwrite a water sample.', 'f1.f1': 'Monthly dive log, straight from the ship', 'f1.f2': 'Species of the month, photographed on board', 'f1.f3': 'Your name in the expedition credits', 'f1.cta': 'Become a citizen',
+        'f2.name': 'Fellow', 'f2.flag': 'Funds most berths', 'f2.desc': 'Fund a full science berth.', 'f2.f1': 'Everything in Citizen', 'f2.f2': 'Live comms during manned dives', 'f2.f3': 'Quarterly Q&A with the science crew', 'f2.f4': 'Your name on a dive of the season', 'f2.cta': 'Become a fellow',
+        'f3.name': 'Patron', 'f3.desc': 'Fund a full lander mission.', 'f3.f1': 'Everything in Fellow', 'f3.f2': 'Dedicated access to raw datasets', 'f3.f3': 'Priority berth reservation', 'f3.f4': 'A mission named after you, painted on a vessel', 'f3.cta': 'Become a patron',
+        'crew.kicker': 'Sector 06 · The crew', 'crew.title': 'The people who go down.',
+        'c1.name': 'Dr. Ingrid Sørensen', 'c1.role': 'Chief scientist · marine biology', 'c2.name': 'Capt. Mateo Ríos', 'c2.role': 'Expedition captain · R/V Alcyone', 'c3.name': 'Dr. Amara Okafor', 'c3.role': 'Geochemist · sediment cores', 'c4.name': 'Lin Wei', 'c4.role': 'Submersible pilot · Bathynaut',
+        'faq.kicker': 'Sector 07 · Small print', 'faq.title': 'Asked on deck.',
+        'faq.q1': 'Do I need diving or science experience?', 'faq.a1': 'None. Every berth includes a two-week training package before you board, and on the ship you are crew — you learn the watches, the sampling and the cameras from the people who do this professionally. The only requirement is being comfortable at sea.',
+        'faq.q2': 'How safe is a manned dive to 10,000 m?', 'faq.a2': 'Our submersible is certified to 11,000 m and has made ninety-plus dives past 9,000 m without a critical incident. Every dive follows a written plan, a dedicated surface team and a 72-hour pre-dive checklist. The ocean is not safe; we make the operation as safe as engineering allows.',
+        'faq.q3': 'What happens to the data?', 'faq.a3': 'It is published openly within twelve months — raw sensor logs, video, sample metadata — under a CC-BY licence. You get early access as crew, and your name goes in the dataset credits.',
+        'faq.q4': 'Can I cancel a berth?', 'faq.a4': 'Yes. Up to 90 days before departure you are refunded in full; up to 30 days, 50%. If the ship can\u2019t sail — weather, politics, a pandemic — you are refunded entirely and offered priority for the next season.',
+        'faq.q5': 'How much does a berth cost?', 'faq.a5': 'Shelf berths start at €4,200, Abyssal at €9,800 and Hadal at €18,500 — all-inclusive: ship, training, meals, dive time and insurance. Fellowships cover the science berths, never the paid ones.',
+        'news.stub': 'Quarterly · Free', 'news.title': 'The Dive Log', 'news.body': 'Four letters a year from the ships: expedition stories, raw data highlights and the species we met. Written by the crew, at sea.', 'news.ph': 'Your email', 'news.btn': 'Subscribe', 'news.thanks': 'Logged in. First letter ships with the next expedition.',
+        'footer.desc': 'Civilian deep-sea research expeditions since 2014. Based in Bergen; diving in the Atlantic, the Pacific and the trenches.',
+        'footer.explore': 'Explore', 'footer.legal': 'Legal', 'footer.base': 'The base',
+        'footer.e1': 'The expeditions', 'footer.e2': 'Vessels', 'footer.e3': 'Research', 'footer.e4': 'Dive log', 'footer.e5': 'Crew',
+        'footer.tos': 'Terms of service', 'footer.privacy': 'Privacy', 'footer.policy': 'Cookie policy',
+        'footer.b1': 'Bergen, Norway', 'footer.b2': 'hello@pelagia.expeditions', 'footer.b3': 'Press room',
+        'footer.made': 'Built on the surface, for the deep', 'footer.y': '© 2026 Pelagia Expeditions AS',
+        'gauge.label': 'Depth',
+        'cookie.text': 'We store only what the ship needs — your language and your seat. Nothing leaves the vessel.', 'cookie.accept': 'Accept', 'cookie.decline': 'Decline',
+        'aria.lang': 'Select language', 'aria.theme': 'Toggle surface / abyss mode', 'aria.menu': 'Open menu',
+        'img.v1': 'Research vessel Alcyone at sea', 'img.v2': 'Submersible Bathynaut before a dive', 'img.v3': 'AUV Lamprey being deployed from the ship', 'img.res1': 'Hydrothermal vent field on the seafloor', 'img.res3': 'Deep blue ocean water column',
+        'meta.title': 'PELAGIA — Deep-Sea Research Expeditions',
+        'meta.desc': 'Join civilian deep-sea research expeditions to the twilight zone, the abyssal plain and the hadal trenches. Real ships, real dives, open data.'
+      },
+      es: {
+        'skip': 'Saltar al contenido',
+        'nav.expeditions': 'Expediciones', 'nav.vessels': 'Barcos', 'nav.research': 'Investigación', 'nav.log': 'Bitácora', 'nav.crew': 'Tripulación', 'nav.fellowship': 'Becas', 'nav.book': 'Reservar plaza',
+        'hero.label': 'Pelagia Research · Bitácora 2026', 'hero.h1a': 'El océano profundo es el último', 'hero.h1b': 'lugar sin cartografiar de la Tierra.', 'hero.sub': 'Pelagia organiza expediciones civiles de investigación en aguas profundas — inmersiones a la zona crepuscular, la llanura abisal y las fosas hadales, con científicos a bordo y abiertas a cualquiera que quiera bajar con ellos. Barcos reales. Inmersiones reales. Datos abiertos.', 'hero.cta1': 'Reservar plaza', 'hero.cta2': 'Leer la bitácora', 'hero.descend': 'Descender',
+        'sonar.tag': 'Bloqueo de sonar · Sector Challenger', 'sonar.depth': 'Profundidad', 'sonar.pressure': 'Presión', 'sonar.temp': 'Temp.', 'sonar.o2': 'Oxígeno',
+        'mani.op': 'Operaciones realizadas', 'mani.opv': '47', 'mani.deep': 'Penetración máxima', 'mani.sp': 'Especies catalogadas', 'mani.spv': '3.412', 'mani.berth': 'Plazas · temporada 2026', 'mani.berthv': '96',
+        'exp.kicker': 'Sector 01 · Elige tu profundidad', 'exp.title': 'Tres expediciones. Tres profundidades.', 'exp.sub': 'Cada expedición lleva un equipo científico completo y publica su base de datos bajo licencia abierta en menos de un año. Te unes como tripulación, no como pasajero.',
+        'exp1.zone': 'Crepuscular', 'exp1.dur': '5 días en el mar', 'exp1.crew': 'Tripulación 14', 'exp1.ship': 'B/O Alcyone', 'exp1.name': 'Plataforma continental', 'exp1.body': 'Bosques de kelp, corales de agua fría y la migración vertical diaria — la capa más concurrida del océano, vista desde dentro. Primera inmersión a las 06:00, junto al plancton.', 'exp1.cta': 'Ver las plazas',
+        'exp2.zone': 'Medianoche', 'exp2.dur': '12 días en el mar', 'exp2.crew': 'Tripulación 22', 'exp2.ship': 'B/O Alcyone', 'exp2.name': 'Llanura abisal', 'exp2.body': 'La zona de medianoche. Trineos bentónicos, cámaras cebadas y la gran lluvia de detritus. Aquí vive la mayor parte del lecho marino del planeta — y casi nada de ello tiene nombre.', 'exp2.cta': 'Ver las plazas',
+        'exp3.zone': 'Hadal', 'exp3.dur': '21 días en el mar', 'exp3.crew': 'Tripulación 18', 'exp3.ship': 'B/O Alcyone + Bathynaut', 'exp3.name': 'Fosa hadal', 'exp3.flag': 'Buque insignia', 'exp3.body': 'El Abismo de Challenger y las fosas más allá. Una campaña de tres semanas con un lander de profundidad oceánica completa, dos inmersiones tripuladas y 90 horas de vídeo hadal que nadie ha visto todavía.', 'exp3.cta': 'Ver las plazas',
+        'ves.kicker': 'Sector 02 · La flota', 'ves.title': 'Construidos para la presión.', 'ves.sub': 'Dos barcos y un sumergible — diseñados para el trabajo profundo, operados por una tripulación que bucea junta desde hace una década.',
+        'ves.spec.len': 'Eslora', 'ves.spec.depth': 'Prof. máx.', 'ves.spec.crew': 'Tripulación', 'ves.spec.payload': 'Carga', 'ves.spec.speed': 'Crucero',
+        'v1.class': 'Buque oceanográfico', 'v1.name': 'B/O Alcyone', 'v1.body': 'El buque nodriza — laboratorios húmedos y secos, piscina lunar, el hangar del lander y plazas para treinta y dos. Alcyone ha cruzado todas las cuencas oceánicas desde 2014.',
+        'v2.class': 'Sumergible tripulado', 'v2.name': 'SBT Bathynaut', 'v2.body': 'Tres asientos, una esfera de titanio, más de noventa inmersiones más allá de los nueve mil metros. Bathynaut es el único sumergible civil certificado para la profundidad total del océano.',
+        'v3.class': 'Topógrafo autónomo', 'v3.name': 'AUV Lamprey', 'v3.body': 'El cartógrafo silencioso — un torpedo de sensores que recorre rejillas de 210 kilómetros mientras los humanos duermen. Lamprey dibujó los primeros mapas continuos de dos escarpes hadales.',
+        'res.kicker': 'Sector 03 · Ciencia de campo', 'res.title': 'Ciencia que la superficie no ve.', 'res.sub': 'Cada expedición zarpa con una pregunta de investigación. Algunas de las que no dejamos de perseguir.',
+        'res1.kicker': 'Fuentes hidrotermales', 'res1.title': 'Quimiosíntesis', 'res1.body': 'En 1977 nadie creía que un ecosistema pudiera vivir sin luz solar. Los campos de fuentes que cartografiamos siguen reescribiendo los manuales — gusanos tubícolas, cangrejos yeti, microbios que comen roca.', 'res1.d1': '400 °C', 'res1.d1l': 'fluidos de la fuente', 'res1.d2': '2 m', 'res1.d2l': 'colonias de tubícolas',
+        'res2.kicker': 'Bioluminiscencia', 'res2.title': 'Luz en la oscuridad', 'res2.body': 'Tres cuartas partes de los animales de las profundidades fabrican su propia luz. Mapeamos los patrones, los colores y los tiempos — y apenas hemos empezado a catalogarlos.', 'res2.d1': '92%', 'res2.d1l': 'de especies profundas brillan', 'res2.d2': '3.412', 'res2.d2l': 'especies catalogadas',
+        'res3.kicker': 'Bomba de carbono', 'res3.title': 'La memoria del océano', 'res3.body': 'Las profundidades son el mayor almacén de carbono del planeta. Lo que se hunde, se queda. Nuestros testigos de sedimento rastrean 800.000 años de clima — y nos dicen qué le estamos haciendo ahora.', 'res3.d1': '38 Gt', 'res3.d1l': 'de CO₂ absorbido al año', 'res3.d2': '800 ka', 'res3.d2l': 'de clima archivado',
+        'log.kicker': 'Sector 04 · La bitácora', 'log.title': 'Bitácora de expediciones, 2024–2026.', 'log.sub': 'Entradas en bruto desde los barcos — fechas, profundidades y lo que volvió con nosotros.',
+        'log1.date': '14 may 2026', 'log1.depth': '−10.928 m', 'log1.name': 'Fosa-6, Marianas', 'log1.body': 'El lander de profundidad oceánica completa volvió con las primeras imágenes de un banco de peces caracol hadales a 10.700 metros. Cuarenta y una observaciones nuevas registradas antes de que murieran las baterías.',
+        'log2.date': '02 feb 2026', 'log2.depth': '−4.050 m', 'log2.name': 'Cuenca de Guaymas', 'log2.body': 'Las cámaras cebadas registraron una agregación de cuarenta minutos de cangrejos yeti en un nuevo campo de fuentes. Muestras en análisis en Bergen.',
+        'log3.date': '17 sep 2025', 'log3.depth': '−6.000 m', 'log3.name': 'Fosa de Kermadec', 'log3.body': 'El AUV Lamprey completó una rejilla de 210 kilómetros — el primer mapa continuo de un escape de falla hadal, hecho mientras la tripulación de superficie dormía.',
+        'log4.date': '03 abr 2025', 'log4.depth': '−1.200 m', 'log4.name': 'Porcupine Seabight', 'log4.body': 'Jardín de corales de agua fría, cuatro hectáreas, sin cartografiar hasta entonces. Propuesto al parque marino regional para su protección.',
+        'quote.text': 'Bajamos porque las respuestas están ahí abajo. Cada vez que volvemos, el mapa del planeta ha cambiado un poco — y ese poco es enorme.', 'quote.author': 'Dra. Ingrid Sørensen', 'quote.role': 'Jefa científica, Pelagia Expeditions',
+        'fel.kicker': 'Sector 05 · Apoya las inmersiones', 'fel.title': 'Financia una plaza, o tómala.', 'fel.sub': 'Las plazas se agotan con meses de antelación. Las becas financian las plazas de ciencia que reservamos para investigadores que no pueden pagarlas.', 'fel.per': '/ mes',
+        'f1.name': 'Ciudadano', 'f1.desc': 'Cubre el coste de una muestra de agua.', 'f1.f1': 'Bitácora mensual, directa del barco', 'f1.f2': 'Especie del mes, fotografiada a bordo', 'f1.f3': 'Tu nombre en los créditos de la expedición', 'f1.cta': 'Hazte ciudadano',
+        'f2.name': 'Miembro', 'f2.flag': 'Financia más plazas', 'f2.desc': 'Financia una plaza de ciencia completa.', 'f2.f1': 'Todo lo de Ciudadano', 'f2.f2': 'Comunicación en vivo durante las inmersiones tripuladas', 'f2.f3': 'Preguntas y respuestas trimestrales con la tripulación científica', 'f2.f4': 'Tu nombre en una inmersión de la temporada', 'f2.cta': 'Hazte miembro',
+        'f3.name': 'Patrocinador', 'f3.desc': 'Financia una misión de lander completa.', 'f3.f1': 'Todo lo de Miembro', 'f3.f2': 'Acceso dedicado a los datos brutos', 'f3.f3': 'Reserva prioritaria de plazas', 'f3.f4': 'Una misión con tu nombre, pintada en un barco', 'f3.cta': 'Hazte patrocinador',
+        'crew.kicker': 'Sector 06 · La tripulación', 'crew.title': 'Los que bajan.',
+        'c1.name': 'Dra. Ingrid Sørensen', 'c1.role': 'Jefa científica · biología marina', 'c2.name': 'Capitán Mateo Ríos', 'c2.role': 'Capitán de expedición · B/O Alcyone', 'c3.name': 'Dra. Amara Okafor', 'c3.role': 'Geoquímica · testigos de sedimento', 'c4.name': 'Lin Wei', 'c4.role': 'Piloto de sumergible · Bathynaut',
+        'faq.kicker': 'Sector 07 · Letra pequeña', 'faq.title': 'Preguntas en cubierta.',
+        'faq.q1': '¿Necesito experiencia en buceo o ciencia?', 'faq.a1': 'Ninguna. Cada plaza incluye un programa de entrenamiento de dos semanas antes de embarcar, y en el barco eres tripulación — aprendes los turnos, el muestreo y las cámaras de quienes lo hacen profesionalmente. El único requisito es sentirte a gusto en el mar.',
+        'faq.q2': '¿Qué seguridad tiene una inmersión tripulada a 10.000 m?', 'faq.a2': 'Nuestro sumergible está certificado para 11.000 m y ha hecho más de noventa inmersiones más allá de los 9.000 m sin un incidente crítico. Cada inmersión sigue un plan escrito, un equipo de superficie dedicado y una lista de verificación de 72 horas. El océano no es seguro; hacemos la operación tan segura como permite la ingeniería.',
+        'faq.q3': '¿Qué pasa con los datos?', 'faq.a3': 'Se publican abiertamente en menos de doce meses — registros de sensores brutos, vídeo, metadatos de muestras — bajo licencia CC-BY. Como tripulación tienes acceso anticipado y tu nombre figura en los créditos del conjunto de datos.',
+        'faq.q4': '¿Puedo cancelar una plaza?', 'faq.a4': 'Sí. Hasta 90 días antes de la salida se te reembolsa todo; hasta 30 días, el 50%. Si el barco no puede zarpar — clima, política, una pandemia — se te reembolsa por completo y se te ofrece prioridad para la próxima temporada.',
+        'faq.q5': '¿Cuánto cuesta una plaza?', 'faq.a5': 'Las plazas de plataforma empiezan en 4.200 €, las abisales en 9.800 € y las hadales en 18.500 € — todo incluido: barco, entrenamiento, comidas, tiempo de inmersión y seguro. Las becas cubren las plazas de ciencia, nunca las de pago.',
+        'news.stub': 'Trimestral · Gratis', 'news.title': 'La Bitácora', 'news.body': 'Cuatro cartas al año desde los barcos: historias de expedición, lo más destacado de los datos brutos y las especies que conocimos. Escritas por la tripulación, en el mar.', 'news.ph': 'Tu correo', 'news.btn': 'Suscribirme', 'news.thanks': 'Registrado. La primera carta zarpa con la próxima expedición.',
+        'footer.desc': 'Expediciones civiles de investigación en aguas profundas desde 2014. Con base en Bergen; buceando en el Atlántico, el Pacífico y las fosas.',
+        'footer.explore': 'Explorar', 'footer.legal': 'Legal', 'footer.base': 'La base',
+        'footer.e1': 'Las expediciones', 'footer.e2': 'Barcos', 'footer.e3': 'Investigación', 'footer.e4': 'Bitácora', 'footer.e5': 'Tripulación',
+        'footer.tos': 'Términos de servicio', 'footer.privacy': 'Privacidad', 'footer.policy': 'Política de cookies',
+        'footer.b1': 'Bergen, Noruega', 'footer.b2': 'hola@pelagia.expediciones', 'footer.b3': 'Sala de prensa',
+        'footer.made': 'Construido en la superficie, para lo profundo', 'footer.y': '© 2026 Pelagia Expeditions AS',
+        'gauge.label': 'Profundidad',
+        'cookie.text': 'Guardamos solo lo que el barco necesita — tu idioma y tu plaza. Nada sale de la embarcación.', 'cookie.accept': 'Aceptar', 'cookie.decline': 'Rechazar',
+        'aria.lang': 'Seleccionar idioma', 'aria.theme': 'Alternar modo superficie / abismo', 'aria.menu': 'Abrir menú',
+        'img.v1': 'Buque oceanográfico Alcyone en el mar', 'img.v2': 'Sumergible Bathynaut antes de una inmersión', 'img.v3': 'AUV Lamprey siendo desplegado desde el barco', 'img.res1': 'Campo de fuentes hidrotermales en el lecho marino', 'img.res3': 'Columna de agua oceánica azul profundo',
+        'meta.title': 'PELAGIA — Expediciones de investigación en aguas profundas',
+        'meta.desc': 'Únete a expediciones civiles de investigación en aguas profundas: zona crepuscular, llanura abisal y fosas hadales. Barcos reales, inmersiones reales, datos abiertos.'
+      },
+      fr: {
+        'skip': 'Aller au contenu',
+        'nav.expeditions': 'Expéditions', 'nav.vessels': 'Navires', 'nav.research': 'Recherche', 'nav.log': 'Journal', 'nav.crew': 'Équipage', 'nav.fellowship': 'Bourses', 'nav.book': 'Réserver une couchette',
+        'hero.label': 'Pelagia Research · Journal 2026', 'hero.h1a': 'L\u2019océan profond est le dernier', 'hero.h1b': 'lieu non cartographié de la Terre.', 'hero.sub': 'Pelagia organise des expéditions civiles de recherche en haute mer — des plongées vers la zone crépusculaire, la plaine abyssale et les fosses hadales, encadrées par des scientifiques et ouvertes à quiconque veut descendre avec eux. De vrais navires. De vraies plongées. Des données ouvertes.', 'hero.cta1': 'Réserver une couchette', 'hero.cta2': 'Lire le journal', 'hero.descend': 'Descendre',
+        'sonar.tag': 'Verrou sonar · Secteur Challenger', 'sonar.depth': 'Profondeur', 'sonar.pressure': 'Pression', 'sonar.temp': 'Temp.', 'sonar.o2': 'Oxygène',
+        'mani.op': 'Opérations menées', 'mani.opv': '47', 'mani.deep': 'Pénétration maximale', 'mani.sp': 'Espèces cataloguées', 'mani.spv': '3 412', 'mani.berth': 'Couchettes · saison 2026', 'mani.berthv': '96',
+        'exp.kicker': 'Secteur 01 · Choisissez votre profondeur', 'exp.title': 'Trois expéditions. Trois profondeurs.', 'exp.sub': 'Chaque expédition embarque une équipe scientifique complète et publie ses données sous licence ouverte dans l\u2019année. Vous rejoignez l\u2019équipage, pas un tourisme.',
+        'exp1.zone': 'Crépusculaire', 'exp1.dur': '5 jours en mer', 'exp1.crew': 'Équipage 14', 'exp1.ship': 'N/O Alcyone', 'exp1.name': 'Plateau continental', 'exp1.body': 'Forêts de kelp, coraux d\u2019eau froide et migration verticale quotidienne — la couche la plus vivante de l\u2019océan, vue de l\u2019intérieur. Première plongée à 6 h, avec le plancton.', 'exp1.cta': 'Voir les couchettes',
+        'exp2.zone': 'Minuit', 'exp2.dur': '12 jours en mer', 'exp2.crew': 'Équipage 22', 'exp2.ship': 'N/O Alcyone', 'exp2.name': 'Plaine abyssale', 'exp2.body': 'La zone de minuit. Traîneaux benthiques, caméras appâtées et la grande pluie de détritus. C\u2019est là que vit la majeure partie des fonds marins de la planète — et presque rien n\u2019y a encore de nom.', 'exp2.cta': 'Voir les couchettes',
+        'exp3.zone': 'Hadal', 'exp3.dur': '21 jours en mer', 'exp3.crew': 'Équipage 18', 'exp3.ship': 'N/O Alcyone + Bathynaut', 'exp3.name': 'Fosse hadale', 'exp3.flag': 'Amiral', 'exp3.body': 'L\u2019abysse Challenger et les fosses au-delà. Une campagne de trois semaines avec un atterrisseur pleine profondeur, deux plongées habitées et 90 heures de vidéo hadale que personne n\u2019a encore vues.', 'exp3.cta': 'Voir les couchettes',
+        'ves.kicker': 'Secteur 02 · La flotte', 'ves.title': 'Conçus pour la pression.', 'ves.sub': 'Deux navires et un submersible — pensés pour le travail en profondeur, menés par un équipage qui plonge ensemble depuis dix ans.',
+        'ves.spec.len': 'Longueur', 'ves.spec.depth': 'Prof. max.', 'ves.spec.crew': 'Équipage', 'ves.spec.payload': 'Charge utile', 'ves.spec.speed': 'Croisière',
+        'v1.class': 'Navire océanographique', 'v1.name': 'N/O Alcyone', 'v1.body': 'Le navire mère — labos humides et secs, piscine centrale, hangar de l\u2019atterrisseur et couchettes pour trente-deux personnes. Alcyone a traversé tous les bassins océaniques depuis 2014.',
+        'v2.class': 'Submersible habité', 'v2.name': 'SBH Bathynaut', 'v2.body': 'Trois sièges, une sphère de titane, plus de quatre-vingt-dix plongées au-delà de neuf mille mètres. Bathynaut est le seul submersible civil certifié pour la profondeur totale de l\u2019océan.',
+        'v3.class': 'Releveur autonome', 'v3.name': 'AUV Lamprey', 'v3.body': 'Le cartographe silencieux — un torpille de capteurs qui parcourt des grilles de 210 kilomètres pendant que les humains dorment. Lamprey a tracé les premières cartes continues de deux escarpements hadaux.',
+        'res.kicker': 'Secteur 03 · Science de terrain', 'res.title': 'Une science que la surface ne voit pas.', 'res.sub': 'Chaque expédition part avec une question de recherche. Quelques-unes auxquelles nous revenons sans cesse.',
+        'res1.kicker': 'Sources hydrothermales', 'res1.title': 'Chimiosynthèse', 'res1.body': 'En 1977, personne ne croyait qu\u2019un écosystème puisse vivre sans lumière solaire. Les champs de sources que nous relevons réécrivent encore les manuels — vers tubicoles, crabes yeti, microbes qui mangent la roche.', 'res1.d1': '400 °C', 'res1.d1l': 'fluides des sources', 'res1.d2': '2 m', 'res1.d2l': 'colonies de tubicoles',
+        'res2.kicker': 'Bioluminescence', 'res2.title': 'De la lumière dans le noir', 'res2.body': 'Les trois quarts des animaux des profondeurs produisent leur propre lumière. Nous cartographions les motifs, les couleurs et les rythmes — et nous ne faisons que commencer à les cataloguer.', 'res2.d1': '92 %', 'res2.d1l': 'des espèces profondes brillent', 'res2.d2': '3 412', 'res2.d2l': 'espèces cataloguées',
+        'res3.kicker': 'Pompe à carbone', 'res3.title': 'La mémoire de l\u2019océan', 'res3.body': 'Les profondeurs sont le plus grand réservoir de carbone de la planète. Ce qui coule, reste. Nos carottes de sédiments retracent 800 000 ans de climat — et nous disent ce que nous lui faisons aujourd\u2019hui.', 'res3.d1': '38 Gt', 'res3.d1l': 'de CO₂ absorbé par an', 'res3.d2': '800 ka', 'res3.d2l': 'de climat archivé',
+        'log.kicker': 'Secteur 04 · Le journal', 'log.title': 'Journal d\u2019expédition, 2024–2026.', 'log.sub': 'Entrées brutes depuis les navires — dates, profondeurs et ce qui est remonté avec nous.',
+        'log1.date': '14 mai 2026', 'log1.depth': '−10 928 m', 'log1.name': 'Fosse-6, Mariannes', 'log1.body': 'L\u2019atterrisseur pleine profondeur est revenu avec les premières images d\u2019un banc de limaces de mer hadales à 10 700 mètres. Quarante et une nouvelles observations notées avant la mort des batteries.',
+        'log2.date': '02 févr. 2026', 'log2.depth': '−4 050 m', 'log2.name': 'Bassin de Guaymas', 'log2.body': 'Les caméras appâtées ont filmé un regroupement de quarante minutes de crabes yeti sur un nouveau champ de sources. Échantillons en analyse à Bergen.',
+        'log3.date': '17 sept. 2025', 'log3.depth': '−6 000 m', 'log3.name': 'Fosse de Kermadec', 'log3.body': 'L\u2019AUV Lamprey a achevé une grille de 210 kilomètres — la première carte continue d\u2019un escarpement de faille hadal, réalisée pendant que l\u2019équipe de surface dormait.',
+        'log4.date': '03 avr. 2025', 'log4.depth': '−1 200 m', 'log4.name': 'Porcupine Seabight', 'log4.body': 'Jardin de coraux d\u2019eau froide, quatre hectares, jamais cartographié. Proposé à l\u2019autorité du parc marin régional pour protection.',
+        'quote.text': 'Nous descendons parce que les réponses sont là-bas. Chaque fois que nous remontons, la carte de la planète a changé un peu — et ce peu est énorme.', 'quote.author': 'Dr Ingrid Sørensen', 'quote.role': 'Cheffe scientifique, Pelagia Expeditions',
+        'fel.kicker': 'Secteur 05 · Soutenez les plongées', 'fel.title': 'Financez une couchette, ou prenez-en une.', 'fel.sub': 'Les couchettes se vendent des mois à l\u2019avance. Les bourses financent les couchettes scientifiques que nous réservons aux chercheurs qui ne peuvent pas payer leur voyage.', 'fel.per': '/ mois',
+        'f1.name': 'Citoyen', 'f1.desc': 'Financer un échantillon d\u2019eau.', 'f1.f1': 'Journal mensuel, directement du navire', 'f1.f2': 'Espèce du mois, photographiée à bord', 'f1.f3': 'Votre nom dans les crédits de l\u2019expédition', 'f1.cta': 'Devenir citoyen',
+        'f2.name': 'Membre', 'f2.flag': 'Finance le plus de couchettes', 'f2.desc': 'Financer une couchette scientifique complète.', 'f2.f1': 'Tout de Citoyen', 'f2.f2': 'Communications en direct pendant les plongées habitées', 'f2.f3': 'Questions-réponses trimestrielles avec l\u2019équipe scientifique', 'f2.f4': 'Votre nom sur une plongée de la saison', 'f2.cta': 'Devenir membre',
+        'f3.name': 'Mécène', 'f3.desc': 'Financer une mission d\u2019atterrisseur complète.', 'f3.f1': 'Tout de Membre', 'f3.f2': 'Accès dédié aux données brutes', 'f3.f3': 'Réservation prioritaire de couchettes', 'f3.f4': 'Une mission à votre nom, peinte sur un navire', 'f3.cta': 'Devenir mécène',
+        'crew.kicker': 'Secteur 06 · L\u2019équipage', 'crew.title': 'Ceux qui descendent.',
+        'c1.name': 'Dr Ingrid Sørensen', 'c1.role': 'Cheffe scientifique · biologie marine', 'c2.name': 'Capitaine Mateo Ríos', 'c2.role': 'Capitaine d\u2019expédition · N/O Alcyone', 'c3.name': 'Dr Amara Okafor', 'c3.role': 'Géochimiste · carottes de sédiments', 'c4.name': 'Lin Wei', 'c4.role': 'Pilote de submersible · Bathynaut',
+        'faq.kicker': 'Secteur 07 · Petits caractères', 'faq.title': 'Demandé sur le pont.',
+        'faq.q1': 'Faut-il de l\u2019expérience en plongée ou en science ?', 'faq.a1': 'Aucune. Chaque couchette comprend un programme de formation de deux semaines avant l\u2019embarquement, et à bord vous êtes équipage — vous apprenez les quarts, l\u2019échantillonnage et les caméras auprès de ceux qui le font professionnellement. La seule exigence est d\u2019être à l\u2019aise en mer.',
+        'faq.q2': 'Quelle est la sécurité d\u2019une plongée habitée à 10 000 m ?', 'faq.a2': 'Notre submersible est certifié pour 11 000 m et a effectué plus de quatre-vingt-dix plongées au-delà de 9 000 m sans incident critique. Chaque plongée suit un plan écrit, une équipe de surface dédiée et une liste de contrôle de 72 heures. L\u2019océan n\u2019est pas sûr ; nous rendons l\u2019opération aussi sûre que l\u2019ingénierie le permet.',
+        'faq.q3': 'Que deviennent les données ?', 'faq.a3': 'Elles sont publiées ouvertement dans les douze mois — journaux de capteurs bruts, vidéo, métadonnées d\u2019échantillons — sous licence CC-BY. En tant qu\u2019équipage, vous y accédez en avant-première et votre nom figure dans les crédits du jeu de données.',
+        'faq.q4': 'Puis-je annuler une couchette ?', 'faq.a4': 'Oui. Jusqu\u2019à 90 jours avant le départ, remboursement intégral ; jusqu\u2019à 30 jours, 50 %. Si le navire ne peut pas appareiller — météo, politique, pandémie — vous êtes intégralement remboursé et prioritaire pour la saison suivante.',
+        'faq.q5': 'Combien coûte une couchette ?', 'faq.a5': 'Les couchettes du plateau commencent à 4 200 €, celles de l\u2019abysse à 9 800 € et celles de la fosse à 18 500 € — tout compris : navire, formation, repas, temps de plongée et assurance. Les bourses couvrent les couchettes scientifiques, jamais les payantes.',
+        'news.stub': 'Trimestriel · Gratuit', 'news.title': 'Le Journal', 'news.body': 'Quatre lettres par an depuis les navires : récits d\u2019expédition, faits saillants des données brutes et les espèces rencontrées. Écrites par l\u2019équipage, en mer.', 'news.ph': 'Votre e-mail', 'news.btn': 'S\u2019abonner', 'news.thanks': 'Enregistré. La première lettre part avec la prochaine expédition.',
+        'footer.desc': 'Expéditions civiles de recherche en eaux profondes depuis 2014. Basés à Bergen ; plongées dans l\u2019Atlantique, le Pacifique et les fosses.',
+        'footer.explore': 'Explorer', 'footer.legal': 'Légal', 'footer.base': 'La base',
+        'footer.e1': 'Les expéditions', 'footer.e2': 'Navires', 'footer.e3': 'Recherche', 'footer.e4': 'Journal', 'footer.e5': 'Équipage',
+        'footer.tos': 'Conditions d\u2019utilisation', 'footer.privacy': 'Confidentialité', 'footer.policy': 'Politique des cookies',
+        'footer.b1': 'Bergen, Norvège', 'footer.b2': 'bonjour@pelagia.expeditions', 'footer.b3': 'Espace presse',
+        'footer.made': 'Construit en surface, pour les profondeurs', 'footer.y': '© 2026 Pelagia Expeditions AS',
+        'gauge.label': 'Profondeur',
+        'cookie.text': 'Nous ne stockons que ce dont le navire a besoin — votre langue et votre couchette. Rien ne quitte le bord.', 'cookie.accept': 'Accepter', 'cookie.decline': 'Refuser',
+        'aria.lang': 'Choisir la langue', 'aria.theme': 'Basculer mode surface / abysse', 'aria.menu': 'Ouvrir le menu',
+        'img.v1': 'Navire océanographique Alcyone en mer', 'img.v2': 'Submersible Bathynaut avant une plongée', 'img.v3': 'AUV Lamprey déployé depuis le navire', 'img.res1': 'Champ de sources hydrothermales sur le fond marin', 'img.res3': 'Colonne d\u2019eau océanique bleu profond',
+        'meta.title': 'PELAGIA — Expéditions de recherche en eaux profondes',
+        'meta.desc': 'Rejoignez des expéditions civiles de recherche en eaux profondes : zone crépusculaire, plaine abyssale et fosses hadales. De vrais navires, de vraies plongées, des données ouvertes.'
+      },
+      de: {
+        'skip': 'Zum Inhalt springen',
+        'nav.expeditions': 'Expeditionen', 'nav.vessels': 'Schiffe', 'nav.research': 'Forschung', 'nav.log': 'Logbuch', 'nav.crew': 'Crew', 'nav.fellowship': 'Förderung', 'nav.book': 'Koje buchen',
+        'hero.label': 'Pelagia Research · Logbuch 2026', 'hero.h1a': 'Die Tiefsee ist der letzte', 'hero.h1b': 'unkartierte Ort der Erde.', 'hero.sub': 'Pelagia veranstaltet zivile Tiefsee-Forschungsexpeditionen — Tauchgänge in die Dämmerzone, die Tiefseeebene und die Hadalgräben, mit Wissenschaftlern an Bord und offen für alle, die mit hinabsteigen wollen. Echte Schiffe. Echte Tauchgänge. Offene Daten.', 'hero.cta1': 'Koje buchen', 'hero.cta2': 'Logbuch lesen', 'hero.descend': 'Abtauchen',
+        'sonar.tag': 'Sonar-Sperre · Challenger-Sektor', 'sonar.depth': 'Tiefe', 'sonar.pressure': 'Druck', 'sonar.temp': 'Temp.', 'sonar.o2': 'Sauerstoff',
+        'mani.op': 'Abgeschlossene Einsätze', 'mani.opv': '47', 'mani.deep': 'Größte Tiefe', 'mani.sp': 'Katalogisierte Arten', 'mani.spv': '3.412', 'mani.berth': 'Kojen · Saison 2026', 'mani.berthv': '96',
+        'exp.kicker': 'Sektor 01 · Wählen Sie Ihre Tiefe', 'exp.title': 'Drei Expeditionen. Drei Tiefen.', 'exp.sub': 'Jede Expedition hat ein volles Wissenschaftsteam an Bord und veröffentlicht ihre Daten innerhalb eines Jahres unter offener Lizenz. Sie kommen als Crew, nicht als Passagier.',
+        'exp1.zone': 'Dämmerung', 'exp1.dur': '5 Tage auf See', 'exp1.crew': 'Crew 14', 'exp1.ship': 'FS Alcyone', 'exp1.name': 'Kontinentalschelf', 'exp1.body': 'Kelpwälder, Kaltwasserkorallen und die tägliche Vertikalwanderung — die belebteste Schicht des Ozeans, von innen gesehen. Erster Tauchgang um 06:00 Uhr, gemeinsam mit dem Plankton.', 'exp1.cta': 'Kojen ansehen',
+        'exp2.zone': 'Mitternacht', 'exp2.dur': '12 Tage auf See', 'exp2.crew': 'Crew 22', 'exp2.ship': 'FS Alcyone', 'exp2.name': 'Tiefseeebene', 'exp2.body': 'Die Mitternachtszone. Bentische Schlitten, beköderte Kameras und der große Detritusregen. Hier lebt der größte Teil des Meeresbodens des Planeten — und fast nichts davon hat einen Namen.', 'exp2.cta': 'Kojen ansehen',
+        'exp3.zone': 'Hadal', 'exp3.dur': '21 Tage auf See', 'exp3.crew': 'Crew 18', 'exp3.ship': 'FS Alcyone + Bathynaut', 'exp3.name': 'Hadal-Graben', 'exp3.flag': 'Flaggschiff', 'exp3.body': 'Das Challengertief und die Gräben dahinter. Eine dreiwöchige Kampagne mit einem Lander für volle Meerestiefe, zwei bemannten Tauchgängen und 90 Stunden Hadal-Video, das noch niemand gesehen hat.', 'exp3.cta': 'Kojen ansehen',
+        'ves.kicker': 'Sektor 02 · Die Flotte', 'ves.title': 'Gebaut für den Druck.', 'ves.sub': 'Zwei Schiffe und ein U-Boot — gebaut für die Tiefe, geführt von einer Crew, die seit zehn Jahren gemeinsam taucht.',
+        'ves.spec.len': 'Länge', 'ves.spec.depth': 'Max. Tiefe', 'ves.spec.crew': 'Crew', 'ves.spec.payload': 'Nutzlast', 'ves.spec.speed': 'Reise',
+        'v1.class': 'Forschungsschiff', 'v1.name': 'FS Alcyone', 'v1.body': 'Das Mutterschiff — Nass- und Trockenlabore, ein Moonpool, der Hangar für den Lander und Kojen für zweiunddreißig. Alcyone hat seit 2014 jedes Ozeanbecken durchquert.',
+        'v2.class': 'Bemanntes U-Boot', 'v2.name': 'BUB Bathynaut', 'v2.body': 'Drei Sitze, eine Titansphäre, über neunzig Tauchgänge jenseits von neuntausend Metern. Bathynaut ist das einzige zivile U-Boot, das für die volle Tiefe des Ozeans zertifiziert ist.',
+        'v3.class': 'Autonomer Vermesser', 'v3.name': 'AUV Lamprey', 'v3.body': 'Der leise Kartograf — ein Torpedo voller Sensoren, der 210-Kilometer-Raster abfährt, während die Menschen schlafen. Lamprey zeichnete die ersten durchgehenden Karten zweier Hadal-Stufenhänge.',
+        'res.kicker': 'Sektor 03 · Feldwissenschaft', 'res.title': 'Wissenschaft, die die Oberfläche nicht sieht.', 'res.sub': 'Jede Expedition sticht mit einer Forschungsfrage in See. Einige, zu denen wir immer wieder zurückkehren.',
+        'res1.kicker': 'Hydrothermale Quellen', 'res1.title': 'Chemosynthese', 'res1.body': '1977 glaubte niemand, dass ein Ökosystem ohne Sonnenlicht leben kann. Die Quellenfelder, die wir vermessen, schreiben die Lehrbücher immer noch neu — Röhrenwürmer, Yeti-Krabben, Mikroben, die Gestein fressen.', 'res1.d1': '400 °C', 'res1.d1l': 'Quellenflüssigkeit', 'res1.d2': '2 m', 'res1.d2l': 'Röhrenwurm-Kolonien',
+        'res2.kicker': 'Biolumineszenz', 'res2.title': 'Licht im Dunkeln', 'res2.body': 'Drei Viertel der Tiere in der Tiefe erzeugen ihr eigenes Licht. Wir kartieren die Muster, die Farben und die Zeitabläufe — und haben gerade erst begonnen, sie zu katalogisieren.', 'res2.d1': '92 %', 'res2.d1l': 'der Tiefseearten leuchten', 'res2.d2': '3.412', 'res2.d2l': 'katalogisierte Arten',
+        'res3.kicker': 'Kohlenstoffpumpe', 'res3.title': 'Das Gedächtnis des Ozeans', 'res3.body': 'Die Tiefsee ist der größte Kohlenstoffspeicher des Planeten. Was sinkt, bleibt. Unsere Sedimentkerne reichen 800.000 Jahre Klima zurück — und sagen uns, was wir ihm gerade antun.', 'res3.d1': '38 Gt', 'res3.d1l': 'CO₂-Aufnahme pro Jahr', 'res3.d2': '800 ka', 'res3.d2l': 'archiviertes Klima',
+        'log.kicker': 'Sektor 04 · Das Logbuch', 'log.title': 'Expeditionslogbuch, 2024–2026.', 'log.sub': 'Rohdaten von den Schiffen — Daten, Tiefen und was mit uns zurückkam.',
+        'log1.date': '14. Mai 2026', 'log1.depth': '−10.928 m', 'log1.name': 'Graben-6, Marianen', 'log1.body': 'Der Lander für volle Meerestiefe kehrte mit den ersten Bildern eines Schwarms hadaler Schneckenfische in 10.700 Metern zurück. Einundvierzig neue Beobachtungen protokolliert, bevor die Batterien starben.',
+        'log2.date': '02. Feb. 2026', 'log2.depth': '−4.050 m', 'log2.name': 'Guaymas-Becken', 'log2.body': 'Beköderte Kameras filmten eine vierzigminütige Ansammlung von Yeti-Krabben an einem neuen Quellenfeld. Proben werden in Bergen analysiert.',
+        'log3.date': '17. Sep. 2025', 'log3.depth': '−6.000 m', 'log3.name': 'Kermadec-Graben', 'log3.body': 'AUV Lamprey schloss ein 210-Kilometer-Raster ab — die erste durchgehende Karte eines hadalen Verwerfungsabhangs, erstellt, während die Oberflächencrew schlief.',
+        'log4.date': '03. Apr. 2025', 'log4.depth': '−1.200 m', 'log4.name': 'Porcupine Seabight', 'log4.body': 'Kaltwasserkorallengarten, vier Hektar, zuvor unkartiert. Dem regionalen Meeresschutzpark zur Unterschutzstellung vorgeschlagen.',
+        'quote.text': 'Wir tauchen hinab, weil die Antworten dort unten liegen. Jedes Mal, wenn wir zurückkommen, hat sich die Karte des Planeten ein wenig verändert — und dieses Wenige ist gewaltig.', 'quote.author': 'Dr. Ingrid Sørensen', 'quote.role': 'Chefwissenschaftlerin, Pelagia Expeditions',
+        'fel.kicker': 'Sektor 05 · Unterstützen Sie die Tauchgänge', 'fel.title': 'Finanzieren Sie eine Koje — oder nehmen Sie eine.', 'fel.sub': 'Kojen sind Monate im Voraus ausgebucht. Die Förderung finanziert die Wissenschaftskojen, die wir für Forschende freihalten, die ihre Reise nicht selbst bezahlen können.', 'fel.per': '/ Monat',
+        'f1.name': 'Bürger', 'f1.desc': 'Eine Wasserprobe mitfinanzieren.', 'f1.f1': 'Monatliches Logbuch, direkt vom Schiff', 'f1.f2': 'Art des Monats, an Bord fotografiert', 'f1.f3': 'Ihr Name in den Expeditions-Credits', 'f1.cta': 'Bürger werden',
+        'f2.name': 'Fellow', 'f2.flag': 'Finanziert die meisten Kojen', 'f2.desc': 'Eine komplette Wissenschaftskoje finanzieren.', 'f2.f1': 'Alles aus Bürger', 'f2.f2': 'Live-Funk während bemannter Tauchgänge', 'f2.f3': 'Vierteljährliches Q&A mit der Wissenschaftscrew', 'f2.f4': 'Ihr Name auf einem Tauchgang der Saison', 'f2.cta': 'Fellow werden',
+        'f3.name': 'Patron', 'f3.desc': 'Eine komplette Lander-Mission finanzieren.', 'f3.f1': 'Alles aus Fellow', 'f3.f2': 'Direkter Zugriff auf Rohdaten', 'f3.f3': 'Prioritäre Koje-Reservierung', 'f3.f4': 'Eine Mission mit Ihrem Namen, auf ein Schiff gemalt', 'f3.cta': 'Patron werden',
+        'crew.kicker': 'Sektor 06 · Die Crew', 'crew.title': 'Die Menschen, die hinabsteigen.',
+        'c1.name': 'Dr. Ingrid Sørensen', 'c1.role': 'Chefwissenschaftlerin · Meeresbiologie', 'c2.name': 'Kapitän Mateo Ríos', 'c2.role': 'Expeditionskapitän · FS Alcyone', 'c3.name': 'Dr. Amara Okafor', 'c3.role': 'Geochemikerin · Sedimentkerne', 'c4.name': 'Lin Wei', 'c4.role': 'U-Boot-Pilot · Bathynaut',
+        'faq.kicker': 'Sektor 07 · Kleingedrucktes', 'faq.title': 'An Deck gefragt.',
+        'faq.q1': 'Brauche ich Taucherfahrung oder Wissenschaftskenntnisse?', 'faq.a1': 'Nein. Jede Koje umfasst ein zweiwöchiges Training vor dem Ablegen, und an Bord sind Sie Crew — Sie lernen die Wachen, die Probennahme und die Kameras von denen, die das beruflich tun. Die einzige Voraussetzung ist, sich auf See wohlzufühlen.',
+        'faq.q2': 'Wie sicher ist ein bemannter Tauchgang auf 10.000 m?', 'faq.a2': 'Unser U-Boot ist für 11.000 m zertifiziert und hat über neunzig Tauchgänge jenseits von 9.000 m ohne kritischen Zwischenfall absolviert. Jeder Tauchgang folgt einem schriftlichen Plan, einem dedizierten Oberflächenteam und einer 72-Stunden-Checkliste. Der Ozean ist nicht sicher; wir machen den Einsatz so sicher, wie es die Technik erlaubt.',
+        'faq.q3': 'Was passiert mit den Daten?', 'faq.a3': 'Sie werden innerhalb von zwölf Monaten offen veröffentlicht — rohe Sensor-Logs, Video, Probennachweise — unter CC-BY-Lizenz. Als Crew erhalten Sie vorab Zugriff, und Ihr Name steht in den Credits des Datensatzes.',
+        'faq.q4': 'Kann ich eine Koje stornieren?', 'faq.a4': 'Ja. Bis 90 Tage vor Abreise erhalten Sie volle Rückerstattung, bis 30 Tage 50 %. Wenn das Schiff nicht auslaufen kann — Wetter, Politik, Pandemie —, werden Sie vollständig erstattet und für die nächste Saison priorisiert.',
+        'faq.q5': 'Was kostet eine Koje?', 'faq.a5': 'Schellfkojen ab 4.200 €, Tiefsee ab 9.800 € und Hadal ab 18.500 € — alles inklusive: Schiff, Training, Verpflegung, Tauchzeit und Versicherung. Die Förderung deckt die Wissenschaftskojen, niemals die bezahlten.',
+        'news.stub': 'Vierteljährlich · Kostenlos', 'news.title': 'Das Logbuch', 'news.body': 'Vier Briefe im Jahr von den Schiffen: Expeditionsgeschichten, Highlights aus den Rohdaten und die Arten, die wir getroffen haben. Geschrieben von der Crew, auf See.', 'news.ph': 'Ihre E-Mail', 'news.btn': 'Abonnieren', 'news.thanks': 'Registriert. Der erste Brief sticht mit der nächsten Expedition in See.',
+        'footer.desc': 'Zivile Tiefsee-Forschungsexpeditionen seit 2014. Basis Bergen; Tauchgänge im Atlantik, im Pazifik und in den Gräben.',
+        'footer.explore': 'Entdecken', 'footer.legal': 'Rechtliches', 'footer.base': 'Die Basis',
+        'footer.e1': 'Die Expeditionen', 'footer.e2': 'Schiffe', 'footer.e3': 'Forschung', 'footer.e4': 'Logbuch', 'footer.e5': 'Crew',
+        'footer.tos': 'Nutzungsbedingungen', 'footer.privacy': 'Datenschutz', 'footer.policy': 'Cookie-Richtlinie',
+        'footer.b1': 'Bergen, Norwegen', 'footer.b2': 'hallo@pelagia.expeditions', 'footer.b3': 'Pressebereich',
+        'footer.made': 'An der Oberfläche gebaut, für die Tiefe', 'footer.y': '© 2026 Pelagia Expeditions AS',
+        'gauge.label': 'Tiefe',
+        'cookie.text': 'Wir speichern nur, was das Schiff braucht — Ihre Sprache und Ihre Koje. Nichts verlässt das Schiff.', 'cookie.accept': 'Akzeptieren', 'cookie.decline': 'Ablehnen',
+        'aria.lang': 'Sprache wählen', 'aria.theme': 'Oberflächen- / Abgrundmodus umschalten', 'aria.menu': 'Menü öffnen',
+        'img.v1': 'Forschungsschiff Alcyone auf See', 'img.v2': 'U-Boot Bathynaut vor einem Tauchgang', 'img.v3': 'AUV Lamprey wird vom Schiff ausgesetzt', 'img.res1': 'Hydrothermales Quellenfeld am Meeresboden', 'img.res3': 'Tiefblaue ozeanische Wassersäule',
+        'meta.title': 'PELAGIA — Tiefsee-Forschungsexpeditionen',
+        'meta.desc': 'Nehmen Sie an zivilen Tiefsee-Forschungsexpeditionen teil: Dämmerzone, Tiefseeebene und Hadalgräben. Echte Schiffe, echte Tauchgänge, offene Daten.'
+      },
+      it: {
+        'skip': 'Salta al contenuto',
+        'nav.expeditions': 'Spedizioni', 'nav.vessels': 'Navi', 'nav.research': 'Ricerca', 'nav.log': 'Diario', 'nav.crew': 'Equipaggio', 'nav.fellowship': 'Borse', 'nav.book': 'Prenota una cuccetta',
+        'hero.label': 'Pelagia Research · Diario 2026', 'hero.h1a': 'L\u2019oceano profondo è l\u2019ultimo', 'hero.h1b': 'luogo non mappato della Terra.', 'hero.sub': 'Pelagia organizza spedizioni civili di ricerca in acque profonde — immersioni verso la zona crepuscolare, la pianura abissale e le fosse adali, con scienziati a bordo e aperte a chiunque voglia scendere con loro. Navi vere. Immersioni vere. Dati aperti.', 'hero.cta1': 'Prenota una cuccetta', 'hero.cta2': 'Leggi il diario', 'hero.descend': 'Scendere',
+        'sonar.tag': 'Blocco sonar · Settore Challenger', 'sonar.depth': 'Profondità', 'sonar.pressure': 'Pressione', 'sonar.temp': 'Temp.', 'sonar.o2': 'Ossigeno',
+        'mani.op': 'Operazioni concluse', 'mani.opv': '47', 'mani.deep': 'Penetrazione massima', 'mani.sp': 'Specie catalogate', 'mani.spv': '3.412', 'mani.berth': 'Cuccette · stagione 2026', 'mani.berthv': '96',
+        'exp.kicker': 'Settore 01 · Scegli la tua profondità', 'exp.title': 'Tre spedizioni. Tre profondità.', 'exp.sub': 'Ogni spedizione porta a bordo un team scientifico completo e pubblica i propri dati sotto licenza aperta entro un anno. Ti unisci come equipaggio, non come passeggero.',
+        'exp1.zone': 'Crepuscolare', 'exp1.dur': '5 giorni in mare', 'exp1.crew': 'Equipaggio 14', 'exp1.ship': 'N/R Alcyone', 'exp1.name': 'Piattaforma continentale', 'exp1.body': 'Foreste di kelp, coralli di acqua fredda e la migrazione verticale quotidiana — lo strato più affollato dell\u2019oceano, visto dall\u2019interno. Prima immersione alle 06:00, insieme al plancton.', 'exp1.cta': 'Vedi le cuccette',
+        'exp2.zone': 'Mezzanotte', 'exp2.dur': '12 giorni in mare', 'exp2.crew': 'Equipaggio 22', 'exp2.ship': 'N/R Alcyone', 'exp2.name': 'Pianura abissale', 'exp2.body': 'La zona di mezzanotte. Slitte bentoniche, telecamere con esca e la grande pioggia di detriti. Qui vive la maggior parte del fondale marino del pianeta — e quasi nulla ha ancora un nome.', 'exp2.cta': 'Vedi le cuccette',
+        'exp3.zone': 'Adale', 'exp3.dur': '21 giorni in mare', 'exp3.crew': 'Equipaggio 18', 'exp3.ship': 'N/R Alcyone + Bathynaut', 'exp3.name': 'Fossa adale', 'exp3.flag': 'Ammiraglia', 'exp3.body': 'L\u2019Abisso Challenger e le fosse oltre. Una campagna di tre settimane con un lander a profondità oceanica piena, due immersioni con equipaggio e 90 ore di video adale che nessuno ha ancora visto.', 'exp3.cta': 'Vedi le cuccette',
+        'ves.kicker': 'Settore 02 · La flotta', 'ves.title': 'Costruiti per la pressione.', 'ves.sub': 'Due navi e un sommergibile — progettati per il lavoro in profondità, gestiti da un equipaggio che si immerge insieme da un decennio.',
+        'ves.spec.len': 'Lunghezza', 'ves.spec.depth': 'Prof. max', 'ves.spec.crew': 'Equipaggio', 'ves.spec.payload': 'Carico utile', 'ves.spec.speed': 'Crociera',
+        'v1.class': 'Nave oceanografica', 'v1.name': 'N/R Alcyone', 'v1.body': 'La nave madre — laboratori umidi e secchi, piscina lunare, l\u2019hangar del lander e cuccette per trentadue persone. Alcyone ha attraversato tutti i bacini oceanici dal 2014.',
+        'v2.class': 'Sommergibile con equipaggio', 'v2.name': 'SME Bathynaut', 'v2.body': 'Tre sedili, una sfera di titanio, oltre novanta immersioni oltre i novemila metri. Bathynaut è l\u2019unico sommergibile civile certificato per l\u2019intera profondità dell\u2019oceano.',
+        'v3.class': 'Rilevatore autonomo', 'v3.name': 'AUV Lamprey', 'v3.body': 'Il cartografo silenzioso — un siluro di sensori che percorre griglie di 210 chilometri mentre gli umani dormono. Lamprey ha tracciato le prime mappe continue di due scarpate adali.',
+        'res.kicker': 'Settore 03 · Scienza sul campo', 'res.title': 'Scienza che la superficie non vede.', 'res.sub': 'Ogni spedizione salpa con una domanda di ricerca. Alcune a cui torniamo sempre.',
+        'res1.kicker': 'Sorgenti idrotermali', 'res1.title': 'Chemiosintesi', 'res1.body': 'Nel 1977 nessuno credeva che un ecosistema potesse vivere senza luce solare. I campi di sorgenti che rileviamo riscrivono ancora i manuali — vermi tubicoli, granchi yeti, microbi che mangiano la roccia.', 'res1.d1': '400 °C', 'res1.d1l': 'fluidi della sorgente', 'res1.d2': '2 m', 'res1.d2l': 'colonie di tubicoli',
+        'res2.kicker': 'Bioluminescenza', 'res2.title': 'Luce nel buio', 'res2.body': 'Tre quarti degli animali delle profondità producono la propria luce. Mappiamo i pattern, i colori e i tempi — e abbiamo appena iniziato a catalogarli.', 'res2.d1': '92%', 'res2.d1l': 'delle specie profonde brillano', 'res2.d2': '3.412', 'res2.d2l': 'specie catalogate',
+        'res3.kicker': 'Pompa del carbonio', 'res3.title': 'La memoria dell\u2019oceano', 'res3.body': 'Le profondità sono il più grande deposito di carbonio del pianeta. Ciò che affonda, resta. Le nostre carote di sedimento tracciano 800.000 anni di clima — e ci dicono cosa gli stiamo facendo adesso.', 'res3.d1': '38 Gt', 'res3.d1l': 'di CO₂ assorbita ogni anno', 'res3.d2': '800 ka', 'res3.d2l': 'di clima archiviato',
+        'log.kicker': 'Settore 04 · Il diario', 'log.title': 'Diario di spedizione, 2024–2026.', 'log.sub': 'Voci grezze dalle navi — date, profondità e ciò che è risalito con noi.',
+        'log1.date': '14 mag 2026', 'log1.depth': '−10.928 m', 'log1.name': 'Fossa-6, Marianne', 'log1.body': 'Il lander a profondità oceanica piena è tornato con le prime immagini di un banco di pesci lumaca adali a 10.700 metri. Quarantuno nuove osservazioni registrate prima che le batterie morissero.',
+        'log2.date': '02 feb 2026', 'log2.depth': '−4.050 m', 'log2.name': 'Bacino di Guaymas', 'log2.body': 'Le telecamere con esca hanno filmato un\u2019aggregazione di quaranta minuti di granchi yeti su un nuovo campo di sorgenti. Campioni in analisi a Bergen.',
+        'log3.date': '17 set 2025', 'log3.depth': '−6.000 m', 'log3.name': 'Fossa di Kermadec', 'log3.body': 'AUV Lamprey ha completato una griglia di 210 chilometri — la prima mappa continua di una scarpata di faglia adale, realizzata mentre l\u2019equipaggio di superficie dormiva.',
+        'log4.date': '03 apr 2025', 'log4.depth': '−1.200 m', 'log4.name': 'Porcupine Seabight', 'log4.body': 'Giardino di coralli di acqua fredda, quattro ettari, prima non mappato. Proposto all\u2019autorità del parco marino regionale per la protezione.',
+        'quote.text': 'Scendiamo perché le risposte sono laggiù. Ogni volta che torniamo, la mappa del pianeta è cambiata un po\u2019 — e quel poco è enorme.', 'quote.author': 'Dott.ssa Ingrid Sørensen', 'quote.role': 'Capo scientifico, Pelagia Expeditions',
+        'fel.kicker': 'Settore 05 · Sostieni le immersioni', 'fel.title': 'Finanzia una cuccetta, o prendine una.', 'fel.sub': 'Le cuccette si esauriscono con mesi di anticipo. Le borse finanziano le cuccette scientifiche che teniamo aperte per i ricercatori che non possono permettersi il viaggio.', 'fel.per': '/ mese',
+        'f1.name': 'Cittadino', 'f1.desc': 'Finanzia un campione d\u2019acqua.', 'f1.f1': 'Diario mensile, direttamente dalla nave', 'f1.f2': 'Specie del mese, fotografata a bordo', 'f1.f3': 'Il tuo nome nei crediti della spedizione', 'f1.cta': 'Diventa cittadino',
+        'f2.name': 'Socio', 'f2.flag': 'Finanzia più cuccette', 'f2.desc': 'Finanzia una cuccetta scientifica completa.', 'f2.f1': 'Tutto da Cittadino', 'f2.f2': 'Comunicazioni in diretta durante le immersioni con equipaggio', 'f2.f3': 'Domande e risposte trimestrali con l\u2019equipaggio scientifico', 'f2.f4': 'Il tuo nome su un\u2019immersione della stagione', 'f2.cta': 'Diventa socio',
+        'f3.name': 'Mecenate', 'f3.desc': 'Finanzia una missione lander completa.', 'f3.f1': 'Tutto da Socio', 'f3.f2': 'Accesso dedicato ai dati grezzi', 'f3.f3': 'Prenotazione prioritaria delle cuccette', 'f3.f4': 'Una missione con il tuo nome, dipinta su una nave', 'f3.cta': 'Diventa mecenate',
+        'crew.kicker': 'Settore 06 · L\u2019equipaggio', 'crew.title': 'Quelli che scendono.',
+        'c1.name': 'Dott.ssa Ingrid Sørensen', 'c1.role': 'Capo scientifico · biologia marina', 'c2.name': 'Cap. Mateo Ríos', 'c2.role': 'Capitano di spedizione · N/R Alcyone', 'c3.name': 'Dott.ssa Amara Okafor', 'c3.role': 'Geochimica · carote di sedimento', 'c4.name': 'Lin Wei', 'c4.role': 'Pilota di sommergibile · Bathynaut',
+        'faq.kicker': 'Settore 07 · Caratteri piccoli', 'faq.title': 'Chiesto in coperta.',
+        'faq.q1': 'Serve esperienza di immersioni o di scienza?', 'faq.a1': 'Nessuna. Ogni cuccetta include un programma di addestramento di due settimane prima di salire a bordo, e sulla nave sei equipaggio — impari i turni, il campionamento e le telecamere da chi lo fa di professione. L\u2019unico requisito è sentirsi a proprio agio in mare.',
+        'faq.q2': 'Quanto è sicura un\u2019immersione con equipaggio a 10.000 m?', 'faq.a2': 'Il nostro sommergibile è certificato per 11.000 m e ha effettuato oltre novanta immersioni oltre i 9.000 m senza incidenti critici. Ogni immersione segue un piano scritto, un team di superficie dedicato e una checklist di 72 ore. L\u2019oceano non è sicuro; rendiamo l\u2019operazione sicura quanto l\u2019ingegneria consente.',
+        'faq.q3': 'Cosa succede ai dati?', 'faq.a3': 'Vengono pubblicati apertamente entro dodici mesi — log grezzi dei sensori, video, metadati dei campioni — con licenza CC-BY. Come equipaggio hai accesso anticipato e il tuo nome compare nei crediti del dataset.',
+        'faq.q4': 'Posso cancellare una cuccetta?', 'faq.a4': 'Sì. Fino a 90 giorni prima della partenza ricevi il rimborso integrale; fino a 30 giorni, il 50%. Se la nave non può salpare — meteo, politica, pandemia — sei rimborsato interamente e ottieni priorità per la stagione successiva.',
+        'faq.q5': 'Quanto costa una cuccetta?', 'faq.a5': 'Le cuccette di piattaforma partono da 4.200 €, quelle abissali da 9.800 € e quelle adali da 18.500 € — tutto incluso: nave, addestramento, pasti, tempo di immersione e assicurazione. Le borse coprono le cuccette scientifiche, mai quelle a pagamento.',
+        'news.stub': 'Trimestrale · Gratis', 'news.title': 'Il Diario', 'news.body': 'Quattro lettere all\u2019anno dalle navi: storie di spedizione, punti salienti dei dati grezzi e le specie incontrate. Scritte dall\u2019equipaggio, in mare.', 'news.ph': 'La tua e-mail', 'news.btn': 'Iscriviti', 'news.thanks': 'Registrato. La prima lettera salpa con la prossima spedizione.',
+        'footer.desc': 'Spedizioni civili di ricerca in acque profonde dal 2014. Base a Bergen; immersioni nell\u2019Atlantico, nel Pacifico e nelle fosse.',
+        'footer.explore': 'Esplora', 'footer.legal': 'Legale', 'footer.base': 'La base',
+        'footer.e1': 'Le spedizioni', 'footer.e2': 'Navi', 'footer.e3': 'Ricerca', 'footer.e4': 'Diario', 'footer.e5': 'Equipaggio',
+        'footer.tos': 'Termini di servizio', 'footer.privacy': 'Privacy', 'footer.policy': 'Politica sui cookie',
+        'footer.b1': 'Bergen, Norvegia', 'footer.b2': 'ciao@pelagia.spedizioni', 'footer.b3': 'Sala stampa',
+        'footer.made': 'Costruito in superficie, per gli abissi', 'footer.y': '© 2026 Pelagia Expeditions AS',
+        'gauge.label': 'Profondità',
+        'cookie.text': 'Conserviamo solo ciò di cui la nave ha bisogno — la tua lingua e il tuo posto. Nulla lascia la nave.', 'cookie.accept': 'Accetta', 'cookie.decline': 'Rifiuta',
+        'aria.lang': 'Seleziona la lingua', 'aria.theme': 'Alterna modalità superficie / abisso', 'aria.menu': 'Apri il menu',
+        'img.v1': 'Nave oceanografica Alcyone in mare', 'img.v2': 'Sommergibile Bathynaut prima di un\u2019immersione', 'img.v3': 'AUV Lamprey in dispiegamento dalla nave', 'img.res1': 'Campo di sorgenti idrotermali sul fondale', 'img.res3': 'Colonna d\u2019acqua oceanica blu profondo',
+        'meta.title': 'PELAGIA — Spedizioni di ricerca in acque profonde',
+        'meta.desc': 'Unisciti a spedizioni civili di ricerca in acque profonde: zona crepuscolare, pianura abissale e fosse adali. Navi vere, immersioni vere, dati aperti.'
+      },
+      pt: {
+        'skip': 'Pular para o conteúdo',
+        'nav.expeditions': 'Expedições', 'nav.vessels': 'Navios', 'nav.research': 'Pesquisa', 'nav.log': 'Diário', 'nav.crew': 'Tripulação', 'nav.fellowship': 'Bolsas', 'nav.book': 'Reservar vaga',
+        'hero.label': 'Pelagia Research · Diário 2026', 'hero.h1a': 'O oceano profundo é o último', 'hero.h1b': 'lugar não mapeado da Terra.', 'hero.sub': 'A Pelagia organiza expedições civis de pesquisa em águas profundas — mergulhos até a zona crepuscular, a planície abissal e as fossas hadais, com cientistas a bordo e abertas a quem quiser descer com eles. Navios reais. Mergulhos reais. Dados abertos.', 'hero.cta1': 'Reservar vaga', 'hero.cta2': 'Ler o diário', 'hero.descend': 'Descer',
+        'sonar.tag': 'Trava do sonar · Setor Challenger', 'sonar.depth': 'Profundidade', 'sonar.pressure': 'Pressão', 'sonar.temp': 'Temp.', 'sonar.o2': 'Oxigênio',
+        'mani.op': 'Operações concluídas', 'mani.opv': '47', 'mani.deep': 'Penetração máxima', 'mani.sp': 'Espécies catalogadas', 'mani.spv': '3.412', 'mani.berth': 'Vagas · temporada 2026', 'mani.berthv': '96',
+        'exp.kicker': 'Setor 01 · Escolha sua profundidade', 'exp.title': 'Três expedições. Três profundidades.', 'exp.sub': 'Cada expedição leva uma equipe científica completa e publica seus dados sob licença aberta dentro de um ano. Você entra como tripulação, não como passageiro.',
+        'exp1.zone': 'Crepuscular', 'exp1.dur': '5 dias no mar', 'exp1.crew': 'Tripulação 14', 'exp1.ship': 'N/P Alcyone', 'exp1.name': 'Plataforma continental', 'exp1.body': 'Florestas de kelp, corais de água fria e a migração vertical diária — a camada mais movimentada do oceano, vista de dentro. Primeiro mergulho às 06:00, junto com o plâncton.', 'exp1.cta': 'Ver as vagas',
+        'exp2.zone': 'Meia-noite', 'exp2.dur': '12 dias no mar', 'exp2.crew': 'Tripulação 22', 'exp2.ship': 'N/P Alcyone', 'exp2.name': 'Planície abissal', 'exp2.body': 'A zona da meia-noite. Trenós bentônicos, câmeras com isca e a grande chuva de detritos. É aqui que vive a maior parte do fundo do mar do planeta — e quase nada disso tem nome.', 'exp2.cta': 'Ver as vagas',
+        'exp3.zone': 'Hadal', 'exp3.dur': '21 dias no mar', 'exp3.crew': 'Tripulação 18', 'exp3.ship': 'N/P Alcyone + Bathynaut', 'exp3.name': 'Fossa hadal', 'exp3.flag': 'Navio-chefe', 'exp3.body': 'O Abismo de Challenger e as fossas além. Uma campanha de três semanas com um lander de profundidade oceânica total, dois mergulhos tripulados e 90 horas de vídeo hadal que ninguém viu ainda.', 'exp3.cta': 'Ver as vagas',
+        'ves.kicker': 'Setor 02 · A frota', 'ves.title': 'Construídos para a pressão.', 'ves.sub': 'Dois navios e um submersível — projetados para o trabalho profundo, comandados por uma tripulação que mergulha junta há uma década.',
+        'ves.spec.len': 'Comprimento', 'ves.spec.depth': 'Prof. máx.', 'ves.spec.crew': 'Tripulação', 'ves.spec.payload': 'Carga útil', 'ves.spec.speed': 'Cruzeiro',
+        'v1.class': 'Navio oceanográfico', 'v1.name': 'N/P Alcyone', 'v1.body': 'O navio-mãe — laboratórios úmidos e secos, piscina lunar, o hangar do lander e vagas para trinta e duas pessoas. Alcyone cruzou todas as bacias oceânicas desde 2014.',
+        'v2.class': 'Submersível tripulado', 'v2.name': 'STM Bathynaut', 'v2.body': 'Três assentos, uma esfera de titânio, mais de noventa mergulhos além dos nove mil metros. Bathynaut é o único submersível civil certificado para a profundidade total do oceano.',
+        'v3.class': 'Topógrafo autônomo', 'v3.name': 'AUV Lamprey', 'v3.body': 'O cartógrafo silencioso — um torpedo de sensores que percorre grades de 210 quilômetros enquanto os humanos dormem. Lamprey desenhou os primeiros mapas contínuos de duas escarpas hadais.',
+        'res.kicker': 'Setor 03 · Ciência de campo', 'res.title': 'Ciência que a superfície não vê.', 'res.sub': 'Cada expedição parte com uma pergunta de pesquisa. Algumas às quais sempre voltamos.',
+        'res1.kicker': 'Fontes hidrotermais', 'res1.title': 'Quimiossíntese', 'res1.body': 'Em 1977, ninguém acreditava que um ecossistema pudesse viver sem luz solar. Os campos de fontes que mapeamos ainda reescrevem os livros — vermes tubícolas, caranguejos-yeti, micróbios que comem rocha.', 'res1.d1': '400 °C', 'res1.d1l': 'fluidos da fonte', 'res1.d2': '2 m', 'res1.d2l': 'colônias de tubícolas',
+        'res2.kicker': 'Bioluminescência', 'res2.title': 'Luz no escuro', 'res2.body': 'Três quartos dos animais das profundezas produzem a própria luz. Mapeamos os padrões, as cores e os tempos — e mal começamos a catalogá-los.', 'res2.d1': '92%', 'res2.d1l': 'das espécies profundas brilham', 'res2.d2': '3.412', 'res2.d2l': 'espécies catalogadas',
+        'res3.kicker': 'Bomba de carbono', 'res3.title': 'A memória do oceano', 'res3.body': 'As profundezas são o maior reservatório de carbono do planeta. O que afunda, fica. Nossos testemunhos de sedimento rastreiam 800 mil anos de clima — e nos dizem o que estamos fazendo com ele agora.', 'res3.d1': '38 Gt', 'res3.d1l': 'de CO₂ absorvido por ano', 'res3.d2': '800 ka', 'res3.d2l': 'de clima arquivado',
+        'log.kicker': 'Setor 04 · O diário', 'log.title': 'Diário de expedição, 2024–2026.', 'log.sub': 'Entradas cruas dos navios — datas, profundidades e o que voltou conosco.',
+        'log1.date': '14 mai 2026', 'log1.depth': '−10.928 m', 'log1.name': 'Fossa-6, Marianas', 'log1.body': 'O lander de profundidade oceânica total voltou com as primeiras imagens de um cardume de peixes-caracol hadais a 10.700 metros. Quarenta e uma novas observações registradas antes de as baterias morrerem.',
+        'log2.date': '02 fev 2026', 'log2.depth': '−4.050 m', 'log2.name': 'Bacia de Guaymas', 'log2.body': 'As câmeras com isca registraram uma agregação de quarenta minutos de caranguejos-yeti em um novo campo de fontes. Amostras em análise em Bergen.',
+        'log3.date': '17 set 2025', 'log3.depth': '−6.000 m', 'log3.name': 'Fossa de Kermadec', 'log3.body': 'O AUV Lamprey completou uma grade de 210 quilômetros — o primeiro mapa contínuo de uma escarpa de falha hadal, feito enquanto a tripulação de superfície dormia.',
+        'log4.date': '03 abr 2025', 'log4.depth': '−1.200 m', 'log4.name': 'Porcupine Seabight', 'log4.body': 'Jardim de corais de água fria, quatro hectares, antes não mapeado. Proposto à autoridade do parque marinho regional para proteção.',
+        'quote.text': 'Descemos porque as respostas estão lá embaixo. Cada vez que voltamos, o mapa do planeta mudou um pouco — e esse pouco é enorme.', 'quote.author': 'Dra. Ingrid Sørensen', 'quote.role': 'Cientista-chefe, Pelagia Expeditions',
+        'fel.kicker': 'Setor 05 · Apoie os mergulhos', 'fel.title': 'Financie uma vaga, ou pegue uma.', 'fel.sub': 'As vagas se esgotam meses antes. As bolsas financiam as vagas de ciência que mantemos abertas para pesquisadores que não podem pagar o próprio caminho.', 'fel.per': '/ mês',
+        'f1.name': 'Cidadão', 'f1.desc': 'Custeie uma amostra de água.', 'f1.f1': 'Diário mensal, direto do navio', 'f1.f2': 'Espécie do mês, fotografada a bordo', 'f1.f3': 'Seu nome nos créditos da expedição', 'f1.cta': 'Seja um cidadão',
+        'f2.name': 'Sócio', 'f2.flag': 'Financia mais vagas', 'f2.desc': 'Financie uma vaga de ciência completa.', 'f2.f1': 'Tudo do Cidadão', 'f2.f2': 'Comunicação ao vivo durante mergulhos tripulados', 'f2.f3': 'Perguntas e respostas trimestrais com a equipe científica', 'f2.f4': 'Seu nome em um mergulho da temporada', 'f2.cta': 'Seja um sócio',
+        'f3.name': 'Mecenas', 'f3.desc': 'Financie uma missão de lander completa.', 'f3.f1': 'Tudo do Sócio', 'f3.f2': 'Acesso dedicado aos dados brutos', 'f3.f3': 'Reserva prioritária de vagas', 'f3.f4': 'Uma missão com seu nome, pintada em um navio', 'f3.cta': 'Seja um mecenas',
+        'crew.kicker': 'Setor 06 · A tripulação', 'crew.title': 'Os que descem.',
+        'c1.name': 'Dra. Ingrid Sørensen', 'c1.role': 'Cientista-chefe · biologia marinha', 'c2.name': 'Cap. Mateo Ríos', 'c2.role': 'Capitão de expedição · N/P Alcyone', 'c3.name': 'Dra. Amara Okafor', 'c3.role': 'Geoquímica · testemunhos de sedimento', 'c4.name': 'Lin Wei', 'c4.role': 'Piloto de submersível · Bathynaut',
+        'faq.kicker': 'Setor 07 · Letras miúdas', 'faq.title': 'Perguntas no convés.',
+        'faq.q1': 'Preciso de experiência em mergulho ou ciência?', 'faq.a1': 'Nenhuma. Cada vaga inclui um programa de treinamento de duas semanas antes do embarque, e no navio você é tripulação — aprende os turnos, a amostragem e as câmeras com quem faz isso profissionalmente. O único requisito é se sentir à vontade no mar.',
+        'faq.q2': 'Qual a segurança de um mergulho tripulado a 10.000 m?', 'faq.a2': 'Nosso submersível é certificado para 11.000 m e fez mais de noventa mergulhos além dos 9.000 m sem incidentes críticos. Cada mergulho segue um plano escrito, uma equipe de superfície dedicada e uma lista de verificação de 72 horas. O oceano não é seguro; tornamos a operação tão segura quanto a engenharia permite.',
+        'faq.q3': 'O que acontece com os dados?', 'faq.a3': 'São publicados abertamente em até doze meses — registros brutos de sensores, vídeo, metadados de amostras — sob licença CC-BY. Como tripulação, você tem acesso antecipado e seu nome entra nos créditos do conjunto de dados.',
+        'faq.q4': 'Posso cancelar uma vaga?', 'faq.a4': 'Sim. Até 90 dias antes da partida, reembolso integral; até 30 dias, 50%. Se o navio não puder zarpar — clima, política, pandemia —, você é reembolsado integralmente e ganha prioridade para a próxima temporada.',
+        'faq.q5': 'Quanto custa uma vaga?', 'faq.a5': 'As vagas de plataforma começam em €4.200, as abissais em €9.800 e as hadais em €18.500 — tudo incluído: navio, treinamento, refeições, tempo de mergulho e seguro. As bolsas cobrem as vagas de ciência, nunca as pagas.',
+        'news.stub': 'Trimestral · Grátis', 'news.title': 'O Diário', 'news.body': 'Quatro cartas por ano dos navios: histórias de expedição, destaques dos dados brutos e as espécies que encontramos. Escritas pela tripulação, no mar.', 'news.ph': 'Seu e-mail', 'news.btn': 'Assinar', 'news.thanks': 'Registrado. A primeira carta zarpa com a próxima expedição.',
+        'footer.desc': 'Expedições civis de pesquisa em águas profundas desde 2014. Base em Bergen; mergulhos no Atlântico, no Pacífico e nas fossas.',
+        'footer.explore': 'Explorar', 'footer.legal': 'Legal', 'footer.base': 'A base',
+        'footer.e1': 'As expedições', 'footer.e2': 'Navios', 'footer.e3': 'Pesquisa', 'footer.e4': 'Diário', 'footer.e5': 'Tripulação',
+        'footer.tos': 'Termos de serviço', 'footer.privacy': 'Privacidade', 'footer.policy': 'Política de cookies',
+        'footer.b1': 'Bergen, Noruega', 'footer.b2': 'ola@pelagia.expedicoes', 'footer.b3': 'Sala de imprensa',
+        'footer.made': 'Construído na superfície, para as profundezas', 'footer.y': '© 2026 Pelagia Expeditions AS',
+        'gauge.label': 'Profundidade',
+        'cookie.text': 'Guardamos apenas o que o navio precisa — seu idioma e seu lugar. Nada sai da embarcação.', 'cookie.accept': 'Aceitar', 'cookie.decline': 'Recusar',
+        'aria.lang': 'Selecionar idioma', 'aria.theme': 'Alternar modo superfície / abismo', 'aria.menu': 'Abrir menu',
+        'img.v1': 'Navio oceanográfico Alcyone no mar', 'img.v2': 'Submersível Bathynaut antes de um mergulho', 'img.v3': 'AUV Lamprey sendo lançado do navio', 'img.res1': 'Campo de fontes hidrotermais no fundo do mar', 'img.res3': 'Coluna de água oceânica azul profundo',
+        'meta.title': 'PELAGIA — Expedições de pesquisa em águas profundas',
+        'meta.desc': 'Junte-se a expedições civis de pesquisa em águas profundas: zona crepuscular, planície abissal e fossas hadais. Navios reais, mergulhos reais, dados abertos.'
+      }
+    };
+
+    var META = { title: 'meta.title', description: 'meta.desc' };
+
+    function detectLang() {
+      var stored = null;
+      try { stored = localStorage.getItem('kairos-lang'); } catch (e) {}
+      if (stored && LANGS.indexOf(stored) !== -1) return stored;
+      var nav = (navigator.language || 'en').toLowerCase().slice(0, 2);
+      return LANGS.indexOf(nav) !== -1 ? nav : 'en';
+    }
+
+    function applyLang(lang) {
+      var dict = I18N[lang];
+      if (!dict) return;
+      document.documentElement.lang = lang;
+      var els = document.querySelectorAll('[data-i18n]');
+      for (var i = 0; i < els.length; i++) {
+        var k = els[i].getAttribute('data-i18n');
+        if (dict[k] !== undefined) els[i].textContent = dict[k];
+      }
+      var ph = document.querySelectorAll('[data-i18n-ph]');
+      for (var p = 0; p < ph.length; p++) {
+        var k3 = ph[p].getAttribute('data-i18n-ph');
+        if (dict[k3] !== undefined) ph[p].setAttribute('placeholder', dict[k3]);
+      }
+      var ar = document.querySelectorAll('[data-i18n-aria]');
+      for (var a = 0; a < ar.length; a++) {
+        var k4 = ar[a].getAttribute('data-i18n-aria');
+        if (dict[k4] !== undefined) ar[a].setAttribute('aria-label', dict[k4]);
+      }
+      var al = document.querySelectorAll('[data-i18n-alt]');
+      for (var t = 0; t < al.length; t++) {
+        var k5 = al[t].getAttribute('data-i18n-alt');
+        if (dict[k5] !== undefined) al[t].setAttribute('alt', dict[k5]);
+      }
+      document.querySelectorAll('.lang-select__cur').forEach(function (el) { el.textContent = lang.toUpperCase(); });
+      document.querySelectorAll('.lang-select__opt').forEach(function (opt) {
+        opt.setAttribute('aria-selected', opt.getAttribute('data-lang') === lang ? 'true' : 'false');
+      });
+      if (dict[META.title]) document.title = dict[META.title];
+      if (dict[META.desc]) {
+        var md = document.querySelector('meta[name="description"]');
+        var og = document.querySelector('meta[property="og:description"]');
+        var tw = document.querySelector('meta[name="twitter:description"]');
+        if (md) md.setAttribute('content', dict[META.desc]);
+        if (og) og.setAttribute('content', dict[META.desc]);
+        if (tw) tw.setAttribute('content', dict[META.desc]);
+        var mt = document.querySelector('meta[property="og:title"]');
+        var tt = document.querySelector('meta[name="twitter:title"]');
+        if (mt) mt.setAttribute('content', dict[META.title]);
+        if (tt) tt.setAttribute('content', dict[META.title]);
+      }
+      try { localStorage.setItem('kairos-lang', lang); } catch (e) {}
+    }
+
+    /* ============ Theme (Surface / Abyss) ============ */
+    function detectTheme() {
+      var stored = null;
+      try { stored = localStorage.getItem('kairos-theme'); } catch (e) {}
+      if (stored === 'light' || stored === 'dark') return stored;
+      return 'dark'; /* the abyss is home */
+    }
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      var meta = document.querySelector('meta[name="theme-color"]');
+      if (meta) meta.setAttribute('content', theme === 'dark' ? '#050d1a' : '#eef5f7');
+      try { localStorage.setItem('kairos-theme', theme); } catch (e) {}
+    }
+
+    /* ============ Lang dropdowns ============ */
+    function initLangDropdown(sel) {
+      var btn = sel.querySelector('.lang-select__btn');
+      var menu = sel.querySelector('.lang-select__menu');
+      if (!btn || !menu) return;
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var isOpen = sel.classList.toggle('open');
+        btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+      menu.querySelectorAll('.lang-select__opt').forEach(function (opt) {
+        opt.addEventListener('click', function () {
+          currentLang = opt.getAttribute('data-lang');
+          applyLang(currentLang);
+          closeAllLang();
+        });
+      });
+    }
+    function closeAllLang() {
+      document.querySelectorAll('.lang-select').forEach(function (s) {
+        s.classList.remove('open');
+        var b = s.querySelector('.lang-select__btn');
+        if (b) b.setAttribute('aria-expanded', 'false');
+      });
+    }
+    document.addEventListener('click', closeAllLang);
+
+    var currentLang = detectLang();
+    applyLang(currentLang);
+    initLangDropdown(document.getElementById('langSelectDesk'));
+    initLangDropdown(document.getElementById('langSelectMob'));
+
+    /* ============ Theme toggle ============ */
+    document.querySelectorAll('.theme-toggle').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        applyTheme(next);
+      });
+    });
+
+    /* ============ Nav scrolled state ============ */
+    var nav = document.getElementById('nav');
+    function onScroll() {
+      nav.classList.toggle('nav-scrolled', window.scrollY > 10);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    /* ============ Mobile menu ============ */
+    var menuBtn = document.querySelector('.menu-btn');
+    var mobileMenu = document.getElementById('mobileMenu');
+    menuBtn.addEventListener('click', function () {
+      var open = mobileMenu.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      mobileMenu.setAttribute('aria-hidden', open ? 'false' : 'true');
+    });
+    mobileMenu.querySelectorAll('.m-link').forEach(function (l) {
+      l.addEventListener('click', function () {
+        mobileMenu.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded', 'false');
+        mobileMenu.setAttribute('aria-hidden', 'true');
+      });
+    });
+
+    /* ============ Depth gauge (scroll = descent) ============ */
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var MAX_DEPTH = 10928;
+    var gaugeRead = document.getElementById('gaugeRead');
+    var gaugeMarker = document.getElementById('gaugeMarker');
+    var heroDepth = document.getElementById('heroDepth');
+    var ticking = false;
+
+    function fmtDepth(m) {
+      return '\u2212' + m.toLocaleString('en-US') + ' m';
+    }
+    function updateDepth() {
+      var scrollable = document.documentElement.scrollHeight - window.innerHeight;
+      var progress = scrollable > 0 ? Math.min(1, Math.max(0, window.scrollY / scrollable)) : 0;
+      var m = Math.round(progress * MAX_DEPTH);
+      if (gaugeRead) gaugeRead.textContent = fmtDepth(m);
+      if (heroDepth) heroDepth.textContent = fmtDepth(m);
+      if (gaugeMarker) {
+        var pct = (m / MAX_DEPTH) * 100;
+        gaugeMarker.style.top = pct + '%';
+      }
+      ticking = false;
+    }
+    window.addEventListener('scroll', function () {
+      if (!ticking) { ticking = true; requestAnimationFrame(updateDepth); }
+    }, { passive: true });
+    updateDepth();
+
+    /* ============ Telemetry jitter (surface ambience) ============ */
+    var pressure = 101.3, temp = 17.2;
+    var pEl = document.getElementById('heroPressure');
+    var tEl = document.getElementById('heroTemp');
+    setInterval(function () {
+      if (reduceMotion) return;
+      pressure = Math.max(99.5, Math.min(103.5, pressure + (Math.random() - 0.5) * 0.4));
+      temp = Math.max(16.4, Math.min(18.2, temp + (Math.random() - 0.5) * 0.2));
+      if (pEl) pEl.textContent = pressure.toFixed(1) + ' kPa';
+      if (tEl) tEl.textContent = temp.toFixed(1) + ' °C';
+    }, 2400);
+
+    /* ============ Reveal on scroll ============ */
+    var revealEls = document.querySelectorAll('.reveal');
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+      revealEls.forEach(function (el) { el.classList.add('in'); });
+    } else {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+      revealEls.forEach(function (el) { io.observe(el); });
+    }
+
+    /* ============ FAQ accordion ============ */
+    document.querySelectorAll('.faq-item').forEach(function (item) {
+      var q = item.querySelector('.faq-q');
+      var a = item.querySelector('.faq-a');
+      q.addEventListener('click', function () {
+        var open = item.classList.toggle('open');
+        q.setAttribute('aria-expanded', open ? 'true' : 'false');
+        a.style.maxHeight = open ? a.scrollHeight + 'px' : '0px';
+      });
+    });
+
+    /* ============ Newsletter form ============ */
+    var newsForm = document.getElementById('newsForm');
+    var newsThanks = document.getElementById('newsThanks');
+    if (newsForm) {
+      newsForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var input = newsForm.querySelector('input[type="email"]');
+        if (!input.value || input.value.indexOf('@') === -1) {
+          input.focus();
+          input.style.borderColor = 'var(--alert)';
+          return;
+        }
+        input.style.borderColor = '';
+        var dict = I18N[currentLang] || I18N.en;
+        newsThanks.textContent = dict['news.thanks'];
+        newsThanks.classList.add('show');
+        newsForm.reset();
+      });
+    }
+
+    /* ============ Cookie banner ============ */
+    var cookie = document.getElementById('cookie');
+    var cookieState = null;
+    try { cookieState = localStorage.getItem('kairos-cookie'); } catch (e) {}
+    if (cookieState !== 'accepted' && cookieState !== 'declined') {
+      setTimeout(function () {
+        var st = null;
+        try { st = localStorage.getItem('kairos-cookie'); } catch (e) {}
+        if (st !== 'accepted' && st !== 'declined') cookie.classList.add('show');
+      }, 3600);
+    }
+    function hideCookie() {
+      cookie.classList.remove('show');
+      try { localStorage.setItem('kairos-cookie', 'accepted'); } catch (e) {}
+    }
+    document.getElementById('cookieOk').addEventListener('click', hideCookie);
+    document.getElementById('cookieNo').addEventListener('click', function () {
+      cookie.classList.remove('show');
+      try { localStorage.setItem('kairos-cookie', 'declined'); } catch (e) {}
+    });
+  })();
+  </script>
+</body>
+</html>

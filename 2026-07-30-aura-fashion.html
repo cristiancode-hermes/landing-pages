@@ -1,0 +1,2798 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="meta-title">AURA — Sustainable Luxury Fashion | Essential Wardrobes, Consciously Made</title>
+  <meta name="description" id="meta-desc" content="AURA crafts essential wardrobes from sustainably sourced materials. Timeless silhouettes, impeccable tailoring, and a commitment to slow fashion — because true luxury endures.">
+  <link rel="canonical" href="https://aura-fashion.com/">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%23c9a84c'/%3E%3Ctext x='16' y='24' text-anchor='middle' font-family='Georgia,serif' font-size='20' font-weight='700' fill='%231d1d1f'%3EA%3C/text%3E%3C/svg%3E">
+  <meta name="theme-color" content="#000000">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="AURA">
+  <meta property="og:title" id="og-title" content="AURA — Sustainable Luxury Fashion | Essential Wardrobes, Consciously Made">
+  <meta property="og:description" id="og-desc" content="Crafting essential wardrobes from sustainably sourced materials. Timeless silhouettes for the discerning. True luxury endures.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=1200&q=80">
+  <meta property="og:url" content="https://aura-fashion.com/">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" id="tw-title" content="AURA — Sustainable Luxury Fashion">
+  <meta name="twitter:description" id="tw-desc" content="Essential wardrobes, consciously made. Timeless silhouettes, impeccable tailoring, slow fashion that endures.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=1200&q=80">
+  <meta name="twitter:site" content="@aurafashion">
+
+  <!-- Fonts: Cormorant Garamond (editorial serif for display) + system-ui for clean body -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ================================================================
+       DESIGN SYSTEM — AURA Sustainable Luxury Fashion
+       Derived from: Apple (popular-web-designs) — premium minimal, product-as-hero
+       Family: Fashion / Luxury Ecommerce
+       Style: Apple-inspired — binary light/dark rhythm, single gold accent,
+              pill CTAs, generous whitespace, product-as-hero photography
+       Surface: Decide/Learn (luxury brand landing page)
+       Strategy: Restrained (pure white + pure black + gold accent ≤8%)
+       Typography: Cormorant Garamond (editorial serif headings) + system-ui (clean body)
+       ================================================================ */
+
+    /* ----- CSS Reset & Base ----- */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      /* Apple-inspired palette adapted for fashion */
+      --color-bg: #ffffff;
+      --color-bg-alt: #f5f5f7;
+      --color-bg-dark: #000000;
+      --color-bg-dark-alt: #0a0a0c;
+      --color-surface-light: #fafafc;
+      --color-text: #1d1d1f;
+      --color-text-secondary: rgba(29, 29, 31, 0.64);
+      --color-text-tertiary: rgba(29, 29, 31, 0.48);
+      --color-text-inverse: #ffffff;
+      --color-text-inverse-secondary: rgba(255, 255, 255, 0.65);
+      --color-accent: #c9a84c;
+      --color-accent-hover: #dbb95d;
+      --color-accent-dark: #a88a2e;
+      --color-accent-ghost: rgba(201, 168, 76, 0.12);
+      --color-border: rgba(29, 29, 31, 0.08);
+      --color-border-light: rgba(29, 29, 31, 0.04);
+
+      /* Typography */
+      --font-display: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+      --font-body: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+      /* Spacing */
+      --space-xs: 4px;
+      --space-sm: 8px;
+      --space-md: 16px;
+      --space-lg: 24px;
+      --space-xl: 32px;
+      --space-2xl: 48px;
+      --space-3xl: 64px;
+      --space-4xl: 96px;
+      --space-5xl: 128px;
+
+      /* Radii */
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --radius-pill: 980px;
+      --radius-full: 50%;
+
+      /* Shadows */
+      --shadow-soft: rgba(0, 0, 0, 0.04) 0px 2px 8px;
+      --shadow-card: rgba(0, 0, 0, 0.06) 0px 4px 24px;
+      --shadow-elevated: rgba(0, 0, 0, 0.12) 0px 8px 40px;
+
+      /* Z-index scale */
+      --z-dropdown: 100;
+      --z-nav: 200;
+      --z-modal-backdrop: 300;
+      --z-modal: 400;
+      --z-toast: 500;
+
+      /* Transitions */
+      --ease-expo: cubic-bezier(0.19, 1, 0.22, 1);
+      --ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      --duration-fast: 300ms;
+      --duration-med: 500ms;
+      --duration-slow: 800ms;
+    }
+
+    /* ----- Base ----- */
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 17px;
+      line-height: 1.47;
+      color: var(--color-text);
+      background: var(--color-bg);
+      letter-spacing: -0.022em;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    ul { list-style: none; }
+
+    .container {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 var(--space-lg);
+    }
+
+    .container--narrow {
+      max-width: 780px;
+    }
+
+    .container--wide {
+      max-width: 1280px;
+    }
+
+    /* Screen-reader only */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* ----- Language Switcher ----- */
+    .lang-select { position: relative; display: inline-block; }
+    .lang-select__btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      height: 34px; padding: 0 0.8rem;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 999px;
+      font-family: var(--font-body);
+      font-size: 11px; font-weight: 500;
+      letter-spacing: 0.04em; text-transform: uppercase;
+      color: var(--color-text-inverse);
+      cursor: pointer;
+      transition: color var(--duration-fast) var(--ease-out), background var(--duration-fast) var(--ease-out), border-color var(--duration-fast) var(--ease-out);
+    }
+    .lang-select__btn:hover, .lang-select__btn[aria-expanded="true"] {
+      background: rgba(255,255,255,0.12);
+      border-color: var(--color-accent);
+    }
+    .lang-select__chev { transition: transform var(--duration-fast) var(--ease-out); }
+    .lang-select__btn[aria-expanded="true"] .lang-select__chev { transform: rotate(180deg); }
+    .lang-select__menu {
+      position: absolute; top: calc(100% + 8px); right: 0; z-index: 100;
+      min-width: 176px; padding: 0.4rem;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.28);
+      opacity: 0; visibility: hidden; transform: translateY(-4px);
+      transition: all var(--duration-fast) var(--ease-out);
+    }
+    .lang-select__menu.open { opacity: 1; visibility: visible; transform: translateY(0); }
+    .lang-select__opt {
+      display: flex; align-items: center; gap: 0.5rem; width: 100%;
+      padding: 0.5rem 0.7rem;
+      background: none; border: none; border-radius: 8px;
+      font-family: var(--font-body);
+      font-size: 0.84375rem; font-weight: 500;
+      color: var(--color-text);
+      cursor: pointer; text-align: left;
+      transition: background var(--duration-fast) var(--ease-out);
+    }
+    .lang-select__opt:hover { background: var(--color-accent-ghost); }
+    .lang-select__opt[aria-selected="true"] { color: var(--color-accent-dark); font-weight: 600; }
+    .lang-select__opt[aria-selected="true"]::after { content: '\2713'; margin-left: auto; }
+    .nav__lang-mobile .lang-select__btn {
+      background: transparent; border-color: var(--color-border);
+      color: var(--color-text);
+    }
+    .nav__lang-mobile .lang-select__menu { right: 0; left: auto; min-width: 160px; }
+
+    /* ----- Navigation ----- */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: var(--z-nav);
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      height: 52px;
+      display: flex;
+      align-items: center;
+      transition: background var(--duration-fast) var(--ease-out);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .nav--light {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .nav__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 var(--space-lg);
+    }
+
+    .nav__logo {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--color-text-inverse);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      line-height: 1;
+      transition: color var(--duration-fast) var(--ease-out);
+    }
+
+    .nav--light .nav__logo {
+      color: var(--color-text);
+    }
+
+    .nav__logo span {
+      color: var(--color-accent);
+    }
+
+    .nav__links {
+      display: flex;
+      align-items: center;
+      gap: var(--space-xl);
+    }
+
+    .nav__link {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--color-text-inverse-secondary);
+      letter-spacing: 0.01em;
+      transition: color var(--duration-fast) var(--ease-out);
+      position: relative;
+      padding: 4px 0;
+    }
+
+    .nav__link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: var(--color-accent);
+      transform: scaleX(0);
+      transform-origin: right center;
+      transition: transform 400ms var(--ease-expo);
+    }
+
+    .nav__link:hover {
+      color: var(--color-text-inverse);
+    }
+
+    .nav__link:hover::after {
+      transform: scaleX(1);
+      transform-origin: left center;
+    }
+
+    .nav--light .nav__link {
+      color: var(--color-text-secondary);
+    }
+
+    .nav--light .nav__link:hover {
+      color: var(--color-text);
+    }
+
+    .nav__cta {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 18px;
+      background: var(--color-accent);
+      color: var(--color-text);
+      font-size: 13px;
+      font-weight: 500;
+      border-radius: var(--radius-pill);
+      transition: background var(--duration-fast) var(--ease-out), transform var(--duration-fast) var(--ease-out);
+      letter-spacing: 0.01em;
+    }
+
+    .nav__cta:hover {
+      background: var(--color-accent-hover);
+      transform: scale(1.02);
+    }
+
+    /* Mobile menu toggle */
+    .nav__toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      color: var(--color-text-inverse);
+    }
+
+    .nav--light .nav__toggle {
+      color: var(--color-text);
+    }
+
+    .nav__toggle svg {
+      display: block;
+    }
+
+    .nav__lang-mobile {
+      display: none;
+    }
+
+    /* ----- Sections common ----- */
+    .section {
+      position: relative;
+    }
+
+    .section--dark {
+      background: var(--color-bg-dark);
+      color: var(--color-text-inverse);
+    }
+
+    .section--dark-alt {
+      background: var(--color-bg-dark-alt);
+      color: var(--color-text-inverse);
+    }
+
+    .section--light {
+      background: var(--color-bg);
+      color: var(--color-text);
+    }
+
+    .section--light-alt {
+      background: var(--color-bg-alt);
+      color: var(--color-text);
+    }
+
+    .section__label {
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: var(--space-md);
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 600ms var(--ease-expo), transform 600ms var(--ease-expo);
+    }
+
+    .section__label--visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .section__label--light {
+      color: var(--color-accent);
+    }
+
+    .section__label--dark {
+      color: var(--color-accent);
+    }
+
+    .section__title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4.5vw, 3.5rem);
+      font-weight: 500;
+      line-height: 1.12;
+      letter-spacing: -0.01em;
+      text-wrap: balance;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 700ms var(--ease-expo), transform 700ms var(--ease-expo);
+      transition-delay: 100ms;
+    }
+
+    .section__title--visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .section__desc {
+      font-size: 18px;
+      line-height: 1.6;
+      max-width: 640px;
+      color: var(--color-text-secondary);
+      margin-top: var(--space-lg);
+      text-wrap: pretty;
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 700ms var(--ease-expo), transform 700ms var(--ease-expo);
+      transition-delay: 200ms;
+    }
+
+    .section--dark .section__desc {
+      color: var(--color-text-inverse-secondary);
+    }
+
+    .section__desc--visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Reveal animation utility */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 700ms var(--ease-expo), transform 700ms var(--ease-expo);
+    }
+
+    .reveal--visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 100ms; }
+    .reveal-delay-2 { transition-delay: 200ms; }
+    .reveal-delay-3 { transition-delay: 300ms; }
+    .reveal-delay-4 { transition-delay: 400ms; }
+
+    /* ----- Buttons ----- */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 500;
+      padding: 10px 24px;
+      border: 1px solid transparent;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      transition: all 400ms var(--ease-expo);
+      letter-spacing: 0.01em;
+      line-height: 1.2;
+    }
+
+    .btn--primary {
+      background: var(--color-accent);
+      color: var(--color-text);
+      border-color: var(--color-accent);
+    }
+
+    .btn--primary:hover {
+      background: var(--color-accent-hover);
+      border-color: var(--color-accent-hover);
+      transform: scale(1.03);
+    }
+
+    .btn--outline-light {
+      background: transparent;
+      color: var(--color-text-inverse);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .btn--outline-light:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.6);
+    }
+
+    .btn--outline-dark {
+      background: transparent;
+      color: var(--color-text);
+      border-color: var(--color-border);
+    }
+
+    .btn--outline-dark:hover {
+      border-color: var(--color-text);
+      background: rgba(29, 29, 31, 0.04);
+    }
+
+    .btn--link {
+      background: transparent;
+      color: var(--color-accent-dark);
+      border: none;
+      padding: 0;
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    .btn--link::after {
+      content: '→';
+      margin-left: 4px;
+      transition: transform 300ms var(--ease-expo);
+      display: inline-block;
+    }
+
+    .btn--link:hover::after {
+      transform: translateX(4px);
+    }
+
+    .btn--link-light {
+      color: var(--color-accent);
+    }
+
+    /* ----- Hero ----- */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--color-bg-dark);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero__bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .hero__bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.55;
+      transform: scale(1.05);
+      transition: transform 1.5s var(--ease-expo);
+    }
+
+    .hero--loaded .hero__bg img {
+      transform: scale(1);
+    }
+
+    .hero__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.4) 0%,
+        rgba(0, 0, 0, 0.55) 40%,
+        rgba(0, 0, 0, 0.7) 100%
+      );
+      z-index: 1;
+    }
+
+    .hero__content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 820px;
+      padding: 0 var(--space-lg);
+      padding-top: 60px;
+    }
+
+    .hero__kicker {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: var(--space-lg);
+      opacity: 0;
+      transform: translateY(16px);
+      animation: heroFadeIn 800ms var(--ease-expo) 300ms forwards;
+    }
+
+    .hero__title {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-weight: 500;
+      line-height: 1.06;
+      letter-spacing: -0.02em;
+      color: var(--color-text-inverse);
+      text-wrap: balance;
+      margin-bottom: var(--space-lg);
+      opacity: 0;
+      transform: translateY(20px);
+      animation: heroFadeIn 800ms var(--ease-expo) 500ms forwards;
+    }
+
+    .hero__title em {
+      font-style: italic;
+      color: var(--color-accent);
+    }
+
+    .hero__subtitle {
+      font-size: 19px;
+      line-height: 1.6;
+      color: var(--color-text-inverse-secondary);
+      max-width: 580px;
+      margin: 0 auto var(--space-2xl);
+      text-wrap: pretty;
+      opacity: 0;
+      transform: translateY(16px);
+      animation: heroFadeIn 800ms var(--ease-expo) 700ms forwards;
+    }
+
+    .hero__actions {
+      display: flex;
+      gap: var(--space-md);
+      justify-content: center;
+      flex-wrap: wrap;
+      opacity: 0;
+      transform: translateY(16px);
+      animation: heroFadeIn 800ms var(--ease-expo) 900ms forwards;
+    }
+
+    .hero__scroll {
+      position: absolute;
+      bottom: var(--space-2xl);
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      opacity: 0;
+      animation: heroFadeIn 800ms var(--ease-expo) 1300ms forwards;
+    }
+
+    .hero__scroll-indicator {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.5), transparent);
+      margin: 0 auto var(--space-sm);
+      animation: scrollPulse 2.5s ease-in-out infinite;
+    }
+
+    .hero__scroll-text {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.35);
+    }
+
+    @keyframes heroFadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.6; transform: scaleY(1); }
+      50% { opacity: 0.2; transform: scaleY(0.6); }
+    }
+
+    /* ----- Collection Grid ----- */
+    .collection-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+      margin-top: var(--space-3xl);
+    }
+
+    .collection-grid__item {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 3 / 4;
+      cursor: pointer;
+      background: var(--color-bg-dark-alt);
+    }
+
+    .collection-grid__item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 1s var(--ease-expo), opacity 800ms var(--ease-expo);
+    }
+
+    .collection-grid__item:hover img {
+      transform: scale(1.04);
+    }
+
+    .collection-grid__info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: var(--space-2xl) var(--space-xl) var(--space-xl);
+      background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%);
+      transform: translateY(8px);
+      opacity: 0;
+      transition: transform 500ms var(--ease-expo), opacity 500ms var(--ease-expo);
+    }
+
+    .collection-grid__item:hover .collection-grid__info {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .collection-grid__name {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--color-text-inverse);
+      line-height: 1.2;
+    }
+
+    .collection-grid__count {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.6);
+      margin-top: var(--space-xs);
+    }
+
+    /* ----- Editorial Alternating ----- */
+    .editorial {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      align-items: center;
+    }
+
+    .editorial--reverse {
+      direction: rtl;
+    }
+
+    .editorial--reverse .editorial__content,
+    .editorial--reverse .editorial__media {
+      direction: ltr;
+    }
+
+    .editorial__media {
+      overflow: hidden;
+      position: relative;
+    }
+
+    .editorial__media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 1.2s var(--ease-expo);
+    }
+
+    .editorial__media:hover img {
+      transform: scale(1.03);
+    }
+
+    .editorial__media--square {
+      aspect-ratio: 1;
+    }
+
+    .editorial__media--portrait {
+      aspect-ratio: 2 / 3;
+    }
+
+    .editorial__content {
+      padding: var(--space-4xl) var(--space-3xl);
+    }
+
+    .editorial__tag {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-accent-dark);
+      margin-bottom: var(--space-md);
+    }
+
+    .section--dark .editorial__tag {
+      color: var(--color-accent);
+    }
+
+    .editorial__title {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 500;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      text-wrap: balance;
+    }
+
+    .editorial__text {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--color-text-secondary);
+      margin-top: var(--space-lg);
+      max-width: 480px;
+      text-wrap: pretty;
+    }
+
+    .section--dark .editorial__text {
+      color: var(--color-text-inverse-secondary);
+    }
+
+    .editorial__action {
+      margin-top: var(--space-xl);
+    }
+
+    /* ----- Values / Pillars ----- */
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-2xl);
+      margin-top: var(--space-2xl);
+    }
+
+    .pillar {
+      text-align: center;
+      padding: var(--space-2xl) var(--space-lg);
+    }
+
+    .pillar__icon {
+      width: 48px;
+      height: 48px;
+      margin: 0 auto var(--space-lg);
+      border-radius: var(--radius-full);
+      background: var(--color-accent-ghost);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-accent-dark);
+    }
+
+    .section--dark .pillar__icon {
+      background: rgba(201, 168, 76, 0.15);
+      color: var(--color-accent);
+    }
+
+    .pillar__icon svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .pillar__title {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 1.2;
+      margin-bottom: var(--space-sm);
+    }
+
+    .pillar__text {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--color-text-secondary);
+    }
+
+    .section--dark .pillar__text {
+      color: var(--color-text-inverse-secondary);
+    }
+
+    /* ----- Featured Pieces (Horizontal Scroll) ----- */
+    .carousel {
+      position: relative;
+      margin-top: var(--space-2xl);
+      overflow: hidden;
+    }
+
+    .carousel__track {
+      display: flex;
+      gap: var(--space-lg);
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: var(--space-md);
+      scrollbar-width: none;
+    }
+
+    .carousel__track::-webkit-scrollbar {
+      display: none;
+    }
+
+    .carousel__card {
+      flex: 0 0 340px;
+      scroll-snap-align: start;
+    }
+
+    .carousel__card-image {
+      aspect-ratio: 3 / 4;
+      overflow: hidden;
+      border-radius: var(--radius-lg);
+      background: var(--color-bg-alt);
+      position: relative;
+    }
+
+    .section--dark .carousel__card-image {
+      background: var(--color-bg-dark-alt);
+    }
+
+    .carousel__card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 800ms var(--ease-expo);
+    }
+
+    .carousel__card:hover .carousel__card-image img {
+      transform: scale(1.04);
+    }
+
+    .carousel__card-name {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 500;
+      margin-top: var(--space-md);
+      line-height: 1.2;
+    }
+
+    .carousel__card-material {
+      font-size: 13px;
+      color: var(--color-text-secondary);
+      margin-top: var(--space-xs);
+    }
+
+    .section--dark .carousel__card-material {
+      color: var(--color-text-inverse-secondary);
+    }
+
+    .carousel__card-price {
+      font-size: 15px;
+      font-weight: 500;
+      margin-top: var(--space-sm);
+      color: var(--color-accent-dark);
+    }
+
+    .section--dark .carousel__card-price {
+      color: var(--color-accent);
+    }
+
+    .carousel__controls {
+      display: flex;
+      gap: var(--space-sm);
+      margin-top: var(--space-xl);
+    }
+
+    .carousel__btn {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--color-border);
+      background: var(--color-bg);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 300ms var(--ease-out);
+      color: var(--color-text);
+    }
+
+    .section--dark .carousel__btn {
+      background: transparent;
+      border-color: rgba(255, 255, 255, 0.15);
+      color: var(--color-text-inverse);
+    }
+
+    .carousel__btn:hover {
+      border-color: var(--color-accent);
+      color: var(--color-accent-dark);
+      background: var(--color-accent-ghost);
+    }
+
+    .section--dark .carousel__btn:hover {
+      border-color: var(--color-accent);
+      color: var(--color-accent);
+    }
+
+    .carousel__btn svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    /* ----- Journal / Editorial Cards ----- */
+    .journal-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-lg);
+      margin-top: var(--space-2xl);
+    }
+
+    .journal-card {
+      cursor: pointer;
+      transition: transform 500ms var(--ease-expo);
+    }
+
+    .journal-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .journal-card__image {
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      border-radius: var(--radius-lg);
+      background: var(--color-bg-alt);
+    }
+
+    .journal-card__image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 800ms var(--ease-expo);
+    }
+
+    .journal-card:hover .journal-card__image img {
+      transform: scale(1.05);
+    }
+
+    .journal-card__category {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-accent-dark);
+      margin-top: var(--space-md);
+    }
+
+    .journal-card__title {
+      font-family: var(--font-display);
+      font-size: 19px;
+      font-weight: 500;
+      line-height: 1.2;
+      margin-top: var(--space-xs);
+      text-wrap: balance;
+    }
+
+    .journal-card__excerpt {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--color-text-secondary);
+      margin-top: var(--space-sm);
+      text-wrap: pretty;
+    }
+
+    .journal-card__date {
+      font-size: 12px;
+      color: var(--color-text-tertiary);
+      margin-top: var(--space-md);
+    }
+
+    /* ----- Newsletter ----- */
+    .newsletter {
+      text-align: center;
+      padding: var(--space-4xl) 0;
+    }
+
+    .newsletter__form {
+      display: flex;
+      gap: var(--space-sm);
+      max-width: 480px;
+      margin: var(--space-xl) auto 0;
+    }
+
+    .newsletter__input {
+      flex: 1;
+      padding: 12px 18px;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-pill);
+      font-family: var(--font-body);
+      font-size: 15px;
+      color: var(--color-text);
+      background: var(--color-bg);
+      outline: none;
+      transition: border-color var(--duration-fast) var(--ease-out), box-shadow var(--duration-fast) var(--ease-out);
+      letter-spacing: -0.01em;
+    }
+
+    .newsletter__input::placeholder {
+      color: var(--color-text-tertiary);
+    }
+
+    .newsletter__input:focus {
+      border-color: var(--color-accent);
+      box-shadow: 0 0 0 3px var(--color-accent-ghost);
+    }
+
+    .newsletter__submit {
+      padding: 12px 28px;
+      background: var(--color-accent);
+      color: var(--color-text);
+      border: none;
+      border-radius: var(--radius-pill);
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 300ms var(--ease-expo);
+      white-space: nowrap;
+    }
+
+    .newsletter__submit:hover {
+      background: var(--color-accent-hover);
+      transform: scale(1.02);
+    }
+
+    .newsletter__note {
+      font-size: 12px;
+      color: var(--color-text-tertiary);
+      margin-top: var(--space-md);
+    }
+
+    /* ----- Footer ----- */
+    .footer {
+      padding: var(--space-4xl) 0 var(--space-xl);
+      border-top: 1px solid var(--color-border);
+    }
+
+    .section--dark .footer {
+      border-top-color: rgba(255, 255, 255, 0.08);
+    }
+
+    .footer__grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: var(--space-3xl);
+    }
+
+    .footer__brand {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      line-height: 1;
+      color: var(--color-text);
+    }
+
+    .section--dark .footer__brand {
+      color: var(--color-text-inverse);
+    }
+
+    .footer__brand span {
+      color: var(--color-accent-dark);
+    }
+
+    .section--dark .footer__brand span {
+      color: var(--color-accent);
+    }
+
+    .footer__tagline {
+      font-size: 13px;
+      color: var(--color-text-tertiary);
+      margin-top: var(--space-sm);
+      max-width: 240px;
+      line-height: 1.5;
+    }
+
+    .footer__heading {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: var(--space-lg);
+      color: var(--color-text);
+    }
+
+    .section--dark .footer__heading {
+      color: var(--color-text-inverse);
+    }
+
+    .footer__link {
+      display: block;
+      font-size: 13px;
+      color: var(--color-text-secondary);
+      padding: 4px 0;
+      transition: color var(--duration-fast) var(--ease-out);
+    }
+
+    .section--dark .footer__link {
+      color: var(--color-text-inverse-secondary);
+    }
+
+    .footer__link:hover {
+      color: var(--color-accent-dark);
+    }
+
+    .section--dark .footer__link:hover {
+      color: var(--color-accent);
+    }
+
+    .footer__bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: var(--space-xl);
+      margin-top: var(--space-3xl);
+      border-top: 1px solid var(--color-border);
+    }
+
+    .section--dark .footer__bottom {
+      border-top-color: rgba(255, 255, 255, 0.08);
+    }
+
+    .footer__copy {
+      font-size: 12px;
+      color: var(--color-text-tertiary);
+    }
+
+    .footer__socials {
+      display: flex;
+      gap: var(--space-md);
+    }
+
+    .footer__social {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--color-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-text-secondary);
+      transition: all 300ms var(--ease-out);
+    }
+
+    .section--dark .footer__social {
+      border-color: rgba(255, 255, 255, 0.12);
+      color: var(--color-text-inverse-secondary);
+    }
+
+    .footer__social:hover {
+      border-color: var(--color-accent);
+      color: var(--color-accent-dark);
+      background: var(--color-accent-ghost);
+    }
+
+    .section--dark .footer__social:hover {
+      border-color: var(--color-accent);
+      color: var(--color-accent);
+    }
+
+    .footer__social svg {
+      width: 15px;
+      height: 15px;
+    }
+
+    /* ----- Cookie Banner ----- */
+    .cookie-banner {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: var(--z-toast);
+      background: var(--color-bg-dark);
+      color: var(--color-text-inverse);
+      padding: var(--space-lg) var(--space-xl);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-xl);
+      transform: translateY(100%);
+      transition: transform 500ms var(--ease-expo);
+    }
+
+    .cookie-banner--visible {
+      transform: translateY(0);
+    }
+
+    .cookie-banner__text {
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--color-text-inverse-secondary);
+    }
+
+    .cookie-banner__text a {
+      color: var(--color-accent);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .cookie-banner__actions {
+      display: flex;
+      gap: var(--space-md);
+      flex-shrink: 0;
+    }
+
+    .cookie-banner__btn {
+      padding: 8px 20px;
+      border-radius: var(--radius-pill);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      border: none;
+      transition: all 300ms var(--ease-out);
+    }
+
+    .cookie-banner__btn--accept {
+      background: var(--color-accent);
+      color: var(--color-text);
+    }
+
+    .cookie-banner__btn--accept:hover {
+      background: var(--color-accent-hover);
+    }
+
+    .cookie-banner__btn--decline {
+      background: transparent;
+      color: var(--color-text-inverse-secondary);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .cookie-banner__btn--decline:hover {
+      border-color: rgba(255, 255, 255, 0.3);
+      color: var(--color-text-inverse);
+    }
+
+    /* ----- Responsive ----- */
+    @media (max-width: 1024px) {
+      .editorial {
+        grid-template-columns: 1fr;
+      }
+      .editorial--reverse {
+        direction: ltr;
+      }
+      .editorial__content {
+        padding: var(--space-3xl) var(--space-xl);
+      }
+      .footer__grid {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-2xl);
+      }
+      .journal-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav__links {
+        display: none;
+      }
+      .nav__toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .nav__lang-mobile {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        margin-left: auto;
+        margin-right: var(--space-md);
+      }
+
+      .nav--open .nav__links {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 52px;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.96);
+        backdrop-filter: saturate(180%) blur(20px);
+        padding: var(--space-xl) var(--space-lg);
+        gap: var(--space-lg);
+        align-items: flex-start;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      .nav--light.nav--open .nav__links {
+        background: rgba(255, 255, 255, 0.96);
+        border-bottom-color: var(--color-border);
+      }
+
+      .nav__link {
+        font-size: 16px;
+      }
+
+      .collection-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pillars {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+      }
+
+      .journal-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero__title {
+        font-size: clamp(2.4rem, 10vw, 4rem);
+      }
+
+      .hero__subtitle {
+        font-size: 16px;
+      }
+
+      .newsletter__form {
+        flex-direction: column;
+      }
+
+      .footer__grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-2xl);
+      }
+
+      .footer__bottom {
+        flex-direction: column;
+        gap: var(--space-md);
+        text-align: center;
+      }
+
+      .carousel__card {
+        flex: 0 0 280px;
+      }
+
+      .cookie-banner {
+        flex-direction: column;
+        text-align: center;
+        padding: var(--space-md);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero__actions {
+        flex-direction: column;
+        align-items: center;
+      }
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+      .carousel__card {
+        flex: 0 0 260px;
+      }
+      .editorial__content {
+        padding: var(--space-2xl) var(--space-lg);
+      }
+    }
+
+    /* ----- Reduced Motion ----- */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      html {
+        scroll-behavior: auto;
+      }
+      .hero__bg img {
+        transform: none !important;
+      }
+      .collection-grid__item img,
+      .carousel__card-image img,
+      .journal-card__image img,
+      .editorial__media img {
+        transform: none !important;
+      }
+      .collection-grid__info {
+        opacity: 1;
+        transform: none;
+      }
+      .reveal,
+      .section__title,
+      .section__desc,
+      .section__label {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    /* ----- Loading / Font fallback ----- */
+    .wf-loading body {
+      opacity: 0;
+    }
+
+    .wf-active body,
+    .wf-inactive body {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body class="wf-loading">
+
+  <!-- ===== Navigation ===== -->
+  <header class="nav" id="nav" role="banner">
+    <div class="nav__inner">
+      <a href="#" class="nav__logo" data-i18n="brand">AUR<span>·</span>A</a>
+
+      <div class="nav__lang-mobile" id="navLangMobile">
+        <div class="lang-select" id="langSelectMobile">
+          <button class="lang-select__btn" type="button" id="langBtnMobile" aria-haspopup="listbox" aria-expanded="false" aria-label="Select language">
+            <span class="lang-select__cur" id="langCurMobile">EN</span>
+            <svg class="lang-select__chev" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="lang-select__menu" role="listbox" aria-label="Choose language">
+            <button class="lang-select__opt" role="option" data-lang="en" aria-selected="true">English</button>
+            <button class="lang-select__opt" role="option" data-lang="es" aria-selected="false">Español</button>
+            <button class="lang-select__opt" role="option" data-lang="fr" aria-selected="false">Français</button>
+            <button class="lang-select__opt" role="option" data-lang="de" aria-selected="false">Deutsch</button>
+            <button class="lang-select__opt" role="option" data-lang="it" aria-selected="false">Italiano</button>
+            <button class="lang-select__opt" role="option" data-lang="pt" aria-selected="false">Português</button>
+          </div>
+        </div>
+      </div>
+
+      <button class="nav__toggle" id="navToggle" aria-label="Menu" type="button">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+          <line x1="3" y1="6" x2="17" y2="6"/>
+          <line x1="3" y1="10" x2="17" y2="10"/>
+          <line x1="3" y1="14" x2="17" y2="14"/>
+        </svg>
+      </button>
+
+      <nav class="nav__links" id="navLinks" role="navigation" aria-label="Main navigation">
+        <a href="#collections" class="nav__link" data-i18n="nav.collections">Collections</a>
+        <a href="#craft" class="nav__link" data-i18n="nav.craft">Craft</a>
+        <a href="#sustainability" class="nav__link" data-i18n="nav.sustainability">Sustainability</a>
+        <a href="#journal" class="nav__link" data-i18n="nav.journal">Journal</a>
+        <div class="lang-select" id="navLangDesktop">
+          <button class="lang-select__btn" type="button" id="langBtn" aria-haspopup="listbox" aria-expanded="false" aria-label="Select language">
+            <span class="lang-select__cur" id="langCur">EN</span>
+            <svg class="lang-select__chev" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="lang-select__menu" role="listbox" aria-label="Choose language">
+            <button class="lang-select__opt" role="option" data-lang="en" aria-selected="true">English</button>
+            <button class="lang-select__opt" role="option" data-lang="es" aria-selected="false">Español</button>
+            <button class="lang-select__opt" role="option" data-lang="fr" aria-selected="false">Français</button>
+            <button class="lang-select__opt" role="option" data-lang="de" aria-selected="false">Deutsch</button>
+            <button class="lang-select__opt" role="option" data-lang="it" aria-selected="false">Italiano</button>
+            <button class="lang-select__opt" role="option" data-lang="pt" aria-selected="false">Português</button>
+          </div>
+        </div>
+        <a href="#" class="nav__cta" data-i18n="nav.cta">Book an Appointment</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section class="hero section--dark" id="hero">
+    <div class="hero__bg">
+      <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=1600&q=85" alt="" loading="eager">
+    </div>
+    <div class="hero__overlay"></div>
+
+    <div class="hero__content">
+      <p class="hero__kicker" data-i18n="hero.kicker">Sustainable Luxury since 2018</p>
+      <h1 class="hero__title" data-i18n="hero.title">Essential wardrobes,<br><em>consciously made</em></h1>
+      <p class="hero__subtitle" data-i18n="hero.subtitle">Timeless silhouettes cut from responsibly sourced materials. Every piece is crafted to outlast seasons, trends, and time itself — because true luxury leaves a lighter footprint.</p>
+      <div class="hero__actions">
+        <a href="#" class="btn btn--primary" data-i18n="hero.ctaPrimary">Explore the Collection</a>
+        <a href="#craft" class="btn btn--outline-light" data-i18n="hero.ctaSecondary">Our Philosophy</a>
+      </div>
+    </div>
+
+    <div class="hero__scroll">
+      <div class="hero__scroll-indicator"></div>
+      <p class="hero__scroll-text" data-i18n="hero.scroll">Discover</p>
+    </div>
+  </section>
+
+  <!-- ===== Collections ===== -->
+  <section class="section section--light-alt" id="collections">
+    <div class="container" style="padding-top: var(--space-4xl); padding-bottom: var(--space-4xl);">
+      <p class="section__label" data-i18n="collections.label">Curated</p>
+      <h2 class="section__title" data-i18n="collections.title">The Collections</h2>
+      <p class="section__desc" data-i18n="collections.desc">Four distinct narratives, each defined by a singular material philosophy. From sculptural tailoring to fluid linen, every collection tells a story of place and purpose.</p>
+
+      <div class="collection-grid">
+        <div class="collection-grid__item reveal reveal-delay-1">
+          <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=85" alt="Wool Tailoring Collection" loading="lazy">
+          <div class="collection-grid__info">
+            <h3 class="collection-grid__name" data-i18n="collections.1.name">Wool Tailoring</h3>
+            <p class="collection-grid__count" data-i18n="collections.1.count">12 Essential Pieces</p>
+          </div>
+        </div>
+        <div class="collection-grid__item reveal reveal-delay-2">
+          <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=800&q=85" alt="Linen & Cotton Collection" loading="lazy">
+          <div class="collection-grid__info">
+            <h3 class="collection-grid__name" data-i18n="collections.2.name">Linen & Cotton</h3>
+            <p class="collection-grid__count" data-i18n="collections.2.count">9 Essential Pieces</p>
+          </div>
+        </div>
+        <div class="collection-grid__item reveal reveal-delay-3">
+          <img src="https://images.unsplash.com/photo-1582418702059-97ebafb35d09?w=800&q=85" alt="Silk Evening Collection" loading="lazy">
+          <div class="collection-grid__info">
+            <h3 class="collection-grid__name" data-i18n="collections.3.name">Silk Evening</h3>
+            <p class="collection-grid__count" data-i18n="collections.3.count">8 Essential Pieces</p>
+          </div>
+        </div>
+        <div class="collection-grid__item reveal reveal-delay-4">
+          <img src="https://images.unsplash.com/photo-1539008835657-9e8e9680c956?w=800&q=85" alt="Cashmere & Knitwear Collection" loading="lazy">
+          <div class="collection-grid__info">
+            <h3 class="collection-grid__name" data-i18n="collections.4.name">Cashmere & Knitwear</h3>
+            <p class="collection-grid__count" data-i18n="collections.4.count">14 Essential Pieces</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Craft & Heritage ===== -->
+  <section class="section section--dark" id="craft">
+    <div class="editorial">
+      <div class="editorial__media editorial__media--portrait reveal">
+        <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=1000&q=85" alt="Artisan at work in the AURA atelier" loading="lazy">
+      </div>
+      <div class="editorial__content reveal reveal-delay-1">
+        <p class="editorial__tag" data-i18n="craft.tag">Craft & Heritage</p>
+        <h2 class="editorial__title" data-i18n="craft.title">Made by hand,<br>built to last.</h2>
+        <p class="editorial__text" data-i18n="craft.text">Every AURA piece begins in our atelier in the hills of Tuscany, where master pattern cutters and sewists work with fabrics that have been selected over months, not weeks. We use traditional tailoring techniques — hand-finished hems, reinforced seams, and meticulous quality checks at every stage — because a garment that endures is the most sustainable choice of all.</p>
+        <div class="editorial__action">
+          <a href="#" class="btn btn--link btn--link-light" data-i18n="craft.action">Meet the artisans</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Values / Pillars ===== -->
+  <section class="section section--light-alt">
+    <div class="container" style="padding-top: var(--space-4xl); padding-bottom: var(--space-4xl);">
+      <p class="section__label" data-i18n="values.label">Principles</p>
+      <h2 class="section__title" data-i18n="values.title">A better way<br>to dress.</h2>
+      <p class="section__desc" data-i18n="values.desc">Luxury and responsibility are not mutually exclusive. We prove it through three commitments that shape every decision we make.</p>
+
+      <div class="pillars">
+        <div class="pillar reveal reveal-delay-1">
+          <div class="pillar__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+              <path d="M2 17l10 5 10-5"/>
+              <path d="M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <h3 class="pillar__title" data-i18n="values.1.title">Responsible Materials</h3>
+          <p class="pillar__text" data-i18n="values.1.text">We source only organic cotton, mulesing-free wool, certified linen, and traceable cashmere. Every fiber is chosen for its environmental integrity as much as its hand feel.</p>
+        </div>
+        <div class="pillar reveal reveal-delay-2">
+          <div class="pillar__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+          </div>
+          <h3 class="pillar__title" data-i18n="values.2.title">Timeless Design</h3>
+          <p class="pillar__text" data-i18n="values.2.text">We do not follow trends. Our silhouettes are refined over years, not seasons — grounded in proportion, utility, and quiet beauty. A garment you will reach for again and again.</p>
+        </div>
+        <div class="pillar reveal reveal-delay-3">
+          <div class="pillar__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+            </svg>
+          </div>
+          <h3 class="pillar__title" data-i18n="values.3.title">Radical Transparency</h3>
+          <p class="pillar__text" data-i18n="values.3.text">Every garment comes with a digital passport tracing its journey from field to finished piece. We publish our supplier list. We show you the true cost of making things well.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Featured Pieces (Horizontal Carousel) ===== -->
+  <section class="section section--light">
+    <div class="container" style="padding-top: var(--space-4xl); padding-bottom: var(--space-4xl);">
+      <p class="section__label" data-i18n="featured.label">New Arrivals</p>
+      <h2 class="section__title" data-i18n="featured.title">Featured Pieces</h2>
+      <p class="section__desc" data-i18n="featured.desc">Each piece is limited to a single production run. When it is gone, we do not remake it — we move on to the next design, ensuring every garment is truly singular.</p>
+
+      <div class="carousel">
+        <div class="carousel__track" id="featuredTrack" role="list">
+          <div class="carousel__card" role="listitem">
+            <div class="carousel__card-image">
+              <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=600&q=85" alt="The Sculpted Blazer" loading="lazy">
+            </div>
+            <p class="carousel__card-name" data-i18n="featured.1.name">The Sculpted Blazer</p>
+            <p class="carousel__card-material" data-i18n="featured.1.material">Organic Wool / Tuscany</p>
+            <p class="carousel__card-price" data-i18n="featured.1.price">$1,280</p>
+          </div>
+          <div class="carousel__card" role="listitem">
+            <div class="carousel__card-image">
+              <img src="https://images.unsplash.com/photo-1608236415052-3c5e3d28b252?w=600&q=85" alt="The Fluid Trousers" loading="lazy">
+            </div>
+            <p class="carousel__card-name" data-i18n="featured.2.name">The Fluid Trouser</p>
+            <p class="carousel__card-material" data-i18n="featured.2.material">Linen-Cotton Blend / Portugal</p>
+            <p class="carousel__card-price" data-i18n="featured.2.price">$680</p>
+          </div>
+          <div class="carousel__card" role="listitem">
+            <div class="carousel__card-image">
+              <img src="https://images.unsplash.com/photo-1555618561-4b01cd7d76c5?w=600&q=85" alt="The Cocoon Coat" loading="lazy">
+            </div>
+            <p class="carousel__card-name" data-i18n="featured.3.name">The Cocoon Coat</p>
+            <p class="carousel__card-material" data-i18n="featured.3.material">Traceable Cashmere / Mongolia</p>
+            <p class="carousel__card-price" data-i18n="featured.3.price">$2,400</p>
+          </div>
+          <div class="carousel__card" role="listitem">
+            <div class="carousel__card-image">
+              <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=600&q=85" alt="The Column Dress" loading="lazy">
+            </div>
+            <p class="carousel__card-name" data-i18n="featured.4.name">The Column Dress</p>
+            <p class="carousel__card-material" data-i18n="featured.4.material">Peace Silk / Lake Como</p>
+            <p class="carousel__card-price" data-i18n="featured.4.price">$1,650</p>
+          </div>
+          <div class="carousel__card" role="listitem">
+            <div class="carousel__card-image">
+              <img src="https://images.unsplash.com/photo-1584370848010-d7fe6bc767ec?w=600&q=85" alt="The Relaxed Shirt" loading="lazy">
+            </div>
+            <p class="carousel__card-name" data-i18n="featured.5.name">The Relaxed Shirt</p>
+            <p class="carousel__card-material" data-i18n="featured.5.material">Organic Cotton / Japan</p>
+            <p class="carousel__card-price" data-i18n="featured.5.price">$420</p>
+          </div>
+          <div class="carousel__card" role="listitem">
+            <div class="carousel__card-image">
+              <img src="https://images.unsplash.com/photo-1584679109597-c656b066daf9?w=600&q=85" alt="The Knit Polo" loading="lazy">
+            </div>
+            <p class="carousel__card-name" data-i18n="featured.6.name">The Knit Polo</p>
+            <p class="carousel__card-material" data-i18n="featured.6.material">Extra-Fine Merino / Italy</p>
+            <p class="carousel__card-price" data-i18n="featured.6.price">$590</p>
+          </div>
+        </div>
+
+        <div class="carousel__controls">
+          <button class="carousel__btn" id="carouselPrev" aria-label="Previous pieces" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="15 18 9 12 15 6"/>
+            </svg>
+          </button>
+          <button class="carousel__btn" id="carouselNext" aria-label="Next pieces" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Sustainability (Alternating Editorial with Section) ===== -->
+  <section class="section section--dark" id="sustainability">
+    <div class="editorial editorial--reverse">
+      <div class="editorial__content reveal">
+        <p class="editorial__tag" data-i18n="sustainability.tag">Sustainability</p>
+        <h2 class="editorial__title" data-i18n="sustainability.title">The full cost<br>of making things well.</h2>
+        <p class="editorial__text" data-i18n="sustainability.text">We believe in radical transparency. Every AURA garment carries a digital passport that traces its full journey — from farm to spinning mill to dye house to our atelier to your wardrobe. We publish our supply chain, our carbon footprint per piece, and the true cost breakdown. Not because we are perfect, but because honesty is the only foundation for change.</p>
+        <div class="editorial__action">
+          <a href="#" class="btn btn--link btn--link-light" data-i18n="sustainability.action">View our impact report</a>
+        </div>
+      </div>
+      <div class="editorial__media editorial__media--square reveal reveal-delay-1">
+        <img src="https://images.unsplash.com/photo-1471306224500-6d0d218beadd?w=1000&q=85" alt="Sustainable fabric sourcing and natural materials" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Journal ===== -->
+  <section class="section section--light-alt" id="journal">
+    <div class="container" style="padding-top: var(--space-4xl); padding-bottom: var(--space-4xl);">
+      <p class="section__label" data-i18n="journal.label">The Edit</p>
+      <h2 class="section__title" data-i18n="journal.title">From the Journal</h2>
+      <p class="section__desc" data-i18n="journal.desc">Stories on craft, consciousness, and the people shaping a more thoughtful fashion industry.</p>
+
+      <div class="journal-grid">
+        <article class="journal-card reveal reveal-delay-1">
+          <div class="journal-card__image">
+            <img src="https://images.unsplash.com/photo-1599749034491-5df53c04830f?w=600&q=85" alt="The artisans behind the seams" loading="lazy">
+          </div>
+          <p class="journal-card__category" data-i18n="journal.1.category">Craft</p>
+          <h3 class="journal-card__title" data-i18n="journal.1.title">The Hands Behind the Seams</h3>
+          <p class="journal-card__excerpt" data-i18n="journal.1.excerpt">A portrait of the master sewists in our Tuscan atelier, where techniques passed down through four generations meet modern sustainable practices.</p>
+          <p class="journal-card__date" data-i18n="journal.1.date">July 12, 2026</p>
+        </article>
+        <article class="journal-card reveal reveal-delay-2">
+          <div class="journal-card__image">
+            <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=600&q=85" alt="Fabric and material sustainability" loading="lazy">
+          </div>
+          <p class="journal-card__category" data-i18n="journal.2.category">Materials</p>
+          <h3 class="journal-card__title" data-i18n="journal.2.title">Why We Chose Peace Silk</h3>
+          <p class="journal-card__excerpt" data-i18n="journal.2.excerpt">Our journey to find a silk that respects both the silkworm and the earth — and why it took us eighteen months to get right.</p>
+          <p class="journal-card__date" data-i18n="journal.2.date">June 28, 2026</p>
+        </article>
+        <article class="journal-card reveal reveal-delay-3">
+          <div class="journal-card__image">
+            <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?w=600&q=85" alt="Capsule wardrobe styling" loading="lazy">
+          </div>
+          <p class="journal-card__category" data-i18n="journal.3.category">Styling</p>
+          <h3 class="journal-card__title" data-i18n="journal.3.title">Building the Seven-Piece Capsule</h3>
+          <p class="journal-card__excerpt" data-i18n="journal.3.excerpt">How to build a seasonless wardrobe with just seven thoughtfully chosen pieces — and why constraints breed creativity.</p>
+          <p class="journal-card__date" data-i18n="journal.3.date">June 14, 2026</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Newsletter ===== -->
+  <section class="section section--dark">
+    <div class="container">
+      <div class="newsletter">
+        <p class="section__label" style="opacity: 1; transform: none;" data-i18n="newsletter.label">Stay Connected</p>
+        <h2 class="section__title" style="opacity: 1; transform: none;" data-i18n="newsletter.title">Join the AURA Journal</h2>
+        <p class="section__desc" style="opacity: 1; transform: none; margin: var(--space-md) auto 0;" data-i18n="newsletter.desc">Exclusive access to new collections, behind-the-scenes stories, and early invitations to our showroom events. No spam — ever.</p>
+        <form class="newsletter__form" id="newsletterForm" novalidate>
+          <input type="email" class="newsletter__input" id="newsletterInput" placeholder="your@email.com" required aria-label="Email address">
+          <button type="submit" class="newsletter__submit" data-i18n="newsletter.submit">Subscribe</button>
+        </form>
+        <p class="newsletter__note" data-i18n="newsletter.note">We respect your privacy. Unsubscribe at any time.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="section section--light-alt" role="contentinfo">
+    <div class="container">
+      <div class="footer">
+        <div class="footer__grid">
+          <div>
+            <p class="footer__brand">AUR<span>·</span>A</p>
+            <p class="footer__tagline" data-i18n="footer.tagline">Essential wardrobes, consciously made. True luxury endures.</p>
+          </div>
+          <div>
+            <p class="footer__heading" data-i18n="footer.collections">Collections</p>
+            <a href="#" class="footer__link" data-i18n="footer.links.wool">Wool Tailoring</a>
+            <a href="#" class="footer__link" data-i18n="footer.links.linen">Linen & Cotton</a>
+            <a href="#" class="footer__link" data-i18n="footer.links.silk">Silk Evening</a>
+            <a href="#" class="footer__link" data-i18n="footer.links.cashmere">Cashmere & Knitwear</a>
+          </div>
+          <div>
+            <p class="footer__heading" data-i18n="footer.company">Company</p>
+            <a href="#" class="footer__link" data-i18n="footer.links.about">Our Story</a>
+            <a href="#" class="footer__link" data-i18n="footer.links.sustainability">Sustainability</a>
+            <a href="#" class="footer__link" data-i18n="footer.links.careers">Careers</a>
+            <a href="#" class="footer__link" data-i18n="footer.links.press">Press</a>
+          </div>
+          <div>
+            <p class="footer__heading" data-i18n="footer.support">Support</p>
+            <a href="#" class="footer__link" data-i18n="footer.links.shipping">Shipping & Returns</a>
+            <a href="#" class="footer__link" data-i18n="footer.links.care">Garment Care</a>
+            <a href="#" class="footer__link" data-i18n="footer.links.faq">FAQ</a>
+            <a href="#" class="footer__link" data-i18n="footer.links.contact">Contact</a>
+          </div>
+        </div>
+
+        <div class="footer__bottom">
+          <p class="footer__copy" data-i18n="footer.copy">&copy; 2026 AURA. All rights reserved.</p>
+          <div class="footer__socials">
+            <a href="#" class="footer__social" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5"/>
+                <circle cx="12" cy="12" r="5"/>
+                <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/>
+              </svg>
+            </a>
+            <a href="#" class="footer__social" aria-label="Pinterest">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2C6.5 2 2 6.5 2 12c0 4.2 2.6 7.8 6.3 9.2-.1-.8-.2-2.1 0-3 .2-.9 1.4-5.7 1.4-5.7s-.4-.8-.4-2c0-1.9 1.1-3.3 2.5-3.3 1.2 0 1.8.9 1.8 2 0 1.2-.8 3-1.2 4.7-.3 1.4.7 2.5 2.1 2.5 2.5 0 4.4-2.6 4.4-6.5 0-3.4-2.4-5.8-5.9-5.8C8.7 4.5 6.5 7.1 6.5 10c0 1.2.5 2.5 1.1 3.2.1.1.1.2.1.4l-.4 1.6c-.1.4-.3.5-.7.3-1.9-.9-3-3.7-3-5.9 0-4.8 3.5-9.2 10-9.2 5.3 0 9.4 3.8 9.4 8.8 0 5.3-3.3 9.5-8 9.5-1.6 0-3-.8-3.5-1.8l-.9 3.6c-.3 1.3-1.2 2.9-1.8 3.9 1.4.4 2.8.7 4.2.7 5.5 0 10-4.5 10-10S17.5 2 12 2z"/>
+              </svg>
+            </a>
+            <a href="#" class="footer__social" aria-label="Spotify">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M8.5 14.5c2.5-1.5 5.3-1.8 7.5-.5" stroke-width="1.5"/>
+                <path d="M7.5 11.5c3-1.8 6.5-2 9-.5" stroke-width="1.2"/>
+                <path d="M6.5 8.5c3.5-2 7.7-2.2 10.5 0" stroke-width="0.8"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== Cookie Banner ===== -->
+  <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Cookie consent">
+    <p class="cookie-banner__text" data-i18n="cookie.text">We use essential cookies to ensure the best experience on our site. <a href="#" data-i18n="cookie.link">Learn more</a></p>
+    <div class="cookie-banner__actions">
+      <button class="cookie-banner__btn cookie-banner__btn--decline" id="cookieDecline" data-i18n="cookie.decline">Decline</button>
+      <button class="cookie-banner__btn cookie-banner__btn--accept" id="cookieAccept" data-i18n="cookie.accept">Accept</button>
+    </div>
+  </div>
+
+  <script>
+    // ================================================================
+    // AURA — Sustainable Luxury Fashion
+    // Runtime: i18n, animations, interactions
+    // i18n System: browser detect + localStorage + instant switch
+    // Animations: Intersection Observer scroll reveals
+    // ================================================================
+
+    // ----- i18n Translations -----
+    const TRANSLATIONS = {
+      en: {
+        brand: 'AUR·A',
+        'nav.collections': 'Collections',
+        'nav.craft': 'Craft',
+        'nav.sustainability': 'Sustainability',
+        'nav.journal': 'Journal',
+        'nav.cta': 'Book an Appointment',
+        'hero.kicker': 'Sustainable Luxury since 2018',
+        'hero.title': 'Essential wardrobes,<br><em>consciously made</em>',
+        'hero.subtitle': 'Timeless silhouettes cut from responsibly sourced materials. Every piece is crafted to outlast seasons, trends, and time itself — because true luxury leaves a lighter footprint.',
+        'hero.ctaPrimary': 'Explore the Collection',
+        'hero.ctaSecondary': 'Our Philosophy',
+        'hero.scroll': 'Discover',
+        'collections.label': 'Curated',
+        'collections.title': 'The Collections',
+        'collections.desc': 'Four distinct narratives, each defined by a singular material philosophy. From sculptural tailoring to fluid linen, every collection tells a story of place and purpose.',
+        'collections.1.name': 'Wool Tailoring',
+        'collections.1.count': '12 Essential Pieces',
+        'collections.2.name': 'Linen & Cotton',
+        'collections.2.count': '9 Essential Pieces',
+        'collections.3.name': 'Silk Evening',
+        'collections.3.count': '8 Essential Pieces',
+        'collections.4.name': 'Cashmere & Knitwear',
+        'collections.4.count': '14 Essential Pieces',
+        'craft.tag': 'Craft & Heritage',
+        'craft.title': 'Made by hand,<br>built to last.',
+        'craft.text': 'Every AURA piece begins in our atelier in the hills of Tuscany, where master pattern cutters and sewists work with fabrics that have been selected over months, not weeks. We use traditional tailoring techniques — hand-finished hems, reinforced seams, and meticulous quality checks at every stage — because a garment that endures is the most sustainable choice of all.',
+        'craft.action': 'Meet the artisans',
+        'values.label': 'Principles',
+        'values.title': 'A better way<br>to dress.',
+        'values.desc': 'Luxury and responsibility are not mutually exclusive. We prove it through three commitments that shape every decision we make.',
+        'values.1.title': 'Responsible Materials',
+        'values.1.text': 'We source only organic cotton, mulesing-free wool, certified linen, and traceable cashmere. Every fiber is chosen for its environmental integrity as much as its hand feel.',
+        'values.2.title': 'Timeless Design',
+        'values.2.text': 'We do not follow trends. Our silhouettes are refined over years, not seasons — grounded in proportion, utility, and quiet beauty. A garment you will reach for again and again.',
+        'values.3.title': 'Radical Transparency',
+        'values.3.text': 'Every garment comes with a digital passport tracing its journey from field to finished piece. We publish our supplier list. We show you the true cost of making things well.',
+        'featured.label': 'New Arrivals',
+        'featured.title': 'Featured Pieces',
+        'featured.desc': 'Each piece is limited to a single production run. When it is gone, we do not remake it — we move on to the next design, ensuring every garment is truly singular.',
+        'featured.1.name': 'The Sculpted Blazer',
+        'featured.1.material': 'Organic Wool / Tuscany',
+        'featured.1.price': '$1,280',
+        'featured.2.name': 'The Fluid Trouser',
+        'featured.2.material': 'Linen-Cotton Blend / Portugal',
+        'featured.2.price': '$680',
+        'featured.3.name': 'The Cocoon Coat',
+        'featured.3.material': 'Traceable Cashmere / Mongolia',
+        'featured.3.price': '$2,400',
+        'featured.4.name': 'The Column Dress',
+        'featured.4.material': 'Peace Silk / Lake Como',
+        'featured.4.price': '$1,650',
+        'featured.5.name': 'The Relaxed Shirt',
+        'featured.5.material': 'Organic Cotton / Japan',
+        'featured.5.price': '$420',
+        'featured.6.name': 'The Knit Polo',
+        'featured.6.material': 'Extra-Fine Merino / Italy',
+        'featured.6.price': '$590',
+        'sustainability.tag': 'Sustainability',
+        'sustainability.title': 'The full cost<br>of making things well.',
+        'sustainability.text': 'We believe in radical transparency. Every AURA garment carries a digital passport that traces its full journey — from farm to spinning mill to dye house to our atelier to your wardrobe. We publish our supply chain, our carbon footprint per piece, and the true cost breakdown. Not because we are perfect, but because honesty is the only foundation for change.',
+        'sustainability.action': 'View our impact report',
+        'journal.label': 'The Edit',
+        'journal.title': 'From the Journal',
+        'journal.desc': 'Stories on craft, consciousness, and the people shaping a more thoughtful fashion industry.',
+        'journal.1.category': 'Craft',
+        'journal.1.title': 'The Hands Behind the Seams',
+        'journal.1.excerpt': 'A portrait of the master sewists in our Tuscan atelier, where techniques passed down through four generations meet modern sustainable practices.',
+        'journal.1.date': 'July 12, 2026',
+        'journal.2.category': 'Materials',
+        'journal.2.title': 'Why We Chose Peace Silk',
+        'journal.2.excerpt': 'Our journey to find a silk that respects both the silkworm and the earth — and why it took us eighteen months to get right.',
+        'journal.2.date': 'June 28, 2026',
+        'journal.3.category': 'Styling',
+        'journal.3.title': 'Building the Seven-Piece Capsule',
+        'journal.3.excerpt': 'How to build a seasonless wardrobe with just seven thoughtfully chosen pieces — and why constraints breed creativity.',
+        'journal.3.date': 'June 14, 2026',
+        'newsletter.label': 'Stay Connected',
+        'newsletter.title': 'Join the AURA Journal',
+        'newsletter.desc': 'Exclusive access to new collections, behind-the-scenes stories, and early invitations to our showroom events. No spam — ever.',
+        'newsletter.submit': 'Subscribe',
+        'newsletter.note': 'We respect your privacy. Unsubscribe at any time.',
+        'footer.tagline': 'Essential wardrobes, consciously made. True luxury endures.',
+        'footer.collections': 'Collections',
+        'footer.links.wool': 'Wool Tailoring',
+        'footer.links.linen': 'Linen & Cotton',
+        'footer.links.silk': 'Silk Evening',
+        'footer.links.cashmere': 'Cashmere & Knitwear',
+        'footer.company': 'Company',
+        'footer.links.about': 'Our Story',
+        'footer.links.sustainability': 'Sustainability',
+        'footer.links.careers': 'Careers',
+        'footer.links.press': 'Press',
+        'footer.support': 'Support',
+        'footer.links.shipping': 'Shipping & Returns',
+        'footer.links.care': 'Garment Care',
+        'footer.links.faq': 'FAQ',
+        'footer.links.contact': 'Contact',
+        'footer.copy': '\u00a9 2026 AURA. All rights reserved.',
+        'cookie.text': 'We use essential cookies to ensure the best experience on our site.',
+        'cookie.link': 'Learn more',
+        'cookie.decline': 'Decline',
+        'cookie.accept': 'Accept'
+      },
+      es: {
+        brand: 'AUR·A',
+        'nav.collections': 'Colecciones',
+        'nav.craft': 'Artesan\u00eda',
+        'nav.sustainability': 'Sostenibilidad',
+        'nav.journal': 'Revista',
+        'nav.cta': 'Reservar Cita',
+        'hero.kicker': 'Lujo Sostenible desde 2018',
+        'hero.title': 'Armarios esenciales,<br><em>conscientemente hechos</em>',
+        'hero.subtitle': 'Siluetas atemporales confeccionadas con materiales de origen responsable. Cada pieza est\u00e1 creada para durar m\u00e1s all\u00e1 de las temporadas, las tendencias y el tiempo mismo \u2014 porque el verdadero lujo deja una huella m\u00e1s ligera.',
+        'hero.ctaPrimary': 'Explorar la Colecci\u00f3n',
+        'hero.ctaSecondary': 'Nuestra Filosof\u00eda',
+        'hero.scroll': 'Descubrir',
+        'collections.label': 'Selecci\u00f3n',
+        'collections.title': 'Las Colecciones',
+        'collections.desc': 'Cuatro narrativas distintas, cada una definida por una filosof\u00eda material \u00fanica. Desde la sastrer\u00eda escult\u00f3rica hasta el lino fluido, cada colecci\u00f3n cuenta una historia de lugar y prop\u00f3sito.',
+        'collections.1.name': 'Sastrer\u00eda de Lana',
+        'collections.1.count': '12 Piezas Esenciales',
+        'collections.2.name': 'Lino y Algod\u00f3n',
+        'collections.2.count': '9 Piezas Esenciales',
+        'collections.3.name': 'Tarde de Seda',
+        'collections.3.count': '8 Piezas Esenciales',
+        'collections.4.name': 'Cachemira y Punto',
+        'collections.4.count': '14 Piezas Esenciales',
+        'craft.tag': 'Artesan\u00eda y Herencia',
+        'craft.title': 'Hecho a mano,<br>construido para durar.',
+        'craft.text': 'Cada pieza de AURA comienza en nuestro taller en las colinas de la Toscana, donde maestros cortadores y costureros trabajan con telas seleccionadas durante meses, no semanas. Usamos t\u00e9cnicas tradicionales de sastrer\u00eda \u2014 dobladillos acabados a mano, costuras reforzadas y meticulosos controles de calidad en cada etapa \u2014 porque una prenda que perdura es la elecci\u00f3n m\u00e1s sostenible de todas.',
+        'craft.action': 'Conoce a los artesanos',
+        'values.label': 'Principios',
+        'values.title': 'Una mejor manera<br>de vestir.',
+        'values.desc': 'El lujo y la responsabilidad no son mutuamente excluyentes. Lo demostramos a trav\u00e9s de tres compromisos que moldean cada decisi\u00f3n que tomamos.',
+        'values.1.title': 'Materiales Responsables',
+        'values.1.text': 'Obtenemos solo algod\u00f3n org\u00e1nico, lana libre de mulesing, lino certificado y cachemira rastreable. Cada fibra se elige tanto por su integridad ambiental como por su suavidad al tacto.',
+        'values.2.title': 'Dise\u00f1o Atemporal',
+        'values.2.text': 'No seguimos tendencias. Nuestras siluetas se refinan durante a\u00f1os, no temporadas \u2014 basadas en la proporci\u00f3n, la utilidad y la belleza serena. Una prenda a la que volver\u00e1s una y otra vez.',
+        'values.3.title': 'Transparencia Radical',
+        'values.3.text': 'Cada prenda incluye un pasaporte digital que traza su viaje desde el campo hasta la pieza terminada. Publicamos nuestra lista de proveedores. Te mostramos el verdadero costo de hacer las cosas bien.',
+        'featured.label': 'Novedades',
+        'featured.title': 'Piezas Destacadas',
+        'featured.desc': 'Cada pieza se limita a una \u00fanica producci\u00f3n. Cuando se agota, no la rehacemos \u2014 pasamos al siguiente dise\u00f1o, asegurando que cada prenda sea verdaderamente \u00fanica.',
+        'featured.1.name': 'Blazer Esculpido',
+        'featured.1.material': 'Lana Org\u00e1nica / Toscana',
+        'featured.1.price': '$1,280',
+        'featured.2.name': 'Pantal\u00f3n Fluido',
+        'featured.2.material': 'Mezcla Lino-Algod\u00f3n / Portugal',
+        'featured.2.price': '$680',
+        'featured.3.name': 'Abrigo Capullo',
+        'featured.3.material': 'Cachemira Rastreable / Mongolia',
+        'featured.3.price': '$2,400',
+        'featured.4.name': 'Vestido Columna',
+        'featured.4.material': 'Seda Peace / Lago de Como',
+        'featured.4.price': '$1,650',
+        'featured.5.name': 'Camisa Relajada',
+        'featured.5.material': 'Algod\u00f3n Org\u00e1nico / Jap\u00f3n',
+        'featured.5.price': '$420',
+        'featured.6.name': 'Polo de Punto',
+        'featured.6.material': 'Merino Extra Fino / Italia',
+        'featured.6.price': '$590',
+        'sustainability.tag': 'Sostenibilidad',
+        'sustainability.title': 'El costo real<br>de hacer las cosas bien.',
+        'sustainability.text': 'Creemos en la transparencia radical. Cada prenda AURA lleva un pasaporte digital que traza su recorrido completo \u2014 desde la granja hasta el hilandero, la tintorer\u00eda, nuestro taller y tu armario. Publicamos nuestra cadena de suministro, nuestra huella de carbono por pieza y el desglose real de costos. No porque seamos perfectos, sino porque la honestidad es la \u00fanica base para el cambio.',
+        'sustainability.action': 'Ver nuestro informe de impacto',
+        'journal.label': 'La Edici\u00f3n',
+        'journal.title': 'Desde la Revista',
+        'journal.desc': 'Historias sobre artesan\u00eda, conciencia y las personas que dan forma a una industria de la moda m\u00e1s reflexiva.',
+        'journal.1.category': 'Artesan\u00eda',
+        'journal.1.title': 'Las Manos Detr\u00e1s de las Costuras',
+        'journal.1.excerpt': 'Un retrato de las maestras costureras en nuestro taller toscano, donde t\u00e9cnicas transmitidas durante cuatro generaciones se encuentran con pr\u00e1cticas sostenibles modernas.',
+        'journal.1.date': '12 de julio, 2026',
+        'journal.2.category': 'Materiales',
+        'journal.2.title': 'Por Qu\u00e9 Elegimos la Seda Peace',
+        'journal.2.excerpt': 'Nuestro viaje para encontrar una seda que respete tanto al gusano como a la tierra \u2014 y por qu\u00e9 nos llev\u00f3 dieciocho meses hacerlo bien.',
+        'journal.2.date': '28 de junio, 2026',
+        'journal.3.category': 'Estilo',
+        'journal.3.title': 'Construyendo el Armario de Siete Piezas',
+        'journal.3.excerpt': 'C\u00f3mo construir un guardarropa sin temporadas con solo siete piezas cuidadosamente elegidas \u2014 y por qu\u00e9 las limitaciones fomentan la creatividad.',
+        'journal.3.date': '14 de junio, 2026',
+        'newsletter.label': 'Mantente en Contacto',
+        'newsletter.title': '\u00danete al Diario AURA',
+        'newsletter.desc': 'Acceso exclusivo a nuevas colecciones, historias entre bastidores e invitaciones anticipadas a nuestros eventos en el showroom. Sin spam, nunca.',
+        'newsletter.submit': 'Suscribirse',
+        'newsletter.note': 'Respetamos tu privacidad. Cancela la suscripci\u00f3n en cualquier momento.',
+        'footer.tagline': 'Armarios esenciales, hechos con conciencia. El verdadero lujo perdura.',
+        'footer.collections': 'Colecciones',
+        'footer.links.wool': 'Sastrer\u00eda de Lana',
+        'footer.links.linen': 'Lino y Algod\u00f3n',
+        'footer.links.silk': 'Tarde de Seda',
+        'footer.links.cashmere': 'Cachemira y Punto',
+        'footer.company': 'Empresa',
+        'footer.links.about': 'Nuestra Historia',
+        'footer.links.sustainability': 'Sostenibilidad',
+        'footer.links.careers': 'Carreras',
+        'footer.links.press': 'Prensa',
+        'footer.support': 'Soporte',
+        'footer.links.shipping': 'Env\u00edos y Devoluciones',
+        'footer.links.care': 'Cuidado de Prendas',
+        'footer.links.faq': 'Preguntas Frecuentes',
+        'footer.links.contact': 'Contacto',
+        'footer.copy': '\u00a9 2026 AURA. Todos los derechos reservados.',
+        'cookie.text': 'Usamos cookies esenciales para garantizar la mejor experiencia en nuestro sitio.',
+        'cookie.link': 'M\u00e1s informaci\u00f3n',
+        'cookie.decline': 'Rechazar',
+        'cookie.accept': 'Aceptar'
+      },
+      fr: {
+        brand: 'AUR·A',
+        'nav.collections': 'Collections',
+        'nav.craft': 'Artisanat',
+        'nav.sustainability': 'Durabilit\u00e9',
+        'nav.journal': 'Journal',
+        'nav.cta': 'Prendre Rendez-Vous',
+        'hero.kicker': 'Luxe Durable depuis 2018',
+        'hero.title': 'Garde-robes essentiels,<br><em>fabriqu\u00e9s consciemment</em>',
+        'hero.subtitle': 'Silhouettes intemporelles taill\u00e9es dans des mat\u00e9riaux sourc\u00e9s de mani\u00e8re responsable. Chaque pi\u00e8ce est con\u00e7ue pour durer au-del\u00e0 des saisons, des tendances et du temps lui-m\u00eame \u2014 car le vrai luxe laisse une empreinte plus l\u00e9g\u00e8re.',
+        'hero.ctaPrimary': 'Explorer la Collection',
+        'hero.ctaSecondary': 'Notre Philosophie',
+        'hero.scroll': 'D\u00e9couvrir',
+        'collections.label': 'S\u00e9lection',
+        'collections.title': 'Les Collections',
+        'collections.desc': 'Quatre r\u00e9cits distincts, chacun d\u00e9fini par une philosophie mat\u00e9rielle singuli\u00e8re. De la couture sculpturale au lin fluide, chaque collection raconte une histoire de lieu et de sens.',
+        'collections.1.name': 'Tailleur en Laine',
+        'collections.1.count': '12 Pi\u00e8ces Essentielles',
+        'collections.2.name': 'Lin et Coton',
+        'collections.2.count': '9 Pi\u00e8ces Essentielles',
+        'collections.3.name': 'Soir\u00e9e en Soie',
+        'collections.3.count': '8 Pi\u00e8ces Essentielles',
+        'collections.4.name': 'Cachemire et Maille',
+        'collections.4.count': '14 Pi\u00e8ces Essentielles',
+        'craft.tag': 'Artisanat et Patrimoine',
+        'craft.title': 'Fabriqu\u00e9 \u00e0 la main,<br>con\u00e7u pour durer.',
+        'craft.text': 'Chaque pi\u00e8ce AURA commence dans notre atelier nich\u00e9 dans les collines de Toscane, o\u00f9 ma\u00eetres coupeurs et couturiers travaillent des tissus s\u00e9lectionn\u00e9s pendant des mois, pas des semaines. Nous utilisons des techniques de couture traditionnelles \u2014 ourlets finis \u00e0 la main, coutures renforc\u00e9es et contr\u00f4les de qualit\u00e9 m\u00e9ticuleux \u00e0 chaque \u00e9tape \u2014 car un v\u00eatement qui perdure est le choix le plus durable de tous.',
+        'craft.action': 'Rencontrer les artisans',
+        'values.label': 'Principes',
+        'values.title': 'Une meilleure fa\u00e7on<br>de s\u2019habiller.',
+        'values.desc': 'Le luxe et la responsabilit\u00e9 ne sont pas mutuellement exclusifs. Nous le prouvons \u00e0 travers trois engagements qui fa\u00e7onnent chaque d\u00e9cision.',
+        'values.1.title': 'Mat\u00e9riaux Responsables',
+        'values.1.text': 'Nous sour\u00e7ons uniquement du coton biologique, de la laine sans mulesing, du lin certifi\u00e9 et du cachemire tra\u00e7able. Chaque fibre est choisie autant pour son int\u00e9grit\u00e9 environnementale que pour son toucher.',
+        'values.2.title': 'Design Intemporel',
+        'values.2.text': 'Nous ne suivons pas les tendances. Nos silhouettes sont affin\u00e9es pendant des ann\u00e9es, pas des saisons \u2014 ancr\u00e9es dans la proportion, l\u2019utilit\u00e9 et la beaut\u00e9 silencieuse. Un v\u00eatement que vous enfilerez encore et encore.',
+        'values.3.title': 'Transparence Radicale',
+        'values.3.text': 'Chaque v\u00eatement est accompagn\u00e9 d\u2019un passeport num\u00e9rique retra\u00e7ant son parcours du champ \u00e0 la pi\u00e8ce finie. Nous publions notre liste de fournisseurs. Nous montrons le vrai co\u00fbt de bien faire les choses.',
+        'featured.label': 'Nouveaut\u00e9s',
+        'featured.title': 'Pi\u00e8ces Vedettes',
+        'featured.desc': 'Chaque pi\u00e8ce est limit\u00e9e \u00e0 une seule production. Quand elle est partie, nous ne la refaisons pas \u2014 nous passons au design suivant, assurant que chaque v\u00eatement est vraiment unique.',
+        'featured.1.name': 'Blazer Sculptural',
+        'featured.1.material': 'Laine Biologique / Toscane',
+        'featured.1.price': '1 280 $',
+        'featured.2.name': 'Pantalon Fluide',
+        'featured.2.material': 'M\u00e9lange Lin-Coton / Portugal',
+        'featured.2.price': '680 $',
+        'featured.3.name': 'Manteau Cocon',
+        'featured.3.material': 'Cachemire Tra\u00e7able / Mongolie',
+        'featured.3.price': '2 400 $',
+        'featured.4.name': 'Robe Colonne',
+        'featured.4.material': 'Soie Peace / Lac de C\u00f4me',
+        'featured.4.price': '1 650 $',
+        'featured.5.name': 'Chemise D\u00e9contract\u00e9e',
+        'featured.5.material': 'Coton Biologique / Japon',
+        'featured.5.price': '420 $',
+        'featured.6.name': 'Polo Maille',
+        'featured.6.material': 'M\u00e9rinos Extra-Fin / Italie',
+        'featured.6.price': '590 $',
+        'sustainability.tag': 'Durabilit\u00e9',
+        'sustainability.title': 'Le vrai co\u00fbt<br>de bien faire les choses.',
+        'sustainability.text': 'Nous croyons en la transparence radicale. Chaque v\u00eatement AURA porte un passeport num\u00e9rique qui retrace son parcours complet \u2014 de la ferme au moulin, \u00e0 la teinturerie, \u00e0 notre atelier, jusqu\u2019\u00e0 votre garde-robe. Nous publions notre cha\u00eene d\u2019approvisionnement, notre empreinte carbone par pi\u00e8ce et la r\u00e9partition des co\u00fbts r\u00e9els. Pas parce que nous sommes parfaits, mais parce que l\u2019honn\u00eatet\u00e9 est la seule base du changement.',
+        'sustainability.action': 'Voir notre rapport d\u2019impact',
+        'journal.label': 'L\u2019\u00c9dition',
+        'journal.title': 'Du Journal',
+        'journal.desc': 'Des histoires sur l\u2019artisanat, la conscience et les personnes qui fa\u00e7onnent une industrie de la mode plus r\u00e9fl\u00e9chie.',
+        'journal.1.category': 'Artisanat',
+        'journal.1.title': 'Les Mains Derri\u00e8re les Coutures',
+        'journal.1.excerpt': 'Un portrait des ma\u00eetres couturi\u00e8res de notre atelier toscan, o\u00f9 des techniques transmises depuis quatre g\u00e9n\u00e9rations rencontrent des pratiques durables modernes.',
+        'journal.1.date': '12 juillet 2026',
+        'journal.2.category': 'Mat\u00e9riaux',
+        'journal.2.title': 'Pourquoi Nous Avons Choisi la Soie Peace',
+        'journal.2.excerpt': 'Notre qu\u00eate pour trouver une soie qui respecte \u00e0 la fois le ver \u00e0 soie et la terre \u2014 et pourquoi il nous a fallu dix-huit mois pour y parvenir.',
+        'journal.2.date': '28 juin 2026',
+        'journal.3.category': 'Style',
+        'journal.3.title': 'Construire la Garde-Robe de Sept Pi\u00e8ces',
+        'journal.3.excerpt': 'Comment constituer une garde-robe sans saison avec seulement sept pi\u00e8ces soigneusement choisies \u2014 et pourquoi les contraintes stimulent la cr\u00e9ativit\u00e9.',
+        'journal.3.date': '14 juin 2026',
+        'newsletter.label': 'Restez Connect\u00e9',
+        'newsletter.title': 'Rejoignez le Journal AURA',
+        'newsletter.desc': 'Acc\u00e8s exclusif aux nouvelles collections, histoires en coulisses et invitations anticip\u00e9es \u00e0 nos \u00e9v\u00e9nements en showroom. Jamais de spam.',
+        'newsletter.submit': 'S\u2019abonner',
+        'newsletter.note': 'Nous respectons votre vie priv\u00e9e. D\u00e9sabonnez-vous \u00e0 tout moment.',
+        'footer.tagline': 'Garde-robes essentiels, fabriqu\u00e9s consciemment. Le vrai luxe endure.',
+        'footer.collections': 'Collections',
+        'footer.links.wool': 'Tailleur en Laine',
+        'footer.links.linen': 'Lin et Coton',
+        'footer.links.silk': 'Soir\u00e9e en Soie',
+        'footer.links.cashmere': 'Cachemire et Maille',
+        'footer.company': 'Entreprise',
+        'footer.links.about': 'Notre Histoire',
+        'footer.links.sustainability': 'Durabilit\u00e9',
+        'footer.links.careers': 'Carri\u00e8res',
+        'footer.links.press': 'Presse',
+        'footer.support': 'Soutien',
+        'footer.links.shipping': 'Livraison et Retours',
+        'footer.links.care': 'Entretien des V\u00eatements',
+        'footer.links.faq': 'FAQ',
+        'footer.links.contact': 'Contact',
+        'footer.copy': '\u00a9 2026 AURA. Tous droits r\u00e9serv\u00e9s.',
+        'cookie.text': 'Nous utilisons des cookies essentiels pour garantir la meilleure exp\u00e9rience sur notre site.',
+        'cookie.link': 'En savoir plus',
+        'cookie.decline': 'Refuser',
+        'cookie.accept': 'Accepter'
+      },
+      de: {
+        brand: 'AUR·A',
+        'nav.collections': 'Kollektionen',
+        'nav.craft': 'Handwerk',
+        'nav.sustainability': 'Nachhaltigkeit',
+        'nav.journal': 'Journal',
+        'nav.cta': 'Termin Vereinbaren',
+        'hero.kicker': 'Nachhaltiger Luxus seit 2018',
+        'hero.title': 'Essentielle Kleiderschr\u00e4nke,<br><em>bewusst gemacht</em>',
+        'hero.subtitle': 'Zeitlose Silhouetten aus verantwortungsvoll bezogenen Materialien. Jedes St\u00fcck ist geschaffen, um Jahreszeiten, Trends und die Zeit selbst zu \u00fcberdauern \u2014 denn wahrer Luxus hinterl\u00e4sst einen leichteren Fu\u00dfabdruck.',
+        'hero.ctaPrimary': 'Kollektion Entdecken',
+        'hero.ctaSecondary': 'Unsere Philosophie',
+        'hero.scroll': 'Entdecken',
+        'collections.label': 'Kuratiert',
+        'collections.title': 'Die Kollektionen',
+        'collections.desc': 'Vier unterschiedliche Erz\u00e4hlungen, jede definiert durch eine einzigartige Materialphilosophie. Von skulpturaler Schneiderei bis zu flie\u00dfendem Leinen \u2014 jede Kollektion erz\u00e4hlt eine Geschichte von Ort und Zweck.',
+        'collections.1.name': 'Woll-Ma\u00dfschneiderei',
+        'collections.1.count': '12 Essentielle St\u00fccke',
+        'collections.2.name': 'Leinen und Baumwolle',
+        'collections.2.count': '9 Essentielle St\u00fccke',
+        'collections.3.name': 'Seiden-Abendmode',
+        'collections.3.count': '8 Essentielle St\u00fccke',
+        'collections.4.name': 'Kaschmir und Strickwaren',
+        'collections.4.count': '14 Essentielle St\u00fccke',
+        'craft.tag': 'Handwerk und Erbe',
+        'craft.title': 'Handgefertigt,<br>um zu bestehen.',
+        'craft.text': 'Jedes AURA-St\u00fcck beginnt in unserer Atelier in den H\u00fcgeln der Toskana, wo Meisterzuschneider und N\u00e4herinnen mit Stoffen arbeiten, die \u00fcber Monate, nicht Wochen ausgew\u00e4hlt wurden. Wir verwenden traditionelle Schneidereitechniken \u2014 handgefertigte S\u00e4ume, verst\u00e4rkte N\u00e4hte und sorgf\u00e4ltige Qualit\u00e4tskontrollen in jeder Phase \u2014 denn ein Kleidungsst\u00fcck, das Bestand hat, ist die nachhaltigste Wahl von allen.',
+        'craft.action': 'Die Handwerker Kennenlernen',
+        'values.label': 'Prinzipien',
+        'values.title': 'Eine bessere Art,<br>sich zu kleiden.',
+        'values.desc': 'Luxus und Verantwortung schlie\u00dfen sich nicht aus. Wir beweisen dies durch drei Verpflichtungen, die jede unserer Entscheidungen pr\u00e4gen.',
+        'values.1.title': 'Verantwortungsvolle Materialien',
+        'values.1.text': 'Wir beziehen nur Bio-Baumwolle, mulesingfreie Wolle, zertifiziertes Leinen und r\u00fcckverfolgbaren Kaschmir. Jede Faser wird sowohl wegen ihrer Umweltintegrit\u00e4t als auch wegen ihres Griffgef\u00fchls ausgew\u00e4hlt.',
+        'values.2.title': 'Zeitloses Design',
+        'values.2.text': 'Wir folgen keinen Trends. Unsere Silhouetten werden \u00fcber Jahre verfeinert, nicht \u00fcber Saisons \u2014 basierend auf Proportion, Funktionalit\u00e4t und stiller Sch\u00f6nheit. Ein Kleidungsst\u00fcck, das Sie immer wieder zur Hand nehmen.',
+        'values.3.title': 'Radikale Transparenz',
+        'values.3.text': 'Jedes Kleidungsst\u00fcck wird mit einem digitalen Pass geliefert, der seine Reise vom Feld bis zum fertigen St\u00fcck nachverfolgt. Wir ver\u00f6ffentlichen unsere Lieferantenliste. Wir zeigen Ihnen die wahren Kosten, Dinge gut zu machen.',
+        'featured.label': 'Neuheiten',
+        'featured.title': 'Vorgestellte St\u00fccke',
+        'featured.desc': 'Jedes St\u00fcck ist auf eine einzige Produktion begrenzt. Wenn es weg ist, fertigen wir es nicht neu \u2014 wir gehen zum n\u00e4chsten Design \u00fcber, um sicherzustellen, dass jedes Kleidungsst\u00fcck wirklich einzigartig ist.',
+        'featured.1.name': 'Der Skulpturale Blazer',
+        'featured.1.material': 'Bio-Wolle / Toskana',
+        'featured.1.price': '1.280 $',
+        'featured.2.name': 'Die Flie\u00dfende Hose',
+        'featured.2.material': 'Leinen-Baumwoll-Mischung / Portugal',
+        'featured.2.price': '680 $',
+        'featured.3.name': 'Der Kokon-Mantel',
+        'featured.3.material': 'R\u00fcckverfolgbarer Kaschmir / Mongolei',
+        'featured.3.price': '2.400 $',
+        'featured.4.name': 'Das S\u00e4ulenkleid',
+        'featured.4.material': 'Peace-Seide / Comer See',
+        'featured.4.price': '1.650 $',
+        'featured.5.name': 'Das Legerere Hemd',
+        'featured.5.material': 'Bio-Baumwolle / Japan',
+        'featured.5.price': '420 $',
+        'featured.6.name': 'Das Strick-Polo',
+        'featured.6.material': 'Extrafeine Merino / Italien',
+        'featured.6.price': '590 $',
+        'sustainability.tag': 'Nachhaltigkeit',
+        'sustainability.title': 'Die wahren Kosten<br>guter Herstellung.',
+        'sustainability.text': 'Wir glauben an radikale Transparenz. Jedes AURA-Kleidungsst\u00fcck tr\u00e4gt einen digitalen Pass, der seine gesamte Reise nachzeichnet \u2014 vom Bauernhof \u00fcber die Spinnerei, F\u00e4rberei, unser Atelier bis zu Ihrem Kleiderschrank. Wir ver\u00f6ffentlichen unsere Lieferkette, unseren CO2-Fu\u00dfabdruck pro St\u00fcck und die tats\u00e4chliche Kostenaufschl\u00fcsselung. Nicht weil wir perfekt sind, sondern weil Ehrlichkeit die einzige Grundlage f\u00fcr Ver\u00e4nderung ist.',
+        'sustainability.action': 'Unseren Wirkungsbericht Ansehen',
+        'journal.label': 'Die Ausgabe',
+        'journal.title': 'Aus dem Journal',
+        'journal.desc': 'Geschichten \u00fcber Handwerk, Bewusstsein und die Menschen, die eine durchdachtere Modebranche gestalten.',
+        'journal.1.category': 'Handwerk',
+        'journal.1.title': 'Die H\u00e4nde Hinter den N\u00e4hten',
+        'journal.1.excerpt': 'Ein Portr\u00e4t der Meisterinnen in unserem toskanischen Atelier, wo \u00fcber vier Generationen weitergegebene Techniken auf moderne nachhaltige Praktiken treffen.',
+        'journal.1.date': '12. Juli 2026',
+        'journal.2.category': 'Materialien',
+        'journal.2.title': 'Warum Wir Peace-Seide W\u00e4hlten',
+        'journal.2.excerpt': 'Unsere Reise, eine Seide zu finden, die sowohl die Seidenraupe als auch die Erde respektiert \u2014 und warum es achtzehn Monate dauerte, es richtig zu machen.',
+        'journal.2.date': '28. Juni 2026',
+        'journal.3.category': 'Styling',
+        'journal.3.title': 'Die Sieben-Teile-Kapsel Aufbauen',
+        'journal.3.excerpt': 'Wie man eine saisonlose Garderobe mit nur sieben durchdacht ausgew\u00e4hlten St\u00fccken aufbaut \u2014 und warum Einschr\u00e4nkungen Kreativit\u00e4t f\u00f6rdern.',
+        'journal.3.date': '14. Juni 2026',
+        'newsletter.label': 'In Verbindung Bleiben',
+        'newsletter.title': 'Dem AURA Journal Beitreten',
+        'newsletter.desc': 'Exklusiver Zugang zu neuen Kollektionen, Geschichten hinter den Kulissen und fr\u00fche Einladungen zu unseren Showroom-Events. Niemals Spam.',
+        'newsletter.submit': 'Abonnieren',
+        'newsletter.note': 'Wir respektieren Ihre Privatsph\u00e4re. Jederzeit k\u00fcndbar.',
+        'footer.tagline': 'Essentielle Kleiderschr\u00e4nke, bewusst gemacht. Wahrer Luxus besteht.',
+        'footer.collections': 'Kollektionen',
+        'footer.links.wool': 'Woll-Ma\u00dfschneiderei',
+        'footer.links.linen': 'Leinen und Baumwolle',
+        'footer.links.silk': 'Seiden-Abendmode',
+        'footer.links.cashmere': 'Kaschmir und Strickwaren',
+        'footer.company': 'Unternehmen',
+        'footer.links.about': 'Unsere Geschichte',
+        'footer.links.sustainability': 'Nachhaltigkeit',
+        'footer.links.careers': 'Karriere',
+        'footer.links.press': 'Presse',
+        'footer.support': 'Support',
+        'footer.links.shipping': 'Versand und R\u00fccksendungen',
+        'footer.links.care': 'Kleidungspflege',
+        'footer.links.faq': 'H\u00e4ufig Gestellte Fragen',
+        'footer.links.contact': 'Kontakt',
+        'footer.copy': '\u00a9 2026 AURA. Alle Rechte vorbehalten.',
+        'cookie.text': 'Wir verwenden essentielle Cookies, um die beste Erfahrung auf unserer Website zu gew\u00e4hrleisten.',
+        'cookie.link': 'Mehr erfahren',
+        'cookie.decline': 'Ablehnen',
+        'cookie.accept': 'Akzeptieren'
+      },
+      it: {
+        brand: 'AUR·A',
+        'nav.collections': 'Collezioni',
+        'nav.craft': 'Artigianato',
+        'nav.sustainability': 'Sostenibilit\u00e0',
+        'nav.journal': 'Giornale',
+        'nav.cta': 'Prenota un Appuntamento',
+        'hero.kicker': 'Lusso Sostenibile dal 2018',
+        'hero.title': 'Guardaroba essenziali,<br><em>realizzati consapevolmente</em>',
+        'hero.subtitle': 'Silhouette senza tempo tagliate da materiali di provenienza responsabile. Ogni capo \u00e8 creato per durare oltre le stagioni, le tendenze e il tempo stesso \u2014 perch\u00e9 il vero lusso lascia un\u2019impronta pi\u00f9 leggera.',
+        'hero.ctaPrimary': 'Esplora la Collezione',
+        'hero.ctaSecondary': 'La Nostra Filosofia',
+        'hero.scroll': 'Scopri',
+        'collections.label': 'Curato',
+        'collections.title': 'Le Collezioni',
+        'collections.desc': 'Quattro narrazioni distinte, ciascuna definita da una filosofia materiale singolare. Dalla sartoria scultorea al lino fluido, ogni collezione racconta una storia di luogo e scopo.',
+        'collections.1.name': 'Sartoria in Lana',
+        'collections.1.count': '12 Pezzi Essenziali',
+        'collections.2.name': 'Lino e Cotone',
+        'collections.2.count': '9 Pezzi Essenziali',
+        'collections.3.name': 'Serata di Seta',
+        'collections.3.count': '8 Pezzi Essenziali',
+        'collections.4.name': 'Cashmere e Maglieria',
+        'collections.4.count': '14 Pezzi Essenziali',
+        'craft.tag': 'Artigianato e Tradizione',
+        'craft.title': 'Fatto a mano,<br>costruito per durare.',
+        'craft.text': 'Ogni capo AURA inizia nel nostro atelier tra le colline toscane, dove maestri tagliatori e sarti lavorano tessuti selezionati per mesi, non settimane. Usiamo tecniche sartoriali tradizionali \u2014 orli rifiniti a mano, cuciture rinforzate e meticolosi controlli di qualit\u00e0 in ogni fase \u2014 perch\u00e9 un capo che dura \u00e8 la scelta pi\u00f9 sostenibile di tutte.',
+        'craft.action': 'Incontra gli Artigiani',
+        'values.label': 'Principi',
+        'values.title': 'Un modo migliore<br>di vestire.',
+        'values.desc': 'Lusso e responsabilit\u00e0 non si escludono a vicenda. Lo dimostriamo attraverso tre impegni che plasmano ogni nostra decisione.',
+        'values.1.title': 'Materiali Responsabili',
+        'values.1.text': 'Utilizziamo solo cotone biologico, lana senza mulesing, lino certificato e cashmere tracciabile. Ogni fibra \u00e8 scelta tanto per la sua integrit\u00e0 ambientale quanto per la sua morbidezza al tatto.',
+        'values.2.title': 'Design Senza Tempo',
+        'values.2.text': 'Non seguiamo le tendenze. Le nostre silhouette vengono perfezionate per anni, non stagioni \u2014 basate su proporzione, utilit\u00e0 e bellezza quieta. Un capo a cui tornerai ancora e ancora.',
+        'values.3.title': 'Trasparenza Radicale',
+        'values.3.text': 'Ogni capo \u00e8 accompagnato da un passaporto digitale che traccia il suo viaggio dal campo al prodotto finito. Pubblichiamo la lista dei fornitori. Mostriamo il vero costo di fare le cose per bene.',
+        'featured.label': 'Novit\u00e0',
+        'featured.title': 'Pezzi in Vetrina',
+        'featured.desc': 'Ogni pezzo \u00e8 limitato a un unico ciclo produttivo. Quando \u00e8 finito, non lo rifacciamo \u2014 passiamo al progetto successivo, assicurando che ogni capo sia davvero unico.',
+        'featured.1.name': 'Blazer Scolpito',
+        'featured.1.material': 'Lana Biologica / Toscana',
+        'featured.1.price': '1.280 $',
+        'featured.2.name': 'Pantalone Fluido',
+        'featured.2.material': 'Misto Lino-Cotone / Portogallo',
+        'featured.2.price': '680 $',
+        'featured.3.name': 'Cappotto Bozzolo',
+        'featured.3.material': 'Cashmere Tracciabile / Mongolia',
+        'featured.3.price': '2.400 $',
+        'featured.4.name': 'Abito Colonna',
+        'featured.4.material': 'Seta Peace / Lago di Como',
+        'featured.4.price': '1.650 $',
+        'featured.5.name': 'Camicia Relax',
+        'featured.5.material': 'Cotone Biologico / Giappone',
+        'featured.5.price': '420 $',
+        'featured.6.name': 'Polo a Maglia',
+        'featured.6.material': 'Merino Extra-Fine / Italia',
+        'featured.6.price': '590 $',
+        'sustainability.tag': 'Sostenibilit\u00e0',
+        'sustainability.title': 'Il costo reale<br>di fare le cose per bene.',
+        'sustainability.text': 'Crediamo nella trasparenza radicale. Ogni capo AURA porta un passaporto digitale che traccia il suo intero viaggio \u2014 dalla fattoria al filatoio, alla tintoria, al nostro atelier, al tuo armadio. Pubblichiamo la nostra catena di fornitura, l\u2019impronta di carbonio per capo e la ripartizione dei costi reali. Non perch\u00e9 siamo perfetti, ma perch\u00e9 l\u2019onest\u00e0 \u00e8 l\u2019unica base per il cambiamento.',
+        'sustainability.action': 'Vedi il nostro rapporto di impatto',
+        'journal.label': 'L\u2019Edizione',
+        'journal.title': 'Dal Giornale',
+        'journal.desc': 'Storie su artigianato, coscienza e le persone che plasmano un\u2019industria della moda pi\u00f9 consapevole.',
+        'journal.1.category': 'Artigianato',
+        'journal.1.title': 'Le Mani dietro le Cuciture',
+        'journal.1.excerpt': 'Un ritratto delle maestre sarte nel nostro atelier toscano, dove tecniche tramandate da quattro generazioni incontrano pratiche sostenibili moderne.',
+        'journal.1.date': '12 luglio 2026',
+        'journal.2.category': 'Materiali',
+        'journal.2.title': 'Perch\u00e9 Abbiamo Scelto la Seta Peace',
+        'journal.2.excerpt': 'Il nostro viaggio per trovare una seta che rispetti sia il baco da seta che la terra \u2014 e perch\u00e9 ci sono voluti diciotto mesi per farlo bene.',
+        'journal.2.date': '28 giugno 2026',
+        'journal.3.category': 'Stile',
+        'journal.3.title': 'Costruire il Capsule di Sette Pezzi',
+        'journal.3.excerpt': 'Come costruire un guardaroba senza stagioni con solo sette pezzi attentamente scelti \u2014 e perch\u00e9 i vincoli stimolano la creativit\u00e0.',
+        'journal.3.date': '14 giugno 2026',
+        'newsletter.label': 'Rimani in Contatto',
+        'newsletter.title': 'Unisciti al Giornale AURA',
+        'newsletter.desc': 'Accesso esclusivo a nuove collezioni, storie dietro le quinte e inviti anticipati ai nostri eventi in showroom. Mai spam.',
+        'newsletter.submit': 'Iscriviti',
+        'newsletter.note': 'Rispettiamo la tua privacy. Disiscriviti in qualsiasi momento.',
+        'footer.tagline': 'Guardaroba essenziali, realizzati consapevolmente. Il vero lusso dura.',
+        'footer.collections': 'Collezioni',
+        'footer.links.wool': 'Sartoria in Lana',
+        'footer.links.linen': 'Lino e Cotone',
+        'footer.links.silk': 'Serata di Seta',
+        'footer.links.cashmere': 'Cashmere e Maglieria',
+        'footer.company': 'Azienda',
+        'footer.links.about': 'La Nostra Storia',
+        'footer.links.sustainability': 'Sostenibilit\u00e0',
+        'footer.links.careers': 'Carriere',
+        'footer.links.press': 'Stampa',
+        'footer.support': 'Supporto',
+        'footer.links.shipping': 'Spedizione e Resi',
+        'footer.links.care': 'Cura degli Indumenti',
+        'footer.links.faq': 'Domande Frequenti',
+        'footer.links.contact': 'Contatto',
+        'footer.copy': '\u00a9 2026 AURA. Tutti i diritti riservati.',
+        'cookie.text': 'Utilizziamo cookie essenziali per garantire la migliore esperienza sul nostro sito.',
+        'cookie.link': 'Scopri di pi\u00f9',
+        'cookie.decline': 'Rifiuta',
+        'cookie.accept': 'Accetta'
+      },
+      pt: {
+        brand: 'AUR·A',
+        'nav.collections': 'Cole\u00e7\u00f5es',
+        'nav.craft': 'Artesanato',
+        'nav.sustainability': 'Sustentabilidade',
+        'nav.journal': 'Di\u00e1rio',
+        'nav.cta': 'Agende uma Visita',
+        'hero.kicker': 'Luxo Sustent\u00e1vel desde 2018',
+        'hero.title': 'Guarda-roupas essenciais,<br><em>feitos com consci\u00eancia</em>',
+        'hero.subtitle': 'Silhuetas atemporais cortadas de materiais de origem respons\u00e1vel. Cada pe\u00e7a \u00e9 criada para durar al\u00e9m das esta\u00e7\u00f5es, tend\u00eancias e do pr\u00f3prio tempo \u2014 porque o verdadeiro luxo deixa uma pegada mais leve.',
+        'hero.ctaPrimary': 'Explore a Cole\u00e7\u00e3o',
+        'hero.ctaSecondary': 'Nossa Filosofia',
+        'hero.scroll': 'Descubra',
+        'collections.label': 'Curadoria',
+        'collections.title': 'As Cole\u00e7\u00f5es',
+        'collections.desc': 'Quatro narrativas distintas, cada uma definida por uma filosofia material singular. Da alfaiataria escultural ao linho fluido, cada cole\u00e7\u00e3o conta uma hist\u00f3ria de lugar e prop\u00f3sito.',
+        'collections.1.name': 'Alfaiataria em L\u00e3',
+        'collections.1.count': '12 Pe\u00e7as Essenciais',
+        'collections.2.name': 'Linho e Algod\u00e3o',
+        'collections.2.count': '9 Pe\u00e7as Essenciais',
+        'collections.3.name': 'Noite de Seda',
+        'collections.3.count': '8 Pe\u00e7as Essenciais',
+        'collections.4.name': 'Cashmere e Malhas',
+        'collections.4.count': '14 Pe\u00e7as Essenciais',
+        'craft.tag': 'Artesanato e Heran\u00e7a',
+        'craft.title': 'Feito \u00e0 m\u00e3o,<br>constru\u00eddo para durar.',
+        'craft.text': 'Cada pe\u00e7a AURA come\u00e7a em nosso ateli\u00ea nas colinas da Toscana, onde mestres cortadores e costureiros trabalham com tecidos selecionados ao longo de meses, n\u00e3o semanas. Usamos t\u00e9cnicas tradicionais de alfaiataria \u2014 bainhas acabadas \u00e0 m\u00e3o, costuras refor\u00e7adas e verificacoes meticulosas de qualidade em cada est\u00e1gio \u2014 porque uma roupa que perdura \u00e9 a escolha mais sustent\u00e1vel de todas.',
+        'craft.action': 'Conhe\u00e7a os Artes\u00e3os',
+        'values.label': 'Princ\u00edpios',
+        'values.title': 'Um jeito melhor<br>de se vestir.',
+        'values.desc': 'O luxo e a responsabilidade n\u00e3o s\u00e3o mutuamente exclusivos. Provamos isso por meio de tr\u00eas compromissos que moldam cada decis\u00e3o que tomamos.',
+        'values.1.title': 'Materiais Respons\u00e1veis',
+        'values.1.text': 'N\u00f3s adquirimos apenas algod\u00e3o org\u00e2nico, l\u00e3 livre de mulesing, linho certificado e cashmere rastre\u00e1vel. Cada fibra \u00e9 escolhida tanto por sua integridade ambiental quanto por sua sensa\u00e7\u00e3o ao toque.',
+        'values.2.title': 'Design Atemporal',
+        'values.2.text': 'N\u00e3o seguimos tend\u00eancias. Nossas silhuetas s\u00e3o refinadas ao longo de anos, n\u00e3o de esta\u00e7\u00f5es \u2014 baseadas em propor\u00e7\u00e3o, utilidade e beleza silenciosa. Uma roupa que voc\u00ea vestir\u00e1 repetidamente.',
+        'values.3.title': 'Transpar\u00eancia Radical',
+        'values.3.text': 'Cada roupa vem com um passaporte digital que tra\u00e7a sua jornada do campo \u00e0 pe\u00e7a finalizada. Publicamos nossa lista de fornecedores. Mostramos o verdadeiro custo de fazer as coisas bem.',
+        'featured.label': 'Novidades',
+        'featured.title': 'Pe\u00e7as em Destaque',
+        'featured.desc': 'Cada pe\u00e7a \u00e9 limitada a um \u00fanico ciclo de produ\u00e7\u00e3o. Quando acaba, n\u00e3o a refazemos \u2014 passamos para o pr\u00f3ximo design, garantindo que cada roupa seja verdadeiramente \u00fanica.',
+        'featured.1.name': 'Blazer Esculpido',
+        'featured.1.material': 'L\u00e3 Org\u00e2nica / Toscana',
+        'featured.1.price': '$1.280',
+        'featured.2.name': 'Cal\u00e7a Fluida',
+        'featured.2.material': 'Mistura Linho-Algod\u00e3o / Portugal',
+        'featured.2.price': '$680',
+        'featured.3.name': 'Casulo',
+        'featured.3.material': 'Cashmere Rastre\u00e1vel / Mong\u00f3lia',
+        'featured.3.price': '$2.400',
+        'featured.4.name': 'Vestido Coluna',
+        'featured.4.material': 'Seda Peace / Lago de Como',
+        'featured.4.price': '$1.650',
+        'featured.5.name': 'Camisa Relaxada',
+        'featured.5.material': 'Algod\u00e3o Org\u00e2nico / Jap\u00e3o',
+        'featured.5.price': '$420',
+        'featured.6.name': 'Polo de Malha',
+        'featured.6.material': 'Merino Extra Fino / It\u00e1lia',
+        'featured.6.price': '$590',
+        'sustainability.tag': 'Sustentabilidade',
+        'sustainability.title': 'O custo real<br>de fazer as coisas bem.',
+        'sustainability.text': 'Acreditamos na transpar\u00eancia radical. Cada roupa AURA carrega um passaporte digital que tra\u00e7a sua jornada completa \u2014 da fazenda \u00e0 fia\u00e7\u00e3o, \u00e0 tinturaria, ao nosso ateli\u00ea e ao seu guarda-roupa. Publicamos nossa cadeia de suprimentos, nossa pegada de carbono por pe\u00e7a e a discrimina\u00e7\u00e3o real dos custos. N\u00e3o porque somos perfeitos, mas porque a honestidade \u00e9 a \u00fanica base para a mudan\u00e7a.',
+        'sustainability.action': 'Veja nosso relat\u00f3rio de impacto',
+        'journal.label': 'A Edi\u00e7\u00e3o',
+        'journal.title': 'Do Di\u00e1rio',
+        'journal.desc': 'Hist\u00f3rias sobre artesanato, consci\u00eancia e as pessoas que moldam uma ind\u00fastria da moda mais consciente.',
+        'journal.1.category': 'Artesanato',
+        'journal.1.title': 'As M\u00e3os por Tr\u00e1s das Costuras',
+        'journal.1.excerpt': 'Um retrato das mestres costureiras em nosso ateli\u00ea toscano, onde t\u00e9cnicas transmitidas por quatro gera\u00e7\u00f5es encontram pr\u00e1ticas sustent\u00e1veis modernas.',
+        'journal.1.date': '12 de julho de 2026',
+        'journal.2.category': 'Materiais',
+        'journal.2.title': 'Por Que Escolhemos a Seda Peace',
+        'journal.2.excerpt': 'Nossa jornada para encontrar uma seda que respeite tanto o bicho-da-seda quanto a terra \u2014 e por que levamos dezoito meses para acertar.',
+        'journal.2.date': '28 de junho de 2026',
+        'journal.3.category': 'Estilo',
+        'journal.3.title': 'Construindo o C\u00e1psula de Sete Pe\u00e7as',
+        'journal.3.excerpt': 'Como construir um guarda-roupa sem esta\u00e7\u00f5es com apenas sete pe\u00e7as cuidadosamente escolhidas \u2014 e por que as restri\u00e7\u00f5es estimulam a criatividade.',
+        'journal.3.date': '14 de junho de 2026',
+        'newsletter.label': 'Fique Conectado',
+        'newsletter.title': 'Junte-se ao Di\u00e1rio AURA',
+        'newsletter.desc': 'Acesso exclusivo a novas cole\u00e7\u00f5es, hist\u00f3rias dos bastidores e convites antecipados para nossos eventos no showroom. Sem spam \u2014 nunca.',
+        'newsletter.submit': 'Inscrever-se',
+        'newsletter.note': 'Respeitamos sua privacidade. Cancele a inscri\u00e7\u00e3o a qualquer momento.',
+        'footer.tagline': 'Guarda-roupas essenciais, feitos com consci\u00eancia. O verdadeiro luxo perdura.',
+        'footer.collections': 'Cole\u00e7\u00f5es',
+        'footer.links.wool': 'Alfaiataria em L\u00e3',
+        'footer.links.linen': 'Linho e Algod\u00e3o',
+        'footer.links.silk': 'Noite de Seda',
+        'footer.links.cashmere': 'Cashmere e Malhas',
+        'footer.company': 'Empresa',
+        'footer.links.about': 'Nossa Hist\u00f3ria',
+        'footer.links.sustainability': 'Sustentabilidade',
+        'footer.links.careers': 'Carreiras',
+        'footer.links.press': 'Imprensa',
+        'footer.support': 'Suporte',
+        'footer.links.shipping': 'Envio e Devolu\u00e7\u00f5es',
+        'footer.links.care': 'Cuidados com as Roupas',
+        'footer.links.faq': 'Perguntas Frequentes',
+        'footer.links.contact': 'Contato',
+        'footer.copy': '\u00a9 2026 AURA. Todos os direitos reservados.',
+        'cookie.text': 'Usamos cookies essenciais para garantir a melhor experi\u00eancia em nosso site.',
+        'cookie.link': 'Saiba mais',
+        'cookie.decline': 'Recusar',
+        'cookie.accept': 'Aceitar'
+      }
+    };
+
+    const SUPPORTED_LANGS = ['en', 'es', 'fr', 'de', 'it', 'pt'];
+    let currentLang = 'en';
+
+    // ----- i18n Functions -----
+    function getBrowserLang() {
+      try {
+        const lang = (navigator.language || '').split('-')[0];
+        return SUPPORTED_LANGS.includes(lang) ? lang : null;
+      } catch { return null; }
+    }
+
+    function applyLanguage(lang) {
+      currentLang = lang;
+      const t = TRANSLATIONS[lang];
+      if (!t) return;
+
+      // Update all data-i18n elements
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        const text = t[key];
+        if (text !== undefined) {
+          el.innerHTML = text;
+        }
+      });
+
+      // Update SEO meta tags
+      const metaTitle = document.getElementById('meta-title');
+      const metaDesc = document.getElementById('meta-desc');
+      const ogTitle = document.getElementById('og-title');
+      const ogDesc = document.getElementById('og-desc');
+      const twTitle = document.getElementById('tw-title');
+      const twDesc = document.getElementById('tw-desc');
+
+      if (metaTitle) metaTitle.textContent = t['hero.title'] ? 'AURA \u2014 ' + t['hero.title'].replace(/<br>|<em>|\/em>/g, '').trim() : 'AURA \u2014 Sustainable Luxury Fashion';
+      if (metaDesc) metaDesc.textContent = t['hero.subtitle'] ? t['hero.subtitle'].replace(/<br>|<em>|\/em>/g, '').substring(0, 160) : '';
+
+      // Update lang buttons
+      document.querySelectorAll('.lang-select__cur').forEach(el => { el.textContent = lang.toUpperCase(); });
+      document.querySelectorAll('.lang-select__opt').forEach(opt => {
+        opt.setAttribute('aria-selected', opt.dataset.lang === lang ? 'true' : 'false');
+      });
+
+      // Update html lang attribute
+      document.documentElement.lang = lang;
+
+      // Save preference
+      try { localStorage.setItem('aura-lang', lang); } catch {}
+    }
+
+    function initLanguage() {
+      const saved = (() => { try { return localStorage.getItem('aura-lang'); } catch { return null; } })();
+      const detected = getBrowserLang();
+      const lang = saved || detected || 'en';
+      applyLanguage(lang);
+    }
+
+    // ----- Language switcher (dropdown) -----
+    function initLangSelect() {
+      document.querySelectorAll('.lang-select').forEach(function (sel) {
+        const btn = sel.querySelector('.lang-select__btn');
+        const menu = sel.querySelector('.lang-select__menu');
+        if (!btn || !menu) return;
+        function closeMenu() {
+          menu.classList.remove('open');
+          btn.setAttribute('aria-expanded', 'false');
+        }
+        btn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          const open = menu.classList.toggle('open');
+          btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+        document.addEventListener('click', function (e) {
+          if (!sel.contains(e.target)) closeMenu();
+        });
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape') closeMenu();
+        });
+      });
+    }
+    initLangSelect();
+
+    // ----- Language switcher click handlers -----
+    document.addEventListener('click', function(e) {
+      const btn = e.target.closest('.lang-select__opt');
+      if (btn) {
+        e.preventDefault();
+        applyLanguage(btn.dataset.lang);
+        // close all open lang menus
+        document.querySelectorAll('.lang-select__menu.open').forEach(m => {
+          m.classList.remove('open');
+          const b = m.parentElement.querySelector('.lang-select__btn');
+          if (b) b.setAttribute('aria-expanded', 'false');
+        });
+      }
+    });
+
+    // ----- Nav -----
+    const nav = document.getElementById('nav');
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    if (navToggle) {
+      navToggle.addEventListener('click', function() {
+        nav.classList.toggle('nav--open');
+      });
+    }
+
+    // Close mobile menu on link click
+    navLinks.addEventListener('click', function(e) {
+      if (e.target.closest('.nav__link')) {
+        nav.classList.remove('nav--open');
+      }
+    });
+
+    // Nav background switch on scroll
+    let lastScrollY = 0;
+    const heroSection = document.getElementById('hero');
+
+    function updateNavBg() {
+      if (!heroSection) return;
+      const heroBottom = heroSection.getBoundingClientRect().bottom;
+      if (heroBottom <= 0) {
+        nav.classList.add('nav--light');
+      } else {
+        nav.classList.remove('nav--light');
+      }
+    }
+
+    window.addEventListener('scroll', updateNavBg, { passive: true });
+    // Also check on resize for initial state
+    window.addEventListener('resize', updateNavBg, { passive: true });
+
+    // ----- Hero load animation -----
+    setTimeout(function() {
+      document.getElementById('hero').classList.add('hero--loaded');
+    }, 100);
+
+    // ----- Intersection Observer for scroll reveals -----
+    const revealObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('reveal--visible');
+
+          // Also handle section titles, descs, labels inside
+          const title = entry.target.querySelector('.section__title');
+          const desc = entry.target.querySelector('.section__desc');
+          const label = entry.target.querySelector('.section__label');
+          if (title) title.classList.add('section__title--visible');
+          if (desc) desc.classList.add('section__desc--visible');
+          if (label) label.classList.add('section__label--visible');
+
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    // Observe reveal elements
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // Also observe section containers that have .section__title
+    document.querySelectorAll('.section .container').forEach(el => revealObserver.observe(el));
+
+    // ----- Carousel controls -----
+    const track = document.getElementById('featuredTrack');
+    const prevBtn = document.getElementById('carouselPrev');
+    const nextBtn = document.getElementById('carouselNext');
+
+    if (track && prevBtn && nextBtn) {
+      const scrollAmount = 360;
+
+      prevBtn.addEventListener('click', function() {
+        track.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+      });
+
+      nextBtn.addEventListener('click', function() {
+        track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      });
+    }
+
+    // ----- Newsletter form -----
+    const newsletterForm = document.getElementById('newsletterForm');
+    if (newsletterForm) {
+      newsletterForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const input = document.getElementById('newsletterInput');
+        if (input && input.value && input.value.includes('@')) {
+          const submitBtn = this.querySelector('.newsletter__submit');
+          const originalText = submitBtn.textContent;
+          submitBtn.textContent = '\u2713';
+          submitBtn.style.background = '#2d6a4f';
+          input.value = '';
+          setTimeout(function() {
+            submitBtn.textContent = originalText;
+            submitBtn.style.background = '';
+          }, 2000);
+        }
+      });
+    }
+
+    // ----- Cookie Banner -----
+    const cookieBanner = document.getElementById('cookieBanner');
+    const cookieAccept = document.getElementById('cookieAccept');
+    const cookieDecline = document.getElementById('cookieDecline');
+
+    function showCookieBanner() {
+      const consented = (function() { try { return localStorage.getItem('aura-cookie'); } catch { return null; } })();
+      if (!consented && cookieBanner) {
+        setTimeout(function() {
+          cookieBanner.classList.add('cookie-banner--visible');
+        }, 1500);
+      }
+    }
+
+    if (cookieAccept) {
+      cookieAccept.addEventListener('click', function() {
+        try { localStorage.setItem('aura-cookie', 'accepted'); } catch {}
+        cookieBanner.classList.remove('cookie-banner--visible');
+      });
+    }
+
+    if (cookieDecline) {
+      cookieDecline.addEventListener('click', function() {
+        try { localStorage.setItem('aura-cookie', 'declined'); } catch {}
+        cookieBanner.classList.remove('cookie-banner--visible');
+      });
+    }
+
+    // ----- Initialize -----
+    function init() {
+      // Remove loading class
+      document.body.classList.remove('wf-loading');
+      document.body.classList.add('wf-active');
+
+      initLanguage();
+
+      // Initial nav bg check
+      setTimeout(updateNavBg, 100);
+
+      // Show cookie banner
+      showCookieBanner();
+
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          const targetId = this.getAttribute('href');
+          if (targetId && targetId.length > 1) {
+            const target = document.querySelector(targetId);
+            if (target) {
+              e.preventDefault();
+              target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          }
+        });
+      });
+    }
+
+    // Run init on DOM ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  </script>
+</body>
+</html>

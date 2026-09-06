@@ -1,0 +1,1500 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="meta-title">Northbound — Premium Outdoor Gear & Adventure Travel</title>
+  <meta name="description" id="meta-desc" content="Northbound crafts expedition-grade equipment and guided adventures for those who measure life in miles, not minutes. Built for the trail ahead.">
+  <link rel="canonical" href="https://northbound.outdoors/">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231a3328'/%3E%3Cpath d='M16 6l4 8h-3v12h-2V14h-3l4-8z' fill='%23c4813d'/%3E%3C/svg%3E">
+  <meta name="theme-color" content="#1A3328">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Northbound">
+  <meta property="og:title" id="og-title" content="Northbound — Premium Outdoor Gear & Adventure Travel">
+  <meta property="og:description" id="og-desc" content="Crafting expedition-grade equipment and guided adventures for those who measure life in miles, not minutes.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80">
+  <meta property="og:url" content="https://northbound.outdoors/">
+  <meta property="og:locale" content="en_US">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" id="tw-title" content="Northbound — Premium Outdoor Gear & Adventure Travel">
+  <meta name="twitter:description" id="tw-desc" content="Crafting expedition-grade equipment and guided adventures for those who measure life in miles, not minutes.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80">
+  <meta name="twitter:site" content="@northbound">
+  <!-- Fonts: Fraunces (headings — expressive variable serif) + Inter (body — neutral clean sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400;1,9..144,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ================================================================
+       DESIGN TOKENS — Northbound Outdoors
+       Surface: Decide/Learn (landing page — premium outdoor gear)
+       Derived from: Original rustic modern theme
+       Family: Travel / Outdoor Lifestyle
+       Style: Rustic Modern — rugged edges, premium finishes, nature-forward
+       Strategy: Committed (pine green ~30%, copper accent ~12%)
+       ================================================================ */
+    :root {
+      --color-bg: #F2EDE4;
+      --color-surface: #FFFFFF;
+      --color-surface-alt: #EBE5D9;
+      --color-elevated: #FFFFFF;
+      --color-text-primary: #1A1D1B;
+      --color-text-secondary: #5A5F5B;
+      --color-text-tertiary: #8B908C;
+      --color-primary: #1A3328;
+      --color-primary-hover: #244A38;
+      --color-primary-light: #E8F0EB;
+      --color-primary-ghost: rgba(26, 51, 40, 0.08);
+      --color-accent: #C4813D;
+      --color-accent-hover: #B06E2E;
+      --color-accent-light: #F5EDE4;
+      --color-accent-ghost: rgba(196, 129, 61, 0.12);
+      --color-sage: #7A9A7A;
+      --color-border: #D9D2C8;
+      --color-border-light: #E8E2D8;
+      --color-overlay: rgba(26, 29, 27, 0.45);
+      --color-overlay-heavy: rgba(26, 29, 27, 0.75);
+      --color-success: #3A7D5C;
+      --color-error: #C44A3A;
+      /* Colors — Dark Mode */
+      --color-bg-dark: #0F1411;
+      --color-surface-dark: #18201B;
+      --color-surface-alt-dark: #1E2821;
+      --color-elevated-dark: #1C241F;
+      --color-text-primary-dark: #E8E6DE;
+      --color-text-secondary-dark: #959B96;
+      --color-text-tertiary-dark: #686E69;
+      --color-primary-dark: #3A8A5C;
+      --color-primary-hover-dark: #4A9E6C;
+      --color-primary-light-dark: #1A3022;
+      --color-primary-ghost-dark: rgba(58, 138, 92, 0.12);
+      --color-accent-dark: #D4944A;
+      --color-accent-hover-dark: #DBA55E;
+      --color-accent-light-dark: #2A1E12;
+      --color-accent-ghost-dark: rgba(212, 148, 74, 0.15);
+      --color-sage-dark: #6A9A6A;
+      --color-border-dark: #2A342D;
+      --color-border-light-dark: #354035;
+      --color-overlay-dark: rgba(15, 20, 17, 0.7);
+      --font-heading: 'Fraunces', Georgia, 'Times New Roman', serif;
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --space-2xs: 0.25rem;
+      --space-xs: 0.375rem;
+      --space-sm: 0.5rem;
+      --space-md: 1rem;
+      --space-lg: 1.5rem;
+      --space-xl: 2rem;
+      --space-2xl: 3rem;
+      --space-3xl: 4rem;
+      --space-4xl: 6rem;
+      --space-5xl: 8rem;
+      --width-max: 1200px;
+      --width-content: 720px;
+      --radius-sm: 0.375rem;
+      --radius-md: 0.75rem;
+      --radius-lg: 1rem;
+      --radius-xl: 1.5rem;
+      --shadow-sm: 0 1px 2px rgba(26, 29, 27, 0.06);
+      --shadow-md: 0 4px 12px rgba(26, 29, 27, 0.08);
+      --shadow-lg: 0 8px 30px rgba(26, 29, 27, 0.12);
+      --shadow-xl: 0 20px 60px rgba(26, 29, 27, 0.15);
+      --z-base: 0;
+      --z-dropdown: 100;
+      --z-sticky: 200;
+      --z-modal-backdrop: 300;
+      --z-modal: 400;
+      --z-toast: 500;
+      --z-tooltip: 600;
+    }
+
+    html[data-theme="dark"] {
+      --color-bg: var(--color-bg-dark);
+      --color-surface: var(--color-surface-dark);
+      --color-surface-alt: var(--color-surface-alt-dark);
+      --color-elevated: var(--color-elevated-dark);
+      --color-text-primary: var(--color-text-primary-dark);
+      --color-text-secondary: var(--color-text-secondary-dark);
+      --color-text-tertiary: var(--color-text-tertiary-dark);
+      --color-primary: var(--color-primary-dark);
+      --color-primary-hover: var(--color-primary-hover-dark);
+      --color-primary-light: var(--color-primary-light-dark);
+      --color-primary-ghost: var(--color-primary-ghost-dark);
+      --color-accent: var(--color-accent-dark);
+      --color-accent-hover: var(--color-accent-hover-dark);
+      --color-accent-light: var(--color-accent-light-dark);
+      --color-accent-ghost: var(--color-accent-ghost-dark);
+      --color-sage: var(--color-sage-dark);
+      --color-border: var(--color-border-dark);
+      --color-border-light: var(--color-border-light-dark);
+      --color-overlay: var(--color-overlay-dark);
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+      --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.5);
+      --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.6);
+    }
+
+    /* ================================================================
+       RESET & BASE
+       ================================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+      font-family: var(--font-body); font-size: 1rem; line-height: 1.7;
+      color: var(--color-text-primary); background: var(--color-bg);
+      -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: var(--color-primary); text-decoration: none; }
+    a:hover { color: var(--color-accent); }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; font-size: inherit; }
+    ul { list-style: none; }
+
+    .skip-link {
+      position: absolute; top: -100%; left: var(--space-md);
+      z-index: var(--z-toast); padding: var(--space-sm) var(--space-lg);
+      background: var(--color-primary); color: white;
+      border-radius: var(--radius-sm); font-weight: 600;
+    }
+    .skip-link:focus { top: var(--space-md); }
+
+    .container { max-width: var(--width-max); margin: 0 auto; padding: 0 var(--space-xl); }
+    .container--narrow { max-width: var(--width-content); }
+
+    /* ================================================================
+       TYPOGRAPHY
+       ================================================================ */
+    h1, h2, h3, h4, .h-like {
+      font-family: var(--font-heading); font-weight: 600;
+      line-height: 1.15; color: var(--color-text-primary);
+      text-wrap: balance;
+    }
+    h1 { font-size: clamp(2.4rem, 5vw, 5.5rem); font-weight: 700; letter-spacing: -0.03em; }
+    h2 { font-size: clamp(1.8rem, 3.5vw, 3.2rem); letter-spacing: -0.02em; }
+    h3 { font-size: clamp(1.2rem, 2vw, 1.65rem); letter-spacing: -0.01em; }
+    h4 { font-size: 1.15rem; font-weight: 600; }
+    p, .text-body { max-width: 65ch; color: var(--color-text-secondary); text-wrap: pretty; }
+    .text-sm { font-size: 0.875rem; }
+    .text-xs { font-size: 0.75rem; }
+    .text-lg { font-size: 1.125rem; }
+
+    .section-label {
+      font-family: var(--font-body); font-size: 0.8rem; font-weight: 600;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      color: var(--color-accent); margin-bottom: var(--space-sm); display: inline-block;
+    }
+
+    /* ================================================================
+       BUTTONS
+       ================================================================ */
+    .btn {
+      display: inline-flex; align-items: center; gap: var(--space-sm);
+      padding: 0.75rem 1.75rem; font-weight: 600; font-size: 0.95rem;
+      border-radius: var(--radius-md); text-decoration: none; white-space: nowrap;
+      transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .btn--primary { background: var(--color-primary); color: #fff; }
+    .btn--primary:hover { background: var(--color-primary-hover); color: #fff; transform: translateY(-2px); box-shadow: var(--shadow-md); }
+    .btn--outline { border: 2px solid var(--color-border); color: var(--color-text-primary); background: transparent; }
+    .btn--outline:hover { border-color: var(--color-primary); color: var(--color-primary); background: var(--color-primary-ghost); transform: translateY(-2px); }
+    .btn--accent { background: var(--color-accent); color: #fff; }
+    .btn--accent:hover { background: var(--color-accent-hover); color: #fff; transform: translateY(-2px); box-shadow: var(--shadow-md); }
+    .btn--sm { padding: 0.5rem 1.25rem; font-size: 0.85rem; }
+    .btn--lg { padding: 1rem 2.25rem; font-size: 1.05rem; }
+
+    /* ================================================================
+       SECTION LAYOUT
+       ================================================================ */
+    .section { padding: var(--space-4xl) 0; }
+    .section__header { text-align: center; margin-bottom: var(--space-3xl); }
+    .section__header p { margin: var(--space-md) auto 0; max-width: 55ch; }
+    .section__header .section-label { display: block; }
+
+    /* ================================================================
+       NAVIGATION
+       ================================================================ */
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: var(--z-sticky); background: var(--color-bg); border-bottom: 1px solid var(--color-border-light); transition: background 0.3s ease, border-color 0.3s ease; }
+    .nav.scrolled { background: rgba(242, 237, 228, 0.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom-color: var(--color-border); }
+    html[data-theme="dark"] .nav.scrolled { background: rgba(15, 20, 17, 0.92); }
+    .nav__inner { display: flex; align-items: center; justify-content: space-between; height: 4rem; max-width: var(--width-max); margin: 0 auto; padding: 0 var(--space-xl); }
+    .nav__brand { display: flex; align-items: center; gap: var(--space-sm); font-family: var(--font-heading); font-weight: 700; font-size: 1.35rem; color: var(--color-text-primary); text-decoration: none; }
+    .nav__brand:hover { color: var(--color-text-primary); }
+    .nav__brand-icon { width: 28px; height: 28px; }
+    .nav__links { display: flex; align-items: center; gap: var(--space-xl); }
+    .nav__link { font-size: 0.9rem; font-weight: 500; color: var(--color-text-secondary); position: relative; padding: 0.25rem 0; }
+    .nav__link::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; background: var(--color-accent); transition: width 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+    .nav__link:hover { color: var(--color-text-primary); }
+    .nav__link:hover::after { width: 100%; }
+    .nav__actions { display: flex; align-items: center; gap: var(--space-md); }
+
+    /* Language Selector */
+    .lang-selector { position: relative; }
+    .lang-selector__btn { display: flex; align-items: center; gap: 0.35rem; padding: 0.35rem 0.6rem; border: 1px solid var(--color-border); border-radius: var(--radius-sm); font-size: 0.8rem; font-weight: 500; color: var(--color-text-secondary); background: var(--color-surface); transition: all 0.2s ease; }
+    .lang-selector__btn:hover { border-color: var(--color-accent); color: var(--color-text-primary); }
+    .lang-selector__btn svg { width: 14px; height: 14px; }
+    .lang-selector__dropdown { position: absolute; top: calc(100% + 4px); right: 0; min-width: 140px; background: var(--color-elevated); border: 1px solid var(--color-border); border-radius: var(--radius-md); box-shadow: var(--shadow-md); opacity: 0; visibility: hidden; transform: translateY(-4px); transition: all 0.2s ease; z-index: var(--z-dropdown); overflow: hidden; }
+    .lang-selector__dropdown.open { opacity: 1; visibility: visible; transform: translateY(0); }
+    .lang-selector__item { display: flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1rem; font-size: 0.85rem; color: var(--color-text-secondary); cursor: pointer; transition: all 0.15s ease; }
+    .lang-selector__item:hover { background: var(--color-primary-light); color: var(--color-text-primary); }
+    .lang-selector__item.active { color: var(--color-primary); font-weight: 600; background: var(--color-primary-ghost); }
+
+    /* Theme Toggle */
+    .theme-toggle { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--color-border); color: var(--color-text-secondary); background: var(--color-surface); transition: all 0.2s ease; }
+    .theme-toggle:hover { border-color: var(--color-accent); color: var(--color-accent); background: var(--color-accent-ghost); }
+    .theme-toggle svg { width: 18px; height: 18px; }
+
+    /* Mobile Menu */
+    .mobile-menu-btn { display: none; flex-direction: column; justify-content: center; align-items: center; width: 36px; height: 36px; border: 1px solid var(--color-border); border-radius: var(--radius-sm); background: var(--color-surface); transition: all 0.2s ease; }
+    .mobile-menu-btn:hover { border-color: var(--color-accent); }
+    .mobile-menu-btn span { display: block; width: 18px; height: 2px; background: var(--color-text-primary); border-radius: 1px; transition: all 0.3s ease; }
+    .mobile-menu-btn span + span { margin-top: 4px; }
+
+    /* ================================================================
+       HERO
+       ================================================================ */
+    .hero { position: relative; min-height: 100vh; display: flex; align-items: center; padding-top: 4rem; overflow: hidden; }
+    .hero__bg { position: absolute; inset: 0; z-index: 0; }
+    .hero__bg img { width: 100%; height: 100%; object-fit: cover; }
+    .hero__bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(26,29,27,0.65) 0%, rgba(26,29,27,0.3) 50%, rgba(26,29,27,0.55) 100%); }
+    html[data-theme="dark"] .hero__bg::after { background: linear-gradient(135deg, rgba(15,20,17,0.75) 0%, rgba(15,20,17,0.4) 50%, rgba(15,20,17,0.65) 100%); }
+    .hero__content { position: relative; z-index: 1; max-width: 720px; color: #fff; }
+    .hero__content h1 { color: #fff; font-weight: 800; margin-bottom: var(--space-lg); }
+    .hero__sub { font-size: clamp(1.05rem, 1.5vw, 1.25rem); line-height: 1.6; color: rgba(255,255,255,0.8); max-width: 55ch; margin-bottom: var(--space-xl); }
+    .hero__actions { display: flex; gap: var(--space-md); flex-wrap: wrap; }
+    .hero__actions .btn--primary { background: var(--color-accent); }
+    .hero__actions .btn--primary:hover { background: var(--color-accent-hover); }
+    .hero__actions .btn--outline { border-color: rgba(255,255,255,0.3); color: #fff; }
+    .hero__actions .btn--outline:hover { border-color: #fff; color: #fff; background: rgba(255,255,255,0.1); }
+    .hero__scroll { position: absolute; bottom: var(--space-2xl); left: 50%; transform: translateX(-50%); z-index: 1; display: flex; flex-direction: column; align-items: center; gap: var(--space-xs); color: rgba(255,255,255,0.5); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; }
+    .hero__scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, rgba(255,255,255,0.4), transparent); }
+    .hero__scroll { animation: heroBreathe 2.5s ease-in-out infinite; }
+    @keyframes heroBreathe { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+    /* ================================================================
+       GEAR GRID
+       ================================================================ */
+    .gear-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-xl); }
+    .gear-card { background: var(--color-surface); border-radius: var(--radius-lg); overflow: hidden; transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+    .gear-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+    .gear-card__img { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+    .gear-card__body { padding: var(--space-lg); }
+    .gear-card__tag { display: inline-block; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-accent); margin-bottom: var(--space-sm); }
+    .gear-card__title { font-size: 1.2rem; margin-bottom: var(--space-sm); }
+    .gear-card__desc { font-size: 0.9rem; color: var(--color-text-secondary); line-height: 1.6; margin-bottom: var(--space-md); }
+    .gear-card__price { font-weight: 700; font-size: 1.15rem; color: var(--color-primary); }
+    .gear-card__price span { font-size: 0.85rem; font-weight: 400; color: var(--color-text-tertiary); }
+
+    /* ================================================================
+       STORIES
+       ================================================================ */
+    .stories-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-xl); }
+    .story-card { background: var(--color-surface); border-radius: var(--radius-lg); overflow: hidden; transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+    .story-card:hover { box-shadow: var(--shadow-lg); }
+    .story-card__img { width: 100%; height: 200px; object-fit: cover; }
+    .story-card__body { padding: var(--space-lg); }
+    .story-card__meta { font-size: 0.8rem; color: var(--color-text-tertiary); margin-bottom: var(--space-sm); }
+    .story-card__title { font-size: 1.15rem; margin-bottom: var(--space-xs); }
+    .story-card__excerpt { font-size: 0.9rem; color: var(--color-text-secondary); line-height: 1.6; }
+
+    /* ================================================================
+       SUSTAINABILITY
+       ================================================================ */
+    .sustainability-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-xl); }
+    .stat-card { text-align: center; padding: var(--space-2xl); background: var(--color-surface); border-radius: var(--radius-lg); transition: all 0.3s ease; }
+    .stat-card:hover { box-shadow: var(--shadow-md); }
+    .stat-card__number { font-family: var(--font-heading); font-size: clamp(2.5rem, 4vw, 3.5rem); font-weight: 700; color: var(--color-primary); line-height: 1; margin-bottom: var(--space-sm); }
+    .stat-card__label { font-size: 0.95rem; font-weight: 500; color: var(--color-text-primary); margin-bottom: var(--space-xs); }
+    .stat-card__desc { font-size: 0.85rem; color: var(--color-text-secondary); }
+
+    /* ================================================================
+       NEWSLETTER
+       ================================================================ */
+    .newsletter { background: var(--color-primary); color: #fff; border-radius: var(--radius-xl); padding: var(--space-3xl) var(--space-xl); text-align: center; }
+    .newsletter h2 { color: #fff; }
+    .newsletter p { color: rgba(255,255,255,0.75); margin: var(--space-md) auto var(--space-xl); max-width: 55ch; }
+    .newsletter__form { display: flex; gap: var(--space-sm); max-width: 480px; margin: 0 auto; }
+    .newsletter__form input { flex: 1; padding: 0.85rem 1.25rem; border: none; border-radius: var(--radius-md); font-size: 0.95rem; font-family: var(--font-body); background: rgba(255,255,255,0.15); color: #fff; outline: none; transition: background 0.2s ease; }
+    .newsletter__form input::placeholder { color: rgba(255,255,255,0.5); }
+    .newsletter__form input:focus { background: rgba(255,255,255,0.22); }
+    .newsletter__form .btn--accent { background: #fff; color: var(--color-primary); }
+    .newsletter__form .btn--accent:hover { background: rgba(255,255,255,0.9); color: var(--color-primary-hover); }
+
+    /* ================================================================
+       FAQ
+       ================================================================ */
+    .faq-list { max-width: 720px; margin: 0 auto; }
+    .faq-item { border-bottom: 1px solid var(--color-border); }
+    .faq-item:first-child { border-top: 1px solid var(--color-border); }
+    .faq-question { display: flex; justify-content: space-between; align-items: center; width: 100%; padding: var(--space-lg) 0; font-size: 1.05rem; font-weight: 500; color: var(--color-text-primary); text-align: left; background: none; transition: color 0.2s ease; }
+    .faq-question:hover { color: var(--color-accent); }
+    .faq-question svg { width: 20px; height: 20px; flex-shrink: 0; transition: transform 0.3s ease; color: var(--color-text-tertiary); }
+    .faq-item.open .faq-question svg { transform: rotate(180deg); color: var(--color-accent); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease; }
+    .faq-answer__inner { padding-bottom: var(--space-lg); font-size: 0.95rem; color: var(--color-text-secondary); line-height: 1.7; }
+    .faq-item.open .faq-answer { max-height: 500px; }
+    .faq-item.open .faq-question svg { transform: rotate(180deg); }
+
+    /* ================================================================
+       FOOTER
+       ================================================================ */
+    .footer { background: var(--color-surface-alt); border-top: 1px solid var(--color-border); }
+    .footer__grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: var(--space-2xl); padding: var(--space-4xl) 0; }
+    .footer__brand { font-family: var(--font-heading); font-weight: 700; font-size: 1.35rem; margin-bottom: var(--space-md); }
+    .footer__desc { font-size: 0.9rem; color: var(--color-text-secondary); max-width: 35ch; margin-bottom: var(--space-lg); }
+    .footer__social { display: flex; gap: var(--space-md); }
+    .footer__social a { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--color-border); color: var(--color-text-secondary); transition: all 0.2s ease; }
+    .footer__social a:hover { border-color: var(--color-accent); color: var(--color-accent); background: var(--color-accent-ghost); }
+    .footer__col-title { font-weight: 600; font-size: 0.9rem; margin-bottom: var(--space-lg); text-transform: uppercase; letter-spacing: 0.05em; }
+    .footer__link { display: block; font-size: 0.9rem; color: var(--color-text-secondary); padding: 0.3rem 0; }
+    .footer__link:hover { color: var(--color-accent); }
+    .footer__bottom { border-top: 1px solid var(--color-border); padding: var(--space-lg) 0; display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; color: var(--color-text-tertiary); }
+
+    /* ================================================================
+       COOKIE BANNER
+       ================================================================ */
+    .cookie-banner { position: fixed; bottom: 0; left: 0; right: 0; z-index: var(--z-toast); background: var(--color-surface); border-top: 1px solid var(--color-border); padding: var(--space-lg) var(--space-xl); display: none; box-shadow: 0 -4px 20px rgba(0,0,0,0.08); }
+    .cookie-banner.visible { display: block; }
+    .cookie-banner__inner { max-width: var(--width-max); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: var(--space-lg); }
+    .cookie-banner__text { font-size: 0.85rem; color: var(--color-text-secondary); max-width: 65ch; }
+    .cookie-banner__actions { display: flex; gap: var(--space-sm); flex-shrink: 0; }
+
+    /* ================================================================
+       ANIMATIONS (reveal on scroll)
+       ================================================================ */
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-left { opacity: 0; transform: translateX(-30px); transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+    .reveal-left.visible { opacity: 1; transform: translateX(0); }
+    .reveal-right { opacity: 0; transform: translateX(30px); transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+    .reveal-right.visible { opacity: 1; transform: translateX(0); }
+    .reveal-scale { opacity: 0; transform: scale(0.95); transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+    .reveal-scale.visible { opacity: 1; transform: scale(1); }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal, .reveal-left, .reveal-right, .reveal-scale { opacity: 1; transform: none; transition: none; }
+      .hero__scroll { animation: none; }
+      .gear-card:hover { transform: none; }
+      .story-card:hover { box-shadow: none; }
+      * { scroll-behavior: auto !important; }
+    }
+
+    /* ================================================================
+       RESPONSIVE
+       ================================================================ */
+    @media (max-width: 900px) {
+      .gear-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer__grid { grid-template-columns: 1fr 1fr; gap: var(--space-xl); }
+      .nav__links { display: none; }
+      .mobile-menu-btn { display: flex; }
+      .nav__links.open { display: flex; flex-direction: column; position: absolute; top: 4rem; left: 0; right: 0; background: var(--color-bg); border-bottom: 1px solid var(--color-border); padding: var(--space-lg); gap: var(--space-md); }
+      .stories-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      .gear-grid { grid-template-columns: 1fr; }
+      .sustainability-grid { grid-template-columns: 1fr; }
+      .footer__grid { grid-template-columns: 1fr; }
+      .newsletter__form { flex-direction: column; }
+      .cookie-banner__inner { flex-direction: column; text-align: center; }
+      .hero__content { text-align: center; }
+      .hero__content p { margin-left: auto; margin-right: auto; }
+      .hero__actions { justify-content: center; }
+      .section { padding: var(--space-3xl) 0; }
+      .container { padding: 0 var(--space-lg); }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link" data-i18n="skipNav">Skip to main content</a>
+
+  <!-- ================================================================
+       NAVIGATION
+       ================================================================ -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="#" class="nav__brand">
+        <svg class="nav__brand-icon" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <rect width="32" height="32" rx="6" fill="var(--color-primary)"/>
+          <path d="M16 6l4 8h-3v12h-2V14h-3l4-8z" fill="var(--color-accent)"/>
+        </svg>
+        <span data-i18n="brandName">Northbound</span>
+      </a>
+
+      <div class="nav__links" id="nav-links">
+        <a href="#gear" class="nav__link" data-i18n="navGear">Gear</a>
+        <a href="#stories" class="nav__link" data-i18n="navStories">Stories</a>
+        <a href="#sustainability" class="nav__link" data-i18n="navSustainability">Sustainability</a>
+        <a href="#faq" class="nav__link" data-i18n="navFaq">FAQ</a>
+      </div>
+
+      <div class="nav__actions">
+        <!-- Language Selector -->
+        <div class="lang-selector">
+          <button class="lang-selector__btn" id="lang-btn" aria-label="Select language" aria-haspopup="true" aria-expanded="false">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            </svg>
+            <span id="lang-current">EN</span>
+          </button>
+          <div class="lang-selector__dropdown" id="lang-dropdown" role="menu">
+            <div class="lang-selector__item active" data-lang="en" role="menuitem">English</div>
+            <div class="lang-selector__item" data-lang="es" role="menuitem">Español</div>
+            <div class="lang-selector__item" data-lang="fr" role="menuitem">Français</div>
+            <div class="lang-selector__item" data-lang="de" role="menuitem">Deutsch</div>
+            <div class="lang-selector__item" data-lang="it" role="menuitem">Italiano</div>
+            <div class="lang-selector__item" data-lang="pt" role="menuitem">Português</div>
+          </div>
+        </div>
+
+        <!-- Theme Toggle -->
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+          <svg id="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+          <svg id="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+
+        <!-- Mobile Menu -->
+        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ================================================================
+       HERO
+       ================================================================ -->
+  <section class="hero" id="main">
+    <div class="hero__bg">
+      <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600&q=80" alt="Mountain landscape at sunrise with snow-capped peaks" loading="eager">
+    </div>
+    <div class="container hero__content">
+      <h1 data-i18n="heroTitle">Push Further.</h1>
+      <p class="hero__sub" data-i18n="heroSub">Premium expedition gear and guided adventures for those who measure life in miles, not minutes. Built for the trail ahead.</p>
+      <div class="hero__actions">
+        <a href="#gear" class="btn btn--primary btn--lg" data-i18n="heroCtaGear">Explore Gear</a>
+        <a href="#stories" class="btn btn--outline btn--lg" data-i18n="heroCtaAdventure">Find Adventure</a>
+      </div>
+    </div>
+    <div class="hero__scroll" aria-hidden="true">
+      <span data-i18n="scrollLabel">Scroll</span>
+      <div class="hero__scroll-line"></div>
+    </div>
+  </section>
+  <!-- ================================================================
+       GEAR SECTION
+       ================================================================ -->
+  <section class="section" id="gear">
+    <div class="container">
+      <div class="section__header reveal">
+        <h2 data-i18n="gearTitle">Trail-Tested Equipment</h2>
+        <p data-i18n="gearSub">Every piece of gear is field-tested in the harshest conditions. From summit tents to insulated outer layers, we build equipment that performs when it matters most.</p>
+      </div>
+      <div class="gear-grid">
+        <article class="gear-card reveal" style="transition-delay: 0.1s">
+          <img class="gear-card__img" src="https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?w=600&q=80" alt="Orange expedition tent pitched on a mountain ridge" loading="lazy">
+          <div class="gear-card__body">
+            <span class="gear-card__tag" data-i18n="tagTents">Tents</span>
+            <h3 class="gear-card__title" data-i18n="gear1Title">Summit Pro 3-Season</h3>
+            <p class="gear-card__desc" data-i18n="gear1Desc">Four-season expedition tent weighing just 2.8 kg. Withstands winds up to 110 km/h while maintaining breathability.</p>
+            <div class="gear-card__price">$899 <span data-i18n="gearCurrency">USD</span></div>
+          </div>
+        </article>
+        <article class="gear-card reveal" style="transition-delay: 0.2s">
+          <img class="gear-card__img" src="https://images.unsplash.com/photo-1603351154351-5e2d0600bb77?w=600&q=80" alt="Insulated jacket on a snowy mountain landscape" loading="lazy">
+          <div class="gear-card__body">
+            <span class="gear-card__tag" data-i18n="tagApparel">Apparel</span>
+            <h3 class="gear-card__title" data-i18n="gear2Title">Timberline Down Parka</h3>
+            <p class="gear-card__desc" data-i18n="gear2Desc">800-fill goose down with a durable water-repellent shell. Rated to -30°C with articulated movement for climbing.</p>
+            <div class="gear-card__price">$649 <span data-i18n="gearCurrency">USD</span></div>
+          </div>
+        </article>
+        <article class="gear-card reveal" style="transition-delay: 0.3s">
+          <img class="gear-card__img" src="https://images.unsplash.com/photo-1551632811-561732d1e306?w=600&q=80" alt="Hiking boots on a rocky trail" loading="lazy">
+          <div class="gear-card__body">
+            <span class="gear-card__tag" data-i18n="tagFootwear">Footwear</span>
+            <h3 class="gear-card__title" data-i18n="gear3Title">Cragmaster GTX Boots</h3>
+            <p class="gear-card__desc" data-i18n="gear3Desc">Vibram outsole with Gore-Tex lining. Tested across 2,000 km of Patagonian terrain before release.</p>
+            <div class="gear-card__price">$395 <span data-i18n="gearCurrency">USD</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+  <!-- ================================================================
+       STORIES SECTION (Testimonials)
+       ================================================================ -->
+  <section class="section section--alt" id="stories" style="background: var(--color-surface-alt);">
+    <div class="container">
+      <div class="section__header reveal">
+        <h2 data-i18n="storiesTitle">Adventure Diaries</h2>
+        <p data-i18n="storiesSub">Real stories from the Northbound community. These are the moments that remind us why we step outside the map.</p>
+      </div>
+      <div class="stories-grid">
+        <article class="story-card reveal-left">
+          <img class="story-card__img" src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=600&q=80" alt="Hiker overlooking a mountain valley at golden hour" loading="lazy">
+          <div class="story-card__body">
+            <div class="story-card__meta">5-day solo trek | Patagonia, Chile</div>
+            <h3 class="story-card__title" data-i18n="story1Title">"The Parka Held Up at -22°C"</h3>
+            <p class="story-card__excerpt" data-i18n="story1Excerpt">"I pushed through a whiteout on the John Muir trail. The Timberline shell kept me bone-dry while my partner's jacket failed at the seams. I've never trusted a piece of gear more."</p>
+            <p style="margin-top:var(--space-sm);font-size:0.85rem;font-weight:600;color:var(--color-accent);" data-i18n="story1Author">— Sarah K., Expedition Guide</p>
+          </div>
+        </article>
+        <article class="story-card reveal-right">
+          <img class="story-card__img" src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=600&q=80" alt="Campfire at night under a starry sky" loading="lazy">
+          <div class="story-card__body">
+            <div class="story-card__meta">Weekend expedition | Rocky Mountains, USA</div>
+            <h3 class="story-card__title" data-i18n="story2Title">"A Tent That Survived the Storm"</h3>
+            <p class="story-card__excerpt" data-i18n="story2Excerpt">"60 km/h gusts hit us at 3,200 meters. Other tents in our group collapsed, but the Summit Pro shed the wind like it was nothing. I slept through the storm."</p>
+            <p style="margin-top:var(--space-sm);font-size:0.85rem;font-weight:600;color:var(--color-accent);" data-i18n="story2Author">— Marcus T., Outdoor Photographer</p>
+          </div>
+        </article>
+        <article class="story-card reveal-left">
+          <img class="story-card__img" src="https://images.unsplash.com/photo-1551632811-561732d1e306?w=600&q=80" alt="Hiker crossing a stream in rugged terrain" loading="lazy">
+          <div class="story-card__body">
+            <div class="story-card__meta">Thru-hike | Pacific Crest Trail</div>
+            <h3 class="story-card__title" data-i18n="story3Title">"2,700 km Without a Blister"</h3>
+            <p class="story-card__excerpt" data-i18n="story3Excerpt">"I logged over 500 trail km in the Cragmaster boots before they even felt broken in. No blisters, no hot spots — just pure grip on granite, scree, and snow."</p>
+            <p style="margin-top:var(--space-sm);font-size:0.85rem;font-weight:600;color:var(--color-accent);" data-i18n="story3Author">— Elena V., Thru-hiker</p>
+          </div>
+        </article>
+        <article class="story-card reveal-right">
+          <img class="story-card__img" src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=600&q=80" alt="Person standing on a mountain summit with arms raised" loading="lazy">
+          <div class="story-card__body">
+            <div class="story-card__meta">Guided summit | Denali, Alaska</div>
+            <h3 class="story-card__title" data-i18n="story4Title">"Northbound Got Me to the Top"</h3>
+            <p class="story-card__excerpt" data-i18n="story4Excerpt">"The guided Denali expedition was the most well-organized trip of my life. Our guide knew every ridge, every weather pattern. I felt safe and capable the entire climb."</p>
+            <p style="margin-top:var(--space-sm);font-size:0.85rem;font-weight:600;color:var(--color-accent);" data-i18n="story4Author">— David R., First-time Summiteer</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+  <!-- ================================================================
+       SUSTAINABILITY SECTION (Stats)
+       ================================================================ -->
+  <section class="section" id="sustainability">
+    <div class="container">
+      <div class="section__header reveal">
+        <h2 data-i18n="sustainTitle">Built to Last. Made to Matter.</h2>
+        <p data-i18n="sustainSub">We believe the best gear is the gear you never have to replace. Every product is built with sustainability at its core — from material sourcing to end-of-life recycling.</p>
+      </div>
+      <div class="sustainability-grid">
+        <div class="stat-card reveal-scale" style="transition-delay:0.1s">
+          <div class="stat-card__number">98%</div>
+          <div class="stat-card__label" data-i18n="stat1Label">Repairability Rate</div>
+          <p class="stat-card__desc" data-i18n="stat1Desc">Every product designed for easy in-field repair, not replacement.</p>
+        </div>
+        <div class="stat-card reveal-scale" style="transition-delay:0.2s">
+          <div class="stat-card__number">12k</div>
+          <div class="stat-card__label" data-i18n="stat2Label">Trees Planted</div>
+          <p class="stat-card__desc" data-i18n="stat2Desc">One tree planted for every product sold through our reforestation partners.</p>
+        </div>
+        <div class="stat-card reveal-scale" style="transition-delay:0.3s">
+          <div class="stat-card__number">100%</div>
+          <div class="stat-card__label" data-i18n="stat3Label">Renewable Energy</div>
+          <p class="stat-card__desc" data-i18n="stat3Desc">Our entire supply chain powered by wind and solar since 2024.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================
+       NEWSLETTER SECTION
+       ================================================================ -->
+  <section class="section" id="newsletter">
+    <div class="container">
+      <div class="newsletter reveal">
+        <h2 data-i18n="newsletterTitle">Stay on the Trail</h2>
+        <p data-i18n="newsletterSub">Get expedition dispatches, gear reviews, and early access to new collections. No spam — just the trail ahead.</p>
+        <form class="newsletter__form" id="newsletter-form" novalidate>
+          <input type="email" id="newsletter-email" placeholder="your.email@example.com" required aria-label="Email address" data-i18n-placeholder="newsletterPlaceholder">
+          <button type="submit" class="btn btn--accent" data-i18n="newsletterBtn">Subscribe</button>
+        </form>
+        <p style="font-size:0.8rem;color:rgba(255,255,255,0.5);margin-top:var(--space-md);" data-i18n="newsletterDisclaimer">Join 18,000+ adventurers. Unsubscribe anytime.</p>
+      </div>
+    </div>
+  </section>
+  <!-- ================================================================
+       FAQ SECTION
+       ================================================================ -->
+  <section class="section" id="faq">
+    <div class="container container--narrow">
+      <div class="section__header reveal">
+        <h2 data-i18n="faqTitle">Common Questions</h2>
+        <p data-i18n="faqSub">Everything you need to know before your next adventure.</p>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">
+            <span data-i18n="faq1Q">What is your return policy?</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer" role="region">
+            <div class="faq-answer__inner" data-i18n="faq1A">We stand behind every product with a lifetime guarantee. If your gear fails due to a manufacturing defect — at any point — we will repair or replace it free of charge. For change of mind, we offer a 60-day full refund on unused items.</div>
+          </div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">
+            <span data-i18n="faq2Q">Do you ship internationally?</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer" role="region">
+            <div class="faq-answer__inner" data-i18n="faq2A">Yes, we ship to over 60 countries worldwide. Free shipping on orders over $200 USD. International delivery typically takes 5-12 business days depending on customs processing. Duties and taxes are calculated at checkout.</div>
+          </div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">
+            <span data-i18n="faq3Q">How are your guided expeditions structured?</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer" role="region">
+            <div class="faq-answer__inner" data-i18n="faq3A">Our expeditions are led by certified mountain guides with a maximum 6:1 client-to-guide ratio. Each trip includes pre-trip training resources, all group gear, meals on the trail, and emergency satellite communication. Trips range from 3-day introductory treks to 21-day summit expeditions.</div>
+          </div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">
+            <span data-i18n="faq4Q">What is your sustainability commitment?</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer" role="region">
+            <div class="faq-answer__inner" data-i18n="faq4A">We are a certified B Corporation committed to carbon neutrality by 2027. Our products use 100% recycled or responsibly sourced materials. We operate a circular program where you can return worn gear for recycling and receive credit toward your next purchase.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================
+       FOOTER
+       ================================================================ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__brand">
+            <svg style="width:24px;height:24px;vertical-align:middle;margin-right:6px" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+              <rect width="32" height="32" rx="6" fill="var(--color-primary)"/>
+              <path d="M16 6l4 8h-3v12h-2V14h-3l4-8z" fill="var(--color-accent)"/>
+            </svg>
+            <span data-i18n="brandName">Northbound</span>
+          </div>
+          <p class="footer__desc" data-i18n="footerDesc">Premium outdoor equipment and guided expeditions for those who measure life in miles, not minutes.</p>
+          <div class="footer__social">
+            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.94 2C5.12 20 12 20 12 20s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
+            <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
+          </div>
+        </div>
+        <div>
+          <div class="footer__col-title" data-i18n="footerProdTitle">Products</div>
+          <a href="#" class="footer__link" data-i18n="footerTents">Tents</a>
+          <a href="#" class="footer__link" data-i18n="footerApparel">Apparel</a>
+          <a href="#" class="footer__link" data-i18n="footerFootwear">Footwear</a>
+          <a href="#" class="footer__link" data-i18n="footerAccessories">Accessories</a>
+        </div>
+        <div>
+          <div class="footer__col-title" data-i18n="footerExpTitle">Expeditions</div>
+          <a href="#" class="footer__link" data-i18n="footerTreks">Guided Treks</a>
+          <a href="#" class="footer__link" data-i18n="footerSummits">Summit Expeditions</a>
+          <a href="#" class="footer__link" data-i18n="footerTraining">Training Programs</a>
+          <a href="#" class="footer__link" data-i18n="footerCorporate">Corporate Retreats</a>
+        </div>
+        <div>
+          <div class="footer__col-title" data-i18n="footerCompany">Company</div>
+          <a href="#" class="footer__link" data-i18n="footerAbout">About Us</a>
+          <a href="#" class="footer__link" data-i18n="footerCareers">Careers</a>
+          <a href="#" class="footer__link" data-i18n="footerSustainability">Sustainability</a>
+          <a href="#" class="footer__link" data-i18n="footerContact">Contact</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span data-i18n="footerCopyright"> 2026 Northbound Outdoors. All rights reserved.</span>
+        <span><a href="#" style="color:var(--color-text-tertiary)" data-i18n="footerPrivacy">Privacy Policy</a> <span style="margin:0 0.5rem;color:var(--color-border)">|</span> <a href="#" style="color:var(--color-text-tertiary)" data-i18n="footerTerms">Terms of Service</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================================================================
+       COOKIE BANNER
+       ================================================================ -->
+  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent">
+    <div class="cookie-banner__inner">
+      <p class="cookie-banner__text" data-i18n="cookieText">We use essential cookies to make our site work. By continuing, you agree to our use of cookies. You can learn more in our Privacy Policy.</p>
+      <div class="cookie-banner__actions">
+        <button class="btn btn--sm btn--outline" id="cookie-decline" data-i18n="cookieDecline">Decline</button>
+        <button class="btn btn--sm btn--primary" id="cookie-accept" data-i18n="cookieAccept">Accept</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    /* ================================================================
+       TRANSLATIONS — 6 languages
+       ================================================================ */
+    const LANGUAGES = ['en', 'es', 'fr', 'de', 'it', 'pt'];
+    const DEFAULT_LANG = 'en';
+
+    const translations = {
+      en: {
+        skipNav: 'Skip to main content',
+        brandName: 'Northbound',
+        navGear: 'Gear',
+        navStories: 'Stories',
+        navSustainability: 'Sustainability',
+        navFaq: 'FAQ',
+        heroTitle: 'Push Further.',
+        heroSub: 'Premium expedition gear and guided adventures for those who measure life in miles, not minutes. Built for the trail ahead.',
+        heroCtaGear: 'Explore Gear',
+        heroCtaAdventure: 'Find Adventure',
+        scrollLabel: 'Scroll',
+        gearTitle: 'Trail-Tested Equipment',
+        gearSub: 'Every piece of gear is field-tested in the harshest conditions. From summit tents to insulated outer layers, we build equipment that performs when it matters most.',
+        tagTents: 'Tents',
+        gear1Title: 'Summit Pro 3-Season',
+        gear1Desc: 'Four-season expedition tent weighing just 2.8 kg. Withstands winds up to 110 km/h while maintaining breathability.',
+        tagApparel: 'Apparel',
+        gear2Title: 'Timberline Down Parka',
+        gear2Desc: '800-fill goose down with a durable water-repellent shell. Rated to -30°C with articulated movement for climbing.',
+        tagFootwear: 'Footwear',
+        gear3Title: 'Cragmaster GTX Boots',
+        gear3Desc: 'Vibram outsole with Gore-Tex lining. Tested across 2,000 km of Patagonian terrain before release.',
+        gearCurrency: 'USD',
+        storiesTitle: 'Adventure Diaries',
+        storiesSub: 'Real stories from the Northbound community. These are the moments that remind us why we step outside the map.',
+        story1Title: '"The Parka Held Up at -22°C"',
+        story1Excerpt: '"I pushed through a whiteout on the John Muir trail. The Timberline shell kept me bone-dry while my partner\'s jacket failed at the seams."',
+        story1Author: '— Sarah K., Expedition Guide',
+        story2Title: '"A Tent That Survived the Storm"',
+        story2Excerpt: '"60 km/h gusts hit us at 3,200 meters. Other tents collapsed, but the Summit Pro shed the wind like it was nothing. I slept through the storm."',
+        story2Author: '— Marcus T., Outdoor Photographer',
+        story3Title: '"2,700 km Without a Blister"',
+        story3Excerpt: '"I logged over 500 trail km in the Cragmaster boots before they even felt broken in. No blisters, no hot spots."',
+        story3Author: '— Elena V., Thru-hiker',
+        story4Title: '"Northbound Got Me to the Top"',
+        story4Excerpt: '"The guided Denali expedition was the most well-organized trip of my life. Our guide knew every ridge, every weather pattern."',
+        story4Author: '— David R., First-time Summiteer',
+        sustainTitle: 'Built to Last. Made to Matter.',
+        sustainSub: 'We believe the best gear is the gear you never have to replace. Every product is built with sustainability at its core.',
+        stat1Label: 'Repairability Rate',
+        stat1Desc: 'Every product designed for easy in-field repair, not replacement.',
+        stat2Label: 'Trees Planted',
+        stat2Desc: 'One tree planted for every product sold through our reforestation partners.',
+        stat3Label: 'Renewable Energy',
+        stat3Desc: 'Our entire supply chain powered by wind and solar since 2024.',
+        newsletterTitle: 'Stay on the Trail',
+        newsletterSub: 'Get expedition dispatches, gear reviews, and early access to new collections. No spam — just the trail ahead.',
+        newsletterPlaceholder: 'your.email@example.com',
+        newsletterBtn: 'Subscribe',
+        newsletterDisclaimer: 'Join 18,000+ adventurers. Unsubscribe anytime.',
+        faqTitle: 'Common Questions',
+        faqSub: 'Everything you need to know before your next adventure.',
+        faq1Q: 'What is your return policy?',
+        faq1A: 'We stand behind every product with a lifetime guarantee. If your gear fails due to a manufacturing defect at any point, we will repair or replace it free of charge. For change of mind, we offer a 60-day full refund on unused items.',
+        faq2Q: 'Do you ship internationally?',
+        faq2A: 'Yes, we ship to over 60 countries worldwide. Free shipping on orders over $200 USD. International delivery typically takes 5-12 business days.',
+        faq3Q: 'How are guided expeditions structured?',
+        faq3A: 'Our expeditions are led by certified mountain guides with a maximum 6:1 client-to-guide ratio. Each trip includes pre-trip training resources, all group gear, meals on the trail, and emergency satellite communication.',
+        faq4Q: 'What is your sustainability commitment?',
+        faq4A: 'We are a certified B Corporation committed to carbon neutrality by 2027. Our products use 100% recycled or responsibly sourced materials.',
+        footerDesc: 'Premium outdoor equipment and guided expeditions for those who measure life in miles, not minutes.',
+        footerProdTitle: 'Products',
+        footerTents: 'Tents',
+        footerApparel: 'Apparel',
+        footerFootwear: 'Footwear',
+        footerAccessories: 'Accessories',
+        footerExpTitle: 'Expeditions',
+        footerTreks: 'Guided Treks',
+        footerSummits: 'Summit Expeditions',
+        footerTraining: 'Training Programs',
+        footerCorporate: 'Corporate Retreats',
+        footerCompany: 'Company',
+        footerAbout: 'About Us',
+        footerCareers: 'Careers',
+        footerSustainability: 'Sustainability',
+        footerContact: 'Contact',
+        footerCopyright: '\u00A9 2026 Northbound Outdoors. All rights reserved.',
+        footerPrivacy: 'Privacy Policy',
+        footerTerms: 'Terms of Service',
+        cookieText: 'We use essential cookies to make our site work. By continuing, you agree to our use of cookies. You can learn more in our Privacy Policy.',
+        cookieDecline: 'Decline',
+        cookieAccept: 'Accept',
+        searchPlaceholder: 'Search...'
+      },
+      es: {
+        skipNav: 'Saltar al contenido principal',
+        brandName: 'Northbound',
+        navGear: 'Equipo',
+        navStories: 'Historias',
+        navSustainability: 'Sostenibilidad',
+        navFaq: 'FAQ',
+        heroTitle: 'Ve M\u00E1s All\u00E1.',
+        heroSub: 'Equipo de expedici\u00F3n premium y aventuras guiadas para quienes miden la vida en kil\u00F3metros, no en minutos. Hecho para el camino.',
+        heroCtaGear: 'Explorar Equipo',
+        heroCtaAdventure: 'Encontrar Aventura',
+        scrollLabel: 'Desplazar',
+        gearTitle: 'Equipo Probado en el Terreno',
+        gearSub: 'Cada pieza de equipo se prueba en las condiciones m\u00E1s extremas. Desde tiendas de cumbre hasta capas aislantes, construimos equipo que funciona cuando m\u00E1s importa.',
+        tagTents: 'Tiendas',
+        gear1Title: 'Summit Pro 3 Estaciones',
+        gear1Desc: 'Tienda de expedici\u00F3n para cuatro estaciones que pesa solo 2.8 kg. Resiste vientos de hasta 110 km/h.',
+        tagApparel: 'Ropa',
+        gear2Title: 'Parka Timberline de Plum\u00F3n',
+        gear2Desc: 'Plum\u00F3n de ganso 800-fill con capa repelente al agua. Clasificada para -30\u00B0C.',
+        tagFootwear: 'Calzado',
+        gear3Title: 'Botas Cragmaster GTX',
+        gear3Desc: 'Suela Vibram con forro Gore-Tex. Probada en 2,000 km de terreno patag\u00F3nico.',
+        gearCurrency: 'USD',
+        storiesTitle: 'Diarios de Aventura',
+        storiesSub: 'Historias reales de la comunidad Northbound. Momentos que nos recuerdan por qu\u00E9 salimos del mapa.',
+        story1Title: '"La Parka Agu-\u00F3 a -22\u00B0C"',
+        story1Excerpt: '"Atraves\u00E9 una ventisca en el sendero John Muir. La capa Timberline me mantuvo seco mientras la chaqueta de mi compa\u00F1ero fall\u00F3."',
+        story1Author: '— Sarah K., Gu\u00EDa de Expediciones',
+        story2Title: '"Una Tienda que Sobrevivi\u00F3 la Tormenta"',
+        story2Excerpt: '"R\u00E1fagas de 60 km/h nos golpearon a 3,200 metros. Otras tiendas colapsaron, pero la Summit Pro se mantuvo firme."',
+        story2Author: '— Marcus T., Fot\u00F3grafo de Naturaleza',
+        story3Title: '"2,700 km Sin Una Ampolla"',
+        story3Excerpt: '"Recorr\u00ED m\u00E1s de 500 km con las botas Cragmaster antes de que parecieran usadas. Sin ampollas, sin puntos calientes."',
+        story3Author: '— Elena V., Senderista de Larga Distancia',
+        story4Title: '"Northbound Me Llev\u00F3 a la Cima"',
+        story4Excerpt: '"La expedici\u00F3n guiada a Denali fue el viaje mejor organizado de mi vida. Nuestro gu\u00EDa conoc\u00EDa cada cresta."',
+        story4Author: '— David R., Primer Cumbre',
+        sustainTitle: 'Construido para Durar. Hecho para Importar.',
+        sustainSub: 'Creemos que el mejor equipo es el que nunca necesitas reemplazar. Cada producto se construye con la sostenibilidad como base.',
+        stat1Label: 'Tasa de Reparabilidad',
+        stat1Desc: 'Cada producto dise\u00F1ado para reparaci\u00F3n f\u00E1cil en terreno, no para reemplazo.',
+        stat2Label: '\u00C1rboles Plantados',
+        stat2Desc: 'Un \u00E1rbol plantado por cada producto vendido a trav\u00E9s de nuestros socios de reforestaci\u00F3n.',
+        stat3Label: 'Energ\u00EDa Renovable',
+        stat3Desc: 'Toda nuestra cadena de suministro alimentada por energ\u00EDa e\u00F3lica y solar desde 2024.',
+        newsletterTitle: 'Mant\u00E9nte en el Camino',
+        newsletterSub: 'Recibe despachos de expediciones, rese\u00F1as de equipo y acceso anticipado a nuevas colecciones.',
+        newsletterPlaceholder: 'tu.correo@ejemplo.com',
+        newsletterBtn: 'Suscribirse',
+        newsletterDisclaimer: '\u00DAnete a 18,000+ aventureros. Cancela cuando quieras.',
+        faqTitle: 'Preguntas Frecuentes',
+        faqSub: 'Todo lo que necesitas saber antes de tu pr\u00F3xima aventura.',
+        faq1Q: '\u00BFCu\u00E1l es su pol\u00EDtica de devoluci\u00F3n?',
+        faq1A: 'Respaldamos cada producto con una garant\u00EDa de por vida. Si tu equipo falla por un defecto de fabricaci\u00F3n, lo repararemos o reemplazaremos sin costo.',
+        faq2Q: '\u00BFHacen env\u00EDos internacionales?',
+        faq2A: 'S\u00ED, enviamos a m\u00E1s de 60 pa\u00EDses. Env\u00EDo gratis en pedidos superiores a $200 USD.',
+        faq3Q: '\u00BFC\u00F3mo se estructuran las expediciones guiadas?',
+        faq3A: 'Nuestras expediciones son lideradas por gu\u00EDas de monta\u00F1a certificados con una relaci\u00F3n m\u00E1xima de 6:1 clientes por gu\u00EDa.',
+        faq4Q: '\u00BFCu\u00E1l es su compromiso con la sostenibilidad?',
+        faq4A: 'Somos una Corporaci\u00F3n B certificada comprometida con la neutralidad de carbono para 2027. Nuestros productos usan materiales 100% reciclados.',
+        footerDesc: 'Equipo premium y expediciones guiadas para quienes miden la vida en kil\u00F3metros, no en minutos.',
+        footerProdTitle: 'Productos',
+        footerTents: 'Tiendas',
+        footerApparel: 'Ropa',
+        footerFootwear: 'Calzado',
+        footerAccessories: 'Accesorios',
+        footerExpTitle: 'Expediciones',
+        footerTreks: 'Trekking Guiado',
+        footerSummits: 'Expediciones a Cumbres',
+        footerTraining: 'Programas de Entrenamiento',
+        footerCorporate: 'Retiros Corporativos',
+        footerCompany: 'Empresa',
+        footerAbout: 'Sobre Nosotros',
+        footerCareers: 'Carreras',
+        footerSustainability: 'Sostenibilidad',
+        footerContact: 'Contacto',
+        footerCopyright: '\u00A9 2026 Northbound Outdoors. Todos los derechos reservados.',
+        footerPrivacy: 'Pol\u00EDtica de Privacidad',
+        footerTerms: 'T\u00E9rminos del Servicio',
+        cookieText: 'Usamos cookies esenciales para hacer funcionar nuestro sitio. Al continuar, aceptas nuestro uso de cookies.',
+        cookieDecline: 'Rechazar',
+        cookieAccept: 'Aceptar',
+        searchPlaceholder: 'Buscar...'
+      },
+      fr: {
+        skipNav: 'Aller au contenu principal',
+        brandName: 'Northbound',
+        navGear: '\u00C9quipement',
+        navStories: 'R\u00E9cits',
+        navSustainability: 'Durabilit\u00E9',
+        navFaq: 'FAQ',
+        heroTitle: 'Allez Plus Loin.',
+        heroSub: "\u00C9quipement d'exp\u00E9dition haut de gamme et aventures guid\u00E9es pour ceux qui mesurent la vie en kilom\u00E8tres, pas en minutes. Con\u00E7u pour le sentier.",
+        heroCtaGear: 'Explorer',
+        heroCtaAdventure: "Trouver l'Aventure",
+        scrollLabel: 'D\u00E9filer',
+        gearTitle: '\u00C9quipement \u00C9prouv\u00E9 sur le Terrain',
+        gearSub: "Chaque pi\u00E8ce d'\u00E9quipement est test\u00E9e dans les conditions les plus rudes. Des tentes de sommet aux couches isolantes.",
+        tagTents: 'Tentes',
+        gear1Title: 'Summit Pro 3 Saisons',
+        gear1Desc: 'Tente 4 saisons ne pesant que 2,8 kg. R\u00E9siste \u00E0 des vents de 110 km/h.',
+        tagApparel: 'V\u00EAtements',
+        gear2Title: "Doudoune Timberline",
+        gear2Desc: 'Duvet d\'oie 800-fill avec coque d\u00E9perlante. Homologu\u00E9e jusqu\'\u00E0 -30\u00B0C.',
+        tagFootwear: 'Chaussures',
+        gear3Title: 'Bottes Cragmaster GTX',
+        gear3Desc: 'Semelle Vibram avec doublure Gore-Tex. Test\u00E9e sur 2 000 km en Patagonie.',
+        gearCurrency: 'USD',
+        storiesTitle: 'Carnets d\'Aventure',
+        storiesSub: "Des histoires vraies de la communaut\u00E9 Northbound. Ces moments qui nous rappellent pourquoi nous sortons des sentiers battus.",
+        story1Title: '"-22\u00B0C et la Doudoune a Tenu"',
+        story1Excerpt: '"J\'ai travers\u00E9 un blizzard sur le sentier John Muir. La coque Timberline m\'a gard\u00E9 au sec."',
+        story1Author: '— Sarah K., Guide d\'Exp\u00E9dition',
+        story2Title: '"Une Tente Qui a Surviv\u00E9 \u00E0 la Temp\u00EAte"',
+        story2Excerpt: '"Des rafales de 60 km/h \u00E0 3 200 m\u00E8tres. Les autres tentes se sont effondr\u00E9es, mais la Summit Pro est rest\u00E9e debout."',
+        story2Author: '— Marcus T., Photographe',
+        story3Title: '"2 700 km Sans Ampoule"',
+        story3Excerpt: '"J\'ai parcouru plus de 500 km avec les bottes Cragmaster avant m\u00EAme qu\'elles ne soient rod\u00E9es."',
+        story3Author: '— Elena V., Randonneuse',
+        story4Title: '"Northbound M\'a Emmen\u00E9 au Sommet"',
+        story4Excerpt: '"L\'exp\u00E9dition guid\u00E9e au Denali \u00E9tait le voyage le mieux organis\u00E9 de ma vie."',
+        story4Author: '— David R., Premier Sommet',
+        sustainTitle: 'Con\u00E7u pour Durer. Fait pour Compter.',
+        sustainSub: 'Nous croyons que le meilleur \u00E9quipement est celui que vous n\'avez jamais \u00E0 remplacer.',
+        stat1Label: 'Taux de R\u00E9parabilit\u00E9',
+        stat1Desc: 'Chaque produit con\u00E7u pour une r\u00E9paration facile sur le terrain.',
+        stat2Label: 'Arbres Plant\u00E9s',
+        stat2Desc: 'Un arbre plant\u00E9 pour chaque produit vendu.',
+        stat3Label: '\u00C9nergie Renouvelable',
+        stat3Desc: 'Toute notre cha\u00EEne d\'approvisionnement aliment\u00E9e par le solaire et l\'\u00E9olien.',
+        newsletterTitle: 'Restez sur la Piste',
+        newsletterSub: 'Recevez des dispatches d\'exp\u00E9dition, des avis sur l\'\u00E9quipement et un acc\u00E8s anticip\u00E9.',
+        newsletterPlaceholder: 'votre.email@exemple.com',
+        newsletterBtn: "S'abonner",
+        newsletterDisclaimer: 'Rejoignez 18 000+ aventuriers. D\u00E9sabonnez-vous \u00E0 tout moment.',
+        faqTitle: 'Questions Fr\u00E9quentes',
+        faqSub: 'Tout ce que vous devez savoir avant votre prochaine aventure.',
+        faq1Q: 'Quelle est votre politique de retour?',
+        faq1A: 'Nous garantissons chaque produit \u00E0 vie. En cas de d\u00E9faut de fabrication, nous r\u00E9parons ou rempla\u00E7ons gratuitement.',
+        faq2Q: 'Livrez-vous \u00E0 l\'international?',
+        faq2A: 'Oui, nous livrons dans plus de 60 pays. Livraison gratuite pour les commandes de plus de 200 $USD.',
+        faq3Q: 'Comment sont structur\u00E9es les exp\u00E9ditions guid\u00E9es?',
+        faq3A: 'Nos exp\u00E9ditions sont men\u00E9es par des guides certifi\u00E9s avec un ratio maximum de 6:1 clients par guide.',
+        faq4Q: 'Quel est votre engagement en faveur de la durabilit\u00E9?',
+        faq4A: 'Nous sommes une soci\u00E9t\u00E9 B certifi\u00E9e, engag\u00E9e pour la neutralit\u00E9 carbone d\'ici 2027.',
+        footerDesc: "\u00C9quipement de plein air premium et exp\u00E9ditions guid\u00E9es.",
+        footerProdTitle: 'Produits',
+        footerTents: 'Tentes',
+        footerApparel: 'V\u00EAtements',
+        footerFootwear: 'Chaussures',
+        footerAccessories: 'Accessoires',
+        footerExpTitle: 'Exp\u00E9ditions',
+        footerTreks: 'Randonn\u00E9es Guid\u00E9es',
+        footerSummits: 'Exp\u00E9ditions de Sommet',
+        footerTraining: 'Programmes de Formation',
+        footerCorporate: 'Retraites d\'Entreprise',
+        footerCompany: 'Soci\u00E9t\u00E9',
+        footerAbout: '\u00C0 Propos',
+        footerCareers: 'Carri\u00E8res',
+        footerSustainability: 'Durabilit\u00E9',
+        footerContact: 'Contact',
+        footerCopyright: '\u00A9 2026 Northbound Outdoors. Tous droits r\u00E9serv\u00E9s.',
+        footerPrivacy: 'Politique de Confidentialit\u00E9',
+        footerTerms: "Conditions d'Utilisation",
+        cookieText: 'Nous utilisons des cookies essentiels pour faire fonctionner notre site. En continuant, vous acceptez notre utilisation des cookies.',
+        cookieDecline: 'Refuser',
+        cookieAccept: 'Accepter',
+        searchPlaceholder: 'Rechercher...'
+      },
+      de: {
+        skipNav: 'Zum Hauptinhalt springen',
+        brandName: 'Northbound',
+        navGear: 'Ausr\u00FCstung',
+        navStories: 'Geschichten',
+        navSustainability: 'Nachhaltigkeit',
+        navFaq: 'FAQ',
+        heroTitle: 'Geh Weiter.',
+        heroSub: 'Premium-Expeditionsausr\u00FCstung und gef\u00FChrte Abenteuer f\u00FCr diejenigen, die das Leben in Kilometern messen, nicht in Minuten.',
+        heroCtaGear: 'Ausr\u00FCstung',
+        heroCtaAdventure: 'Abenteuer Finden',
+        scrollLabel: 'Scrollen',
+        gearTitle: 'Erprobte Ausr\u00FCstung',
+        gearSub: 'Jedes Ausr\u00FCstungsteil wird unter den h\u00E4rtesten Bedingungen getestet. Von Gipfelzelten bis zu Isolationsschichten.',
+        tagTents: 'Zelte',
+        gear1Title: 'Summit Pro 3-Jahreszeiten',
+        gear1Desc: 'Vierjahreszeiten-Expeditionszelt mit nur 2,8 kg. H\u00E4lt Winden von bis zu 110 km/h stand.',
+        tagApparel: 'Bekleidung',
+        gear2Title: 'Timberline Daunenparka',
+        gear2Desc: '800er G\u00E4nseschlon mit wasserabweisender Au\u00DFenhaut. Gepr\u00FCft bis -30\u00B0C.',
+        tagFootwear: 'Schuhwerk',
+        gear3Title: 'Cragmaster GTX Stiefel',
+        gear3Desc: 'Vibram-Sohle mit Gore-Tex-Futter. Getestet auf 2.000 km patagonischem Gel\u00E4nde.',
+        gearCurrency: 'USD',
+        storiesTitle: 'Abenteuertageb\u00FCcher',
+        storiesSub: 'Echte Geschichten aus der Northbound-Community. Momente, die uns daran erinnern, warum wir die Karte verlassen.',
+        story1Title: '"Der Parka Hielt bei 22\u00B0C"',
+        story1Excerpt: '"Ich habe einen Schneesturm auf dem John Muir Trail durchquert. Die Timberline-H\u00FClle hielt mich knochentrocken."',
+        story1Author: '— Sarah K., Expeditionsf\u00FChrerin',
+        story2Title: '"Ein Zelt, das den Sturm \u00DCberlebte"',
+        story2Excerpt: '"60 km/h B\u00F6en trafen uns auf 3.200 Metern. Andere Zelte brachen zusammen, aber das Summit Pro blieb stehen."',
+        story2Author: '— Marcus T., Naturfotograf',
+        story3Title: '"2.700 km Ohne Blase"',
+        story3Excerpt: '"Ich bin \u00FCber 500 km in den Cragmaster-Stiefeln gelaufen, bevor sie eingelaufen waren."',
+        story3Author: '— Elena V., Weitwanderin',
+        story4Title: '"Northbound Hat Mich Nach Oben Gebracht"',
+        story4Excerpt: '"Die gef\u00FChrte Denali-Expedition war die am besten organisierte Reise meines Lebens."',
+        story4Author: '— David R., Erstbesteiger',
+        sustainTitle: 'Gebaut um zu Halten. Gemacht um zu Z\u00E4hlen.',
+        sustainSub: 'Wir glauben, dass die beste Ausr\u00FCstung die ist, die Sie nie ersetzen m\u00FCssen.',
+        stat1Label: 'Reparaturquote',
+        stat1Desc: 'Jedes Produkt f\u00FCr eine einfache Reparatur vor Ort konzipiert.',
+        stat2Label: 'Gepflanzte B\u00E4ume',
+        stat2Desc: 'Ein Baum gepflanzt f\u00FCr jedes verkaufte Produkt.',
+        stat3Label: 'Erneuerbare Energie',
+        stat3Desc: 'Seit 2024 wird unsere gesamte Lieferkette mit Wind- und Sonnenenergie betrieben.',
+        newsletterTitle: 'Bleib auf dem Weg',
+        newsletterSub: 'Erhalten Sie Expeditionsberichte, Ausr\u00FCstungsbewertungen und fr\u00FChen Zugang.',
+        newsletterPlaceholder: 'ihre.email@beispiel.de',
+        newsletterBtn: 'Abonnieren',
+        newsletterDisclaimer: 'Schlie\u00DFen Sie sich 18.000+ Abenteurern an. Jederzeit k\u00FCndbar.',
+        faqTitle: 'H\u00E4ufige Fragen',
+        faqSub: 'Alles, was Sie vor Ihrem n\u00E4chsten Abenteuer wissen m\u00FCssen.',
+        faq1Q: 'Wie ist Ihre R\u00FCckgabepolitik?',
+        faq1A: 'Wir stehen hinter jedem Produkt mit einer lebenslangen Garantie. Bei Herstellungsfehlern reparieren oder ersetzen wir kostenlos.',
+        faq2Q: 'Liefern Sie international?',
+        faq2A: 'Ja, wir liefern in \u00FCber 60 L\u00E4nder. Kostenloser Versand ab 200 $USD.',
+        faq3Q: 'Wie sind gef\u00FChrte Expeditionen strukturiert?',
+        faq3A: 'Unsere Expeditionen werden von zertifizierten Bergf\u00FChrern mit maximal 6:1 Kunden pro F\u00FChrer geleitet.',
+        faq4Q: 'Was ist Ihr Nachhaltigkeitsengagement?',
+        faq4A: 'Wir sind ein zertifiziertes B-Unternehmen, das sich bis 2027 zur Klimaneutralit\u00E4t verpflichtet hat.',
+        footerDesc: 'Premium-Ausr\u00FCstung und gef\u00FChrte Expeditionen.',
+        footerProdTitle: 'Produkte',
+        footerTents: 'Zelte',
+        footerApparel: 'Bekleidung',
+        footerFootwear: 'Schuhe',
+        footerAccessories: 'Zubeh\u00F6r',
+        footerExpTitle: 'Expeditionen',
+        footerTreks: 'Gef\u00FChrte Wanderungen',
+        footerSummits: 'Gipfelexpeditionen',
+        footerTraining: 'Trainingsprogramme',
+        footerCorporate: 'Firmenretreats',
+        footerCompany: 'Unternehmen',
+        footerAbout: '\u00DCber Uns',
+        footerCareers: 'Karriere',
+        footerSustainability: 'Nachhaltigkeit',
+        footerContact: 'Kontakt',
+        footerCopyright: '\u00A9 2026 Northbound Outdoors. Alle Rechte vorbehalten.',
+        footerPrivacy: 'Datenschutz',
+        footerTerms: 'AGB',
+        cookieText: 'Wir verwenden essentielle Cookies f\u00FCr den Betrieb unserer Website. Mit der Nutzung stimmen Sie zu.',
+        cookieDecline: 'Ablehnen',
+        cookieAccept: 'Akzeptieren',
+        searchPlaceholder: 'Suche...'
+      },
+      it: {
+        skipNav: 'Salta al contenuto principale',
+        brandName: 'Northbound',
+        navGear: 'Attrezzatura',
+        navStories: 'Storie',
+        navSustainability: 'Sostenibilit\u00E0',
+        navFaq: 'FAQ',
+        heroTitle: 'Vai Oltre.',
+        heroSub: 'Attrezzatura da spedizione premium e avventure guidate per chi misura la vita in chilometri, non in minuti.',
+        heroCtaGear: 'Esplora',
+        heroCtaAdventure: "Trova l'Avventura",
+        scrollLabel: 'Scorri',
+        gearTitle: 'Attrezzatura Testata sul Campo',
+        gearSub: 'Ogni pezzo di attrezzatura viene testato nelle condizioni pi\u00F9 estreme. Dalle tende da vetta agli strati isolanti.',
+        tagTents: 'Tende',
+        gear1Title: 'Summit Pro 3 Stagioni',
+        gear1Desc: 'Tenda da spedizione quattro stagioni dal peso di soli 2,8 kg. Resiste a venti fino a 110 km/h.',
+        tagApparel: 'Abbigliamento',
+        gear2Title: 'Piumino Timberline',
+        gear2Desc: 'Piumino d\'oca 800-fill con guscio idrorepellente. Omologato fino a -30\u00B0C.',
+        tagFootwear: 'Calzature',
+        gear3Title: 'Stivali Cragmaster GTX',
+        gear3Desc: 'Suola Vibram con fodera Gore-Tex. Testati su 2.000 km di terreno patagonico.',
+        gearCurrency: 'USD',
+        storiesTitle: 'Diari di Avventura',
+        storiesSub: 'Storie vere della comunit\u00E0 Northbound. Momenti che ci ricordano perch\u00E9 usciamo dalla mappa.',
+        story1Title: '"-22\u00B0C e il Piumino Ha Tenuto"',
+        story1Excerpt: '"Ho attraversato una tormenta sul John Muir Trail. Il guscio Timberline mi ha tenuto asciutto."',
+        story1Author: '— Sarah K., Guida di Spedizioni',
+        story2Title: '"Una Tenda Che Ha Sopravvissuto Alla Tempesta"',
+        story2Excerpt: '"Raffiche di 60 km/h a 3.200 metri. Altre tende sono crollate, ma la Summit Pro \u00E8 rimasta in piedi."',
+        story2Author: '— Marcus T., Fotografo Naturalista',
+        story3Title: '"2.700 km Senza Una Vescica"',
+        story3Excerpt: '"Ho percorso oltre 500 km con gli stivali Cragmaster prima che sembrassero rodati."',
+        story3Author: '— Elena V., Escursionista',
+        story4Title: '"Northbound Mi Ha Portato in Vetta"',
+        story4Excerpt: '"La spedizione guidata al Denali \u00E8 stato il viaggio meglio organizzato della mia vita."',
+        story4Author: '— David R., Prima Vetta',
+        sustainTitle: 'Costruito per Durare. Fatto per Contare.',
+        sustainSub: 'Crediamo che la migliore attrezzatura sia quella che non devi mai sostituire.',
+        stat1Label: 'Tasso di Riparabilit\u00E0',
+        stat1Desc: 'Ogni prodotto progettato per una facile riparazione sul campo.',
+        stat2Label: 'Alberi Piantati',
+        stat2Desc: 'Un albero piantato per ogni prodotto venduto.',
+        stat3Label: 'Energia Rinnovabile',
+        stat3Desc: 'Tutta la nostra filiera alimentata da eolico e solare dal 2024.',
+        newsletterTitle: 'Resta sul Sentiero',
+        newsletterSub: 'Ricevi dispacci di spedizione, recensioni di attrezzatura e accesso anticipato.',
+        newsletterPlaceholder: 'tua.email@esempio.com',
+        newsletterBtn: 'Iscriviti',
+        newsletterDisclaimer: 'Unisciti a 18.000+ avventurieri. Disiscriviti quando vuoi.',
+        faqTitle: 'Domande Frequenti',
+        faqSub: 'Tutto ci\u00F2 che devi sapere prima della tua prossima avventura.',
+        faq1Q: 'Qual \u00E8 la vostra politica di reso?',
+        faq1A: 'Garantiamo ogni prodotto a vita. In caso di difetto di fabbricazione, ripareremo o sostituiremo gratuitamente.',
+        faq2Q: 'Spedite a livello internazionale?',
+        faq2A: 'S\u00EC, spediamo in oltre 60 paesi. Spedizione gratuita per ordini superiori a 200 $USD.',
+        faq3Q: 'Come sono strutturate le spedizioni guidate?',
+        faq3A: 'Le nostre spedizioni sono condotte da guide certificate con un rapporto massimo di 6:1.',
+        faq4Q: 'Qual \u00E8 il vostro impegno per la sostenibilit\u00E0?',
+        faq4A: 'Siamo una B Corporation certificata impegnata per la neutralit\u00E0 carbonica entro il 2027.',
+        footerDesc: 'Attrezzatura premium e spedizioni guidate.',
+        footerProdTitle: 'Prodotti',
+        footerTents: 'Tende',
+        footerApparel: 'Abbigliamento',
+        footerFootwear: 'Scarpe',
+        footerAccessories: 'Accessori',
+        footerExpTitle: 'Spedizioni',
+        footerTreks: 'Trekking Guidati',
+        footerSummits: 'Spedizioni in Vetta',
+        footerTraining: 'Programmi di Allenamento',
+        footerCorporate: 'Ritiri Aziendali',
+        footerCompany: 'Azienda',
+        footerAbout: 'Chi Siamo',
+        footerCareers: 'Carriere',
+        footerSustainability: 'Sostenibilit\u00E0',
+        footerContact: 'Contatti',
+        footerCopyright: '\u00A9 2026 Northbound Outdoors. Tutti i diritti riservati.',
+        footerPrivacy: 'Informativa sulla Privacy',
+        footerTerms: 'Termini di Servizio',
+        cookieText: 'Utilizziamo cookie essenziali per far funzionare il sito. Continuando, accetti il nostro uso dei cookie.',
+        cookieDecline: 'Rifiuta',
+        cookieAccept: 'Accetta',
+        searchPlaceholder: 'Cerca...'
+      },
+      pt: {
+        skipNav: 'Pular para o conte\u00FAdo principal',
+        brandName: 'Northbound',
+        navGear: 'Equipamento',
+        navStories: 'Hist\u00F3rias',
+        navSustainability: 'Sustentabilidade',
+        navFaq: 'FAQ',
+        heroTitle: 'V\u00E1 Mais Longe.',
+        heroSub: 'Equipamento de expedi\u00E7\u00E3o premium e aventuras guiadas para quem mede a vida em quil\u00F4metros, n\u00E3o em minutos.',
+        heroCtaGear: 'Explorar',
+        heroCtaAdventure: 'Encontrar Aventura',
+        scrollLabel: 'Rolar',
+        gearTitle: 'Equipamento Testado em Campo',
+        gearSub: 'Cada pe\u00E7a de equipamento \u00E9 testada nas condi\u00E7\u00F5es mais adversas. Das tendas de cume \u00E0s camadas isolantes.',
+        tagTents: 'Tendas',
+        gear1Title: 'Summit Pro 3 Esta\u00E7\u00F5es',
+        gear1Desc: 'Tenda de expedi\u00E7\u00E3o para quatro esta\u00E7\u00F5es pesando apenas 2,8 kg. Resiste a ventos de at\u00E9 110 km/h.',
+        tagApparel: 'Vestu\u00E1rio',
+        gear2Title: 'Casaco Timberline',
+        gear2Desc: 'Penas de ganso 800-fill com casca repelente \u00E0 \u00E1gua. Classificado para -30\u00B0C.',
+        tagFootwear: 'Cal\u00E7ados',
+        gear3Title: 'Botas Cragmaster GTX',
+        gear3Desc: 'Solado Vibram com forro Gore-Tex. Testado em 2.000 km de terreno patag\u00F4nio.',
+        gearCurrency: 'USD',
+        storiesTitle: 'Di\u00E1rios de Aventura',
+        storiesSub: 'Hist\u00F3rias reais da comunidade Northbound. Momentos que nos lembram por que sa\u00EDmos do mapa.',
+        story1Title: '"-22\u00B0C e o Casaco Aguentou"',
+        story1Excerpt: '"Atravessei uma nevasca na trilha John Muir. A casca Timberline me manteve seco."',
+        story1Author: '— Sarah K., Guia de Expedi\u00E7\u00F5es',
+        story2Title: '"Uma Tenda Que Sobreviveu \u00E0 Tempestade"',
+        story2Excerpt: '"Rajadas de 60 km/h nos atingiram a 3.200 metros. Outras tendas desabaram, mas a Summit Pro ficou de p\u00E9."',
+        story2Author: '— Marcus T., Fot\u00F3grafo de Natureza',
+        story3Title: '"2.700 km Sem Uma Bolha"',
+        story3Excerpt: '"Percorri mais de 500 km com as botas Cragmaster antes de parecerem amaciadas."',
+        story3Author: '— Elena V., Trilheira de Longa Dist\u00E2ncia',
+        story4Title: '"Northbound Me Levou ao Topo"',
+        story4Excerpt: '"A expedi\u00E7\u00E3o guiada ao Denali foi a viagem mais bem organizada da minha vida."',
+        story4Author: '— David R., Primeiro Cume',
+        sustainTitle: 'Constru\u00EDdo para Durar. Feito para Importar.',
+        sustainSub: 'Acreditamos que o melhor equipamento \u00E9 aquele que voc\u00EA nunca precisa substituir.',
+        stat1Label: 'Taxa de Reparabilidade',
+        stat1Desc: 'Cada produto projetado para reparo f\u00E1cil em campo.',
+        stat2Label: '\u00C1rvores Plantadas',
+        stat2Desc: 'Uma \u00E1rvore plantada para cada produto vendido.',
+        stat3Label: 'Energia Renov\u00E1vel',
+        stat3Desc: 'Toda a nossa cadeia de suprimentos alimentada por energia e\u00F3lica e solar desde 2024.',
+        newsletterTitle: 'Fique na Trilha',
+        newsletterSub: 'Receba despachos de expedi\u00E7\u00E3o, avalia\u00E7\u00F5es de equipamento e acesso antecipado.',
+        newsletterPlaceholder: 'seu.email@exemplo.com',
+        newsletterBtn: 'Inscrever-se',
+        newsletterDisclaimer: 'Junte-se a 18.000+ aventureiros. Cancele quando quiser.',
+        faqTitle: 'Perguntas Frequentes',
+        faqSub: 'Tudo que voc\u00EA precisa saber antes da sua pr\u00F3xima aventura.',
+        faq1Q: 'Qual \u00E9 a pol\u00EDtica de devolu\u00E7\u00E3o?',
+        faq1A: 'Garantimos cada produto por toda a vida. Em caso de defeito de fabrica\u00E7\u00E3o, repararemos ou substituiremos gratuitamente.',
+        faq2Q: 'Voc\u00EA faz envios internacionais?',
+        faq2A: 'Sim, enviamos para mais de 60 pa\u00EDses. Frete gr\u00E1tis em pedidos acima de $200 USD.',
+        faq3Q: 'Como s\u00E3o estruturadas as expedi\u00E7\u00F5es guiadas?',
+        faq3A: 'Nossas expedi\u00E7\u00F5es s\u00E3o lideradas por guias de montanha certificados com uma propor\u00E7\u00E3o m\u00E1xima de 6:1.',
+        faq4Q: 'Qual \u00E9 seu compromisso com a sustentabilidade?',
+        faq4A: 'Somos uma B Corporation certificada comprometida com a neutralidade de carbono at\u00E9 2027.',
+        footerDesc: 'Equipamento premium e expedi\u00E7\u00F5es guiadas.',
+        footerProdTitle: 'Produtos',
+        footerTents: 'Tendas',
+        footerApparel: 'Vestu\u00E1rio',
+        footerFootwear: 'Cal\u00E7ados',
+        footerAccessories: 'Acess\u00F3rios',
+        footerExpTitle: 'Expedi\u00E7\u00F5es',
+        footerTreks: 'Trilhas Guiadas',
+        footerSummits: 'Expedi\u00E7\u00F5es de Cume',
+        footerTraining: 'Programas de Treinamento',
+        footerCorporate: 'Retiros Corporativos',
+        footerCompany: 'Empresa',
+        footerAbout: 'Sobre N\u00F3s',
+        footerCareers: 'Carreiras',
+        footerSustainability: 'Sustentabilidade',
+        footerContact: 'Contato',
+        footerCopyright: '\u00A9 2026 Northbound Outdoors. Todos os direitos reservados.',
+        footerPrivacy: 'Pol\u00EDtica de Privacidade',
+        footerTerms: 'Termos de Servi\u00E7o',
+        cookieText: 'Usamos cookies essenciais para fazer o site funcionar. Ao continuar, voc\u00EA aceita o uso de cookies.',
+        cookieDecline: 'Recusar',
+        cookieAccept: 'Aceitar',
+        searchPlaceholder: 'Pesquisar...'
+      }
+    };
+
+    /* ================================================================
+       i18n Engine
+       ================================================================ */
+    function getBrowserLang() {
+      const lang = (navigator.language || navigator.userLanguage || '').split('-')[0];
+      return LANGUAGES.includes(lang) ? lang : null;
+    }
+
+    function getStoredLang() {
+      try { return localStorage.getItem('northbound-lang'); } catch(e) { return null; }
+    }
+
+    function setLang(lang) {
+      if (!translations[lang]) lang = DEFAULT_LANG;
+      const t = translations[lang];
+      // Update all data-i18n elements
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n;
+        if (t[key]) el.textContent = t[key];
+      });
+      // Update placeholders
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.dataset.i18nPlaceholder;
+        if (t[key]) el.placeholder = t[key];
+      });
+      // Update meta tags
+      const metaKeys = { 'meta-title': 'heroTitle', 'meta-desc': 'heroSub', 'og-title': 'heroTitle', 'og-desc': 'heroSub', 'tw-title': 'heroTitle', 'tw-desc': 'heroSub' };
+      for (const [id, tKey] of Object.entries(metaKeys)) {
+        const el = document.getElementById(id);
+        if (el && t[tKey]) {
+          if (el.tagName === 'META') el.content = t[tKey];
+          else el.textContent = t[tKey] + ' — Northbound';
+        }
+      }
+      // Update lang selector
+      document.querySelectorAll('.lang-selector__item').forEach(item => {
+        item.classList.toggle('active', item.dataset.lang === lang);
+      });
+      document.getElementById('lang-current').textContent = lang.toUpperCase();
+      document.documentElement.lang = lang;
+      try { localStorage.setItem('northbound-lang', lang); } catch(e) {}
+    }
+
+    function initLang() {
+      const lang = getStoredLang() || getBrowserLang() || DEFAULT_LANG;
+      setLang(lang);
+    }
+
+    /* ================================================================
+       Theme Toggle (dark/light mode)
+       ================================================================ */
+    function initTheme() {
+      const toggle = document.getElementById('theme-toggle');
+      const sun = document.getElementById('sun-icon');
+      const moon = document.getElementById('moon-icon');
+      let stored;
+      try { stored = localStorage.getItem('northbound-theme'); } catch(e) {}
+      if (stored === 'dark' || (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        sun.style.display = 'block';
+        moon.style.display = 'none';
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        sun.style.display = 'none';
+        moon.style.display = 'block';
+      }
+      toggle.addEventListener('click', () => {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
+        sun.style.display = isDark ? 'none' : 'block';
+        moon.style.display = isDark ? 'block' : 'none';
+        try { localStorage.setItem('northbound-theme', isDark ? 'light' : 'dark'); } catch(e) {}
+      });
+    }
+
+    /* ================================================================
+       Language Selector Dropdown
+       ================================================================ */
+    function initLangSelector() {
+      const btn = document.getElementById('lang-btn');
+      const dropdown = document.getElementById('lang-dropdown');
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        dropdown.classList.toggle('open');
+        btn.setAttribute('aria-expanded', dropdown.classList.contains('open'));
+      });
+      dropdown.addEventListener('click', (e) => {
+        const item = e.target.closest('.lang-selector__item');
+        if (item) {
+          setLang(item.dataset.lang);
+          dropdown.classList.remove('open');
+          btn.setAttribute('aria-expanded', 'false');
+        }
+      });
+      document.addEventListener('click', () => {
+        dropdown.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+      });
+    }
+
+    /* ================================================================
+       Mobile Menu
+       ================================================================ */
+    function initMobileMenu() {
+      const btn = document.getElementById('mobile-menu-btn');
+      const nav = document.getElementById('nav-links');
+      btn.addEventListener('click', () => {
+        nav.classList.toggle('open');
+        btn.setAttribute('aria-expanded', nav.classList.contains('open'));
+      });
+      nav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          nav.classList.remove('open');
+          btn.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+
+    /* ================================================================
+       Nav Scroll Effect
+       ================================================================ */
+    function initNavScroll() {
+      const nav = document.querySelector('.nav');
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          requestAnimationFrame(() => {
+            nav.classList.toggle('scrolled', window.scrollY > 50);
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }, { passive: true });
+    }
+
+    /* ================================================================
+       Scroll Reveal Animations (Intersection Observer)
+       ================================================================ */
+    function initReveal() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+      document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(el => {
+        observer.observe(el);
+      });
+    }
+
+    /* ================================================================
+       FAQ Accordion
+       ================================================================ */
+    function initFaq() {
+      document.querySelectorAll('.faq-question').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const item = btn.closest('.faq-item');
+          const isOpen = item.classList.contains('open');
+          // Close all other items
+          document.querySelectorAll('.faq-item.open').forEach(other => {
+            if (other !== item) {
+              other.classList.remove('open');
+              other.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+            }
+          });
+          // Toggle this item
+          item.classList.toggle('open', !isOpen);
+          btn.setAttribute('aria-expanded', !isOpen);
+        });
+      });
+    }
+
+    /* ================================================================
+       Cookie Banner
+       ================================================================ */
+    function initCookieBanner() {
+      let consented;
+      try { consented = localStorage.getItem('northbound-cookie'); } catch(e) {}
+      if (consented) return;
+      const banner = document.getElementById('cookie-banner');
+      banner.classList.add('visible');
+      document.getElementById('cookie-accept').addEventListener('click', () => {
+        try { localStorage.setItem('northbound-cookie', 'accepted'); } catch(e) {}
+        banner.classList.remove('visible');
+      });
+      document.getElementById('cookie-decline').addEventListener('click', () => {
+        try { localStorage.setItem('northbound-cookie', 'declined'); } catch(e) {}
+        banner.classList.remove('visible');
+      });
+    }
+
+    /* ================================================================
+       Newsletter Form
+       ================================================================ */
+    function initNewsletter() {
+      const form = document.getElementById('newsletter-form');
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = document.getElementById('newsletter-email').value.trim();
+        if (email && email.includes('@')) {
+          const t = translations[document.documentElement.lang] || translations.en;
+          form.innerHTML = '<p style="color:rgba(255,255,255,0.9);font-weight:600;">' + (t.newsletterSuccess || 'Thanks! Check your inbox.') + '</p>';
+        }
+      });
+    }
+
+    /* ================================================================
+       Smooth anchor scrolling with offset
+       ================================================================ */
+    function initSmoothScroll() {
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', (e) => {
+          const id = anchor.getAttribute('href');
+          if (id === '#') return;
+          const target = document.querySelector(id);
+          if (target) {
+            e.preventDefault();
+            const navHeight = 64;
+            const top = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
+            window.scrollTo({ top, behavior: 'smooth' });
+          }
+        });
+      });
+    }
+
+    /* ================================================================
+       Init Everything
+       ================================================================ */
+    document.addEventListener('DOMContentLoaded', () => {
+      initLang();
+      initTheme();
+      initLangSelector();
+      initMobileMenu();
+      initNavScroll();
+      initReveal();
+      initFaq();
+      initCookieBanner();
+      initNewsletter();
+      initSmoothScroll();
+    });
+  </script>
+</body>
+</html>

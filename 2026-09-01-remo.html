@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="es" class="no-js" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="doc-title">REMO · Club de remo en Madrid · Rema el río</title>
+<meta id="meta-desc" name="description" content="Club de remo urbano en el río Manzanares. Escuela desde cero, entrenamiento guiado y bautismos de remo cada sábado. El agua empieza a las 6:30.">
+<link rel="canonical" href="https://proyectos.cristiancode.dev/landings/2026-09-01-remo.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="REMO · Gana la mañana">
+<meta property="og:description" content="Club de remo en Madrid: escuela desde cero, entrenamiento guiado en grupos de ocho y bautismos de remo. El agua empieza a las 6:30.">
+<meta property="og:url" content="https://proyectos.cristiancode.dev/landings/2026-09-01-remo.html">
+<meta property="og:image" content="https://cristiancode.dev/assets/landing-2026-09-01-remo.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="REMO · Club de remo en Madrid">
+<meta name="twitter:description" content="Escuela desde cero, entrenamiento guiado y bautismos de remo. El agua empieza a las 6:30.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#0A0A0A">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230A0A0A'/%3E%3Cpath d='M16 6 L16 26 M16 6 L21 9 M16 26 L11 23' stroke='%23F4F4F4' stroke-width='2' stroke-linecap='round' fill='none'/%3E%3Cpath d='M21 9 L25 6.5' stroke='%23C8102E' stroke-width='2.6' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   DESIGN SYSTEM — REMO · Club de remo urbano (Madrid, río)
+   Surface: Decide/Learn (landing; hero correct). Secondary
+            Operate in the Training-of-the-day console (real
+            intervals, real stroke counts), Monitor in the
+            river strip, Compare across the three programs.
+   Derived from: Uber (popular-web-designs template) — true
+            black #000/#0A0A0A + white #F4F4F4, ZERO mid-tone
+            chrome, pill 999px everything, whisper shadows
+            (0.12–0.16), weight-700 headlines / 400–500 body,
+            no gradients, no serifs, no decorative borders.
+            Diverged: ONE committed hue allowed — racing red
+            #C8102E (Uber-Eats rule) used only for CTAs and
+            the boat's oar blades. Water drawn as ink strokes
+            instead of photos (offline-proof, brand voice).
+   Family: Sport / Remo (rowing club) — first sport landing
+   Style: Transit-map black/white + atomic red; mono labels
+          for splits/rates; drawn shell boat in the hero
+   Strategy: Restrained (white + red ≤8%, black bands 30%)
+   Type: DM Sans (humanist, UberMove-grade density) +
+         Space Mono (labels/splits only)
+   Impeccable: no gradient text, no glass, no side-stripe,
+         no 3 equal tiles (staggered program rows), no
+         hero-metrics (the console digits are the real
+         training of the day), mono labels are brand voice
+         (not per-section eyebrows), numbered markers only
+         on the real regatta sequence, no Inter, no indigo.
+         Contrast verified ≥4.5:1 in both themes.
+   ============================================================ */
+:root{
+  --z-nav:30; --z-banner:40; --z-menu:45; --z-toast:60; --z-fab:70;
+  --bg:#F4F4F4; --bg-2:#EDEDED; --card:#FFFFFF;
+  --ink:#0A0A0A; --muted:#4B4B4B; --faint:#6E6E6E;
+  --line:#D8D8D8; --line-strong:#C4C4C4;
+  --cta:#C8102E; --cta-hover:#A50D26; --cta-ink:#FFFFFF;
+  --red-text:#C8102E; --red-soft:#FBEAEC;
+  --ok:#166534; --err:#9B1C1C;
+  --stage:#0A0A0A; --stage-2:#141414; --stage-ink:#F4F4F4; --stage-muted:#B9B9B9;
+  --disp:'DM Sans',system-ui,'Segoe UI',Roboto,sans-serif;
+  --mono:'Space Mono',ui-monospace,'SFMono-Regular',Menlo,monospace;
+  --r:8px; --r-lg:12px;
+  --ease:cubic-bezier(.16,1,.3,1);
+  --shadow:0 1px 2px rgba(0,0,0,.06),0 12px 28px -14px rgba(0,0,0,.16);
+  --nav-h:64px;
+}
+[data-theme="dark"]{
+  --bg:#0A0A0A; --bg-2:#111111; --card:#141414;
+  --ink:#F4F4F4; --muted:#C8C8C8; --faint:#A0A0A0;
+  --line:#2B2B2B; --line-strong:#3D3D3D;
+  --cta:#C8102E; --cta-hover:#E0263F; --cta-ink:#FFFFFF;
+  --red-text:#FF6B7A; --red-soft:#2A1116;
+  --ok:#5FBF6F; --err:#E0667A;
+  --stage-muted:#AEAEAE;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 14px 32px -16px rgba(0,0,0,.6);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001s !important;animation-iteration-count:1 !important;transition-duration:.001s !important}
+}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:var(--disp); font-size:1rem; line-height:1.5;
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+}
+body.no-scroll{overflow:hidden}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+p{max-width:70ch;text-wrap:pretty}
+h1,h2,h3{text-wrap:balance;margin:0 0 .5em;line-height:1.04;letter-spacing:-.02em}
+h1{font-weight:700;font-size:clamp(2.5rem,6.4vw,5.25rem);line-height:1.02;letter-spacing:-.035em}
+h2{font-weight:700;font-size:clamp(1.9rem,3.8vw,3rem);line-height:1.05;letter-spacing:-.025em}
+h3{font-weight:700;font-size:1.22rem;line-height:1.22;letter-spacing:-.01em}
+.container{width:min(1136px,calc(100% - 40px));margin-inline:auto}
+section{scroll-margin-top:calc(var(--nav-h) + 12px)}
+.visually-hidden{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.skip-link{position:fixed;top:-60px;left:16px;z-index:var(--z-toast);background:var(--ink);color:var(--bg);padding:.6rem 1rem;border-radius:999px;font-weight:600;text-decoration:none;transition:top .3s var(--ease)}
+.skip-link:focus{top:16px}
+.mono{font-family:var(--mono);font-size:.76rem;letter-spacing:.06em;text-transform:uppercase}
+.kicker{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--mono);font-size:.72rem;letter-spacing:.09em;text-transform:uppercase;color:var(--red-text);margin:0 0 1rem}
+.kicker::before{content:'';width:18px;height:2px;background:var(--red-text)}
+/* ---------- buttons / pills ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
+  min-height:44px;padding:.8rem 1.5rem;border-radius:999px;border:0;
+  font-family:var(--disp);font-size:1rem;font-weight:600;line-height:1;
+  text-decoration:none;cursor:pointer;transition:background-color .25s var(--ease),transform .25s var(--ease),box-shadow .25s var(--ease);
+}
+.btn:focus-visible{outline:3px solid var(--cta);outline-offset:3px}
+.btn-primary{background:var(--cta);color:var(--cta-ink)}
+.btn-primary:hover{background:var(--cta-hover);transform:translateY(-1px)}
+.btn-primary:active{transform:translateY(0);box-shadow:inset 0 2px 6px rgba(0,0,0,.22)}
+.btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--line-strong)}
+.btn-ghost:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+[data-theme="dark"] .btn-ghost:hover{background:var(--card);color:var(--ink)}
+.btn-invert{background:var(--ink);color:var(--bg)}
+.btn-invert:hover{background:var(--red-text);color:#FFF}
+.btn-ghost-inv{background:transparent;color:var(--stage-ink);border:1px solid rgba(244,244,244,.32)}
+.btn-ghost-inv:hover{background:var(--stage-ink);color:var(--stage-2);border-color:var(--stage-ink)}
+/* ---------- nav ---------- */
+.nav{position:fixed;inset:0 0 auto 0;z-index:var(--z-nav);height:var(--nav-h);
+  background:var(--bg);border-bottom:1px solid var(--line);
+  transition:background .3s var(--ease),border-color .3s var(--ease)}
+.nav-inner{height:var(--nav-h);display:flex;align-items:center;gap:1.25rem}
+.nav-logo{display:inline-flex;align-items:center;gap:.55rem;font-weight:700;font-size:1.05rem;letter-spacing:-.01em;text-decoration:none;flex:none}
+.nav-logo svg{margin-top:-2px}
+.nav-links{display:flex;gap:.25rem;list-style:none;margin:0 0 0 auto;padding:0}
+.nav-links a{display:inline-flex;align-items:center;min-height:40px;padding:.5rem .8rem;border-radius:999px;font-size:.92rem;font-weight:500;text-decoration:none;color:var(--muted);transition:background .2s var(--ease),color .2s var(--ease)}
+.nav-links a:hover{background:var(--bg-2);color:var(--ink)}
+.nav-actions{display:flex;align-items:center;gap:.6rem;margin-left:.35rem}
+.theme-toggle{width:40px;height:40px;flex:none;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;border:1px solid var(--line-strong);background:transparent;color:var(--ink);cursor:pointer;transition:background .2s var(--ease),border-color .2s var(--ease)}
+.theme-toggle:hover{background:var(--bg-2);border-color:var(--ink)}
+.theme-toggle .ico-moon{display:none}
+[data-theme="dark"] .theme-toggle .ico-sun{display:none}
+[data-theme="dark"] .theme-toggle .ico-moon{display:block}
+.lang-select{position:relative;display:inline-block}
+.lang-select__btn{display:inline-flex;align-items:center;gap:.5rem;height:40px;padding:0 .85rem;border:1px solid var(--line-strong);border-radius:999px;background:transparent;color:var(--ink);font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:border-color .2s var(--ease),background .2s var(--ease)}
+.lang-select__btn:hover,.lang-select__btn[aria-expanded="true"]{border-color:var(--ink);background:var(--bg-2)}
+.lang-select__chev{transition:transform .2s var(--ease)}
+.lang-select__btn[aria-expanded="true"] .lang-select__chev{transform:rotate(180deg)}
+.lang-select__menu{position:absolute;top:calc(100% + 8px);right:0;z-index:var(--z-menu);min-width:172px;padding:.4rem;background:var(--card);border:1px solid var(--line-strong);border-radius:12px;box-shadow:var(--shadow);opacity:0;visibility:hidden;transform:translateY(-5px);transition:opacity .2s var(--ease),transform .2s var(--ease),visibility .2s}
+.lang-select__menu.open{opacity:1;visibility:visible;transform:translateY(0)}
+.lang-select__opt{display:flex;align-items:center;gap:.5rem;width:100%;padding:.55rem .7rem;border:0;background:none;border-radius:8px;font-size:.875rem;color:var(--ink);text-align:left;cursor:pointer;transition:background .15s var(--ease)}
+.lang-select__opt:hover{background:var(--bg-2)}
+.lang-select__opt[aria-selected="true"]{color:var(--red-text);font-weight:600}
+.lang-select__opt[aria-selected="true"]::after{content:'\2713';margin-left:auto}
+.menu-toggle{display:none;width:44px;height:44px;flex:none;align-items:center;justify-content:center;border-radius:999px;border:1px solid var(--line-strong);background:transparent;color:var(--ink);cursor:pointer}
+.mobile-menu{position:fixed;inset:0;z-index:var(--z-menu);background:var(--bg);display:flex;flex-direction:column;padding:calc(var(--nav-h) + 16px) 24px 24px;opacity:0;visibility:hidden;transform:translateY(-8px);transition:opacity .25s var(--ease),visibility .25s,transform .25s var(--ease)}
+.mobile-menu.open{opacity:1;visibility:visible;transform:translateY(0)}
+.mobile-menu nav{display:flex;flex-direction:column;gap:.25rem;margin-bottom:1.5rem}
+.mobile-menu nav a{display:block;padding:.9rem .25rem;font-size:1.4rem;font-weight:700;letter-spacing:-.02em;text-decoration:none;color:var(--ink);border-bottom:1px solid var(--line)}
+.mobile-menu .m-utils{display:flex;align-items:center;gap:.6rem;margin-bottom:1.5rem}
+.mobile-menu a.btn-primary{color:var(--cta-ink);background:var(--cta);padding:.8rem 1.4rem}
+.mobile-menu .lang-select{width:100%}
+.mobile-menu .lang-select__btn{width:100%;justify-content:center}
+.mobile-menu .lang-select__menu{right:auto;left:0;top:calc(100% + 8px)}
+
+/* ---------- hero ---------- */
+.hero{position:relative;padding:calc(var(--nav-h) + 64px) 0 0;background:var(--bg);overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(24px,4vw,56px);align-items:center;padding-bottom:clamp(40px,6vw,80px)}
+.hero-badge{display:inline-flex;align-items:center;gap:.55rem;padding:.45rem .95rem;border-radius:999px;background:var(--card);border:1px solid var(--line-strong);font-family:var(--mono);font-size:.7rem;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-bottom:1.25rem}
+.hero-badge .dot{width:8px;height:8px;border-radius:50%;background:var(--red-text);animation:blink 2.4s var(--ease) infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+.hero-sub{font-size:clamp(1.05rem,1.6vw,1.28rem);color:var(--muted);line-height:1.55;margin:1.25rem 0 1.9rem;max-width:52ch}
+.hero-cta{display:flex;flex-wrap:wrap;gap:.8rem;align-items:center}
+.hero-note{font-family:var(--mono);font-size:.7rem;letter-spacing:.05em;text-transform:uppercase;color:var(--faint);margin-top:1.4rem}
+/* boat art */
+.boat-stage{position:relative}
+.boat-card{position:relative;background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow);padding:clamp(14px,2vw,22px)}
+.boat-card figcaption{display:flex;justify-content:space-between;align-items:flex-end;gap:1rem;padding:.9rem .2rem 0;font-family:var(--mono);font-size:.68rem;letter-spacing:.07em;text-transform:uppercase;color:var(--faint)}
+.boat-card figcaption > span:first-child{min-width:0;flex:1 1 auto;white-space:normal;overflow-wrap:break-word}
+.boat-card figcaption > span:last-child{flex:none;white-space:nowrap}
+.boat-svg{width:100%;height:auto}
+.boat-svg .wake-line{stroke:var(--line-strong);stroke-width:1.4;stroke-linecap:round}
+.boat-svg .hull{stroke:var(--ink);stroke-width:2.2;stroke-linecap:round}
+.boat-svg .blade{fill:var(--red-text)}
+.boat-svg .oar{stroke:var(--ink);stroke-width:1.6;stroke-linecap:round}
+.boat-svg .seat{fill:var(--faint)}
+.oar-left,.oar-right{transform-origin:var(--pivot,center);transition:transform .5s var(--ease)}
+.boat-stage:hover .oar-left{transform:rotate(9deg)}
+.boat-stage:hover .oar-right{transform:rotate(-9deg)}
+.water-band{position:relative;height:26px;background:var(--stage)}
+.water-band::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 22px,rgba(244,244,244,.9) 22px 30px);background-size:30px 100%;animation:slide 2.2s linear infinite}
+[data-theme="dark"] .water-band::before{background:repeating-linear-gradient(90deg,transparent 0 22px,rgba(10,10,10,.7) 22px 30px)}
+@keyframes slide{to{transform:translateX(30px)}}
+@media (prefers-reduced-motion: reduce){.water-band::before{animation:none}}
+/* ---------- marquee ---------- */
+.marquee{background:var(--stage);color:var(--stage-ink);overflow:hidden;padding:.85rem 0;border-block:1px solid var(--line-strong)}
+.marquee-track{display:flex;gap:2.5rem;white-space:nowrap;width:max-content;animation:marq 26s linear infinite}
+.marquee span{font-family:var(--mono);font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--stage-muted)}
+.marquee span b{color:var(--red-text);font-weight:700}
+@keyframes marq{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion: reduce){.marquee-track{animation:none;flex-wrap:wrap}}
+/* ---------- school (programs) ---------- */
+.section{padding:clamp(64px,9vw,104px) 0}
+.section-head{max-width:640px;margin-bottom:clamp(36px,5vw,56px)}
+.section-head p{color:var(--muted);font-size:1.05rem;margin:1rem 0 0}
+.program{--pad:clamp(22px,3vw,34px);position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:1.5rem;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow);padding:var(--pad);margin-bottom:18px;transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s var(--ease)}
+.program:hover{transform:translateY(-3px);box-shadow:0 2px 4px rgba(0,0,0,.05),0 22px 44px -20px rgba(0,0,0,.22);border-color:var(--line-strong)}
+.program.wide{grid-template-columns:minmax(0,1fr);text-align:center}
+.program.wide .program-copy{max-width:56ch;margin-inline:auto}
+.program.rev{grid-template-columns:minmax(0,1fr) auto;direction:rtl}
+.program.rev>*{direction:ltr}
+.program-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:.8rem}
+.chip{display:inline-flex;align-items:center;gap:.4rem;padding:.3rem .7rem;border-radius:999px;background:var(--bg-2);border:1px solid var(--line);font-family:var(--mono);font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.chip.hot{background:var(--red-soft);border-color:var(--red-text);color:var(--red-text)}
+[data-theme="dark"] .chip.hot{background:var(--red-soft);color:#FF8CA0}
+.program h3{font-size:clamp(1.35rem,2.4vw,1.8rem);margin-bottom:.45rem}
+.program p{color:var(--muted);margin:0 0 .9rem;max-width:60ch}
+.program-meta{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center}
+.program-price{font-family:var(--mono);font-size:.8rem;letter-spacing:.04em;color:var(--ink);background:var(--bg-2);border:1px solid var(--line-strong);padding:.4rem .8rem;border-radius:999px;white-space:nowrap}
+/* ---------- manifesto ---------- */
+.manifesto{background:var(--bg-2)}
+.manifesto-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(24px,4vw,56px);align-items:start}
+.manifesto h2{font-size:clamp(2rem,4vw,3.4rem);line-height:1.04}
+.manifesto-copy p{color:var(--muted);margin:1.1rem 0 0;font-size:1.06rem}
+.facts{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.6rem}
+.fact{display:inline-flex;align-items:center;gap:.5rem;padding:.5rem .95rem;border-radius:999px;background:var(--card);border:1px solid var(--line-strong);font-size:.9rem;font-weight:500}
+.fact b{font-family:var(--mono);font-weight:700;color:var(--red-text);font-size:.8rem}
+.manifesto-side{position:relative;border-radius:var(--r-lg);background:var(--stage);color:var(--stage-ink);padding:clamp(26px,3.5vw,40px);overflow:hidden}
+.manifesto-side::after{content:'';position:absolute;left:-30px;bottom:-40px;width:190px;height:190px;border-radius:50%;border:1px solid rgba(244,244,244,.18);box-shadow:0 0 0 24px rgba(244,244,244,.05),0 0 0 48px rgba(244,244,244,.03)}
+.manifesto-side .kicker{color:#FF6B7A}
+.manifesto-side .kicker::before{background:#FF6B7A}
+.manifesto-side p{color:var(--stage-muted);margin:.4rem 0 0;font-size:1.04rem}
+.manifesto-side h3{color:var(--stage-ink);font-size:1.6rem;margin:.7rem 0 0}
+/* ---------- train console ---------- */
+.train{background:var(--bg)}
+.train-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:center}
+.console{background:var(--stage-2);border:1px solid var(--line-strong);border-radius:var(--r-lg);color:var(--stage-ink);padding:clamp(22px,3vw,32px);position:relative;overflow:hidden}
+.console::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--cta)}
+.console-head{display:flex;justify-content:space-between;gap:1rem;align-items:center;border-bottom:1px solid rgba(244,244,244,.14);padding-bottom:1rem;margin-bottom:1.25rem}
+.console-head .mono{color:var(--stage-muted)}
+.stroke-rate{display:flex;align-items:baseline;gap:.4rem}
+.stroke-num{font-size:clamp(3rem,7vw,4.6rem);font-weight:700;line-height:1;letter-spacing:-.04em;color:var(--stage-ink);font-variant-numeric:tabular-nums}
+.stroke-unit{font-family:var(--mono);font-size:.72rem;color:var(--stage-muted);text-transform:uppercase}
+.set-list{list-style:none;margin:1.2rem 0 0;padding:0;display:grid;gap:.55rem}
+.set-list li{display:flex;justify-content:space-between;gap:1rem;align-items:center;padding:.6rem .9rem;border-radius:8px;background:rgba(244,244,244,.05);border:1px solid rgba(244,244,244,.1);font-size:.9rem}
+.set-list .mono{color:var(--red-text)}
+[data-theme="dark"] .set-list .mono{color:#FF8CA0}
+.strokes-counter{display:flex;justify-content:space-between;align-items:center;margin-top:1rem;padding-top:1rem;border-top:1px solid rgba(244,244,244,.14)}
+.strokes-counter .mono{color:var(--stage-muted)}
+.strokes-num{font-family:var(--mono);font-size:1rem;color:var(--stage-ink);font-variant-numeric:tabular-nums}
+.console-mini-boat{margin-top:1.1rem;display:flex;justify-content:center}
+.console-mini-boat svg{width:230px;height:auto}
+.mini-oar{transform-origin:center;transition:transform .55s var(--ease)}
+.mini-oar.a{transform:rotate(14deg)}
+.mini-oar.b{transform:rotate(-14deg)}
+.console-actions{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.3rem}
+/* ---------- regattas ---------- */
+.regatta-band{background:var(--stage);color:var(--stage-ink)}
+.regatta-band .kicker{color:#FF6B7A}
+.regatta-band .kicker::before{background:#FF6B7A}
+.regatta-band .section-head p{color:var(--stage-muted)}
+.regatta-band h2{color:var(--stage-ink)}
+.timeline{display:grid;gap:0;margin:0;padding:0;list-style:none}
+.tl-item{display:grid;grid-template-columns:84px minmax(0,1fr) auto;gap:1.25rem;align-items:center;padding:1.4rem 0;border-top:1px solid rgba(244,244,244,.14);position:relative}
+.tl-item:last-child{border-bottom:1px solid rgba(244,244,244,.14)}
+.tl-num{font-family:var(--mono);font-size:.78rem;letter-spacing:.08em;color:#FF6B7A;display:flex;align-items:center;gap:.6rem}
+.tl-num::after{content:'';width:26px;height:1px;background:rgba(244,244,244,.25)}
+.tl-date{font-family:var(--mono);font-size:.72rem;text-transform:uppercase;color:var(--stage-muted)}
+.tl-main h3{margin:0 0 .25rem;color:var(--stage-ink);font-size:1.35rem}
+.tl-main p{margin:0;color:var(--stage-muted);font-size:.92rem}
+.tl-side{text-align:right}
+.tl-dist{font-family:var(--mono);font-size:.8rem;color:var(--stage-ink);display:block;margin-bottom:.4rem}
+.tl-status{font-family:var(--mono);font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;color:var(--stage-ink);background:var(--cta);padding:.32rem .7rem;border-radius:999px;display:inline-block;white-space:nowrap}
+.status-open{background:transparent;border:1px solid rgba(244,244,244,.3)}
+/* ---------- testimonials ---------- */
+.two-quotes{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:18px}
+.quote{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow);padding:clamp(24px,3vw,36px)}
+.quote.dark{background:var(--stage-2);border-color:var(--line-strong);color:var(--stage-ink)}
+.quote blockquote{margin:0;font-size:clamp(1.15rem,2vw,1.5rem);font-weight:500;line-height:1.35;letter-spacing:-.01em;text-wrap:balance}
+.quote.dark blockquote{color:var(--stage-ink)}
+.quote figcaption{margin-top:1.2rem;display:flex;flex-direction:column;gap:.15rem}
+.quote .mono{color:var(--faint)}
+.quote.dark .mono{color:var(--stage-muted)}
+.quote-author{font-weight:600;font-size:.95rem}
+/* ---------- faq ---------- */
+.faq-list{max-width:820px}
+.faq-item{border:1px solid var(--line);border-radius:var(--r-lg);background:var(--card);margin-bottom:12px;overflow:hidden;transition:border-color .25s var(--ease)}
+.faq-item.open{border-color:var(--line-strong)}
+.faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.15rem 1.3rem;background:none;border:0;font-family:var(--disp);font-size:1.05rem;font-weight:600;color:var(--ink);text-align:left;cursor:pointer}
+.faq-q .ic{flex:none;width:30px;height:30px;border-radius:999px;border:1px solid var(--line-strong);display:inline-flex;align-items:center;justify-content:center;color:var(--red-text);transition:transform .3s var(--ease),background .3s var(--ease);font-family:var(--mono);font-size:.9rem}
+.faq-item.open .faq-q .ic{transform:rotate(45deg);background:var(--red-soft)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s var(--ease)}
+.faq-a-inner{padding:0 1.3rem 1.2rem;color:var(--muted);line-height:1.6;max-width:70ch}
+/* ---------- newsletter ---------- */
+.news{background:var(--bg-2)}
+.news-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:center}
+.news h2{font-size:clamp(1.9rem,3.6vw,2.8rem)}
+.news-form{display:flex;gap:.7rem;flex-wrap:wrap}
+.news-input{flex:1 1 220px;min-height:48px;padding:.7rem 1.1rem;border-radius:999px;border:1px solid var(--line-strong);background:var(--card);color:var(--ink);font-family:var(--disp);font-size:1rem}
+.news-input:focus-visible{outline:3px solid var(--cta);outline-offset:2px}
+.news-msg{display:none;margin-top:1rem;font-size:.95rem;padding:.7rem .95rem;border-radius:10px;font-weight:500}
+.news-msg.ok{display:block;background:var(--red-soft);color:var(--red-text)}
+.news-msg.ok a{color:inherit;font-weight:700}
+.news-msg.err{display:block;background:var(--red-soft);color:var(--err)}
+.news-note{font-family:var(--mono);font-size:.66rem;letter-spacing:.05em;text-transform:uppercase;color:var(--faint);margin-top:1rem;max-width:52ch}
+/* ---------- footer ---------- */
+.footer{background:var(--stage);color:var(--stage-ink);padding:clamp(48px,7vw,72px) 0 28px}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:2.5rem;margin-bottom:2.5rem}
+.footer h4{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--stage-muted);margin:0 0 1rem}
+.footer p.mission{color:var(--stage-muted);max-width:34ch;margin:0;font-size:.95rem}
+.footer ul{list-style:none;margin:0;padding:0;display:grid;gap:.55rem}
+.footer a{color:var(--stage-muted);text-decoration:none;font-size:.95rem;transition:color .2s var(--ease)}
+.footer a:hover{color:var(--stage-ink)}
+.footer .addr{color:var(--stage-muted);font-size:.95rem;margin:0;line-height:1.7}
+.footer-bottom{border-top:1px solid rgba(244,244,244,.14);padding-top:1.4rem;display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:.68rem;letter-spacing:.05em;text-transform:uppercase;color:var(--stage-muted)}
+/* ---------- cookie ---------- */
+.cookie{position:fixed;z-index:var(--z-banner);right:16px;bottom:16px;max-width:min(350px,calc(100vw - 32px));background:var(--card);border:1px solid var(--line-strong);border-radius:14px;box-shadow:var(--shadow);padding:1rem 1.15rem;display:flex;flex-direction:column;gap:.75rem;opacity:0;visibility:hidden;transform:translateY(calc(100% + 2rem));transition:opacity .4s var(--ease),transform .4s var(--ease),visibility .4s}
+.cookie.show{opacity:1;visibility:visible;transform:translateY(0)}
+.cookie p{margin:0;font-size:.87rem;color:var(--muted);max-width:46ch}
+.cookie .btn{min-height:38px;padding:.55rem 1.15rem;font-size:.9rem}
+/* ---------- fab ---------- */
+.fab{position:fixed;right:18px;bottom:18px;z-index:var(--z-fab);width:46px;height:46px;border-radius:999px;border:1px solid var(--line-strong);background:var(--card);color:var(--ink);box-shadow:var(--shadow);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;visibility:hidden;transform:translateY(10px);transition:opacity .3s var(--ease),transform .3s var(--ease),visibility .3s,background .2s var(--ease)}
+.fab.show{opacity:1;visibility:visible;transform:translateY(0)}
+.fab:hover{background:var(--ink);color:var(--bg)}
+/* ---------- reveal ---------- */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.rv-d1{transition-delay:.08s}
+.rv-d2{transition-delay:.16s}
+.rv-d3{transition-delay:.24s}
+html.no-js .rv{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){.rv{opacity:1;transform:none;transition:none}}
+/* ---------- responsive ---------- */
+@media (max-width:980px){
+  .hero-grid,.manifesto-grid,.train-grid,.news-grid{grid-template-columns:1fr}
+  .boat-stage{max-width:620px}
+  .two-quotes{grid-template-columns:1fr}
+  .nav-links,.nav-actions .btn-primary{display:none}
+  .nav-actions{display:none}
+  .menu-toggle{display:inline-flex}
+  .nav-inner .nav-actions{display:flex}
+  .tl-item{grid-template-columns:64px minmax(0,1fr)}
+  .tl-side{grid-column:2;text-align:left}
+  .program,.program.rev{grid-template-columns:1fr;direction:ltr}
+  .program>*{direction:ltr}
+}
+@media (max-width:560px){
+  .container{width:min(1136px,calc(100% - 28px))}
+  .hero{padding-top:calc(var(--nav-h) + 40px)}
+  .hero-cta .btn{width:100%}
+  .hero-cta .btn-primary{order:-1}
+  .news-form .btn{width:100%}
+  .console-actions .btn{flex:1 1 auto}
+}
+</style>
+
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main" data-i18n="skip.goto">Saltar al contenido</a>
+
+<header class="nav" id="nav">
+  <div class="container nav-inner">
+    <a class="nav-logo" href="#main" aria-label="REMO — home">
+      <svg width="26" height="26" viewBox="0 0 32 32" aria-hidden="true">
+        <path d="M16 6 L16 26 M16 6 L21 9 M16 26 L11 23" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+        <path d="M21 9 L25 6.5" stroke="#C8102E" stroke-width="3" stroke-linecap="round"/>
+      </svg>
+      REMO
+    </a>
+    <ul class="nav-links">
+      <li><a href="#school" data-i18n="nav.school">Escuela</a></li>
+      <li><a href="#train" data-i18n="nav.train">Entreno</a></li>
+      <li><a href="#regattas" data-i18n="nav.regattas">Regatas</a></li>
+      <li><a href="#faq" data-i18n="nav.faq">Preguntas</a></li>
+    </ul>
+    <div class="nav-actions">
+      <div class="lang-select">
+        <button class="lang-select__btn" type="button" aria-haspopup="listbox" aria-expanded="false" data-i18n-aria="lang.aria">
+          <span class="lang-select__cur">ES</span>
+          <svg class="lang-select__chev" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="lang-select__menu" role="listbox" aria-label="Language">
+          <button class="lang-select__opt" role="option" data-lang="es" aria-selected="false">Español</button>
+          <button class="lang-select__opt" role="option" data-lang="en" aria-selected="false">English</button>
+          <button class="lang-select__opt" role="option" data-lang="fr" aria-selected="false">Français</button>
+          <button class="lang-select__opt" role="option" data-lang="de" aria-selected="false">Deutsch</button>
+          <button class="lang-select__opt" role="option" data-lang="it" aria-selected="false">Italiano</button>
+          <button class="lang-select__opt" role="option" data-lang="pt" aria-selected="false">Português</button>
+        </div>
+      </div>
+      <button class="theme-toggle" type="button" data-i18n-aria="theme.toggle">
+        <svg class="ico-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="ico-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobileMenu" data-i18n-aria="menu.open">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <nav>
+    <a href="#school" data-i18n="nav.school">Escuela</a>
+    <a href="#train" data-i18n="nav.train">Entreno</a>
+    <a href="#regattas" data-i18n="nav.regattas">Regatas</a>
+    <a href="#faq" data-i18n="nav.faq">Preguntas</a>
+  </nav>
+  <div class="m-utils">
+    <div class="lang-select">
+      <button class="lang-select__btn" type="button" aria-haspopup="listbox" aria-expanded="false" data-i18n-aria="lang.aria">
+        <span class="lang-select__cur">ES</span>
+        <svg class="lang-select__chev" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="lang-select__menu" role="listbox" aria-label="Language">
+        <button class="lang-select__opt" role="option" data-lang="es" aria-selected="false">Español</button>
+        <button class="lang-select__opt" role="option" data-lang="en" aria-selected="false">English</button>
+        <button class="lang-select__opt" role="option" data-lang="fr" aria-selected="false">Français</button>
+        <button class="lang-select__opt" role="option" data-lang="de" aria-selected="false">Deutsch</button>
+        <button class="lang-select__opt" role="option" data-lang="it" aria-selected="false">Italiano</button>
+        <button class="lang-select__opt" role="option" data-lang="pt" aria-selected="false">Português</button>
+      </div>
+    </div>
+    <button class="theme-toggle" type="button" data-i18n-aria="theme.toggle">
+      <svg class="ico-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      <svg class="ico-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    </button>
+  </div>
+  <a class="btn btn-primary" href="#school" data-i18n="nav.join">Únete al club</a>
+</div>
+
+<main id="main">
+  <section class="hero" id="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <span class="hero-badge"><span class="dot"></span><span data-i18n="hero.badge">Club de remo · Río Manzanares · Madrid</span></span>
+        <h1 data-i18n-html="hero.title">Rema el río. <br>Gana la mañana.</h1>
+        <p class="hero-sub" data-i18n="hero.sub">Escuela desde cero, entrenamiento guiado en grupos de ocho y bautismos de remo cada sábado. Salimos a las 6:30, cuando el río es solo nuestro.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="mailto:hola@cristiancode.dev" id="heroMail" data-i18n="hero.cta1">Reserva un bautismo</a>
+          <a class="btn btn-ghost" href="#school" data-i18n="hero.cta2">Ver programas</a>
+        </div>
+        <p class="hero-note" data-i18n="hero.note">Plazas de octubre · 8 remeros por grupo</p>
+      </div>
+      <div class="boat-stage rv">
+        <figure class="boat-card">
+          <svg class="boat-svg" viewBox="0 0 520 320" role="img" aria-label="Skiff a remo visto desde arriba, con cuatro remeros y palas rojas">
+  <path class="wake-line" d="M50 150 L8 136 M50 150 L8 164 M44 150 L2 144 M44 150 L2 156"/>
+  <path class="hull" d="M50 150 C190 114 330 114 474 150 C330 186 190 186 50 150 Z"/>
+  <ellipse class="seat" cx="150" cy="150" rx="12" ry="5.5"/><ellipse cx="150" cy="150" rx="8" ry="3.6" fill="var(--ink)" opacity=".9"/><ellipse class="seat" cx="238" cy="150" rx="12" ry="5.5"/><ellipse cx="238" cy="150" rx="8" ry="3.6" fill="var(--ink)" opacity=".9"/><ellipse class="seat" cx="326" cy="150" rx="12" ry="5.5"/><ellipse cx="326" cy="150" rx="8" ry="3.6" fill="var(--ink)" opacity=".9"/><ellipse class="seat" cx="414" cy="150" rx="12" ry="5.5"/><ellipse cx="414" cy="150" rx="8" ry="3.6" fill="var(--ink)" opacity=".9"/>
+  <g class="oar-left" style="--pivot:142px 150px"><path class="oar" d="M142 150 L78 94"/><ellipse class="blade" cx="76" cy="92" rx="12" ry="5" transform="rotate(-48 76 92)"/></g><g class="oar-left" style="--pivot:230px 150px"><path class="oar" d="M230 150 L166 94"/><ellipse class="blade" cx="164" cy="92" rx="12" ry="5" transform="rotate(-48 164 92)"/></g><g class="oar-left" style="--pivot:318px 150px"><path class="oar" d="M318 150 L254 94"/><ellipse class="blade" cx="252" cy="92" rx="12" ry="5" transform="rotate(-48 252 92)"/></g><g class="oar-left" style="--pivot:406px 150px"><path class="oar" d="M406 150 L342 94"/><ellipse class="blade" cx="340" cy="92" rx="12" ry="5" transform="rotate(-48 340 92)"/></g>
+  <g class="oar-right" style="--pivot:158px 150px"><path class="oar" d="M158 150 L222 206"/><ellipse class="blade" cx="224" cy="208" rx="12" ry="5" transform="rotate(-48 224 208)"/></g><g class="oar-right" style="--pivot:246px 150px"><path class="oar" d="M246 150 L310 206"/><ellipse class="blade" cx="312" cy="208" rx="12" ry="5" transform="rotate(-48 312 208)"/></g><g class="oar-right" style="--pivot:334px 150px"><path class="oar" d="M334 150 L398 206"/><ellipse class="blade" cx="400" cy="208" rx="12" ry="5" transform="rotate(-48 400 208)"/></g><g class="oar-right" style="--pivot:422px 150px"><path class="oar" d="M422 150 L486 206"/><ellipse class="blade" cx="488" cy="208" rx="12" ry="5" transform="rotate(-48 488 208)"/></g>
+</svg>
+          <figcaption>
+            <span data-i18n="boat.lane">Río Manzanares · Calle 4</span>
+            <span>4+ · 5000 m</span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+    <div class="water-band" aria-hidden="true"></div>
+  </section>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track"><span>SKIFF · DOBLE PAR · CUATRO · OCHO · 6:30 AM · RÍO MANZANARES · </span><span>SKIFF · DOBLE PAR · CUATRO · OCHO · 6:30 AM · RÍO MANZANARES · </span><span>SKIFF · DOBLE PAR · CUATRO · OCHO · 6:30 AM · RÍO MANZANARES · </span><span>SKIFF · DOBLE PAR · CUATRO · OCHO · 6:30 AM · RÍO MANZANARES · </span><span>SKIFF · DOBLE PAR · CUATRO · OCHO · 6:30 AM · RÍO MANZANARES · </span><span>SKIFF · DOBLE PAR · CUATRO · OCHO · 6:30 AM · RÍO MANZANARES · </span></div>
+  </div>
+
+  <section class="section" id="school">
+    <div class="container">
+      <div class="section-head rv">
+        <p class="kicker" data-i18n="school.kicker">Tres puertas de entrada</p>
+        <h2 data-i18n-html="school.title">Nadie nace remando. <br>Todos empiezan aquí.</h2>
+        <p data-i18n="school.lead">Elige cómo quieres llegar al agua: un curso de invierno con progresión, un grupo guiado con plan de brazada, o una mañana de sábado para probar sin compromiso.</p>
+      </div>
+
+      <article class="program rv">
+        <div class="program-copy">
+          <div class="program-tags"><span class="chip hot" data-i18n="school.r1.tag">Nuevo · Otoño</span></div>
+          <h3 data-i18n="school.r1.name">Escuela de invierno</h3>
+          <p data-i18n="school.r1.desc">De octubre a marzo, dos mañanas por semana. Remo en banco fijo, técnica de palada y las bases del agua en pareja. Acabas el curso remando un 4+ en la regata de primavera.</p>
+          <div class="program-meta">
+            <span class="program-price" data-i18n="school.r1.meta">Oct – Mar · 2 días/sem</span>
+            <span class="program-price">€78 /mes</span>
+          </div>
+        </div>
+        <a class="btn btn-primary" href="mailto:hola@cristiancode.dev?subject=Escuela%20de%20invierno" id="schoolMail1" data-i18n="school.r1.cta">Apuntarme</a>
+      </article>
+
+      <article class="program rev rv">
+        <div class="program-copy">
+          <div class="program-tags"><span class="chip" data-i18n="school.r2.tag">Grupos de 8</span></div>
+          <h3 data-i18n="school.r2.name">Entrenamiento guiado</h3>
+          <p data-i18n="school.r2.desc">Tres salidas semanales con plan: 4×500 a ritmo 20, largas de 6 km, y trabajo de palada en el tramo de sombra. Cada grupo lleva un cuaderno de entreno que se comparte cada viernes.</p>
+          <div class="program-meta">
+            <span class="program-price" data-i18n="school.r2.meta">3 días/sem · 6:30</span>
+            <span class="program-price">€95 /mes</span>
+          </div>
+        </div>
+        <a class="btn btn-invert" href="mailto:hola@cristiancode.dev?subject=Entrenamiento%20guiado" id="schoolMail2" data-i18n="school.r2.cta">Probar una semana</a>
+      </article>
+
+      <article class="program wide rv">
+        <div class="program-copy">
+          <div class="program-tags"><span class="chip" data-i18n="school.r3.tag">90 minutos</span><span class="chip" data-i18n="school.r3.tag2">Sábados</span></div>
+          <h3 data-i18n="school.r3.name">Bautismo de remo</h3>
+          <p data-i18n="school.r3.desc">Vestuario, remos al hombro y un paseo guiado en doble par por la mañana del sábado. No necesitas forma física: necesitas ganas de estar sobre el agua. Incluye el primer café del club.</p>
+          <div class="program-meta">
+            <span class="program-price">€15</span>
+            <a class="btn btn-primary" href="mailto:hola@cristiancode.dev?subject=Bautismo%20de%20remo" id="schoolMail3" data-i18n="school.r3.cta">Reservar sábado</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section manifesto" id="manifesto">
+    <div class="container manifesto-grid">
+      <div class="rv">
+        <p class="kicker" data-i18n="man.kicker">Manifiesto</p>
+        <h2 data-i18n="man.title">El mejor asiento de la ciudad mira hacia atrás.</h2>
+        <div class="manifesto-copy">
+          <p data-i18n="man.p1">En remo miras al remo que tienes delante, nunca a la meta. El río decide: el viento de cara, la corriente de marzo, la niebla de las 7 de la mañana. No se compite contra la pantalla.</p>
+          <p data-i18n="man.p2">REMO es un club pequeño en un hangar junto al río. Ocho personas por barca, una persona por palada. Cuanto más coordinadas van las ocho, más rápido se desliza todo. No hay otra forma.</p>
+        </div>
+        <div class="facts">
+          <span class="fact"><b>6:30</b> <span data-i18n="man.f1">salida sobre el agua</span></span>
+          <span class="fact"><b>8</b> <span data-i18n="man.f2">remeros por barca</span></span>
+          <span class="fact"><b>5 km</b> <span data-i18n="man.f3">tramo guiado</span></span>
+          <span class="fact"><b>0</b> <span data-i18n="man.f4">pantallas en el agua</span></span>
+        </div>
+      </div>
+      <aside class="manifesto-side rv rv-d1">
+        <p class="kicker" data-i18n="man.side.kicker">El club</p>
+        <h3 data-i18n-html="man.side.title">Un hangar, ocho palas,<br>café de verdad.</h3>
+        <p data-i18n="man.side.p">Hangar en la ribera, barcas de competición sobre caballetes, un banco de reparación y una mesa larga para el café de después. 90 socios; los nombres caben en una pizarra.</p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section" id="train">
+    <div class="container train-grid">
+      <div class="rv">
+        <p class="kicker" data-i18n="train.kicker">Entreno del día</p>
+        <h2 data-i18n-html="train.title">Lo que haremos mañana<br>a las 6:30.</h2>
+        <p data-i18n="train.desc">Cada tarde publicamos el plan del día siguiente. Este es el de mañana, jueves, para el grupo de la mañana. Pulsa el botón y mira cómo sube el ritmo.</p>
+        <div class="console-actions">
+          <button class="btn btn-primary" type="button" id="strokeBtn" data-i18n="train.btn">Simular brazada</button>
+          <button class="btn btn-ghost-inv" type="button" id="strokeReset" data-i18n="train.reset">Reiniciar</button>
+        </div>
+      </div>
+      <div class="console rv rv-d1">
+        <div class="console-head">
+          <span class="mono" data-i18n="train.day">Jueves · Grupo mañana</span>
+          <span class="mono" data-i18n="train.plan">4 × 500 m · r20 · 90"</span>
+        </div>
+        <div class="stroke-rate">
+          <span class="stroke-num" id="strokeNum">20</span>
+          <span class="stroke-unit" data-i18n="train.unit">paladas/min</span>
+        </div>
+        <ul class="set-list">
+          <li><span data-i18n="train.s1">Calentamiento · palada suelta</span><span class="mono">10'</span></li>
+          <li><span data-i18n="train.s2">4 × 500 m · ritmo 20</span><span class="mono">2:05/500</span></li>
+          <li><span data-i18n="train.s3">Larga · técnica de enganche</span><span class="mono">20'</span></li>
+          <li><span data-i18n="train.s4">Vuelta a la calma</span><span class="mono">10'</span></li>
+        </ul>
+        <div class="console-mini-boat" aria-hidden="true">
+          <svg viewBox="0 0 230 90">
+            <path d="M15 45 C60 32 140 32 215 45 C140 58 60 58 15 45 Z" fill="none" stroke="currentColor" stroke-width="2"/>
+            <g class="mini-oar a" style="transform-origin:110px 45px"><path d="M110 45 L70 22" stroke="currentColor" stroke-width="2"/><ellipse cx="66" cy="20" rx="9" ry="4" fill="var(--cta)"/></g>
+            <g class="mini-oar b" style="transform-origin:120px 45px"><path d="M120 45 L160 68" stroke="currentColor" stroke-width="2"/><ellipse cx="164" cy="70" rx="9" ry="4" fill="var(--cta)"/></g>
+          </svg>
+        </div>
+        <div class="strokes-counter">
+          <span class="mono" data-i18n="train.count">Remadas simuladas</span>
+          <span class="strokes-num" id="strokesCount">0</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section regatta-band" id="regattas">
+    <div class="container">
+      <div class="section-head rv">
+        <p class="kicker" data-i18n="regg.kicker">Regatas</p>
+        <h2 data-i18n-html="regg.title">Tres fechas marcadas<br>en el calendario.</h2>
+        <p data-i18n="regg.lead">La temporada de otoño en el Manzanares. La inscripción abre cuatro semanas antes de cada fecha.</p>
+      </div>
+      <ol class="timeline">
+        <li class="tl-item rv">
+          <span class="tl-num">01</span>
+          <div class="tl-main">
+            <span class="tl-date" data-i18n="regg.r1.date">12 de septiembre · 9:00</span>
+            <h3 data-i18n="regg.r1.name">Regata de la Ribera</h3>
+            <p data-i18n="regg.r1.desc">4+ y doble par · tramo corto entre los dos puentes. La que abre la temporada.</p>
+          </div>
+          <div class="tl-side">
+            <span class="tl-dist">2000 m</span>
+            <span class="tl-status" data-i18n="regg.r1.status">Inscripción abierta</span>
+          </div>
+        </li>
+        <li class="tl-item rv">
+          <span class="tl-num">02</span>
+          <div class="tl-main">
+            <span class="tl-date" data-i18n="regg.r2.date">26 de septiembre · 8:00</span>
+            <h3 data-i18n="regg.r2.name">Larga de Otoño</h3>
+            <p data-i18n="regg.r2.desc">6 km de punta a punta. Salidas escalonadas cada 20 segundos, como debe ser.</p>
+          </div>
+          <div class="tl-side">
+            <span class="tl-dist">6000 m</span>
+            <span class="tl-status status-open" data-i18n="regg.r2.status">Próximamente</span>
+          </div>
+        </li>
+        <li class="tl-item rv">
+          <span class="tl-num">03</span>
+          <div class="tl-main">
+            <span class="tl-date" data-i18n="regg.r3.date">17 de octubre · 10:00</span>
+            <h3 data-i18n="regg.r3.name">Trofeo del Puerto</h3>
+            <p data-i18n="regg.r3.desc">El ocho de la casa contra tres clubes invitados. Cierre de temporada en familia.</p>
+          </div>
+          <div class="tl-side">
+            <span class="tl-dist">2000 m</span>
+            <span class="tl-status status-open" data-i18n="regg.r3.status">Próximamente</span>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" id="voices">
+    <div class="container">
+      <div class="section-head rv" style="margin-bottom:32px">
+        <p class="kicker" data-i18n="test.kicker">Voces del club</p>
+      </div>
+      <div class="two-quotes">
+        <figure class="quote rv">
+          <blockquote data-i18n="test.q1">«Llevaba diez años en un gimnasio mirando una pared. Aquí miro el río, la espalda de mi compañera y, de vez en cuando, el puente. Es otro tipo de fatiga: la buena.»</blockquote>
+          <figcaption>
+            <span class="quote-author" data-i18n="test.n1">Marta · 2 años de club</span>
+            <span class="mono" data-i18n="test.role1">3ª remera · 4+ del grupo B</span>
+          </figcaption>
+        </figure>
+        <figure class="quote dark rv rv-d1">
+          <blockquote data-i18n="test.q2">«Vine al bautismo sin saber ni cómo se sujetaba el remo. Hoy remar es la única llamada que contesto a las seis y media.»</blockquote>
+          <figcaption>
+            <span class="quote-author" data-i18n="test.n2">Andrés · 8 meses de club</span>
+            <span class="mono" data-i18n="test.role2">Bautismo → Escuela de invierno</span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="section-head rv">
+        <p class="kicker" data-i18n="faq.kicker">Preguntas</p>
+        <h2 data-i18n-html="faq.title">Lo que nos preguntan<br>antes del primer remo.</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item rv">
+          <button class="faq-q" type="button" aria-expanded="false"><span data-i18n="faq.q1">¿Necesito saber nadar o tener forma física?</span><span class="ic">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner" data-i18n="faq.a1">Saber nadar 50 metros sin ayuda, sí — es un requisito del seguro del club. Forma física no: el primer mes se rema a ritmo de conversación. La técnica llega antes que la fuerza.</div></div>
+        </div>
+        <div class="faq-item rv">
+          <button class="faq-q" type="button" aria-expanded="false"><span data-i18n="faq.q2">¿Qué pasa si un sábado no puedo ir?</span><span class="ic">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner" data-i18n="faq.a2">Se avisa en el grupo de WhatsApp antes de las 8 de la tarde. El bautismo se puede mover a otro sábado del mismo mes sin coste. Los grupos de entreno tienen tres faltas libres por trimestre.</div></div>
+        </div>
+        <div class="faq-item rv">
+          <button class="faq-q" type="button" aria-expanded="false"><span data-i18n="faq.q3">¿Y el material?</span><span class="ic">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner" data-i18n="faq.a3">Barcas, remos y chalecos son del club. Tú traes ropa de entreno que no te importe mojar, una botella de agua y ganas. En invierno se recomienda un cortavientos finito.</div></div>
+        </div>
+        <div class="faq-item rv">
+          <button class="faq-q" type="button" aria-expanded="false"><span data-i18n="faq.q4">¿A quién está dirigido el club?</span><span class="ic">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner" data-i18n="faq.a4">A mayores de 16 años sin límite de edad. Hay grupos de mañana, de mediodía y de tarde. El club es mixto por barca: las ocho plazas se cubren por nivel, no por otra cosa.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section news" id="news">
+    <div class="container news-grid">
+      <div class="rv">
+        <p class="kicker" data-i18n="news.kicker">El semáforo del río</p>
+        <h2 data-i18n-html="news.title">Un correo cada viernes,<br>dos minutos de lectura.</h2>
+        <p data-i18n="news.sub">El plan del lunes, la foto de la semana y una frase del cuaderno de entreno. Sin métricas de vanidad, con el nivel del agua.</p>
+      </div>
+      <div class="rv rv-d1">
+        <form class="news-form" id="newsForm" novalidate>
+          <label class="visually-hidden" for="newsEmail" data-i18n="news.ph">Tu correo</label>
+          <input class="news-input" type="email" id="newsEmail" name="email" required placeholder="tu@correo.ejemplo" data-i18n-ph="news.ph">
+          <button class="btn btn-invert" type="submit" data-i18n="news.btn">Suscribirme</button>
+        </form>
+        <p class="news-msg" id="newsMsg" role="status"></p>
+        <p class="news-note" data-i18n="news.note">Al enviar se abre tu correo con el texto listo — nosotros no guardamos direcciones.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer" id="contact">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4 data-i18n="foot.about">REMO</h4>
+        <p class="mission" data-i18n="foot.mission">Club de remo urbano en el río Manzanares. Ocho remeros por barca, una palada cada uno, un solo río.</p>
+      </div>
+      <div>
+        <h4 data-i18n="foot.club">El club</h4>
+        <ul>
+          <li><a href="#school" data-i18n="foot.c1">Escuela de invierno</a></li>
+          <li><a href="#train" data-i18n="foot.c2">Entrenamiento guiado</a></li>
+          <li><a href="#regattas" data-i18n="foot.c3">Regatas de otoño</a></li>
+          <li><a href="#news" data-i18n="foot.c4">El semáforo del río</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="foot.hours">Horario</h4>
+        <ul>
+          <li><span class="addr" data-i18n="foot.h1">Grupos de agua · 6:30 / 12:30 / 18:00</span></li>
+          <li><span class="addr" data-i18n="foot.h2">Bautismos · sábados 9:00</span></li>
+          <li><span class="addr" data-i18n="foot.h3">Hangar abierto · de 6:00 a 21:00</span></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="foot.where">Dónde</h4>
+        <p class="addr" data-i18n-html="foot.addr">Hangar 4, paseo de la Chopera 10<br>Madrid · junto al río Manzanares</p>
+        <p class="addr" style="margin-top:.6rem"><a href="mailto:hola@cristiancode.dev">hola@cristiancode.dev</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span data-i18n="foot.rights">© 2026 REMO · Club de remo</span>
+      <span data-i18n="foot.made">Hecho en Madrid, sobre el agua</span>
+    </div>
+  </div>
+</footer>
+
+<div class="cookie" id="cookieBanner" role="dialog" aria-live="polite">
+  <p data-i18n="cookie.msg">Usamos una cookie mínima para recordar tu idioma y tu tema. Sin rastreadores, sin anuncios.</p>
+  <button class="btn btn-primary" type="button" id="cookieOk" data-i18n="cookie.ok">De acuerdo</button>
+</div>
+
+<button class="fab" type="button" id="fab" data-i18n-aria="fab.aria">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<script>
+const I18N={es: {"skip.goto":"Saltar al contenido","nav.school":"Escuela","nav.train":"Entreno","nav.regattas":"Regatas","nav.faq":"Preguntas","nav.join":"Únete al club","lang.aria":"Seleccionar idioma","theme.toggle":"Cambiar tema","menu.open":"Abrir menú","menu.close":"Cerrar menú","hero.badge":"Club de remo · Río Manzanares · Madrid","hero.title":"Rema el río. <br>Gana la mañana.","hero.sub":"Escuela desde cero, entrenamiento guiado en grupos de ocho y bautismos de remo cada sábado. Salimos a las 6:30, cuando el río es solo nuestro.","hero.cta1":"Reserva un bautismo","hero.cta2":"Ver programas","hero.note":"Plazas de octubre · 8 remeros por grupo","hero.mailsub":"Bautismo de remo · Club REMO","boat.lane":"Río Manzanares · Calle 4","school.kicker":"Tres puertas de entrada","school.title":"Nadie nace remando. <br>Todos empiezan aquí.","school.lead":"Elige cómo quieres llegar al agua: un curso de invierno con progresión, un grupo guiado con plan de brazada, o una mañana de sábado para probar sin compromiso.","school.r1.tag":"Nuevo · Otoño","school.r1.name":"Escuela de invierno","school.r1.desc":"De octubre a marzo, dos mañanas por semana. Remo en banco fijo, técnica de palada y las bases del agua en pareja. Acabas el curso remando un 4+ en la regata de primavera.","school.r1.meta":"Oct – Mar · 2 días/sem","school.r1.cta":"Apuntarme","school.r2.tag":"Grupos de 8","school.r2.name":"Entrenamiento guiado","school.r2.desc":"Tres salidas semanales con plan: 4×500 a ritmo 20, largas de 6 km, y trabajo de palada en el tramo de sombra. Cada grupo lleva un cuaderno de entreno que se comparte cada viernes.","school.r2.meta":"3 días/sem · 6:30","school.r2.cta":"Probar una semana","school.r3.tag":"90 minutos","school.r3.tag2":"Sábados","school.r3.name":"Bautismo de remo","school.r3.desc":"Vestuario, remos al hombro y un paseo guiado en doble par por la mañana del sábado. No necesitas forma física: necesitas ganas de estar sobre el agua. Incluye el primer café del club.","school.r3.cta":"Reservar sábado","man.kicker":"Manifiesto","man.title":"El mejor asiento de la ciudad mira hacia atrás.","man.p1":"En remo miras al remo que tienes delante, nunca a la meta. El río decide: el viento de cara, la corriente de marzo, la niebla de las 7 de la mañana. No se compite contra la pantalla.","man.p2":"REMO es un club pequeño en un hangar junto al río. Ocho personas por barca, una persona por palada. Cuanto más coordinadas van las ocho, más rápido se desliza todo. No hay otra forma.","man.f1":"salida sobre el agua","man.f2":"remeros por barca","man.f3":"tramo guiado","man.f4":"pantallas en el agua","man.side.kicker":"El club","man.side.title":"Un hangar, ocho palas,<br>café de verdad.","man.side.p":"Hangar en la ribera, barcas de competición sobre caballetes, un banco de reparación y una mesa larga para el café de después. 90 socios; los nombres caben en una pizarra.","train.kicker":"Entreno del día","train.title":"Lo que haremos mañana<br>a las 6:30.","train.desc":"Cada tarde publicamos el plan del día siguiente. Este es el de mañana, jueves, para el grupo de la mañana. Pulsa el botón y mira cómo sube el ritmo.","train.btn":"Simular brazada","train.reset":"Reiniciar","train.day":"Jueves · Grupo mañana","train.plan":"4 × 500 m · r20 · 90\"","train.unit":"paladas/min","train.s1":"Calentamiento · palada suelta","train.s2":"4 × 500 m · ritmo 20","train.s3":"Larga · técnica de enganche","train.s4":"Vuelta a la calma","train.count":"Remadas simuladas","regg.kicker":"Regatas","regg.title":"Tres fechas marcadas<br>en el calendario.","regg.lead":"La temporada de otoño en el Manzanares. La inscripción abre cuatro semanas antes de cada fecha.","regg.r1.date":"12 de septiembre · 9:00","regg.r1.name":"Regata de la Ribera","regg.r1.desc":"4+ y doble par · tramo corto entre los dos puentes. La que abre la temporada.","regg.r1.status":"Inscripción abierta","regg.r2.date":"26 de septiembre · 8:00","regg.r2.name":"Larga de Otoño","regg.r2.desc":"6 km de punta a punta. Salidas escalonadas cada 20 segundos, como debe ser.","regg.r2.status":"Próximamente","regg.r3.date":"17 de octubre · 10:00","regg.r3.name":"Trofeo del Puerto","regg.r3.desc":"El ocho de la casa contra tres clubes invitados. Cierre de temporada en familia.","regg.r3.status":"Próximamente","test.kicker":"Voces del club","test.q1":"«Llevaba diez años en un gimnasio mirando una pared. Aquí miro el río, la espalda de mi compañera y, de vez en cuando, el puente. Es otro tipo de fatiga: la buena.»","test.n1":"Marta · 2 años de club","test.role1":"3ª remera · 4+ del grupo B","test.q2":"«Vine al bautismo sin saber ni cómo se sujetaba el remo. Hoy remar es la única llamada que contesto a las seis y media.»","test.n2":"Andrés · 8 meses de club","test.role2":"Bautismo → Escuela de invierno","faq.kicker":"Preguntas","faq.title":"Lo que nos preguntan<br>antes del primer remo.","faq.q1":"¿Necesito saber nadar o tener forma física?","faq.a1":"Saber nadar 50 metros sin ayuda, sí — es un requisito del seguro del club. Forma física no: el primer mes se rema a ritmo de conversación. La técnica llega antes que la fuerza.","faq.q2":"¿Qué pasa si un sábado no puedo ir?","faq.a2":"Se avisa en el grupo de WhatsApp antes de las 8 de la tarde. El bautismo se puede mover a otro sábado del mismo mes sin coste. Los grupos de entreno tienen tres faltas libres por trimestre.","faq.q3":"¿Y el material?","faq.a3":"Barcas, remos y chalecos son del club. Tú traes ropa de entreno que no te importe mojar, una botella de agua y ganas. En invierno se recomienda un cortavientos finito.","faq.q4":"¿A quién está dirigido el club?","faq.a4":"A mayores de 16 años sin límite de edad. Hay grupos de mañana, de mediodía y de tarde. El club es mixto por barca: las ocho plazas se cubren por nivel, no por otra cosa.","news.kicker":"El semáforo del río","news.title":"Un correo cada viernes,<br>dos minutos de lectura.","news.sub":"El plan del lunes, la foto de la semana y una frase del cuaderno de entreno. Sin métricas de vanidad, con el nivel del agua.","news.ph":"tu@correo.ejemplo","news.btn":"Suscribirme","news.ok":"Casi está: te hemos preparado el correo. <a href=\"mailto:hola@cristiancode.dev\">Envíalo ahora</a> y te añadimos a mano.","news.err":"Ese correo no parece válido. Revisa la dirección e inténtalo otra vez.","news.note":"Al enviar se abre tu correo con el texto listo — nosotros no guardamos direcciones.","news.mail_subject":"Semáforo del río · alta en la lista","news.mail_body":"Hola REMO, mi correo es {email}. Quiero recibir el semáforo del río cada viernes.","foot.about":"REMO","foot.mission":"Club de remo urbano en el río Manzanares. Ocho remeros por barca, una palada cada uno, un solo río.","foot.club":"El club","foot.c1":"Escuela de invierno","foot.c2":"Entrenamiento guiado","foot.c3":"Regatas de otoño","foot.c4":"El semáforo del río","foot.hours":"Horario","foot.h1":"Grupos de agua · 6:30 / 12:30 / 18:00","foot.h2":"Bautismos · sábados 9:00","foot.h3":"Hangar abierto · de 6:00 a 21:00","foot.where":"Dónde","foot.addr":"Hangar 4, paseo de la Chopera 10<br>Madrid · junto al río Manzanares","foot.rights":"© 2026 REMO · Club de remo","foot.made":"Hecho en Madrid, sobre el agua","cookie.msg":"Usamos una cookie mínima para recordar tu idioma y tu tema. Sin rastreadores, sin anuncios.","cookie.ok":"De acuerdo","fab.aria":"Volver arriba"},en: {"skip.goto":"Skip to content","nav.school":"School","nav.train":"Training","nav.regattas":"Regattas","nav.faq":"FAQ","nav.join":"Join the club","lang.aria":"Select language","theme.toggle":"Toggle theme","menu.open":"Open menu","menu.close":"Close menu","hero.badge":"Rowing club · Manzanares River · Madrid","hero.title":"Row the river. <br>Own the morning.","hero.sub":"Learn from zero, train in eights, and try a first row every Saturday. We are on the water at 6:30, while the river is still ours.","hero.cta1":"Book a first row","hero.cta2":"See programs","hero.note":"October spots · 8 rowers per boat","hero.mailsub":"First row · REMO club","boat.lane":"Manzanares River · Lane 4","school.kicker":"Three ways in","school.title":"Nobody is born rowing. <br>Everyone starts here.","school.lead":"Choose how you get to the water: a winter course with real progression, a coached group with a stroke plan, or one Saturday morning to try it with no strings attached.","school.r1.tag":"New · Fall","school.r1.name":"Winter School","school.r1.desc":"October through March, two mornings a week. Fixed-seat rowing, stroke technique and the basics of rowing in pairs. You finish the course racing a 4+ at the spring regatta.","school.r1.meta":"Oct – Mar · 2 days/wk","school.r1.cta":"Sign me up","school.r2.tag":"Crews of 8","school.r2.name":"Coached Training","school.r2.desc":"Three outings a week on a plan: 4×500 at rate 20, 6 km long rows, and stroke work in the shaded stretch. Each crew keeps a training log shared every Friday.","school.r2.meta":"3 days/wk · 6:30","school.r2.cta":"Try a week","school.r3.tag":"90 minutes","school.r3.tag2":"Saturdays","school.r3.name":"First Row","school.r3.desc":"Changing room, oars on your shoulder and a guided outing in a double on Saturday morning. No fitness needed: just the will to be on the water. First club coffee included.","school.r3.cta":"Book Saturday","man.kicker":"Manifesto","man.title":"The best seat in the city faces backwards.","man.p1":"In rowing you watch the oar in front of you, never the finish line. The river decides: headwind, March's current, the 7 a.m. fog. You do not race against a screen.","man.p2":"REMO is a small club in a boathouse by the river. Eight people per boat, one stroke each. The more in sync the eight become, the faster everything glides. There is no other way.","man.f1":"mornings on the water","man.f2":"rowers per boat","man.f3":"guided stretch","man.f4":"screens on the water","man.side.kicker":"The club","man.side.title":"One boathouse, eight blades,<br>real coffee.","man.side.p":"Boathouse on the bank, racing shells on trestles, a repair bench and one long table for the coffee afterwards. 90 members; every name fits on a whiteboard.","train.kicker":"Training of the day","train.title":"What we do tomorrow<br>at 6:30.","train.desc":"Every evening we publish the next day's plan. This one is tomorrow, Thursday, for the morning crew. Hit the button and watch the rate climb.","train.btn":"Simulate a stroke","train.reset":"Reset","train.day":"Thursday · Morning crew","train.plan":"4 × 500 m · r20 · 90\"","train.unit":"strokes/min","train.s1":"Warm-up · loose strokes","train.s2":"4 × 500 m · rate 20","train.s3":"Long row · catch technique","train.s4":"Cool down","train.count":"Strokes simulated","regg.kicker":"Regattas","regg.title":"Three dates on<br>the calendar.","regg.lead":"The autumn season on the Manzanares. Entries open four weeks before each date.","regg.r1.date":"September 12 · 9:00","regg.r1.name":"Ribera Regatta","regg.r1.desc":"4+ and double sculls · the short stretch between the two bridges. The season opener.","regg.r1.status":"Entries open","regg.r2.date":"September 26 · 8:00","regg.r2.name":"Autumn Long Row","regg.r2.desc":"6 km end to end. Staggered starts every 20 seconds, as it should be.","regg.r2.status":"Coming soon","regg.r3.date":"October 17 · 10:00","regg.r3.name":"Puerto Trophy","regg.r3.desc":"The club's eight against three invited crews. A family season closer.","regg.r3.status":"Coming soon","test.kicker":"Voices from the club","test.q1":"“Ten years in a gym staring at a wall. Here I watch the river, my partner's back and, once in a while, the bridge. It is a different kind of tired: the good kind.”","test.n1":"Marta · two years in","test.role1":"3rd seat · 4+ of crew B","test.q2":"“I came to the first row without knowing how to hold an oar. Today rowing is the only call I answer at 6:30.”","test.n2":"Andrés · eight months in","test.role2":"First row → Winter School","faq.kicker":"FAQ","faq.title":"What people ask us<br>before the first row.","faq.q1":"Do I need to swim or be fit?","faq.a1":"Swimming 50 m unaided, yes — the club's insurance requires it. Fitness, no: the first month you row at conversation pace. Technique arrives before strength.","faq.q2":"What if I cannot make it on a Saturday?","faq.a2":"Just tell the WhatsApp group before 8 p.m. Your first row can move to another Saturday that month for free. Training crews get three free absences per term.","faq.q3":"What about equipment?","faq.a3":"Boats, oars and life jackets are the club's. You bring training clothes you do not mind wetting, a water bottle and the will. A light windbreaker is recommended in winter.","faq.q4":"Who is the club for?","faq.a4":"Anyone 16 or older, no upper age limit. There are morning, midday and evening crews. Boats are mixed: the eight seats are filled by level, nothing else.","news.kicker":"The river bulletin","news.title":"One email every Friday,<br>two minutes to read.","news.sub":"Monday's plan, the photo of the week and one line from the training log. No vanity metrics, just the water level.","news.ph":"you@email.example","news.btn":"Subscribe","news.ok":"Almost done: we prepared the email for you. <a href=\"mailto:hola@cristiancode.dev\">Send it now</a> and we will add you by hand.","news.err":"That address does not look right. Check it and try again.","news.note":"Submitting opens your email app with the text ready — we do not store addresses.","news.mail_subject":"River bulletin · join the list","news.mail_body":"Hi REMO, my email is {email}. Send me the river bulletin every Friday.","foot.about":"REMO","foot.mission":"An urban rowing club on the Manzanares. Eight rowers per boat, one stroke each, one river.","foot.club":"The club","foot.c1":"Winter School","foot.c2":"Coached Training","foot.c3":"Autumn Regattas","foot.c4":"The river bulletin","foot.hours":"Schedule","foot.h1":"Water crews · 6:30 / 12:30 / 18:00","foot.h2":"First rows · Saturdays 9:00","foot.h3":"Boathouse open · 6:00 to 21:00","foot.where":"Find us","foot.addr":"Boathouse 4, paseo de la Chopera 10<br>Madrid · by the Manzanares River","foot.rights":"© 2026 REMO · Rowing club","foot.made":"Made in Madrid, on the water","cookie.msg":"We use one minimal cookie to remember your language and theme. No trackers, no ads.","cookie.ok":"Got it","fab.aria":"Back to top"},fr: {"skip.goto":"Aller au contenu","nav.school":"École","nav.train":"Entraînement","nav.regattas":"Régates","nav.faq":"Questions","nav.join":"Rejoindre le club","lang.aria":"Choisir la langue","theme.toggle":"Changer de thème","menu.open":"Ouvrir le menu","menu.close":"Fermer le menu","hero.badge":"Club d'aviron · Rivière Manzanares · Madrid","hero.title":"Rame la rivière. <br>Gagnez la matinée.","hero.sub":"École pour débutants, entraînement guidé en huit et baptême de l'aviron chaque samedi. Nous sommes sur l'eau à 6 h 30, quand la rivière est encore à nous.","hero.cta1":"Réserver un baptême","hero.cta2":"Voir les programmes","hero.note":"Places d'octobre · 8 rameurs par bateau","hero.mailsub":"Baptême d'aviron · Club REMO","boat.lane":"Rivière Manzanares · Ligne 4","school.kicker":"Trois portes d'entrée","school.title":"Personne ne naît rameur. <br>Tout le monde commence ici.","school.lead":"Choisissez comment arriver à l'eau : un cours d'hiver avec progression, un groupe guidé avec plan de coup de rame, ou un samedi matin pour essayer sans engagement.","school.r1.tag":"Nouveau · Automne","school.r1.name":"École d'hiver","school.r1.desc":"D'octobre à mars, deux matins par semaine. Aviron en banc fixe, technique de palette et les bases de l'eau en couple. Vous finissez le cours en ramant un 4+ à la régate de printemps.","school.r1.meta":"Oct – Mar · 2 j/sem","school.r1.cta":"Je m'inscris","school.r2.tag":"Équipages de 8","school.r2.name":"Entraînement guidé","school.r2.desc":"Trois sorties par semaine sur plan : 4×500 à cadence 20, longues de 6 km, et travail de palette sur le tronçon d'ombre. Chaque équipage tient un cahier d'entraînement partagé chaque vendredi.","school.r2.meta":"3 j/sem · 6 h 30","school.r2.cta":"Essayer une semaine","school.r3.tag":"90 minutes","school.r3.tag2":"Samedis","school.r3.name":"Baptême d'aviron","school.r3.desc":"Vestiaire, avirons sur l'épaule et une sortie guidée en double samedi matin. Pas besoin de condition physique : il faut avoir envie d'être sur l'eau. Premier café du club offert.","school.r3.cta":"Réserver samedi","man.kicker":"Manifeste","man.title":"Le meilleur siège de la ville regarde vers l'arrière.","man.p1":"En aviron on regarde l'aviron de devant, jamais la ligne d'arrivée. La rivière décide : le vent de face, le courant de mars, le brouillard de 7 heures. On ne court pas contre un écran.","man.p2":"REMO est un petit club dans un hangar au bord de la rivière. Huit personnes par bateau, un coup de rame chacune. Plus les huit sont synchronisées, plus tout glisse vite. Il n'y a pas d'autre façon.","man.f1":"départ sur l'eau","man.f2":"rameurs par bateau","man.f3":"tronçon guidé","man.f4":"écrans sur l'eau","man.side.kicker":"Le club","man.side.title":"Un hangar, huit pales,<br>vrai café.","man.side.p":"Hangar sur la rive, bateaux de course sur tréteaux, un banc de réparation et une longue table pour le café d'après. 90 membres ; tous les noms tiennent sur un tableau.","train.kicker":"Entraînement du jour","train.title":"Ce que nous ferons demain<br>à 6 h 30.","train.desc":"Chaque soir nous publions le plan du lendemain. Voici celui de demain, jeudi, pour l'équipage du matin. Appuyez sur le bouton et regardez la cadence grimper.","train.btn":"Simuler un coup de rame","train.reset":"Réinitialiser","train.day":"Jeudi · Équipage du matin","train.plan":"4 × 500 m · c20 · 90\"","train.unit":"coups/min","train.s1":"Échauffement · coups légers","train.s2":"4 × 500 m · cadence 20","train.s3":"Longue · technique d'accroche","train.s4":"Retour au calme","train.count":"Coups simulés","regg.kicker":"Régates","regg.title":"Trois dates<br>au calendrier.","regg.lead":"La saison d'automne sur la Manzanares. Les inscriptions ouvrent quatre semaines avant chaque date.","regg.r1.date":"12 septembre · 9 h 00","regg.r1.name":"Régate de la Rive","regg.r1.desc":"4+ et double · le tronçon court entre les deux ponts. L'ouverture de la saison.","regg.r1.status":"Inscriptions ouvertes","regg.r2.date":"26 septembre · 8 h 00","regg.r2.name":"Longue d'automne","regg.r2.desc":"6 km d'un bout à l'autre. Départs échelonnés toutes les 20 secondes, comme il se doit.","regg.r2.status":"Bientôt","regg.r3.date":"17 octobre · 10 h 00","regg.r3.name":"Trophée du Port","regg.r3.desc":"Le huit de la maison contre trois équipages invités. Clôture de saison en famille.","regg.r3.status":"Bientôt","test.kicker":"Voix du club","test.q1":"« Dix ans dans une salle de sport à regarder un mur. Ici je regarde la rivière, le dos de ma coéquipière et, de temps en temps, le pont. C'est une autre fatigue : la bonne. »","test.n1":"Marta · deux ans au club","test.role1":"3e rameuse · 4+ de l'équipage B","test.q2":"« Je suis venu au baptême sans savoir tenir un aviron. Aujourd'hui, ramer est le seul appel que je décroche à six heures et demie. »","test.n2":"Andrés · huit mois au club","test.role2":"Baptême → École d'hiver","faq.kicker":"Questions","faq.title":"Ce qu'on nous demande<br>avant le premier coup de rame.","faq.q1":"Faut-il savoir nager ou être en forme ?","faq.a1":"Savoir nager 50 m sans aide, oui — l'assurance du club l'exige. Être en forme, non : le premier mois on rame à cadence de conversation. La technique arrive avant la force.","faq.q2":"Et si je ne peux pas venir un samedi ?","faq.a2":"On prévient le groupe WhatsApp avant 20 h. Le baptême peut être déplacé à un autre samedi du même mois sans frais. Les équipages d'entraînement ont droit à trois absences libres par trimestre.","faq.q3":"Et le matériel ?","faq.a3":"Bateaux, avirons et gilets sont au club. Vous apportez des vêtements d'entraînement que vous acceptez de mouiller, une bouteille d'eau et l'envie. Un coupe-vent léger est conseillé en hiver.","faq.q4":"À qui s'adresse le club ?","faq.a4":"Aux plus de 16 ans, sans limite d'âge. Il y a des équipages du matin, de midi et du soir. Le club est mixte par bateau : les huit places se remplissent par niveau, rien d'autre.","news.kicker":"Le bulletin de la rivière","news.title":"Un courriel chaque vendredi,<br>deux minutes de lecture.","news.sub":"Le plan du lundi, la photo de la semaine et une phrase du cahier d'entraînement. Sans métriques de vanité, avec le niveau de l'eau.","news.ph":"vous@exemple.fr","news.btn":"S'abonner","news.ok":"Presque : nous avons préparé le courriel. <a href=\"mailto:hola@cristiancode.dev\">Envoyez-le maintenant</a> et nous vous ajoutons à la main.","news.err":"Cette adresse ne semble pas valide. Vérifiez-la et réessayez.","news.note":"L'envoi ouvre votre application de courriel avec le texte prêt — nous ne stockons aucune adresse.","news.mail_subject":"Bulletin de la rivière · abonnement","news.mail_body":"Bonjour REMO, mon adresse est {email}. Envoyez-moi le bulletin de la rivière chaque vendredi.","foot.about":"REMO","foot.mission":"Club d'aviron urbain sur la Manzanares. Huit rameurs par bateau, un coup de rame chacun, une seule rivière.","foot.club":"Le club","foot.c1":"École d'hiver","foot.c2":"Entraînement guidé","foot.c3":"Régates d'automne","foot.c4":"Le bulletin de la rivière","foot.hours":"Horaires","foot.h1":"Équipages de l'eau · 6 h 30 / 12 h 30 / 18 h 00","foot.h2":"Baptêmes · samedis 9 h 00","foot.h3":"Hangar ouvert · 6 h 00 à 21 h 00","foot.where":"Nous trouver","foot.addr":"Hangar 4, paseo de la Chopera 10<br>Madrid · au bord de la Manzanares","foot.rights":"© 2026 REMO · Club d'aviron","foot.made":"Fait à Madrid, sur l'eau","cookie.msg":"Nous utilisons un cookie minimal pour retenir votre langue et votre thème. Pas de traceurs, pas de publicité.","cookie.ok":"Compris","fab.aria":"Remonter en haut"},de: {"skip.goto":"Zum Inhalt springen","nav.school":"Schule","nav.train":"Training","nav.regattas":"Regatten","nav.faq":"Fragen","nav.join":"Dem Club beitreten","lang.aria":"Sprache wählen","theme.toggle":"Design wechseln","menu.open":"Menü öffnen","menu.close":"Menü schließen","hero.badge":"Ruderclub · Manzanares · Madrid","hero.title":"Ruder den Fluss. <br>Gewinn den Morgen.","hero.sub":"Schule für Anfänger, geführtes Training im Achter und jeden Samstag ein Schnupper-Rudern. Wir sind um 6:30 auf dem Wasser, wenn der Fluss noch uns gehört.","hero.cta1":"Schnupper-Rudern buchen","hero.cta2":"Programme ansehen","hero.note":"Plätze ab Oktober · 8 Ruderer pro Boot","hero.mailsub":"Schnupper-Rudern · Club REMO","boat.lane":"Manzanares · Bahn 4","school.kicker":"Drei Einstiege","school.title":"Niemand wird als Ruderer geboren. <br>Alle fangen hier an.","school.lead":"Wählen Sie, wie Sie ans Wasser kommen: ein Winterkurs mit echter Progression, eine geführte Gruppe mit Schlagplan oder ein Samstagmorgen zum unverbindlichen Ausprobieren.","school.r1.tag":"Neu · Herbst","school.r1.name":"Winterschule","school.r1.desc":"Oktober bis März, zwei Vormittage pro Woche. Rudern auf fester Bank, Schlagtechnik und die Grundlagen des Wassers zu zweit. Am Ende des Kurses rudern Sie einen 4+ bei der Frühlingsregatta.","school.r1.meta":"Okt – Mär · 2 Tage/Wo","school.r1.cta":"Anmelden","school.r2.tag":"Achter-Gruppen","school.r2.name":"Geführtes Training","school.r2.desc":"Drei Ausfahrten pro Woche nach Plan: 4×500 bei Schlagzahl 20, 6-km-Langfahrten und Schlagarbeit auf dem schattigen Abschnitt. Jede Gruppe führt ein Trainingsheft, das freitags geteilt wird.","school.r2.meta":"3 Tage/Wo · 6:30","school.r2.cta":"Eine Woche testen","school.r3.tag":"90 Minuten","school.r3.tag2":"Samstags","school.r3.name":"Schnupper-Rudern","school.r3.desc":"Umkleide, Ruder auf die Schulter und eine geführte Ausfahrt im Doppelzweier am Samstagmorgen. Keine Fitness nötig: nur Lust aufs Wasser. Inklusive erstem Clubkaffee.","school.r3.cta":"Samstag buchen","man.kicker":"Manifest","man.title":"Der beste Platz der Stadt blickt nach hinten.","man.p1":"Beim Rudern schaut man auf das Ruder vor sich, nie aufs Ziel. Der Fluss entscheidet: Gegenwind, die Märzströmung, der Morgennebel um 7. Man kämpft nicht gegen einen Bildschirm.","man.p2":"REMO ist ein kleiner Club in einem Bootshaus am Fluss. Acht Menschen pro Boot, ein Schlag pro Person. Je synchroner die Acht, desto schneller gleitet alles. Es gibt keinen anderen Weg.","man.f1":"Start auf dem Wasser","man.f2":"Ruderer pro Boot","man.f3":"geführtes Stück","man.f4":"Bildschirme auf dem Wasser","man.side.kicker":"Der Club","man.side.title":"Ein Bootshaus, acht Blätter,<br>echter Kaffee.","man.side.p":"Bootshaus am Ufer, Rennboote auf Böcken, eine Reparaturbank und ein langer Tisch für den Kaffee danach. 90 Mitglieder; alle Namen passen auf eine Tafel.","train.kicker":"Training des Tages","train.title":"Was wir morgen um 6:30<br>machen.","train.desc":"Jeden Abend veröffentlichen wir den Plan für den nächsten Tag. Das hier ist der für morgen, Donnerstag, für die Morgengruppe. Drücken Sie den Knopf und sehen Sie die Schlagzahl steigen.","train.btn":"Schlag simulieren","train.reset":"Zurücksetzen","train.day":"Donnerstag · Morgengruppe","train.plan":"4 × 500 m · S20 · 90\"","train.unit":"Schläge/min","train.s1":"Einfahren · lockere Schläge","train.s2":"4 × 500 m · Schlagzahl 20","train.s3":"Langfahrt · Ansetztechnik","train.s4":"Ausrudern","train.count":"Simulierte Schläge","regg.kicker":"Regatten","regg.title":"Drei Termine<br>im Kalender.","regg.lead":"Die Herbstsaison auf der Manzanares. Die Meldung öffnet vier Wochen vor jedem Termin.","regg.r1.date":"12. September · 9:00","regg.r1.name":"Regatta am Ufer","regg.r1.desc":"4+ und Doppelzweier · die kurze Strecke zwischen den zwei Brücken. Der Saisonauftakt.","regg.r1.status":"Meldung offen","regg.r2.date":"26. September · 8:00","regg.r2.name":"Herbst-Langfahrt","regg.r2.desc":"6 km von einem Ende zum anderen. Gestaffelte Starts alle 20 Sekunden, wie es sich gehört.","regg.r2.status":"Bald","regg.r3.date":"17. Oktober · 10:00","regg.r3.name":"Hafen-Pokal","regg.r3.desc":"Der Achter des Hauses gegen drei geladene Crews. Saisonabschluss im Kreis der Familie.","regg.r3.status":"Bald","test.kicker":"Stimmen aus dem Club","test.q1":"„Zehn Jahre im Fitnessstudio und immer auf eine Wand gestarrt. Hier schaue ich auf den Fluss, den Rücken meiner Trainingspartnerin und ab und zu die Brücke. Das ist eine andere Müdigkeit: die gute.“","test.n1":"Marta · zwei Jahre im Club","test.role1":"3. Ruderin · 4+ Gruppe B","test.q2":"„Ich kam zum Schnupper-Rudern, ohne zu wissen, wie man ein Ruder hält. Heute ist Rudern der einzige Anruf, den ich um halb sieben entgegennehme.“","test.n2":"Andrés · acht Monate im Club","test.role2":"Schnupperkurs → Winterschule","faq.kicker":"Fragen","faq.title":"Was man uns vor dem ersten<br>Schlag fragt.","faq.q1":"Muss ich schwimmen können oder fit sein?","faq.a1":"Schwimmen können — 50 m ohne Hilfe, das verlangt die Clubversicherung. Fit sein, nein: im ersten Monat rudert man im Gesprächstempo. Die Technik kommt vor der Kraft.","faq.q2":"Was ist, wenn ich an einem Samstag nicht kann?","faq.a2":"Bescheid im WhatsApp-Kreis bis 20 Uhr. Das Schnupper-Rudern kann kostenlos auf einen anderen Samstag im selben Monat verschoben werden. Trainingsgruppen haben drei Freistellungen pro Quartal.","faq.q3":"Und das Material?","faq.a3":"Boote, Ruder und Schwimmwesten gehören dem Club. Sie bringen Trainingskleidung, die nass werden darf, eine Wasserflasche und Lust mit. Im Winter lohnt eine leichte Windjacke.","faq.q4":"Für wen ist der Club?","faq.a4":"Für alle ab 16 Jahren ohne Altersgrenze. Es gibt Morgen-, Mittags- und Abendgruppen. Der Club ist pro Boot gemischt: die acht Plätze werden nach Niveau vergeben, sonst nichts.","news.kicker":"Der Fluss-Newsletter","news.title":"Eine E-Mail freitags,<br>zwei Minuten Lesezeit.","news.sub":"Der Montagsplan, das Foto der Woche und ein Satz aus dem Trainingsheft. Keine Eitelkeits-Metriken, dafür der Wasserstand.","news.ph":"du@beispiel.de","news.btn":"Abonnieren","news.ok":"Fast fertig: Wir haben die E-Mail vorbereitet. <a href=\"mailto:hola@cristiancode.dev\">Jetzt senden</a> und wir tragen Sie von Hand ein.","news.err":"Diese Adresse sieht nicht korrekt aus. Prüfen Sie sie und versuchen Sie es erneut.","news.note":"Beim Senden öffnet sich Ihr Mailprogramm mit fertigem Text — wir speichern keine Adressen.","news.mail_subject":"Fluss-Newsletter · Anmeldung","news.mail_body":"Hallo REMO, meine Adresse ist {email}. Bitte sendet mir freitags den Fluss-Newsletter.","foot.about":"REMO","foot.mission":"Städtischer Ruderclub an der Manzanares. Acht Ruderer pro Boot, ein Schlag jeder, ein einziger Fluss.","foot.club":"Der Club","foot.c1":"Winterschule","foot.c2":"Geführtes Training","foot.c3":"Herbstregatten","foot.c4":"Der Fluss-Newsletter","foot.hours":"Zeiten","foot.h1":"Wasser-Gruppen · 6:30 / 12:30 / 18:00","foot.h2":"Schnupperkurse · samstags 9:00","foot.h3":"Bootshaus offen · 6:00 bis 21:00","foot.where":"Hier finden Sie uns","foot.addr":"Bootshaus 4, paseo de la Chopera 10<br>Madrid · an der Manzanares","foot.rights":"© 2026 REMO · Ruderclub","foot.made":"Gemacht in Madrid, auf dem Wasser","cookie.msg":"Wir verwenden genau ein Cookie, um Sprache und Design zu merken. Keine Tracker, keine Werbung.","cookie.ok":"Verstanden","fab.aria":"Nach oben"},it: {"skip.goto":"Salta al contenuto","nav.school":"Scuola","nav.train":"Allenamento","nav.regattas":"Regate","nav.faq":"Domande","nav.join":"Entra nel club","lang.aria":"Scegli la lingua","theme.toggle":"Cambia tema","menu.open":"Apri il menu","menu.close":"Chiudi il menu","hero.badge":"Club di canottaggio · Fiume Manzanares · Madrid","hero.title":"Rema il fiume. <br>Vinci la mattina.","hero.sub":"Scuola da zero, allenamento guidato in otto e battesimo del remo ogni sabato. Siamo in acqua alle 6:30, quando il fiume è ancora nostro.","hero.cta1":"Prenota un battesimo","hero.cta2":"Vedi i programmi","hero.note":"Posti di ottobre · 8 vogatori per barca","hero.mailsub":"Battesimo del remo · Club REMO","boat.lane":"Fiume Manzanares · Corsia 4","school.kicker":"Tre porte d'ingresso","school.title":"Nessuno nasce vogatore. <br>Tutti iniziano qui.","school.lead":"Scegli come arrivare in acqua: un corso invernale con progressione, un gruppo guidato con piano di remata, o un sabato mattina per provare senza impegno.","school.r1.tag":"Nuovo · Autunno","school.r1.name":"Scuola d'inverno","school.r1.desc":"Da ottobre a marzo, due mattine a settimana. Canottaggio su banco fisso, tecnica della palata e le basi dell'acqua in coppia. Finisci il corso remando un 4+ alla regata di primavera.","school.r1.meta":"Ott – Mar · 2 gg/sett","school.r1.cta":"Iscrivimi","school.r2.tag":"Equipaggi da 8","school.r2.name":"Allenamento guidato","school.r2.desc":"Tre uscite a settimana con piano: 4×500 a ritmo 20, lunghe da 6 km e lavoro di palata nel tratto all'ombra. Ogni equipaggio tiene un quaderno di allenamento condiviso ogni venerdì.","school.r2.meta":"3 gg/sett · 6:30","school.r2.cta":"Prova una settimana","school.r3.tag":"90 minuti","school.r3.tag2":"Sabati","school.r3.name":"Battesimo del remo","school.r3.desc":"Spogliatoio, remo in spalla e una uscita guidata in doppio sabato mattina. Non serve forma fisica: serve voglia di stare sull'acqua. Primo caffè del club incluso.","school.r3.cta":"Prenota sabato","man.kicker":"Manifesto","man.title":"Il miglior posto della città guarda all'indietro.","man.p1":"Nel canottaggio guardi il remo davanti a te, mai il traguardo. Decide il fiume: il vento contro, la corrente di marzo, la nebbia delle 7 di mattina. Non gareggi contro uno schermo.","man.p2":"REMO è un club piccolo in un capannone sul fiume. Otto persone per barca, una remata ciascuno. Più gli otto sono sincronizzati, più tutto scivola veloce. Non c'è altro modo.","man.f1":"partenza sull'acqua","man.f2":"vogatori per barca","man.f3":"tratto guidato","man.f4":"schermi sull'acqua","man.side.kicker":"Il club","man.side.title":"Un capannone, otto pale,<br>caffè vero.","man.side.p":"Capannone in riva, barche da gara sui cavalletti, un banco di riparazione e un tavolo lungo per il caffè del dopo. 90 soci; i nomi stanno tutti su una lavagna.","train.kicker":"Allenamento del giorno","train.title":"Quello che faremo domani<br>alle 6:30.","train.desc":"Ogni sera pubblichiamo il piano del giorno dopo. Questo è quello di domani, giovedì, per il gruppo del mattino. Premi il pulsante e guarda salire il ritmo.","train.btn":"Simula una remata","train.reset":"Azzera","train.day":"Giovedì · Gruppo del mattino","train.plan":"4 × 500 m · r20 · 90\"","train.unit":"remate/min","train.s1":"Riscaldamento · remata sciolta","train.s2":"4 × 500 m · ritmo 20","train.s3":"Lunga · tecnica di attacco","train.s4":"Ritorno alla calma","train.count":"Remate simulate","regg.kicker":"Regate","regg.title":"Tre date<br>sul calendario.","regg.lead":"La stagione autunnale sulla Manzanares. Le iscrizioni aprono quattro settimane prima di ogni data.","regg.r1.date":"12 settembre · 9:00","regg.r1.name":"Regata della Riva","regg.r1.desc":"4+ e doppio · il tratto corto tra i due ponti. L'apertura della stagione.","regg.r1.status":"Iscrizioni aperte","regg.r2.date":"26 settembre · 8:00","regg.r2.name":"Lunga d'autunno","regg.r2.desc":"6 km da un capo all'altro. Partenze scaglionate ogni 20 secondi, come si deve.","regg.r2.status":"Prossimamente","regg.r3.date":"17 ottobre · 10:00","regg.r3.name":"Trofeo del Porto","regg.r3.desc":"L'otto di casa contro tre equipaggi invitati. Chiusura di stagione in famiglia.","regg.r3.status":"Prossimamente","test.kicker":"Voci del club","test.q1":"«Dieci anni in palestra a guardare un muro. Qui guardo il fiume, la schiena della mia compagna e, ogni tanto, il ponte. È un'altra stanchezza: quella buona.»","test.n1":"Marta · due anni nel club","test.role1":"3ª vogatrice · 4+ del gruppo B","test.q2":"«Sono venuto al battesimo senza sapere come si tiene in mano un remo. Oggi remare è l'unica chiamata che rispondo alle sei e mezza.»","test.n2":"Andrés · otto mesi nel club","test.role2":"Battesimo → Scuola d'inverno","faq.kicker":"Domande","faq.title":"Quello che ci chiedono<br>prima del primo remo.","faq.q1":"Devo saper nuotare o essere in forma?","faq.a1":"Saper nuotare 50 metri senza aiuto, sì — lo richiede l'assicurazione del club. Essere in forma, no: il primo mese si rema a passo di conversazione. La tecnica arriva prima della forza.","faq.q2":"E se un sabato non posso venire?","faq.a2":"Si avvisa nel gruppo WhatsApp entro le 20. Il battesimo si può spostare a un altro sabato dello stesso mese senza costi. I gruppi di allenamento hanno tre assenze libere a trimestre.","faq.q3":"E il materiale?","faq.a3":"Barche, remi e giubbotti sono del club. Tu porti abbigliamento da allenamento che non ti dispiace bagnare, una borraccia e la voglia. D'inverno è consigliato un windbreaker leggero.","faq.q4":"A chi è rivolto il club?","faq.a4":"Ai maggiori di 16 anni senza limite di età. Ci sono gruppi del mattino, di mezzogiorno e di sera. Il club è misto per barca: gli otto posti si coprono per livello, nient'altro.","news.kicker":"Il semaforo del fiume","news.title":"Una mail ogni venerdì,<br>due minuti di lettura.","news.sub":"Il piano del lunedì, la foto della settimana e una frase dal quaderno di allenamento. Niente metriche di vanità, solo il livello dell'acqua.","news.ph":"tu@email.esempio","news.btn":"Iscrivimi","news.ok":"Quasi fatto: ti abbiamo preparato la mail. <a href=\"mailto:hola@cristiancode.dev\">Inviala ora</a> e ti aggiungiamo a mano.","news.err":"Quell'indirizzo non sembra valido. Controllalo e riprova.","news.note":"Inviando si apre la tua app di posta con il testo pronto — noi non salviamo indirizzi.","news.mail_subject":"Semaforo del fiume · iscrizione","news.mail_body":"Ciao REMO, la mia email è {email}. Voglio ricevere il semaforo del fiume ogni venerdì.","foot.about":"REMO","foot.mission":"Club di canottaggio urbano sulla Manzanares. Otto vogatori per barca, una remata ciascuno, un solo fiume.","foot.club":"Il club","foot.c1":"Scuola d'inverno","foot.c2":"Allenamento guidato","foot.c3":"Regate d'autunno","foot.c4":"Il semaforo del fiume","foot.hours":"Orari","foot.h1":"Gruppi in acqua · 6:30 / 12:30 / 18:00","foot.h2":"Battesimi · sabati 9:00","foot.h3":"Capannone aperto · 6:00 alle 21:00","foot.where":"Dove siamo","foot.addr":"Capannone 4, paseo de la Chopera 10<br>Madrid · sul fiume Manzanares","foot.rights":"© 2026 REMO · Club di canottaggio","foot.made":"Fatto a Madrid, sull'acqua","cookie.msg":"Usiamo un solo cookie minimale per ricordare lingua e tema. Niente tracker, niente pubblicità.","cookie.ok":"Ok","fab.aria":"Torna su"},pt: {"skip.goto":"Saltar para o conteúdo","nav.school":"Escola","nav.train":"Treino","nav.regattas":"Regatas","nav.faq":"Perguntas","nav.join":"Entra no clube","lang.aria":"Escolher o idioma","theme.toggle":"Mudar o tema","menu.open":"Abrir o menu","menu.close":"Fechar o menu","hero.badge":"Clube de remo · Rio Manzanares · Madrid","hero.title":"Rema o rio. <br>Conquista a manhã.","hero.sub":"Escola do zero, treino guiado em oitos e batismo do remo todos os sábados. Entramos na água às 6h30, quando o rio ainda é nosso.","hero.cta1":"Reservar um batismo","hero.cta2":"Ver programas","hero.note":"Vagas de outubro · 8 remadores por barco","hero.mailsub":"Batismo do remo · Clube REMO","boat.lane":"Rio Manzanares · Raia 4","school.kicker":"Três portas de entrada","school.title":"Ninguém nasce a remar. <br>Todos começam aqui.","school.lead":"Escolhe como queres chegar à água: um curso de inverno com progressão, um grupo guiado com plano de remada, ou uma manhã de sábado para experimentar sem compromisso.","school.r1.tag":"Novo · Outono","school.r1.name":"Escola de Inverno","school.r1.desc":"De outubro a março, duas manhãs por semana. Remo em banco fixo, técnica de remada e as bases da água em par. Acabas o curso a remar um 4+ na regata de primavera.","school.r1.meta":"Out – Mar · 2 dias/sem","school.r1.cta":"Inscrever-me","school.r2.tag":"Grupos de 8","school.r2.name":"Treino Guiado","school.r2.desc":"Três saídas semanais com plano: 4×500 a ritmo 20, longas de 6 km e trabalho de remada no troço à sombra. Cada grupo tem um caderno de treino partilhado às sextas.","school.r2.meta":"3 dias/sem · 6h30","school.r2.cta":"Experimentar uma semana","school.r3.tag":"90 minutos","school.r3.tag2":"Sábados","school.r3.name":"Batismo do Remo","school.r3.desc":"Balneário, remos ao ombro e um passeio guiado em double scull na manhã de sábado. Não precisas de forma física: precisas de vontade de estar na água. Inclui o primeiro café do clube.","school.r3.cta":"Reservar sábado","man.kicker":"Manifesto","man.title":"O melhor lugar da cidade olha para trás.","man.p1":"No remo olhas para o remo que tens à frente, nunca para a meta. O rio decide: o vento de frente, a corrente de março, o nevoeiro das 7 da manhã. Não se compete contra o ecrã.","man.p2":"O REMO é um clube pequeno num hangar junto ao rio. Oito pessoas por barco, uma remada cada uma. Quanto mais sincronizados os oito, mais depressa tudo desliza. Não há outra forma.","man.f1":"saída na água","man.f2":"remadores por barco","man.f3":"troço guiado","man.f4":"ecrãs na água","man.side.kicker":"O clube","man.side.title":"Um hangar, oito remos,<br>café a sério.","man.side.p":"Hangar na margem, barcos de competição em cavaletes, um banco de reparação e uma mesa comprida para o café de depois. 90 sócios; todos os nomes cabem num quadro.","train.kicker":"Treino do dia","train.title":"O que vamos fazer amanhã<br>às 6h30.","train.desc":"Todas as noites publicamos o plano do dia seguinte. Este é o de amanhã, quinta, para o grupo da manhã. Carrega no botão e vê o ritmo subir.","train.btn":"Simular remada","train.reset":"Reiniciar","train.day":"Quinta · Grupo da manhã","train.plan":"4 × 500 m · r20 · 90\"","train.unit":"remadas/min","train.s1":"Aquecimento · remada solta","train.s2":"4 × 500 m · ritmo 20","train.s3":"Longa · técnica de agarre","train.s4":"Volta à calma","train.count":"Remadas simuladas","regg.kicker":"Regatas","regg.title":"Três datas marcadas<br>no calendário.","regg.lead":"A temporada de outono na Manzanares. As inscrições abrem quatro semanas antes de cada data.","regg.r1.date":"12 de setembro · 9:00","regg.r1.name":"Regata da Margem","regg.r1.desc":"4+ e double scull · o troço curto entre as duas pontes. A que abre a temporada.","regg.r1.status":"Inscrições abertas","regg.r2.date":"26 de setembro · 8:00","regg.r2.name":"Longa de Outono","regg.r2.desc":"6 km de ponta a ponta. Partidas escalonadas a cada 20 segundos, como deve ser.","regg.r2.status":"Em breve","regg.r3.date":"17 de outubro · 10:00","regg.r3.name":"Troféu do Porto","regg.r3.desc":"O oito da casa contra três clubes convidados. Encerramento da época em família.","regg.r3.status":"Em breve","test.kicker":"Vozes do clube","test.q1":"«Dez anos num ginásio a olhar para uma parede. Aqui olho para o rio, para as costas da minha companheira e, de vez em quando, para a ponte. É outro tipo de cansaço: o bom.»","test.n1":"Marta · 2 anos de clube","test.role1":"3.ª remadora · 4+ do grupo B","test.q2":"«Vim ao batismo sem saber como se segurava um remo. Hoje, remar é a única chamada que atendo às seis e meia.»","test.n2":"Andrés · 8 meses de clube","test.role2":"Batismo → Escola de Inverno","faq.kicker":"Perguntas","faq.title":"O que nos perguntam<br>antes do primeiro remo.","faq.q1":"Preciso de saber nadar ou ter forma física?","faq.a1":"Saber nadar 50 metros sem ajuda, sim — é um requisito do seguro do clube. Forma física, não: no primeiro mês rema-se ao ritmo de uma conversa. A técnica chega antes da força.","faq.q2":"E se não puder ir num sábado?","faq.a2":"Avisa-se no grupo de WhatsApp até às 20h. O batismo pode passar para outro sábado do mesmo mês sem custo. Os grupos de treino têm três faltas livres por trimestre.","faq.q3":"E o material?","faq.a3":"Barcos, remos e coletes são do clube. Trazes roupa de treino que não te importes de molhar, uma garrafa de água e vontade. No inverno recomenda-se um corta-vento leve.","faq.q4":"Para quem é o clube?","faq.a4":"Para maiores de 16 anos sem limite de idade. Há grupos de manhã, de meio-dia e de tarde. O clube é misto por barco: os oito lugares preenchem-se por nível, nada mais.","news.kicker":"O semáforo do rio","news.title":"Um e-mail às sextas,<br>dois minutos de leitura.","news.sub":"O plano de segunda, a foto da semana e uma frase do caderno de treino. Sem métricas de vaidade, com o nível da água.","news.ph":"tu@email.exemplo","news.btn":"Subscrever","news.ok":"Quase feito: preparámos o e-mail. <a href=\"mailto:hola@cristiancode.dev\">Envia-o agora</a> e adicionamos-te à mão.","news.err":"Esse endereço não parece válido. Verifica e tenta de novo.","news.note":"Ao enviar abre-se o teu correio com o texto pronto — não guardamos endereços.","news.mail_subject":"Semáforo do rio · subscrição","news.mail_body":"Olá REMO, o meu e-mail é {email}. Quero receber o semáforo do rio todas as sextas.","foot.about":"REMO","foot.mission":"Clube de remo urbano no rio Manzanares. Oito remadores por barco, uma remada cada um, um só rio.","foot.club":"O clube","foot.c1":"Escola de Inverno","foot.c2":"Treino Guiado","foot.c3":"Regatas de outono","foot.c4":"O semáforo do rio","foot.hours":"Horário","foot.h1":"Grupos de água · 6h30 / 12h30 / 18h00","foot.h2":"Batismos · sábados 9h00","foot.h3":"Hangar aberto · 6h00 às 21h00","foot.where":"Onde estamos","foot.addr":"Hangar 4, paseo de la Chopera 10<br>Madrid · junto ao rio Manzanares","foot.rights":"© 2026 REMO · Clube de remo","foot.made":"Feito em Madrid, na água","cookie.msg":"Usamos um cookie mínimo para lembrar o teu idioma e o teu tema. Sem rastreadores, sem anúncios.","cookie.ok":"Entendido","fab.aria":"Voltar ao topo"}};
+(function () {
+  'use strict';
+  document.documentElement.classList.remove('no-js');
+  var LANGS = ['es', 'en', 'fr', 'de', 'it', 'pt'];
+  var HTML_KEYS = { 'hero.title': 1, 'school.title': 1, 'man.side.title': 1, 'train.title': 1, 'regg.title': 1, 'faq.title': 1, 'news.title': 1, 'foot.addr': 1, 'news.ok': 1 };
+  var $ = function (s, c) { return (c || document).querySelector(s); };
+  var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
+
+  function getLang() {
+    var saved = null;
+    try { saved = localStorage.getItem('remo-lang'); } catch (e) {}
+    if (saved && LANGS.indexOf(saved) > -1) return saved;
+    var nav = (navigator.languages || [navigator.language || 'es']).map(function (l) { return l.split('-')[0].toLowerCase(); });
+    for (var i = 0; i < nav.length; i++) { if (LANGS.indexOf(nav[i]) > -1) return nav[i]; }
+    return 'es';
+  }
+  function getTheme() {
+    var t = 'light';
+    try { t = localStorage.getItem('kairos-theme') || 'light'; } catch (e) {}
+    return (t === 'dark') ? 'dark' : 'light';
+  }
+  function setTheme(t) {
+    document.documentElement.setAttribute('data-theme', t);
+    try { localStorage.setItem('kairos-theme', t); } catch (e) {}
+    var label = (I18N[getLang()] || I18N.es)['theme.toggle'] || '';
+    $$('.theme-toggle').forEach(function (b) { b.setAttribute('aria-label', label); });
+  }
+  function setMail(sel, subj) {
+    var el = document.getElementById(sel);
+    if (el) el.href = 'mailto:hola@cristiancode.dev?subject=' + encodeURIComponent(subj);
+  }
+  function applyLang(lang) {
+    if (LANGS.indexOf(lang) === -1) lang = 'es';
+    try { localStorage.setItem('remo-lang', lang); } catch (e) {}
+    var D = I18N[lang] || I18N.es;
+    document.documentElement.setAttribute('lang', lang);
+    $$('[data-i18n]').forEach(function (el) { var k = el.getAttribute('data-i18n'); if (D[k] !== undefined) el.textContent = D[k]; });
+    $$('[data-i18n-html]').forEach(function (el) { var k = el.getAttribute('data-i18n-html'); if (D[k] !== undefined && HTML_KEYS[k]) el.innerHTML = D[k]; });
+    $$('[data-i18n-ph]').forEach(function (el) { var k = el.getAttribute('data-i18n-ph'); if (D[k] !== undefined) el.setAttribute('placeholder', D[k]); });
+    $$('[data-i18n-aria]').forEach(function (el) { var k = el.getAttribute('data-i18n-aria'); if (D[k] !== undefined) el.setAttribute('aria-label', D[k]); });
+    $$('.lang-select__cur').forEach(function (el) { el.textContent = lang.toUpperCase(); });
+    $$('.lang-select__opt').forEach(function (opt) {
+      var sel = opt.getAttribute('data-lang') === lang;
+      opt.setAttribute('aria-selected', sel ? 'true' : 'false');
+    });
+    var mt = document.getElementById('meta-desc');
+    if (mt) mt.setAttribute('content', D['meta.desc'] || mt.getAttribute('content'));
+    var dt = document.getElementById('doc-title');
+    if (dt) dt.textContent = D['meta.title'] || dt.textContent;
+    setMail('heroMail', D['hero.mailsub'] || '');
+    setMail('schoolMail1', D['school.r1.name'] || '');
+    setMail('schoolMail2', D['school.r2.name'] || '');
+    setMail('schoolMail3', D['school.r3.name'] || '');
+  }
+
+  /* language dropdowns (desktop + mobile) */
+  function closeLangMenus() {
+    $$('.lang-select').forEach(function (sel) {
+      var m = sel.querySelector('.lang-select__menu');
+      var b = sel.querySelector('.lang-select__btn');
+      if (m) m.classList.remove('open');
+      if (b) b.setAttribute('aria-expanded', 'false');
+    });
+  }
+  $$('.lang-select').forEach(function (sel) {
+    var btn = sel.querySelector('.lang-select__btn');
+    var menu = sel.querySelector('.lang-select__menu');
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var open = menu.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    menu.querySelectorAll('.lang-select__opt').forEach(function (opt) {
+      opt.addEventListener('click', function () { applyLang(opt.getAttribute('data-lang')); closeLangMenus(); });
+    });
+  });
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('.lang-select')) closeLangMenus();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') { closeLangMenus(); closeMenu(); }
+  });
+
+  /* mobile menu */
+  var menuToggle = $('.menu-toggle');
+  var mobileMenu = $('#mobileMenu');
+  function menuOpen() {
+    mobileMenu.classList.add('open');
+    mobileMenu.setAttribute('aria-hidden', 'false');
+    menuToggle.setAttribute('aria-expanded', 'true');
+    document.body.classList.add('no-scroll');
+    var D = I18N[getLang()] || I18N.es;
+    menuToggle.setAttribute('aria-label', D['menu.close'] || '');
+  }
+  function closeMenu() {
+    mobileMenu.classList.remove('open');
+    mobileMenu.setAttribute('aria-hidden', 'true');
+    menuToggle.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('no-scroll');
+    var D = I18N[getLang()] || I18N.es;
+    menuToggle.setAttribute('aria-label', D['menu.open'] || '');
+  }
+  menuToggle.addEventListener('click', function () {
+    if (mobileMenu.classList.contains('open')) closeMenu(); else menuOpen();
+  });
+  $$('#mobileMenu nav a').forEach(function (a) { a.addEventListener('click', closeMenu); });
+
+  /* theme */
+  var themeBtn = $('.theme-toggle');
+  if (themeBtn) themeBtn.addEventListener('click', function () {
+    setTheme(getTheme() === 'dark' ? 'light' : 'dark');
+  });
+
+  /* reveal on scroll */
+  function initReveal() {
+    var items = $$('.rv');
+    if (!('IntersectionObserver' in window)) { items.forEach(function (el) { el.classList.add('in'); }); return; }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -5% 0px' });
+    items.forEach(function (el) { io.observe(el); });
+  }
+
+  /* faq accordion */
+  $$('.faq-item').forEach(function (item) {
+    var q = item.querySelector('.faq-q');
+    var a = item.querySelector('.faq-a');
+    q.addEventListener('click', function () {
+      var open = item.classList.toggle('open');
+      q.setAttribute('aria-expanded', open ? 'true' : 'false');
+      a.style.maxHeight = open ? a.scrollHeight + 'px' : '0px';
+    });
+  });
+
+  /* stroke simulator (real numbers only: rate + count) */
+  var strokeNum = $('#strokeNum');
+  var strokesCount = $('#strokesCount');
+  var rate = 20, simulated = 0, seq = [24, 26, 28, 30, 22], seqI = 0, raf = null;
+  function animateTo(target) {
+    var start = rate, t0 = null, D = 700;
+    if (raf) cancelAnimationFrame(raf);
+    function step(ts) {
+      if (!t0) t0 = ts;
+      var k = Math.min((ts - t0) / D, 1);
+      var e = 1 - Math.pow(1 - k, 4);
+      rate = Math.round(start + (target - start) * e);
+      strokeNum.textContent = rate;
+      if (k < 1) raf = requestAnimationFrame(step); else raf = null;
+    }
+    raf = requestAnimationFrame(step);
+  }
+  $('#strokeBtn').addEventListener('click', function () {
+    simulated += 4;
+    strokesCount.textContent = simulated;
+    animateTo(seq[seqI % seq.length]);
+    seqI++;
+    var oars = $$('.mini-oar');
+    oars.forEach(function (o) { o.classList.toggle('a'); o.classList.toggle('b'); });
+  });
+  $('#strokeReset').addEventListener('click', function () {
+    if (raf) cancelAnimationFrame(raf);
+    rate = 20; simulated = 0;
+    strokeNum.textContent = '20';
+    strokesCount.textContent = '0';
+    $$('.mini-oar').forEach(function (o) { o.classList.remove('a', 'b'); });
+  });
+
+  /* newsletter — honest mailto, never a fake success */
+  var newsForm = $('#newsForm');
+  var newsMsg = $('#newsMsg');
+  if (newsForm) newsForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var email = $('#newsEmail').value.trim();
+    var D = I18N[getLang()] || I18N.es;
+    var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
+    if (!emailOk) {
+      newsMsg.className = 'news-msg err';
+      newsMsg.textContent = D['news.err'] || '';
+      return;
+    }
+    var body = (D['news.mail_body'] || '').replace('{email}', email);
+    window.location.href = 'mailto:hola@cristiancode.dev?subject=' + encodeURIComponent(D['news.mail_subject'] || '') + '&body=' + encodeURIComponent(body);
+    newsMsg.className = 'news-msg ok';
+    newsMsg.innerHTML = D['news.ok'] || '';
+  });
+
+  /* cookie banner — bottom-right, delayed, never over the hero CTAs */
+  var cookieBanner = $('#cookieBanner');
+  var cookieAccepted = false;
+  try { cookieAccepted = localStorage.getItem('remo-cookie') === 'accepted'; } catch (e) {}
+  if (!cookieAccepted) {
+    setTimeout(function () { cookieBanner.classList.add('show'); }, 3000);
+  }
+  $('#cookieOk').addEventListener('click', function () {
+    try { localStorage.setItem('remo-cookie', 'accepted'); } catch (e) {}
+    cookieBanner.classList.remove('show');
+  });
+
+  /* fab back-to-top */
+  var fab = $('#fab');
+  window.addEventListener('scroll', function () {
+    var y = window.scrollY || document.documentElement.scrollTop;
+    if (y > 480) fab.classList.add('show'); else fab.classList.remove('show');
+  }, { passive: true });
+  fab.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  /* boot */
+  try {
+    setTheme(getTheme());
+    applyLang(getLang());
+    initReveal();
+  } catch (err) {
+    $$('.rv').forEach(function (el) { el.classList.add('in'); });
+  }
+})();
+</script>
+</body>
+</html>

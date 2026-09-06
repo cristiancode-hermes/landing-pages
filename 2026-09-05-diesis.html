@@ -1,0 +1,2056 @@
+<!DOCTYPE html>
+<html lang="es" class="no-js" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="doc-title">DIESIS — Grabado editorial de música · Madrid</title>
+<meta name="description" id="meta-desc" content="Atelier de grabado editorial de música en el Barrio de las Letras. Ediciones críticas, transcripciones y urgencias de concierto. Calle del Príncipe 12, Madrid.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230B0B0B'/%3E%3Cg stroke='%23E85D26' stroke-width='2'%3E%3Cline x1='11' y1='23' x2='11' y2='9'/%3E%3Cline x1='21' y1='25' x2='21' y2='11'/%3E%3Cline x1='7' y1='17' x2='25' y2='12'/%3E%3Cline x1='11' y1='21' x2='29' y2='16'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="canonical" href="https://proyectos.cristiancode.dev/landings/2026-09-05-diesis.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://proyectos.cristiancode.dev/landings/2026-09-05-diesis.html">
+<meta property="og:title" id="og-title" content="DIESIS — Grabado editorial de música · Madrid">
+<meta property="og:description" id="og-desc" content="Atelier de grabado editorial de música. Ediciones críticas, transcripciones y urgencias de concierto. Calle del Príncipe 12, Madrid.">
+<meta property="og:image" content="https://cristiancode.dev/assets/landing-2026-09-05-diesis.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" id="tw-title" content="DIESIS — Grabado editorial de música · Madrid">
+<meta name="twitter:description" id="tw-desc" content="Atelier de grabado editorial de música. Ediciones críticas, transcripciones y urgencias de concierto. Calle del Príncipe 12, Madrid.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   DESIGN SYSTEM — DIESIS · Atelier de grabado editorial de música
+   Surface: Decide/Learn (landing; hero correct). Secondary
+            Operate inside the encargo form, Compare across the
+            two commission types, Monitor in the galley proof.
+   Derived from: Sanity (popular-web-designs template) — nocturnal
+            command console: near-black canvas #0b0b0b, pure
+            achromatic gray ramp, ONE engraved accent (engraver's
+            vermilion), pill CTAs, mono uppercase system labels,
+            hairline borders, colorimetric depth (no shadows),
+            every hover shifts to proof blue. Diverged: vermilion
+            replaces coral, plate-paper inversion for the product,
+            space grotesk instead of waldenburg (closer geometric).
+   Family: Music / Editorial publishing
+   Style: Engraver's press-room — dark console + printed-plate
+            inversions, one vermilion ink, mono readouts
+   Strategy: Committed (near-black 60% + vermilion ≤10% +
+            proof-blue interaction, paper plates 20%)
+   Impeccable: solid colors only, no glass, no side rails,
+            numbers only on the real 4-step sequence.
+   ============================================================ */
+:root{
+  --paper:#F4F4F2;
+  --ink:#17171A;
+  --muted:#55555C;
+  --faint:#6E6E76;
+  --line:rgba(23,23,26,.14);
+  --soft:#EBEBE8;
+  --verm:#E85D26;
+  --verm-ink:#131313;
+  --verm-hover:#1F6BFF;
+  --verm-hover-ink:#FFFFFF;
+  --link:#0C53B7;
+  --ok:#1F7A45;
+  --err:#C02B24;
+  --ring:#0C53B7;
+  --stage:#0B0B0B;
+  --stage-2:#131313;
+  --stage-3:#161616;
+  --stage-ink:#EDEDED;
+  --stage-muted:#A6A6A6;
+  --stage-faint:#848484;
+  --stage-line:rgba(255,255,255,.12);
+  --pl-muted:#55555C;
+}
+[data-theme="dark"]{
+  --paper:#0B0B0B;
+  --ink:#EDEDED;
+  --muted:#A6A6A6;
+  --faint:#848484;
+  --line:rgba(255,255,255,.12);
+  --soft:#161616;
+  --link:#7FB0F5;
+  --ring:#7FB0F5;
+  --pl-muted:#A6A6A6;
+}
+/* ---------- reset & base ---------- */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Space Grotesk',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  font-size:16px;line-height:1.62;color:var(--ink);background:var(--paper);
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+img,svg{display:block;max-width:100%}
+a{color:var(--link)}
+a:hover{color:var(--verm-hover)}
+h1,h2,h3{text-wrap:balance;line-height:1.08;letter-spacing:-0.02em}
+p{max-width:62ch;text-wrap:pretty}
+::selection{background:var(--verm);color:var(--verm-ink)}
+:focus-visible{outline:2px solid var(--ring);outline-offset:3px;border-radius:2px}
+.visually-hidden{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.mono{font-family:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+/* ---------- z scale ---------- */
+.mobile-menu{z-index:60}
+.lang-select__menu{z-index:70}
+.nav{z-index:40}
+.cookie{z-index:50}
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
+  font-family:'IBM Plex Mono',monospace;font-size:.875rem;font-weight:500;
+  text-decoration:none;border-radius:999px;padding:.72rem 1.35rem;
+  transition:background .22s cubic-bezier(.22,1,.36,1),color .22s,transform .22s,border-color .22s;
+  cursor:pointer;
+}
+.btn:active{transform:scale(.98)}
+.btn-primary{background:var(--verm);color:var(--verm-ink)!important}
+.btn-primary:hover{background:var(--verm-hover);color:var(--verm-hover-ink)!important}
+.btn-ghost{
+  background:transparent;color:var(--ink)!important;
+  border:1px solid var(--line);
+}
+.btn-ghost:hover{border-color:var(--link);color:var(--link)!important}
+/* ---------- nav ---------- */
+.nav{
+  position:fixed;top:0;left:0;right:0;height:64px;
+  background:var(--paper);border-bottom:1px solid var(--line);
+  transition:background .25s,box-shadow .25s;
+}
+.nav-inner{max-width:1140px;margin:0 auto;padding:0 24px;height:64px;display:flex;align-items:center;gap:2rem}
+.nav-logo{
+  display:inline-flex;align-items:center;gap:.6rem;text-decoration:none;
+  color:var(--ink)!important;font-weight:700;font-size:1.02rem;letter-spacing:-.01em;margin-right:auto;
+}
+.nav-logo .shp{width:20px;height:20px}
+.nav-links{display:flex;gap:1.4rem;list-style:none}
+.nav-links a{
+  font-family:'IBM Plex Mono',monospace;font-size:.78rem;letter-spacing:.04em;
+  text-transform:uppercase;color:var(--muted);text-decoration:none;
+  border-bottom:1px solid transparent;padding-bottom:2px;
+  transition:color .2s,border-color .2s;
+}
+.nav-links a:hover{color:var(--ink);border-color:var(--verm)}
+.nav-actions{display:flex;align-items:center;gap:.6rem}
+nav.nav-desktop-only{display:contents}
+.nav-actions>a.btn-primary{display:inline-flex;padding:.56rem 1.1rem;font-size:.78rem}
+.menu-toggle{
+  display:none;width:44px;height:44px;border:1px solid var(--line);border-radius:999px;
+  background:var(--paper);color:var(--ink);align-items:center;justify-content:center;cursor:pointer;
+}
+/* lang select */
+.lang-select{position:relative}
+.lang-select__btn{
+  display:inline-flex;align-items:center;gap:.45rem;height:38px;padding:0 .9rem;
+  font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.05em;
+  color:var(--muted);background:var(--paper);border:1px solid var(--line);border-radius:999px;cursor:pointer;
+  transition:color .2s,border-color .2s;
+}
+.lang-select__btn:hover,.lang-select__btn[aria-expanded="true"]{border-color:var(--verm);color:var(--ink)}
+.lang-select__chev{transition:transform .25s cubic-bezier(.22,1,.36,1);font-size:.6rem}
+.lang-select__btn[aria-expanded="true"] .lang-select__chev{transform:rotate(180deg)}
+.lang-select__menu{
+  position:absolute;top:calc(100% + 8px);right:0;min-width:190px;
+  background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:6px;
+  opacity:0;visibility:hidden;transform:translateY(6px);
+  transition:opacity .2s,transform .25s cubic-bezier(.22,1,.36,1),visibility .2s;
+}
+.lang-select__menu.open{opacity:1;visibility:visible;transform:translateY(0)}
+.lang-select__opt{
+  display:flex;align-items:center;gap:.5rem;width:100%;padding:.6rem .75rem;
+  font-family:'IBM Plex Mono',monospace;font-size:.8rem;color:var(--ink);
+  background:none;border:0;border-radius:7px;cursor:pointer;text-align:left;
+  transition:background .15s;
+}
+.lang-select__opt:hover{background:rgba(125,125,130,.12)}
+.lang-select__opt[aria-selected="true"]{color:var(--link);font-weight:500}
+.lang-select__opt[aria-selected="true"]::after{content:'\2713';margin-left:auto}
+/* theme toggle */
+.theme-toggle{
+  width:38px;height:38px;border:1px solid var(--line);border-radius:999px;
+  background:var(--paper);color:var(--ink);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;
+  transition:border-color .2s,color .2s;
+}
+.theme-toggle:hover{border-color:var(--verm);color:var(--verm)}
+/* mobile menu */
+.mobile-menu{
+  position:fixed;top:0;right:0;bottom:0;width:min(320px,86vw);
+  background:var(--paper);border-left:1px solid var(--line);
+  transform:translateX(102%);transition:transform .35s cubic-bezier(.22,1,.36,1);
+  display:flex;flex-direction:column;padding:84px 26px 28px;
+  visibility:hidden;
+}
+.mobile-menu.open{transform:translateX(0);visibility:visible}
+.mobile-menu .m-close{
+  position:absolute;top:10px;right:14px;width:44px;height:44px;border:1px solid var(--line);border-radius:999px;
+  background:var(--paper);color:var(--ink);cursor:pointer;font-size:1.1rem;
+}
+.mobile-menu nav{display:flex;flex-direction:column;gap:.15rem}
+.mobile-menu .m-link{
+  padding:.8rem .2rem;font-family:'IBM Plex Mono',monospace;font-size:.95rem;letter-spacing:.02em;
+  color:var(--ink)!important;text-decoration:none;border-bottom:1px solid var(--line);
+}
+.mobile-menu .lang-select{width:100%;margin-top:1.4rem}
+.mobile-menu .lang-select__btn{width:100%;justify-content:space-between;height:46px}
+.mobile-menu .lang-select__menu{position:static;width:100%;min-width:0;box-shadow:none;margin-top:6px}
+.mobile-menu a.btn-primary{margin-top:1.4rem;color:var(--verm-ink)!important;background:var(--verm);padding:.8rem 1.4rem}
+.no-scroll{overflow:hidden}
+
+/* ---------- hero (fixed dark stage) ---------- */
+.hero{
+  background:var(--stage);color:var(--stage-ink);
+  padding:calc(64px + clamp(56px, 9vw, 110px)) 0 clamp(48px, 7vw, 84px);
+  position:relative;overflow:hidden;
+}
+.hero::before{ /* faint staff watermark */
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:
+    repeating-linear-gradient(to bottom, rgba(255,255,255,.028) 0 1px, transparent 1px 26px);
+  mask-image:linear-gradient(to bottom, rgba(0,0,0,.7), transparent 78%);
+}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(28px,5vw,72px);align-items:center}
+.hero-kicker{
+  display:inline-flex;align-items:center;gap:.6rem;
+  font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--verm);margin-bottom:1.4rem;
+}
+.hero-kicker::before{content:'';width:34px;height:1px;background:var(--verm)}
+.hero h1{
+  font-size:clamp(2.15rem,5.2vw,4.35rem);font-weight:600;line-height:1.04;letter-spacing:-.025em;
+  color:var(--stage-ink);max-width:14ch;
+}
+.hero-sub{margin-top:1.5rem;font-size:clamp(1rem,1.15vw,1.13rem);line-height:1.65;color:var(--stage-muted);max-width:46ch}
+.hero-cta{margin-top:2rem;display:flex;flex-wrap:wrap;gap:.8rem}
+.hero .btn-ghost{color:var(--stage-ink)!important;border-color:var(--stage-line)}
+.hero .btn-ghost:hover{border-color:var(--verm);color:var(--verm)!important}
+.hero-note{margin-top:1.5rem;font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.05em;color:var(--stage-faint)}
+/* plate */
+.hero-art{position:relative;display:flex;justify-content:center}
+.plate{
+  width:min(560px,100%);aspect-ratio:560/500;position:relative;
+  border:1px solid var(--stage-line);background:var(--stage-2);
+  transform:rotate(-1.6deg);
+  animation:plateFloat 7s ease-in-out infinite;
+  border-radius:6px;overflow:hidden;
+}
+.plate svg{width:100%;height:100%}
+@keyframes plateFloat{0%,100%{transform:rotate(-1.6deg) translateY(0)}50%{transform:rotate(-1.6deg) translateY(-9px)}}
+.plate-cap{
+  position:absolute;left:50%;bottom:-14px;transform:translateX(-50%);
+  display:flex;gap:1.2rem;align-items:baseline;
+  font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--stage-faint);background:var(--stage);padding:6px 14px;border:1px solid var(--stage-line);border-radius:999px;
+  white-space:nowrap;
+}
+.plate-cap b{color:var(--verm);font-weight:500}
+/* hero spec strip */
+.hero-specs{
+  margin-top:clamp(40px,6vw,72px);border-top:1px solid var(--stage-line);
+  display:grid;grid-template-columns:repeat(3,1fr);
+}
+.spec{padding:1.15rem 1.4rem 0 0;border-right:1px solid var(--stage-line)}
+.spec:last-child{border-right:0}
+.spec .k{font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--stage-faint);display:block}
+.spec .v{margin-top:.3rem;font-family:'IBM Plex Mono',monospace;font-size:.95rem;color:var(--stage-ink)}
+.spec .v em{color:var(--verm);font-style:normal}
+/* ---------- sections ---------- */
+section.block{padding:clamp(64px,9vw,120px) 0}
+.sec-head{max-width:640px}
+.sec-head h2{font-size:clamp(1.7rem,3.4vw,2.6rem);font-weight:600;color:var(--ink)}
+.sec-head .lead{margin-top:1rem;color:var(--muted);font-size:1.05rem}
+.sec-kicker{
+  font-family:'IBM Plex Mono',monospace;font-size:.7rem;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--verm);display:block;margin-bottom:1rem;
+}
+/* método — real 4-step sequence */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;margin-top:3rem}
+.step{padding-top:1.1rem;border-top:1px solid var(--line)}
+.step .n{font-family:'IBM Plex Mono',monospace;font-size:.78rem;letter-spacing:.1em;color:var(--verm)}
+.step h3{margin-top:.8rem;font-size:1.18rem;font-weight:600;color:var(--ink)}
+.step p{margin-top:.5rem;font-size:.95rem;color:var(--muted)}
+/* trabajos — ledger rows */
+.ledger{margin-top:2.6rem;border-bottom:1px solid var(--line)}
+.led-row{
+  display:grid;grid-template-columns:minmax(170px,.9fr) 1.6fr minmax(150px,.6fr);gap:2rem;
+  padding:1.9rem 0;border-top:1px solid var(--line);align-items:baseline;
+}
+.led-row .t h3{font-size:1.2rem;font-weight:600;color:var(--ink)}
+.led-row .t .tag{display:block;margin-top:.4rem;font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--verm)}
+.led-row .d p{font-size:.95rem;color:var(--muted)}
+.led-row .p{font-family:'IBM Plex Mono',monospace;font-size:.85rem;color:var(--ink);text-align:right;white-space:nowrap}
+/* ediciones — printed plates (paper inversion) */
+.covers{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:3rem}
+.cover{
+  border:1px solid var(--line);border-radius:8px;background:var(--soft);
+  padding:14px 14px 0;display:flex;flex-direction:column;
+  transition:transform .3s cubic-bezier(.22,1,.36,1),border-color .3s;
+}
+.cover:hover{transform:translateY(-4px);border-color:var(--verm)}
+.cover .sheet{
+  background:#FBF8F2;border:1px solid rgba(23,23,26,.16);border-radius:4px;
+  aspect-ratio:1/1.25;width:100%;overflow:hidden;position:relative;
+}
+.cover figcaption{display:flex;align-items:baseline;gap:.7rem;padding:1rem 0 1.1rem}
+.cover figcaption .lab{min-width:0;flex:1 1 auto;font-family:'IBM Plex Mono',monospace;font-size:.74rem;letter-spacing:.03em;text-transform:uppercase;color:var(--ink);white-space:normal}
+.cover figcaption .meta{flex:none;font-family:'IBM Plex Mono',monospace;font-size:.64rem;letter-spacing:.05em;white-space:nowrap;color:var(--pl-muted)}
+[data-theme="dark"] .cover figcaption .meta{color:var(--muted)}
+/* manifiesto */
+.manifest{position:relative;background:var(--stage);color:var(--stage-ink);border-top:1px solid var(--stage-line);border-bottom:1px solid var(--stage-line)}
+.manifest-inner{max-width:840px;margin:0 auto;padding:clamp(72px,10vw,130px) 24px;text-align:center;position:relative}
+.manifest .bigmark{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-52%);width:min(480px,80%);
+  opacity:.07;pointer-events:none;
+}
+.manifest blockquote{
+  font-size:clamp(1.45rem,2.6vw,2.15rem);font-weight:500;line-height:1.32;letter-spacing:-.015em;
+  color:var(--stage-ink);max-width:34ch;margin:0 auto;position:relative;
+}
+.manifest blockquote em{color:var(--verm);font-style:normal}
+.manifest .who{margin-top:1.6rem;font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--stage-faint)}
+/* compare — two commission types */
+.plans{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:3rem;align-items:stretch}
+.plan{
+  border:1px solid var(--line);border-radius:12px;padding:2.1rem 2rem;
+  background:var(--paper);display:flex;flex-direction:column;
+}
+.plan.featured{
+  border-color:var(--verm);position:relative;
+  box-shadow:0 0 0 1px var(--verm) inset;
+}
+.plan .pname{font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--verm)}
+.plan .ptag{
+  margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--verm-ink);background:var(--verm);border-radius:999px;padding:.24rem .7rem;
+}
+.plan h3{margin-top:.55rem;font-size:1.45rem;font-weight:600;color:var(--ink)}
+.plan .price{margin-top:.4rem;font-family:'IBM Plex Mono',monospace;font-size:1.35rem;color:var(--ink)}
+.plan .price small{display:block;font-size:.7rem;color:var(--muted);margin-top:.15rem}
+.plan ul{margin-top:1.4rem;list-style:none;display:flex;flex-direction:column;gap:.65rem}
+.plan li{display:flex;gap:.7rem;font-size:.94rem;color:var(--muted)}
+.plan li::before{
+  content:'+';font-family:'IBM Plex Mono',monospace;color:var(--verm);font-size:.8rem;line-height:1.5;flex:none;
+}
+.plan .btn{margin-top:1.8rem;align-self:flex-start}
+.plans-note{margin-top:1.6rem;font-family:'IBM Plex Mono',monospace;font-size:.76rem;line-height:1.7;color:var(--faint);max-width:64ch}
+/* encargo band (fixed dark) */
+.encargo{background:var(--stage);color:var(--stage-ink)}
+.encargo-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(32px,5vw,72px);align-items:start}
+.encargo h2{color:var(--stage-ink)}
+.encargo .lead{color:var(--stage-muted)}
+.info-rows{margin-top:2rem;border-top:1px solid var(--stage-line)}
+.info-row{display:flex;gap:1.6rem;padding:1rem 0;border-bottom:1px solid var(--stage-line);font-size:.95rem}
+.info-row .k{font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--stage-faint);width:110px;flex:none;padding-top:.2rem}
+.info-row .v{color:var(--stage-ink)}
+.info-row .v a{color:var(--link);text-decoration:none;border-bottom:1px solid rgba(127,176,245,.4)}
+.info-row .v a:hover{color:#fff;border-color:#fff}
+.form{
+  background:var(--stage-2);border:1px solid var(--stage-line);border-radius:12px;padding:2rem;
+  display:flex;flex-direction:column;gap:1.1rem;
+}
+.form field{display:flex;flex-direction:column;gap:.35rem}
+.form label{font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--stage-faint)}
+.form input,.form textarea{
+  background:var(--stage);border:1px solid var(--stage-line);border-radius:6px;
+  color:var(--stage-ink);font-family:'Space Grotesk',sans-serif;font-size:.95rem;
+  padding:.72rem .9rem;transition:border-color .2s;
+}
+.form input:focus,.form textarea:focus{outline:0;border-color:var(--verm)}
+.form textarea{resize:vertical;min-height:96px}
+.form .btn{align-self:flex-start}
+.form-hint{margin-top:-.4rem;font-size:.8rem;color:var(--stage-faint)}
+.form-hint a{color:var(--link)}
+/* faq */
+.faq{margin-top:2.6rem;border-bottom:1px solid var(--line)}
+.faq-item{border-top:1px solid var(--line)}
+.faq-q{
+  width:100%;display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  padding:1.35rem 0;background:none;border:0;cursor:pointer;text-align:left;
+  font-family:'Space Grotesk',sans-serif;font-size:1.06rem;font-weight:500;color:var(--ink);
+  transition:color .2s;
+}
+.faq-q:hover{color:var(--verm)}
+.faq-q .ic{
+  font-family:'IBM Plex Mono',monospace;font-size:1.05rem;flex:none;width:26px;height:26px;
+  display:inline-flex;align-items:center;justify-content:center;border-radius:999px;
+  border:1px solid var(--line);color:var(--muted);transition:transform .3s cubic-bezier(.22,1,.36,1),color .2s,border-color .2s;
+}
+.faq-item.open .faq-q .ic{transform:rotate(45deg);color:var(--verm);border-color:var(--verm)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .38s cubic-bezier(.22,1,.36,1)}
+.faq-a p{padding:0 0 1.4rem;color:var(--muted);font-size:.95rem}
+/* news band */
+.news{
+  background:var(--soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+}
+.news-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:2rem;align-items:center;padding:clamp(40px,6vw,64px) 0}
+.news h2{font-size:clamp(1.5rem,2.8vw,2.1rem);color:var(--ink)}
+.news .lead{margin-top:.6rem;color:var(--muted);font-size:.98rem}
+.news-msg{
+  display:none;margin-top:.7rem;font-family:'IBM Plex Mono',monospace;font-size:.8rem;
+}
+.news-msg.ok{display:block;color:var(--ok)}
+.news-msg.err{display:block;color:var(--err)}
+.news-form{display:flex;gap:.6rem}
+.news-form input{
+  flex:1;background:var(--paper);border:1px solid var(--line);border-radius:999px;
+  color:var(--ink);font-family:'Space Grotesk',sans-serif;font-size:.95rem;padding:.72rem 1.1rem;
+}
+.news-form input:focus{outline:0;border-color:var(--verm)}
+.news-honest{margin-top:.8rem;font-size:.82rem;color:var(--faint)}
+.news-honest a{color:var(--link)}
+/* footer (fixed dark) */
+.footer{background:var(--stage);color:var(--stage-muted);padding:clamp(48px,7vw,80px) 0 2rem}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1.3fr;gap:2.5rem}
+.footer .f-brand .nav-logo{color:var(--stage-ink)!important;margin-bottom:.8rem}
+.footer .f-brand p{font-size:.92rem;color:var(--stage-muted)}
+.footer h4{font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--stage-faint);margin-bottom:1rem}
+.footer ul{list-style:none;display:flex;flex-direction:column;gap:.55rem}
+.footer ul a{color:var(--stage-muted);text-decoration:none;font-size:.92rem;border-bottom:1px solid transparent;transition:color .2s,border-color .2s}
+.footer ul a:hover{color:#fff;border-color:var(--verm)}
+.footer .f-meta p{font-size:.9rem;color:var(--stage-muted);line-height:1.8}
+.footer .f-meta a{color:var(--stage-muted)}
+.footer .f-meta a:hover{color:#fff}
+.footer-cr{margin-top:2.5rem;padding-top:1.4rem;border-top:1px solid var(--stage-line);display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.footer-cr p{font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.04em;color:var(--stage-faint)}
+/* cookie */
+.cookie{
+  position:fixed;right:14px;bottom:14px;max-width:min(330px,calc(100vw - 28px));
+  background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:14px 16px;
+  display:flex;align-items:center;gap:1rem;z-index:50;
+  transform:translateY(calc(100% + 2rem));opacity:0;visibility:hidden;
+  transition:transform .4s cubic-bezier(.22,1,.36,1),opacity .4s,visibility .4s;
+}
+.cookie.show{transform:translateY(0);opacity:1;visibility:visible}
+.cookie p{font-size:.8rem;color:var(--muted);flex:1}
+.cookie button{
+  flex:none;font-family:'IBM Plex Mono',monospace;font-size:.74rem;font-weight:500;
+  color:#FFFFFF;background:var(--verm);border:0;border-radius:999px;padding:.5rem 1rem;cursor:pointer;
+  transition:background .2s;
+}
+.cookie button:hover{background:var(--verm-hover)}
+/* reveal */
+.rv{opacity:0;transform:translateY(14px);transition:opacity .65s cubic-bezier(.22,1,.36,1),transform .65s cubic-bezier(.22,1,.36,1)}
+.rv.in{opacity:1;transform:none}
+html.no-js .rv,html.no-js .plate{opacity:1;transform:none}
+/* ---------- responsive ---------- */
+@media (max-width:980px){
+  .nav-links,nav.nav-desktop-only,.nav-actions>a.nav-desktop-only{display:none}
+  .menu-toggle{display:inline-flex}
+  .hero-grid{grid-template-columns:1fr}
+  .hero-art{margin-top:2.2rem}
+  .steps{grid-template-columns:1fr 1fr;gap:20px}
+  .led-row{grid-template-columns:1fr;gap:.7rem}
+  .led-row .p{text-align:left}
+  .plans{grid-template-columns:1fr}
+  .encargo-grid{grid-template-columns:1fr}
+  .news-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:2rem}
+}
+@media (max-width:560px){
+  .wrap{padding:0 18px}
+  .steps{grid-template-columns:1fr}
+  .covers{grid-template-columns:1fr}
+  .hero-specs{grid-template-columns:1fr;gap:0}
+  .spec{border-right:0;padding:1rem 0;border-bottom:1px solid var(--stage-line)}
+  .spec:last-child{border-bottom:0}
+  .news-form{flex-direction:column}
+  .cookie{right:10px;bottom:10px}
+}
+@media (max-width:640px){
+  .footer-grid{grid-template-columns:1fr}
+}
+@media print{
+  .nav,.mobile-menu,.cookie,.theme-toggle,.lang-select,.btn{display:none!important}
+  .hero{background:#fff;color:#17171A;padding:2rem 0}
+  .hero h1{color:#17171A}
+  .hero .btn-ghost,.hero-sub,.hero-note,.hero-specs,.plate{display:none}
+  .manifest,.encargo,.footer{background:#fff;color:#17171A}
+  .rv{opacity:1;transform:none}
+}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+  .rv{opacity:1;transform:none}
+  .plate{animation:none}
+}
+</style>
+</head>
+
+<body>
+<a class="visually-hidden" href="#main" data-i18n="skip">Ir al contenido</a>
+
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="#hero" aria-label="DIESIS — inicio">
+      <svg class="shp" viewBox="0 0 32 32" aria-hidden="true"><g stroke="#E85D26" stroke-width="2.6"><line x1="10" y1="26" x2="10" y2="6"/><line x1="21" y1="28" x2="21" y2="8"/><line x1="4" y1="18" x2="28" y2="12"/><line x1="9" y1="23" x2="33" y2="17"/></g></svg>
+      <span>DIESIS</span>
+    </a>
+    <nav class="nav-desktop-only" aria-label="Principal">
+      <ul class="nav-links">
+        <li><a href="#metodo" data-i18n="nav.oficio">Método</a></li>
+        <li><a href="#trabajos" data-i18n="nav.trabajos">Trabajos</a></li>
+        <li><a href="#ediciones" data-i18n="nav.ediciones">Ediciones</a></li>
+        <li><a href="#encargo" data-i18n="nav.encargo">Encargo</a></li>
+        <li><a href="#faq" data-i18n="nav.faq">Preguntas</a></li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <div class="lang-select">
+        <button type="button" class="lang-select__btn" aria-haspopup="listbox" aria-expanded="false" data-i18n-aria="lang.aria">
+          <span class="lang-select__cur">ES</span><span class="lang-select__chev">▾</span>
+        </button>
+        <div class="lang-select__menu" role="listbox" aria-label="Idioma">
+          <button type="button" class="lang-select__opt" role="option" data-lang="es" aria-selected="true">Español</button>
+          <button type="button" class="lang-select__opt" role="option" data-lang="en" aria-selected="false">English</button>
+          <button type="button" class="lang-select__opt" role="option" data-lang="fr" aria-selected="false">Français</button>
+          <button type="button" class="lang-select__opt" role="option" data-lang="de" aria-selected="false">Deutsch</button>
+          <button type="button" class="lang-select__opt" role="option" data-lang="it" aria-selected="false">Italiano</button>
+          <button type="button" class="lang-select__opt" role="option" data-lang="pt" aria-selected="false">Português</button>
+        </div>
+      </div>
+      <button type="button" class="theme-toggle" data-i18n-aria="theme.toggle" aria-label="Cambiar tema">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+      <a class="btn btn-primary nav-desktop-only" href="#encargo" data-i18n="nav.cta">Encargar una edición</a>
+      <button type="button" class="menu-toggle" aria-expanded="false" data-i18n-aria="menu.open" aria-label="Abrir menú">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h12"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <button type="button" class="m-close" data-i18n-aria="menu.close" aria-label="Cerrar menú">×</button>
+  <nav aria-label="Móvil">
+    <a class="m-link" href="#metodo" data-i18n="nav.oficio">Método</a>
+    <a class="m-link" href="#trabajos" data-i18n="nav.trabajos">Trabajos</a>
+    <a class="m-link" href="#ediciones" data-i18n="nav.ediciones">Ediciones</a>
+    <a class="m-link" href="#encargo" data-i18n="nav.encargo">Encargo</a>
+    <a class="m-link" href="#faq" data-i18n="nav.faq">Preguntas</a>
+  </nav>
+  <div class="lang-select" style="position:relative">
+    <button type="button" class="lang-select__btn" aria-haspopup="listbox" aria-expanded="false" data-i18n-aria="lang.aria">
+      <span class="lang-select__cur">ES</span><span class="lang-select__chev">▾</span>
+    </button>
+    <div class="lang-select__menu" role="listbox" aria-label="Idioma">
+      <button type="button" class="lang-select__opt" role="option" data-lang="es" aria-selected="true">Español</button>
+      <button type="button" class="lang-select__opt" role="option" data-lang="en" aria-selected="false">English</button>
+      <button type="button" class="lang-select__opt" role="option" data-lang="fr" aria-selected="false">Français</button>
+      <button type="button" class="lang-select__opt" role="option" data-lang="de" aria-selected="false">Deutsch</button>
+      <button type="button" class="lang-select__opt" role="option" data-lang="it" aria-selected="false">Italiano</button>
+      <button type="button" class="lang-select__opt" role="option" data-lang="pt" aria-selected="false">Português</button>
+    </div>
+  </div>
+  <a class="btn btn-primary" href="#encargo" data-i18n="nav.cta">Encargar una edición</a>
+</div>
+
+<main id="main">
+<section class="hero" id="hero" aria-labelledby="hero-title">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="hero-kicker" data-i18n="hero.kicker">Grabado editorial · Madrid</span>
+        <h1 id="hero-title" data-i18n-html="hero.title">La última nota <br>se dibuja, no se escribe.</h1>
+        <p class="hero-sub" data-i18n="hero.sub">Atelier de grabado de música en el Barrio de las Letras. Partituras para orquesta, archivo y concierto: el pentagrama final sale de aquí, verificado dos veces.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#encargo" data-i18n="hero.cta1">Encargar una edición</a>
+          <a class="btn btn-ghost" href="#metodo" data-i18n="hero.cta2">Ver el método</a>
+        </div>
+        <p class="hero-note" data-i18n="hero.note">Calle del Príncipe 12 · Madrid · lun–vie 10–18</p>
+      </div>
+      <div class="hero-art">
+        <figure class="plate">
+          <svg viewBox="0 0 560 500" role="img" aria-labelledby="plateTitle">
+            <title id="plateTitle" data-i18n="hero.plate">Galera de edición — DIESIS</title>
+            <g class="watermark" stroke="#EDEDED" stroke-width="34" opacity="0.07" fill="none" stroke-linecap="round">
+              <line x1="228" y1="300" x2="228" y2="120"/><line x1="308" y1="330" x2="308" y2="150"/>
+              <line x1="188" y1="238" x2="368" y2="168"/><line x1="208" y1="310" x2="388" y2="240"/>
+            </g>
+            <g fill="none" stroke="#B9B9B9" stroke-width="1.4">
+              <line x1="70" y1="180" x2="470" y2="180"/><line x1="70" y1="192" x2="470" y2="192"/>
+              <line x1="70" y1="204" x2="470" y2="204"/><line x1="70" y1="216" x2="470" y2="216"/><line x1="70" y1="228" x2="470" y2="228"/>
+              <line x1="70" y1="352" x2="470" y2="352"/><line x1="70" y1="364" x2="470" y2="364"/>
+              <line x1="70" y1="376" x2="470" y2="376"/><line x1="70" y1="388" x2="470" y2="388"/><line x1="70" y1="400" x2="470" y2="400"/>
+            </g>
+            <g id="sharp" stroke="#E8E8E8" stroke-width="2.2" fill="none" stroke-linecap="round">
+              <line x1="-3.4" y1="13.5" x2="-3.4" y2="-9"/><line x1="3.6" y1="15.5" x2="3.6" y2="-7"/>
+              <line x1="-7" y1="4.5" x2="7" y2="-5"/><line x1="-3.5" y1="15" x2="10.5" y2="5.5"/>
+            </g>
+            <use href="#sharp" transform="translate(96,196) scale(1.2)"/>
+            <use href="#sharp" transform="translate(112,196) scale(1.2)"/>
+            <use href="#sharp" transform="translate(96,368) scale(1.2)"/>
+            <use href="#sharp" transform="translate(112,368) scale(1.2)"/>
+            <g font-family="'IBM Plex Mono',monospace" font-size="15" fill="#E8E8E8">
+              <text x="70" y="200">4</text><text x="70" y="224">4</text>
+              <text x="70" y="372">4</text><text x="70" y="396">4</text>
+              <text x="152" y="162" font-size="12" fill="#848484">♩ = 72</text>
+            </g>
+            <g id="note-q" stroke="#EDEDED" stroke-width="1.6" fill="#EDEDED">
+              <ellipse cx="0" cy="0" rx="6.6" ry="4.9" transform="rotate(-18 0 0)"/>
+              <line x1="5" y1="-1" x2="5" y2="-26" stroke-width="1.5"/>
+            </g>
+            <g id="note-e" stroke="#EDEDED" stroke-width="1.6" fill="#EDEDED">
+              <ellipse cx="0" cy="0" rx="6.6" ry="4.9" transform="rotate(-18 0 0)"/>
+              <line x1="5" y1="-1" x2="5" y2="-26" stroke-width="1.5"/>
+              <path d="M5 -26 C14 -24 18 -18 18 -12" fill="none" stroke-width="1.5"/>
+            </g>
+            <g id="note-h" stroke="#EDEDED" stroke-width="1.8" fill="none">
+              <ellipse cx="0" cy="0" rx="7" ry="5.2" transform="rotate(-18 0 0)"/>
+              <line x1="5.2" y1="-1" x2="5.2" y2="-26" stroke-width="1.5"/>
+            </g>
+            <use href="#note-q" transform="translate(196,196) scale(1.1)"/>
+            <use href="#note-e" transform="translate(240,188) scale(1.1)"/>
+            <use href="#note-e" transform="translate(284,204) scale(1.1)"/>
+            <use href="#note-q" transform="translate(330,196) scale(1.1)"/>
+            <use href="#note-q" transform="translate(388,196) scale(1.1)"/>
+            <use href="#note-e" transform="translate(432,188) scale(1.1)"/>
+            <g fill="#E85D26">
+              <circle cx="470" cy="182" r="3"/>
+              <circle cx="470" cy="210" r="3"/>
+              <circle cx="470" cy="238" r="3"/>
+            </g>
+            <use href="#note-h" transform="translate(196,368) scale(1.1)"/>
+            <use href="#note-e" transform="translate(250,360) scale(1.1)"/>
+            <use href="#note-q" transform="translate(310,376) scale(1.1)"/>
+            <use href="#note-q" transform="translate(372,368) scale(1.1)"/>
+            <g font-family="Georgia,serif" font-style="italic" font-size="22" fill="#E8E8E8">
+              <text x="140" y="252">ff</text>
+            </g>
+            <g font-family="'IBM Plex Mono',monospace" font-size="12" fill="#848484">
+              <text x="70" y="430">DIESIS · Op. 12 — estudio de concierto</text>
+              <text x="70" y="448">galera 03 · revisar ligadura, pág. 12</text>
+            </g>
+            <g font-family="'IBM Plex Mono',monospace" font-size="11" fill="#E85D26">
+              <text x="70" y="478">02 — seg.</text>
+            </g>
+          </svg>
+          <figcaption class="plate-cap"><span data-i18n="hero.fig">Galera de edición</span><b data-i18n="hero.figmeta">02 — seg.</b></figcaption>
+        </figure>
+      </div>
+    </div>
+    <div class="hero-specs" aria-label="Datos del atelier">
+      <div class="spec"><span class="k" data-i18n="spec1.k">Atelier</span><span class="v"><em data-i18n="spec1.v">desde 2014</em></span></div>
+      <div class="spec"><span class="k" data-i18n="spec2.k">Ediciones entregadas</span><span class="v"><em data-i18n="spec2.v">+450</em></span></div>
+      <div class="spec"><span class="k" data-i18n="spec3.k">Revisión por edición</span><span class="v"><em data-i18n="spec3.v">2 pasadas</em></span></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="metodo" aria-labelledby="metodo-title">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="sec-kicker" data-i18n="metodo.kicker">Método</span>
+      <h2 id="metodo-title" data-i18n="metodo.title">Una edición se hace en cuatro pasadas, no en cuatro clics.</h2>
+      <p class="lead" data-i18n="metodo.lead">Recibimos el original, lo leemos entero, y solo entonces hablamos de plazos y precios. El orden no se negocia.</p>
+    </div>
+    <ol class="steps">
+      <li class="step rv"><span class="n">01</span><h3 data-i18n="step.1t">Recepción del original</h3><p data-i18n="step.1d">Llega en manuscrito, PDF o audio. Se lee entero antes de dar un precio.</p></li>
+      <li class="step rv"><span class="n">02</span><h3 data-i18n="step.2t">Maquetación</h3><p data-i18n="step.2d">Cada sistema, cada ligadura, se coloca a mano. Nada de auto-layout.</p></li>
+      <li class="step rv"><span class="n">03</span><h3 data-i18n="step.3t">Revisión de galera</h3><p data-i18n="step.3d">Imprimimos, tocamos, corregimos. La edición se mira dos veces.</p></li>
+      <li class="step rv"><span class="n">04</span><h3 data-i18n="step.4t">Entrega del final</h3><p data-i18n="step.4d">PDF de imprenta, partes de orquesta y archivo editable, con registro de cambios.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="block" id="trabajos" aria-labelledby="trabajos-title">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="sec-kicker" data-i18n="trab.kicker">Trabajos</span>
+      <h2 id="trabajos-title" data-i18n="trab.title">Tres tipos de encargo. Todos pasan por la misma galera.</h2>
+      <p class="lead" data-i18n="trab.lead">El precio depende de la música, no de un catálogo. Estas son las puertas de entrada.</p>
+    </div>
+    <div class="ledger">
+      <div class="led-row rv">
+        <div class="t"><h3 data-i18n="trab.1t">Edición crítica</h3><span class="tag" data-i18n="trab.1m">Desde 480 € · 8–10 semanas</span></div>
+        <div class="d"><p data-i18n="trab.1d">Notación científica a partir de fuentes históricas, con aparato crítico y variantes al pie. El estándar de las bibliotecas.</p></div>
+        <div class="p" data-i18n="trab.1p">480 €</div>
+      </div>
+      <div class="led-row rv">
+        <div class="t"><h3 data-i18n="trab.2t">Transcripción y arreglo</h3><span class="tag" data-i18n="trab.2m">Por página · 2–4 semanas</span></div>
+        <div class="d"><p data-i18n="trab.2d">De audio o manuscrito a partitura limpia, reducción para piano, orquestación de una pieza existente.</p></div>
+        <div class="p" data-i18n="trab.2p">40 €/pág.</div>
+      </div>
+      <div class="led-row rv">
+        <div class="t"><h3 data-i18n="trab.3t">Urgencia de concierto</h3><span class="tag" data-i18n="trab.3m">Entrega en 72 h</span></div>
+        <div class="d"><p data-i18n="trab.3d">Cuando la fecha no espera. Se avisa por escrito a qué hora se para de trabajar, para que no haya sorpresas en el estreno.</p></div>
+        <div class="p" data-i18n="trab.3p">Desde 240 €</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="ediciones" aria-labelledby="edi-title">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="sec-kicker" data-i18n="edi.kicker">Ediciones recientes</span>
+      <h2 id="edi-title" data-i18n="edi.title">Tres portadas que salieron de la imprenta este año.</h2>
+      <p class="lead" data-i18n="edi.lead">Cada portada es una galera real: se imprime, se corrige y solo entonces se envía. Selección de 2026.</p>
+    </div>
+    <div class="covers">
+      <figure class="cover rv">
+        <div class="sheet">
+          <svg viewBox="0 0 200 250" role="img" aria-hidden="true">
+            <rect width="200" height="250" fill="#FBF8F2"/>
+            <g stroke="#1A1A1A" stroke-width="1" opacity="0.75">
+              <line x1="26" y1="52" x2="174" y2="52"/><line x1="26" y1="61" x2="174" y2="61"/>
+              <line x1="26" y1="70" x2="174" y2="70"/><line x1="26" y1="79" x2="174" y2="79"/><line x1="26" y1="88" x2="174" y2="88"/>
+              <line x1="26" y1="118" x2="174" y2="118"/><line x1="26" y1="127" x2="174" y2="127"/>
+              <line x1="26" y1="136" x2="174" y2="136"/><line x1="26" y1="145" x2="174" y2="145"/><line x1="26" y1="154" x2="174" y2="154"/>
+            </g>
+            <g stroke="#1A1A1A" stroke-width="1.7" fill="none" stroke-linecap="round">
+              <line x1="36" y1="74" x2="36" y2="56"/><line x1="42" y1="75" x2="42" y2="57"/>
+              <line x1="31" y1="67" x2="47" y2="62"/><line x1="33" y1="72" x2="49" y2="67"/>
+            </g>
+            <g fill="#1A1A1A">
+              <ellipse cx="80" cy="66" rx="4.4" ry="3.3" transform="rotate(-18 80 66)"/>
+              <ellipse cx="102" cy="60" rx="4.4" ry="3.3" transform="rotate(-18 102 60)"/>
+              <ellipse cx="124" cy="74" rx="4.4" ry="3.3" transform="rotate(-18 124 74)"/>
+            </g>
+            <g stroke="#1A1A1A" stroke-width="1.4">
+              <line x1="84" y1="64" x2="84" y2="42"/><line x1="106" y1="60" x2="106" y2="38"/>
+            </g>
+            <g font-family="'IBM Plex Mono',monospace" font-size="9" fill="#1A1A1A">
+              <text x="26" y="184">SONATA PARA VIOLÍN SOLO</text>
+              <text x="26" y="196" font-size="8" fill="#6E6E76">M. PRADO · OP. 12</text>
+            </g>
+            <g font-family="'IBM Plex Mono',monospace" font-size="8" fill="#E85D26">
+              <text x="26" y="232">EDICIÓN CRÍTICA · 2026</text>
+            </g>
+          </svg>
+        </div>
+        <figcaption><span class="lab" data-i18n="edi.1t">M. Prado — Sonata Op. 12</span><span class="meta" data-i18n="edi.1meta">ed. crítica</span></figcaption>
+      </figure>
+      <figure class="cover rv">
+        <div class="sheet">
+          <svg viewBox="0 0 200 250" role="img" aria-hidden="true">
+            <rect width="200" height="250" fill="#FBF8F2"/>
+            <g stroke="#1A1A1A" stroke-width="1" opacity="0.75">
+              <line x1="26" y1="52" x2="174" y2="52"/><line x1="26" y1="61" x2="174" y2="61"/>
+              <line x1="26" y1="70" x2="174" y2="70"/><line x1="26" y1="79" x2="174" y2="79"/><line x1="26" y1="88" x2="174" y2="88"/>
+            </g>
+            <g stroke="#1A1A1A" stroke-width="1.7" fill="none" stroke-linecap="round">
+              <line x1="36" y1="74" x2="36" y2="56"/><line x1="42" y1="75" x2="42" y2="57"/>
+              <line x1="31" y1="67" x2="47" y2="62"/><line x1="33" y1="72" x2="49" y2="67"/>
+            </g>
+            <g fill="none" stroke="#1A1A1A" stroke-width="1.4">
+              <ellipse cx="86" cy="66" rx="4.6" ry="3.4" transform="rotate(-18 86 66)"/>
+              <ellipse cx="112" cy="60" rx="4.6" ry="3.4" transform="rotate(-18 112 60)"/>
+              <line x1="91" y1="63" x2="91" y2="42"/>
+            </g>
+            <g stroke="#E85D26" stroke-width="2" stroke-linecap="round">
+              <line x1="140" y1="56" x2="140" y2="90"/><line x1="156" y1="60" x2="156" y2="94"/>
+              <line x1="134" y1="72" x2="162" y2="62"/><line x1="138" y1="82" x2="166" y2="72"/>
+            </g>
+            <g font-family="'IBM Plex Mono',monospace" font-size="9" fill="#1A1A1A">
+              <text x="26" y="184">CUARTETO DE CUERDA N.º 3</text>
+              <text x="26" y="196" font-size="8" fill="#6E6E76">L. AMARA · ESTUDIO COMPLETO</text>
+            </g>
+            <g font-family="'IBM Plex Mono',monospace" font-size="8" fill="#E85D26">
+              <text x="26" y="232">PARTES DE ORQUESTA · 2025</text>
+            </g>
+          </svg>
+        </div>
+        <figcaption><span class="lab" data-i18n="edi.2t">L. Amara — Cuarteto n.º 3</span><span class="meta" data-i18n="edi.2meta">estudio completo</span></figcaption>
+      </figure>
+      <figure class="cover rv">
+        <div class="sheet">
+          <svg viewBox="0 0 200 250" role="img" aria-hidden="true">
+            <rect width="200" height="250" fill="#FBF8F2"/>
+            <g stroke="#1A1A1A" stroke-width="1" opacity="0.75">
+              <line x1="26" y1="52" x2="174" y2="52"/><line x1="26" y1="61" x2="174" y2="61"/>
+              <line x1="26" y1="70" x2="174" y2="70"/><line x1="26" y1="79" x2="174" y2="79"/><line x1="26" y1="88" x2="174" y2="88"/>
+            </g>
+            <g fill="#1A1A1A">
+              <ellipse cx="78" cy="66" rx="4.4" ry="3.3" transform="rotate(-18 78 66)"/>
+              <ellipse cx="102" cy="60" rx="4.4" ry="3.3" transform="rotate(-18 102 60)"/>
+              <ellipse cx="124" cy="72" rx="4.4" ry="3.3" transform="rotate(-18 124 72)"/>
+              <ellipse cx="146" cy="66" rx="4.4" ry="3.3" transform="rotate(-18 146 66)"/>
+            </g>
+            <g stroke="#1A1A1A" stroke-width="1.4">
+              <line x1="82" y1="64" x2="82" y2="42"/><line x1="106" y1="60" x2="106" y2="38"/>
+              <line x1="128" y1="70" x2="128" y2="46"/>
+            </g>
+            <g font-family="'IBM Plex Mono',monospace" font-size="9" fill="#1A1A1A">
+              <text x="26" y="184">ESTUDIOS PARA PIANO, II</text>
+              <text x="26" y="196" font-size="8" fill="#6E6E76">T. VELA · URGENCIA DE CONCIERTO</text>
+            </g>
+            <g font-family="'IBM Plex Mono',monospace" font-size="8" fill="#E85D26">
+              <text x="26" y="232">ESTRENO · 72 H · 2024</text>
+            </g>
+          </svg>
+        </div>
+        <figcaption><span class="lab" data-i18n="edi.3t">T. Vela — Estudios, II</span><span class="meta" data-i18n="edi.3meta">urgencia · 72 h</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="manifest" aria-labelledby="manif-title">
+  <div class="manifest-inner">
+    <svg class="bigmark" viewBox="0 0 100 100" aria-hidden="true"><g stroke="#EDEDED" stroke-width="7" stroke-linecap="round"><line x1="38" y1="78" x2="38" y2="24"/><line x1="62" y1="82" x2="62" y2="28"/><line x1="20" y1="54" x2="84" y2="36"/><line x1="28" y1="68" x2="92" y2="50"/></g></svg>
+    <blockquote>
+      <span class="visually-hidden" id="manif-title">Manifiesto</span>
+      <span data-i18n-html="manif.p">Una partitura no es un PDF bonito: es la promesa de que un director, un atril y un archivo <em>se fían de la misma página</em>. Por eso cada nota sale de aquí dibujada a mano y verificada dos veces.</span>
+    </blockquote>
+    <p class="who" data-i18n="manif.who">DIESIS · El sostenido que se queda</p>
+  </div>
+</section>
+
+<section class="block" id="planes" aria-labelledby="planes-title">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="sec-kicker" data-i18n="planes.kicker">Encargos</span>
+      <h2 id="planes-title" data-i18n="planes.title">Dos tipos de encargo. Ninguna gaveta escondida.</h2>
+      <p class="lead" data-i18n="planes.lead">Si tu música no encaja aquí, se dice en la primera conversación. No inventamos un paquete para cerrar el mes.</p>
+    </div>
+    <div class="plans">
+      <article class="plan rv">
+        <span class="pname" data-i18n="plan.a_name">Partitura de estudio</span>
+        <h3 data-i18n="plan.a_unit">40 € / página</h3>
+        <p class="price" data-i18n="plan.a_price">Para grabar, estudiar o archivar</p>
+        <ul>
+          <li data-i18n="plan.a_1">Maquetación en 6 sistemas por página</li>
+          <li data-i18n="plan.a_2">Una pasada de revisión de galera</li>
+          <li data-i18n="plan.a_3">PDF de alta resolución + archivo editable</li>
+          <li data-i18n="plan.a_4">Entrega digital, sin imprenta</li>
+        </ul>
+        <a class="btn btn-ghost" href="#encargo" data-i18n="plan.a_cta">Encargar estudio</a>
+      </article>
+      <article class="plan featured rv">
+        <span class="ptag" data-i18n="plan.b_tag">El encargo, en serio</span>
+        <span class="pname" data-i18n="plan.b_name">Edición de concierto</span>
+        <h3 data-i18n="plan.b_unit">Desde 950 €</h3>
+        <p class="price" data-i18n="plan.b_price">La edición que se imprime y se toca</p>
+        <ul>
+          <li data-i18n="plan.b_1">Revisión orquestal completa (dos pasadas)</li>
+          <li data-i18n="plan.b_2">Score + partes de orquesta separadas</li>
+          <li data-i18n="plan.b_3">Prueba de imprenta incluida</li>
+          <li data-i18n="plan.b_4">Registro de cambios documentado</li>
+        </ul>
+        <a class="btn btn-primary" href="#encargo" data-i18n="plan.b_cta">Preparar el encargo</a>
+      </article>
+    </div>
+    <p class="plans-note rv" data-i18n="plan.note">Orquestaciones, ediciones críticas y urgencias se presupuestan por escrito, antes de tocar una nota. Si hace falta, se dice: esto no lo hacemos.</p>
+  </div>
+</section>
+
+<section class="block encargo" id="encargo" aria-labelledby="encargo-title">
+  <div class="wrap">
+    <div class="encargo-grid">
+      <div class="rv">
+        <span class="sec-kicker" data-i18n="encargo.kicker">Encargo</span>
+        <h2 id="encargo-title" data-i18n="encargo.title">La partitura se encarga. No se deja en una mesa anónima.</h2>
+        <p class="lead" data-i18n="encargo.lead">Escribe qué música traes y qué necesitas. Respondemos con un presupuesto por escrito, no con un formulario ciego.</p>
+        <div class="info-rows">
+          <div class="info-row"><span class="k" data-i18n="cola.hours_k">Horario</span><span class="v" data-i18n="cola.hours">Lun–vie 10–18 · sábado con cita</span></div>
+          <div class="info-row"><span class="k" data-i18n="cola.addr_k">Dirección</span><span class="v"><a href="https://maps.google.com/maps/search/?api=1&query=Calle+del+Principe+12%2C+28012+Madrid" target="_blank" rel="noopener" data-i18n="cola.addr">Calle del Príncipe 12, 28012 Madrid</a></span></div>
+          <div class="info-row"><span class="k" data-i18n="cola.mail_k">Correo</span><span class="v"><a href="mailto:hola@cristiancode.dev">hola@cristiancode.dev</a></span></div>
+        </div>
+      </div>
+      <form class="form rv" id="visitForm" novalidate>
+        <field><label for="fName" data-i18n="form.name">Nombre</label><input id="fName" type="text" autocomplete="name" data-i18n-ph="form.ph_name"></field>
+        <field><label for="fEmail" data-i18n="form.email">Email</label><input id="fEmail" type="email" autocomplete="email" data-i18n-ph="form.ph_email"></field>
+        <field><label for="fPiece" data-i18n="form.piece">Obra</label><input id="fPiece" type="text" data-i18n-ph="form.ph_piece"></field>
+        <field><label for="fMsg" data-i18n="form.msg">Qué necesitas</label><textarea id="fMsg" data-i18n-ph="form.ph_msg"></textarea></field>
+        <button class="btn btn-primary" type="submit" data-i18n="form.submit">Escribir al atelier</button>
+        <p class="news-msg" id="formMsg" role="status"></p>
+        <p class="form-hint" data-i18n-html="form.honest">El envío abre tu cliente de correo con el mensaje listo para <a href="mailto:hola@cristiancode.dev">hola@cristiancode.dev</a>. Nada se guarda aquí.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="faq" aria-labelledby="faq-title">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="sec-kicker" data-i18n="faq.kicker">Preguntas</span>
+      <h2 id="faq-title" data-i18n="faq.title">Antes de encargar, lo que se pregunta siempre.</h2>
+    </div>
+    <div class="faq">
+      <div class="faq-item rv">
+        <button class="faq-q" aria-expanded="false"><span data-i18n="faq.q1">¿Trabajáis desde manuscritos o solo desde archivos?</span><span class="ic">+</span></button>
+        <div class="faq-a"><p data-i18n="faq.a1">Manuscritos escaneados, sí. También audio para transcripción. Lo leemos entero antes de dar presupuesto; si una fuente no alcanza, se dice.</p></div>
+      </div>
+      <div class="faq-item rv">
+        <button class="faq-q" aria-expanded="false"><span data-i18n="faq.q2">¿Qué formatos recibo y qué formatos necesito entregar?</span><span class="ic">+</span></button>
+        <div class="faq-a"><p data-i18n="faq.a2">Se recibe MusicXML, PDF o manuscrito. Se entrega PDF de imprenta, partes de orquesta en PDF y archivo MusicXML editable. El registro de cambios viaja con la edición.</p></div>
+      </div>
+      <div class="faq-item rv">
+        <button class="faq-q" aria-expanded="false"><span data-i18n="faq.q3">¿Cuánto tarda una edición?</span><span class="ic">+</span></button>
+        <div class="faq-a"><p data-i18n="faq.a3">Un estudio, 2–4 semanas. Una edición de concierto, 8–10. La urgencia de 72 horas se paga aparte y se avisa por escrito cuándo se para de trabajar.</p></div>
+      </div>
+      <div class="faq-item rv">
+        <button class="faq-q" aria-expanded="false"><span data-i18n="faq.q4">¿Publicáis la obra o os quedáis con derechos?</span><span class="ic">+</span></button>
+        <div class="faq-a"><p data-i18n="faq.a4">No publicamos ni reclamamos derechos. Entregamos el grabado y el compositor conserva todo. Si hacen falta ISMN o registro, se tramita a su nombre.</p></div>
+      </div>
+      <div class="faq-item rv">
+        <button class="faq-q" aria-expanded="false"><span data-i18n="faq.q5">¿Puedo encargar solo una página o un fragmento?</span><span class="ic">+</span></button>
+        <div class="faq-a"><p data-i18n="faq.a5">Sí. El presupuesto por página arranca en 40 € y se cierra por escrito. Para un fragmento de orquesta se presupuesta como edición de concierto reducida.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="news" aria-labelledby="news-title">
+  <div class="wrap">
+    <div class="news-grid">
+      <div class="rv">
+        <h2 id="news-title" data-i18n="news.title">El parte de grabado</h2>
+        <p class="lead" data-i18n="news.lead">Una página de edición comentada, un error típico y dos enlaces útiles. Ocasional, escrito a mano aquí.</p>
+        <p class="news-msg" id="newsMsg" role="status"></p>
+      </div>
+      <form class="rv" id="newsForm" novalidate>
+        <div class="news-form">
+          <input id="newsEmail" type="email" autocomplete="email" data-i18n-ph="news.ph" aria-label="Email">
+          <button class="btn btn-primary" type="submit" data-i18n="news.cta">Quiero avisos</button>
+        </div>
+        <p class="news-honest" data-i18n-html="news.honest">No guardamos una lista. El botón abre un <a href="mailto:hola@cristiancode.dev?subject=Parte%20de%20grabado%20DIESIS">mailto</a> con tu dirección, y tú decides.</p>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="f-brand">
+        <a class="nav-logo" href="#hero" aria-label="DIESIS">
+          <svg class="shp" viewBox="0 0 32 32" aria-hidden="true"><g stroke="#E85D26" stroke-width="2.6"><line x1="10" y1="26" x2="10" y2="6"/><line x1="21" y1="28" x2="21" y2="8"/><line x1="4" y1="18" x2="28" y2="12"/><line x1="9" y1="23" x2="33" y2="17"/></g></svg>
+          <span>DIESIS</span>
+        </a>
+        <p data-i18n="footer.tag">Grabado editorial de música · Madrid</p>
+      </div>
+      <div>
+        <h4 data-i18n="footer.col2">En esta página</h4>
+        <ul>
+          <li><a href="#metodo" data-i18n="footer.l1">Método</a></li>
+          <li><a href="#trabajos" data-i18n="footer.l2">Trabajos</a></li>
+          <li><a href="#ediciones" data-i18n="footer.l3">Ediciones</a></li>
+          <li><a href="#encargo" data-i18n="footer.l4">Encargo</a></li>
+        </ul>
+      </div>
+      <div class="f-meta">
+        <h4 data-i18n="footer.col3">Contacto</h4>
+        <p><a href="https://maps.google.com/maps/search/?api=1&query=Calle+del+Principe+12%2C+28012+Madrid" target="_blank" rel="noopener" data-i18n="footer.addr">Calle del Príncipe 12, 28012 Madrid</a><br><a href="mailto:hola@cristiancode.dev">hola@cristiancode.dev</a></p>
+      </div>
+    </div>
+    <div class="footer-cr">
+      <p data-i18n="footer.cr">© 2026 DIESIS · Calle del Príncipe 12, Madrid</p>
+      <p data-i18n="footer.note">Sin rastreo · solo idioma y tema en tu dispositivo</p>
+    </div>
+  </div>
+</footer>
+
+<div class="cookie" id="cookieBanner" role="region" aria-label="Aviso">
+  <p data-i18n="cookie.msg">Solo idioma y tema en este dispositivo. Sin rastreo.</p>
+  <button type="button" id="cookieOk" data-i18n="cookie.ok">Entendido</button>
+</div>
+<script>
+const I18N = {
+  es: {
+"skip":"Ir al contenido",
+"nav.oficio":"Método",
+"nav.trabajos":"Trabajos",
+"nav.ediciones":"Ediciones",
+"nav.encargo":"Encargo",
+"nav.faq":"Preguntas",
+"nav.cta":"Encargar una edición",
+"lang.aria":"Idioma",
+"theme.toggle":"Cambiar tema",
+"menu.open":"Abrir menú",
+"menu.close":"Cerrar menú",
+"hero.kicker":"Grabado editorial · Madrid",
+"hero.title":"La última nota <br>se dibuja, no se escribe.",
+"hero.sub":"Atelier de grabado de música en el Barrio de las Letras. Partituras para orquesta, archivo y concierto: el pentagrama final sale de aquí, verificado dos veces.",
+"hero.cta1":"Encargar una edición",
+"hero.cta2":"Ver el método",
+"hero.note":"Calle del Príncipe 12 · Madrid · lun–vie 10–18",
+"hero.plate":"Galera de edición — DIESIS",
+"hero.fig":"Galera de edición",
+"hero.figmeta":"02 — seg.",
+"spec1.k":"Atelier",
+"spec1.v":"desde 2014",
+"spec2.k":"Ediciones entregadas",
+"spec2.v":"+450",
+"spec3.k":"Revisión por edición",
+"spec3.v":"2 pasadas",
+"metodo.kicker":"Método",
+"metodo.title":"Una edición se hace en cuatro pasadas, no en cuatro clics.",
+"metodo.lead":"Recibimos el original, lo leemos entero, y solo entonces hablamos de plazos y precios. El orden no se negocia.",
+"step.1t":"Recepción del original",
+"step.1d":"Llega en manuscrito, PDF o audio. Se lee entero antes de dar un precio.",
+"step.2t":"Maquetación",
+"step.2d":"Cada sistema, cada ligadura, se coloca a mano. Nada de auto-layout.",
+"step.3t":"Revisión de galera",
+"step.3d":"Imprimimos, tocamos, corregimos. La edición se mira dos veces.",
+"step.4t":"Entrega del final",
+"step.4d":"PDF de imprenta, partes de orquesta y archivo editable, con registro de cambios.",
+"trab.kicker":"Trabajos",
+"trab.title":"Tres tipos de encargo. Todos pasan por la misma galera.",
+"trab.lead":"El precio depende de la música, no de un catálogo. Estas son las puertas de entrada.",
+"trab.1t":"Edición crítica",
+"trab.1m":"Desde 480 € · 8–10 semanas",
+"trab.1d":"Notación científica a partir de fuentes históricas, con aparato crítico y variantes al pie. El estándar de las bibliotecas.",
+"trab.1p":"480 €",
+"trab.2t":"Transcripción y arreglo",
+"trab.2m":"Por página · 2–4 semanas",
+"trab.2d":"De audio o manuscrito a partitura limpia, reducción para piano u orquestación de una pieza existente.",
+"trab.2p":"40 €/pág.",
+"trab.3t":"Urgencia de concierto",
+"trab.3m":"Entrega en 72 h",
+"trab.3d":"Cuando la fecha no espera. Se avisa por escrito a qué hora se para de trabajar, para que no haya sorpresas en el estreno.",
+"trab.3p":"Desde 240 €",
+"edi.kicker":"Ediciones recientes",
+"edi.title":"Tres portadas que salieron de la imprenta este año.",
+"edi.lead":"Cada portada es una galera real: se imprime, se corrige y solo entonces se envía. Selección de 2026.",
+"edi.1t":"M. Prado — Sonata Op. 12",
+"edi.1meta":"ed. crítica",
+"edi.2t":"L. Amara — Cuarteto n.º 3",
+"edi.2meta":"estudio completo",
+"edi.3t":"T. Vela — Estudios, II",
+"edi.3meta":"urgencia · 72 h",
+"manif.p":"Una partitura no es un PDF bonito: es la promesa de que un director, un atril y un archivo <em>se fían de la misma página</em>. Por eso cada nota sale de aquí dibujada a mano y verificada dos veces.",
+"manif.who":"DIESIS · El sostenido que se queda",
+"planes.kicker":"Encargos",
+"planes.title":"Dos tipos de encargo. Ninguna gaveta escondida.",
+"planes.lead":"Si tu música no encaja aquí, se dice en la primera conversación. No inventamos un paquete para cerrar el mes.",
+"plan.a_name":"Partitura de estudio",
+"plan.a_unit":"40 € / página",
+"plan.a_price":"Para grabar, estudiar o archivar",
+"plan.a_1":"Maquetación en 6 sistemas por página",
+"plan.a_2":"Una pasada de revisión de galera",
+"plan.a_3":"PDF de alta resolución + archivo editable",
+"plan.a_4":"Entrega digital, sin imprenta",
+"plan.a_cta":"Encargar estudio",
+"plan.b_tag":"El encargo, en serio",
+"plan.b_name":"Edición de concierto",
+"plan.b_unit":"Desde 950 €",
+"plan.b_price":"La edición que se imprime y se toca",
+"plan.b_1":"Revisión orquestal completa (dos pasadas)",
+"plan.b_2":"Score + partes de orquesta separadas",
+"plan.b_3":"Prueba de imprenta incluida",
+"plan.b_4":"Registro de cambios documentado",
+"plan.b_cta":"Preparar el encargo",
+"plan.note":"Orquestaciones, ediciones críticas y urgencias se presupuestan por escrito, antes de tocar una nota. Si hace falta, se dice: esto no lo hacemos.",
+"encargo.kicker":"Encargo",
+"encargo.title":"La partitura se encarga. No se deja en una mesa anónima.",
+"encargo.lead":"Escribe qué música traes y qué necesitas. Respondemos con un presupuesto por escrito, no con un formulario ciego.",
+"cola.hours_k":"Horario",
+"cola.hours":"Lun–vie 10–18 · sábado con cita",
+"cola.addr_k":"Dirección",
+"cola.addr":"Calle del Príncipe 12, 28012 Madrid",
+"cola.mail_k":"Correo",
+"form.name":"Nombre",
+"form.email":"Email",
+"form.piece":"Obra",
+"form.msg":"Qué necesitas",
+"form.submit":"Escribir al atelier",
+"form.ph_name":"Tu nombre",
+"form.ph_email":"tu@email.com",
+"form.ph_piece":"Título, compositor, año si lo sabes",
+"form.ph_msg":"Qué música traes, formato, plazos…",
+"form.err":"Necesitamos un email válido y una breve nota sobre la obra.",
+"form.ok":"Se abre tu correo con el mensaje listo. Si no, escríbenos a mano.",
+"form.honest":"El envío abre tu cliente de correo con el mensaje listo para <a href=\"mailto:hola@cristiancode.dev\">hola@cristiancode.dev</a>. Nada se guarda aquí.",
+"faq.kicker":"Preguntas",
+"faq.title":"Antes de encargar, lo que se pregunta siempre.",
+"faq.q1":"¿Trabajáis desde manuscritos o solo desde archivos?",
+"faq.a1":"Manuscritos escaneados, sí. También audio para transcripción. Lo leemos entero antes de dar presupuesto; si una fuente no alcanza, se dice.",
+"faq.q2":"¿Qué formatos recibo y qué formatos necesito entregar?",
+"faq.a2":"Se recibe MusicXML, PDF o manuscrito. Se entrega PDF de imprenta, partes en PDF y archivo MusicXML editable. El registro de cambios viaja con la edición.",
+"faq.q3":"¿Cuánto tarda una edición?",
+"faq.a3":"Un estudio, 2–4 semanas. Una edición de concierto, 8–10. La urgencia de 72 horas se paga aparte y se avisa por escrito cuándo se para de trabajar.",
+"faq.q4":"¿Publicáis la obra o os quedáis con derechos?",
+"faq.a4":"No publicamos ni reclamamos derechos. Entregamos el grabado y el compositor conserva todo. Si hacen falta ISMN o registro, se tramita a su nombre.",
+"faq.q5":"¿Puedo encargar solo una página o un fragmento?",
+"faq.a5":"Sí. El presupuesto por página arranca en 40 € y se cierra por escrito. Para un fragmento de orquesta se presupuesta como edición de concierto reducida.",
+"news.title":"El parte de grabado",
+"news.lead":"Una página de edición comentada, un error típico y dos enlaces útiles. Ocasional, escrito a mano aquí.",
+"news.ph":"tu@email.com",
+"news.cta":"Quiero avisos",
+"news.err":"Ese email no se entiende.",
+"news.ok":"Se abre tu correo con la dirección lista. No hay inscripción automática.",
+"news.honest":"No guardamos una lista. El botón abre un <a href=\"mailto:hola@cristiancode.dev?subject=Parte%20de%20grabado%20DIESIS\">mailto</a> con tu dirección, y tú decides.",
+"news.mail_subject":"Parte de grabado DIESIS",
+"news.mail_body":"Quiero el parte de grabado. Mi correo es {email}.",
+"cookie.msg":"Solo idioma y tema en este dispositivo. Sin rastreo.",
+"cookie.ok":"Entendido",
+"footer.tag":"Grabado editorial de música · Madrid",
+"footer.col2":"En esta página",
+"footer.col3":"Contacto",
+"footer.l1":"Método",
+"footer.l2":"Trabajos",
+"footer.l3":"Ediciones",
+"footer.l4":"Encargo",
+"footer.addr":"Calle del Príncipe 12, 28012 Madrid",
+"footer.cr":"© 2026 DIESIS · Calle del Príncipe 12, Madrid",
+"footer.note":"Sin rastreo · solo idioma y tema en tu dispositivo",
+"visit.mail_subject":"Encargo DIESIS — ",
+"meta.title":"DIESIS — Grabado editorial de música · Madrid",
+"meta.desc":"Atelier de grabado editorial de música en el Barrio de las Letras. Ediciones críticas, transcripciones y urgencias de concierto. Calle del Príncipe 12, Madrid."
+  },
+  en: {
+"skip":"Skip to content",
+"nav.oficio":"Method",
+"nav.trabajos":"Work",
+"nav.ediciones":"Editions",
+"nav.encargo":"Commission",
+"nav.faq":"Questions",
+"nav.cta":"Commission an edition",
+"lang.aria":"Language",
+"theme.toggle":"Toggle theme",
+"menu.open":"Open menu",
+"menu.close":"Close menu",
+"hero.kicker":"Editorial engraving · Madrid",
+"hero.title":"The final note <br>is drawn, never typed.",
+"hero.sub":"A music engraving atelier in Barrio de las Letras. Scores for orchestra, archive and concert: the final staff leaves here, checked twice.",
+"hero.cta1":"Commission an edition",
+"hero.cta2":"See the method",
+"hero.note":"Calle del Príncipe 12 · Madrid · Mon–Fri 10–18",
+"hero.plate":"Galley proof — DIESIS",
+"hero.fig":"Galley proof",
+"hero.figmeta":"02 — seg.",
+"spec1.k":"Atelier",
+"spec1.v":"since 2014",
+"spec2.k":"Editions delivered",
+"spec2.v":"+450",
+"spec3.k":"Proofs per edition",
+"spec3.v":"2 passes",
+"metodo.kicker":"Method",
+"metodo.title":"An edition is made in four passes, not four clicks.",
+"metodo.lead":"We receive the original, read it in full, and only then talk deadlines and prices. The order is not negotiable.",
+"step.1t":"Receive the original",
+"step.1d":"Arrives as manuscript, PDF or audio. Read in full before any price is given.",
+"step.2t":"Typesetting",
+"step.2d":"Every system, every tie, is placed by hand. No auto-layout.",
+"step.3t":"Galley proof",
+"step.3d":"We print, we play, we correct. The edition is looked at twice.",
+"step.4t":"Final delivery",
+"step.4d":"Press PDF, orchestral parts and editable file, with a change log.",
+"trab.kicker":"Work",
+"trab.title":"Three kinds of commission. All go through the same galley.",
+"trab.lead":"The price depends on the music, not a catalogue. These are the doors in.",
+"trab.1t":"Critical edition",
+"trab.1m":"From €480 · 8–10 weeks",
+"trab.1d":"Scholarly notation from historical sources, with critical apparatus and variants at the foot. The library standard.",
+"trab.1p":"€480",
+"trab.2t":"Transcription & arrangement",
+"trab.2m":"Per page · 2–4 weeks",
+"trab.2d":"From audio or manuscript to a clean score, piano reduction or orchestration of an existing piece.",
+"trab.2p":"€40/page",
+"trab.3t":"Concert rush",
+"trab.3m":"72-hour delivery",
+"trab.3d":"When the date will not wait. We state in writing when we stop working, so the premiere holds no surprises.",
+"trab.3p":"From €240",
+"edi.kicker":"Recent editions",
+"edi.title":"Three covers that left the press this year.",
+"edi.lead":"Every cover is a real galley: printed, corrected, and only then sent. A 2026 selection.",
+"edi.1t":"M. Prado — Sonata Op. 12",
+"edi.1meta":"crit. ed.",
+"edi.2t":"L. Amara — String Quartet No. 3",
+"edi.2meta":"full study",
+"edi.3t":"T. Vela — Studies, II",
+"edi.3meta":"rush · 72 h",
+"manif.p":"A score is not a pretty PDF: it is the promise that a conductor, a music stand and an archive <em>trust the same page</em>. That is why every note leaves here drawn by hand and checked twice.",
+"manif.who":"DIESIS · The sharp that stays",
+"planes.kicker":"Commissions",
+"planes.title":"Two kinds of commission. No hidden drawer.",
+"planes.lead":"If your music does not fit here, we say so in the first conversation. We do not invent a package to close the month.",
+"plan.a_name":"Study score",
+"plan.a_unit":"€40 / page",
+"plan.a_price":"For recording, studying or archiving",
+"plan.a_1":"Typesetting in 6 systems per page",
+"plan.a_2":"One galley pass",
+"plan.a_3":"High-res PDF + editable file",
+"plan.a_4":"Digital delivery, no press",
+"plan.a_cta":"Commission a study",
+"plan.b_tag":"The real deal",
+"plan.b_name":"Concert edition",
+"plan.b_unit":"From €950",
+"plan.b_price":"The edition that gets printed and played",
+"plan.b_1":"Full orchestral proof (two passes)",
+"plan.b_2":"Score + separate orchestral parts",
+"plan.b_3":"Press proof included",
+"plan.b_4":"Documented change log",
+"plan.b_cta":"Prepare the commission",
+"plan.note":"Orchestrations, critical editions and rush jobs are quoted in writing, before a single note is touched. If it is not for us, we say so.",
+"encargo.kicker":"Commission",
+"encargo.title":"A score is commissioned. It is not left on an anonymous table.",
+"encargo.lead":"Write what music you bring and what you need. We reply with a written quote, not a blind form.",
+"cola.hours_k":"Hours",
+"cola.hours":"Mon–Fri 10–18 · Saturday by appointment",
+"cola.addr_k":"Address",
+"cola.addr":"Calle del Príncipe 12, 28012 Madrid",
+"cola.mail_k":"Email",
+"form.name":"Name",
+"form.email":"Email",
+"form.piece":"Piece",
+"form.msg":"What you need",
+"form.submit":"Write to the atelier",
+"form.ph_name":"Your name",
+"form.ph_email":"you@email.com",
+"form.ph_piece":"Title, composer, year if you know it",
+"form.ph_msg":"What music you bring, format, deadlines…",
+"form.err":"We need a valid email and a short note about the piece.",
+"form.ok":"Your mail client opens with the message ready. If not, write to us by hand.",
+"form.honest":"Submitting opens your mail client with the message ready for <a href=\"mailto:hola@cristiancode.dev\">hola@cristiancode.dev</a>. Nothing is stored here.",
+"faq.kicker":"Questions",
+"faq.title":"Before you commission, what everyone asks.",
+"faq.q1":"Do you work from manuscripts or only files?",
+"faq.a1":"Scanned manuscripts, yes. Audio for transcription too. We read it in full before quoting; if a source is not enough, we say so.",
+"faq.q2":"What formats do I get, and what do I need to send?",
+"faq.a2":"We take MusicXML, PDF or manuscript. We deliver press PDF, parts in PDF and an editable MusicXML file. The change log travels with the edition.",
+"faq.q3":"How long does an edition take?",
+"faq.a3":"A study, 2–4 weeks. A concert edition, 8–10. The 72-hour rush costs extra and we state in writing when we stop working.",
+"faq.q4":"Do you publish the work or keep rights?",
+"faq.a4":"We neither publish nor claim rights. We deliver the engraving and the composer keeps everything. ISMN or registration can be filed in their name.",
+"faq.q5":"Can I commission just one page or a fragment?",
+"faq.a5":"Yes. The per-page quote starts at €40 and is confirmed in writing. An orchestral fragment is quoted as a reduced concert edition.",
+"news.title":"The engraving report",
+"news.lead":"One commented page of an edition, one typical mistake, two useful links. Occasional, written by hand here.",
+"news.ph":"you@email.com",
+"news.cta":"Sign me up",
+"news.err":"That email does not parse.",
+"news.ok":"Your mail client opens with the address ready. No automatic subscription.",
+"news.honest":"We keep no list. The button opens a <a href=\"mailto:hola@cristiancode.dev?subject=Engraving%20report%20DIESIS\">mailto</a> with your address, and you decide.",
+"news.mail_subject":"Engraving report DIESIS",
+"news.mail_body":"I want the engraving report. My email is {email}.",
+"cookie.msg":"Only language and theme on this device. No tracking.",
+"cookie.ok":"Got it",
+"footer.tag":"Editorial music engraving · Madrid",
+"footer.col2":"On this page",
+"footer.col3":"Contact",
+"footer.l1":"Method",
+"footer.l2":"Work",
+"footer.l3":"Editions",
+"footer.l4":"Commission",
+"footer.addr":"Calle del Príncipe 12, 28012 Madrid",
+"footer.cr":"© 2026 DIESIS · Calle del Príncipe 12, Madrid",
+"footer.note":"No tracking · only language and theme on your device",
+"visit.mail_subject":"DIESIS commission — ",
+"meta.title":"DIESIS — Editorial music engraving · Madrid",
+"meta.desc":"Editorial music engraving atelier in Barrio de las Letras. Critical editions, transcriptions and concert rush jobs. Calle del Príncipe 12, Madrid."
+  },
+  fr: {
+"skip":"Aller au contenu",
+"nav.oficio":"Méthode",
+"nav.trabajos":"Travaux",
+"nav.ediciones":"Éditions",
+"nav.encargo":"Commande",
+"nav.faq":"Questions",
+"nav.cta":"Commander une édition",
+"lang.aria":"Langue",
+"theme.toggle":"Changer de thème",
+"menu.open":"Ouvrir le menu",
+"menu.close":"Fermer le menu",
+"hero.kicker":"Gravure éditoriale · Madrid",
+"hero.title":"La dernière note <br>se dessine, elle ne s’écrit pas.",
+"hero.sub":"Atelier de gravure musicale au Barrio de las Letras. Partitions pour orchestre, archives et concerts : la portée finale sort d’ici, vérifiée deux fois.",
+"hero.cta1":"Commander une édition",
+"hero.cta2":"Voir la méthode",
+"hero.note":"Calle del Príncipe 12 · Madrid · lun–ven 10–18",
+"hero.plate":"Épreuve de galée — DIESIS",
+"hero.fig":"Épreuve de galée",
+"hero.figmeta":"02 — seg.",
+"spec1.k":"Atelier",
+"spec1.v":"depuis 2014",
+"spec2.k":"Éditions livrées",
+"spec2.v":"+450",
+"spec3.k":"Épreuves par édition",
+"spec3.v":"2 passes",
+"metodo.kicker":"Méthode",
+"metodo.title":"Une édition se fait en quatre passes, pas en quatre clics.",
+"metodo.lead":"On reçoit l’original, on le lit intégralement, et seulement alors on parle délais et prix. L’ordre ne se négocie pas.",
+"step.1t":"Réception de l’original",
+"step.1d":"Il arrive en manuscrit, PDF ou audio. On le lit en entier avant tout chiffrage.",
+"step.2t":"Maquettage",
+"step.2d":"Chaque système, chaque liaison se place à la main. Rien de automatique.",
+"step.3t":"Épreuve de galée",
+"step.3d":"On imprime, on joue, on corrige. L’édition se regarde deux fois.",
+"step.4t":"Livraison du final",
+"step.4d":"PDF d’imprimerie, parties d’orchestre et fichier éditable, avec journal des modifications.",
+"trab.kicker":"Travaux",
+"trab.title":"Trois types de commande. Tous passent par la même galée.",
+"trab.lead":"Le prix dépend de la musique, pas d’un catalogue. Voici les portes d’entrée.",
+"trab.1t":"Édition critique",
+"trab.1m":"Dès 480 € · 8–10 semaines",
+"trab.1d":"Notation savante à partir de sources historiques, avec appareil critique et variantes en bas de page. Le standard des bibliothèques.",
+"trab.1p":"480 €",
+"trab.2t":"Transcription et arrangement",
+"trab.2m":"À la page · 2–4 semaines",
+"trab.2d":"De l’audio ou du manuscrit vers une partition propre, réduction pour piano ou orchestration d’une pièce existante.",
+"trab.2p":"40 €/p.",
+"trab.3t":"Urgence concert",
+"trab.3m":"Livraison sous 72 h",
+"trab.3d":"Quand la date n’attend pas. On précise par écrit à quelle heure on arrête de travailler, pour que la création n’ait pas de surprise.",
+"trab.3p":"Dès 240 €",
+"edi.kicker":"Éditions récentes",
+"edi.title":"Trois couvertures sorties de l’imprimerie cette année.",
+"edi.lead":"Chaque couverture est une vraie galée : imprimée, corrigée, puis seulement envoyée. Sélection 2026.",
+"edi.1t":"M. Prado — Sonate op. 12",
+"edi.1meta":"éd. critique",
+"edi.2t":"L. Amara — Quatuor n° 3",
+"edi.2meta":"étude complète",
+"edi.3t":"T. Vela — Études, II",
+"edi.3meta":"urgence · 72 h",
+"manif.p":"Une partition n’est pas un joli PDF : c’est la promesse qu’un chef, un pupitre et une archive <em>font confiance à la même page</em>. Voilà pourquoi chaque note sort d’ici dessinée à la main et vérifiée deux fois.",
+"manif.who":"DIESIS · Le dièse qui reste",
+"planes.kicker":"Commandes",
+"planes.title":"Deux types de commande. Aucun tiroir caché.",
+"planes.lead":"Si votre musique ne rentre pas ici, on le dit dès la première conversation. On n’invente pas un forfait pour finir le mois.",
+"plan.a_name":"Partition d’étude",
+"plan.a_unit":"40 € / page",
+"plan.a_price":"Pour enregistrer, étudier ou archiver",
+"plan.a_1":"Maquettage en 6 systèmes par page",
+"plan.a_2":"Une passe de galée",
+"plan.a_3":"PDF haute résolution + fichier éditable",
+"plan.a_4":"Livraison numérique, sans imprimerie",
+"plan.a_cta":"Commander une étude",
+"plan.b_tag":"La vraie affaire",
+"plan.b_name":"Édition de concert",
+"plan.b_unit":"Dès 950 €",
+"plan.b_price":"L’édition qui s’imprime et se joue",
+"plan.b_1":"Révision orchestrale complète (deux passes)",
+"plan.b_2":"Score + parties d’orchestre séparées",
+"plan.b_3":"Épreuve d’imprimerie incluse",
+"plan.b_4":"Journal des modifications documenté",
+"plan.b_cta":"Préparer la commande",
+"plan.note":"Orchestrations, éditions critiques et urgences se chiffrent par écrit, avant de toucher une note. Si ce n’est pas pour nous, on le dit.",
+"encargo.kicker":"Commande",
+"encargo.title":"La partition se commande. Elle ne se laisse pas sur une table anonyme.",
+"encargo.lead":"Écrivez quelle musique vous apportez et ce dont vous avez besoin. On répond avec un devis écrit, pas un formulaire aveugle.",
+"cola.hours_k":"Horaires",
+"cola.hours":"Lun–ven 10–18 · samedi sur rendez-vous",
+"cola.addr_k":"Adresse",
+"cola.addr":"Calle del Príncipe 12, 28012 Madrid",
+"cola.mail_k":"Courriel",
+"form.name":"Nom",
+"form.email":"E-mail",
+"form.piece":"Œuvre",
+"form.msg":"Ce dont vous avez besoin",
+"form.submit":"Écrire à l’atelier",
+"form.ph_name":"Votre nom",
+"form.ph_email":"vous@email.com",
+"form.ph_piece":"Titre, compositeur, année si vous savez",
+"form.ph_msg":"Quelle musique, quel format, quels délais…",
+"form.err":"Il nous faut un e-mail valide et une courte note sur l’œuvre.",
+"form.ok":"Votre messagerie s’ouvre, message prêt. Sinon, écrivez-nous à la main.",
+"form.honest":"L’envoi ouvre votre messagerie avec le message prêt pour <a href=\"mailto:hola@cristiancode.dev\">hola@cristiancode.dev</a>. Rien n’est stocké ici.",
+"faq.kicker":"Questions",
+"faq.title":"Avant de commander, ce que tout le monde demande.",
+"faq.q1":"Travaillez-vous depuis des manuscrits ou seulement des fichiers ?",
+"faq.a1":"Manuscrits scannés, oui. Audio pour transcription aussi. On lit tout avant de chiffrer ; si une source ne suffit pas, on le dit.",
+"faq.q2":"Quels formats je reçois, et que dois-je fournir ?",
+"faq.a2":"On reçoit MusicXML, PDF ou manuscrit. On livre PDF d’imprimerie, parties en PDF et fichier MusicXML éditable. Le journal des modifications voyage avec l’édition.",
+"faq.q3":"Combien de temps prend une édition ?",
+"faq.a3":"Une étude, 2–4 semaines. Une édition de concert, 8–10. L’urgence 72 h coûte plus cher et on précise par écrit quand on arrête de travailler.",
+"faq.q4":"Publiez-vous l’œuvre ou gardez-vous des droits ?",
+"faq.a4":"Ni publication ni droits réclamés. On livre la gravure et le compositeur garde tout. ISMN ou dépôt possibles à son nom.",
+"faq.q5":"Puis-je commander une seule page ou un fragment ?",
+"faq.a5":"Oui. Le devis à la page démarre à 40 € et se confirme par écrit. Un fragment d’orchestre se chiffre en édition de concert réduite.",
+"news.title":"Le bulletin de gravure",
+"news.lead":"Une page d’édition commentée, une erreur typique, deux liens utiles. Occasionnel, écrit à la main ici.",
+"news.ph":"vous@email.com",
+"news.cta":"Je veux le bulletin",
+"news.err":"Cet e-mail ne se comprend pas.",
+"news.ok":"Votre messagerie s’ouvre, adresse prête. Pas d’inscription automatique.",
+"news.honest":"Nous ne tenons pas de liste. Le bouton ouvre un <a href=\"mailto:hola@cristiancode.dev?subject=Bulletin%20DIESIS\">mailto</a> avec votre adresse, et vous décidez.",
+"news.mail_subject":"Bulletin de gravure DIESIS",
+"news.mail_body":"Je veux le bulletin de gravure. Mon e-mail est {email}.",
+"cookie.msg":"Langue et thème seulement sur cet appareil. Aucun suivi.",
+"cookie.ok":"Compris",
+"footer.tag":"Gravure musicale éditoriale · Madrid",
+"footer.col2":"Sur cette page",
+"footer.col3":"Contact",
+"footer.l1":"Méthode",
+"footer.l2":"Travaux",
+"footer.l3":"Éditions",
+"footer.l4":"Commande",
+"footer.addr":"Calle del Príncipe 12, 28012 Madrid",
+"footer.cr":"© 2026 DIESIS · Calle del Príncipe 12, Madrid",
+"footer.note":"Aucun suivi · langue et thème seulement sur votre appareil",
+"visit.mail_subject":"Commande DIESIS — ",
+"meta.title":"DIESIS — Gravure musicale éditoriale · Madrid",
+"meta.desc":"Atelier de gravure musicale éditoriale au Barrio de las Letras. Éditions critiques, transcriptions et urgences de concert. Calle del Príncipe 12, Madrid."
+  },
+  de: {
+"skip":"Zum Inhalt",
+"nav.oficio":"Methode",
+"nav.trabajos":"Arbeiten",
+"nav.ediciones":"Editionen",
+"nav.encargo":"Auftrag",
+"nav.faq":"Fragen",
+"nav.cta":"Edition beauftragen",
+"lang.aria":"Sprache",
+"theme.toggle":"Design wechseln",
+"menu.open":"Menü öffnen",
+"menu.close":"Menü schließen",
+"hero.kicker":"Redaktioneller Notensatz · Madrid",
+"hero.title":"Die letzte Note <br>wird gezeichnet, nicht getippt.",
+"hero.sub":"Stichstudio für Musik im Barrio de las Letras. Partituren für Orchester, Archiv und Konzert: das endgültige Notensystem verlässt dieses Atelier doppelt geprüft.",
+"hero.cta1":"Edition beauftragen",
+"hero.cta2":"Die Methode ansehen",
+"hero.note":"Calle del Príncipe 12 · Madrid · Mo–Fr 10–18",
+"hero.plate":"Fahnenabzug — DIESIS",
+"hero.fig":"Fahnenabzug",
+"hero.figmeta":"02 — seg.",
+"spec1.k":"Atelier",
+"spec1.v":"seit 2014",
+"spec2.k":"Ausgelieferte Editionen",
+"spec2.v":"+450",
+"spec3.k":"Korrekturgänge",
+"spec3.v":"2 Durchgänge",
+"metodo.kicker":"Methode",
+"metodo.title":"Eine Edition entsteht in vier Durchgängen, nicht in vier Klicks.",
+"metodo.lead":"Wir erhalten das Original, lesen es vollständig und sprechen erst dann über Fristen und Preise. Die Reihenfolge ist nicht verhandelbar.",
+"step.1t":"Original erhalten",
+"step.1d":"Ankunft als Manuskript, PDF oder Audio. Vor jedem Preis wird alles gelesen.",
+"step.2t":"Umsetzung",
+"step.2d":"Jedes System, jede Bindung wird von Hand gesetzt. Kein Autolayout.",
+"step.3t":"Fahnenabzug",
+"step.3d":"Wir drucken, wir spielen, wir korrigieren. Die Edition wird zweimal angesehen.",
+"step.4t":"Endabgabe",
+"step.4d":"Druck-PDF, Orchesterstimmen und editierbare Datei, mit Änderungsprotokoll.",
+"trab.kicker":"Arbeiten",
+"trab.title":"Drei Auftragsarten. Alle durchlaufen denselben Fahnenabzug.",
+"trab.lead":"Der Preis richtet sich nach der Musik, nicht nach einem Katalog. Das sind die Eingangstüren.",
+"trab.1t":"Kritische Edition",
+"trab.1m":"Ab 480 € · 8–10 Wochen",
+"trab.1d":"Wissenschaftliche Notation aus historischen Quellen, mit kritischem Apparat und Varianten im Fuß. Der Bibliotheksstandard.",
+"trab.1p":"480 €",
+"trab.2t":"Transkription und Bearbeitung",
+"trab.2m":"Pro Seite · 2–4 Wochen",
+"trab.2d":"Von Audio oder Manuskript zu einer sauberen Partitur, Klavierauszug oder Orchestrierung eines bestehenden Werks.",
+"trab.2p":"40 €/S.",
+"trab.3t":"Konzert-Express",
+"trab.3m":"Lieferung in 72 h",
+"trab.3d":"Wenn das Datum nicht warten kann. Wir legen schriftlich fest, wann wir aufhören zu arbeiten, damit die Premiere keine Überraschung birgt.",
+"trab.3p":"Ab 240 €",
+"edi.kicker":"Neue Editionen",
+"edi.title":"Drei Umschläge, die dieses Jahr die Druckerei verlassen haben.",
+"edi.lead":"Jeder Umschlag ist ein echter Fahnenabzug: gedruckt, korrigiert, erst dann versendet. Auswahl 2026.",
+"edi.1t":"M. Prado — Sonate op. 12",
+"edi.1meta":"krit. Ausg.",
+"edi.2t":"L. Amara — Streichquartett Nr. 3",
+"edi.2meta":"vollständige Studie",
+"edi.3t":"T. Vela — Etüden, II",
+"edi.3meta":"Express · 72 h",
+"manif.p":"Eine Partitur ist kein hübsches PDF: sie ist das Versprechen, dass Dirigent, Notenständer und Archiv <em>derselben Seite vertrauen</em>. Deshalb verlässt jede Note dieses Atelier von Hand gezeichnet und zweimal geprüft.",
+"manif.who":"DIESIS · Das Kreuz, das bleibt",
+"planes.kicker":"Aufträge",
+"planes.title":"Zwei Auftragsarten. Keine versteckte Schublade.",
+"planes.lead":"Wenn Ihre Musik hier nicht passt, sagen wir es im ersten Gespräch. Wir erfinden kein Paket, um den Monat zu schließen.",
+"plan.a_name":"Studienpartitur",
+"plan.a_unit":"40 € / Seite",
+"plan.a_price":"Zum Aufnehmen, Studieren oder Archivieren",
+"plan.a_1":"Umsetzung in 6 Systemen pro Seite",
+"plan.a_2":"Ein Fahnenabzug",
+"plan.a_3":"Hochauflösendes PDF + editierbare Datei",
+"plan.a_4":"Digitale Lieferung, ohne Druckerei",
+"plan.a_cta":"Studie beauftragen",
+"plan.b_tag":"Die ernste Sache",
+"plan.b_name":"Konzertedition",
+"plan.b_unit":"Ab 950 €",
+"plan.b_price":"Die Edition, die gedruckt und gespielt wird",
+"plan.b_1":"Vollständige Orchesterprüfung (zwei Durchgänge)",
+"plan.b_2":"Partitur + getrennte Orchesterstimmen",
+"plan.b_3":"Andruck inklusive",
+"plan.b_4":"Dokumentiertes Änderungsprotokoll",
+"plan.b_cta":"Auftrag vorbereiten",
+"plan.note":"Orchestrierungen, kritische Editionen und Expressaufträge werden schriftlich kalkuliert, bevor auch nur eine Note angefasst wird. Gehört es nicht zu uns, sagen wir es.",
+"encargo.kicker":"Auftrag",
+"encargo.title":"Eine Partitur wird beauftragt. Sie wird nicht auf einem anonymen Tisch liegen gelassen.",
+"encargo.lead":"Schreiben Sie, welche Musik Sie bringen und was Sie brauchen. Wir antworten mit einem schriftlichen Angebot, nicht mit einem blinden Formular.",
+"cola.hours_k":"Öffnungszeiten",
+"cola.hours":"Mo–Fr 10–18 · Samstag nach Termin",
+"cola.addr_k":"Adresse",
+"cola.addr":"Calle del Príncipe 12, 28012 Madrid",
+"cola.mail_k":"E-Mail",
+"form.name":"Name",
+"form.email":"E-Mail",
+"form.piece":"Werk",
+"form.msg":"Was Sie brauchen",
+"form.submit":"Dem Atelier schreiben",
+"form.ph_name":"Ihr Name",
+"form.ph_email":"sie@email.com",
+"form.ph_piece":"Titel, Komponist, Jahr falls bekannt",
+"form.ph_msg":"Welche Musik, welches Format, welche Fristen…",
+"form.err":"Wir brauchen eine gültige E-Mail und eine kurze Notiz zum Werk.",
+"form.ok":"Ihr Mailprogramm öffnet sich mit der fertigen Nachricht. Falls nicht, schreiben Sie uns von Hand.",
+"form.honest":"Das Absenden öffnet Ihr Mailprogramm mit der Nachricht für <a href=\"mailto:hola@cristiancode.dev\">hola@cristiancode.dev</a>. Hier wird nichts gespeichert.",
+"faq.kicker":"Fragen",
+"faq.title":"Vor dem Auftrag: was alle fragen.",
+"faq.q1":"Arbeiten Sie mit Manuskripten oder nur Dateien?",
+"faq.a1":"Gescannte Manuskripte, ja. Auch Audio für Transkription. Wir lesen alles, bevor wir kalkulieren; reicht eine Quelle nicht, sagen wir es.",
+"faq.q2":"Welche Formate bekomme ich, und was muss ich liefern?",
+"faq.a2":"Wir nehmen MusicXML, PDF oder Manuskript an. Wir liefern Druck-PDF, Stimmen als PDF und eine editierbare MusicXML-Datei. Das Änderungsprotokoll reist mit.",
+"faq.q3":"Wie lange dauert eine Edition?",
+"faq.a3":"Eine Studie 2–4 Wochen, eine Konzertedition 8–10. Der 72-Stunden-Express kostet extra, und wir legen schriftlich fest, wann wir aufhören zu arbeiten.",
+"faq.q4":"Veröffentlichen Sie das Werk oder behalten Rechte?",
+"faq.a4":"Wir publizieren nichts und beanspruchen keine Rechte. Wir liefern den Stich, der Komponist behält alles. ISMN oder Registrierung werden auf seinen Namen abgewickelt.",
+"faq.q5":"Kann ich nur eine Seite oder einen Ausschnitt beauftragen?",
+"faq.a5":"Ja. Das Preisangebot pro Seite beginnt bei 40 € und wird schriftlich bestätigt. Ein Orchesterausschnitt wird als reduzierte Konzertedition kalkuliert.",
+"news.title":"Der Stichbericht",
+"news.lead":"Eine kommentierte Notenseite, ein typischer Fehler, zwei nützliche Links. Gelegentlich, hier von Hand geschrieben.",
+"news.ph":"sie@email.com",
+"news.cta":"Ich will den Bericht",
+"news.err":"Diese E-Mail ergibt keinen Sinn.",
+"news.ok":"Ihr Mailprogramm öffnet sich mit der fertigen Adresse. Keine automatische Anmeldung.",
+"news.honest":"Wir führen keine Liste. Der Button öffnet ein <a href=\"mailto:hola@cristiancode.dev?subject=Stichbericht%20DIESIS\">mailto</a> mit Ihrer Adresse, und Sie entscheiden.",
+"news.mail_subject":"Stichbericht DIESIS",
+"news.mail_body":"Ich möchte den Stichbericht. Meine E-Mail ist {email}.",
+"cookie.msg":"Nur Sprache und Design auf diesem Gerät. Kein Tracking.",
+"cookie.ok":"Verstanden",
+"footer.tag":"Redaktioneller Musikstich · Madrid",
+"footer.col2":"Auf dieser Seite",
+"footer.col3":"Kontakt",
+"footer.l1":"Methode",
+"footer.l2":"Arbeiten",
+"footer.l3":"Editionen",
+"footer.l4":"Auftrag",
+"footer.addr":"Calle del Príncipe 12, 28012 Madrid",
+"footer.cr":"© 2026 DIESIS · Calle del Príncipe 12, Madrid",
+"footer.note":"Kein Tracking · nur Sprache und Design auf Ihrem Gerät",
+"visit.mail_subject":"DIESIS-Auftrag — ",
+"meta.title":"DIESIS — Redaktioneller Musikstich · Madrid",
+"meta.desc":"Stichstudio für redaktionellen Musiknotensatz im Barrio de las Letras. Kritische Editionen, Transkriptionen und Konzert-Express. Calle del Príncipe 12, Madrid."
+  },
+  it: {
+"cola.addr":"Calle del Príncipe 12, 28012 Madrid",
+"cola.hours":"Lun–ven 10–18 · sabato su appuntamento",
+"cookie.msg":"Solo lingua e tema su questo dispositivo. Nessun tracciamento.",
+"cookie.ok":"Capito",
+"edi.1meta":"ed. critica",
+"edi.1t":"M. Prado — Sonata op. 12",
+"edi.2meta":"studio completo",
+"edi.2t":"L. Amara — Quartetto n. 3",
+"edi.3meta":"urgenza · 72 h",
+"edi.3t":"T. Vela — Studi, II",
+"edi.kicker":"Edizioni recenti",
+"edi.lead":"Ogni copertina è una vera bozza: si stampa, si corregge, solo poi si invia. Selezione 2026.",
+"edi.title":"Tre copertine uscite dalla tipografia quest’anno.",
+"encargo.kicker":"Committenza",
+"encargo.lead":"Scrivi quale musica porti e di cosa hai bisogno. Rispondiamo con un preventivo scritto, non con un modulo cieco.",
+"encargo.title":"La partitura si commissiona. Non si lascia su un tavolo anonimo.",
+"faq.a1":"Manoscritti scannerizzati, sì. Anche audio per la trascrizione. Leggiamo tutto prima di preventivare; se una fonte non basta, lo diciamo.",
+"faq.a2":"Riceviamo MusicXML, PDF o manoscritto. Consegniamo PDF da stampa, parti in PDF e file MusicXML modificabile. Il registro delle modifiche viaggia con l’edizione.",
+"faq.a3":"Uno studio, 2–4 settimane. Un’edizione da concerto, 8–10. L’urgenza da 72 ore si paga a parte e si comunica per iscritto quando si smette di lavorare.",
+"faq.a4":"Non pubblichiamo né rivendichiamo diritti. Consegniamo la incisione e il compositore conserva tutto. Se servono ISMN o registrazione, si fa a suo nome.",
+"faq.a5":"Sì. Il preventivo a pagina parte da 40 € e si chiude per iscritto. Per un frammento orchestrale si preventiva come edizione da concerto ridotta.",
+"faq.kicker":"Domande",
+"faq.q1":"Lavorate da manoscritti o solo da file?",
+"faq.q2":"Che formati ricevo e che formati devo consegnare?",
+"faq.q3":"Quanto dura un’edizione?",
+"faq.q4":"Pubblicate l’opera o tenete dei diritti?",
+"faq.q5":"Posso commissionare solo una pagina o un frammento?",
+"faq.title":"Prima di commissionare, ciò che chiedono tutti.",
+"footer.addr":"Calle del Príncipe 12, 28012 Madrid",
+"footer.col2":"In questa pagina",
+"footer.col3":"Contatti",
+"footer.cr":"© 2026 DIESIS · Calle del Príncipe 12, Madrid",
+"footer.l1":"Metodo",
+"footer.l2":"Lavori",
+"footer.l3":"Edizioni",
+"footer.l4":"Committenza",
+"footer.note":"Nessun tracciamento · solo lingua e tema sul tuo dispositivo",
+"footer.tag":"Incisione musicale editoriale · Madrid",
+"form.email":"Email",
+"form.err":"Serve un’email valida e una breve nota sull’opera.",
+"form.honest":"L’invio apre il tuo programma di posta con il messaggio pronto per <a href=\"mailto:hola@cristiancode.dev\">hola@cristiancode.dev</a>. Qui non si salva nulla.",
+"form.msg":"Di cosa hai bisogno",
+"form.name":"Nome",
+"form.ok":"Si apre la tua posta con il messaggio pronto. Se no, scrivici a mano.",
+"form.piece":"Opera",
+"form.submit":"Scrivere all’atelier",
+"form.ph_name":"Il tuo nome",
+"form.ph_email":"tu@email.com",
+"form.ph_piece":"Titolo, compositore, anno se lo sai",
+"form.ph_msg":"Che musica porti, formato, tempi…",
+"hero.cta1":"Commissiona un’edizione",
+"hero.cta2":"Vedi il metodo",
+"hero.fig":"Bozza di stampa",
+"hero.figmeta":"02 — seg.",
+"hero.kicker":"Incisione editoriale · Madrid",
+"hero.note":"Calle del Príncipe 12 · Madrid · lun–ven 10–18",
+"hero.plate":"Bozza di stampa — DIESIS",
+"hero.sub":"Atelier di incisione musicale nel Barrio de las Letras. Spartiti per orchestra, archivio e concerto: il pentagramma finale esce da qui, verificato due volte.",
+"hero.title":"L’ultima nota <br>si disegna, non si scrive.",
+"lang.aria":"Lingua",
+"manif.p":"Uno spartito non è un bel PDF: è la promessa che un direttore, un leggio e un archivio <em>si fidano della stessa pagina</em>. Per questo ogni nota esce da qui disegnata a mano e verificata due volte.",
+"manif.who":"DIESIS · Il diesis che resta",
+"menu.close":"Chiudi menù",
+"menu.open":"Apri menù",
+"meta.desc":"Atelier di incisione musicale editoriale nel Barrio de las Letras. Edizioni critiche, trascrizioni e urgenze da concerto. Calle del Príncipe 12, Madrid.",
+"meta.title":"DIESIS — Incisione musicale editoriale · Madrid",
+"metodo.kicker":"Metodo",
+"metodo.lead":"Riceviamo l’originale, lo leggiamo per intero e solo allora parliamo di tempi e prezzi. L’ordine non si negozia.",
+"metodo.title":"Un’edizione si fa in quattro passaggi, non in quattro clic.",
+"nav.cta":"Commissiona un’edizione",
+"nav.ediciones":"Edizioni",
+"nav.encargo":"Committenza",
+"nav.faq":"Domande",
+"nav.oficio":"Metodo",
+"nav.trabajos":"Lavori",
+"news.cta":"Voglio gli avvisi",
+"news.err":"Questa email non si capisce.",
+"news.honest":"Non teniamo una lista. Il pulsante apre una <a href=\"mailto:hola@cristiancode.dev?subject=Notiziario%20DIESIS\">mailto</a> con il tuo indirizzo, e decidi tu.",
+"news.lead":"Una pagina di edizione commentata, un errore tipico, due link utili. Occasionale, scritto a mano qui.",
+"news.ok":"Si apre la tua posta con l’indirizzo pronto. Nessuna iscrizione automatica.",
+"news.ph":"tu@email.com",
+"news.title":"Il notiziario dell’incisione",
+"news.mail_subject":"Notiziario incisione DIESIS",
+"news.mail_body":"Voglio il notiziario. La mia email è {email}.",
+"plan.note":"Orchestrazioni, edizioni critiche e urgenze si preventivano per iscritto, prima di toccare una nota. Se non è per noi, lo diciamo.",
+"planes.kicker":"Committenze",
+"planes.lead":"Se la tua musica non entra qui, si dice al primo colloquio. Non inventiamo un pacchetto per chiudere il mese.",
+"planes.title":"Due tipi di committenza. Nessun cassetto nascosto.",
+"skip":"Vai al contenuto",
+"spec1.k":"Atelier",
+"spec1.v":"dal 2014",
+"spec2.k":"Edizioni consegnate",
+"spec2.v":"+450",
+"spec3.k":"Revisioni per edizione",
+"spec3.v":"2 passaggi",
+"step.1d":"Arriva come manoscritto, PDF o audio. Si legge tutto prima di dare un prezzo.",
+"step.1t":"Ricezione dell’originale",
+"step.2d":"Ogni sistema, ogni legatura si posiziona a mano. Niente auto-layout.",
+"step.2t":"Impaginazione",
+"step.3d":"Stampiamo, suoniamo, correggiamo. L’edizione si guarda due volte.",
+"step.3t":"Bozza di stampa",
+"step.4d":"PDF da stampa, parti d’orchestra e file modificabile, con registro delle modifiche.",
+"step.4t":"Consegna del finale",
+"theme.toggle":"Cambia tema",
+"trab.1d":"Notazione scientifica da fonti storiche, con apparato critico e varianti a piè di pagina. Lo standard delle biblioteche.",
+"trab.1m":"Da 480 € · 8–10 settimane",
+"trab.1p":"480 €",
+"trab.1t":"Edizione critica",
+"trab.2d":"Da audio o manoscritto a uno spartito pulito, riduzione per pianoforte o orchestrazione di un brano esistente.",
+"trab.2m":"A pagina · 2–4 settimane",
+"trab.2p":"40 €/pag.",
+"trab.2t":"Trascrizione e arrangiamento",
+"trab.3d":"Quando la data non aspetta. Si comunica per iscritto a che ora si smette di lavorare, perché il debutto non riservi sorprese.",
+"trab.3m":"Consegna in 72 h",
+"trab.3p":"Da 240 €",
+"trab.3t":"Urgenza da concerto",
+"trab.kicker":"Lavori",
+"trab.lead":"Il prezzo dipende dalla musica, non da un catalogo. Queste sono le porte d’ingresso.",
+"trab.title":"Tre tipi di committenza. Tutti passano dalla stessa bozza.",
+"visit.mail_subject":"Committenza DIESIS — ",
+"plan.a_1":"Impaginazione in 6 sistemi per pagina",
+"plan.a_2":"Un passaggio di bozza",
+"plan.a_3":"PDF ad alta risoluzione + file modificabile",
+"plan.a_4":"Consegna digitale, senza tipografia",
+"plan.a_cta":"Commissiona uno studio",
+"plan.a_name":"Partitura di studio",
+"plan.a_price":"Per registrare, studiare o archiviare",
+"plan.a_unit":"40 € / pagina",
+"plan.b_1":"Revisione orchestrale completa (due passaggi)",
+"plan.b_2":"Partitura + parti d’orchestra separate",
+"plan.b_3":"Bozza di stampa inclusa",
+"plan.b_4":"Registro delle modifiche documentato",
+"plan.b_cta":"Prepara la committenza",
+"plan.b_name":"Edizione da concerto",
+"plan.b_price":"L’edizione che si stampa e si suona",
+"plan.b_tag":"La cosa seria",
+"plan.b_unit":"Da 950 €",
+"cola.addr_k":"Indirizzo",
+"cola.hours_k":"Orari",
+"cola.mail_k":"Email"
+  },
+  pt: {
+"cola.addr":"Calle del Príncipe 12, 28012 Madrid",
+"cola.hours":"Seg–sex 10–18 · sábado com marcação",
+"cookie.msg":"Só idioma e tema neste dispositivo. Sem rastreio.",
+"cookie.ok":"Percebido",
+"edi.1meta":"ed. crítica",
+"edi.1t":"M. Prado — Sonata op. 12",
+"edi.2meta":"estudo completo",
+"edi.2t":"L. Amara — Quarteto n.º 3",
+"edi.3meta":"urgência · 72 h",
+"edi.3t":"T. Vela — Estudos, II",
+"edi.kicker":"Edições recentes",
+"edi.lead":"Cada capa é uma prova real: imprime-se, corrige-se e só depois se envia. Seleção de 2026.",
+"edi.title":"Três capas que saíram da gráfica este ano.",
+"encargo.kicker":"Encomenda",
+"encargo.lead":"Escreve que música trazes e do que precisas. Respondemos com um orçamento por escrito, não com um formulário cego.",
+"encargo.title":"A partitura encomenda-se. Não se deixa numa mesa anónima.",
+"faq.a1":"Manuscritos digitalizados, sim. Também áudio para transcrição. Lemos tudo antes de orçamentar; se uma fonte não chega, dizemos.",
+"faq.a2":"Recebemos MusicXML, PDF ou manuscrito. Entregamos PDF de impressão, partes em PDF e ficheiro MusicXML editável. O registo de alterações viaja com a edição.",
+"faq.a3":"Um estudo, 2–4 semanas. Uma edição de concerto, 8–10. A urgência de 72 horas paga-se à parte e avisa-se por escrito quando se para de trabalhar.",
+"faq.a4":"Não publicamos nem reclamamos direitos. Entregamos a gravação e o compositor conserva tudo. Se forem precisos ISMN ou registo, trata-se em nome dele.",
+"faq.a5":"Sim. O orçamento à página começa nos 40 € e fecha-se por escrito. Para um fragmento de orquestra orçamenta-se como edição de concerto reduzida.",
+"faq.kicker":"Perguntas",
+"faq.q1":"Trabalham a partir de manuscritos ou só de ficheiros?",
+"faq.q2":"Que formatos recebo e que formatos preciso de entregar?",
+"faq.q3":"Quanto tempo demora uma edição?",
+"faq.q4":"Publicam a obra ou ficam com direitos?",
+"faq.q5":"Posso encomendar só uma página ou um fragmento?",
+"faq.title":"Antes de encomendar, o que toda a gente pergunta.",
+"footer.addr":"Calle del Príncipe 12, 28012 Madrid",
+"footer.col2":"Nesta página",
+"footer.col3":"Contacto",
+"footer.cr":"© 2026 DIESIS · Calle del Príncipe 12, Madrid",
+"footer.l1":"Método",
+"footer.l2":"Trabalhos",
+"footer.l3":"Edições",
+"footer.l4":"Encomenda",
+"footer.note":"Sem rastreio · só idioma e tema no teu dispositivo",
+"footer.tag":"Gravação musical editorial · Madrid",
+"form.email":"Email",
+"form.err":"Precisamos de um email válido e de uma breve nota sobre a obra.",
+"form.honest":"O envio abre o teu cliente de correio com a mensagem pronta para <a href=\"mailto:hola@cristiancode.dev\">hola@cristiancode.dev</a>. Aqui não se guarda nada.",
+"form.msg":"Do que precisas",
+"form.name":"Nome",
+"form.ok":"Abre-se o teu correio com a mensagem pronta. Se não, escreve-nos à mão.",
+"form.piece":"Obra",
+"form.submit":"Escrever ao atelier",
+"form.ph_name":"O teu nome",
+"form.ph_email":"tu@email.com",
+"form.ph_piece":"Título, compositor, ano se souberes",
+"form.ph_msg":"Que música trazes, formato, prazos…",
+"hero.cta1":"Encomendar uma edição",
+"hero.cta2":"Ver o método",
+"hero.fig":"Prova de paginação",
+"hero.figmeta":"02 — seg.",
+"hero.kicker":"Gravação editorial · Madrid",
+"hero.note":"Calle del Príncipe 12 · Madrid · seg–sex 10–18",
+"hero.plate":"Prova de paginação — DIESIS",
+"hero.sub":"Atelier de gravação musical no Barrio de las Letras. Partituras para orquestra, arquivo e concerto: a pauta final sai daqui, verificada duas vezes.",
+"hero.title":"A última nota <br>desenha-se, não se escreve.",
+"lang.aria":"Idioma",
+"manif.p":"Uma partitura não é um PDF bonito: é a promessa de que um maestro, uma estante e um arquivo <em>confiam na mesma página</em>. Por isso cada nota sai daqui desenhada à mão e verificada duas vezes.",
+"manif.who":"DIESIS · O sustenido que fica",
+"menu.close":"Fechar menu",
+"menu.open":"Abrir menu",
+"meta.desc":"Atelier de gravação musical editorial no Barrio de las Letras. Edições críticas, transcrições e urgências de concerto. Calle del Príncipe 12, Madrid.",
+"meta.title":"DIESIS — Gravação musical editorial · Madrid",
+"metodo.kicker":"Método",
+"metodo.lead":"Recebemos o original, lemo-lo por inteiro e só então falamos de prazos e preços. A ordem não se negocia.",
+"metodo.title":"Uma edição faz-se em quatro passagens, não em quatro cliques.",
+"nav.cta":"Encomendar uma edição",
+"nav.ediciones":"Edições",
+"nav.encargo":"Encomenda",
+"nav.faq":"Perguntas",
+"nav.oficio":"Método",
+"nav.trabajos":"Trabalhos",
+"news.cta":"Quero avisos",
+"news.err":"Esse email não se entende.",
+"news.honest":"Não guardamos uma lista. O botão abre um <a href=\"mailto:hola@cristiancode.dev?subject=Boletim%20DIESIS\">mailto</a> com o teu endereço, e tu decides.",
+"news.lead":"Uma página de edição comentada, um erro típico, dois links úteis. Ocasional, escrito à mão aqui.",
+"news.ok":"Abre-se o teu correio com o endereço pronto. Não há inscrição automática.",
+"news.ph":"tu@email.com",
+"news.title":"O boletim de gravação",
+"news.mail_subject":"Boletim de gravação DIESIS",
+"news.mail_body":"Quero o boletim. O meu email é {email}.",
+"plan.note":"Orquestrações, edições críticas e urgências orçamentam-se por escrito, antes de tocar uma nota. Se não é para nós, dizemos.",
+"planes.kicker":"Encomendas",
+"planes.lead":"Se a tua música não encaixa aqui, diz-se logo na primeira conversa. Não inventamos um pacote para fechar o mês.",
+"planes.title":"Dois tipos de encomenda. Nenhuma gaveta escondida.",
+"skip":"Ir para o conteúdo",
+"spec1.k":"Atelier",
+"spec1.v":"desde 2014",
+"spec2.k":"Edições entregues",
+"spec2.v":"+450",
+"spec3.k":"Revisões por edição",
+"spec3.v":"2 passagens",
+"step.1d":"Chega como manuscrito, PDF ou áudio. Lê-se tudo antes de dar um preço.",
+"step.1t":"Receção do original",
+"step.2d":"Cada sistema, cada ligadura, coloca-se à mão. Nada de auto-layout.",
+"step.2t":"Paginação",
+"step.3d":"Imprimimos, tocamos, corrigimos. A edição olha-se duas vezes.",
+"step.3t":"Prova de paginação",
+"step.4d":"PDF de impressão, partes de orquestra e ficheiro editável, com registo de alterações.",
+"step.4t":"Entrega do final",
+"theme.toggle":"Mudar tema",
+"trab.1d":"Notação científica a partir de fontes históricas, com aparato crítico e variantes em rodapé. O padrão das bibliotecas.",
+"trab.1m":"Desde 480 € · 8–10 semanas",
+"trab.1p":"480 €",
+"trab.1t":"Edição crítica",
+"trab.2d":"De áudio ou manuscrito para uma partitura limpa, redução para piano ou orquestração de uma peça existente.",
+"trab.2m":"Por página · 2–4 semanas",
+"trab.2p":"40 €/pág.",
+"trab.2t":"Transcrição e arranjo",
+"trab.3d":"Quando a data não espera. Avisa-se por escrito a que horas se para de trabalhar, para a estreia não ter surpresas.",
+"trab.3m":"Entrega em 72 h",
+"trab.3p":"Desde 240 €",
+"trab.3t":"Urgência de concerto",
+"trab.kicker":"Trabalhos",
+"trab.lead":"O preço depende da música, não de um catálogo. Estas são as portas de entrada.",
+"trab.title":"Três tipos de encomenda. Todos passam pela mesma prova.",
+"visit.mail_subject":"Encomenda DIESIS — ",
+"plan.a_1":"Paginação em 6 sistemas por página",
+"plan.a_2":"Uma passagem de prova",
+"plan.a_3":"PDF de alta resolução + ficheiro editável",
+"plan.a_4":"Entrega digital, sem gráfica",
+"plan.a_cta":"Encomendar estudo",
+"plan.a_name":"Partitura de estudo",
+"plan.a_price":"Para gravar, estudar ou arquivar",
+"plan.a_unit":"40 € / página",
+"plan.b_1":"Revisão orquestral completa (duas passagens)",
+"plan.b_2":"Partitura + partes de orquestra separadas",
+"plan.b_3":"Prova de impressão incluída",
+"plan.b_4":"Registo de alterações documentado",
+"plan.b_cta":"Preparar a encomenda",
+"plan.b_name":"Edição de concerto",
+"plan.b_price":"A edição que se imprime e se toca",
+"plan.b_tag":"A sério, mesmo",
+"plan.b_unit":"Desde 950 €",
+"cola.addr_k":"Morada",
+"cola.hours_k":"Horário",
+"cola.mail_k":"Email"
+  }
+};
+</script>
+
+<script>
+(function () {
+  var LANGS = ['es', 'en', 'fr', 'de', 'it', 'pt'];
+  var LANG_KEY = 'diesis-lang';
+  var COOKIE_KEY = 'diesis-cookie';
+  var HTML_KEYS = { 'hero.title': 1, 'manif.p': 1, 'form.honest': 1, 'news.honest': 1 };
+  function $(s, r) { return (r || document).querySelector(s); }
+  function $$(s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); }
+  function DICT() { return I18N[getLang()] || I18N.es; }
+
+  function getLang() {
+    var saved = null;
+    try { saved = localStorage.getItem(LANG_KEY); } catch (e) {}
+    if (saved && LANGS.indexOf(saved) > -1) return saved;
+    var nav = (navigator.languages || [navigator.language || 'es']).map(function (l) {
+      return String(l).split('-')[0].toLowerCase();
+    });
+    for (var i = 0; i < nav.length; i++) { if (LANGS.indexOf(nav[i]) > -1) return nav[i]; }
+    return 'es';
+  }
+  function getTheme() {
+    var t = 'light';
+    try { t = localStorage.getItem('kairos-theme') || 'light'; } catch (e) {}
+    return t === 'dark' ? 'dark' : 'light';
+  }
+  function setTheme(t) {
+    document.documentElement.setAttribute('data-theme', t);
+    try { localStorage.setItem('kairos-theme', t); } catch (e) {}
+    $$('.theme-toggle').forEach(function (b) {
+      b.setAttribute('aria-label', DICT()['theme.toggle'] || '');
+    });
+  }
+  function applyLang(lang) {
+    if (LANGS.indexOf(lang) === -1) lang = 'es';
+    try { localStorage.setItem(LANG_KEY, lang); } catch (e) {}
+    var D = I18N[lang] || I18N.es;
+    document.documentElement.setAttribute('lang', lang);
+    $$('[data-i18n]').forEach(function (el) {
+      var k = el.getAttribute('data-i18n');
+      if (D[k] !== undefined) el.textContent = D[k];
+    });
+    $$('[data-i18n-html]').forEach(function (el) {
+      var k = el.getAttribute('data-i18n-html');
+      if (D[k] !== undefined && HTML_KEYS[k]) el.innerHTML = D[k];
+    });
+    $$('[data-i18n-ph]').forEach(function (el) {
+      var k = el.getAttribute('data-i18n-ph');
+      if (D[k] !== undefined) el.setAttribute('placeholder', D[k]);
+    });
+    $$('[data-i18n-aria]').forEach(function (el) {
+      var k = el.getAttribute('data-i18n-aria');
+      if (D[k] !== undefined) el.setAttribute('aria-label', D[k]);
+    });
+    $$('.lang-select__cur').forEach(function (el) { el.textContent = lang.toUpperCase(); });
+    $$('.lang-select__opt').forEach(function (opt) {
+      opt.setAttribute('aria-selected', opt.getAttribute('data-lang') === lang ? 'true' : 'false');
+    });
+    var mt = document.getElementById('meta-desc');
+    if (mt) mt.setAttribute('content', D['meta.desc'] || '');
+    var dt = document.getElementById('doc-title');
+    if (dt) dt.textContent = D['meta.title'] || '';
+    var ogt = document.getElementById('og-title');
+    if (ogt) ogt.setAttribute('content', D['meta.title'] || '');
+    var ogd = document.getElementById('og-desc');
+    if (ogd) ogd.setAttribute('content', D['meta.desc'] || '');
+    var twt = document.getElementById('tw-title');
+    if (twt) twt.setAttribute('content', D['meta.title'] || '');
+    var twd = document.getElementById('tw-desc');
+    if (twd) twd.setAttribute('content', D['meta.desc'] || '');
+  }
+
+  function closeLangMenus() {
+    $$('.lang-select').forEach(function (sel) {
+      var m = sel.querySelector('.lang-select__menu');
+      var b = sel.querySelector('.lang-select__btn');
+      if (m) m.classList.remove('open');
+      if (b) b.setAttribute('aria-expanded', 'false');
+    });
+  }
+  $$('.lang-select').forEach(function (sel) {
+    var btn = sel.querySelector('.lang-select__btn');
+    var menu = sel.querySelector('.lang-select__menu');
+    if (!btn || !menu) return;
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var open = menu.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    menu.querySelectorAll('.lang-select__opt').forEach(function (opt) {
+      opt.addEventListener('click', function () {
+        applyLang(opt.getAttribute('data-lang'));
+        closeLangMenus();
+      });
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeLangMenus();
+    });
+  });
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('.lang-select')) closeLangMenus();
+  });
+
+  var menuToggle = $('.menu-toggle');
+  var mobileMenu = $('#mobileMenu');
+  function menuOpen() {
+    mobileMenu.classList.add('open');
+    mobileMenu.setAttribute('aria-hidden', 'false');
+    menuToggle.setAttribute('aria-expanded', 'true');
+    document.body.classList.add('no-scroll');
+  }
+  function closeMenu() {
+    if (!mobileMenu) return;
+    mobileMenu.classList.remove('open');
+    mobileMenu.setAttribute('aria-hidden', 'true');
+    if (menuToggle) menuToggle.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('no-scroll');
+  }
+  if (menuToggle) menuToggle.addEventListener('click', function () {
+    if (mobileMenu.classList.contains('open')) closeMenu(); else menuOpen();
+  });
+  $$('#mobileMenu nav a, #mobileMenu a.btn-primary, #mobileMenu .m-close').forEach(function (a) {
+    a.addEventListener('click', closeMenu);
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && mobileMenu.classList.contains('open')) closeMenu();
+  });
+
+  $$('.theme-toggle').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      setTheme(getTheme() === 'dark' ? 'light' : 'dark');
+    });
+  });
+
+  $$('.faq-item').forEach(function (item) {
+    var q = item.querySelector('.faq-q');
+    var a = item.querySelector('.faq-a');
+    q.addEventListener('click', function () {
+      var open = item.classList.toggle('open');
+      q.setAttribute('aria-expanded', open ? 'true' : 'false');
+      a.style.maxHeight = open ? a.scrollHeight + 'px' : '0px';
+    });
+  });
+
+  /* nav border on scroll */
+  var nav = $('#nav');
+  var ticking2 = false;
+  function navTick() {
+    nav.classList.toggle('scrolled', window.scrollY > 8);
+    ticking2 = false;
+  }
+  window.addEventListener('scroll', function () {
+    if (ticking2) return;
+    ticking2 = true;
+    requestAnimationFrame(navTick);
+  }, { passive: true });
+
+  /* scroll reveal — rAF geometry, clip-proof */
+  function revealTick() {
+    var vh = window.innerHeight || 800;
+    $$('.rv').forEach(function (el) {
+      if (el.classList.contains('in')) return;
+      var r = el.getBoundingClientRect();
+      if (r.top < vh * 0.92) el.classList.add('in');
+    });
+  }
+  function initReveal() {
+    var items = $$('.rv');
+    if (!items.length) return;
+    revealTick();
+    var ticking = false;
+    window.addEventListener('scroll', function () {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () { revealTick(); ticking = false; });
+    }, { passive: true });
+    window.addEventListener('resize', revealTick, { passive: true });
+  }
+
+  /* honest mailto form */
+  var visitForm = $('#visitForm');
+  var formMsg = $('#formMsg');
+  if (visitForm) visitForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var email = ($('#fEmail') || {}).value || '';
+    var msg = ($('#fMsg') || {}).value || '';
+    email = email.trim(); msg = msg.trim();
+    var D = DICT();
+    var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
+    if (!emailOk || msg.length < 6) {
+      formMsg.className = 'news-msg err';
+      formMsg.textContent = D['form.err'] || '';
+      return;
+    }
+    var name = ($('#fName') || {}).value || '';
+    var piece = ($('#fPiece') || {}).value || '';
+    var body = 'De: ' + name + ' (' + email + ')\nObra: ' + piece + '\n\n' + msg;
+    window.location.href = 'mailto:hola@cristiancode.dev?subject=' +
+      encodeURIComponent((D['visit.mail_subject'] || '') + piece) +
+      '&body=' + encodeURIComponent(body);
+    formMsg.className = 'news-msg ok';
+    formMsg.textContent = D['form.ok'] || '';
+  });
+
+  /* honest newsletter mailto */
+  var newsForm = $('#newsForm');
+  var newsMsg = $('#newsMsg');
+  if (newsForm) newsForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var email = ($('#newsEmail') || {}).value || '';
+    email = email.trim();
+    var D = DICT();
+    var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
+    if (!emailOk) {
+      newsMsg.className = 'news-msg err';
+      newsMsg.textContent = D['news.err'] || '';
+      return;
+    }
+    var body = (D['news.mail_body'] || '').replace('{email}', email);
+    window.location.href = 'mailto:hola@cristiancode.dev?subject=' +
+      encodeURIComponent(D['news.mail_subject'] || '') +
+      '&body=' + encodeURIComponent(body);
+    newsMsg.className = 'news-msg ok';
+    newsMsg.textContent = D['news.ok'] || '';
+  });
+
+  /* cookie — compact bottom-right, never over the hero H1/CTAs */
+  var cookieBanner = $('#cookieBanner');
+  var cookieAccepted = false;
+  try { cookieAccepted = localStorage.getItem(COOKIE_KEY) === 'accepted'; } catch (e2) {}
+  if (!cookieAccepted && cookieBanner) {
+    setTimeout(function () { cookieBanner.classList.add('show'); }, 3000);
+  }
+  var cookieOk = $('#cookieOk');
+  if (cookieOk) cookieOk.addEventListener('click', function () {
+    try { localStorage.setItem(COOKIE_KEY, 'accepted'); } catch (e3) {}
+    cookieBanner.classList.remove('show');
+  });
+
+  try {
+    document.documentElement.classList.remove('no-js');
+    setTheme(getTheme());
+    applyLang(getLang());
+    initReveal();
+  } catch (err) {
+    $$('.rv').forEach(function (el) { el.classList.add('in'); });
+  }
+})();
+</script>
+</body>
+</html>

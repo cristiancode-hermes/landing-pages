@@ -1,0 +1,1640 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MORADA — Design your home together</title>
+  <meta id="meta-desc" name="description" content="MORADA turns inspiration into a shared canvas. Pin rooms, colors and furniture with your partner or your architect — then walk into a home you both imagined.">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="canonical" href="https://proyectos.cristiancode.dev/landings/2026-08-16-morada.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="MORADA — Design your home together">
+  <meta property="og:description" content="MORADA turns inspiration into a shared canvas. Pin rooms, colors and furniture with your partner or your architect — then walk into a home you both imagined.">
+  <meta property="og:url" content="https://proyectos.cristiancode.dev/landings/2026-08-16-morada.html">
+  <meta property="og:image" content="https://cristiancode.dev/assets/landing-2026-08-16-morada.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="MORADA — Design your home together">
+  <meta name="twitter:description" content="MORADA turns inspiration into a shared canvas. Pin rooms, colors and furniture with your partner or your architect.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='4' y='6' width='24' height='20' rx='5' fill='%23ffc6c6'/%3E%3Ccircle cx='13' cy='15' r='4' fill='%233f55d9'/%3E%3Crect x='18' y='9' width='6' height='4' rx='1.5' fill='%23c3faf5' stroke='%231c1c1e' stroke-width='1.2'/%3E%3Cpath d='M8 24l5-6 4 4 3-3 4 5' stroke='%231c1c1e' stroke-width='1.6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"SoftwareApplication","name":"MORADA","applicationCategory":"DesignApplication","operatingSystem":"Web","description":"Visual boards for designing your home together — pin rooms, colors and furniture on a shared canvas.","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","ratingCount":"2314"}}
+  </script>
+  <style>
+  /* ============================================================
+     DESIGN SYSTEM — MORADA
+     Surface: Decide/Learn (landing; hero correct). Secondary
+              Explore touches in the community gallery and a
+              Compare moment in pricing.
+     Derived from: Miro (popular-web-designs template) — pastel
+              accent pairs on a white canvas, near-black ink,
+              blue-450 interactive, ring borders, generous radius.
+     Family: Interior design / Home styling platform
+     Style: Collaborative canvas — white canvas with near-black
+            (#1c1c1e) text, pastel surface pairs (coral/rose/teal/
+            yellow/moss/orange) each with a same-hue dark ink,
+            one interactive blue (#3f55d9, darkened from #5b76fe
+            for AA), thin ring borders, 8–24px radii, minimal
+            elevation. Theme toggle = Daylight / Dusk.
+     Strategy: Restrained (white canvas + tinted pastel surfaces
+            + one interactive blue ≤10%) with pastel surfaces as
+            the personality layer.
+     ============================================================ */
+
+  /* ---- Semantic z-index scale ---- */
+  :root{
+    --z-nav:30; --z-banner:40; --z-modal:50; --z-toast:60;
+  }
+
+  /* ---- Tokens: light (Daylight) ---- */
+  :root{
+    --bg:        #ffffff;
+    --surface:   #f7f7f9;
+    --surface-2: #f0f0f3;
+    --ink:       #1c1c1e;
+    --ink-2:     #555a6a;   /* slate — 6.4:1 on white */
+    --ink-3:     #666b7a;   /* captions — 5.3:1 on white */
+    --line:      #e0e2e8;   /* ring border */
+    --line-2:    #c7cad5;
+    --blue:      #3f55d9;   /* interactive (AA on white) */
+    --blue-hover:#2a41b6;
+    --blue-cta:  #3f55d9;   /* button fill (AA with white label) */
+    --blue-cta-hover: #2a41b6;
+    --blue-bright:#5b76fe;  /* decorative accents only */
+    --blue-tint: #eef1ff;
+    --success:   #00b473;
+
+    --coral:     #ffc6c6;  --coral-ink:   #5e1b1b;
+    --rose:      #ffd8f4;  --rose-ink:    #6e2a52;
+    --teal:      #c3faf5;  --teal-ink:    #0e5f5e;
+    --yellow:    #fff0bd;  --yellow-ink:  #6b5410;
+    --moss:      #d9ecd9;  --moss-ink:    #1f5c43;
+    --orange:    #ffe6cd;  --orange-ink:  #61371a;
+
+    --shadow-sm: 0 1px 2px rgba(20,20,24,.05), 0 0 0 1px var(--line);
+    --shadow-md: 0 4px 14px rgba(20,20,24,.06), 0 0 0 1px var(--line);
+    --ease-out:  cubic-bezier(.22,1,.36,1);
+    --radius:    10px;
+    --radius-lg: 18px;
+    --radius-xl: 26px;
+    --font: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  }
+
+  /* ---- Tokens: dark (Dusk) ---- */
+  [data-theme="dark"]{
+    --bg:        #141416;
+    --surface:   #1d1d21;
+    --surface-2: #26262b;
+    --ink:       #f2f2f5;
+    --ink-2:     #b9bdc9;
+    --ink-3:     #8b90a0;
+    --line:      rgba(255,255,255,.10);
+    --line-2:    rgba(255,255,255,.18);
+    --blue:      #7f92ff;   /* link/interactive text on dark */
+    --blue-hover:#93a3ff;
+    --blue-cta:  #4a5fe0;   /* button fill — white label 5.2:1 */
+    --blue-cta-hover: #3d50cf;
+    --blue-bright:#7f92ff;
+    --blue-tint: #232642;
+    --success:   #2fd18f;
+
+    --coral:     #3a2022;  --coral-ink:   #ffc9c9;
+    --rose:      #382332;  --rose-ink:    #ffd3ef;
+    --teal:      #17302f;  --teal-ink:    #b5f6ef;
+    --yellow:    #33301a;  --yellow-ink:  #f5e7a8;
+    --moss:      #1e2f24;  --moss-ink:    #cdeed0;
+    --orange:    #33241a;  --orange-ink:  #ffdcbb;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,.3), 0 0 0 1px var(--line);
+    --shadow-md: 0 4px 14px rgba(0,0,0,.35), 0 0 0 1px var(--line);
+  }
+
+  /* ---- Reset / base ---- */
+  *,*::before,*::after{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; -webkit-text-size-adjust:100%; }
+  body{
+    font-family:var(--font);
+    background:var(--bg);
+    color:var(--ink);
+    line-height:1.5;
+    font-size:16px;
+    transition:background-color .35s var(--ease-out), color .35s var(--ease-out);
+    overflow-x:hidden;
+  }
+  img{ max-width:100%; display:block; }
+  a{ color:var(--blue); text-decoration:none; }
+  a:hover{ color:var(--blue-hover); }
+  button{ font-family:inherit; cursor:pointer; }
+  [data-theme="dark"] a{ color:var(--blue-hover); }
+  [data-theme="dark"] a:not(.btn), [data-theme="dark"] .btn-ghost{ color:var(--blue-hover); }
+  [data-theme="dark"] .nav-links a, [data-theme="dark"] .m-link{ color:var(--ink); }
+  [data-theme="dark"] .footer-col a{ color:rgba(255,255,255,.82); }
+  .visually-hidden{
+    position:absolute; width:1px; height:1px; margin:-1px;
+    clip:rect(0 0 0 0); clip-path:inset(50%); overflow:hidden; white-space:nowrap;
+  }
+  .container{ width:min(1140px, 92vw); margin-inline:auto; }
+  .section{ padding-block:clamp(3.5rem, 7vw, 5.5rem); }
+
+  h1,h2,h3{ text-wrap:balance; letter-spacing:-0.03em; line-height:1.12; }
+  p{ text-wrap:pretty; }
+  .prose{ max-width:65ch; }
+
+  /* ---- Buttons ---- */
+  .btn{
+    display:inline-flex; align-items:center; gap:.5rem;
+    font-weight:600; font-size:.9375rem; line-height:1;
+    padding:13px 20px; border-radius:9px; border:1px solid transparent;
+    transition:transform .25s var(--ease-out), background-color .25s var(--ease-out),
+               border-color .25s var(--ease-out), box-shadow .25s var(--ease-out);
+    text-decoration:none;
+  }
+  .btn:focus-visible{ outline:2px solid var(--blue); outline-offset:2px; }
+  .btn-primary{ background:var(--blue-cta); color:#fff; }
+  .btn-primary:hover{ background:var(--blue-cta-hover); color:#fff; transform:translateY(-1px); }
+  .btn-secondary{ background:var(--bg); color:var(--ink); border-color:var(--line-2); }
+  .btn-secondary:hover{ border-color:var(--ink-3); transform:translateY(-1px); }
+  .btn-lg{ padding:16px 26px; font-size:1rem; }
+
+  /* ---- Nav ---- */
+  .nav{
+    position:sticky; top:0; z-index:var(--z-nav);
+    background:color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    display:flex; align-items:center; gap:1.25rem;
+    min-height:64px;
+  }
+  .nav-logo{
+    display:flex; align-items:center; gap:.6rem;
+    font-weight:700; font-size:1.125rem; color:var(--ink);
+    letter-spacing:-0.02em; margin-right:auto;
+  }
+  .nav-logo:hover{ color:var(--ink); }
+  .logo-mark{
+    width:30px; height:30px; border-radius:9px; background:var(--coral);
+    display:grid; place-items:center; font-size:.95rem; line-height:1;
+  }
+  .logo-mark span{ color:var(--coral-ink); font-weight:700; }
+  .nav-links{ display:flex; gap:1.4rem; list-style:none; }
+  .nav-links a{ color:var(--ink-2); font-size:.9rem; font-weight:500; }
+  .nav-links a:hover{ color:var(--ink); }
+  .nav-actions{ display:flex; align-items:center; gap:.65rem; }
+
+  /* Theme toggle */
+  .theme-toggle{
+    width:38px; height:38px; border-radius:50%;
+    border:1px solid var(--line-2); background:var(--bg);
+    display:grid; place-items:center; color:var(--ink);
+    transition:transform .25s var(--ease-out), border-color .25s var(--ease-out);
+  }
+  .theme-toggle:hover{ border-color:var(--ink-3); transform:rotate(12deg); }
+  .theme-toggle .sun-ic{ display:none; }
+  .theme-toggle .moon-ic{ display:block; }
+  [data-theme="dark"] .theme-toggle .sun-ic{ display:block; }
+  [data-theme="dark"] .theme-toggle .moon-ic{ display:none; }
+
+  /* Lang selector (modern select that opens the options) */
+  .lang-select-wrap{ position:relative; display:inline-flex; align-items:center; }
+  .lang-select{
+    appearance:none; -webkit-appearance:none; -moz-appearance:none;
+    font-family:inherit; font-size:.8125rem; font-weight:600;
+    color:var(--ink-2); background:var(--surface);
+    border:1px solid var(--line-2); border-radius:8px;
+    padding:9px 30px 9px 12px; cursor:pointer; line-height:1;
+    transition:border-color .2s var(--ease-out), box-shadow .2s var(--ease-out);
+  }
+  .lang-select:hover{ border-color:var(--ink-3); }
+  .lang-select:focus-visible{ outline:2px solid var(--blue); outline-offset:2px; }
+  .lang-select-wrap::after{
+    content:""; position:absolute; right:11px; top:calc(50% - 5px);
+    width:7px; height:7px; pointer-events:none;
+    border-right:1.6px solid var(--ink-3); border-bottom:1.6px solid var(--ink-3);
+    transform:rotate(45deg);
+  }
+
+  .nav-cta{ padding:10px 16px; font-size:.875rem; }
+
+  /* Mobile menu */
+  .burger{ display:none; background:none; border:1px solid var(--line-2); border-radius:8px; width:40px; height:40px; place-items:center; color:var(--ink); }
+  .mobile-menu{
+    display:none; position:fixed; inset:64px 0 auto 0; z-index:var(--z-banner);
+    background:var(--bg); border-bottom:1px solid var(--line);
+    padding:1rem 4vw 1.4rem; flex-direction:column; gap:.25rem;
+  }
+  .mobile-menu.open{ display:flex; }
+  .m-link{
+    padding:.8rem .25rem; font-weight:500; color:var(--ink);
+    border-bottom:1px solid var(--line); font-size:1rem;
+  }
+  .mobile-menu .lang-select-wrap{ margin-top:.9rem; }
+  .mobile-menu .lang-select{ width:100%; }
+
+  /* ---- Hero ---- */
+  .hero{ padding-block:clamp(3rem, 6.5vw, 5rem) clamp(3.5rem, 7vw, 5.5rem); overflow:hidden; }
+  .hero-grid{
+    display:grid; grid-template-columns:1.05fr .95fr; gap:clamp(2rem, 5vw, 4.5rem);
+    align-items:center;
+  }
+  .hero-pill{
+    display:inline-flex; align-items:center; gap:.5rem;
+    background:var(--teal); color:var(--teal-ink);
+    font-size:.8125rem; font-weight:600; padding:7px 14px; border-radius:999px;
+    margin-bottom:1.4rem;
+  }
+  .hero-pill::before{ content:''; width:8px; height:8px; border-radius:50%; background:var(--teal-ink); opacity:.7; }
+  .hero h1{
+    font-size:clamp(2.4rem, 5.4vw, 4.1rem); /* max 65.6px < 96px */
+    font-weight:700; letter-spacing:-0.035em; line-height:1.06;
+    margin-bottom:1.3rem;
+  }
+  .hero h1 .hl{ color:var(--blue); }
+  .hero-sub{
+    font-size:clamp(1.05rem, 1.4vw, 1.175rem); color:var(--ink-2);
+    max-width:44ch; margin-bottom:2rem;
+  }
+  .hero-ctas{ display:flex; flex-wrap:wrap; gap:.8rem; margin-bottom:1.6rem; }
+  .hero-trust{ display:flex; align-items:center; gap:.6rem; color:var(--ink-3); font-size:.85rem; }
+  .hero-trust svg{ width:16px; height:16px; color:var(--success); flex:none; }
+
+  /* Hero canvas mockup */
+  .hero-canvas-wrap{ position:relative; }
+  .hero-canvas{
+    position:relative;
+    background:var(--surface);
+    border:1px solid var(--line-2);
+    border-radius:var(--radius-xl);
+    box-shadow:var(--shadow-md);
+    aspect-ratio:1 / 0.92;
+    overflow:hidden;
+  }
+  .canvas-dots{
+    position:absolute; top:16px; left:18px;
+    display:flex; gap:6px;
+  }
+  .canvas-dots i{ width:9px; height:9px; border-radius:50%; background:var(--line-2); }
+  .canvas-title{
+    position:absolute; top:14px; left:52px;
+    font-size:.72rem; font-weight:600; color:var(--ink-2);
+    font-family:var(--mono); letter-spacing:.02em;
+  }
+  .canvas-photo{
+    position:absolute; top:44px; left:20px; width:52%;
+    border-radius:14px; overflow:hidden; border:1px solid var(--line);
+    box-shadow:var(--shadow-sm);
+  }
+  .canvas-photo img{ width:100%; height:170px; object-fit:cover; }
+  .canvas-photo .cap{
+    position:absolute; inset:auto 0 0 0; padding:18px 10px 8px;
+    background:linear-gradient(transparent, rgba(0,0,0,.55));
+    color:#fff; font-size:.68rem; font-weight:600; letter-spacing:.01em;
+  }
+
+  .note{
+    position:absolute; border-radius:10px; padding:10px 12px;
+    box-shadow:var(--shadow-sm); font-size:.78rem; font-weight:500; line-height:1.35;
+  }
+  .note-coral{ background:var(--coral); color:var(--coral-ink); top:52px; right:22px; width:38%; transform:rotate(2deg); }
+  .note-teal{ background:var(--teal); color:var(--teal-ink); bottom:86px; right:30px; width:40%; transform:rotate(-1.5deg); }
+  .note-yellow{ background:var(--yellow); color:var(--yellow-ink); bottom:40px; left:24px; width:33%; transform:rotate(1deg); }
+  .note b{ display:block; margin-bottom:2px; }
+  .note .tag{ display:inline-block; margin-top:6px; font-size:.62rem; font-weight:700; letter-spacing:.04em; text-transform:uppercase; opacity:.8; }
+
+  .swatches{
+    position:absolute; bottom:26px; right:22px;
+    display:flex; gap:6px; align-items:center;
+    background:var(--bg); border:1px solid var(--line); border-radius:999px;
+    padding:8px 12px; box-shadow:var(--shadow-sm);
+  }
+  .swatches i{ width:20px; height:20px; border-radius:50%; border:1px solid rgba(0,0,0,.08); }
+  .swatches .lbl{ font-size:.62rem; font-weight:600; color:var(--ink-2); margin-left:4px; font-family:var(--mono); }
+
+  .cursor-ic{
+    position:absolute; top:118px; right:76px; width:30px; height:30px;
+    animation:float-cursor 5s ease-in-out infinite;
+  }
+  .cursor-ic svg{ width:100%; height:100%; filter:drop-shadow(0 2px 3px rgba(0,0,0,.2)); }
+
+  @keyframes float-cursor{
+    0%,100%{ transform:translate(0,0) rotate(0); }
+    50%{ transform:translate(-14px,-10px) rotate(-6deg); }
+  }
+  .float-slow{ animation:floaty 7s ease-in-out infinite; }
+  @keyframes floaty{
+    0%,100%{ transform:translateY(0); }
+    50%{ transform:translateY(-7px); }
+  }
+
+  /* ---- Logo strip ---- */
+  .logos{
+    border-top:1px solid var(--line);
+    padding:2.2rem 0;
+  }
+  .logos p{
+    text-align:center; color:var(--ink-3); font-size:.8rem; font-weight:500;
+    letter-spacing:.05em; text-transform:uppercase; margin-bottom:1.4rem;
+  }
+  .logos-row{
+    display:flex; flex-wrap:wrap; justify-content:center; align-items:center;
+    gap:1.2rem 2.6rem;
+  }
+  .logos-row span{
+    font-weight:700; font-size:1.05rem; color:var(--ink-3);
+    letter-spacing:-0.02em; opacity:.85; transition:opacity .25s var(--ease-out);
+  }
+  .logos-row span:hover{ opacity:1; }
+
+  /* ---- How it works ---- */
+  .how-head{ max-width:34ch; margin-bottom:3rem; }
+  .how-head h2{ font-size:clamp(1.8rem, 3.4vw, 2.6rem); margin-bottom:.9rem; }
+  .how-head p{ color:var(--ink-2); }
+  .steps{ display:grid; grid-template-columns:repeat(3, 1fr); gap:1.6rem; counter-reset:step; }
+  .step{
+    position:relative; padding:1.8rem 1.6rem;
+    border:1px solid var(--line); border-radius:var(--radius-lg);
+    background:var(--surface);
+    transition:transform .35s var(--ease-out), box-shadow .35s var(--ease-out);
+  }
+  .step:hover{ transform:translateY(-4px); box-shadow:var(--shadow-md); }
+  .step::before{
+    counter-increment:step; content:"0" counter(step);
+    font-family:var(--mono); font-size:.8rem; font-weight:600;
+    color:var(--blue);
+  }
+  .step h3{ font-size:1.2rem; margin:.9rem 0 .5rem; }
+  .step p{ color:var(--ink-2); font-size:.925rem; }
+
+  /* ---- Features: varied pastel panels ---- */
+  .feat-grid{
+    display:grid; grid-template-columns:repeat(12, 1fr); gap:1.4rem;
+  }
+  .panel{
+    border-radius:var(--radius-xl); padding:clamp(1.6rem, 3vw, 2.4rem);
+    position:relative; overflow:hidden;
+    transition:transform .35s var(--ease-out);
+  }
+  .panel:hover{ transform:translateY(-4px); }
+  .panel h3{ font-size:clamp(1.25rem, 2vw, 1.55rem); margin-bottom:.6rem; }
+  .panel p{ font-size:.925rem; opacity:.92; }
+  .p-coral{ background:var(--coral); color:var(--coral-ink); grid-column:span 7; }
+  .p-teal{ background:var(--teal); color:var(--teal-ink); grid-column:span 5; }
+  .p-yellow{ background:var(--yellow); color:var(--yellow-ink); grid-column:span 5; }
+  .p-rose{ background:var(--rose); color:var(--rose-ink); grid-column:span 4; }
+  .p-moss{ background:var(--moss); color:var(--moss-ink); grid-column:span 3; }
+
+  /* mini moodboard inside coral panel */
+  .mini-board{
+    display:grid; grid-template-columns:1fr 1fr; gap:10px;
+    margin-top:1.5rem;
+  }
+  .mini-board img{ border-radius:10px; height:110px; width:100%; object-fit:cover; box-shadow:var(--shadow-sm); }
+  .mini-board .chip{
+    border-radius:10px; padding:10px 12px; font-size:.72rem; font-weight:600;
+    background:rgba(255,255,255,.55); display:flex; align-items:center; gap:6px;
+  }
+  .chip i{ width:12px; height:12px; border-radius:3px; flex:none; }
+
+  /* palette strip in teal panel */
+  .palette-demo{ margin-top:1.5rem; }
+  .palette-pick{
+    display:inline-flex; align-items:center; gap:.5rem;
+    background:rgba(255,255,255,.7); border:1px solid var(--teal-ink);
+    color:var(--teal-ink); font-size:.8125rem; font-weight:600;
+    padding:8px 13px; border-radius:999px;
+    transition:background-color .2s var(--ease-out), transform .2s var(--ease-out), color .2s var(--ease-out);
+  }
+  [data-theme="dark"] .palette-pick{ background:rgba(255,255,255,.06); }
+  .palette-pick:hover{ background:var(--teal-ink); color:var(--teal); transform:translateY(-1px); }
+  .palette-pick:focus-visible{ outline:2px solid var(--teal-ink); outline-offset:2px; }
+  .palette-pick svg{ width:15px; height:15px; }
+  .palette-strip{ display:flex; gap:8px; margin-top:.9rem; }
+  .palette-strip i{
+    width:42px; height:42px; border-radius:12px; box-shadow:var(--shadow-sm);
+    cursor:pointer; transition:background-color .35s var(--ease-out), transform .25s var(--ease-out);
+  }
+  .palette-strip i:hover{ transform:translateY(-3px) scale(1.04); }
+  .palette-strip i:focus-visible{ outline:2px solid var(--teal-ink); outline-offset:2px; }
+  .palette-strip i.bump{ animation:palBump .4s var(--ease-out); }
+  @keyframes palBump{
+    0%{ transform:scale(.82); }
+    60%{ transform:scale(1.06); }
+    100%{ transform:scale(1); }
+  }
+
+  /* comment bubble in yellow panel */
+  .bubble{
+    margin-top:1.5rem; background:rgba(255,255,255,.6);
+    border-radius:14px 14px 14px 4px; padding:12px 14px; font-size:.8rem;
+    box-shadow:var(--shadow-sm); max-width:80%;
+  }
+  .bubble b{ display:block; font-size:.72rem; margin-bottom:2px; }
+  .bubble-reply{ margin-top:8px; margin-left:auto; background:var(--bg); border-radius:14px 14px 4px 14px; max-width:75%; }
+
+  .mini-stat{ margin-top:1.5rem; display:flex; gap:8px; flex-wrap:wrap; }
+  .mini-stat .st{
+    background:rgba(255,255,255,.55); border-radius:999px; padding:7px 13px;
+    font-size:.72rem; font-weight:600;
+  }
+
+  /* ---- Gallery ---- */
+  .gallery-head{ display:flex; align-items:end; justify-content:space-between; gap:1rem; margin-bottom:2.4rem; }
+  .gallery-head h2{ font-size:clamp(1.8rem, 3.4vw, 2.6rem); max-width:16ch; }
+  .gallery-head p{ color:var(--ink-2); max-width:36ch; }
+  .gallery{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:1.2rem;
+  }
+  .tile{
+    position:relative; border-radius:var(--radius-lg); overflow:hidden;
+    border:1px solid var(--line); aspect-ratio:4/3;
+    box-shadow:var(--shadow-sm);
+  }
+  .tile.wide{ grid-column:span 2; aspect-ratio:auto; }
+  .tile img{
+    width:100%; height:100%; object-fit:cover;
+    transition:transform .6s var(--ease-out);
+  }
+  .tile:hover img{ transform:scale(1.05); }
+  .tile .tile-cap{
+    position:absolute; inset:auto 0 0 0; padding:34px 14px 12px;
+    background:linear-gradient(transparent, rgba(15,15,18,.72));
+    color:#fff; display:flex; justify-content:space-between; align-items:center;
+    font-size:.8rem; font-weight:600;
+  }
+  .tile .tile-cap .pins{ font-family:var(--mono); font-size:.68rem; opacity:.85; }
+
+  /* ---- Testimonials ---- */
+  .testi-head{ max-width:30ch; margin-bottom:2.6rem; }
+  .testi-head h2{ font-size:clamp(1.8rem, 3.4vw, 2.6rem); margin-bottom:.9rem; }
+  .testi-head p{ color:var(--ink-2); }
+  .testi-grid{ display:grid; grid-template-columns:repeat(12,1fr); gap:1.4rem; }
+  .quote{
+    border:1px solid var(--line); border-radius:var(--radius-lg);
+    padding:1.8rem; background:var(--surface);
+    display:flex; flex-direction:column; gap:1.1rem;
+    transition:transform .35s var(--ease-out), box-shadow .35s var(--ease-out);
+  }
+  .quote:hover{ transform:translateY(-4px); box-shadow:var(--shadow-md); }
+  .quote.main{ grid-column:span 7; }
+  .quote.small{ grid-column:span 5; }
+  .quote p{ font-size:1.02rem; line-height:1.55; }
+  .quote.main p{ font-size:1.18rem; }
+  .who{ display:flex; align-items:center; gap:.8rem; margin-top:auto; }
+  .avatar{
+    width:42px; height:42px; border-radius:50%; flex:none;
+    display:grid; place-items:center; font-weight:700; font-size:.85rem;
+    color:#fff;
+  }
+  .av1{ background:#8fa3a8; } .av2{ background:#c98a5e; } .av3{ background:#7d8b6f; }
+  .who b{ display:block; font-size:.9rem; }
+  .who span{ color:var(--ink-3); font-size:.8rem; }
+
+  /* ---- Pricing ---- */
+  .price-head{ text-align:center; max-width:40ch; margin:0 auto 3rem; }
+  .price-head h2{ font-size:clamp(1.8rem, 3.4vw, 2.6rem); margin-bottom:.9rem; }
+  .price-head p{ color:var(--ink-2); }
+  .price-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:1.4rem; align-items:stretch; }
+  .plan{
+    border:1px solid var(--line); border-radius:var(--radius-xl);
+    padding:2rem; background:var(--surface);
+    display:flex; flex-direction:column;
+    transition:transform .35s var(--ease-out), box-shadow .35s var(--ease-out);
+  }
+  .plan:hover{ transform:translateY(-4px); box-shadow:var(--shadow-md); }
+  .plan.featured{
+    border:2px solid var(--blue); background:var(--blue-tint);
+    box-shadow:0 8px 26px rgba(63,85,217,.14);
+  }
+  [data-theme="dark"] .plan.featured{ border-color:var(--blue-bright); }
+  .plan .p-name{ font-weight:700; font-size:1rem; }
+  .plan .p-price{ font-size:2.4rem; font-weight:700; letter-spacing:-0.03em; margin:.6rem 0 .2rem; }
+  .plan .p-price small{ font-size:.9rem; font-weight:500; color:var(--ink-2); letter-spacing:0; }
+  .plan .p-desc{ color:var(--ink-2); font-size:.88rem; margin-bottom:1.4rem; }
+  .plan ul{ list-style:none; display:flex; flex-direction:column; gap:.65rem; margin-bottom:1.8rem; }
+  .plan li{ display:flex; gap:.6rem; font-size:.9rem; align-items:flex-start; }
+  .plan li svg{ width:17px; height:17px; color:var(--success); flex:none; margin-top:2px; }
+  .plan .btn{ margin-top:auto; justify-content:center; }
+  .plan.featured .btn-primary{ background:var(--blue-cta); }
+  .plan.featured .btn-primary:hover{ background:var(--blue-cta-hover); }
+
+  /* ---- FAQ ---- */
+  .faq-wrap{ max-width:760px; margin-inline:auto; }
+  .faq-head{ text-align:center; max-width:30ch; margin:0 auto 2.6rem; }
+  .faq-head h2{ font-size:clamp(1.8rem, 3.4vw, 2.6rem); margin-bottom:.9rem; }
+  .faq-head p{ color:var(--ink-2); }
+  .acc{ border:1px solid var(--line); border-radius:12px; margin-bottom:.8rem; background:var(--surface); overflow:hidden; }
+  .acc-btn{
+    width:100%; display:flex; align-items:center; justify-content:space-between; gap:1rem;
+    background:none; border:none; text-align:left; color:var(--ink);
+    font-size:1rem; font-weight:600; padding:1.05rem 1.2rem;
+    transition:color .2s var(--ease-out);
+  }
+  .acc-btn:hover{ color:var(--blue); }
+  .acc-btn .chev{ flex:none; transition:transform .3s var(--ease-out); color:var(--ink-3); }
+  .acc[open] .chev{ transform:rotate(180deg); }
+  .acc-body{ padding:0 1.2rem 1.1rem; color:var(--ink-2); font-size:.925rem; }
+  .acc-body p{ max-width:65ch; }
+
+  /* ---- Newsletter ---- */
+  .news-panel{
+    background:var(--teal); color:var(--teal-ink);
+    border-radius:var(--radius-xl); padding:clamp(2rem, 4.5vw, 3.4rem);
+    display:grid; grid-template-columns:1.1fr .9fr; gap:2rem; align-items:center;
+  }
+  .news-panel h2{ font-size:clamp(1.6rem, 3vw, 2.3rem); margin-bottom:.7rem; }
+  .news-panel p{ opacity:.9; }
+  .news-form{ display:flex; gap:.6rem; }
+  .news-form input{
+    flex:1; min-width:0; padding:14px 16px; border-radius:9px;
+    border:1px solid var(--teal-ink); background:rgba(255,255,255,.85);
+    color:var(--teal-ink); font-size:.95rem; font-family:inherit;
+  }
+  .news-form input::placeholder{ color:var(--teal-ink); opacity:.55; }
+  .news-form input:focus{ outline:2px solid var(--teal-ink); outline-offset:1px; }
+  .news-form .btn{ background:var(--teal-ink); color:var(--teal); }
+  .news-form .btn:hover{ filter:brightness(1.15); }
+  .news-ok{
+    display:none; margin-top:.9rem; font-weight:600; font-size:.9rem;
+  }
+  .news-ok.show{ display:block; }
+
+  /* ---- Footer ---- */
+  .footer{ border-top:1px solid var(--line); padding:3.5rem 0 2.5rem; }
+  .footer-grid{ display:grid; grid-template-columns:1.6fr 1fr 1fr 1fr 1fr; gap:2rem; }
+  .footer-brand p{ color:var(--ink-3); font-size:.88rem; margin-top:.9rem; max-width:30ch; }
+  .footer-col h4{ font-size:.78rem; text-transform:uppercase; letter-spacing:.07em; color:var(--ink-3); margin-bottom:1rem; font-weight:600; }
+  .footer-col ul{ list-style:none; display:flex; flex-direction:column; gap:.6rem; }
+  .footer-col a{ color:var(--ink-2); font-size:.9rem; }
+  .footer-col a:hover{ color:var(--ink); }
+  .footer-bottom{
+    margin-top:2.8rem; padding-top:1.6rem; border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; align-items:center; gap:1rem;
+    color:var(--ink-3); font-size:.8rem; flex-wrap:wrap;
+  }
+
+  /* ---- Cookie banner ---- */
+  .cookie{
+    position:fixed; right:1.2rem; bottom:1.2rem; z-index:var(--z-toast);
+    background:var(--ink); color:var(--bg);
+    border-radius:14px; padding:1rem 1.2rem; max-width:340px;
+    box-shadow:0 10px 34px rgba(0,0,0,.22);
+    transform:translateY(calc(100% + 1.6rem)); opacity:0;
+    transition:transform .5s var(--ease-out), opacity .4s var(--ease-out);
+    font-size:.85rem; line-height:1.45;
+  }
+  .cookie.show{ transform:translateY(0); opacity:1; }
+  [data-theme="dark"] .cookie{ background:#f2f2f5; color:#141416; }
+  .cookie p{ margin-bottom:.9rem; }
+  .cookie .ck-actions{ display:flex; gap:.5rem; }
+  .cookie .accept{
+    background:var(--blue-cta); color:#fff; border:none; border-radius:8px;
+    padding:9px 16px; font-weight:600; font-size:.82rem;
+  }
+  .cookie .accept:hover{ background:var(--blue-cta-hover); }
+  .cookie .decline{
+    background:transparent; color:inherit; border:1px solid currentColor;
+    border-radius:8px; padding:9px 16px; font-weight:500; font-size:.82rem; opacity:.8;
+  }
+
+  /* ---- Reveal on scroll ---- */
+  .reveal{ opacity:0; transform:translateY(22px); transition:opacity .7s var(--ease-out), transform .7s var(--ease-out); }
+  .reveal.in{ opacity:1; transform:none; }
+  .reveal.d1{ transition-delay:.08s; } .reveal.d2{ transition-delay:.16s; } .reveal.d3{ transition-delay:.24s; }
+
+  /* ---- Responsive ---- */
+  @media (max-width: 960px){
+    .hero-grid{ grid-template-columns:1fr; }
+    .hero-canvas{ max-width:560px; }
+    .feat-grid{ grid-template-columns:repeat(6,1fr); }
+    .p-coral{ grid-column:span 6; } .p-teal{ grid-column:span 3; }
+    .p-yellow{ grid-column:span 3; } .p-rose{ grid-column:span 3; } .p-moss{ grid-column:span 3; }
+    .gallery{ grid-template-columns:repeat(2,1fr); }
+    .tile.wide{ grid-column:span 2; }
+    .quote.main,.quote.small{ grid-column:span 6; }
+    .price-grid{ grid-template-columns:1fr 1fr; }
+    .plan:last-child{ grid-column:span 2; }
+    .news-panel{ grid-template-columns:1fr; }
+    .footer-grid{ grid-template-columns:1fr 1fr; }
+  }
+  @media (max-width: 720px){
+    .nav-links, .nav-actions .nav-cta{ display:none; }
+    .burger{ display:grid; }
+    .steps{ grid-template-columns:1fr; }
+    .feat-grid{ grid-template-columns:1fr; }
+    .p-coral,.p-teal,.p-yellow,.p-rose,.p-moss{ grid-column:span 1; }
+    .gallery{ grid-template-columns:1fr; }
+    .tile.wide{ grid-column:span 1; aspect-ratio:4/3; }
+    .testi-grid{ grid-template-columns:1fr; }
+    .quote.main,.quote.small{ grid-column:span 1; }
+    .price-grid{ grid-template-columns:1fr; }
+    .plan:last-child{ grid-column:span 1; }
+    .news-form{ flex-direction:column; }
+    .footer-grid{ grid-template-columns:1fr; gap:1.6rem; }
+    .cookie{ left:1rem; right:1rem; max-width:none; }
+    .lang-select{ padding:10px 30px 10px 14px; }
+    .logo-mark{ width:26px; height:26px; border-radius:8px; }
+  }
+
+  /* ---- Reduced motion ---- */
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *,*::before,*::after{
+      animation-duration:.01ms !important;
+      animation-iteration-count:1 !important;
+      transition-duration:.01ms !important;
+    }
+    .reveal{ opacity:1; transform:none; }
+    .cursor-ic,.float-slow{ animation:none !important; }
+  }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAV ===== -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="nav-logo" href="#" aria-label="MORADA home">
+        <span class="logo-mark"><span>M</span></span>
+        MORADA
+      </a>
+      <nav aria-label="Main">
+        <ul class="nav-links">
+          <li><a href="#how" data-i18n="nav.how">How it works</a></li>
+          <li><a href="#features" data-i18n="nav.features">Features</a></li>
+          <li><a href="#gallery" data-i18n="nav.gallery">Inspiration</a></li>
+          <li><a href="#pricing" data-i18n="nav.pricing">Pricing</a></li>
+          <li><a href="#faq" data-i18n="nav.faq">FAQ</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+          <svg class="moon-ic" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="sun-ic" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        </button>
+        <div class="lang-select-wrap" id="langSwitcher" aria-label="Language"></div>
+        <a href="#pricing" class="btn btn-primary nav-cta" data-i18n="nav.cta">Start free</a>
+        <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a class="m-link" href="#how" data-i18n="nav.how">How it works</a>
+      <a class="m-link" href="#features" data-i18n="nav.features">Features</a>
+      <a class="m-link" href="#gallery" data-i18n="nav.gallery">Inspiration</a>
+      <a class="m-link" href="#pricing" data-i18n="nav.pricing">Pricing</a>
+      <a class="m-link" href="#faq" data-i18n="nav.faq">FAQ</a>
+      <div class="lang-select-wrap" id="langSwitcherMobile" aria-label="Language"></div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="hero-pill" data-i18n="hero.pill">Visual boards for home design</span>
+          <h1 data-i18n-html="hero.title">Every home starts<br>as a <span class="hl">board</span></h1>
+          <p class="hero-sub" data-i18n="hero.sub">MORADA turns inspiration into a shared canvas. Pin rooms, colors and furniture with your partner or your architect — then walk into a home you both imagined.</p>
+          <div class="hero-ctas">
+            <a href="#pricing" class="btn btn-primary btn-lg" data-i18n="hero.cta1">Start a board</a>
+            <a href="#how" class="btn btn-secondary btn-lg" data-i18n="hero.cta2">See how it works</a>
+          </div>
+          <p class="hero-trust">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            <span data-i18n="hero.trust">Free forever for personal boards · No credit card</span>
+          </p>
+        </div>
+
+        <!-- Canvas mockup -->
+        <div class="hero-canvas-wrap reveal d2" aria-hidden="true">
+          <div class="hero-canvas">
+            <div class="canvas-dots"><i></i><i></i><i></i></div>
+            <span class="canvas-title">board / living-room</span>
+            <div class="canvas-photo float-slow">
+              <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=700&q=80" alt="" loading="eager">
+              <span class="cap">Scandinavian living room</span>
+            </div>
+            <div class="note note-coral float-slow">
+              <b>Warm wool sofa</b>
+              Hides every coffee stain…
+              <span class="tag">furniture</span>
+            </div>
+            <div class="note note-teal">
+              <b>Palette</b>
+              Generated from this photo
+              <span class="tag">colors</span>
+            </div>
+            <div class="note note-yellow float-slow">
+              <b>❤ 24</b>
+              agreed with this one
+            </div>
+            <div class="swatches">
+              <i style="background:#d8a48f"></i><i style="background:#8fa3a8"></i>
+              <i style="background:#c9d3c5"></i><i style="background:#a3b18a"></i>
+              <span class="lbl">4 pins</span>
+            </div>
+            <div class="cursor-ic">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M5 3l14 8-6.5 1.5L9 19z" fill="#1c1c1e" stroke="#fff" stroke-width="1.4" stroke-linejoin="round"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== LOGOS ===== -->
+    <section class="logos" aria-label="Teams using MORADA">
+      <div class="container">
+        <p data-i18n="logos.title">Loved by teams that shape spaces</p>
+        <div class="logos-row">
+          <span>Northwind&nbsp;Studio</span><span>Atelier&nbsp;Nova</span><span>Forma&nbsp;Home</span>
+          <span>Klippan&nbsp;Design</span><span>Studio&nbsp;Terracotta</span><span>La&nbsp;Casa&nbsp;Verde</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== HOW IT WORKS ===== -->
+    <section class="section" id="how">
+      <div class="container">
+        <div class="how-head reveal">
+          <h2 data-i18n="how.title">Three steps to a home you'll love</h2>
+          <p class="prose" data-i18n="how.sub">No moodboard skills required. If you can drag and drop, you can design a room.</p>
+        </div>
+        <div class="steps">
+          <article class="step reveal d1">
+            <h3 data-i18n="how.s1.title">Create a board</h3>
+            <p data-i18n="how.s1.desc">Name it by room — Living room, Kitchen, Hallway. Your canvas is ready in seconds.</p>
+          </article>
+          <article class="step reveal d2">
+            <h3 data-i18n="how.s2.title">Pin your ideas</h3>
+            <p data-i18n="how.s2.desc">Drag in photos, swatches and furniture from anywhere. Boards fill up like a collage of taste.</p>
+          </article>
+          <article class="step reveal d3">
+            <h3 data-i18n="how.s3.title">Decide together</h3>
+            <p data-i18n="how.s3.desc">Leave comments, vote with hearts, and move pins until the plan feels like both of you.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FEATURES ===== -->
+    <section class="section" id="features" style="padding-top:0">
+      <div class="container feat-grid">
+        <article class="panel p-coral reveal">
+          <h3 data-i18n="feat.1.title">Pin anything</h3>
+          <p data-i18n="feat.1.desc">Photos, fabrics, wood samples, floor plans. If you can see it, it has a place on your board.</p>
+          <div class="mini-board">
+            <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=500&q=80" alt="" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=500&q=80" alt="" loading="lazy">
+            <div class="chip"><i style="background:#b98a6a"></i> oak · 02</div>
+            <div class="chip"><i style="background:#c9d3c5"></i> linen · 11</div>
+          </div>
+        </article>
+        <article class="panel p-teal reveal d1">
+          <h3 data-i18n="feat.2.title">Palettes that match</h3>
+          <p data-i18n="feat.2.desc">Pick a color from any photo and MORADA builds a full room palette around it.</p>
+          <div class="palette-demo">
+            <button class="palette-pick" id="palettePick" type="button">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m2 22 1-1h3l9-9"/><path d="M3 21v-3l9-9"/><path d="m15 6 3.4-3.4a2.1 2.1 0 1 1 3 3L18 9l.4.4a2.1 2.1 0 1 1-3 3l-3.8-3.8a2.1 2.1 0 1 1 3-3l.4.4Z"/></svg>
+              <span data-i18n="feat.2.pick">Pick a color</span>
+            </button>
+            <input type="color" id="paletteInput" value="#b98a6a" class="visually-hidden" aria-label="Pick a color">
+            <div class="palette-strip" id="paletteStrip" role="list" aria-label="Generated palette">
+              <i></i><i></i><i></i><i></i><i></i>
+            </div>
+          </div>
+        </article>
+        <article class="panel p-yellow reveal d1">
+          <h3 data-i18n="feat.3.title">Talk it out</h3>
+          <p data-i18n="feat.3.desc">Comment on a single pin, not the whole board. Conversations stay where the idea lives.</p>
+          <div class="bubble">
+            <b>Marina</b>
+            This sofa + the rug? Chef's kiss. 🫶
+          </div>
+          <div class="bubble bubble-reply">
+            <b>Tom</b>
+            Moving it to the top of the board then!
+          </div>
+        </article>
+        <article class="panel p-rose reveal d2">
+          <h3 data-i18n="feat.4.title">One board per room</h3>
+          <p data-i18n="feat.4.desc">Keep every space organized. No more fifty screenshots lost in the chat.</p>
+          <div class="mini-stat">
+            <span class="st">Kitchen · 34</span>
+            <span class="st">Hall · 12</span>
+            <span class="st">Kids · 21</span>
+          </div>
+        </article>
+        <article class="panel p-moss reveal d3">
+          <h3 data-i18n="feat.5.title">Share in one click</h3>
+          <p data-i18n="feat.5.desc">A private link brings your partner, flatmate or architect onto the same canvas.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== GALLERY ===== -->
+    <section class="section" id="gallery">
+      <div class="container">
+        <div class="gallery-head reveal">
+          <h2 data-i18n="gallery.title">Rooms to fall in love with</h2>
+          <p class="prose" data-i18n="gallery.sub">Real boards from the MORADA community. Tap any room to explore its pins.</p>
+        </div>
+        <div class="gallery">
+          <figure class="tile reveal">
+            <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=80" alt="Airy modern living room" loading="lazy">
+            <figcaption class="tile-cap"><span data-i18n="gallery.t1">Bright living room</span><span class="pins">42 pins</span></figcaption>
+          </figure>
+          <figure class="tile reveal d1">
+            <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=800&q=80" alt="Minimal bedroom interior" loading="lazy">
+            <figcaption class="tile-cap"><span data-i18n="gallery.t2">Quiet bedroom</span><span class="pins">28 pins</span></figcaption>
+          </figure>
+          <figure class="tile reveal d2">
+            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80" alt="Cozy neutral living space" loading="lazy">
+            <figcaption class="tile-cap"><span data-i18n="gallery.t3">Warm neutral living</span><span class="pins">57 pins</span></figcaption>
+          </figure>
+          <figure class="tile wide reveal d1">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=80" alt="Modern family house exterior" loading="lazy">
+            <figcaption class="tile-cap"><span data-i18n="gallery.t4">The full-house board</span><span class="pins">128 pins · 3 rooms</span></figcaption>
+          </figure>
+          <figure class="tile reveal d2">
+            <img src="https://images.unsplash.com/photo-1617104678098-de229db51175?auto=format&fit=crop&w=800&q=80" alt="Dining area with wooden table" loading="lazy">
+            <figcaption class="tile-cap"><span data-i18n="gallery.t5">Sunday dining</span><span class="pins">19 pins</span></figcaption>
+          </figure>
+          <figure class="tile reveal d3">
+            <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=800&q=80" alt="Stylish kitchen with island" loading="lazy">
+            <figcaption class="tile-cap"><span data-i18n="gallery.t6">The island kitchen</span><span class="pins">63 pins</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TESTIMONIALS ===== -->
+    <section class="section" id="testimonials">
+      <div class="container">
+        <div class="testi-head reveal">
+          <h2 data-i18n="testi.title">Couples, families and architects agree</h2>
+          <p class="prose" data-i18n="testi.sub">Thousands of homes were designed on a MORADA board before a single wall was painted.</p>
+        </div>
+        <div class="testi-grid">
+          <blockquote class="quote main reveal d1">
+            <p data-i18n="testi.q1">“We renovated our whole flat on one board. My partner pinned, I commented, the architect shipped. Nobody fought, and nobody cried — not even over the kitchen island.”</p>
+            <div class="who">
+              <span class="avatar av1">MA</span>
+              <div><b data-i18n="testi.n1">Marina &amp; Alex</b><span data-i18n="testi.r1">Renovated a 68 m² flat, Lisbon</span></div>
+            </div>
+          </blockquote>
+          <blockquote class="quote small reveal d2">
+            <p data-i18n="testi.q2">“I bring every client onto a shared board. The palette tool alone saves me an hour per project.”</p>
+            <div class="who">
+              <span class="avatar av2">JH</span>
+              <div><b data-i18n="testi.n2">Jonas Helling</b><span data-i18n="testi.r2">Interior architect, Berlin</span></div>
+            </div>
+          </blockquote>
+          <blockquote class="quote small reveal d3">
+            <p data-i18n="testi.q3">“My kids have a board too. Turns out letting them design their own room ends the decoration drama.”</p>
+            <div class="who">
+              <span class="avatar av3">SP</span>
+              <div><b data-i18n="testi.n3">Sofia Peres</b><span data-i18n="testi.r3">Three kids, one very pink hallway</span></div>
+            </div>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PRICING ===== -->
+    <section class="section" id="pricing">
+      <div class="container">
+        <div class="price-head reveal">
+          <h2 data-i18n="price.title">Simple, honest pricing</h2>
+          <p class="prose" data-i18n="price.sub">Start free. Upgrade when the whole household joins in.</p>
+        </div>
+        <div class="price-grid">
+          <article class="plan reveal d1">
+            <span class="p-name" data-i18n="price.free.name">Free</span>
+            <div class="p-price">€0</div>
+            <p class="p-desc" data-i18n="price.free.desc">For your first personal boards.</p>
+            <ul>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="price.free.f1">3 boards</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="price.free.f2">Unlimited pins per board</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="price.free.f3">Palette tool</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="price.free.f4">Share with 1 guest</span></li>
+            </ul>
+            <a href="#pricing" class="btn btn-secondary" data-i18n="price.free.cta">Start free</a>
+          </article>
+          <article class="plan featured reveal d2">
+            <span class="p-name" data-i18n="price.studio.name">Studio</span>
+            <div class="p-price">€8<small> /month</small></div>
+            <p class="p-desc" data-i18n="price.studio.desc">For couples and small projects.</p>
+            <ul>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="price.studio.f1">Unlimited boards</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="price.studio.f2">Up to 5 collaborators</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="price.studio.f3">Comments &amp; voting</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="price.studio.f4">Furniture price book</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="price.studio.f5">Export as PDF plan</span></li>
+            </ul>
+            <a href="#pricing" class="btn btn-primary" data-i18n="price.studio.cta">Choose Studio</a>
+          </article>
+          <article class="plan reveal d3">
+            <span class="p-name" data-i18n="price.team.name">Team</span>
+            <div class="p-price">€19<small> /month</small></div>
+            <p class="p-desc" data-i18n="price.team.desc">For families and architecture firms.</p>
+            <ul>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="price.team.f1">Unlimited collaborators</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="price.team.f2">Client review links</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="price.team.f3">Branded boards</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="price.team.f4">Priority support</span></li>
+            </ul>
+            <a href="#pricing" class="btn btn-secondary" data-i18n="price.team.cta">Contact us</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="section" id="faq" style="padding-top:0">
+      <div class="container">
+        <div class="faq-wrap">
+          <div class="faq-head reveal">
+            <h2 data-i18n="faq.title">Questions, answered</h2>
+            <p class="prose" data-i18n="faq.sub">Everything you need to know before your first board.</p>
+          </div>
+          <details class="acc reveal d1">
+            <summary class="acc-btn"><span data-i18n="faq.q1">Do I need design experience?</span>
+              <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </summary>
+            <div class="acc-body"><p data-i18n="faq.a1">None at all. MORADA works like a pinboard — drag things in, move them around, see what feels right. The palette tool does the color math for you.</p></div>
+          </details>
+          <details class="acc reveal d1">
+            <summary class="acc-btn"><span data-i18n="faq.q2">Can I share a board with someone who doesn't have an account?</span>
+              <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </summary>
+            <div class="acc-body"><p data-i18n="faq.a2">Yes. Every board gets a private link — guests can view and comment without creating an account. Only the board owner decides who can edit.</p></div>
+          </details>
+          <details class="acc reveal d2">
+            <summary class="acc-btn"><span data-i18n="faq.q3">Where do the furniture prices come from?</span>
+              <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </summary>
+            <div class="acc-body"><p data-i18n="faq.a3">Studio and Team plans include a live price book sourced from major retailers. Prices update weekly, so your plan budget stays realistic.</p></div>
+          </details>
+          <details class="acc reveal d2">
+            <summary class="acc-btn"><span data-i18n="faq.q4">Can my architect see my boards?</span>
+              <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </summary>
+            <div class="acc-body"><p data-i18n="faq.a4">If you share the link, yes — and most architects love it. A board full of your pinned taste is worth more than a thousand words in a briefing call.</p></div>
+          </details>
+          <details class="acc reveal d3">
+            <summary class="acc-btn"><span data-i18n="faq.q5">Is my data private?</span>
+              <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </summary>
+            <div class="acc-body"><p data-i18n="faq.a5">Boards are private by default and never appear in search. We don't sell data, and you can export or delete everything at any time.</p></div>
+          </details>
+          <details class="acc reveal d3">
+            <summary class="acc-btn"><span data-i18n="faq.q6">Can I cancel anytime?</span>
+              <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </summary>
+            <div class="acc-body"><p data-i18n="faq.a6">Anytime, in two clicks. Your boards stay readable on the Free plan — you only lose the extra collaborators and tools.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== NEWSLETTER ===== -->
+    <section class="section" id="newsletter" style="padding-top:0">
+      <div class="container">
+        <div class="news-panel reveal">
+          <div>
+            <h2 data-i18n="news.title">One room at a time</h2>
+            <p class="prose" data-i18n="news.sub">Fresh ideas for your home, twice a month. Real rooms, real palettes, zero noise.</p>
+          </div>
+          <form class="news-form" id="newsForm" novalidate>
+            <label class="visually-hidden" for="newsEmail" data-i18n="news.label">Email address</label>
+            <input type="email" id="newsEmail" required placeholder="you@example.com" data-i18n-placeholder="news.ph" autocomplete="email">
+            <button type="submit" class="btn" data-i18n="news.cta">Subscribe</button>
+          </form>
+          <p class="news-ok" id="newsOk" role="status" data-i18n="news.ok">You're in! Check your inbox for the first board. ✓</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="nav-logo" href="#" aria-label="MORADA home">
+            <span class="logo-mark"><span>M</span></span> MORADA
+          </a>
+          <p data-i18n="footer.tag">Design your home together — one pin at a time.</p>
+        </div>
+        <nav class="footer-col" aria-label="Product">
+          <h4 data-i18n="footer.product">Product</h4>
+          <ul>
+            <li><a href="#features" data-i18n="footer.p1">Features</a></li>
+            <li><a href="#how" data-i18n="footer.p2">How it works</a></li>
+            <li><a href="#pricing" data-i18n="footer.p3">Pricing</a></li>
+            <li><a href="#gallery" data-i18n="footer.p4">Templates</a></li>
+          </ul>
+        </nav>
+        <nav class="footer-col" aria-label="Company">
+          <h4 data-i18n="footer.company">Company</h4>
+          <ul>
+            <li><a href="#" data-i18n="footer.c1">About</a></li>
+            <li><a href="#" data-i18n="footer.c2">Careers</a></li>
+            <li><a href="#" data-i18n="footer.c3">Press</a></li>
+            <li><a href="#" data-i18n="footer.c4">Contact</a></li>
+          </ul>
+        </nav>
+        <nav class="footer-col" aria-label="Resources">
+          <h4 data-i18n="footer.resources">Resources</h4>
+          <ul>
+            <li><a href="#" data-i18n="footer.r1">Help center</a></li>
+            <li><a href="#gallery" data-i18n="footer.r2">Community boards</a></li>
+            <li><a href="#" data-i18n="footer.r3">Blog</a></li>
+            <li><a href="#" data-i18n="footer.r4">Status</a></li>
+          </ul>
+        </nav>
+        <nav class="footer-col" aria-label="Legal">
+          <h4 data-i18n="footer.legal">Legal</h4>
+          <ul>
+            <li><a href="#" data-i18n="footer.l1">Privacy</a></li>
+            <li><a href="#" data-i18n="footer.l2">Terms</a></li>
+            <li><a href="#" data-i18n="footer.l3">Cookies</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span id="year">2026</span> MORADA Studio BV</span>
+        <span data-i18n="footer.rights">All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== COOKIE BANNER ===== -->
+  <div class="cookie" id="cookieBanner" role="dialog" aria-label="Cookie notice">
+    <p data-i18n="cookie.text">We use cookies to keep boards snappy and understand how MORADA is used.</p>
+    <div class="ck-actions">
+      <button class="accept" id="cookieOk" data-i18n="cookie.accept">Got it</button>
+      <button class="decline" id="cookieNo" data-i18n="cookie.decline">No thanks</button>
+    </div>
+  </div>
+
+  <script>
+  /* ============================================================
+     MORADA — app script
+     - i18n: 6 languages, browser detect, localStorage persist
+     - theme: daylight/dusk with kairos-theme key (capture compatible)
+     - reveal on scroll, accordions, newsletter, cookie banner
+     ============================================================ */
+
+  /* ---- i18n ---- */
+  var TRANSLATIONS = {
+    en: {
+      'meta.title':'MORADA — Design your home together',
+      'meta.desc':'MORADA turns inspiration into a shared canvas. Pin rooms, colors and furniture with your partner or your architect — then walk into a home you both imagined.',
+      'nav.how':'How it works','nav.features':'Features','nav.gallery':'Inspiration','nav.pricing':'Pricing','nav.faq':'FAQ','nav.cta':'Start free',
+      'hero.pill':'Visual boards for home design',
+      'hero.title':'Every home starts<br>as a <span class="hl">board</span>',
+      'hero.sub':'MORADA turns inspiration into a shared canvas. Pin rooms, colors and furniture with your partner or your architect — then walk into a home you both imagined.',
+      'hero.cta1':'Start a board','hero.cta2':'See how it works','hero.trust':'Free forever for personal boards · No credit card',
+      'logos.title':'Loved by teams that shape spaces',
+      'how.title':"Three steps to a home you'll love",
+      'how.sub':'No moodboard skills required. If you can drag and drop, you can design a room.',
+      'how.s1.title':'Create a board','how.s1.desc':'Name it by room — Living room, Kitchen, Hallway. Your canvas is ready in seconds.',
+      'how.s2.title':'Pin your ideas','how.s2.desc':'Drag in photos, swatches and furniture from anywhere. Boards fill up like a collage of taste.',
+      'how.s3.title':'Decide together','how.s3.desc':'Leave comments, vote with hearts, and move pins until the plan feels like both of you.',
+      'feat.1.title':'Pin anything','feat.1.desc':'Photos, fabrics, wood samples, floor plans. If you can see it, it has a place on your board.',
+      'feat.2.title':'Palettes that match','feat.2.desc':'Pick a color from any photo and MORADA builds a full room palette around it.','feat.2.pick':'Pick a color',
+      'feat.3.title':'Talk it out','feat.3.desc':'Comment on a single pin, not the whole board. Conversations stay where the idea lives.',
+      'feat.4.title':'One board per room','feat.4.desc':'Keep every space organized. No more fifty screenshots lost in the chat.',
+      'feat.5.title':'Share in one click','feat.5.desc':'A private link brings your partner, flatmate or architect onto the same canvas.',
+      'gallery.title':'Rooms to fall in love with',
+      'gallery.sub':'Real boards from the MORADA community. Tap any room to explore its pins.',
+      'gallery.t1':'Bright living room','gallery.t2':'Quiet bedroom','gallery.t3':'Warm neutral living','gallery.t4':'The full-house board','gallery.t5':'Sunday dining','gallery.t6':'The island kitchen',
+      'testi.title':'Couples, families and architects agree',
+      'testi.sub':'Thousands of homes were designed on a MORADA board before a single wall was painted.',
+      'testi.q1':'“We renovated our whole flat on one board. My partner pinned, I commented, the architect shipped. Nobody fought, and nobody cried — not even over the kitchen island.”',
+      'testi.n1':'Marina & Alex','testi.r1':'Renovated a 68 m² flat, Lisbon',
+      'testi.q2':'“I bring every client onto a shared board. The palette tool alone saves me an hour per project.”',
+      'testi.n2':'Jonas Helling','testi.r2':'Interior architect, Berlin',
+      'testi.q3':'“My kids have a board too. Turns out letting them design their own room ends the decoration drama.”',
+      'testi.n3':'Sofia Peres','testi.r3':'Three kids, one very pink hallway',
+      'price.title':'Simple, honest pricing','price.sub':'Start free. Upgrade when the whole household joins in.',
+      'price.free.name':'Free','price.free.desc':'For your first personal boards.','price.free.f1':'3 boards','price.free.f2':'Unlimited pins per board','price.free.f3':'Palette tool','price.free.f4':'Share with 1 guest','price.free.cta':'Start free',
+      'price.studio.name':'Studio','price.studio.desc':'For couples and small projects.','price.studio.f1':'Unlimited boards','price.studio.f2':'Up to 5 collaborators','price.studio.f3':'Comments & voting','price.studio.f4':'Furniture price book','price.studio.f5':'Export as PDF plan','price.studio.cta':'Choose Studio',
+      'price.team.name':'Team','price.team.desc':'For families and architecture firms.','price.team.f1':'Unlimited collaborators','price.team.f2':'Client review links','price.team.f3':'Branded boards','price.team.f4':'Priority support','price.team.cta':'Contact us',
+      'faq.title':'Questions, answered','faq.sub':'Everything you need to know before your first board.',
+      'faq.q1':'Do I need design experience?','faq.a1':'None at all. MORADA works like a pinboard — drag things in, move them around, see what feels right. The palette tool does the color math for you.',
+      'faq.q2':"Can I share a board with someone who doesn't have an account?",'faq.a2':'Yes. Every board gets a private link — guests can view and comment without creating an account. Only the board owner decides who can edit.',
+      'faq.q3':'Where do the furniture prices come from?','faq.a3':'Studio and Team plans include a live price book sourced from major retailers. Prices update weekly, so your plan budget stays realistic.',
+      'faq.q4':'Can my architect see my boards?','faq.a4':'If you share the link, yes — and most architects love it. A board full of your pinned taste is worth more than a thousand words in a briefing call.',
+      'faq.q5':'Is my data private?','faq.a5':"Boards are private by default and never appear in search. We don't sell data, and you can export or delete everything at any time.",
+      'faq.q6':'Can I cancel anytime?','faq.a6':'Anytime, in two clicks. Your boards stay readable on the Free plan — you only lose the extra collaborators and tools.',
+      'news.title':'One room at a time','news.sub':'Fresh ideas for your home, twice a month. Real rooms, real palettes, zero noise.','news.label':'Email address','news.ph':'you@example.com','news.cta':'Subscribe','news.ok':"You're in! Check your inbox for the first board. ✓",
+      'footer.tag':'Design your home together — one pin at a time.',
+      'footer.product':'Product','footer.p1':'Features','footer.p2':'How it works','footer.p3':'Pricing','footer.p4':'Templates',
+      'footer.company':'Company','footer.c1':'About','footer.c2':'Careers','footer.c3':'Press','footer.c4':'Contact',
+      'footer.resources':'Resources','footer.r1':'Help center','footer.r2':'Community boards','footer.r3':'Blog','footer.r4':'Status',
+      'footer.legal':'Legal','footer.l1':'Privacy','footer.l2':'Terms','footer.l3':'Cookies',
+      'footer.rights':'All rights reserved.',
+      'cookie.text':'We use cookies to keep boards snappy and understand how MORADA is used.','cookie.accept':'Got it','cookie.decline':'No thanks'
+    },
+
+    es: {
+      'meta.title':'MORADA — Diseña tu hogar juntos',
+      'meta.desc':'MORADA convierte la inspiración en un lienzo compartido. Fija habitaciones, colores y muebles con tu pareja o tu arquitecto — y llega a un hogar que ambos imaginasteis.',
+      'nav.how':'Cómo funciona','nav.features':'Funciones','nav.gallery':'Inspiración','nav.pricing':'Precios','nav.faq':'FAQ','nav.cta':'Empieza gratis',
+      'hero.pill':'Tableros visuales para diseñar tu casa',
+      'hero.title':'Cada hogar empieza<br>como un <span class="hl">tablero</span>',
+      'hero.sub':'MORADA convierte la inspiración en un lienzo compartido. Fija habitaciones, colores y muebles con tu pareja o tu arquitecto — y llega a un hogar que ambos imaginasteis.',
+      'hero.cta1':'Crear un tablero','hero.cta2':'Ver cómo funciona','hero.trust':'Gratis para siempre en tableros personales · Sin tarjeta',
+      'logos.title':'Lo aman los equipos que dan forma a los espacios',
+      'how.title':'Tres pasos hacia el hogar que quieres',
+      'how.sub':'No necesitas saber de moodboards. Si sabes arrastrar y soltar, sabes diseñar una habitación.',
+      'how.s1.title':'Crea un tablero','how.s1.desc':'Nómbralo por habitación — Salón, Cocina, Pasillo. Tu lienzo está listo en segundos.',
+      'how.s2.title':'Fija tus ideas','how.s2.desc':'Arrastra fotos, muestras y muebles desde cualquier lugar. El tablero crece como un collage de gustos.',
+      'how.s3.title':'Decidid juntos','how.s3.desc':'Dejad comentarios, votad con corazones y moved las fijaciones hasta que el plan suene a los dos.',
+      'feat.1.title':'Fija lo que sea','feat.1.desc':'Fotos, tejidos, muestras de madera, planos. Si lo ves, tiene sitio en tu tablero.',
+      'feat.2.title':'Paletas que combinan','feat.2.desc':'Elige un color de cualquier foto y MORADA construye toda la paleta de la habitación a su alrededor.','feat.2.pick':'Elige un color',
+      'feat.3.title':'Habladlo','feat.3.desc':'Comenta una fijación concreta, no todo el tablero. La conversación vive donde está la idea.',
+      'feat.4.title':'Un tablero por habitación','feat.4.desc':'Cada espacio organizado. Se acabaron las cincuenta capturas perdidas en el chat.',
+      'feat.5.title':'Comparte con un clic','feat.5.desc':'Un enlace privado trae a tu pareja, compañera de piso o arquitecto al mismo lienzo.',
+      'gallery.title':'Habitaciones para enamorarse',
+      'gallery.sub':'Tableros reales de la comunidad MORADA. Toca cualquier habitación para explorar sus fijaciones.',
+      'gallery.t1':'Salón luminoso','gallery.t2':'Dormitorio tranquilo','gallery.t3':'Salón cálido neutro','gallery.t4':'El tablero de toda la casa','gallery.t5':'Comedor de domingo','gallery.t6':'La cocina con isla',
+      'testi.title':'Parejas, familias y arquitectos coinciden',
+      'testi.sub':'Miles de hogares se diseñaron en un tablero MORADA antes de pintar la primera pared.',
+      'testi.q1':'“Reformamos todo el piso en un solo tablero. Mi pareja fijaba, yo comentaba, el arquitecto lo ejecutaba. Nadie discutió y nadie lloró — ni siquiera por la isla de la cocina.”',
+      'testi.n1':'Marina y Alex','testi.r1':'Reformaron un piso de 68 m², Lisboa',
+      'testi.q2':'“Traigo a cada cliente a un tablero compartido. Solo la herramienta de paletas me ahorra una hora por proyecto.”',
+      'testi.n2':'Jonas Helling','testi.r2':'Arquitecto de interiores, Berlín',
+      'testi.q3':'“Mis hijos también tienen tablero. Resulta que dejarles diseñar su propia habitación acaba con el drama de la decoración.”',
+      'testi.n3':'Sofía Peres','testi.r3':'Tres hijos, un pasillo muy rosa',
+      'price.title':'Precios simples y honestos','price.sub':'Empieza gratis. Mejora cuando se apunte toda la casa.',
+      'price.free.name':'Gratis','price.free.desc':'Para tus primeros tableros personales.','price.free.f1':'3 tableros','price.free.f2':'Fijaciones ilimitadas por tablero','price.free.f3':'Herramienta de paletas','price.free.f4':'Comparte con 1 invitado','price.free.cta':'Empieza gratis',
+      'price.studio.name':'Studio','price.studio.desc':'Para parejas y proyectos pequeños.','price.studio.f1':'Tableros ilimitados','price.studio.f2':'Hasta 5 colaboradores','price.studio.f3':'Comentarios y votaciones','price.studio.f4':'Libro de precios de muebles','price.studio.f5':'Exportar como plano PDF','price.studio.cta':'Elegir Studio',
+      'price.team.name':'Equipo','price.team.desc':'Para familias y estudios de arquitectura.','price.team.f1':'Colaboradores ilimitados','price.team.f2':'Enlaces de revisión para clientes','price.team.f3':'Tableros con tu marca','price.team.f4':'Soporte prioritario','price.team.cta':'Contactar',
+      'faq.title':'Preguntas, respondidas','faq.sub':'Todo lo que necesitas saber antes de tu primer tablero.',
+      'faq.q1':'¿Necesito experiencia en diseño?','faq.a1':'Ninguna. MORADA funciona como un corcho — arrastra cosas, muévelas, mira qué sienta bien. La herramienta de paletas hace las cuentas de color por ti.',
+      'faq.q2':'¿Puedo compartir un tablero con alguien sin cuenta?','faq.a2':'Sí. Cada tablero tiene un enlace privado — los invitados pueden ver y comentar sin crear cuenta. Solo el dueño decide quién edita.',
+      'faq.q3':'¿De dónde salen los precios de los muebles?','faq.a3':'Los planes Studio y Equipo incluyen un libro de precios en vivo de grandes tiendas. Los precios se actualizan cada semana para que tu presupuesto sea realista.',
+      'faq.q4':'¿Mi arquitecto puede ver mis tableros?','faq.a4':'Si compartes el enlace, sí — y a la mayoría les encanta. Un tablero con tu gusto fijado vale más que mil palabras en una reunión de briefing.',
+      'faq.q5':'¿Mis datos son privados?','faq.a5':'Los tableros son privados por defecto y nunca salen en buscadores. No vendemos datos y puedes exportar o borrar todo cuando quieras.',
+      'faq.q6':'¿Puedo cancelar cuando quiera?','faq.a6':'Cuando quieras, en dos clics. Tus tableros siguen legibles en el plan Gratis — solo pierdes los colaboradores y herramientas extra.',
+      'news.title':'Una habitación a la vez','news.sub':'Ideas frescas para tu casa, dos veces al mes. Habitaciones reales, paletas reales, cero ruido.','news.label':'Correo electrónico','news.ph':'tu@email.com','news.cta':'Suscribirse','news.ok':'¡Dentro! Revisa tu bandeja para el primer tablero. ✓',
+      'footer.tag':'Diseña tu hogar juntos — una fijación a la vez.',
+      'footer.product':'Producto','footer.p1':'Funciones','footer.p2':'Cómo funciona','footer.p3':'Precios','footer.p4':'Plantillas',
+      'footer.company':'Empresa','footer.c1':'Nosotros','footer.c2':'Empleo','footer.c3':'Prensa','footer.c4':'Contacto',
+      'footer.resources':'Recursos','footer.r1':'Centro de ayuda','footer.r2':'Tableros de la comunidad','footer.r3':'Blog','footer.r4':'Estado',
+      'footer.legal':'Legal','footer.l1':'Privacidad','footer.l2':'Términos','footer.l3':'Cookies',
+      'footer.rights':'Todos los derechos reservados.',
+      'cookie.text':'Usamos cookies para que los tableros vayan rápidos y entender cómo se usa MORADA.','cookie.accept':'Entendido','cookie.decline':'No, gracias'
+    },
+
+    fr: {
+      'meta.title':'MORADA — Concevez votre intérieur à deux',
+      'meta.desc':'MORADA transforme l\'inspiration en un canevas partagé. Épinglez pièces, couleurs et meubles avec votre conjoint ou votre architecte — puis entrez dans un intérieur que vous avez imaginé ensemble.',
+      'nav.how':'Comment ça marche','nav.features':'Fonctionnalités','nav.gallery':'Inspiration','nav.pricing':'Tarifs','nav.faq':'FAQ','nav.cta':'Commencer gratuitement',
+      'hero.pill':'Des tableaux visuels pour votre intérieur',
+      'hero.title':'Tout intérieur commence<br>par un <span class="hl">tableau</span>',
+      'hero.sub':'MORADA transforme l\'inspiration en un canevas partagé. Épinglez pièces, couleurs et meubles avec votre conjoint ou votre architecte — puis entrez dans un intérieur que vous avez imaginé ensemble.',
+      'hero.cta1':'Créer un tableau','hero.cta2':'Voir comment ça marche','hero.trust':'Gratuit pour toujours sur les tableaux perso · Sans carte bancaire',
+      'logos.title':'Adoré des équipes qui façonnent les espaces',
+      'how.title':'Trois étapes vers un intérieur que vous aimerez',
+      'how.sub':'Aucune compétence en moodboard requise. Si vous savez glisser-déposer, vous savez concevoir une pièce.',
+      'how.s1.title':'Créez un tableau','how.s1.desc':'Nommez-le par pièce — Salon, Cuisine, Couloir. Votre canevas est prêt en quelques secondes.',
+      'how.s2.title':'Épinglez vos idées','how.s2.desc':'Glissez photos, échantillons et meubles depuis n\'importe où. Le tableau se remplit comme un collage de goûts.',
+      'how.s3.title':'Décidez ensemble','how.s3.desc':'Commentez, votez avec des cœurs, déplacez les épingles jusqu\'à ce que le plan vous ressemble à tous les deux.',
+      'feat.1.title':'Épinglez tout','feat.1.desc':'Photos, tissus, échantillons de bois, plans. Si vous le voyez, il a sa place sur votre tableau.',
+      'feat.2.title':'Des palettes qui s\'accordent','feat.2.desc':'Choisissez une couleur dans n\'importe quelle photo et MORADA construit toute la palette de la pièce autour.','feat.2.pick':'Choisissez une couleur',
+      'feat.3.title':'Discutez-en','feat.3.desc':'Commentez une épingle précise, pas tout le tableau. La conversation reste là où vit l\'idée.',
+      'feat.4.title':'Un tableau par pièce','feat.4.desc':'Chaque espace bien rangé. Fini les cinquante captures d\'écran perdues dans le chat.',
+      'feat.5.title':'Partagez en un clic','feat.5.desc':'Un lien privé amène votre conjoint, colocataire ou architecte sur le même canevas.',
+      'gallery.title':'Des pièces à tomber amoureux',
+      'gallery.sub':'De vrais tableaux de la communauté MORADA. Touchez une pièce pour explorer ses épingles.',
+      'gallery.t1':'Salon lumineux','gallery.t2':'Chambre paisible','gallery.t3':'Salon neutre chaleureux','gallery.t4':'Le tableau de toute la maison','gallery.t5':'Dîner du dimanche','gallery.t6':'La cuisine à îlot',
+      'testi.title':'Couples, familles et architectes sont d\'accord',
+      'testi.sub':'Des milliers d\'intérieurs ont été conçus sur un tableau MORADA avant qu\'un seul mur ne soit peint.',
+      'testi.q1':'« Nous avons rénové tout notre appartement sur un seul tableau. Mon conjoint épinglait, je commentais, l\'architecte exécutait. Personne ne s\'est disputé, personne n\'a pleuré — même pas pour l\'îlot de cuisine. »',
+      'testi.n1':'Marina & Alex','testi.r1':'Ont rénové un 68 m², Lisbonne',
+      'testi.q2':'« J\'amène chaque client sur un tableau partagé. Rien que l\'outil de palettes me fait gagner une heure par projet. »',
+      'testi.n2':'Jonas Helling','testi.r2':'Architecte d\'intérieur, Berlin',
+      'testi.q3':'« Mes enfants ont leur tableau aussi. Les laisser concevoir leur chambre met fin au drame de la déco. »',
+      'testi.n3':'Sofia Peres','testi.r3':'Trois enfants, un couloir très rose',
+      'price.title':'Des tarifs simples et honnêtes','price.sub':'Commencez gratuitement. Passez au plan supérieur quand toute la maison rejoint.',
+      'price.free.name':'Gratuit','price.free.desc':'Pour vos premiers tableaux perso.','price.free.f1':'3 tableaux','price.free.f2':'Épingles illimitées par tableau','price.free.f3':'Outil de palettes','price.free.f4':'Partage avec 1 invité','price.free.cta':'Commencer gratuitement',
+      'price.studio.name':'Studio','price.studio.desc':'Pour les couples et petits projets.','price.studio.f1':'Tableaux illimités','price.studio.f2':'Jusqu\'à 5 collaborateurs','price.studio.f3':'Commentaires et votes','price.studio.f4':'Catalogue de prix des meubles','price.studio.f5':'Export en plan PDF','price.studio.cta':'Choisir Studio',
+      'price.team.name':'Équipe','price.team.desc':'Pour les familles et cabinets d\'architecture.','price.team.f1':'Collaborateurs illimités','price.team.f2':'Liens de revue client','price.team.f3':'Tableaux à votre marque','price.team.f4':'Support prioritaire','price.team.cta':'Nous contacter',
+      'faq.title':'Des questions, des réponses','faq.sub':'Tout ce qu\'il faut savoir avant votre premier tableau.',
+      'faq.q1':'Faut-il de l\'expérience en design ?','faq.a1':'Aucune. MORADA fonctionne comme un tableau de liège — glissez, déplacez, regardez ce qui vous plaît. L\'outil de palettes fait les calculs de couleurs pour vous.',
+      'faq.q2':'Puis-je partager un tableau avec quelqu\'un sans compte ?','faq.a2':'Oui. Chaque tableau a un lien privé — les invités peuvent voir et commenter sans créer de compte. Seul le propriétaire décide qui peut modifier.',
+      'faq.q3':'D\'où viennent les prix des meubles ?','faq.a3':'Les plans Studio et Équipe incluent un catalogue de prix en direct de grandes enseignes. Les prix sont mis à jour chaque semaine pour que votre budget reste réaliste.',
+      'faq.q4':'Mon architecte peut-il voir mes tableaux ?','faq.a4':'Si vous partagez le lien, oui — et la plupart adorent. Un tableau plein de vos goûts épinglés vaut plus que mille mots lors d\'un brief.',
+      'faq.q5':'Mes données sont-elles privées ?','faq.a5':'Les tableaux sont privés par défaut et n\'apparaissent jamais dans les recherches. Nous ne vendons pas vos données et vous pouvez tout exporter ou supprimer à tout moment.',
+      'faq.q6':'Puis-je annuler à tout moment ?','faq.a6':'À tout moment, en deux clics. Vos tableaux restent lisibles dans le plan Gratuit — vous ne perdez que les collaborateurs et outils supplémentaires.',
+      'news.title':'Une pièce à la fois','news.sub':'Des idées fraîches pour votre intérieur, deux fois par mois. De vraies pièces, de vraies palettes, zéro bruit.','news.label':'Adresse e-mail','news.ph':'vous@exemple.fr','news.cta':'S\'abonner','news.ok':'C\'est bon ! Vérifiez votre boîte mail pour le premier tableau. ✓',
+      'footer.tag':'Concevez votre intérieur à deux — une épingle à la fois.',
+      'footer.product':'Produit','footer.p1':'Fonctionnalités','footer.p2':'Comment ça marche','footer.p3':'Tarifs','footer.p4':'Modèles',
+      'footer.company':'Entreprise','footer.c1':'À propos','footer.c2':'Carrières','footer.c3':'Presse','footer.c4':'Contact',
+      'footer.resources':'Ressources','footer.r1':'Centre d\'aide','footer.r2':'Tableaux de la communauté','footer.r3':'Blog','footer.r4':'Statut',
+      'footer.legal':'Légal','footer.l1':'Confidentialité','footer.l2':'Conditions','footer.l3':'Cookies',
+      'footer.rights':'Tous droits réservés.',
+      'cookie.text':'Nous utilisons des cookies pour que les tableaux restent rapides et comprendre comment MORADA est utilisé.','cookie.accept':'Compris','cookie.decline':'Non merci'
+    },
+
+    de: {
+      'meta.title':'MORADA — Gestaltet euer Zuhause gemeinsam',
+      'meta.desc':'MORADA verwandelt Inspiration in eine gemeinsame Leinwand. Pinnt Räume, Farben und Möbel mit eurem Partner oder Architekten — und betretet ein Zuhause, das ihr euch beide erträumt habt.',
+      'nav.how':'So funktioniert\'s','nav.features':'Funktionen','nav.gallery':'Inspiration','nav.pricing':'Preise','nav.faq':'FAQ','nav.cta':'Kostenlos starten',
+      'hero.pill':'Visuelle Boards für die Wohnplanung',
+      'hero.title':'Jedes Zuhause beginnt<br>als <span class="hl">Board</span>',
+      'hero.sub':'MORADA verwandelt Inspiration in eine gemeinsame Leinwand. Pinnt Räume, Farben und Möbel mit eurem Partner oder Architekten — und betretet ein Zuhause, das ihr euch beide erträumt habt.',
+      'hero.cta1':'Board erstellen','hero.cta2':'So funktioniert\'s','hero.trust':'Für persönliche Boards für immer kostenlos · Ohne Kreditkarte',
+      'logos.title':'Geliebt von Teams, die Räume gestalten',
+      'how.title':'Drei Schritte zu einem Zuhause, das ihr liebt',
+      'how.sub':'Keine Moodboard-Kenntnisse nötig. Wer Drag & Drop kann, kann einen Raum gestalten.',
+      'how.s1.title':'Board erstellen','how.s1.desc':'Benennt es nach Raum — Wohnzimmer, Küche, Flur. Eure Leinwand ist in Sekunden bereit.',
+      'how.s2.title':'Ideen pinnen','how.s2.desc':'Zieht Fotos, Stoffmuster und Möbel von überallher. Das Board füllt sich wie ein Collage eures Geschmacks.',
+      'how.s3.title':'Gemeinsam entscheiden','how.s3.desc':'Kommentiert, stimmt mit Herzen ab und verschiebt Pins, bis der Plan nach euch beiden klingt.',
+      'feat.1.title':'Alles pinnen','feat.1.desc':'Fotos, Stoffe, Holzproben, Grundrisse. Wenn ihr es seht, hat es einen Platz auf eurem Board.',
+      'feat.2.title':'Paletten, die passen','feat.2.desc':'Wählt eine Farbe aus einem Foto und MORADA baut die komplette Raumpalette darum herum.','feat.2.pick':'Farbe auswählen',
+      'feat.3.title':'Darüber reden','feat.3.desc':'Kommentiert einen einzelnen Pin, nicht das ganze Board. Gespräche bleiben dort, wo die Idee lebt.',
+      'feat.4.title':'Ein Board pro Raum','feat.4.desc':'Jeder Raum organisiert. Schluss mit fünfzig verlorenen Screenshots im Chat.',
+      'feat.5.title':'Mit einem Klick teilen','feat.5.desc':'Ein privater Link bringt Partner, Mitbewohner oder Architekten auf dieselbe Leinwand.',
+      'gallery.title':'Räume zum Verlieben',
+      'gallery.sub':'Echte Boards aus der MORADA-Community. Tippt auf einen Raum, um seine Pins zu erkunden.',
+      'gallery.t1':'Heller Wohnraum','gallery.t2':'Ruhiges Schlafzimmer','gallery.t3':'Warmer Neutral-Wohnraum','gallery.t4':'Das Ganzhaus-Board','gallery.t5':'Sonntags-Esszimmer','gallery.t6':'Die Küche mit Insel',
+      'testi.title':'Paare, Familien und Architekten sind sich einig',
+      'testi.sub':'Tausende Zuhause wurden auf einem MORADA-Board entworfen, bevor eine Wand gestrichen wurde.',
+      'testi.q1':'„Wir haben unsere ganze Wohnung auf einem Board renoviert. Mein Partner pinnte, ich kommentierte, der Architekt setzte um. Niemand hat gestritten, niemand geweint — nicht mal wegen der Kücheninsel.“',
+      'testi.n1':'Marina & Alex','testi.r1':'68 m² Wohnung renoviert, Lissabon',
+      'testi.q2':'„Ich bringe jeden Kunden auf ein gemeinsames Board. Allein das Paletten-Tool spart mir eine Stunde pro Projekt.“',
+      'testi.n2':'Jonas Helling','testi.r2':'Innenarchitekt, Berlin',
+      'testi.q3':'„Meine Kinder haben auch ein Board. Sie ihr Zimmer selbst gestalten zu lassen, beendet das Deko-Drama.“',
+      'testi.n3':'Sofia Peres','testi.r3':'Drei Kinder, ein sehr rosa Flur',
+      'price.title':'Einfache, ehrliche Preise','price.sub':'Kostenlos starten. Upgraden, wenn der ganze Haushalt mitmacht.',
+      'price.free.name':'Kostenlos','price.free.desc':'Für eure ersten persönlichen Boards.','price.free.f1':'3 Boards','price.free.f2':'Unbegrenzte Pins pro Board','price.free.f3':'Paletten-Tool','price.free.f4':'Mit 1 Gast teilen','price.free.cta':'Kostenlos starten',
+      'price.studio.name':'Studio','price.studio.desc':'Für Paare und kleine Projekte.','price.studio.f1':'Unbegrenzte Boards','price.studio.f2':'Bis zu 5 Mitwirkende','price.studio.f3':'Kommentare & Abstimmungen','price.studio.f4':'Möbel-Preisbuch','price.studio.f5':'Als PDF-Plan exportieren','price.studio.cta':'Studio wählen',
+      'price.team.name':'Team','price.team.desc':'Für Familien und Architekturbüros.','price.team.f1':'Unbegrenzte Mitwirkende','price.team.f2':'Kunden-Review-Links','price.team.f3':'Boards mit eurem Branding','price.team.f4':'Priorisierter Support','price.team.cta':'Kontakt aufnehmen',
+      'faq.title':'Fragen, beantwortet','faq.sub':'Alles, was ihr vor eurem ersten Board wissen müsst.',
+      'faq.q1':'Brauche ich Designerfahrung?','faq.a1':'Überhaupt nicht. MORADA funktioniert wie eine Pinnwand — Dinge hineinziehen, umherschieben, sehen, was sich richtig anfühlt. Das Paletten-Tool rechnet die Farben für euch.',
+      'faq.q2':'Kann ich ein Board mit jemandem ohne Konto teilen?','faq.a2':'Ja. Jedes Board hat einen privaten Link — Gäste können ansehen und kommentieren, ohne ein Konto zu erstellen. Nur der Besitzer entscheidet, wer bearbeiten darf.',
+      'faq.q3':'Woher kommen die Möbelpreise?','faq.a3':'Die Pläne Studio und Team enthalten ein Live-Preisbuch großer Händler. Die Preise werden wöchentlich aktualisiert, damit euer Budget realistisch bleibt.',
+      'faq.q4':'Kann mein Architekt meine Boards sehen?','faq.a4':'Wenn ihr den Link teilt, ja — und die meisten lieben es. Ein Board voller eures gepinnten Geschmacks ist mehr wert als tausend Worte im Briefing.',
+      'faq.q5':'Sind meine Daten privat?','faq.a5':'Boards sind standardmäßig privat und erscheinen nie in der Suche. Wir verkaufen keine Daten, und ihr könnt alles jederzeit exportieren oder löschen.',
+      'faq.q6':'Kann ich jederzeit kündigen?','faq.a6':'Jederzeit, mit zwei Klicks. Eure Boards bleiben im Kostenlos-Plan lesbar — ihr verliert nur die zusätzlichen Mitwirkenden und Tools.',
+      'news.title':'Ein Raum nach dem anderen','news.sub':'Frische Ideen für euer Zuhause, zweimal im Monat. Echte Räume, echte Paletten, null Lärm.','news.label':'E-Mail-Adresse','news.ph':'du@beispiel.de','news.cta':'Abonnieren','news.ok':'Ihr seid dabei! Checkt euer Postfach für das erste Board. ✓',
+      'footer.tag':'Gestaltet euer Zuhause gemeinsam — ein Pin nach dem anderen.',
+      'footer.product':'Produkt','footer.p1':'Funktionen','footer.p2':'So funktioniert\'s','footer.p3':'Preise','footer.p4':'Vorlagen',
+      'footer.company':'Unternehmen','footer.c1':'Über uns','footer.c2':'Karriere','footer.c3':'Presse','footer.c4':'Kontakt',
+      'footer.resources':'Ressourcen','footer.r1':'Hilfezentrum','footer.r2':'Community-Boards','footer.r3':'Blog','footer.r4':'Status',
+      'footer.legal':'Rechtliches','footer.l1':'Datenschutz','footer.l2':'AGB','footer.l3':'Cookies',
+      'footer.rights':'Alle Rechte vorbehalten.',
+      'cookie.text':'Wir verwenden Cookies, damit Boards flott bleiben und wir verstehen, wie MORADA genutzt wird.','cookie.accept':'Verstanden','cookie.decline':'Nein danke'
+    },
+
+    it: {
+      'meta.title':'MORADA — Progettate casa insieme',
+      'meta.desc':'MORADA trasforma l\'ispirazione in una tela condivisa. Appunta stanze, colori e mobili con il tuo partner o il tuo architetto — poi entra in una casa che avete immaginato insieme.',
+      'nav.how':'Come funziona','nav.features':'Funzionalità','nav.gallery':'Ispirazione','nav.pricing':'Prezzi','nav.faq':'FAQ','nav.cta':'Inizia gratis',
+      'hero.pill':'Board visivi per progettare casa',
+      'hero.title':'Ogni casa inizia<br>da una <span class="hl">board</span>',
+      'hero.sub':'MORADA trasforma l\'ispirazione in una tela condivisa. Appunta stanze, colori e mobili con il tuo partner o il tuo architetto — poi entra in una casa che avete immaginato insieme.',
+      'hero.cta1':'Crea una board','hero.cta2':'Guarda come funziona','hero.trust':'Gratis per sempre sulle board personali · Nessuna carta',
+      'logos.title':'Amato dai team che danno forma agli spazi',
+      'how.title':'Tre passi verso una casa che amerete',
+      'how.sub':'Nessuna competenza da moodboard richiesta. Se sai trascinare e rilasciare, sai progettare una stanza.',
+      'how.s1.title':'Crea una board','how.s1.desc':'Dai un nome per stanza — Soggiorno, Cucina, Ingresso. La tua tela è pronta in pochi secondi.',
+      'how.s2.title':'Appunta le tue idee','how.s2.desc':'Trascina foto, campioni e mobili da ovunque. La board si riempie come un collage di gusti.',
+      'how.s3.title':'Decidete insieme','how.s3.desc':'Lascia commenti, vota con i cuori e sposta gli appunti finché il piano non somiglia a entrambi.',
+      'feat.1.title':'Appunta qualsiasi cosa','feat.1.desc':'Foto, tessuti, campioni di legno, piantine. Se lo vedi, ha un posto sulla tua board.',
+      'feat.2.title':'Palette che si abbinano','feat.2.desc':'Scegli un colore da qualsiasi foto e MORADA costruisce l\'intera palette della stanza attorno ad esso.','feat.2.pick':'Scegli un colore',
+      'feat.3.title':'Parlatene','feat.3.desc':'Commenta un singolo appunto, non tutta la board. La conversazione vive dove sta l\'idea.',
+      'feat.4.title':'Una board per stanza','feat.4.desc':'Ogni spazio organizzato. Basta con i cinquanta screenshot persi nella chat.',
+      'feat.5.title':'Condividi con un clic','feat.5.desc':'Un link privato porta il tuo partner, coinquilino o architetto sulla stessa tela.',
+      'gallery.title':'Stanze da innamorarsi',
+      'gallery.sub':'Board vere dalla community MORADA. Tocca una stanza per esplorare i suoi appunti.',
+      'gallery.t1':'Soggiorno luminoso','gallery.t2':'Camera silenziosa','gallery.t3':'Soggiorno neutro caldo','gallery.t4':'La board di tutta la casa','gallery.t5':'Pranzo della domenica','gallery.t6':'La cucina con isola',
+      'testi.title':'Coppie, famiglie e architetti sono d\'accordo',
+      'testi.sub':'Migliaia di case sono state progettate su una board MORADA prima che un solo muro venisse dipinto.',
+      'testi.q1':'“Abbiamo ristrutturato tutto l\'appartamento su una board. Il mio partner appuntava, io commentavo, l\'architetto realizzava. Nessuno ha litigato e nessuno ha pianto — nemmeno per l\'isola della cucina.”',
+      'testi.n1':'Marina & Alex','testi.r1':'Ristrutturato un 68 m², Lisbona',
+      'testi.q2':'“Porto ogni cliente su una board condivisa. Solo lo strumento palette mi fa risparmiare un\'ora a progetto.”',
+      'testi.n2':'Jonas Helling','testi.r2':'Architetto d\'interni, Berlino',
+      'testi.q3':'“Anche i miei figli hanno una board. Lasciarli progettare la loro stanza mette fine al dramma dell\'arredamento.”',
+      'testi.n3':'Sofia Peres','testi.r3':'Tre figli, un corridoio molto rosa',
+      'price.title':'Prezzi semplici e onesti','price.sub':'Inizia gratis. Passa al piano superiore quando si unisce tutta la casa.',
+      'price.free.name':'Gratis','price.free.desc':'Per le tue prime board personali.','price.free.f1':'3 board','price.free.f2':'Appunti illimitati per board','price.free.f3':'Strumento palette','price.free.f4':'Condividi con 1 ospite','price.free.cta':'Inizia gratis',
+      'price.studio.name':'Studio','price.studio.desc':'Per coppie e piccoli progetti.','price.studio.f1':'Board illimitate','price.studio.f2':'Fino a 5 collaboratori','price.studio.f3':'Commenti e votazioni','price.studio.f4':'Listino prezzi mobili','price.studio.f5':'Esporta come piano PDF','price.studio.cta':'Scegli Studio',
+      'price.team.name':'Team','price.team.desc':'Per famiglie e studi di architettura.','price.team.f1':'Collaboratori illimitati','price.team.f2':'Link di revisione clienti','price.team.f3':'Board con il tuo brand','price.team.f4':'Supporto prioritario','price.team.cta':'Contattaci',
+      'faq.title':'Domande, risposte','faq.sub':'Tutto quello che serve sapere prima della tua prima board.',
+      'faq.q1':'Serve esperienza di design?','faq.a1':'Nessuna. MORADA funziona come una bacheca — trascina le cose, spostale, guarda cosa ti piace. Lo strumento palette fa i calcoli dei colori per te.',
+      'faq.q2':'Posso condividere una board con chi non ha un account?','faq.a2':'Sì. Ogni board ha un link privato — gli ospiti possono vedere e commentare senza creare un account. Solo il proprietario decide chi può modificare.',
+      'faq.q3':'Da dove vengono i prezzi dei mobili?','faq.a3':'I piani Studio e Team includono un listino prezzi live dai principali rivenditori. I prezzi si aggiornano ogni settimana, così il budget resta realistico.',
+      'faq.q4':'Il mio architetto può vedere le mie board?','faq.a4':'Se condividi il link, sì — e alla maggior parte piace molto. Una board piena dei tuoi gusti appuntati vale più di mille parole in un briefing.',
+      'faq.q5':'I miei dati sono privati?','faq.a5':'Le board sono private per impostazione predefinita e non compaiono mai nella ricerca. Non vendiamo dati e puoi esportare o eliminare tutto in qualsiasi momento.',
+      'faq.q6':'Posso cancellare quando voglio?','faq.a6':'Quando vuoi, in due clic. Le tue board restano leggibili nel piano Gratis — perdi solo i collaboratori e gli strumenti extra.',
+      'news.title':'Una stanza alla volta','news.sub':'Idee fresche per casa tua, due volte al mese. Stanze vere, palette vere, zero rumore.','news.label':'Indirizzo email','news.ph':'tu@esempio.it','news.cta':'Iscriviti','news.ok':'Dentro! Controlla la tua casella per la prima board. ✓',
+      'footer.tag':'Progettate casa insieme — un appunto alla volta.',
+      'footer.product':'Prodotto','footer.p1':'Funzionalità','footer.p2':'Come funziona','footer.p3':'Prezzi','footer.p4':'Modelli',
+      'footer.company':'Azienda','footer.c1':'Chi siamo','footer.c2':'Lavora con noi','footer.c3':'Stampa','footer.c4':'Contatti',
+      'footer.resources':'Risorse','footer.r1':'Centro assistenza','footer.r2':'Board della community','footer.r3':'Blog','footer.r4':'Stato',
+      'footer.legal':'Legale','footer.l1':'Privacy','footer.l2':'Termini','footer.l3':'Cookie',
+      'footer.rights':'Tutti i diritti riservati.',
+      'cookie.text':'Usiamo i cookie per mantenere le board veloci e capire come viene usato MORADA.','cookie.accept':'Ok','cookie.decline':'No grazie'
+    },
+
+    pt: {
+      'meta.title':'MORADA — Desenhe a sua casa a dois',
+      'meta.desc':'MORADA transforma inspiração num canvas partilhado. Fixe divisões, cores e móveis com o seu par ou arquiteto — e entre numa casa que ambos imaginaram.',
+      'nav.how':'Como funciona','nav.features':'Funcionalidades','nav.gallery':'Inspiração','nav.pricing':'Preços','nav.faq':'FAQ','nav.cta':'Comece grátis',
+      'hero.pill':'Quadros visuais para desenhar a casa',
+      'hero.title':'Toda a casa começa<br>num <span class="hl">quadro</span>',
+      'hero.sub':'MORADA transforma inspiração num canvas partilhado. Fixe divisões, cores e móveis com o seu par ou arquiteto — e entre numa casa que ambos imaginaram.',
+      'hero.cta1':'Criar um quadro','hero.cta2':'Ver como funciona','hero.trust':'Grátis para sempre em quadros pessoais · Sem cartão de crédito',
+      'logos.title':'Amado por equipas que moldam espaços',
+      'how.title':'Três passos para uma casa de que vai gostar',
+      'how.sub':'Sem precisar de saber fazer moodboards. Se sabe arrastar e largar, sabe desenhar uma divisão.',
+      'how.s1.title':'Crie um quadro','how.s1.desc':'Dê-lhe o nome da divisão — Sala, Cozinha, Corredor. O seu canvas fica pronto em segundos.',
+      'how.s2.title':'Fixe as suas ideias','how.s2.desc':'Arraste fotos, amostras e móveis de qualquer lado. O quadro enche-se como uma colagem de gostos.',
+      'how.s3.title':'Decidam juntos','how.s3.desc':'Deixem comentários, votem com corações e movam as fixações até o plano soar aos dois.',
+      'feat.1.title':'Fixe o que quiser','feat.1.desc':'Fotos, tecidos, amostras de madeira, plantas. Se consegue ver, tem lugar no seu quadro.',
+      'feat.2.title':'Paletas que combinam','feat.2.desc':'Escolha uma cor de qualquer foto e a MORADA constrói a paleta completa da divisão à volta dela.','feat.2.pick':'Escolha uma cor',
+      'feat.3.title':'Conversem sobre isso','feat.3.desc':'Comente uma fixação específica, não o quadro inteiro. A conversa fica onde vive a ideia.',
+      'feat.4.title':'Um quadro por divisão','feat.4.desc':'Cada espaço organizado. Chega de cinquenta capturas de ecrã perdidas no chat.',
+      'feat.5.title':'Partilhe num clique','feat.5.desc':'Uma ligação privada traz o seu par, colega de casa ou arquiteto para o mesmo canvas.',
+      'gallery.title':'Divisões para nos apaixonarmos',
+      'gallery.sub':'Quadros reais da comunidade MORADA. Toque numa divisão para explorar as suas fixações.',
+      'gallery.t1':'Sala luminosa','gallery.t2':'Quarto tranquilo','gallery.t3':'Sala neutra acolhedora','gallery.t4':'O quadro da casa inteira','gallery.t5':'Jantar de domingo','gallery.t6':'A cozinha com ilha',
+      'testi.title':'Casais, famílias e arquitetos concordam',
+      'testi.sub':'Milhares de casas foram desenhadas num quadro MORADA antes de uma única parede ser pintada.',
+      'testi.q1':'“Renovámos o apartamento inteiro num quadro. O meu par fixava, eu comentava, o arquiteto executava. Ninguém discutiu e ninguém chorou — nem por causa da ilha da cozinha.”',
+      'testi.n1':'Marina & Alex','testi.r1':'Renovaram um 68 m², Lisboa',
+      'testi.q2':'“Levo cada cliente para um quadro partilhado. Só a ferramenta de paletas poupa-me uma hora por projeto.”',
+      'testi.n2':'Jonas Helling','testi.r2':'Arquiteto de interiores, Berlim',
+      'testi.q3':'“Os meus filhos também têm um quadro. Deixá-los desenhar o próprio quarto acaba com o drama da decoração.”',
+      'testi.n3':'Sofia Peres','testi.r3':'Três filhos, um corredor muito cor-de-rosa',
+      'price.title':'Preços simples e honestos','price.sub':'Comece grátis. Suba de plano quando a casa toda entrar.',
+      'price.free.name':'Grátis','price.free.desc':'Para os seus primeiros quadros pessoais.','price.free.f1':'3 quadros','price.free.f2':'Fixações ilimitadas por quadro','price.free.f3':'Ferramenta de paletas','price.free.f4':'Partilhe com 1 convidado','price.free.cta':'Comece grátis',
+      'price.studio.name':'Studio','price.studio.desc':'Para casais e pequenos projetos.','price.studio.f1':'Quadros ilimitados','price.studio.f2':'Até 5 colaboradores','price.studio.f3':'Comentários e votações','price.studio.f4':'Livro de preços de móveis','price.studio.f5':'Exportar como planta PDF','price.studio.cta':'Escolher Studio',
+      'price.team.name':'Equipa','price.team.desc':'Para famílias e gabinetes de arquitetura.','price.team.f1':'Colaboradores ilimitados','price.team.f2':'Links de revisão para clientes','price.team.f3':'Quadros com a sua marca','price.team.f4':'Suporte prioritário','price.team.cta':'Fale connosco',
+      'faq.title':'Perguntas, respondidas','faq.sub':'Tudo o que precisa de saber antes do seu primeiro quadro.',
+      'faq.q1':'Preciso de experiência em design?','faq.a1':'Nenhuma. A MORADA funciona como um quadro de cortiça — arraste coisas, mova-as, veja o que soa bem. A ferramenta de paletas faz as contas das cores por si.',
+      'faq.q2':'Posso partilhar um quadro com alguém sem conta?','faq.a2':'Sim. Cada quadro tem uma ligação privada — os convidados podem ver e comentar sem criar conta. Só o dono decide quem pode editar.',
+      'faq.q3':'De onde vêm os preços dos móveis?','faq.a3':'Os planos Studio e Equipa incluem um livro de preços em tempo real de grandes lojas. Os preços atualizam semanalmente para o seu orçamento ser realista.',
+      'faq.q4':'O meu arquiteto pode ver os meus quadros?','faq.a4':'Se partilhar a ligação, sim — e a maioria adora. Um quadro cheio do seu gosto fixado vale mais do que mil palavras num briefing.',
+      'faq.q5':'Os meus dados são privados?','faq.a5':'Os quadros são privados por defeito e nunca aparecem em pesquisas. Não vendemos dados e pode exportar ou apagar tudo quando quiser.',
+      'faq.q6':'Posso cancelar quando quiser?','faq.a6':'Quando quiser, em dois cliques. Os seus quadros continuam legíveis no plano Grátis — só perde os colaboradores e ferramentas extra.',
+      'news.title':'Uma divisão de cada vez','news.sub':'Ideias frescas para a sua casa, duas vezes por mês. Divisões reais, paletas reais, zero ruído.','news.label':'Endereço de email','news.ph':'voce@exemplo.pt','news.cta':'Subscrever','news.ok':'Dentro! Verifique a sua caixa de entrada para o primeiro quadro. ✓',
+      'footer.tag':'Desenhe a sua casa a dois — uma fixação de cada vez.',
+      'footer.product':'Produto','footer.p1':'Funcionalidades','footer.p2':'Como funciona','footer.p3':'Preços','footer.p4':'Modelos',
+      'footer.company':'Empresa','footer.c1':'Sobre nós','footer.c2':'Carreiras','footer.c3':'Imprensa','footer.c4':'Contacto',
+      'footer.resources':'Recursos','footer.r1':'Centro de ajuda','footer.r2':'Quadros da comunidade','footer.r3':'Blog','footer.r4':'Estado',
+      'footer.legal':'Legal','footer.l1':'Privacidade','footer.l2':'Termos','footer.l3':'Cookies',
+      'footer.rights':'Todos os direitos reservados.',
+      'cookie.text':'Usamos cookies para manter os quadros rápidos e perceber como a MORADA é usada.','cookie.accept':'Percebido','cookie.decline':'Não, obrigado'
+    }
+  };
+
+  /* Keys that may contain HTML markup (allow-list) */
+  var HTML_KEYS = ['hero.title'];
+
+  function getLang(){
+    var saved = null;
+    try{ saved = localStorage.getItem('morada-lang'); }catch(e){}
+    if (saved && TRANSLATIONS[saved]) return saved;
+    var nav = (navigator.language || navigator.userLanguage || '').toLowerCase();
+    if (nav.indexOf('es') === 0) return 'es';
+    if (nav.indexOf('fr') === 0) return 'fr';
+    if (nav.indexOf('de') === 0) return 'de';
+    if (nav.indexOf('it') === 0) return 'it';
+    if (nav.indexOf('pt') === 0) return 'pt';
+    return 'en';
+  }
+
+  function applyLanguage(lang){
+    if (!TRANSLATIONS[lang]) lang = 'en';
+    try{ localStorage.setItem('morada-lang', lang); }catch(e){}
+    var t = TRANSLATIONS[lang];
+
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var key = el.getAttribute('data-i18n');
+      var val = t[key];
+      if (val === undefined) return;
+      if (HTML_KEYS.indexOf(key) !== -1) el.innerHTML = val;
+      else el.textContent = val;
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(function(el){
+      var key = el.getAttribute('data-i18n-html');
+      var val = t[key];
+      if (val !== undefined) el.innerHTML = val;
+    });
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(function(el){
+      var key = el.getAttribute('data-i18n-placeholder');
+      var val = t[key];
+      if (val !== undefined) el.placeholder = val;
+    });
+
+    document.title = t['meta.title'];
+    document.getElementById('meta-desc').setAttribute('content', t['meta.desc']);
+    var ogt = document.querySelector('meta[property="og:title"]');
+    var ogd = document.querySelector('meta[property="og:description"]');
+    var twt = document.querySelector('meta[name="twitter:title"]');
+    var twd = document.querySelector('meta[name="twitter:description"]');
+    if (ogt) ogt.setAttribute('content', t['meta.title']);
+    if (ogd) ogd.setAttribute('content', t['meta.desc']);
+    if (twt) twt.setAttribute('content', t['meta.title']);
+    if (twd) twd.setAttribute('content', t['meta.desc']);
+    document.documentElement.lang = lang;
+
+    document.querySelectorAll('.lang-select').forEach(function(sel){
+      sel.value = lang;
+    });
+  }
+
+  function buildLangSwitcher(container){
+    var langs = [
+      {code:'en',label:'English'},{code:'es',label:'Español'},{code:'fr',label:'Français'},
+      {code:'de',label:'Deutsch'},{code:'it',label:'Italiano'},{code:'pt',label:'Português'}
+    ];
+    container.innerHTML = '';
+    var sel = document.createElement('select');
+    sel.className = 'lang-select';
+    sel.setAttribute('aria-label', 'Language');
+    langs.forEach(function(l){
+      var opt = document.createElement('option');
+      opt.value = l.code;
+      opt.textContent = l.label;
+      sel.appendChild(opt);
+    });
+    sel.addEventListener('change', function(){ applyLanguage(sel.value); });
+    container.appendChild(sel);
+  }
+
+  /* ---- Theme ---- */
+  function getTheme(){
+    var saved = null;
+    try{ saved = localStorage.getItem('kairos-theme'); }catch(e){}
+    if (saved === 'dark' || saved === 'light') return saved;
+    return 'light';
+  }
+  function setTheme(t){
+    document.documentElement.setAttribute('data-theme', t);
+    try{ localStorage.setItem('kairos-theme', t); }catch(e){}
+  }
+  function toggleTheme(){
+    setTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+  }
+
+  /* ---- Reveal on scroll ---- */
+  var io = null;
+  function initReveal(){
+    io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+  }
+
+  /* ---- Palette demo (feat.2) ---- */
+  function hexToHsl(hex){
+    var r = parseInt(hex.slice(1,3),16)/255, g = parseInt(hex.slice(3,5),16)/255, b = parseInt(hex.slice(5,7),16)/255;
+    var max = Math.max(r,g,b), min = Math.min(r,g,b);
+    var h=0, s=0, l=(max+min)/2;
+    if (max !== min){
+      var d = max-min;
+      s = l > .5 ? d/(2-max-min) : d/(max+min);
+      switch(max){
+        case r: h = (g-b)/d + (g<b ? 6 : 0); break;
+        case g: h = (b-r)/d + 2; break;
+        case b: h = (r-g)/d + 4; break;
+      }
+      h *= 60;
+    }
+    return [Math.round(h), Math.round(s*100), Math.round(l*100)];
+  }
+  function hslToHex(h,s,l){
+    h = ((h % 360) + 360) % 360; s/=100; l/=100;
+    var c = (1 - Math.abs(2*l - 1)) * s, x = c * (1 - Math.abs((h/60) % 2 - 1)), m = l - c/2;
+    var r=0,g=0,b=0;
+    if (h < 60){ r=c; g=x; } else if (h < 120){ r=x; g=c; } else if (h < 180){ g=c; b=x; }
+    else if (h < 240){ g=x; b=c; } else if (h < 300){ r=x; b=c; } else { r=c; b=x; }
+    function to(v){ return Math.round((v+m)*255).toString(16).padStart(2,'0'); }
+    return '#' + to(r) + to(g) + to(b);
+  }
+  function buildPalette(base){
+    var hsl = hexToHsl(base);
+    var h = hsl[0], s = hsl[1], l = hsl[2];
+    return [
+      base,
+      hslToHex(h + 30, Math.min(100, s*0.85), Math.min(97, l + 14)),
+      hslToHex(h - 25, Math.min(100, s*0.9), Math.max(8,  l - 13)),
+      hslToHex(h + 160, Math.max(12, s*0.45), Math.min(96, l + 6)),
+      hslToHex(h + 320, Math.max(14, s*0.55), Math.max(10, l - 6))
+    ];
+  }
+  function initPaletteDemo(){
+    var btn = document.getElementById('palettePick');
+    var input = document.getElementById('paletteInput');
+    var strip = document.getElementById('paletteStrip');
+    if (!btn || !input || !strip) return;
+    var swatches = Array.prototype.slice.call(strip.children);
+    function render(hex, animate){
+      var pal = buildPalette(hex);
+      swatches.forEach(function(sw, i){
+        sw.style.background = pal[i];
+        sw.setAttribute('data-hex', pal[i]);
+        sw.setAttribute('aria-label', pal[i]);
+        if (animate){
+          sw.classList.remove('bump');
+          void sw.offsetWidth;
+          sw.classList.add('bump');
+        }
+      });
+    }
+    btn.addEventListener('click', function(){ input.click(); });
+    input.addEventListener('change', function(){ render(input.value, true); });
+    render('#b98a6a', false);
+    swatches.forEach(function(sw){
+      sw.setAttribute('tabindex', '0');
+      sw.setAttribute('role', 'listitem');
+      sw.addEventListener('click', function(){
+        input.value = sw.getAttribute('data-hex');
+        render(input.value, true);
+      });
+      sw.addEventListener('keydown', function(e){
+        if (e.key === 'Enter' || e.key === ' '){
+          e.preventDefault();
+          input.value = sw.getAttribute('data-hex');
+          render(input.value, true);
+        }
+      });
+    });
+  }
+
+  /* ---- Mobile menu ---- */
+  function initMobileMenu(){
+    var burger = document.getElementById('burger');
+    var menu = document.getElementById('mobileMenu');
+    burger.addEventListener('click', function(){
+      var open = menu.classList.toggle('open');
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    menu.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){ menu.classList.remove('open'); burger.setAttribute('aria-expanded','false'); });
+    });
+  }
+
+  /* ---- Newsletter ---- */
+  function initNewsletter(){
+    var form = document.getElementById('newsForm');
+    var ok = document.getElementById('newsOk');
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var email = document.getElementById('newsEmail');
+      if (!email.value || email.value.indexOf('@') === -1){
+        email.focus();
+        return;
+      }
+      form.style.display = 'none';
+      ok.classList.add('show');
+    });
+  }
+
+  /* ---- Cookie banner ---- */
+  function initCookie(){
+    var accepted = null;
+    try{ accepted = localStorage.getItem('morada-cookie'); }catch(e){}
+    if (accepted) return;
+    var banner = document.getElementById('cookieBanner');
+    setTimeout(function(){ banner.classList.add('show'); }, 3000);
+    function dismiss(v){
+      try{ localStorage.setItem('morada-cookie', v); }catch(e){}
+      banner.classList.remove('show');
+      setTimeout(function(){ banner.style.display = 'none'; }, 500);
+    }
+    document.getElementById('cookieOk').addEventListener('click', function(){ dismiss('1'); });
+    document.getElementById('cookieNo').addEventListener('click', function(){ dismiss('0'); });
+  }
+
+  /* ---- Boot ---- */
+  document.addEventListener('DOMContentLoaded', function(){
+    document.getElementById('year').textContent = new Date().getFullYear();
+    buildLangSwitcher(document.getElementById('langSwitcher'));
+    buildLangSwitcher(document.getElementById('langSwitcherMobile'));
+    applyLanguage(getLang());
+    document.getElementById('themeToggle').addEventListener('click', toggleTheme);
+    setTheme(getTheme());
+    initReveal();
+    initPaletteDemo();
+    initMobileMenu();
+    initNewsletter();
+    initCookie();
+  });
+  </script>
+</body>
+</html>

@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="doc-title">SCRIBA — Structured content CMS for modern teams</title>
+<meta id="meta-desc" name="description" content="SCRIBA is a headless CMS built for structured content. Design schemas, write in real time, and ship to any front-end via API.">
+<link rel="canonical" href="https://proyectos.cristiancode.dev/landings/2026-08-18-scriba.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="SCRIBA — Structured content CMS for modern teams">
+<meta property="og:description" content="SCRIBA is a headless CMS built for structured content.">
+<meta property="og:url" content="https://proyectos.cristiancode.dev/landings/2026-08-18-scriba.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SCRIBA — Structured content CMS">
+<meta name="twitter:description" content="Headless CMS for structured content teams.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%230b0b0b'/><rect x='22' y='28' width='56' height='10' rx='3' fill='%23c23b32'/><rect x='22' y='46' width='40' height='8' rx='3' fill='%23b9b9b9'/><rect x='22' y='62' width='48' height='8' rx='3' fill='%23535353'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   DESIGN SYSTEM — SCRIBA
+   Surface: Decide/Learn (landing). Secondary Compare in pricing.
+   Derived from: Sanity (popular-web-designs) — nocturnal command center
+   Family: SaaS / CMS / Developer tools
+   Style: Dark-capable precision, coral CTA pills, mono labels
+   Strategy: Restrained light canvas + Drenched dark; CTA coral AA
+   Type: Space Grotesk + IBM Plex Mono
+   ============================================================ */
+
+:root{
+  --bg:#f6f6f6; --surface:#ffffff; --ink:#0b0b0b; --muted:#5a5a5a;
+  --cta:#c23b32; --cta-hover:#0052ef; --line:#e0e0e0; --elev:#212121;
+  --ok:#0f7a34; --mono:'IBM Plex Mono',ui-monospace,monospace;
+  --sans:'Space Grotesk',system-ui,sans-serif;
+  --ease:cubic-bezier(.25,1,.35,1); --r:6px; --pill:9999px;
+}
+[data-theme="dark"]{
+  --bg:#0b0b0b; --surface:#212121; --ink:#ffffff; --muted:#b9b9b9;
+  --cta:#c23b32; --cta-hover:#0052ef; --line:#353535; --elev:#353535; --ok:#37cd84;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+html.no-js .reveal{opacity:1;transform:none}
+@media print{.reveal{opacity:1;transform:none}}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit}
+img,svg{display:block;max-width:100%}
+.container{width:min(1120px,92%);margin-inline:auto}
+.skip{position:absolute;left:-999px;top:0;background:var(--cta);color:#fff;padding:.6rem 1rem;z-index:100}
+.skip:focus{left:1rem;top:1rem}
+/* nav */
+.nav{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1px solid var(--line)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.85rem 0}
+.logo{font-weight:600;letter-spacing:-.03em;font-size:1.15rem;display:flex;align-items:center;gap:.5rem}
+.logo-mark{width:22px;height:22px;border-radius:4px;background:var(--cta)}
+.nav-links{display:flex;align-items:center;gap:1.25rem}
+.nav-links a{color:var(--muted);font-size:.95rem}
+.nav-links a:hover{color:var(--cta-hover)}
+.nav-actions{display:flex;align-items:center;gap:.6rem}
+.icon-btn{width:40px;height:40px;border-radius:var(--pill);border:1px solid var(--line);background:var(--surface);color:var(--ink);display:grid;place-items:center}
+.icon-btn:hover{border-color:var(--cta-hover);color:var(--cta-hover)}
+.burger{display:none}
+.nav-desktop-only{display:contents}
+@media (max-width:900px){.nav-desktop-only{display:none!important}.nav-actions > .btn-primary{display:none}}
+.mobile-menu{display:none;border-top:1px solid var(--line);padding:1rem 0 1.25rem}
+.mobile-menu.open{display:block}
+.mobile-menu a{display:block;padding:.65rem 0;color:var(--muted)}
+.mobile-menu .nav-actions{margin-top:.75rem;flex-wrap:wrap}
+/* lang */
+.lang-select{position:relative}
+.lang-select__btn{display:inline-flex;align-items:center;gap:.35rem;padding:.45rem .7rem;border-radius:var(--pill);border:1px solid var(--line);background:var(--surface);color:var(--ink);font-size:.85rem;cursor:pointer}
+.lang-select__btn:hover,.lang-select__btn[aria-expanded="true"]{border-color:var(--cta-hover)}
+.lang-select__menu{position:absolute;right:0;top:calc(100% + 6px);min-width:148px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:.35rem;list-style:none;z-index:60;box-shadow:0 12px 40px rgba(0,0,0,.18)}
+.lang-select__menu[hidden]{display:none!important}
+.lang-select__menu li{padding:.5rem .65rem;border-radius:6px;cursor:pointer;font-size:.9rem;color:var(--muted)}
+.lang-select__menu li:hover,.lang-select__menu li[aria-selected="true"]{background:color-mix(in srgb,var(--cta-hover) 12%,var(--surface));color:var(--ink)}
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.4rem;padding:.7rem 1.15rem;border-radius:var(--pill);border:none;font-weight:500;cursor:pointer;transition:background .2s var(--ease),color .2s var(--ease),transform .2s var(--ease)}
+.btn-primary{background:var(--cta);color:#fff}
+.btn-primary:hover{background:var(--cta-hover)}
+.btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.btn-ghost:hover{border-color:var(--cta-hover);color:var(--cta-hover)}
+.btn-dark{background:var(--ink);color:var(--bg)}
+.btn-dark:hover{background:var(--cta-hover);color:#fff}
+/* hero */
+.hero{padding:clamp(3rem,8vw,5.5rem) 0 clamp(3rem,7vw,4.5rem);display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2rem,5vw,3.5rem);align-items:center}
+.kicker{font-family:var(--mono);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:.9rem}
+h1{font-size:clamp(2.4rem,5.2vw,3.75rem);line-height:1.05;letter-spacing:-.035em;font-weight:500;text-wrap:balance;max-width:16ch}
+.lead{margin-top:1.1rem;color:var(--muted);font-size:clamp(1.02rem,1.5vw,1.15rem);max-width:42ch;text-wrap:pretty}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.6rem}
+.trust{margin-top:1.4rem;font-size:.88rem;color:var(--muted)}
+/* mock */
+.mock{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.12)}
+.mock-bar{display:flex;align-items:center;gap:.4rem;padding:.65rem .9rem;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:.72rem;color:var(--muted)}
+.mock-dot{width:8px;height:8px;border-radius:50%;background:var(--line)}
+.mock-dot:nth-child(1){background:#f36458}.mock-dot:nth-child(2){background:#e6b84d}.mock-dot:nth-child(3){background:#37cd84}
+.mock-body{display:grid;grid-template-columns:1fr 1.1fr;min-height:280px}
+.mock-side{padding:1rem;border-right:1px solid var(--line);background:color-mix(in srgb,var(--bg) 70%,var(--surface))}
+.mock-main{padding:1rem}
+.tag{display:inline-block;font-family:var(--mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.5rem}
+.tree{list-style:none;font-size:.88rem}
+.tree li{padding:.35rem .5rem;border-radius:5px;color:var(--muted)}
+.tree li.active{background:color-mix(in srgb,var(--cta) 14%,transparent);color:var(--ink)}
+.field{margin-bottom:.75rem}
+.field label{display:block;font-size:.72rem;font-family:var(--mono);color:var(--muted);margin-bottom:.25rem}
+.field .box{height:34px;border:1px solid var(--line);border-radius:3px;background:var(--bg);display:flex;align-items:center;padding:0 .6rem;font-size:.88rem}
+.field .box.tall{height:64px;align-items:flex-start;padding-top:.5rem}
+.badge{display:inline-flex;align-items:center;gap:.3rem;padding:.2rem .55rem;border-radius:var(--pill);background:color-mix(in srgb,var(--ok) 18%,transparent);color:var(--ok);font-size:.75rem;font-weight:500}
+/* sections */
+section{padding:clamp(3.5rem,8vw,5.5rem) 0}
+.sec-head{max-width:40rem;margin-bottom:2.2rem}
+.sec-head h2{font-size:clamp(1.8rem,3.6vw,2.6rem);letter-spacing:-.03em;line-height:1.12;font-weight:500;text-wrap:balance}
+.sec-head p{margin-top:.75rem;color:var(--muted);max-width:52ch}
+/* features asymmetric */
+.feat-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:1rem}
+.feat-card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:1.4rem 1.35rem}
+.feat-card.wide{grid-row:span 2;display:flex;flex-direction:column;justify-content:space-between;min-height:280px}
+.feat-card h3{font-size:1.2rem;letter-spacing:-.02em;font-weight:500;margin-bottom:.5rem}
+.feat-card p{color:var(--muted);font-size:.95rem}
+.feat-num{font-family:var(--mono);font-size:.75rem;color:var(--muted);margin-bottom:.8rem}
+/* studio */
+.studio{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:center}
+.studio ul{list-style:none;margin-top:1.2rem}
+.studio li{padding:.55rem 0;border-bottom:1px solid var(--line);color:var(--muted);display:flex;gap:.6rem;align-items:flex-start}
+.studio li::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--cta);margin-top:.45rem;flex-shrink:0}
+.studio-art{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:1.25rem;min-height:280px}
+.studio-art .row{display:flex;gap:.5rem;margin-bottom:.6rem}
+.studio-art .chip{height:28px;border-radius:var(--pill);background:var(--bg);border:1px solid var(--line);flex:1}
+.studio-art .pane{height:180px;border-radius:8px;background:linear-gradient(160deg,var(--bg),color-mix(in srgb,var(--cta) 12%,var(--bg)));border:1px solid var(--line);position:relative;overflow:hidden}
+.studio-art .pane::after{content:"";position:absolute;inset:20% 15% auto;height:40%;border-radius:6px;background:var(--surface);border:1px solid var(--line);box-shadow:0 8px 24px rgba(0,0,0,.12)}
+/* pricing */
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;align-items:stretch}
+.plan{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:1.5rem 1.35rem;display:flex;flex-direction:column}
+.plan.featured{border-color:var(--cta);box-shadow:0 0 0 1px var(--cta)}
+.plan .flag{display:inline-block;font-size:.72rem;font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em;color:#fff;background:var(--cta);padding:.2rem .55rem;border-radius:var(--pill);margin-bottom:.7rem}
+.plan h3{font-size:1.15rem;font-weight:500}
+.price{font-size:2.4rem;letter-spacing:-.03em;margin:.5rem 0 .15rem;font-weight:500}
+.per{color:var(--muted);font-size:.88rem;margin-bottom:1rem}
+.plan ul{list-style:none;flex:1;margin-bottom:1.25rem}
+.plan li{padding:.4rem 0;color:var(--muted);font-size:.92rem;padding-left:1.1rem;position:relative}
+.plan li::before{content:"✓";position:absolute;left:0;color:var(--ok);font-weight:600}
+/* faq */
+.faq{max-width:720px;margin-inline:auto}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-q{width:100%;text-align:left;background:none;border:0;color:var(--ink);padding:1.1rem 0;font-size:1.05rem;font-weight:500;display:flex;justify-content:space-between;gap:1rem;cursor:pointer}
+.faq-q .chev{transition:transform .25s var(--ease);flex-shrink:0}
+.faq-item.open .faq-q .chev{transform:rotate(180deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s var(--ease);color:var(--muted)}
+.faq-a-inner{padding:0 0 1.1rem;max-width:60ch}
+/* newsletter */
+.nl{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:clamp(1.5rem,4vw,2.5rem);display:grid;grid-template-columns:1.2fr 1fr;gap:1.5rem;align-items:center}
+.nl form{display:flex;gap:.5rem;flex-wrap:wrap}
+.nl input{flex:1;min-width:180px;padding:.75rem 1rem;border-radius:var(--pill);border:1px solid var(--line);background:var(--bg);color:var(--ink)}
+.nl input:focus{outline:2px solid var(--cta-hover);outline-offset:1px}
+.nl-msg{font-size:.88rem;margin-top:.55rem;display:none}
+.nl-msg.ok{color:var(--ok);display:block}
+.nl-msg.err{color:var(--cta);display:block}
+/* footer */
+footer{border-top:1px solid var(--line);padding:2.5rem 0 2rem;margin-top:1rem}
+.ft-grid{display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:1.5rem}
+.ft-grid h4{font-size:.75rem;font-family:var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:.8rem}
+.ft-grid a{display:block;color:var(--muted);padding:.25rem 0;font-size:.92rem}
+.ft-grid a:hover{color:var(--cta-hover)}
+.ft-copy{margin-top:2rem;padding-top:1rem;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+/* cookie */
+.cookie{position:fixed;left:1rem;right:1rem;bottom:1rem;z-index:80;max-width:480px;margin-inline:auto;background:var(--elev);color:#fff;border-radius:14px;padding:1rem 1.1rem;display:none;box-shadow:0 16px 40px rgba(0,0,0,.35)}
+[data-theme="light"] .cookie{background:#0b0b0b}
+.cookie.show{display:block}
+.cookie p{font-size:.9rem;color:#b9b9b9;margin-bottom:.8rem}
+.cookie .row{display:flex;gap:.5rem;flex-wrap:wrap}
+.cookie .btn-primary{background:#c23b32}
+/* reveal */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+  *{animation:none!important;transition:none!important}
+}
+@media (max-width:900px){
+  .hero,.studio,.nl,.feat-grid,.plans,.ft-grid{grid-template-columns:1fr}
+  .feat-card.wide{grid-row:auto;min-height:0}
+  .mock-body{grid-template-columns:1fr}
+  .mock-side{border-right:0;border-bottom:1px solid var(--line)}
+  .nav-links{display:none}
+  .burger{display:grid}
+  h1{max-width:none}
+}
+
+</style>
+</head>
+<body>
+<a class="skip" href="#hero" data-i18n="skip">Skip to content</a>
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="logo" href="#"><span class="logo-mark" aria-hidden="true"></span>SCRIBA</a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#features" data-i18n="nav_product">Product</a>
+      <a href="#studio" data-i18n="nav_studio">Studio</a>
+      <a href="#pricing" data-i18n="nav_pricing">Pricing</a>
+      <a href="#faq" data-i18n="nav_faq">FAQ</a>
+    </nav>
+    <div class="nav-actions">
+      <div class="nav-desktop-only" style="display:contents">
+        <div class="lang-select">
+  <button type="button" class="lang-select__btn" aria-haspopup="listbox" aria-expanded="false" data-i18n-aria="nav_lang">
+    <span class="lang-select__cur">EN</span>
+    <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5L6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+  </button>
+  <ul class="lang-select__menu" role="listbox" hidden>
+    <li role="option" data-lang="en" aria-selected="true">English</li>
+    <li role="option" data-lang="es" aria-selected="false">Español</li>
+    <li role="option" data-lang="fr" aria-selected="false">Français</li>
+    <li role="option" data-lang="de" aria-selected="false">Deutsch</li>
+    <li role="option" data-lang="it" aria-selected="false">Italiano</li>
+    <li role="option" data-lang="pt" aria-selected="false">Português</li>
+  </ul>
+</div>
+      </div>
+      <button type="button" class="icon-btn" data-theme-toggle data-i18n-aria="nav_theme" aria-label="Toggle theme">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+      <a class="btn btn-primary" href="#pricing" data-i18n="nav_cta">Start free</a>
+      <button type="button" class="icon-btn burger" id="burger" aria-expanded="false" data-i18n-aria="nav_menu" aria-label="Open menu">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="container mobile-menu" id="mobileMenu">
+    <a href="#features" data-i18n="nav_product">Product</a>
+    <a href="#studio" data-i18n="nav_studio">Studio</a>
+    <a href="#pricing" data-i18n="nav_pricing">Pricing</a>
+    <a href="#faq" data-i18n="nav_faq">FAQ</a>
+    <div class="nav-actions"><div class="lang-select">
+  <button type="button" class="lang-select__btn" aria-haspopup="listbox" aria-expanded="false" data-i18n-aria="nav_lang">
+    <span class="lang-select__cur">EN</span>
+    <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5L6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+  </button>
+  <ul class="lang-select__menu" role="listbox" hidden>
+    <li role="option" data-lang="en" aria-selected="true">English</li>
+    <li role="option" data-lang="es" aria-selected="false">Español</li>
+    <li role="option" data-lang="fr" aria-selected="false">Français</li>
+    <li role="option" data-lang="de" aria-selected="false">Deutsch</li>
+    <li role="option" data-lang="it" aria-selected="false">Italiano</li>
+    <li role="option" data-lang="pt" aria-selected="false">Português</li>
+  </ul>
+</div></div>
+  </div>
+</header>
+
+<main>
+<section class="container hero" id="hero">
+  <div>
+    <p class="kicker" data-i18n="hero_kicker">Headless CMS</p>
+    <h1 data-i18n="hero_title">Content with a schema. Sites without the chaos.</h1>
+    <p class="lead" data-i18n="hero_sub">SCRIBA gives content teams a structured studio and developers a clean API.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-primary" href="#pricing" data-i18n="hero_cta1">Start free</a>
+      <a class="btn btn-ghost" href="#studio" data-i18n="hero_cta2">See the studio</a>
+    </div>
+    <p class="trust" data-i18n="hero_trust">Trusted by product and editorial teams</p>
+  </div>
+  <div class="mock" aria-hidden="true">
+    <div class="mock-bar"><span class="mock-dot"></span><span class="mock-dot"></span><span class="mock-dot"></span><span data-i18n="mock_schema">schema</span> · content</div>
+    <div class="mock-body">
+      <div class="mock-side">
+        <div class="tag" data-i18n="mock_doc">article</div>
+        <ul class="tree">
+          <li class="active" data-i18n="mock_title">Title</li>
+          <li data-i18n="mock_body">Body</li>
+          <li data-i18n="mock_author">Author</li>
+        </ul>
+      </div>
+      <div class="mock-main">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.8rem">
+          <span class="tag" data-i18n="mock_preview">Live preview</span>
+          <span class="badge" data-i18n="mock_status">Published</span>
+        </div>
+        <div class="field"><label data-i18n="mock_title">Title</label><div class="box">Shipping the schema studio</div></div>
+        <div class="field"><label data-i18n="mock_body">Body</label><div class="box tall">Structured fields keep every channel in sync…</div></div>
+        <div class="field"><label data-i18n="mock_author">Author</label><div class="box">Ada Lovelace</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="features">
+  <div class="container">
+    <div class="sec-head reveal">
+      <p class="kicker" data-i18n="feat_label">Why SCRIBA</p>
+      <h2 data-i18n="feat_title">Built for the people who actually ship content.</h2>
+      <p data-i18n="feat_sub">Not another page builder.</p>
+    </div>
+    <div class="feat-grid">
+      <article class="feat-card wide reveal">
+        <div>
+          <div class="feat-num">01</div>
+          <h3 data-i18n="f1_t">Schema-first modeling</h3>
+          <p data-i18n="f1_d">Define documents, fields and references once.</p>
+        </div>
+        <svg width="100%" height="120" viewBox="0 0 320 120" aria-hidden="true">
+          <rect x="10" y="20" width="90" height="80" rx="8" fill="none" stroke="currentColor" opacity=".25"/>
+          <rect x="115" y="20" width="90" height="80" rx="8" fill="none" stroke="currentColor" opacity=".4"/>
+          <rect x="220" y="20" width="90" height="80" rx="8" fill="none" stroke="currentColor" opacity=".25"/>
+          <circle cx="160" cy="60" r="6" fill="#c23b32"/>
+          <path d="M100 60h15M205 60h15" stroke="#c23b32" stroke-width="2"/>
+        </svg>
+      </article>
+      <article class="feat-card reveal"><div class="feat-num">02</div><h3 data-i18n="f2_t">Real-time collaborative studio</h3><p data-i18n="f2_d">Multiple editors, presence indicators and live draft sync.</p></article>
+      <article class="feat-card reveal"><div class="feat-num">03</div><h3 data-i18n="f3_t">API that stays out of the way</h3><p data-i18n="f3_d">Query by GROQ-style filters or REST.</p></article>
+      <article class="feat-card reveal" style="grid-column:1/-1"><div class="feat-num">04</div><h3 data-i18n="f4_t">Preview every channel</h3><p data-i18n="f4_d">Wire a preview URL per presentation.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="studio">
+  <div class="container studio">
+    <div class="reveal">
+      <p class="kicker" data-i18n="studio_label">Studio</p>
+      <h2 data-i18n="studio_title">A command center for structured content.</h2>
+      <p class="lead" style="margin-top:1rem" data-i18n="studio_body">The desk is dark, precise and keyboard-friendly.</p>
+      <ul>
+        <li data-i18n="studio_b1">Document list with filters</li>
+        <li data-i18n="studio_b2">Field-level validation</li>
+        <li data-i18n="studio_b3">Reference pickers</li>
+        <li data-i18n="studio_b4">Publish, schedule or revert</li>
+      </ul>
+    </div>
+    <div class="studio-art reveal" aria-hidden="true">
+      <div class="row"><div class="chip"></div><div class="chip"></div><div class="chip" style="flex:.5"></div></div>
+      <div class="pane"></div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="container">
+    <div class="sec-head reveal" style="text-align:center;margin-inline:auto">
+      <p class="kicker" data-i18n="pr_label">Pricing</p>
+      <h2 data-i18n="pr_title">Simple plans. No seat games.</h2>
+      <p data-i18n="pr_sub">Start free. Upgrade when the team grows.</p>
+    </div>
+    <div class="plans">
+      <article class="plan reveal">
+        <h3 data-i18n="pr_free">Free</h3>
+        <div class="price" data-i18n="pr_free_p">€0</div>
+        <div class="per" data-i18n="pr_free_per">forever</div>
+        <ul>
+          <li data-i18n="pr_free_f1">3 users</li>
+          <li data-i18n="pr_free_f2">2 datasets</li>
+          <li data-i18n="pr_free_f3">API + webhooks</li>
+          <li data-i18n="pr_free_f4">Community support</li>
+        </ul>
+        <a class="btn btn-ghost" href="#" data-i18n="pr_free_cta">Create project</a>
+      </article>
+      <article class="plan featured reveal">
+        <span class="flag" data-i18n="pr_pro_flag">Most teams</span>
+        <h3 data-i18n="pr_pro">Studio</h3>
+        <div class="price" data-i18n="pr_pro_p">€29</div>
+        <div class="per" data-i18n="pr_pro_per">/ month</div>
+        <ul>
+          <li data-i18n="pr_pro_f1">Unlimited users</li>
+          <li data-i18n="pr_pro_f2">10 datasets</li>
+          <li data-i18n="pr_pro_f3">Roles & SSO</li>
+          <li data-i18n="pr_pro_f4">Scheduled publish</li>
+          <li data-i18n="pr_pro_f5">Priority support</li>
+        </ul>
+        <a class="btn btn-primary" href="#" data-i18n="pr_pro_cta">Start Studio</a>
+      </article>
+      <article class="plan reveal">
+        <h3 data-i18n="pr_ent">Scale</h3>
+        <div class="price" data-i18n="pr_ent_p">Custom</div>
+        <div class="per" data-i18n="pr_ent_per">talk to us</div>
+        <ul>
+          <li data-i18n="pr_ent_f1">Everything in Studio</li>
+          <li data-i18n="pr_ent_f2">Dedicated cluster</li>
+          <li data-i18n="pr_ent_f3">Audit log & SLA</li>
+          <li data-i18n="pr_ent_f4">Custom contracts</li>
+        </ul>
+        <a class="btn btn-ghost" href="#" data-i18n="pr_ent_cta">Contact sales</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="container">
+    <div class="sec-head reveal" style="text-align:center;margin-inline:auto">
+      <p class="kicker" data-i18n="faq_label">FAQ</p>
+      <h2 data-i18n="faq_title">Questions from the desk.</h2>
+    </div>
+    <div class="faq">
+      <div class="faq-item reveal">
+        <button class="faq-q" aria-expanded="false"><span data-i18n="fq1_q"></span><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="faq-a"><div class="faq-a-inner" data-i18n="fq1_a"></div></div>
+      </div><div class="faq-item reveal">
+        <button class="faq-q" aria-expanded="false"><span data-i18n="fq2_q"></span><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="faq-a"><div class="faq-a-inner" data-i18n="fq2_a"></div></div>
+      </div><div class="faq-item reveal">
+        <button class="faq-q" aria-expanded="false"><span data-i18n="fq3_q"></span><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="faq-a"><div class="faq-a-inner" data-i18n="fq3_a"></div></div>
+      </div><div class="faq-item reveal">
+        <button class="faq-q" aria-expanded="false"><span data-i18n="fq4_q"></span><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="faq-a"><div class="faq-a-inner" data-i18n="fq4_a"></div></div>
+      </div><div class="faq-item reveal">
+        <button class="faq-q" aria-expanded="false"><span data-i18n="fq5_q"></span><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="faq-a"><div class="faq-a-inner" data-i18n="fq5_a"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="nl reveal">
+      <div>
+        <p class="kicker" data-i18n="nl_label">Newsletter</p>
+        <h2 data-i18n="nl_title">Ship notes, not noise.</h2>
+        <p style="color:var(--muted);margin-top:.5rem" data-i18n="nl_body">One email a month.</p>
+      </div>
+      <form id="nlForm" class="nl-form" novalidate>
+        <input id="nlEmail" type="email" required autocomplete="email" data-i18n-ph="nl_ph" placeholder="you@company.com">
+        <button class="btn btn-primary" type="submit" data-i18n="nl_cta">Subscribe</button>
+        <div style="flex-basis:100%">
+          <div id="nlOk" class="nl-msg" data-i18n="nl_ok"></div>
+          <div id="nlErr" class="nl-msg" data-i18n="nl_err"></div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="ft-grid">
+      <div>
+        <div class="logo" style="margin-bottom:.8rem"><span class="logo-mark"></span>SCRIBA</div>
+        <p style="color:var(--muted);font-size:.92rem;max-width:28ch" data-i18n="ft_copy">© 2026 SCRIBA.</p>
+      </div>
+      <div>
+        <h4 data-i18n="ft_product">Product</h4>
+        <a href="#" data-i18n="ft_docs">Docs</a>
+        <a href="#" data-i18n="ft_api">API reference</a>
+        <a href="#" data-i18n="ft_changelog">Changelog</a>
+      </div>
+      <div>
+        <h4 data-i18n="ft_company">Company</h4>
+        <a href="#" data-i18n="ft_about">About</a>
+        <a href="#" data-i18n="ft_careers">Careers</a>
+        <a href="#" data-i18n="ft_contact">Contact</a>
+      </div>
+      <div>
+        <h4 data-i18n="ft_legal">Legal</h4>
+        <a href="#" data-i18n="ft_privacy">Privacy</a>
+        <a href="#" data-i18n="ft_terms">Terms</a>
+      </div>
+    </div>
+    <div class="ft-copy" data-i18n="ft_copy">© 2026 SCRIBA.</div>
+  </div>
+</footer>
+
+<div class="cookie" id="cookieBanner" role="dialog" aria-live="polite">
+  <p data-i18n="ck_text">We use essential cookies.</p>
+  <div class="row">
+    <button type="button" class="btn btn-primary" id="cookieOk" data-i18n="ck_accept">Accept</button>
+    <button type="button" class="btn btn-ghost" id="cookieNo" data-i18n="ck_decline" style="border-color:#353535;color:#fff">Decline</button>
+  </div>
+</div>
+
+<script>
+var TRANSLATIONS = {
+en: {
+  meta_title:"SCRIBA — Structured content CMS for modern teams", meta_desc:"SCRIBA is a headless CMS built for structured content. Design schemas, write in real time, and ship to any front-end via API.", skip:"Skip to content", nav_product:"Product",
+  nav_studio:"Studio", nav_pricing:"Pricing", nav_faq:"FAQ", nav_cta:"Start free",
+  nav_theme:"Toggle theme", nav_menu:"Open menu", nav_lang:"Language", hero_kicker:"Headless CMS",
+  hero_title:"Content with a schema. Sites without the chaos.", hero_sub:"SCRIBA gives content teams a structured studio and developers a clean API. One source of truth, real-time preview, zero page builders.", hero_cta1:"Start free", hero_cta2:"See the studio",
+  hero_trust:"Trusted by product and editorial teams shipping multi-channel content", mock_schema:"schema", mock_doc:"article", mock_title:"Title",
+  mock_body:"Body", mock_author:"Author", mock_status:"Published", mock_preview:"Live preview",
+  feat_label:"Why SCRIBA", feat_title:"Built for the people who actually ship content.", feat_sub:"Not another page builder. A content system with structure, permissions and an API your front-end will love.", f1_t:"Schema-first modeling",
+  f1_d:"Define documents, fields and references once. Editors get forms that match the model — no free-form mess.", f2_t:"Real-time collaborative studio", f2_d:"Multiple editors, presence indicators and live draft sync. Write together without stepping on each other.", f3_t:"API that stays out of the way",
+  f3_d:"Query by GROQ-style filters or REST. CDN-cached JSON for any framework — Next, Astro, Nuxt, plain HTML.", f4_t:"Preview every channel", f4_d:"Wire a preview URL per presentation. See web, app and email renders before you hit publish.", studio_label:"Studio",
+  studio_title:"A command center for structured content.", studio_body:"The desk is dark, precise and keyboard-friendly. Navigate documents, edit fields, and watch the preview update as you type.", studio_b1:"Document list with filters and saved views", studio_b2:"Field-level validation and required rules",
+  studio_b3:"Reference pickers across content types", studio_b4:"Publish, schedule or revert in one click", pr_label:"Pricing", pr_title:"Simple plans. No seat games.",
+  pr_sub:"Start free. Upgrade when the team and the traffic grow.", pr_free:"Free", pr_free_p:"€0", pr_free_per:"forever",
+  pr_free_f1:"3 users", pr_free_f2:"2 datasets", pr_free_f3:"API + webhooks", pr_free_f4:"Community support",
+  pr_free_cta:"Create project", pr_pro:"Studio", pr_pro_p:"€29", pr_pro_per:"/ month",
+  pr_pro_flag:"Most teams", pr_pro_f1:"Unlimited users", pr_pro_f2:"10 datasets", pr_pro_f3:"Roles & SSO",
+  pr_pro_f4:"Scheduled publish", pr_pro_f5:"Priority support", pr_pro_cta:"Start Studio", pr_ent:"Scale",
+  pr_ent_p:"Custom", pr_ent_per:"talk to us", pr_ent_f1:"Everything in Studio", pr_ent_f2:"Dedicated cluster",
+  pr_ent_f3:"Audit log & SLA", pr_ent_f4:"Custom contracts", pr_ent_cta:"Contact sales", faq_label:"FAQ",
+  faq_title:"Questions from the desk.", fq1_q:"Is SCRIBA really headless?", fq1_a:"Yes. There is no built-in public site. You own the front-end; SCRIBA delivers structured JSON over HTTPS with CDN caching.", fq2_q:"Can non-developers use the studio?",
+  fq2_a:"That is the point. Schemas become clean forms. Editors never see the API — only the fields you designed.", fq3_q:"How does localization work?", fq3_a:"Documents can carry locale fields or linked translations. The API filters by locale so each channel gets the right language.", fq4_q:"What about migrations when the schema changes?",
+  fq4_a:"Schema versions are tracked. You can add fields safely; breaking changes require a migration script we generate for you.", fq5_q:"Where is data hosted?", fq5_a:"EU and US regions at launch. Enterprise can pin a single region and export full dumps anytime.", nl_label:"Newsletter",
+  nl_title:"Ship notes, not noise.", nl_body:"Product updates, schema patterns and studio tips. One email a month.", nl_ph:"you@company.com", nl_cta:"Subscribe",
+  nl_ok:"You're on the list. Welcome aboard.", nl_err:"Enter a valid email address.", ft_product:"Product", ft_company:"Company",
+  ft_legal:"Legal", ft_docs:"Docs", ft_api:"API reference", ft_changelog:"Changelog",
+  ft_about:"About", ft_careers:"Careers", ft_contact:"Contact", ft_privacy:"Privacy",
+  ft_terms:"Terms", ft_copy:"© 2026 SCRIBA. Structured content, calmly delivered.", ck_text:"We use essential cookies to keep you signed in and remember theme and language.", ck_accept:"Accept",
+  ck_decline:"Decline"
+},
+es: {
+  meta_title:"SCRIBA — CMS de contenido estructurado para equipos modernos", meta_desc:"SCRIBA es un CMS headless para contenido estructurado. Diseña esquemas, escribe en tiempo real y publica en cualquier front mediante API.", skip:"Saltar al contenido", nav_product:"Producto",
+  nav_studio:"Studio", nav_pricing:"Precios", nav_faq:"FAQ", nav_cta:"Empezar gratis",
+  nav_theme:"Cambiar tema", nav_menu:"Abrir menú", nav_lang:"Idioma", hero_kicker:"CMS headless",
+  hero_title:"Contenido con esquema. Sitios sin el caos.", hero_sub:"SCRIBA da a los equipos editoriales un studio estructurado y a los desarrolladores una API limpia. Una sola fuente de verdad, preview en vivo, cero page builders.", hero_cta1:"Empezar gratis", hero_cta2:"Ver el studio",
+  hero_trust:"Equipos de producto y editorial que publican contenido multicanal", mock_schema:"esquema", mock_doc:"artículo", mock_title:"Título",
+  mock_body:"Cuerpo", mock_author:"Autor", mock_status:"Publicado", mock_preview:"Preview en vivo",
+  feat_label:"Por qué SCRIBA", feat_title:"Hecho para quienes de verdad publican contenido.", feat_sub:"No es otro page builder. Un sistema de contenido con estructura, permisos y una API que tu front va a querer.", f1_t:"Modelado schema-first",
+  f1_d:"Define documentos, campos y referencias una vez. Los editores reciben formularios que encajan con el modelo.", f2_t:"Studio colaborativo en tiempo real", f2_d:"Varios editores, presencia y borradores en vivo. Escribid juntos sin pisaros.", f3_t:"API que no estorba",
+  f3_d:"Consultas estilo GROQ o REST. JSON cacheado en CDN para cualquier framework.", f4_t:"Preview en cada canal", f4_d:"Conecta una URL de preview por presentación. Web, app y email antes de publicar.", studio_label:"Studio",
+  studio_title:"Un centro de mando para contenido estructurado.", studio_body:"El escritorio es oscuro, preciso y amable con el teclado. Navega documentos, edita campos y mira el preview al escribir.", studio_b1:"Lista de documentos con filtros y vistas", studio_b2:"Validación a nivel de campo",
+  studio_b3:"Selectores de referencia entre tipos", studio_b4:"Publicar, programar o revertir en un clic", pr_label:"Precios", pr_title:"Planes simples. Sin juegos de asientos.",
+  pr_sub:"Empieza gratis. Escala cuando crezcan el equipo y el tráfico.", pr_free:"Gratis", pr_free_p:"0 €", pr_free_per:"para siempre",
+  pr_free_f1:"3 usuarios", pr_free_f2:"2 datasets", pr_free_f3:"API + webhooks", pr_free_f4:"Soporte comunidad",
+  pr_free_cta:"Crear proyecto", pr_pro:"Studio", pr_pro_p:"29 €", pr_pro_per:"/ mes",
+  pr_pro_flag:"La mayoría", pr_pro_f1:"Usuarios ilimitados", pr_pro_f2:"10 datasets", pr_pro_f3:"Roles y SSO",
+  pr_pro_f4:"Publicación programada", pr_pro_f5:"Soporte prioritario", pr_pro_cta:"Empezar Studio", pr_ent:"Scale",
+  pr_ent_p:"A medida", pr_ent_per:"háblanos", pr_ent_f1:"Todo de Studio", pr_ent_f2:"Cluster dedicado",
+  pr_ent_f3:"Audit log y SLA", pr_ent_f4:"Contratos custom", pr_ent_cta:"Hablar con ventas", faq_label:"FAQ",
+  faq_title:"Preguntas del escritorio.", fq1_q:"¿SCRIBA es de verdad headless?", fq1_a:"Sí. No hay web pública integrada. Tú controlas el front; SCRIBA entrega JSON estructurado por HTTPS con caché CDN.", fq2_q:"¿Pueden usarlo perfiles no técnicos?",
+  fq2_a:"Ese es el objetivo. Los esquemas se convierten en formularios claros. Los editores no ven la API.", fq3_q:"¿Cómo funciona la localización?", fq3_a:"Los documentos pueden llevar campos de locale o traducciones enlazadas. La API filtra por idioma.", fq4_q:"¿Y si cambia el esquema?",
+  fq4_a:"Las versiones del esquema se versionan. Añadir campos es seguro; los cambios breaking generan un script de migración.", fq5_q:"¿Dónde se hospeda?", fq5_a:"Regiones EU y US al lanzamiento. Enterprise puede fijar región y exportar dumps completos.", nl_label:"Newsletter",
+  nl_title:"Notas de producto, sin ruido.", nl_body:"Actualizaciones, patrones de esquema y tips del studio. Un email al mes.", nl_ph:"tu@empresa.com", nl_cta:"Suscribirme",
+  nl_ok:"Estás en la lista. Bienvenido.", nl_err:"Introduce un email válido.", ft_product:"Producto", ft_company:"Empresa",
+  ft_legal:"Legal", ft_docs:"Docs", ft_api:"Referencia API", ft_changelog:"Changelog",
+  ft_about:"About", ft_careers:"Empleo", ft_contact:"Contacto", ft_privacy:"Privacidad",
+  ft_terms:"Términos", ft_copy:"© 2026 SCRIBA. Contenido estructurado, con calma.", ck_text:"Usamos cookies esenciales para sesión, tema e idioma.", ck_accept:"Aceptar",
+  ck_decline:"Rechazar"
+},
+fr: {
+  meta_title:"SCRIBA — CMS de contenu structuré pour équipes modernes", meta_desc:"SCRIBA est un CMS headless pour le contenu structuré. Schémas, édition temps réel et API pour tout front-end.", skip:"Aller au contenu", nav_product:"Produit",
+  nav_studio:"Studio", nav_pricing:"Tarifs", nav_faq:"FAQ", nav_cta:"Essai gratuit",
+  nav_theme:"Thème", nav_menu:"Menu", nav_lang:"Langue", hero_kicker:"CMS headless",
+  hero_title:"Du contenu avec un schéma. Des sites sans le chaos.", hero_sub:"SCRIBA offre un studio structuré aux équipes éditoriales et une API claire aux devs. Une source de vérité, preview live, zéro page builder.", hero_cta1:"Essai gratuit", hero_cta2:"Voir le studio",
+  hero_trust:"Équipes produit et éditoriales multi-canal", mock_schema:"schéma", mock_doc:"article", mock_title:"Titre",
+  mock_body:"Corps", mock_author:"Auteur", mock_status:"Publié", mock_preview:"Aperçu live",
+  feat_label:"Pourquoi SCRIBA", feat_title:"Conçu pour ceux qui publient vraiment.", feat_sub:"Pas un page builder. Un système de contenu avec structure, droits et une API aimable.", f1_t:"Modélisation schema-first",
+  f1_d:"Documents, champs et références une fois. Des formulaires fidèles au modèle.", f2_t:"Studio collaboratif temps réel", f2_d:"Plusieurs éditeurs, présence et brouillons live.", f3_t:"API discrète",
+  f3_d:"Filtres type GROQ ou REST. JSON CDN pour tout framework.", f4_t:"Preview multi-canal", f4_d:"URL de preview par présentation. Web, app, email avant publish.", studio_label:"Studio",
+  studio_title:"Un centre de commande pour le contenu structuré.", studio_body:"Sombre, précis, clavier d'abord. Naviguez, éditez, voyez le preview en direct.", studio_b1:"Liste filtrable et vues sauvées", studio_b2:"Validation par champ",
+  studio_b3:"Sélecteurs de références", studio_b4:"Publier, planifier ou revenir", pr_label:"Tarifs", pr_title:"Des offres simples.",
+  pr_sub:"Gratuit pour commencer. Scale ensuite.", pr_free:"Free", pr_free_p:"0 €", pr_free_per:"pour toujours",
+  pr_free_f1:"3 utilisateurs", pr_free_f2:"2 datasets", pr_free_f3:"API + webhooks", pr_free_f4:"Support communauté",
+  pr_free_cta:"Créer un projet", pr_pro:"Studio", pr_pro_p:"29 €", pr_pro_per:"/ mois",
+  pr_pro_flag:"Le plus choisi", pr_pro_f1:"Users illimités", pr_pro_f2:"10 datasets", pr_pro_f3:"Rôles & SSO",
+  pr_pro_f4:"Publish planifié", pr_pro_f5:"Support prioritaire", pr_pro_cta:"Démarrer Studio", pr_ent:"Scale",
+  pr_ent_p:"Sur mesure", pr_ent_per:"parlons-en", pr_ent_f1:"Tout Studio", pr_ent_f2:"Cluster dédié",
+  pr_ent_f3:"Audit & SLA", pr_ent_f4:"Contrats custom", pr_ent_cta:"Contacter sales", faq_label:"FAQ",
+  faq_title:"Questions du bureau.", fq1_q:"SCRIBA est-il vraiment headless ?", fq1_a:"Oui. Pas de site public intégré. JSON structuré en HTTPS + CDN.", fq2_q:"Les non-devs peuvent-ils l'utiliser ?",
+  fq2_a:"Oui. Les schémas deviennent des formulaires clairs.", fq3_q:"Et la localisation ?", fq3_a:"Champs locale ou traductions liées. L'API filtre par langue.", fq4_q:"Migrations de schéma ?",
+  fq4_a:"Versions suivies. Champs ajoutés en sécurité; breaking = script de migration.", fq5_q:"Hébergement ?", fq5_a:"Régions EU et US. Enterprise peut figer une région.", nl_label:"Newsletter",
+  nl_title:"Notes produit, sans bruit.", nl_body:"Mises à jour et patterns. Un mail par mois.", nl_ph:"vous@entreprise.com", nl_cta:"S'abonner",
+  nl_ok:"Vous êtes inscrit.", nl_err:"Email invalide.", ft_product:"Produit", ft_company:"Entreprise",
+  ft_legal:"Légal", ft_docs:"Docs", ft_api:"Réf. API", ft_changelog:"Changelog",
+  ft_about:"À propos", ft_careers:"Carrières", ft_contact:"Contact", ft_privacy:"Confidentialité",
+  ft_terms:"Conditions", ft_copy:"© 2026 SCRIBA. Contenu structuré, livré calmement.", ck_text:"Cookies essentiels pour session, thème et langue.", ck_accept:"Accepter",
+  ck_decline:"Refuser"
+},
+de: {
+  meta_title:"SCRIBA — Strukturiertes Content-CMS für moderne Teams", meta_desc:"SCRIBA ist ein Headless-CMS für strukturierte Inhalte. Schemas, Echtzeit-Editor und API für jedes Frontend.", skip:"Zum Inhalt", nav_product:"Produkt",
+  nav_studio:"Studio", nav_pricing:"Preise", nav_faq:"FAQ", nav_cta:"Kostenlos starten",
+  nav_theme:"Theme", nav_menu:"Menü", nav_lang:"Sprache", hero_kicker:"Headless CMS",
+  hero_title:"Content mit Schema. Sites ohne Chaos.", hero_sub:"SCRIBA gibt Redaktionen ein strukturiertes Studio und Entwicklern eine saubere API. Eine Quelle, Live-Preview, keine Page Builder.", hero_cta1:"Kostenlos starten", hero_cta2:"Studio ansehen",
+  hero_trust:"Produkt- und Redaktionsteams mit Multi-Channel-Content", mock_schema:"schema", mock_doc:"artikel", mock_title:"Titel",
+  mock_body:"Text", mock_author:"Autor", mock_status:"Veröffentlicht", mock_preview:"Live-Preview",
+  feat_label:"Warum SCRIBA", feat_title:"Für die, die Content wirklich shippen.", feat_sub:"Kein Page Builder. Ein Content-System mit Struktur, Rechten und API.", f1_t:"Schema-first Modellierung",
+  f1_d:"Dokumente, Felder, Referenzen einmal definieren. Formulare folgen dem Modell.", f2_t:"Echtzeit-Kollaboration", f2_d:"Mehrere Editoren, Presence und Live-Drafts.", f3_t:"API ohne Ballast",
+  f3_d:"GROQ-ähnliche Filter oder REST. CDN-JSON für jedes Framework.", f4_t:"Preview pro Kanal", f4_d:"Preview-URL je Präsentation. Web, App, E-Mail vor dem Publish.", studio_label:"Studio",
+  studio_title:"Kommandozentrale für strukturierten Content.", studio_body:"Dunkel, präzise, tastaturfreundlich. Dokumente, Felder, Live-Preview.", studio_b1:"Dokumentliste mit Filtern", studio_b2:"Feldvalidierung",
+  studio_b3:"Referenz-Picker", studio_b4:"Publish, planen, revertieren", pr_label:"Preise", pr_title:"Einfache Pläne.",
+  pr_sub:"Kostenlos starten. Skalieren wenn nötig.", pr_free:"Free", pr_free_p:"0 €", pr_free_per:"für immer",
+  pr_free_f1:"3 Nutzer", pr_free_f2:"2 Datasets", pr_free_f3:"API + Webhooks", pr_free_f4:"Community-Support",
+  pr_free_cta:"Projekt anlegen", pr_pro:"Studio", pr_pro_p:"29 €", pr_pro_per:"/ Monat",
+  pr_pro_flag:"Meiste Teams", pr_pro_f1:"Unbegrenzte Nutzer", pr_pro_f2:"10 Datasets", pr_pro_f3:"Rollen & SSO",
+  pr_pro_f4:"Geplanter Publish", pr_pro_f5:"Priority Support", pr_pro_cta:"Studio starten", pr_ent:"Scale",
+  pr_ent_p:"Custom", pr_ent_per:"sprechen wir", pr_ent_f1:"Alles aus Studio", pr_ent_f2:"Dedicated Cluster",
+  pr_ent_f3:"Audit & SLA", pr_ent_f4:"Custom Verträge", pr_ent_cta:"Sales kontaktieren", faq_label:"FAQ",
+  faq_title:"Fragen vom Schreibtisch.", fq1_q:"Ist SCRIBA wirklich headless?", fq1_a:"Ja. Keine integrierte Public Site. Strukturiertes JSON per HTTPS + CDN.", fq2_q:"Können Nicht-Devs es nutzen?",
+  fq2_a:"Ja. Schemas werden zu klaren Formularen.", fq3_q:"Lokalisierung?", fq3_a:"Locale-Felder oder verknüpfte Übersetzungen. API filtert nach Sprache.", fq4_q:"Schema-Migrationen?",
+  fq4_a:"Versioniert. Neue Felder sicher; Breaking Changes erzeugen Migrationsskripte.", fq5_q:"Hosting?", fq5_a:"EU- und US-Regionen. Enterprise kann Region fixieren.", nl_label:"Newsletter",
+  nl_title:"Product Notes, kein Rauschen.", nl_body:"Updates und Schema-Patterns. Eine Mail pro Monat.", nl_ph:"du@firma.com", nl_cta:"Abonnieren",
+  nl_ok:"Du bist auf der Liste.", nl_err:"Gültige E-Mail eingeben.", ft_product:"Produkt", ft_company:"Unternehmen",
+  ft_legal:"Legal", ft_docs:"Docs", ft_api:"API-Referenz", ft_changelog:"Changelog",
+  ft_about:"Über uns", ft_careers:"Jobs", ft_contact:"Kontakt", ft_privacy:"Datenschutz",
+  ft_terms:"AGB", ft_copy:"© 2026 SCRIBA. Strukturierter Content, ruhig geliefert.", ck_text:"Essenzielle Cookies für Session, Theme und Sprache.", ck_accept:"Akzeptieren",
+  ck_decline:"Ablehnen"
+},
+it: {
+  meta_title:"SCRIBA — CMS di contenuti strutturati per team moderni", meta_desc:"SCRIBA è un CMS headless per contenuti strutturati. Schema, editing in tempo reale e API per ogni front-end.", skip:"Vai al contenuto", nav_product:"Prodotto",
+  nav_studio:"Studio", nav_pricing:"Prezzi", nav_faq:"FAQ", nav_cta:"Inizia gratis",
+  nav_theme:"Tema", nav_menu:"Menu", nav_lang:"Lingua", hero_kicker:"CMS headless",
+  hero_title:"Contenuti con schema. Siti senza caos.", hero_sub:"SCRIBA dà alle redazioni uno studio strutturato e agli sviluppatori un'API pulita. Una fonte di verità, preview live, zero page builder.", hero_cta1:"Inizia gratis", hero_cta2:"Vedi lo studio",
+  hero_trust:"Team di prodotto ed editorial multi-canale", mock_schema:"schema", mock_doc:"articolo", mock_title:"Titolo",
+  mock_body:"Corpo", mock_author:"Autore", mock_status:"Pubblicato", mock_preview:"Preview live",
+  feat_label:"Perché SCRIBA", feat_title:"Fatto per chi pubblica davvero.", feat_sub:"Non un page builder. Un sistema di contenuti con struttura, permessi e API.", f1_t:"Modellazione schema-first",
+  f1_d:"Documenti, campi e riferimenti una volta. Form fedeli al modello.", f2_t:"Studio collaborativo real-time", f2_d:"Più editor, presenza e bozze live.", f3_t:"API discreta",
+  f3_d:"Filtri stile GROQ o REST. JSON su CDN per ogni framework.", f4_t:"Preview per canale", f4_d:"URL di preview per presentazione. Web, app, email prima del publish.", studio_label:"Studio",
+  studio_title:"Centro di comando per contenuti strutturati.", studio_body:"Scuro, preciso, tastiera-first. Documenti, campi, preview live.", studio_b1:"Lista documenti con filtri", studio_b2:"Validazione per campo",
+  studio_b3:"Picker di riferimenti", studio_b4:"Pubblica, programma o ripristina", pr_label:"Prezzi", pr_title:"Piani semplici.",
+  pr_sub:"Gratis per iniziare. Scala dopo.", pr_free:"Free", pr_free_p:"0 €", pr_free_per:"per sempre",
+  pr_free_f1:"3 utenti", pr_free_f2:"2 dataset", pr_free_f3:"API + webhook", pr_free_f4:"Supporto community",
+  pr_free_cta:"Crea progetto", pr_pro:"Studio", pr_pro_p:"29 €", pr_pro_per:"/ mese",
+  pr_pro_flag:"I più scelgono", pr_pro_f1:"Utenti illimitati", pr_pro_f2:"10 dataset", pr_pro_f3:"Ruoli e SSO",
+  pr_pro_f4:"Publish programmato", pr_pro_f5:"Supporto prioritario", pr_pro_cta:"Avvia Studio", pr_ent:"Scale",
+  pr_ent_p:"Su misura", pr_ent_per:"parliamone", pr_ent_f1:"Tutto Studio", pr_ent_f2:"Cluster dedicato",
+  pr_ent_f3:"Audit e SLA", pr_ent_f4:"Contratti custom", pr_ent_cta:"Contatta sales", faq_label:"FAQ",
+  faq_title:"Domande dalla scrivania.", fq1_q:"SCRIBA è davvero headless?", fq1_a:"Sì. Niente sito pubblico integrato. JSON strutturato via HTTPS + CDN.", fq2_q:"Possono usarlo i non-dev?",
+  fq2_a:"Sì. Gli schema diventano form chiari.", fq3_q:"Localizzazione?", fq3_a:"Campi locale o traduzioni collegate. L'API filtra per lingua.", fq4_q:"Migrazioni di schema?",
+  fq4_a:"Versionate. Nuovi campi sicuri; breaking = script di migrazione.", fq5_q:"Hosting?", fq5_a:"Regioni EU e US. Enterprise può fissare la regione.", nl_label:"Newsletter",
+  nl_title:"Note di prodotto, senza rumore.", nl_body:"Update e pattern. Una mail al mese.", nl_ph:"tu@azienda.com", nl_cta:"Iscriviti",
+  nl_ok:"Sei in lista.", nl_err:"Email non valida.", ft_product:"Prodotto", ft_company:"Azienda",
+  ft_legal:"Legale", ft_docs:"Docs", ft_api:"Rif. API", ft_changelog:"Changelog",
+  ft_about:"About", ft_careers:"Lavora con noi", ft_contact:"Contatto", ft_privacy:"Privacy",
+  ft_terms:"Termini", ft_copy:"© 2026 SCRIBA. Contenuti strutturati, con calma.", ck_text:"Cookie essenziali per sessione, tema e lingua.", ck_accept:"Accetta",
+  ck_decline:"Rifiuta"
+},
+pt: {
+  meta_title:"SCRIBA — CMS de conteúdo estruturado para equipas modernas", meta_desc:"SCRIBA é um CMS headless para conteúdo estruturado. Schemas, edição em tempo real e API para qualquer front-end.", skip:"Saltar para o conteúdo", nav_product:"Produto",
+  nav_studio:"Studio", nav_pricing:"Preços", nav_faq:"FAQ", nav_cta:"Começar grátis",
+  nav_theme:"Tema", nav_menu:"Menu", nav_lang:"Idioma", hero_kicker:"CMS headless",
+  hero_title:"Conteúdo com schema. Sites sem o caos.", hero_sub:"SCRIBA dá às equipas editoriais um studio estruturado e aos devs uma API limpa. Uma fonte de verdade, preview live, zero page builders.", hero_cta1:"Começar grátis", hero_cta2:"Ver o studio",
+  hero_trust:"Equipas de produto e editorial multi-canal", mock_schema:"schema", mock_doc:"artigo", mock_title:"Título",
+  mock_body:"Corpo", mock_author:"Autor", mock_status:"Publicado", mock_preview:"Preview live",
+  feat_label:"Porquê SCRIBA", feat_title:"Feito para quem publica de verdade.", feat_sub:"Não é outro page builder. Um sistema de conteúdo com estrutura, permissões e API.", f1_t:"Modelação schema-first",
+  f1_d:"Documentos, campos e referências uma vez. Formulários fiéis ao modelo.", f2_t:"Studio colaborativo em tempo real", f2_d:"Vários editores, presença e rascunhos live.", f3_t:"API discreta",
+  f3_d:"Filtros estilo GROQ ou REST. JSON em CDN para qualquer framework.", f4_t:"Preview por canal", f4_d:"URL de preview por apresentação. Web, app e email antes de publicar.", studio_label:"Studio",
+  studio_title:"Centro de comando para conteúdo estruturado.", studio_body:"Escuro, preciso, teclado-first. Documentos, campos, preview live.", studio_b1:"Lista de documentos com filtros", studio_b2:"Validação por campo",
+  studio_b3:"Pickers de referência", studio_b4:"Publicar, agendar ou reverter", pr_label:"Preços", pr_title:"Planos simples.",
+  pr_sub:"Grátis para começar. Escala depois.", pr_free:"Free", pr_free_p:"0 €", pr_free_per:"para sempre",
+  pr_free_f1:"3 utilizadores", pr_free_f2:"2 datasets", pr_free_f3:"API + webhooks", pr_free_f4:"Suporte comunidade",
+  pr_free_cta:"Criar projeto", pr_pro:"Studio", pr_pro_p:"29 €", pr_pro_per:"/ mês",
+  pr_pro_flag:"A maioria", pr_pro_f1:"Utilizadores ilimitados", pr_pro_f2:"10 datasets", pr_pro_f3:"Roles e SSO",
+  pr_pro_f4:"Publish agendado", pr_pro_f5:"Suporte prioritário", pr_pro_cta:"Começar Studio", pr_ent:"Scale",
+  pr_ent_p:"À medida", pr_ent_per:"falemos", pr_ent_f1:"Tudo do Studio", pr_ent_f2:"Cluster dedicado",
+  pr_ent_f3:"Audit e SLA", pr_ent_f4:"Contratos custom", pr_ent_cta:"Contactar sales", faq_label:"FAQ",
+  faq_title:"Perguntas da secretária.", fq1_q:"SCRIBA é mesmo headless?", fq1_a:"Sim. Sem site público integrado. JSON estruturado via HTTPS + CDN.", fq2_q:"Não-devs podem usar?",
+  fq2_a:"Sim. Schemas viram formulários claros.", fq3_q:"Localização?", fq3_a:"Campos locale ou traduções ligadas. A API filtra por idioma.", fq4_q:"Migrações de schema?",
+  fq4_a:"Versionadas. Novos campos seguros; breaking gera script de migração.", fq5_q:"Hosting?", fq5_a:"Regiões EU e US. Enterprise pode fixar a região.", nl_label:"Newsletter",
+  nl_title:"Notas de produto, sem ruído.", nl_body:"Updates e patterns. Um email por mês.", nl_ph:"tu@empresa.com", nl_cta:"Subscrever",
+  nl_ok:"Estás na lista.", nl_err:"Email inválido.", ft_product:"Produto", ft_company:"Empresa",
+  ft_legal:"Legal", ft_docs:"Docs", ft_api:"Ref. API", ft_changelog:"Changelog",
+  ft_about:"About", ft_careers:"Carreiras", ft_contact:"Contacto", ft_privacy:"Privacidade",
+  ft_terms:"Termos", ft_copy:"© 2026 SCRIBA. Conteúdo estruturado, com calma.", ck_text:"Cookies essenciais para sessão, tema e idioma.", ck_accept:"Aceitar",
+  ck_decline:"Recusar"
+}
+};
+
+(function(){
+"use strict";
+document.documentElement.classList.remove("no-js");
+var LANGS=["en","es","fr","de","it","pt"];
+var KEYS=Object.keys(TRANSLATIONS.en);
+function getLang(){
+  try{var s=localStorage.getItem("scriba-lang"); if(s&&TRANSLATIONS[s]) return s;}catch(e){}
+  var n=(navigator.language||"en").slice(0,2).toLowerCase();
+  return TRANSLATIONS[n]?n:"en";
+}
+function applyLang(lang){
+  if(!TRANSLATIONS[lang]) lang="en";
+  var t=TRANSLATIONS[lang];
+  document.documentElement.lang=lang;
+  KEYS.forEach(function(k){
+    var val=t[k]; if(val==null) return;
+    document.querySelectorAll("[data-i18n]").forEach(function(el){
+      if(el.getAttribute("data-i18n")===k) el.textContent=val;
+    });
+  });
+  document.querySelectorAll("[data-i18n-ph]").forEach(function(el){
+    var ph=t[el.getAttribute("data-i18n-ph")]; if(ph) el.setAttribute("placeholder",ph);
+  });
+  document.querySelectorAll("[data-i18n-aria]").forEach(function(el){
+    var a=t[el.getAttribute("data-i18n-aria")]; if(a) el.setAttribute("aria-label",a);
+  });
+  var title=document.getElementById("doc-title");
+  var meta=document.getElementById("meta-desc");
+  if(title&&t.meta_title) title.textContent=t.meta_title;
+  if(meta&&t.meta_desc) meta.setAttribute("content",t.meta_desc);
+  var ogt=document.querySelector('meta[property="og:title"]');
+  var ogd=document.querySelector('meta[property="og:description"]');
+  if(ogt&&t.meta_title) ogt.setAttribute("content",t.meta_title);
+  if(ogd&&t.meta_desc) ogd.setAttribute("content",t.meta_desc);
+  document.querySelectorAll(".lang-select__cur").forEach(function(el){ el.textContent=lang.toUpperCase(); });
+  document.querySelectorAll(".lang-select__menu [data-lang]").forEach(function(opt){
+    opt.setAttribute("aria-selected", opt.getAttribute("data-lang")===lang ? "true":"false");
+  });
+  try{localStorage.setItem("scriba-lang",lang);}catch(e){}
+}
+document.querySelectorAll(".lang-select").forEach(function(root){
+  var btn=root.querySelector(".lang-select__btn");
+  var menu=root.querySelector(".lang-select__menu");
+  if(!btn||!menu) return;
+  btn.addEventListener("click",function(e){
+    e.stopPropagation();
+    var open=menu.hasAttribute("hidden");
+    document.querySelectorAll(".lang-select__menu").forEach(function(m){ m.setAttribute("hidden",""); });
+    document.querySelectorAll(".lang-select__btn").forEach(function(b){ b.setAttribute("aria-expanded","false"); });
+    if(open){ menu.removeAttribute("hidden"); btn.setAttribute("aria-expanded","true"); }
+  });
+  menu.querySelectorAll("[data-lang]").forEach(function(opt){
+    opt.addEventListener("click",function(){
+      applyLang(opt.getAttribute("data-lang"));
+      menu.setAttribute("hidden","");
+      btn.setAttribute("aria-expanded","false");
+    });
+  });
+});
+document.addEventListener("click",function(){
+  document.querySelectorAll(".lang-select__menu").forEach(function(m){ m.setAttribute("hidden",""); });
+  document.querySelectorAll(".lang-select__btn").forEach(function(b){ b.setAttribute("aria-expanded","false"); });
+});
+document.addEventListener("keydown",function(e){
+  if(e.key==="Escape"){
+    document.querySelectorAll(".lang-select__menu").forEach(function(m){ m.setAttribute("hidden",""); });
+  }
+});
+function getTheme(){ try{return localStorage.getItem("kairos-theme")==="dark"?"dark":"light";}catch(e){return"light";} }
+function setTheme(th){ document.documentElement.setAttribute("data-theme",th); try{localStorage.setItem("kairos-theme",th);}catch(e){} }
+setTheme(getTheme());
+document.querySelectorAll("[data-theme-toggle]").forEach(function(b){
+  b.addEventListener("click",function(){ setTheme(document.documentElement.getAttribute("data-theme")==="dark"?"light":"dark"); });
+});
+var burger=document.getElementById("burger");
+var mobile=document.getElementById("mobileMenu");
+if(burger&&mobile){
+  burger.addEventListener("click",function(){
+    var open=mobile.classList.toggle("open");
+    burger.setAttribute("aria-expanded",open?"true":"false");
+  });
+  mobile.querySelectorAll("a").forEach(function(a){ a.addEventListener("click",function(){ mobile.classList.remove("open"); }); });
+}
+document.querySelectorAll(".faq-item").forEach(function(item){
+  var q=item.querySelector(".faq-q"); var a=item.querySelector(".faq-a");
+  q.addEventListener("click",function(){
+    var open=item.classList.contains("open");
+    document.querySelectorAll(".faq-item").forEach(function(i){
+      i.classList.remove("open"); i.querySelector(".faq-q").setAttribute("aria-expanded","false");
+      i.querySelector(".faq-a").style.maxHeight=null;
+    });
+    if(!open){ item.classList.add("open"); q.setAttribute("aria-expanded","true"); a.style.maxHeight=a.scrollHeight+"px"; }
+  });
+});
+var form=document.getElementById("nlForm");
+if(form){
+  form.addEventListener("submit",function(e){
+    e.preventDefault();
+    var email=document.getElementById("nlEmail");
+    var ok=/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test((email.value||"").trim());
+    document.getElementById("nlOk").className="nl-msg"+(ok?" ok":"");
+    document.getElementById("nlErr").className="nl-msg"+(!ok?" err":"");
+    if(ok) email.value="";
+  });
+}
+var reveals=document.querySelectorAll(".reveal");
+function revealTick(){
+  var vh=window.innerHeight||800;
+  reveals.forEach(function(el){
+    if(el.classList.contains("in")) return;
+    if(el.getBoundingClientRect().top < vh*0.92) el.classList.add("in");
+  });
+}
+if(window.matchMedia("(prefers-reduced-motion: reduce)").matches){
+  reveals.forEach(function(el){ el.classList.add("in"); });
+}else{
+  var ticking=false;
+  window.addEventListener("scroll",function(){
+    if(!ticking){ requestAnimationFrame(function(){ revealTick(); ticking=false; }); ticking=true; }
+  },{passive:true});
+  revealTick();
+}
+var cookie=document.getElementById("cookieBanner");
+var acc=null; try{acc=localStorage.getItem("scriba-cookie");}catch(e){}
+if(cookie && acc!=="1" && acc!=="0"){
+  var timer=setTimeout(function(){ cookie.classList.add("show"); },2500);
+  function dismiss(v){ try{localStorage.setItem("scriba-cookie",v);}catch(e){} cookie.classList.remove("show"); clearTimeout(timer); }
+  var okb=document.getElementById("cookieOk"); var nob=document.getElementById("cookieNo");
+  if(okb) okb.addEventListener("click",function(){ dismiss("1"); });
+  if(nob) nob.addEventListener("click",function(){ dismiss("0"); });
+}
+applyLang(getLang());
+})();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+<html lang="es" class="no-js" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="doc-title">LATENT · Laboratorio de fotografía analógica en Barcelona</title>
+<meta id="meta-desc" name="description" content="LATENT es un laboratorio fotográfico analógico en Barcelona. Revelado C-41, E-6, b/n, impresión en papel y escaneado de alta resolución. Trae tu película.">
+<link rel="canonical" href="https://proyectos.cristiancode.dev/landings/2026-08-23-latent.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="LATENT · Laboratorio de fotografía analógica">
+<meta property="og:description" content="Revelado e impresión analógica en Barcelona. C-41, E-6, b/n, y escaneado de 4000 ppi.">
+<meta property="og:url" content="https://proyectos.cristiancode.dev/landings/2026-08-23-latent.html">
+<meta property="og:image" content="https://cristiancode.dev/assets/landing-2026-08-23-latent.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="LATENT · Laboratorio analógico">
+<meta name="twitter:description" content="Revelado e impresión analógica en el Poblenou, Barcelona.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23211922'/%3E%3Crect x='26' y='22' width='12' height='30' rx='3' fill='%23C4001A'/%3E%3Crect x='44' y='22' width='12' height='30' rx='3' fill='%23C4001A'/%3E%3Crect x='62' y='22' width='12' height='30' rx='3' fill='%23C4001A'/%3E%3Ccircle cx='32' cy='66' r='6' fill='%23f6f6f3'/%3E%3Ccircle cx='50' cy='66' r='6' fill='%23f6f6f3'/%3E%3Ccircle cx='68' cy='66' r='6' fill='%23f6f6f3'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   DESIGN SYSTEM — LATENT · Laboratorio analógico
+   Surface: Decide/Learn (landing; hero correct). Secondary
+            Explore touch in the contact-sheet gallery, Compare
+            in the pricing band.
+   Derived from: Pinterest (popular-web-designs template) —
+            warm ivory canvas, plum-black ink (#211922), olive/
+            sand neutrals, generous radii, one confident red
+            (#C4001A) used only on CTAs; photography leads.
+   Family: Fotografía analógica / Laboratorio químico
+   Style: Contact-sheet editorial — warm paper white, near-black
+          plum text, sand surfaces (#e5e5e0), glossy red for
+          action, film-frame gallery revealed like prints
+          developing in the tank.
+   Strategy: Restrained (white/sand canvas + one red accent
+          ≤10% — devotion to the singular bold accent rule).
+   Type: Fraunces (optical display serif) + DM Sans (humanist
+          geometric body) — a serif/sans contrast pairing.
+   ============================================================ */
+:root{
+  --z-nav:30; --z-banner:40; --z-modal:50; --z-toast:60;
+  --bg:#ffffff; --surface:#f6f6f3; --surface-2:#e5e5e0;
+  --ink:#211922; --muted:#4a4a45; --line:#e5e5e0; --line-strong:#c8c8c1;
+  --red:#C4001A; --red-hover:#9B0018; --red-ink:#ffffff; --red-link:#9B0018;
+  --stage:#33332e; --stage-ink:#f6f6f3; --stage-muted:#c8c5bc;
+  --focus:#435ee5;
+  --serif:'Fraunces',Georgia,'Times New Roman',serif;
+  --sans:'DM Sans',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --r:16px; --r-sm:12px; --r-lg:28px; --pill:999px;
+  --ease:cubic-bezier(.22,1,.36,1);
+  --shadow:0 1px 2px rgba(33,25,34,.05),0 14px 36px -18px rgba(33,25,34,.28);
+}
+[data-theme="dark"]{
+  --bg:#1a1819; --surface:#211f21; --surface-2:#2a282a;
+  --ink:#f6f6f3; --muted:#c4c4bc; --line:#33332e; --line-strong:#45423a;
+  --red:#C4001A; --red-hover:#a50216; --red-ink:#ffffff; --red-link:#ff7a88;
+  --stage:#121112; --stage-ink:#f6f6f3; --stage-muted:#a9a69d;
+  --focus:#8ba2ff;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 16px 40px -20px rgba(0,0,0,.6);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+html.no-js .rv,html.no-js .frame{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001s!important;animation-iteration-count:1!important;transition-duration:.001s!important}
+}
+@media print{.rv,.frame{opacity:1;transform:none}}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;text-wrap:pretty}
+h1,h2,h3{font-family:var(--serif);line-height:1.06;letter-spacing:-.02em;text-wrap:balance;font-weight:500}
+p{max-width:68ch}
+a{color:var(--red-link);text-decoration:none}
+button,input{font:inherit;color:inherit}
+img,svg{display:block;max-width:100%}
+.container{width:min(1160px,92%);margin-inline:auto}
+.visually-hidden{position:absolute;width:1px;height:1px;margin:-1px;padding:0;border:0;clip:rect(0 0 0 0);overflow:hidden}
+:focus-visible{outline:2px solid var(--focus);outline-offset:3px;border-radius:4px}
+.skip{position:absolute;left:-999px;top:0;background:var(--red);color:var(--red-ink);padding:.7rem 1.1rem;z-index:200;border-radius:0 0 var(--r-sm) 0;font-weight:600}
+.skip:focus{left:0;top:0}
+/* ===== Nav ===== */
+.nav{position:sticky;top:0;z-index:var(--z-nav);background:color-mix(in srgb,var(--bg) 88%,transparent);border-bottom:1px solid var(--line)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.8rem 0}
+.brand{display:flex;align-items:center;gap:.55rem;font-family:var(--serif);font-weight:600;font-size:1.35rem;letter-spacing:-.02em;color:var(--ink)}
+.brand .dot{width:12px;height:12px;border-radius:50%}
+.nav-links{display:flex;align-items:center;gap:1.4rem}
+.nav-links a{font-size:.92rem;font-weight:500;color:var(--muted);transition:color .2s ease}
+.nav-links a:hover{color:var(--ink)}
+.nav-actions{display:flex;align-items:center;gap:.5rem}
+.icon-btn{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--ink);display:grid;place-items:center;cursor:pointer;transition:border-color .2s ease,color .2s ease}
+.icon-btn:hover{border-color:var(--red);color:var(--red)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;border:none;cursor:pointer;border-radius:var(--r-sm);font-weight:600;transition:transform .2s var(--ease),background .2s ease,box-shadow .2s ease}
+.btn-primary{background:var(--red);color:var(--red-ink);padding:.72rem 1.35rem}
+.btn-primary:hover{background:var(--red-hover);transform:translateY(-1px);box-shadow:0 10px 24px -12px var(--red)}
+.btn-ghost{background:transparent;color:var(--ink);padding:.7rem 1.25rem;border:1px solid var(--line-strong)}
+.btn-ghost:hover{border-color:var(--red);color:var(--red)}
+.btn-lg{padding:.95rem 1.7rem;font-size:1.02rem;border-radius:var(--r)}
+.nav .btn-primary{color:var(--red-ink)!important}
+.burger{display:none;background:none;border:none;cursor:pointer;width:40px;height:40px;border-radius:50%;color:var(--ink)}
+
+/* Lang dropdown */
+.lang-select{position:relative}
+.lang-select__btn{display:inline-flex;align-items:center;gap:.4rem;height:40px;padding:0 .85rem;border:1px solid var(--line);border-radius:var(--r-sm);background:var(--surface);color:var(--ink);font-size:.85rem;font-weight:600;cursor:pointer;transition:border-color .2s ease}
+.lang-select__btn:hover{border-color:var(--red)}
+.lang-select__chev{transition:transform .2s ease}
+.lang-select__btn[aria-expanded="true"] .lang-select__chev{transform:rotate(180deg)}
+.lang-select__menu{position:absolute;top:calc(100% + 8px);right:0;z-index:var(--z-modal);min-width:170px;padding:.4rem;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-sm);box-shadow:var(--shadow);opacity:0;visibility:hidden;transform:translateY(-4px);transition:opacity .2s ease,transform .2s ease,visibility .2s}
+.lang-select__menu.open{opacity:1;visibility:visible;transform:translateY(0)}
+.lang-select__opt{display:flex;align-items:center;gap:.5rem;width:100%;padding:.5rem .7rem;border:none;background:none;font-size:.85rem;color:var(--ink);text-align:left;border-radius:8px;cursor:pointer}
+.lang-select__opt:hover{background:var(--surface-2)}
+.lang-select__opt[aria-selected="true"]{color:var(--red);font-weight:600}
+.lang-select__opt[aria-selected="true"]::after{content:'\2713';margin-left:auto}
+
+/* Mobile menu */
+.mobile-menu{position:fixed;inset:0;top:0;z-index:var(--z-banner);background:var(--bg);display:flex;flex-direction:column;padding:5.5rem 7% 2rem;gap:1.6rem;transform:translateX(100%);transition:transform .45s var(--ease);overflow-y:auto}
+.mobile-menu.open{transform:translateX(0)}
+.m-menu-links{display:flex;flex-direction:column;gap:.5rem}
+.m-link{font-family:var(--serif);font-size:1.7rem;color:var(--ink);padding:.35rem 0;font-weight:500}
+.m-link:hover{color:var(--red)}
+.m-menu-foot{display:flex;align-items:center;justify-content:space-between;margin-top:1rem;gap:1rem;flex-wrap:wrap}
+.menu-close{position:absolute;top:1rem;right:7%;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--ink);font-size:1.2rem;cursor:pointer}
+
+/* ===== Hero ===== */
+.hero{position:relative;padding:clamp(3rem,7vw,5.5rem) 0 clamp(2.5rem,6vw,4.5rem);overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(2rem,5vw,4.5rem);align-items:center}
+.hero-kick{display:inline-flex;align-items:center;gap:.5rem;color:var(--red-link);font-weight:600;font-size:.85rem;letter-spacing:.02em;margin-bottom:1.2rem}
+.hero-kick .kid{width:8px;height:8px;border-radius:50%;background:var(--red);display:inline-block}
+.hero h1{font-size:clamp(2.3rem,5vw,4.2rem);line-height:1.03;letter-spacing:-.025em}
+.hero h1 em{font-style:italic;color:var(--red-link)}
+.hero-sub{margin-top:1.3rem;font-size:clamp(1rem,1.6vw,1.15rem);color:var(--muted);max-width:46ch}
+.hero-cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem}
+.hero-note{margin-top:1.4rem;font-size:.85rem;color:var(--muted)}
+.hero-note svg{display:inline-block;vertical-align:-2px;margin-right:.3rem}
+
+/* Contact sheet visual */
+.contact-sheet{position:relative;border-radius:var(--r-lg);padding:1.1rem;background:var(--surface-2);border:1px solid var(--line);transform:rotate(1.2deg);box-shadow:var(--shadow)}
+.contact-sheet::before{content:'';position:absolute;inset:0;border-radius:inherit;background:repeating-linear-gradient(90deg,transparent 0 calc(25% - 1px),rgba(33,25,34,.06) calc(25% - 1px) 25%)}
+.cs-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.8rem;position:relative}
+.frame{position:relative;border-radius:var(--r-sm);aspect-ratio:1/1;overflow:hidden;box-shadow:0 1px 2px rgba(33,25,34,.12),inset 0 0 0 1px rgba(255,255,255,.1)}
+.frame::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 78% 18%,rgba(255,255,255,.22),transparent 45%)}
+.f-a{background:linear-gradient(150deg,#f2d7c9,#d6a58a 55%,#8f6d54)}         /* warm portrait */
+.f-b{background:linear-gradient(160deg,#d9e2ec,#93a8c4 60%,#5d6f8c)}         /* cool street */
+.f-c{background:linear-gradient(135deg,#f2e5c9,#cdb277 55%,#8d7a4e)}         /* golden hour */
+.f-d{background:linear-gradient(150deg,#e6d9d0,#b0917f 60%,#6f5646)}         /* sepiado */
+.f-e{background:linear-gradient(165deg,#cfe3dc,#8fb8a8 58%,#547d6d)}        /* verde ribera */
+.f-f{background:linear-gradient(140deg,#e3d6dc,#b08ba0 58%,#7a5a6f)}        /* magenta dusk */
+.frame .tag{position:absolute;left:.55rem;bottom:.55rem;font-size:.66rem;font-weight:600;color:#fff;background:rgba(17,15,18,.55);padding:.18rem .5rem;border-radius:999px;letter-spacing:.03em;z-index:2}
+.cs-parse{position:absolute;inset:0;z-index:3;pointer-events:none}
+.cs-parse div{position:absolute;background:var(--red);border-radius:var(--r-sm);opacity:.12}
+.cs-parse .p1{width:110px;height:110px;top:-1.2rem;right:-1rem;transform:rotate(8deg)}
+.cs-parse .p2{width:60px;height:60px;bottom:-1rem;left:-1rem;border-radius:50%}
+.tank-badge{position:absolute;bottom:-1.3rem;left:2rem;background:var(--stage);color:var(--stage-ink);padding:.6rem 1.1rem;border-radius:var(--r-sm);font-size:.82rem;font-weight:500;display:flex;align-items:center;gap:.5rem;box-shadow:var(--shadow);transform:rotate(-2deg)}
+.tank-badge .live{width:8px;height:8px;border-radius:50%;background:var(--red);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+
+/* ===== Marquee ===== */
+.marquee{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--surface);padding:1rem 0}
+.marquee-track{display:flex;gap:3rem;white-space:nowrap;width:max-content;animation:marq 30s linear infinite}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.marquee-track span{font-family:var(--serif);font-style:italic;font-size:1.15rem;color:var(--muted)}
+.marquee-track b{font-weight:500;color:var(--red-link)}
+@keyframes marq{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion: reduce){.marquee-track{animation:none;flex-wrap:wrap}}
+
+/* ===== Sections ===== */
+.section{padding:clamp(3rem,7vw,5.5rem) 0}
+.sec-head{max-width:640px;margin-bottom:2.8rem}
+.kicker{display:inline-block;font-size:.78rem;font-weight:600;letter-spacing:.12em;color:var(--red-link);text-transform:uppercase;margin-bottom:.8rem}
+.sec-head h2{font-size:clamp(1.7rem,3.4vw,2.6rem);line-height:1.05}
+.sec-head p{margin-top:.9rem;color:var(--muted)}
+
+/* Process (real 3-step) */
+.process-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;counter-reset:step}
+.pcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:1.8rem;position:relative;transition:transform .25s var(--ease),box-shadow .25s ease}
+.pcard:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.pcard::before{counter-increment:step;content:'0' counter(step);font-family:var(--serif);font-size:1rem;color:var(--red-link);font-weight:600;display:inline-block;margin-bottom:1rem}
+.pcard h3{font-size:1.3rem;margin-bottom:.5rem}
+.pcard p{color:var(--muted);font-size:.95rem}
+/* ===== Pricing (Compare) ===== */
+.pricing{margin-top:.5rem}
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;align-items:stretch}
+.plan{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:1.8rem;display:flex;flex-direction:column;position:relative}
+.plan.featured{background:var(--stage);color:var(--stage-ink);border-color:var(--stage);box-shadow:var(--shadow)}
+.plan .p-name{font-family:var(--serif);font-size:1.25rem;font-weight:600}
+.plan .p-desc{color:var(--muted);font-size:.9rem;margin:.35rem 0 1.2rem}
+.plan.featured .p-desc{color:var(--stage-muted)}
+.p-price{display:flex;align-items:baseline;gap:.3rem;margin-bottom:1.3rem}
+.p-price .amt{font-family:var(--serif);font-size:2.4rem;font-weight:600;letter-spacing:-.02em}
+.p-price .per{color:var(--muted);font-size:.85rem}
+.plan.featured .per{color:var(--stage-muted)}
+.p-feats{list-style:none;display:flex;flex-direction:column;gap:.6rem;margin-bottom:1.6rem;flex:1}
+.p-feats li{display:flex;gap:.6rem;align-items:flex-start;font-size:.92rem}
+.p-feats li::before{content:'\2713';color:var(--red);font-weight:700;flex:0 0 auto}
+.plan.featured .p-feats li::before{color:#ff7a88}
+.plan.featured a.btn-primary{background:var(--red);color:var(--red-ink)}
+.plan:not(.featured) a.btn-primary{background:var(--red);color:var(--red-ink)}
+[data-theme="dark"] .plan:not(.featured) .p-feats li::before{color:var(--red-link)}
+.badge{position:absolute;top:-.9rem;right:1.4rem;background:var(--red);color:var(--red-ink);font-size:.72rem;font-weight:600;letter-spacing:.05em;padding:.32rem .75rem;border-radius:999px;text-transform:uppercase}
+
+/* ===== Gallery (Explore / contact sheet masonry) ===== */
+.gallery{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.gal-wrap{columns:3;column-gap:1.1rem}
+.gal-item{break-inside:avoid;margin-bottom:1.1rem;border-radius:var(--r);overflow:hidden;position:relative;border:1px solid var(--line);background:var(--bg)}
+.gal-item .ph{position:relative}
+.gal-item img, .gal-item .ph{width:100%;display:block}
+.gal-cap{padding:.7rem .9rem;font-size:.8rem;color:var(--muted);display:flex;justify-content:space-between;gap:.5rem}
+.gal-cap b{color:var(--ink);font-weight:600}
+.g--1{height:220px;background:linear-gradient(150deg,#f2d7c9,#d6a58a)}
+.g--2{height:150px;background:linear-gradient(160deg,#d9e2ec,#93a8c4)}
+.g--3{height:260px;background:linear-gradient(135deg,#f2e5c9,#cdb277)}
+.g--4{height:180px;background:linear-gradient(165deg,#cfe3dc,#8fb8a8)}
+.g--5{height:240px;background:linear-gradient(150deg,#e6d9d0,#b0917f)}
+.g--6{height:140px;background:linear-gradient(140deg,#e3d6dc,#b08ba0)}
+
+/* ===== Quote ===== */
+.quote-block{text-align:center;max-width:760px;margin-inline:auto}
+.quote-block blockquote{font-family:var(--serif);font-style:italic;font-size:clamp(1.3rem,2.6vw,1.9rem);line-height:1.35;color:var(--ink)}
+.quote-block .q-mark{font-size:3rem;color:var(--red-link);line-height:1;font-family:var(--serif)}
+.quote-by{margin-top:1.3rem;font-size:.9rem;color:var(--muted)}
+.quote-by b{color:var(--ink)}
+
+/* ===== FAQ ===== */
+.faq-list{max-width:760px;margin-inline:auto;display:flex;flex-direction:column;gap:.7rem}
+.faq-item{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-sm);overflow:hidden}
+.faq-item.open{border-color:var(--line-strong)}
+.faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:1rem;background:none;border:none;cursor:pointer;padding:1.1rem 1.3rem;text-align:left;font-family:var(--serif);font-size:1.05rem;font-weight:500;color:var(--ink)}
+.faq-chev{flex:0 0 auto;width:20px;height:20px;border:1px solid var(--line-strong);border-radius:50%;display:grid;place-items:center;font-size:.8rem;color:var(--red-link);transition:transform .3s var(--ease)}
+.faq-item.open .faq-chev{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s var(--ease)}
+.faq-a-inner{padding:0 1.3rem 1.2rem;color:var(--muted);font-size:.95rem}
+
+/* ===== Contact ===== */
+.contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:2.5rem;align-items:center}
+.contact-list{margin-top:1.4rem;display:flex;flex-direction:column;gap:1rem}
+.c-item{display:flex;gap:.9rem;align-items:flex-start}
+.c-item .ci{flex:0 0 auto;width:42px;height:42px;border-radius:12px;background:var(--surface-2);display:grid;place-items:center;color:var(--red-link)}
+.c-item b{display:block;color:var(--ink)}
+.c-item span{color:var(--muted);font-size:.92rem}
+.contact-form{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:1.8rem}
+.contact-form h3{font-size:1.3rem;margin-bottom:.5rem}
+.contact-form p{color:var(--muted);font-size:.92rem;margin-bottom:1.4rem}
+.field{margin-bottom:1rem}
+.field label{display:block;font-size:.82rem;font-weight:600;color:var(--ink);margin-bottom:.4rem}
+.field input{width:100%;padding:.75rem .95rem;border:1px solid var(--line-strong);border-radius:var(--r-sm);background:var(--bg);color:var(--ink)}
+.field input:focus{outline:none;border-color:var(--red);box-shadow:0 0 0 3px color-mix(in srgb,var(--red) 25%,transparent)}
+.ns-ok{margin-top:.8rem;font-size:.88rem;color:var(--red-link);display:none}
+.ns-ok.show{display:block}
+
+/* ===== Footer ===== */
+.footer{background:var(--stage);color:var(--stage-ink);padding:3rem 0 2rem}
+.footer a{color:var(--stage-muted)}
+.footer a:hover{color:#fff}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2rem}
+.footer .brand{color:var(--stage-ink)}
+.footer p{color:var(--stage-muted);font-size:.9rem;max-width:36ch;margin-top:.8rem}
+.footer h4{font-family:var(--serif);font-weight:500;font-size:1rem;margin-bottom:1rem;color:var(--stage-ink)}
+.footer ul{list-style:none;display:flex;flex-direction:column;gap:.55rem}
+.footer ul a{font-size:.9rem}
+.footer-bottom{margin-top:2.4rem;padding-top:1.4rem;border-top:1px solid color-mix(in srgb,var(--stage-ink) 15%,transparent);display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:.82rem;color:var(--stage-muted)}
+
+/* ===== Cookie ===== */
+.cookie{position:fixed;right:1.2rem;bottom:1.2rem;max-width:330px;background:var(--stage);color:var(--stage-ink);border:1px solid color-mix(in srgb,var(--stage-ink) 18%,transparent);border-radius:var(--r);padding:1.1rem 1.2rem;box-shadow:var(--shadow);z-index:var(--z-toast);transform:translateY(calc(100% + 1.6rem));transition:transform .6s var(--ease),opacity .5s ease;opacity:0;pointer-events:none}
+.cookie.show{transform:translateY(0);opacity:1;pointer-events:auto}
+.cookie p{font-size:.88rem;color:var(--stage-muted);margin-bottom:.9rem}
+.cookie-actions{display:flex;gap:.5rem}
+.cookie .btn{padding:.5rem 1rem;font-size:.85rem}
+.cookie .btn-primary{background:var(--red);color:var(--red-ink)}
+.cookie .btn-ghost{border-color:color-mix(in srgb,var(--stage-ink) 30%,transparent);color:var(--stage-ink)}
+
+/* ===== Reveal ===== */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.rv-d1{transition-delay:.08s}.rv-d2{transition-delay:.16s}.rv-d3{transition-delay:.24s}
+.cs-grid .frame{opacity:0;transform:scale(.94) rotate(.5deg);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.cs-grid.revealed .frame{opacity:1;transform:none}
+.cs-grid .frame:nth-child(2){transition-delay:.06s}
+.cs-grid .frame:nth-child(3){transition-delay:.12s}
+.cs-grid .frame:nth-child(4){transition-delay:.18s}
+.cs-grid .frame:nth-child(5){transition-delay:.24s}
+.cs-grid .frame:nth-child(6){transition-delay:.3s}
+
+/* ===== Responsive ===== */
+@media (max-width:900px){
+  .nav-links{display:none}
+  .burger{display:grid;place-items:center}
+  .lang-select.desktop{display:none}
+  .lang-select.mobile{display:block}
+  .hero-grid{grid-template-columns:1fr;gap:2.4rem}
+  .contact-sheet{max-width:460px;margin-inline:auto}
+  .process-steps{grid-template-columns:1fr;gap:1rem}
+  .price-grid{grid-template-columns:1fr;max-width:520px;margin-inline:auto}
+  .gal-wrap{columns:2}
+  .contact-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .footer-grid>div:nth-child(2),.footer-grid>div:nth-child(3){grid-column:1}
+}
+@media (max-width:520px){
+  .gal-wrap{columns:1}
+  .hero-cta{flex-direction:column}
+  .hero-cta .btn{width:100%}
+}
+/* close style in assembly */</style>
+<body>
+<a class="skip" href="#main" data-i18n="skip">Saltar al contenido</a>
+
+<header class="nav" id="top">
+  <div class="container nav-inner">
+    <a class="brand" href="#hero" aria-label="LATENT Inicio">
+      <span class="dot" style="background:var(--red)"></span>
+      <span>LATENT</span>
+    </a>
+    <nav class="nav-links" aria-label="Principal">
+      <a href="#process" data-i18n="nav_process">Proceso</a>
+      <a href="#pricing" data-i18n="nav_pricing">Precios</a>
+      <a href="#gallery" data-i18n="nav_gallery">Trabajos</a>
+      <a href="#faq" data-i18n="nav_faq">FAQ</a>
+      <a href="#contact" data-i18n="nav_contact">Contacto</a>
+    </nav>
+    <div class="nav-actions">
+      <div class="lang-select desktop">
+        <button class="lang-select__btn" type="button" aria-haspopup="listbox" aria-expanded="false" data-i18n-aria="lang_aria">
+          <span class="lang-select__cur">ES</span>
+          <svg class="lang-select__chev" width="9" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="lang-select__menu" role="listbox" aria-label="Elige idioma">
+          <button class="lang-select__opt" role="option" data-lang="en" aria-selected="false">English</button>
+          <button class="lang-select__opt" role="option" data-lang="es" aria-selected="true">Español</button>
+          <button class="lang-select__opt" role="option" data-lang="fr" aria-selected="false">Français</button>
+          <button class="lang-select__opt" role="option" data-lang="de" aria-selected="false">Deutsch</button>
+          <button class="lang-select__opt" role="option" data-lang="it" aria-selected="false">Italiano</button>
+          <button class="lang-select__opt" role="option" data-lang="pt" aria-selected="false">Português</button>
+        </div>
+      </div>
+      <button class="icon-btn" type="button" id="themeToggle" aria-label="Cambiar tema" data-i18n-aria="theme_aria">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+      <a class="btn btn-primary" href="#pricing" data-i18n="cta_book">Reserva tu revelado</a>
+      <button class="burger" type="button" id="burger" aria-label="Abrir menú" data-i18n-aria="menu_aria" aria-expanded="false">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<nav class="mobile-menu" id="mobileMenu" aria-label="Menú móvil">
+  <button class="menu-close" type="button" aria-label="Cerrar menú" data-i18n-aria="close_aria">✕</button>
+  <div class="m-menu-links">
+    <a class="m-link" href="#process" data-i18n="nav_process_m">Proceso</a>
+    <a class="m-link" href="#pricing" data-i18n="nav_pricing_m">Precios</a>
+    <a class="m-link" href="#gallery" data-i18n="nav_gallery_m">Trabajos</a>
+    <a class="m-link" href="#faq" data-i18n="nav_faq_m">FAQ</a>
+    <a class="m-link" href="#contact" data-i18n="nav_contact_m">Contacto</a>
+  </div>
+  <div class="m-menu-foot">
+    <a class="btn btn-primary" href="#pricing" data-i18n="cta_book_m">Reserva tu revelado</a>
+    <div class="lang-select mobile">
+      <button class="lang-select__btn" type="button" aria-haspopup="listbox" aria-expanded="false" data-i18n-aria="lang_aria">
+        <span class="lang-select__cur">ES</span>
+        <svg class="lang-select__chev" width="9" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="lang-select__menu" role="listbox" aria-label="Elige idioma">
+        <button class="lang-select__opt" role="option" data-lang="en" aria-selected="false">English</button>
+        <button class="lang-select__opt" role="option" data-lang="es" aria-selected="true">Español</button>
+        <button class="lang-select__opt" role="option" data-lang="fr" aria-selected="false">Français</button>
+        <button class="lang-select__opt" role="option" data-lang="de" aria-selected="false">Deutsch</button>
+        <button class="lang-select__opt" role="option" data-lang="it" aria-selected="false">Italiano</button>
+        <button class="lang-select__opt" role="option" data-lang="pt" aria-selected="false">Português</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+<section class="hero" id="hero">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <span class="hero-kick rv in"><span class="kid"></span><span data-i18n="hero_kick">Poblenou · Barcelona · Desde 2016</span></span>
+      <h1 class="rv in"><span data-i18n="hero_t1">Revelamos la imagen que</span> <em data-i18n="hero_t2">tu cámara guardó.</em></h1>
+      <p class="hero-sub rv in rv-d1" data-i18n="hero_sub">Laboratorio fotográfico analógico de barrio. Te revelamos tu carrete el mismo día, imprimimos tus negativos en papel y los escaneamos hasta 4000 ppi. Tú disparamos, nosotros hacemos el resto.</p>
+      <div class="hero-cta rv in rv-d2">
+        <a class="btn btn-primary btn-lg" href="#pricing" data-i18n="cta_book">Reserva tu revelado</a>
+        <a class="btn btn-ghost btn-lg" href="#process" data-i18n="cta_how">Cómo funciona</a>
+      </div>
+      <p class="hero-note rv in rv-d3">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        <span data-i18n="hero_note">Carretes listos hoy a las 19:00 si llegas antes de las 15:00.</span>
+      </p>
+    </div>
+    <div class="contact-sheet rv in rv-d1" aria-hidden="true">
+      <div class="cs-grid">
+        <div class="frame f-a"><span class="tag">Portra 400</span></div>
+        <div class="frame f-b"><span class="tag">HP5 · b/n</span></div>
+        <div class="frame f-c"><span class="tag">Golden hour</span></div>
+        <div class="frame f-d"><span class="tag">Sepia × 1998</span></div>
+        <div class="frame f-e"><span class="tag">River Green</span></div>
+        <div class="frame f-f"><span class="tag">Magenta dusk</span></div>
+      </div>
+      <div class="cs-parse"><div class="p1"></div><div class="p2"></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Portra 400 <b>·</b> HP5 <b>·</b> Tri-X <b>·</b> Ektachrome E-6 <b>·</b> Kodachrome <b>·</b> Cinestill 800T <b>·</b> Delta 3200 <b>·</b></span>
+    <span>Portra 400 <b>·</b> HP5 <b>·</b> Tri-X <b>·</b> Ektachrome E-6 <b>·</b> Kodachrome <b>·</b> Cinestill 800T <b>·</b> Delta 3200 <b>·</b></span>
+  </div>
+</section>
+
+<section class="section process" id="process">
+  <div class="container">
+    <div class="sec-head">
+      <span class="kicker rv" data-i18n="process_kick">Laboratorio</span>
+      <h2 class="rv" data-i18n="process_title">De tu cámara al papel, en tres pasos.</h2>
+      <p class="rv rv-d1" data-i18n="process_sub">Un trayecto corto con control de calidad en cada estación. Tú eliges el punto de entrada: solo revelado, negativo o impresión.</p>
+    </div>
+    <div class="process-steps">
+      <div class="pcard rv">
+        <h3 data-i18n="pd1_t">Déjalo en el mostrador</h3>
+        <p data-i18n="pd1_d">Trae tu carrete en cualquier formato — 35mm, 120 o película de plano. Te entregamos un ticket, un tiempo y un número de teléfono para avisarte.</p>
+      </div>
+      <div class="pcard rv rv-d1">
+        <h3 data-i18n="pd2_t">Revelado a temperatura</h3>
+        <p data-i18n="pd2_d">Procesamos C-41, E-6 y b/n con química fresca y control de temperatura al décimo de grado. Tu negativo llega limpio, sin rayas ni veladuras.</p>
+      </div>
+      <div class="pcard rv rv-d2">
+        <h3 data-i18n="pd3_t">Escaneo o impresión</h3>
+        <p data-i18n="pd3_d">Elige alta resolución para compartir, o papel RC / baryta en la ampliadora. En dos días tu trabajo está listo para recoger.</p>
+      </div>
+    </div>
+  </div>
+</section>
+  <section class="section pricing" id="pricing">
+    <div class="container">
+      <div class="sec-head">
+        <span class="kicker rv" data-i18n="pricing_kick">Tarifas</span>
+        <h2 class="rv" data-i18n="pricing_title">Revelar no es un lujo, es tu archivo.</h2>
+        <p class="rv rv-d1" data-i18n="pricing_sub">Precios por carrete, sin sorpresas ni suplementos ocultos. IVA incluido. El escaneado en 4000 ppi viene de serie en los dos primeros planes.</p>
+      </div>
+      <div class="price-grid">
+        <article class="plan rv">
+          <h3 class="p-name" data-i18n="pl1_n">Solo revelado</h3>
+          <p class="p-desc" data-i18n="pl1_d">Tu negativo limpio y listo. Ideal si escaneas en casa.</p>
+          <div class="p-price"><span class="amt" data-i18n="pl1_price">6,50 €</span><span class="per" data-i18n="pl1_per">/ carrete</span></div>
+          <ul class="p-feats">
+            <li data-i18n="pl1_f1">Revelado C-41, E-6 o b/n</li>
+            <li data-i18n="pl1_f2">Tiras de negativos sin cortar</li>
+            <li data-i18n="pl1_f3">Sleeves ácido-libre</li>
+            <li data-i18n="pl1_f4">Listo en 24 h</li>
+          </ul>
+          <a class="btn btn-primary" href="#contact" data-i18n="pl1_cta">Elegir este</a>
+        </article>
+
+        <article class="plan featured rv rv-d1">
+          <span class="badge" data-i18n="pl2_badge">El favorito</span>
+          <h3 class="p-name" data-i18n="pl2_n">Revelar + escaneo</h3>
+          <p class="p-desc" data-i18n="pl2_d">El clásico para compartir y archivar en alta calidad.</p>
+          <div class="p-price"><span class="amt" data-i18n="pl2_price">13,90 €</span><span class="per" data-i18n="pl2_per">/ carrete</span></div>
+          <ul class="p-feats">
+            <li data-i18n="pl2_f1">Revelado C-41, E-6 o b/n</li>
+            <li data-i18n="pl2_f2">Escaneo 4000 ppi · JPEG</li>
+            <li data-i18n="pl2_f3">Pasamos a color (auto)</li>
+            <li data-i18n="pl2_f4">Descarga en 48 h</li>
+            <li data-i18n="pl2_f5">Negativos en sleeves</li>
+          </ul>
+          <a class="btn btn-primary" href="#contact" data-i18n="pl2_cta">Elegir este</a>
+        </article>
+
+        <article class="plan rv rv-d2">
+          <h3 class="p-name" data-i18n="pl3_n">Laboratorio completo</h3>
+          <p class="p-desc" data-i18n="pl3_d">Todo lo anterior más una impresión en papel que se toca.</p>
+          <div class="p-price"><span class="amt" data-i18n="pl3_price">24,50 €</span><span class="per" data-i18n="pl3_per">/ carrete</span></div>
+          <ul class="p-feats">
+            <li data-i18n="pl3_f1">Revelado + escaneo 4000 ppi</li>
+            <li data-i18n="pl3_f2">Impresión 10×15 en papel RC</li>
+            <li data-i18n="pl3_f3">Baryta 20×25 opcional</li>
+            <li data-i18n="pl3_f4">Encuadernación en espiral</li>
+          </ul>
+          <a class="btn btn-primary" href="#contact" data-i18n="pl3_cta">Elegir este</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section gallery" id="gallery">
+    <div class="container">
+      <div class="sec-head">
+        <span class="kicker rv" data-i18n="gallery_kick">Contact sheet</span>
+        <h2 class="rv" data-i18n="gallery_title">Imágenes que salieron del tanque.</h2>
+        <p class="rv rv-d1" data-i18n="gallery_sub">Una selección de carretes revelados aquí. Cada fotograma tiene su propia historia de luz, química y tiempo.</p>
+      </div>
+      <div class="gal-wrap" id="gal">
+        <figure class="gal-item rv"><div class="ph g--1"></div><figcaption class="gal-cap"><b data-i18n="gg1_t">Retrato</b><span data-i18n="gg1_c">Portra 400 · f/2.8</span></figcaption></figure>
+        <figure class="gal-item rv rv-d1"><div class="ph g--2"></div><figcaption class="gal-cap"><b data-i18n="gg2_t">Calle</b><span data-i18n="gg2_c">Tri-X · 1/250 s</span></figcaption></figure>
+        <figure class="gal-item rv rv-d2"><div class="ph g--3"></div><figcaption class="gal-cap"><b data-i18n="gg3_t">Oro</b><span data-i18n="gg3_c">Ektar 100 · 17:45</span></figcaption></figure>
+        <figure class="gal-item rv"><div class="ph g--4"></div><figcaption class="gal-cap"><b data-i18n="gg4_t">Ribera</b><span data-i18n="gg4_c">Velvia 50 · E-6</span></figcaption></figure>
+        <figure class="gal-item rv rv-d1"><div class="ph g--5"></div><figcaption class="gal-cap"><b data-i18n="gg5_t">Pasado</b><span data-i18n="gg5_c">Agfa · sepia</span></figcaption></figure>
+        <figure class="gal-item rv rv-d2"><div class="ph g--6"></div><figcaption class="gal-cap"><b data-i18n="gg6_t">Atardecer</b><span data-i18n="gg6_c">Ektachrome · E-6</span></figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container quote-block rv">
+      <span class="q-mark">“</span>
+      <blockquote data-i18n="quote">En LATENT te tratan como fotógrafo, no como cliente de una cadena. Me imprimieron un negocio entero y me llamaron para comentarme cada paso. Volveré siempre.</blockquote>
+      <div class="quote-by"><b data-i18n="quote_name">Marta Ferrer</b> · <span data-i18n="quote_role">Fotógrafa documental</span></div>
+    </div>
+  </section>
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="sec-head" style="margin-inline:auto;text-align:center">
+        <span class="kicker rv" data-i18n="faq_kick">Preguntas</span>
+        <h2 class="rv" data-i18n="faq_title">Dudas de la cámara oscura.</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item rv">
+          <button class="faq-q" type="button" aria-expanded="false"><span data-i18n="faq1_q">¿Cuánto tarda el revelado?</span><span class="faq-chev">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner" data-i18n="faq1_a">El revelado solo (C-41, E-6 o b/n) suele estar listo en 24 horas. Si añades escaneo, son 48 horas. Las impresiones añaden un día por tamaño. Los carretes que entran antes de las 15:00 salen ese mismo día a las 19:00.</div></div>
+        </div>
+        <div class="faq-item rv">
+          <button class="faq-q" type="button" aria-expanded="false"><span data-i18n="faq2_q">¿Reveláis carretes caducados o subexpuestos?</span><span class="faq-chev">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner" data-i18n="faq2_a">Sí. Los negativos caducados o subexpuestos se pueden recuperar con un tiempo de revelado ajustado. Avisa al dejarlo y te damos un presupuesto antes de procesar. Si el carrete está partido o estropeado, lo revisamos gratis y te lo decimos.</div></div>
+        </div>
+        <div class="faq-item rv">
+          <button class="faq-q" type="button" aria-expanded="false"><span data-i18n="faq3_q">¿Qué formato de escaneo entrego?</span><span class="faq-chev">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner" data-i18n="faq3_a">JPEG sRGB a 4000 ppi en el plan estándar, con los blancos y negros equilibrados automáticamente. Para un archivo TIFF de 16 bits sin pasos, es un suplemento de 4 € por carrete. Los negativos siempre son tuyos, los devolvemos en sleeves.</div></div>
+        </div>
+        <div class="faq-item rv">
+          <button class="faq-q" type="button" aria-expanded="false"><span data-i18n="faq4_q">¿Dónde estáis y tenéis hora?</span><span class="faq-chev">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner" data-i18n="faq4_a">Estamos en la Calle de la Industria 34, Poblenou, Barcelona. Abrimos de lunes a sábado de 10:00 a 20:00. No hace falta cita para dejar un carrete; para impresiones grandes o presupuestos especiales, sí te recomendamos avisar.</div></div>
+        </div>
+        <div class="faq-item rv">
+          <button class="faq-q" type="button" aria-expanded="false"><span data-i18n="faq5_q">¿Hacéis envíos por correo?</span><span class="faq-chev">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner" data-i18n="faq5_a">Sí. Si no puedes venir, envía tu carrete con una nota y tus datos; te devolvemos los negativos y tus archivos por correo certificado. El envío se cobra aparte y lo confirmamos por email antes de procesar.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section contact" id="contact">
+    <div class="container contact-grid">
+      <div class="rv">
+        <span class="kicker" data-i18n="contact_kick">Encuéntranos</span>
+        <h2 style="font-size:clamp(1.7rem,3.4vw,2.5rem)" data-i18n="contact_title">Pásate por el laboratorio.</h2>
+        <p style="margin-top:.9rem;color:var(--muted)" data-i18n="contact_sub">Atendemos cada carrete en persona. Cuéntanos tu rollo, tu cámara y lo que quieres lograr.</p>
+        <div class="contact-list">
+          <div class="c-item">
+            <span class="ci"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+            <div><b data-i18n="contact_addr_l">Dirección</b><span><a href="https://www.google.com/maps/search/?api=1&query=Carrer+de+la+Ind%C3%BAstria+34+Barcelona" target="_blank" rel="noopener" data-i18n="contact_addr">Calle de la Industria 34, Poblenou</a></span></div>
+          </div>
+          <div class="c-item">
+            <span class="ci"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 4h16l-8 9z"/></svg></span>
+            <div><b data-i18n="contact_email_l">Correo</b><span><a href="mailto:hola@latentlab.es">hola@latentlab.es</a></span></div>
+          </div>
+          <div class="c-item">
+            <span class="ci"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M12 3v2M8 3v2M16 3v2"/></svg></span>
+            <div><b data-i18n="contact_hours_l">Horario</b><span data-i18n="contact_hours">Lun–Sáb · 10:00–20:00</span></div>
+          </div>
+        </div>
+      </div>
+      <form class="contact-form rv rv-d1" id="contactForm" novalidate>
+        <h3 data-i18n="form_title">Escríbenos sobre tu carrete</h3>
+        <p data-i18n="form_sub">Cuéntanos qué película, formato y resultado buscas. Te contestamos el mismo día.</p>
+        <div class="field">
+          <label for="ce-email">Email</label>
+          <input type="email" id="ce-email" name="email" required data-i18n-ph="form_email_ph" placeholder="tu@correo.com">
+        </div>
+        <div class="field">
+          <label for="ce-msg">Mensaje</label>
+          <input type="text" id="ce-msg" name="msg" data-i18n-ph="form_msg_ph" placeholder="Un Portra 160 con la cámara clavada a f/8…">
+        </div>
+        <button class="btn btn-primary btn-lg" type="submit" data-i18n="form_btn">Enviar consulta</button>
+        <p class="ns-ok" id="nsOk" data-i18n="form_ok">Esta página no guarda correos. Escríbenos a hola@latentlab.es — tu mensaje se abrirá en tu propio cliente de correo.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="brand"><span class="dot" style="background:var(--red)"></span>LATENT</div>
+        <p data-i18n="footer_tag">Laboratorio fotográfico analógico en Barcelona. Revelamos, escaneamos e imprimimos tu película desde 2016.</p>
+      </div>
+      <div>
+        <h4 data-i18n="footer_links_t">Explora</h4>
+        <ul>
+          <li><a href="#process" data-i18n="nav_process">Proceso</a></li>
+          <li><a href="#pricing" data-i18n="nav_pricing">Precios</a></li>
+          <li><a href="#faq" data-i18n="nav_faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="footer_contact_t">Contacto</h4>
+        <ul>
+          <li><a href="mailto:hola@latentlab.es">hola@latentlab.es</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Carrer+de+la+Ind%C3%BAstria+34+Barcelona" target="_blank" rel="noopener" data-i18n="footer_addr">Industria 34, Barcelona</a></li>
+          <li><span data-i18n="footer_hours" style="color:var(--stage-muted)">Lun–Sáb · 10–20 h</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 LATENT · <span data-i18n="footer_legal">Poblenou, Barcelona</span></span>
+      <span data-i18n="footer_credits">Hecho a mano, como tu película.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="cookie" id="cookieBanner" role="dialog" aria-live="polite" aria-label="Aviso de cookies">
+  <p data-i18n="ckText">Usamos una única cookie para recordar tu idioma y tu tema. Nada de rastreo, prometido.</p>
+  <div class="cookie-actions">
+    <button class="btn btn-primary" type="button" id="cookieOk" data-i18n="ckOk">Entendido</button>
+    <button class="btn btn-ghost" type="button" id="cookieNo" data-i18n="ckNo">Solo esencial</button>
+  </div>
+</div>
+
+<script>
+(function(){
+var I18N = {
+  es: {
+    meta_title: "LATENT · Laboratorio de fotografía analógica en Barcelona",
+    meta_desc: "Revelado C-41, E-6 y b/n, impresión analógica y escaneo a 4000 ppi en el corazón del Poblenou, Barcelona.",
+    skip: "Saltar al contenido",
+    nav_process: "Proceso", nav_pricing: "Precios", nav_gallery: "Trabajos", nav_faq: "FAQ", nav_contact: "Contacto",
+    lang_aria: "Cambiar idioma", theme_aria: "Cambiar tema", menu_aria: "Abrir menú", close_aria: "Cerrar menú",
+    cta_book: "Reserva tu revelado", cta_how: "Cómo funciona",
+    nav_process_m: "Proceso", nav_pricing_m: "Precios", nav_gallery_m: "Trabajos", nav_faq_m: "FAQ", nav_contact_m: "Contacto",
+    cta_book_m: "Reserva tu revelado",
+    hero_kick: "Poblenou · Barcelona · Desde 2016",
+    hero_t1: "Revelamos la imagen que",
+    hero_t2: "tu cámara guardó.",
+    hero_sub: "Laboratorio fotográfico analógico de barrio. Te revelamos tu carrete el mismo día, imprimimos tus negativos en papel y los escaneamos hasta 4000 ppi. Tú disparamos, nosotros hacemos el resto.",
+    hero_note: "Carretes listos hoy a las 19:00 si llegas antes de las 15:00.",
+    process_kick: "Laboratorio", process_title: "De tu cámara al papel, en tres pasos.",
+    process_sub: "Un trayecto corto con control de calidad en cada estación. Tú eliges el punto de entrada: solo revelado, negativo o impresión.",
+    pd1_t: "Déjalo en el mostrador",
+    pd1_d: "Trae tu carrete en cualquier formato — 35mm, 120 o película de plano. Te entregamos un ticket, un tiempo y un número para avisarte.",
+    pd2_t: "Revelado a temperatura",
+    pd2_d: "Procesamos C-41, E-6 y b/n con química fresca y control de temperatura al décimo de grado. Tu negativo llega limpio, sin rayas ni veladuras.",
+    pd3_t: "Escaneo o impresión",
+    pd3_d: "Elige alta resolución para compartir, o papel RC y baryta en la ampliadora. En dos días tu trabajo está listo para recoger.",
+    pricing_kick: "Tarifas", pricing_title: "Revelar no es un lujo, es tu archivo.",
+    pricing_sub: "Precios por carrete, sin sorpresas ni suplementos ocultos. IVA incluido. El escaneado a 4000 ppi viene de serie en los dos primeros planes.",
+    pl1_n: "Solo revelado", pl1_d: "Tu negativo limpio y listo. Ideal si escaneas en casa.",
+    pl1_price: "6,50 €", pl1_per: "/ carrete",
+    pl1_f1: "Revelado C-41, E-6 o b/n", pl1_f2: "Tiras de negativos sin cortar", pl1_f3: "Sleeves ácido-libre", pl1_f4: "Listo en 24 h",
+    pl1_cta: "Elegir este",
+    pl2_badge: "El favorito", pl2_n: "Revelar + escaneo", pl2_d: "El clásico para compartir y archivar en alta calidad.",
+    pl2_price: "13,90 €", pl2_per: "/ carrete",
+    pl2_f1: "Revelado C-41, E-6 o b/n", pl2_f2: "Escaneo 4000 ppi · JPEG", pl2_f3: "Pasamos a color (auto)", pl2_f4: "Descarga en 48 h", pl2_f5: "Negativos en sleeves",
+    pl2_cta: "Elegir este",
+    pl3_n: "Laboratorio completo", pl3_d: "Todo lo anterior más una impresión en papel que se toca.",
+    pl3_price: "24,50 €", pl3_per: "/ carrete",
+    pl3_f1: "Revelado + escaneo 4000 ppi", pl3_f2: "Impresión 10×15 en papel RC", pl3_f3: "Baryta 20×25 opcional", pl3_f4: "Encuadernación en espiral",
+    pl3_cta: "Elegir este",
+    gallery_kick: "Contact sheet", gallery_title: "Imágenes que salieron del tanque.",
+    gallery_sub: "Una selección de carretes revelados aquí. Cada fotograma tiene su propia historia de luz, química y tiempo.",
+    gg1_t: "Retrato", gg1_c: "Portra 400 · f/2.8", gg2_t: "Calle", gg2_c: "Tri-X · 1/250 s",
+    gg3_t: "Oro", gg3_c: "Ektar 100 · 17:45", gg4_t: "Ribera", gg4_c: "Velvia 50 · E-6",
+    gg5_t: "Pasado", gg5_c: "Agfa · sepia", gg6_t: "Atardecer", gg6_c: "Ektachrome · E-6",
+    quote: "En LATENT te tratan como fotógrafo, no como cliente de una cadena. Me imprimieron un negocio entero y me llamaron para comentarme cada paso. Volveré siempre.",
+    quote_name: "Marta Ferrer", quote_role: "Fotógrafa documental",
+    faq_kick: "Preguntas", faq_title: "Dudas de la cámara oscura.",
+    faq1_q: "¿Cuánto tarda el revelado?",
+    faq1_a: "El revelado solo (C-41, E-6 o b/n) suele estar listo en 24 horas. Si añades escaneo, son 48 horas. Las impresiones añaden un día por tamaño. Los carretes que entran antes de las 15:00 salen ese mismo día a las 19:00.",
+    faq2_q: "¿Reveláis carretes caducados o subexpuestos?",
+    faq2_a: "Sí. Los negativos caducados o subexpuestos se recuperan con un tiempo de revelado ajustado. Avisa al dejarlo y te damos presupuesto antes de procesar. Si el carrete está dañado, lo revisamos gratis y te lo decimos.",
+    faq3_q: "¿Qué formato de escaneo entrego?",
+    faq3_a: "JPEG sRGB a 4000 ppi en el plan estándar, con blancos y negros equilibrados. Para un TIFF de 16 bits sin pasos, es un suplemento de 4 € por carrete. Los negativos siempre son tuyos, los devolvemos en sleeves.",
+    faq4_q: "¿Dónde estáis y tenéis hora?",
+    faq4_a: "Estamos en la Calle de la Industria 34, Poblenou, Barcelona. Abrimos de lunes a sábado de 10:00 a 20:00. No hace falta cita para dejar un carrete; para impresiones grandes o presupuestos especiales, sí recomendamos avisar.",
+    faq5_q: "¿Hacéis envíos por correo?",
+    faq5_a: "Sí. Si no puedes venir, envía tu carrete con una nota y tus datos; te devolvemos negativos y archivos por correo certificado. El envío se cobra aparte y lo confirmamos por email antes de procesar.",
+    contact_kick: "Encuéntranos", contact_title: "Pásate por el laboratorio.",
+    contact_sub: "Atendemos cada carrete en persona. Cuéntanos tu rollo, tu cámara y lo que quieres lograr.",
+    contact_addr_l: "Dirección", contact_addr: "Calle de la Industria 34, Poblenou",
+    contact_email_l: "Correo", contact_hours_l: "Horario", contact_hours: "Lun–Sáb · 10:00–20:00",
+    form_title: "Escríbenos sobre tu carrete",
+    form_sub: "Cuéntanos qué película, formato y resultado buscas. Te contestamos el mismo día.",
+    form_email_ph: "tu@correo.com", form_msg_ph: "Un Portra 160 con la cámara clavada a f/8…",
+    form_btn: "Enviar consulta",
+    form_ok: "Esta página no guarda correos. Escríbenos a hola@latentlab.es — tu mensaje se abrirá en tu propio cliente de correo.",
+    footer_tag: "Laboratorio fotográfico analógico en Barcelona. Revelamos, escaneamos e imprimimos tu película desde 2016.",
+    footer_links_t: "Explora", footer_contact_t: "Contacto", footer_addr: "Industria 34, Barcelona",
+    footer_hours: "Lun–Sáb · 10–20 h", footer_legal: "Poblenou, Barcelona", footer_credits: "Hecho a mano, como tu película.",
+    ckText: "Usamos una única cookie para recordar tu idioma y tu tema. Nada de rastreo, prometido.",
+    ckOk: "Entendido", ckNo: "Solo esencial"
+  },
+  en: {
+    meta_title: "LATENT · Analog photo lab in Barcelona",
+    meta_desc: "C-41, E-6 and B&W developing, analog printing and 4000 ppi scanning in the heart of Poblenou, Barcelona.",
+    skip: "Skip to content",
+    nav_process: "Process", nav_pricing: "Pricing", nav_gallery: "Work", nav_faq: "FAQ", nav_contact: "Contact",
+    lang_aria: "Change language", theme_aria: "Toggle theme", menu_aria: "Open menu", close_aria: "Close menu",
+    cta_book: "Book your develop", cta_how: "How it works",
+    nav_process_m: "Process", nav_pricing_m: "Pricing", nav_gallery_m: "Work", nav_faq_m: "FAQ", nav_contact_m: "Contact",
+    cta_book_m: "Book your develop",
+    hero_kick: "Poblenou · Barcelona · Est. 2016",
+    hero_t1: "We reveal the image your",
+    hero_t2: "camera kept for you.",
+    hero_sub: "A neighbourhood analog photo lab. We develop your roll the same day, print your negatives on paper and scan up to 4000 ppi. You press the shutter, we do the rest.",
+    hero_note: "Rolls ready today at 7 pm if you drop them by 3 pm.",
+    process_kick: "The lab", process_title: "From your camera to paper, in three steps.",
+    process_sub: "A short route with quality control at every station. You choose the entry point: develop only, negative, or print.",
+    pd1_t: "Leave it at the counter",
+    pd1_d: "Bring any format — 35mm, 120 or large format. We give you a ticket, a time and a number to call you.",
+    pd2_t: "Develop at temperature",
+    pd2_d: "We process C-41, E-6 and B&W with fresh chemistry and temperature control to a tenth of a degree. Your negative comes out clean, streak-free and fog-free.",
+    pd3_t: "Scan or print",
+    pd3_d: "Pick high resolution to share, or RC and baryta paper at the enlarger. Your work is ready to pick up in two days.",
+    pricing_kick: "Rates", pricing_title: "Developing is not a luxury, it is your archive.",
+    pricing_sub: "Price per roll, no surprises and no hidden extras. VAT included. 4000 ppi scanning is standard on the first two plans.",
+    pl1_n: "Develop only", pl1_d: "Your clean negative, ready. Ideal if you scan at home.",
+    pl1_price: "€6.50", pl1_per: "/ roll",
+    pl1_f1: "C-41, E-6 or B&W develop", pl1_f2: "Uncut strips of negatives", pl1_f3: "Acid-free sleeves", pl1_f4: "Ready in 24 h",
+    pl1_cta: "Choose this",
+    pl2_badge: "Favourite", pl2_n: "Develop + scan", pl2_d: "The classic for sharing and archiving in high quality.",
+    pl2_price: "€13.90", pl2_per: "/ roll",
+    pl2_f1: "C-41, E-6 or B&W develop", pl2_f2: "4000 ppi scan · JPEG", pl2_f3: "Color corrected (auto)", pl2_f4: "Download in 48 h", pl2_f5: "Negatives in sleeves",
+    pl2_cta: "Choose this",
+    pl3_n: "Full lab", pl3_d: "Everything above plus a print that you can actually touch.",
+    pl3_price: "€24.50", pl3_per: "/ roll",
+    pl3_f1: "Develop + 4000 ppi scan", pl3_f2: "10×15 print on RC paper", pl3_f3: "Baryta 20×25 optional", pl3_f4: "Spiral bound",
+    pl3_cta: "Choose this",
+    gallery_kick: "Contact sheet", gallery_title: "Frames that came out of the tank.",
+    gallery_sub: "A selection of rolls developed here. Every frame has its own story of light, chemistry and time.",
+    gg1_t: "Portrait", gg1_c: "Portra 400 · f/2.8", gg2_t: "Street", gg2_c: "Tri-X · 1/250 s",
+    gg3_t: "Gold", gg3_c: "Ektar 100 · 17:45", gg4_t: "Riverside", gg4_c: "Velvia 50 · E-6",
+    gg5_t: "Past", gg5_c: "Agfa · sepia", gg6_t: "Dusk", gg6_c: "Ektachrome · E-6",
+    quote: "At LATENT they treat you like a photographer, not a chain-store customer. They printed a whole series for me and phoned to talk through each step. I will be back, always.",
+    quote_name: "Marta Ferrer", quote_role: "Documentary photographer",
+    faq_kick: "Questions", faq_title: "Darkroom doubts.",
+    faq1_q: "How long does developing take?",
+    faq1_a: "Develop only (C-41, E-6 or B&W) is usually ready in 24 hours. Add scanning and it is 48 hours. Prints add a day per size. Rolls that arrive before 3 pm are done the same day at 7 pm.",
+    faq2_q: "Do you develop expired or underexposed rolls?",
+    faq2_a: "Yes. Expired or underexposed negatives recover with an adjusted development time. Tell us on drop-off and we quote before processing. If the roll is damaged, we check it for free and let you know.",
+    faq3_q: "What scan format do you deliver?",
+    faq3_a: "JPEG sRGB at 4000 ppi on the standard plan, with blacks and whites balanced. For a 16-bit TIFF without passing, it is a €4 supplement per roll. Negatives are always yours, returned in sleeves.",
+    faq4_q: "Where are you and do I need an appointment?",
+    faq4_a: "We are at Calle de la Industria 34, Poblenou, Barcelona. Open Monday to Saturday, 10 am to 8 pm. No appointment needed to drop a roll; for large prints or special quotes we do recommend letting us know.",
+    faq5_q: "Do you ship by mail?",
+    faq5_a: "Yes. If you cannot come, send your roll with a note and your details; we return negatives and files by certified mail. Shipping is charged separately and confirmed by email before we process.",
+    contact_kick: "Find us", contact_title: "Drop by the lab.",
+    contact_sub: "We handle every roll in person. Tell us about your stock, your camera and what you want to achieve.",
+    contact_addr_l: "Address", contact_addr: "Carrer de la Indústria 34, Poblenou",
+    contact_email_l: "Email", contact_hours_l: "Hours", contact_hours: "Mon–Sat · 10 am–8 pm",
+    form_title: "Write to us about your roll",
+    form_sub: "Tell us which film, format and result you want. We reply the same day.",
+    form_email_ph: "you@email.com", form_msg_ph: "A Portra 160 nailed at f/8…",
+    form_btn: "Send enquiry",
+    form_ok: "This page does not store emails. Write to hola@latentlab.es — your message will open in your own email client.",
+    footer_tag: "Analog photography lab in Barcelona. We develop, scan and print your film since 2016.",
+    footer_links_t: "Explore", footer_contact_t: "Contact", footer_addr: "Industria 34, Barcelona",
+    footer_hours: "Mon–Sat · 10 am–8 pm", footer_legal: "Poblenou, Barcelona", footer_credits: "Handmade, like your film.",
+    ckText: "We use a single cookie to remember your language and theme. No tracking, promised.",
+    ckOk: "Got it", ckNo: "Essentials only"
+  },
+  fr: {
+    meta_title: "LATENT · Laboratoire photo argentique à Barcelone",
+    meta_desc: "Développement C-41, E-6 et N&B, tirage argentique et scan à 4000 ppi au cœur du Poblenou, Barcelone.",
+    skip: "Aller au contenu",
+    nav_process: "Processus", nav_pricing: "Tarifs", nav_gallery: "Travaux", nav_faq: "FAQ", nav_contact: "Contact",
+    lang_aria: "Changer de langue", theme_aria: "Changer de thème", menu_aria: "Ouvrir le menu", close_aria: "Fermer le menu",
+    cta_book: "Réserver ton développé", cta_how: "Comment ça marche",
+    nav_process_m: "Processus", nav_pricing_m: "Tarifs", nav_gallery_m: "Travaux", nav_faq_m: "FAQ", nav_contact_m: "Contact",
+    cta_book_m: "Réserver ton développé",
+    hero_kick: "Poblenou · Barcelone · Depuis 2016",
+    hero_t1: "Nous révélons l'image que",
+    hero_t2: "ton appareil a gardée.",
+    hero_sub: "Un laboratoire photo argentique de quartier. Nous développons ta pellicule le jour même, tirons tes négatifs sur papier et scannons jusqu'à 4000 ppi. Tu déclenches, on fait le reste.",
+    hero_note: "Pellicules prêtes aujourd'hui à 19 h si tu passes avant 15 h.",
+    process_kick: "Le laboratoire", process_title: "De ton appareil au papier, en trois étapes.",
+    process_sub: "Un court parcours avec contrôle qualité à chaque station. Tu choisis le point d'entrée : développement seul, négatif ou tirage.",
+    pd1_t: "Dépose-le au comptoir",
+    pd1_d: "Apporte ta pellicule en tout format — 35 mm, 120 ou plan-film. On te remet un ticket, un délai et un numéro pour t'appeler.",
+    pd2_t: "Développement à température",
+    pd2_d: "Nous traitons C-41, E-6 et N&B avec des chimies fraîches et un contrôle au dixième de degré. Ton négatif sort propre, sans rayures ni voile.",
+    pd3_t: "Scan ou tirage",
+    pd3_d: "Choisis la haute résolution pour partager, ou le papier RC et baryta à l'agrandisseur. Ton travail est prêt en deux jours.",
+    pricing_kick: "Tarifs", pricing_title: "Développer n'est pas un luxe, c'est tes archives.",
+    pricing_sub: "Prix par pellicule, sans surprise ni supplément caché. TVA incluse. Le scan à 4000 ppi est de série sur les deux premiers plans.",
+    pl1_n: "Développement seul", pl1_d: "Ton négatif propre, prêt. Idéal si tu scannes à la maison.",
+    pl1_price: "6,50 €", pl1_per: "/ pellicule",
+    pl1_f1: "Développement C-41, E-6 ou N&B", pl1_f2: "Bandes de négatifs non coupées", pl1_f3: "Sleeves sans acide", pl1_f4: "Prêt en 24 h",
+    pl1_cta: "Choisir celui-ci",
+    pl2_badge: "Le favori", pl2_n: "Développement + scan", pl2_d: "Le classique pour partager et archiver en haute qualité.",
+    pl2_price: "13,90 €", pl2_per: "/ pellicule",
+    pl2_f1: "Développement C-41, E-6 ou N&B", pl2_f2: "Scan 4000 ppi · JPEG", pl2_f3: "Passage couleur (auto)", pl2_f4: "Téléchargement en 48 h", pl2_f5: "Négatifs en sleeves",
+    pl2_cta: "Choisir celui-ci",
+    pl3_n: "Laboratoire complet", pl3_d: "Tout le précédent plus un tirage papier que tu touches.",
+    pl3_price: "24,50 €", pl3_per: "/ pellicule",
+    pl3_f1: "Développement + scan 4000 ppi", pl3_f2: "Tirage 10×15 sur papier RC", pl3_f3: "Baryta 20×25 en option", pl3_f4: "Reliure spirale",
+    pl3_cta: "Choisir celui-ci",
+    gallery_kick: "Planche contact", gallery_title: "Des images sorties du bain.",
+    gallery_sub: "Une sélection de pellicules développées ici. Chaque photogramme a sa propre histoire de lumière, de chimie et de temps.",
+    gg1_t: "Portrait", gg1_c: "Portra 400 · f/2.8", gg2_t: "Rue", gg2_c: "Tri-X · 1/250 s",
+    gg3_t: "Or", gg3_c: "Ektar 100 · 17:45", gg4_t: "Rivière", gg4_c: "Velvia 50 · E-6",
+    gg5_t: "Passé", gg5_c: "Agfa · sépia", gg6_t: "Crépuscule", gg6_c: "Ektachrome · E-6",
+    quote: "Chez LATENT on te traite comme un photographe, pas comme un client de chaîne. Ils m'ont tiré toute une série et m'ont appelée pour détailler chaque étape. Je reviendrai, toujours.",
+    quote_name: "Marta Ferrer", quote_role: "Photographe documentaire",
+    faq_kick: "Questions", faq_title: "Les doutes de la chambre noire.",
+    faq1_q: "Combien de temps faut-il pour développer ?",
+    faq1_a: "Le développement seul (C-41, E-6 ou N&B) est généralement prêt en 24 heures. Avec scan, 48 heures. Les tirages ajoutent un jour par format. Les pellicules déposées avant 15 h sortent le jour même à 19 h.",
+    faq2_q: "Développez-vous les pellicules périmées ou sous-exposées ?",
+    faq2_a: "Oui. Les négatifs périmés ou sous-exposés se récupèrent avec un temps de développement ajusté. Préviens au dépôt et on te quote avant de traiter. Si la pellicule est abîmée, on vérifie gratuitement et on te le dit.",
+    faq3_q: "Quel format de scan livrez-vous ?",
+    faq3_a: "JPEG sRGB à 4000 ppi sur le plan standard, avec blancs et noirs équilibrés. Pour un TIFF 16 bits sans étapes, c'est un supplément de 4 € par pellicule. Les négatifs sont toujours à toi, rendus en sleeves.",
+    faq4_q: "Où êtes-vous et faut-il un rendez-vous ?",
+    faq4_a: "Nous sommes au Carrer de la Indústria 34, Poblenou, Barcelone. Ouvert du lundi au samedi, 10 h à 20 h. Pas besoin de rendez-vous pour déposer une pellicule ; pour les grands tirages ou devis spéciaux, on recommande de prévenir.",
+    faq5_q: "Expédiez-vous par courrier ?",
+    faq5_a: "Oui. Si tu ne peux pas venir, envoie ta pellicule avec une note et tes coordonnées ; on rend négatifs et fichiers par courrier recommandé. L'envoi est facturé à part et confirmé par email avant traitement.",
+    contact_kick: "Nous trouver", contact_title: "Passe au laboratoire.",
+    contact_sub: "Nous traitons chaque pellicule en personne. Raconte-nous ta pellicule, ton appareil et ce que tu veux obtenir.",
+    contact_addr_l: "Adresse", contact_addr: "Carrer de la Indústria 34, Poblenou",
+    contact_email_l: "Email", contact_hours_l: "Horaires", contact_hours: "Lun–Sam · 10 h–20 h",
+    form_title: "Écris-nous à propos de ta pellicule",
+    form_sub: "Dis-nous quelle pellicule, quel format et quel résultat. On répond le jour même.",
+    form_email_ph: "toi@email.com", form_msg_ph: "Un Portra 160 réglé à f/8…",
+    form_btn: "Envoyer la demande",
+    form_ok: "Cette page ne conserve pas les emails. Écris à hola@latentlab.es — ton message s'ouvrira dans ton propre client de messagerie.",
+    footer_tag: "Laboratoire photo argentique à Barcelone. Nous développons, scannons et tirons ta pellicule depuis 2016.",
+    footer_links_t: "Explorer", footer_contact_t: "Contact", footer_addr: "Industria 34, Barcelone",
+    footer_hours: "Lun–Sam · 10 h–20 h", footer_legal: "Poblenou, Barcelone", footer_credits: "Fait main, comme ta pellicule.",
+    ckText: "Un seul cookie pour retenir ta langue et ton thème. Aucun pistage, promis.",
+    ckOk: "Compris", ckNo: "Essentiel uniquement"
+  },
+  de: {
+    meta_title: "LATENT · Analoges Fotolabor in Barcelona",
+    meta_desc: "C-41-, E-6- und S/W-Entwicklung, analoger Abzug und 4000-ppi-Scan im Herzen des Poblenou, Barcelona.",
+    skip: "Zum Inhalt springen",
+    nav_process: "Ablauf", nav_pricing: "Preise", nav_gallery: "Arbeiten", nav_faq: "FAQ", nav_contact: "Kontakt",
+    lang_aria: "Sprache ändern", theme_aria: "Design wechseln", menu_aria: "Menü öffnen", close_aria: "Menü schließen",
+    cta_book: "Entwicklung buchen", cta_how: "So funktioniert's",
+    nav_process_m: "Ablauf", nav_pricing_m: "Preise", nav_gallery_m: "Arbeiten", nav_faq_m: "FAQ", nav_contact_m: "Kontakt",
+    cta_book_m: "Entwicklung buchen",
+    hero_kick: "Poblenou · Barcelona · Seit 2016",
+    hero_t1: "Wir entwickeln das Bild,",
+    hero_t2: "das deine Kamera bewahrt hat.",
+    hero_sub: "Ein analoges Viertel-Fotolabor. Wir entwickeln deine Rolle am selben Tag, drucken deine Negative auf Papier und scannen bis 4000 ppi. Du drückst ab, wir machen den Rest.",
+    hero_note: "Rollen heute um 19:00 fertig, wenn du vor 15:00 vorbeikommst.",
+    process_kick: "Das Labor", process_title: "Von deiner Kamera aufs Papier, in drei Schritten.",
+    process_sub: "Ein kurzer Weg mit Qualitätskontrolle an jeder Station. Du wählst den Einstieg: nur Entwicklung, Negativ oder Abzug.",
+    pd1_t: "Gib es am Tresen ab",
+    pd1_d: "Bring deine Rolle in jedem Format — 35 mm, 120 oder Planfilm. Du bekommst einen Bon, eine Zeit und eine Nummer, unter der wir anrufen.",
+    pd2_t: "Entwicklung bei Temperatur",
+    pd2_d: "Wir verarbeiten C-41, E-6 und S/W mit frischer Chemie und Temperaturkontrolle auf Zehntelgrade. Dein Negativ kommt sauber heraus, ohne Kratzer oder Schleier.",
+    pd3_t: "Scan oder Abzug",
+    pd3_d: "Wähle hohe Auflösung zum Teilen oder RC- und Baryt-Papier am Vergrößerer. In zwei Tagen ist deine Arbeit abholbereit.",
+    pricing_kick: "Tarife", pricing_title: "Entwickeln ist kein Luxus, sondern dein Archiv.",
+    pricing_sub: "Preis pro Rolle, ohne Überraschungen und versteckte Extras. Inkl. MwSt. Der 4000-ppi-Scan ist in den ersten beiden Plänen enthalten.",
+    pl1_n: "Nur Entwicklung", pl1_d: "Dein sauberes Negativ, fertig. Ideal, wenn du zu Hause scannst.",
+    pl1_price: "6,50 €", pl1_per: "/ Rolle",
+    pl1_f1: "C-41-, E-6- oder S/W-Entwicklung", pl1_f2: "Unzerschnittene Negativstreifen", pl1_f3: "Säurefreie Hüllen", pl1_f4: "In 24 h fertig",
+    pl1_cta: "Diesen wählen",
+    pl2_badge: "Favorit", pl2_n: "Entwicklung + Scan", pl2_d: "Der Klassiker zum Teilen und Archivieren in hoher Qualität.",
+    pl2_price: "13,90 €", pl2_per: "/ Rolle",
+    pl2_f1: "C-41-, E-6- oder S/W-Entwicklung", pl2_f2: "4000-ppi-Scan · JPEG", pl2_f3: "Farbausgleich (auto)", pl2_f4: "Download in 48 h", pl2_f5: "Negative in Hüllen",
+    pl2_cta: "Diesen wählen",
+    pl3_n: "Komplettes Labor", pl3_d: "Alles oben plus einen Abzug, den du anfassen kannst.",
+    pl3_price: "24,50 €", pl3_per: "/ Rolle",
+    pl3_f1: "Entwicklung + 4000-ppi-Scan", pl3_f2: "10×15-Abzug auf RC-Papier", pl3_f3: "Baryt 20×25 optional", pl3_f4: "Spiralbindung",
+    pl3_cta: "Diesen wählen",
+    gallery_kick: "Kontaktbogen", gallery_title: "Bilder, die aus der Entwicklerdose kamen.",
+    gallery_sub: "Eine Auswahl hier entwickelter Rollen. Jedes Einzelbild hat seine eigene Geschichte aus Licht, Chemie und Zeit.",
+    gg1_t: "Porträt", gg1_c: "Portra 400 · f/2.8", gg2_t: "Straße", gg2_c: "Tri-X · 1/250 s",
+    gg3_t: "Gold", gg3_c: "Ektar 100 · 17:45", gg4_t: "Ufer", gg4_c: "Velvia 50 · E-6",
+    gg5_t: "Vergangenheit", gg5_c: "Agfa · Sepia", gg6_t: "Abenddämmerung", gg6_c: "Ektachrome · E-6",
+    quote: "Bei LATENT wirst du wie ein Fotograf behandelt, nicht wie ein Kettenkunde. Sie haben mir eine ganze Serie gedruckt und mich angerufen, um jeden Schritt zu besprechen. Ich komme immer wieder.",
+    quote_name: "Marta Ferrer", quote_role: "Dokumentarfotografin",
+    faq_kick: "Fragen", faq_title: "Zweifel der Dunkelkammer.",
+    faq1_q: "Wie lange dauert die Entwicklung?",
+    faq1_a: "Nur Entwicklung (C-41, E-6 oder S/W) ist meist in 24 Stunden fertig. Mit Scan sind es 48 Stunden. Abzüge dauern pro Größe einen Tag mehr. Rollen, die vor 15:00 eintreffen, sind am selben Tag um 19:00 fertig.",
+    faq2_q: "Entwickelt ihr abgelaufene oder unterbelichtete Rollen?",
+    faq2_a: "Ja. Abgelaufene oder unterbelichtete Negative lassen sich mit angepasster Entwicklungszeit retten. Sag es bei der Abgabe, wir quittieren vor der Verarbeitung. Ist die Rolle beschädigt, prüfen wir kostenlos und sagen es dir.",
+    faq3_q: "Welches Scan-Format liefert ihr?",
+    faq3_a: "JPEG sRGB mit 4000 ppi im Standardplan, Weiß und Schwarz ausgewogen. Für ein 16-Bit-TIFF ohne Übergänge sind es 4 € Aufpreis pro Rolle. Die Negative gehören immer dir und kommen in Hüllen zurück.",
+    faq4_q: "Wo seid ihr und braucht man einen Termin?",
+    faq4_a: "Wir sind in der Carrer de la Indústria 34, Poblenou, Barcelona. Geöffnet Montag bis Samstag, 10 bis 20 Uhr. Für eine Rolle braucht es keinen Termin; bei großen Abzügen oder Sonderangeboten empfehlen wir, Bescheid zu geben.",
+    faq5_q: "Versendet ihr per Post?",
+    faq5_a: "Ja. Wenn du nicht kommen kannst, schick deine Rolle mit einer Notiz und deinen Daten; Negative und Dateien kommen per Einschreiben zurück. Der Versand wird extra berechnet und vor der Verarbeitung per E-Mail bestätigt.",
+    contact_kick: "Finde uns", contact_title: "Komm am Labor vorbei.",
+    contact_sub: "Wir behandeln jede Rolle persönlich. Erzähl uns von deinem Film, deiner Kamera und deinem Ziel.",
+    contact_addr_l: "Adresse", contact_addr: "Carrer de la Indústria 34, Poblenou",
+    contact_email_l: "E-Mail", contact_hours_l: "Öffnungszeiten", contact_hours: "Mo–Sa · 10–20 Uhr",
+    form_title: "Schreib uns über deine Rolle",
+    form_sub: "Sag uns, welcher Film, welches Format und welches Ergebnis. Wir antworten am selben Tag.",
+    form_email_ph: "du@email.com", form_msg_ph: "Ein Portra 160 bei f/8 verstellt…",
+    form_btn: "Anfrage senden",
+    form_ok: "Diese Seite speichert keine E-Mails. Schreib an hola@latentlab.es — deine Nachricht öffnet sich in deinem eigenen Mailprogramm.",
+    footer_tag: "Analoges Fotolabor in Barcelona. Wir entwickeln, scannen und drucken deinen Film seit 2016.",
+    footer_links_t: "Entdecken", footer_contact_t: "Kontakt", footer_addr: "Industria 34, Barcelona",
+    footer_hours: "Mo–Sa · 10–20 Uhr", footer_legal: "Poblenou, Barcelona", footer_credits: "Handgemacht, wie dein Film.",
+    ckText: "Wir verwenden ein einziges Cookie, um Sprache und Design zu merken. Kein Tracking, versprochen.",
+    ckOk: "Verstanden", ckNo: "Nur das Nötigste"
+  },
+  it: {
+    meta_title: "LATENT · Laboratorio analogico a Barcellona",
+    meta_desc: "Sviluppo C-41, E-6 e B/N, stampa analogica e scansione a 4000 ppi nel cuore del Poblenou, Barcellona.",
+    skip: "Vai al contenuto",
+    nav_process: "Processo", nav_pricing: "Prezzi", nav_gallery: "Lavori", nav_faq: "FAQ", nav_contact: "Contatti",
+    lang_aria: "Cambia lingua", theme_aria: "Cambia tema", menu_aria: "Apri menu", close_aria: "Chiudi menu",
+    cta_book: "Prenota lo sviluppo", cta_how: "Come funziona",
+    nav_process_m: "Processo", nav_pricing_m: "Prezzi", nav_gallery_m: "Lavori", nav_faq_m: "FAQ", nav_contact_m: "Contatti",
+    cta_book_m: "Prenota lo sviluppo",
+    hero_kick: "Poblenou · Barcellona · Dal 2016",
+    hero_t1: "Riveliamo l'immagine che",
+    hero_t2: "la tua fotocamera ha custodito.",
+    hero_sub: "Un laboratorio analogico di quartiere. Sviluppiamo il tuo rullino il giorno stesso, stampiamo i negativi su carta e scansioniamo fino a 4000 ppi. Tu scatti, al resto pensiamo noi.",
+    hero_note: "Rullini pronti oggi alle 19:00 se li consegni prima delle 15:00.",
+    process_kick: "Il laboratorio", process_title: "Dalla tua fotocamera alla carta, in tre passi.",
+    process_sub: "Un percorso breve con controllo qualità a ogni stazione. Tu scegli il punto di ingresso: solo sviluppo, negativo o stampa.",
+    pd1_t: "Lascialo al bancone",
+    pd1_d: "Porta il tuo rullino in qualsiasi formato — 35 mm, 120 o grande formato. Ti diamo un ticket, una scadenza e un numero per contattarti.",
+    pd2_t: "Sviluppo a temperatura",
+    pd2_d: "Processiamo C-41, E-6 e B/N con chimica fresca e controllo della temperatura al decimo di grado. Il tuo negativo esce pulito, senza graffi né velature.",
+    pd3_t: "Scansione o stampa",
+    pd3_d: "Scegli l'alta risoluzione per condividere, o carta RC e baritata all'ingranditore. In due giorni il tuo lavoro è pronto da ritirare.",
+    pricing_kick: "Tariffe", pricing_title: "Sviluppare non è un lusso, è il tuo archivio.",
+    pricing_sub: "Prezzo per rullino, senza sorprese né supplementi nascosti. IVA inclusa. La scansione a 4000 ppi è di serie sui primi due piani.",
+    pl1_n: "Solo sviluppo", pl1_d: "Il tuo negativo pulito, pronto. Ideale se scansiono in casa.",
+    pl1_price: "6,50 €", pl1_per: "/ rullino",
+    pl1_f1: "Sviluppo C-41, E-6 o B/N", pl1_f2: "Strisce di negativi intatte", pl1_f3: "Sleeve senza acidi", pl1_f4: "Pronto in 24 h",
+    pl1_cta: "Scegli questo",
+    pl2_badge: "Il preferito", pl2_n: "Sviluppo + scansione", pl2_d: "Il classico per condividere e archiviare in alta qualità.",
+    pl2_price: "13,90 €", pl2_per: "/ rullino",
+    pl2_f1: "Sviluppo C-41, E-6 o B/N", pl2_f2: "Scansione 4000 ppi · JPEG", pl2_f3: "Passaggio colore (auto)", pl2_f4: "Download in 48 h", pl2_f5: "Negativi in sleeve",
+    pl2_cta: "Scegli questo",
+    pl3_n: "Laboratorio completo", pl3_d: "Tutto il precedente più una stampa su carta che si tocca.",
+    pl3_price: "24,50 €", pl3_per: "/ rullino",
+    pl3_f1: "Sviluppo + scansione 4000 ppi", pl3_f2: "Stampa 10×15 su carta RC", pl3_f3: "Baritata 20×25 opzionale", pl3_f4: "Rilegatura spiralata",
+    pl3_cta: "Scegli questo",
+    gallery_kick: "Foglio contatto", gallery_title: "Immagini uscite dal bagno di sviluppo.",
+    gallery_sub: "Una selezione di rullini sviluppati qui. Ogni fotogramma ha la sua storia fatta di luce, chimica e tempo.",
+    gg1_t: "Ritratto", gg1_c: "Portra 400 · f/2.8", gg2_t: "Strada", gg2_c: "Tri-X · 1/250 s",
+    gg3_t: "Oro", gg3_c: "Ektar 100 · 17:45", gg4_t: "Riva", gg4_c: "Velvia 50 · E-6",
+    gg5_t: "Passato", gg5_c: "Agfa · seppia", gg6_t: "Crepuscolo", gg6_c: "Ektachrome · E-6",
+    quote: "Da LATENT ti trattano come un fotografo, non come un cliente di una catena. Mi hanno stampato un'intera serie e mi hanno chiamata per spiegarmi ogni passaggio. Tornerò, sempre.",
+    quote_name: "Marta Ferrer", quote_role: "Fotografa documentaria",
+    faq_kick: "Domande", faq_title: "Dubbi da camera oscura.",
+    faq1_q: "Quanto dura lo sviluppo?",
+    faq1_a: "Solo sviluppo (C-41, E-6 o B/N) è pronto di solito in 24 ore. Con la scansione sono 48 ore. Le stampe aggiungono un giorno per formato. I rullini consegnati prima delle 15:00 escono lo stesso giorno alle 19:00.",
+    faq2_q: "Sviluppate rullini scaduti o sottoesposti?",
+    faq2_a: "Sì. I negativi scaduti o sottoesposti si recuperano con un tempo di sviluppo regolato. Avvisa alla consegna e ti proponiamo un preventivo prima di processare. Se il rullino è danneggiato, lo controlliamo gratis e te lo diciamo.",
+    faq3_q: "In che formato consegni la scansione?",
+    faq3_a: "JPEG sRGB a 4000 ppi nel piano standard, con bianchi e neri equilibrati. Per un TIFF a 16 bit senza passaggi, sono 4 € in più per rullino. I negativi sono sempre tuoi, restituiti nelle sleeve.",
+    faq4_q: "Dove siete e serve un appuntamento?",
+    faq4_a: "Siamo al Carrer de la Indústria 34, Poblenou, Barcellona. Aperti da lunedì a sabato, 10–20. Non serve prenotare per lasciare un rullino; per stampe grandi o preventivi speciali consigliamo di avvisare.",
+    faq5_q: "Spedite per posta?",
+    faq5_a: "Sì. Se non puoi venire, invia il tuo rullino con una nota e i tuoi dati; ti restituiamo negativi e file via posta raccomandata. La spedizione è pagata a parte e confermata via email prima di processare.",
+    contact_kick: "Trovaci", contact_title: "Passa dal laboratorio.",
+    contact_sub: "Trattiamo ogni rullino di persona. Raccontaci la tua pellicola, la tua fotocamera e cosa vuoi ottenere.",
+    contact_addr_l: "Indirizzo", contact_addr: "Carrer de la Indústria 34, Poblenou",
+    contact_email_l: "Email", contact_hours_l: "Orari", contact_hours: "Lun–Sab · 10–20",
+    form_title: "Scrivici del tuo rullino",
+    form_sub: "Dicci quale pellicola, formato e risultato cerchi. Ti rispondiamo lo stesso giorno.",
+    form_email_ph: "tu@email.com", form_msg_ph: "Un Portra 160 fissato a f/8…",
+    form_btn: "Invia richiesta",
+    form_ok: "Questa pagina non salva email. Scrivici a hola@latentlab.es — il tuo messaggio si aprirà nel tuo cliente di posta.",
+    footer_tag: "Laboratorio analogico a Barcellona. Sviluppiamo, scansioniamo e stampiamo la tua pellicola dal 2016.",
+    footer_links_t: "Esplora", footer_contact_t: "Contatti", footer_addr: "Indústria 34, Barcellona",
+    footer_hours: "Lun–Sab · 10–20", footer_legal: "Poblenou, Barcellona", footer_credits: "Fatto a mano, come la tua pellicola.",
+    ckText: "Usiamo un solo cookie per ricordare lingua e tema. Nessun tracciamento, promesso.",
+    ckOk: "Ok", ckNo: "Solo l'essenziale"
+  },
+  pt: {
+    meta_title: "LATENT · Laboratório analógico em Barcelona",
+    meta_desc: "Revelação C-41, E-6 e P&B, impressão analógica e digitalização a 4000 ppi no coração do Poblenou, Barcelona.",
+    skip: "Saltar para o conteúdo",
+    nav_process: "Processo", nav_pricing: "Preços", nav_gallery: "Trabalhos", nav_faq: "FAQ", nav_contact: "Contacto",
+    lang_aria: "Mudar idioma", theme_aria: "Mudar tema", menu_aria: "Abrir menu", close_aria: "Fechar menu",
+    cta_book: "Reserva a tua revelação", cta_how: "Como funciona",
+    nav_process_m: "Processo", nav_pricing_m: "Preços", nav_gallery_m: "Trabalhos", nav_faq_m: "FAQ", nav_contact_m: "Contacto",
+    cta_book_m: "Reserva a tua revelação",
+    hero_kick: "Poblenou · Barcelona · Desde 2016",
+    hero_t1: "Revelamos a imagem que",
+    hero_t2: "a tua câmara guardou.",
+    hero_sub: "Um laboratório fotográfico analógico de bairro. Revelamos o teu rolo no mesmo dia, imprimimos os teus negativos em papel e digitalizamos até 4000 ppi. Tu disparas, nós fazemos o resto.",
+    hero_note: "Rolos prontos hoje às 19:00 se os entregares antes das 15:00.",
+    process_kick: "O laboratório", process_title: "Da tua câmara ao papel, em três passos.",
+    process_sub: "Um percurso curto com controlo de qualidade em cada estação. Tu escolhes o ponto de entrada: só revelação, negativo ou impressão.",
+    pd1_t: "Deixa-o no balcão",
+    pd1_d: "Traz o teu rolo em qualquer formato — 35 mm, 120 ou grande formato. Damos-te um ticket, um prazo e um número para te avisarmos.",
+    pd2_t: "Revelação à temperatura",
+    pd2_d: "Processamos C-41, E-6 e P&B com químicos frescos e controlo de temperatura ao décimo de grau. O teu negativo sai limpo, sem riscos nem véu.",
+    pd3_t: "Digitalização ou impressão",
+    pd3_d: "Escolhe alta resolução para partilhar, ou papel RC e barita no ampliador. Em dois dias o teu trabalho está pronto para levantar.",
+    pricing_kick: "Tarifas", pricing_title: "Revelar não é um luxo, é o teu arquivo.",
+    pricing_sub: "Preço por rolo, sem surpresas nem suplementos escondidos. IVA incluído. A digitalização a 4000 ppi vem incluída nos dois primeiros planos.",
+    pl1_n: "Só revelação", pl1_d: "O teu negativo limpo, pronto. Ideal se digitalizas em casa.",
+    pl1_price: "6,50 €", pl1_per: "/ rolo",
+    pl1_f1: "Revelação C-41, E-6 ou P&B", pl1_f2: "Tiras de negativos inteiras", pl1_f3: "Sleeves sem ácido", pl1_f4: "Pronto em 24 h",
+    pl1_cta: "Escolher este",
+    pl2_badge: "O favorito", pl2_n: "Revelação + digitalização", pl2_d: "O clássico para partilhar e arquivar em alta qualidade.",
+    pl2_price: "13,90 €", pl2_per: "/ rolo",
+    pl2_f1: "Revelação C-41, E-6 ou P&B", pl2_f2: "Digitalização 4000 ppi · JPEG", pl2_f3: "Passagem de cor (auto)", pl2_f4: "Download em 48 h", pl2_f5: "Negativos em sleeves",
+    pl2_cta: "Escolher este",
+    pl3_n: "Laboratório completo", pl3_d: "Tudo o anterior mais uma impressão em papel que se toca.",
+    pl3_price: "24,50 €", pl3_per: "/ rolo",
+    pl3_f1: "Revelação + digitalização 4000 ppi", pl3_f2: "Impressão 10×15 em papel RC", pl3_f3: "Barita 20×25 opcional", pl3_f4: "Encadernação em espiral",
+    pl3_cta: "Escolher este",
+    gallery_kick: "Folha de contactos", gallery_title: "Imagens que saíram do tanque de revelação.",
+    gallery_sub: "Uma seleção de rolos revelados aqui. Cada fotograma tem a sua própria história de luz, química e tempo.",
+    gg1_t: "Retrato", gg1_c: "Portra 400 · f/2.8", gg2_t: "Rua", gg2_c: "Tri-X · 1/250 s",
+    gg3_t: "Ouro", gg3_c: "Ektar 100 · 17:45", gg4_t: "Margem", gg4_c: "Velvia 50 · E-6",
+    gg5_t: "Passado", gg5_c: "Agfa · sépia", gg6_t: "Crepúsculo", gg6_c: "Ektachrome · E-6",
+    quote: "Na LATENT tratam-te como fotógrafo, não como cliente de uma cadeia. Imprimiram-me uma série inteira e telefonaram-me para explicarem cada passo. Voltarei, sempre.",
+    quote_name: "Marta Ferrer", quote_role: "Fotógrafa documental",
+    faq_kick: "Perguntas", faq_title: "Dúvidas da câmara escura.",
+    faq1_q: "Quanto tempo demora a revelação?",
+    faq1_a: "Só revelação (C-41, E-6 ou P&B) costuma estar pronto em 24 horas. Com digitalização, são 48 horas. As impressões acrescentam um dia por formato. Os rolos entregues antes das 15:00 saem no mesmo dia às 19:00.",
+    faq2_q: "Revelam rolos caducados ou subexpostos?",
+    faq2_a: "Sim. Os negativos caducados ou subexpostos recuperam-se com um tempo de revelação ajustado. Avisa ao entregar e damos-te um orçamento antes de processar. Se o rolo estiver estragado, verificamos de graça e dizemos-te.",
+    faq3_q: "Em que formato entregam a digitalização?",
+    faq3_a: "JPEG sRGB a 4000 ppi no plano padrão, com brancos e negros equilibrados. Para um TIFF de 16 bits sem passagens, são 4 € extra por rolo. Os negativos são sempre teus, devolvidos em sleeves.",
+    faq4_q: "Onde estão e é preciso marcar?",
+    faq4_a: "Estamos na Carrer de la Indústria 34, Poblenou, Barcelona. Abertos de segunda a sábado, das 10 às 20. Não é preciso marcação para entregar um rolo; para impressões grandes ou orçamentos especiais, recomendamos avisar.",
+    faq5_q: "Fazem envios por correio?",
+    faq5_a: "Sim. Se não puderes vir, envia o teu rolo com uma nota e os teus dados; devolvemos negativos e ficheiros por correio registado. O envio é pago à parte e confirmado por email antes de processar.",
+    contact_kick: "Encontra-nos", contact_title: "Passa pelo laboratório.",
+    contact_sub: "Atendemos cada rolo pessoalmente. Conta-nos a tua película, a tua câmara e o que queres alcançar.",
+    contact_addr_l: "Morada", contact_addr: "Carrer de la Indústria 34, Poblenou",
+    contact_email_l: "Email", contact_hours_l: "Horário", contact_hours: "Seg–Sáb · 10–20",
+    form_title: "Escreve-nos sobre o teu rolo",
+    form_sub: "Diz-nos qual película, formato e resultado procuras. Respondemos no mesmo dia.",
+    form_email_ph: "tu@email.com", form_msg_ph: "Um Portra 160 acertado a f/8…",
+    form_btn: "Enviar pedido",
+    form_ok: "Esta página não guarda emails. Escreve para hola@latentlab.es — a tua mensagem abrirá no teu próprio cliente de email.",
+    footer_tag: "Laboratório fotográfico analógico em Barcelona. Revelamos, digitalizamos e imprimimos a tua película desde 2016.",
+    footer_links_t: "Explora", footer_contact_t: "Contacto", footer_addr: "Indústria 34, Barcelona",
+    footer_hours: "Seg–Sáb · 10–20", footer_legal: "Poblenou, Barcelona", footer_credits: "Feito à mão, como a tua película.",
+    ckText: "Usamos um único cookie para recordar o idioma e o tema. Sem rastreio, prometido.",
+    ckOk: "Percebido", ckNo: "Só o essencial"
+  }
+};
+  var LS_KEY = 'latent-lang';
+  var THEME_KEY = 'kairos-theme';
+  var COOKIE_KEY = 'latent-cookie';
+
+  document.documentElement.classList.remove('no-js');
+
+  function detectLang() {
+    var saved = null;
+    try { saved = localStorage.getItem(LS_KEY); } catch (e) {}
+    if (saved && I18N[saved]) return saved;
+    var nav = (navigator.language || 'es').toLowerCase().slice(0, 2);
+    return I18N[nav] ? nav : 'es';
+  }
+
+  function setLang(lang) {
+    var t = I18N[lang];
+    if (!t) return;
+    document.documentElement.lang = lang;
+    var title = document.getElementById('doc-title');
+    if (title) title.textContent = t.meta_title;
+    var desc = document.getElementById('meta-desc');
+    if (desc) desc.setAttribute('content', t.meta_desc);
+    var ogt = document.querySelector('meta[property="og:title"]');
+    if (ogt) ogt.setAttribute('content', t.og_title || t.meta_title);
+    var ogd = document.querySelector('meta[property="og:description"]');
+    if (ogd) ogd.setAttribute('content', t.og_desc || t.meta_desc);
+    document.querySelectorAll('[data-i18n]').forEach(function (el) {
+      var k = el.getAttribute('data-i18n');
+      if (t[k] !== undefined) el.innerHTML = t[k];
+    });
+    document.querySelectorAll('[data-i18n-ph]').forEach(function (el) {
+      var k = el.getAttribute('data-i18n-ph');
+      if (t[k] !== undefined) el.setAttribute('placeholder', t[k]);
+    });
+    document.querySelectorAll('[data-i18n-aria]').forEach(function (el) {
+      var k = el.getAttribute('data-i18n-aria');
+      if (t[k] !== undefined) el.setAttribute('aria-label', t[k]);
+    });
+    document.querySelectorAll('.lang-select__cur').forEach(function (el) { el.textContent = lang.toUpperCase(); });
+    document.querySelectorAll('.lang-select__opt').forEach(function (opt) {
+      opt.setAttribute('aria-selected', opt.getAttribute('data-lang') === lang ? 'true' : 'false');
+    });
+    try { localStorage.setItem(LS_KEY, lang); } catch (e) {}
+  }
+
+  function closeLangMenus() {
+    document.querySelectorAll('.lang-select').forEach(function (sel) {
+      var menu = sel.querySelector('.lang-select__menu');
+      var btn = sel.querySelector('.lang-select__btn');
+      if (menu) menu.classList.remove('open');
+      if (btn) btn.setAttribute('aria-expanded', 'false');
+    });
+  }
+
+  document.querySelectorAll('.lang-select').forEach(function (sel) {
+    var btn = sel.querySelector('.lang-select__btn');
+    var menu = sel.querySelector('.lang-select__menu');
+    if (!btn || !menu) return;
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var open = menu.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    menu.querySelectorAll('.lang-select__opt').forEach(function (opt) {
+      opt.addEventListener('click', function () {
+        setLang(opt.getAttribute('data-lang'));
+        closeLangMenus();
+      });
+    });
+  });
+  document.addEventListener('click', function (e) {
+    var inside = false;
+    document.querySelectorAll('.lang-select').forEach(function (sel) { if (sel.contains(e.target)) inside = true; });
+    if (!inside) closeLangMenus();
+  });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeLangMenus(); });
+
+  function initTheme() {
+    var saved = null;
+    try { saved = localStorage.getItem(THEME_KEY); } catch (e) {}
+    var theme = saved === 'dark' ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', theme);
+    var btn = document.getElementById('themeToggle');
+    if (btn) btn.addEventListener('click', function () {
+      var cur = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+      var next = cur === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem(THEME_KEY, next); } catch (e) {}
+    });
+  }
+
+  function initMenu() {
+    var burger = document.getElementById('burger');
+    var menu = document.getElementById('mobileMenu');
+    var close = document.querySelector('.menu-close');
+    if (!burger || !menu) return;
+    function setMenu(open) {
+      menu.classList.toggle('open', open);
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    burger.addEventListener('click', function () { setMenu(!menu.classList.contains('open')); });
+    if (close) close.addEventListener('click', function () { setMenu(false); });
+    menu.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () { setMenu(false); });
+    });
+  }
+
+  /* Reveal on scroll — rAF-throttled scroll (clip-safe) */
+  function initReveal() {
+    var els = Array.prototype.slice.call(document.querySelectorAll('.rv'));
+    if (!els.length) return;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      els.forEach(function (el) { el.classList.add('in'); });
+      return;
+    }
+    function check() {
+      var vh = window.innerHeight;
+      els.forEach(function (el) {
+        if (el.classList.contains('in')) return;
+        var r = el.getBoundingClientRect();
+        if (r.top < vh * 0.92 && r.bottom > 0) el.classList.add('in');
+      });
+    }
+    window.addEventListener('scroll', check, { passive: true });
+    window.addEventListener('resize', check, { passive: true });
+    check();
+  }
+
+  /* Contact-sheet frames reveal */
+  function initSheet() {
+    var grid = document.querySelector('.cs-grid');
+    if (!grid) return;
+    grid.classList.add('revealed');
+  }
+
+  /* FAQ accordion */
+  function initFaq() {
+    document.querySelectorAll('.faq-item').forEach(function (item) {
+      var btn = item.querySelector('.faq-q');
+      var ans = item.querySelector('.faq-a');
+      if (!btn || !ans) return;
+      btn.addEventListener('click', function () {
+        var open = item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(function (other) {
+          other.classList.remove('open');
+          var ob = other.querySelector('.faq-q');
+          var oa = other.querySelector('.faq-a');
+          if (ob) ob.setAttribute('aria-expanded', 'false');
+          if (oa) oa.style.maxHeight = '0px';
+        });
+        if (!open) {
+          item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+          ans.style.maxHeight = ans.scrollHeight + 'px';
+        }
+      });
+    });
+  }
+
+  /* Contact form — honest: no storage, opens mail client */
+  function initForm() {
+    var form = document.getElementById('contactForm');
+    var ok = document.getElementById('nsOk');
+    if (!form) return;
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var email = form.querySelector('input[type="email"]');
+      var msg = form.querySelector('input[name="msg"]');
+      if (!email.value || !email.checkValidity()) {
+        if (email) email.setAttribute('aria-invalid', 'true');
+        return;
+      }
+      var subject = encodeURIComponent('LATENT · consulta');
+      var body = encodeURIComponent('Mensaje: ' + (msg ? msg.value : ''));
+      window.location.href = 'mailto:hola@latentlab.es?subject=' + subject + '&body=' + body;
+      if (ok) { ok.classList.add('show'); email.value = ''; }
+    });
+  }
+
+  /* Cookie banner — delayed, bottom-right, saved */
+  function initCookie() {
+    var banner = document.getElementById('cookieBanner');
+    var okBtn = document.getElementById('cookieOk');
+    var noBtn = document.getElementById('cookieNo');
+    if (!banner) return;
+    var accepted = null;
+    try { accepted = localStorage.getItem(COOKIE_KEY); } catch (e) {}
+    if (accepted) return;
+    setTimeout(function () { banner.classList.add('show'); }, 3000);
+    function dismiss() {
+      banner.classList.remove('show');
+      try { localStorage.setItem(COOKIE_KEY, '1'); } catch (e) {}
+    }
+    if (okBtn) okBtn.addEventListener('click', dismiss);
+    if (noBtn) noBtn.addEventListener('click', dismiss);
+  }
+
+  initTheme();
+  setLang(detectLang());
+  initMenu();
+  initSheet();
+  initReveal();
+  initFaq();
+  initForm();
+  initCookie();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,1943 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="meta-title">STATIC — Independent Music Label &amp; Distribution | Music the Algorithm Refuses</title>
+  <meta name="description" id="meta-desc" content="STATIC is an independent label and distribution engine for electronic and experimental artists. Vinyl, tape and digital. 50/50 splits. You keep your masters.">
+  <link rel="canonical" href="https://static.label/">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230a0a0a'/%3E%3Ccircle cx='16' cy='16' r='9' fill='%23c8ff00'/%3E%3Ccircle cx='16' cy='16' r='2' fill='%230a0a0a'/%3E%3C/svg%3E">
+  <meta name="theme-color" content="#0a0a0a">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="STATIC">
+  <meta property="og:title" id="og-title" content="STATIC — Independent Music Label &amp; Distribution | Music the Algorithm Refuses">
+  <meta property="og:description" id="og-desc" content="Vinyl, tape and digital for electronic &amp; experimental artists. 50/50 splits from day one. You keep your masters. No algorithms, no gatekeepers.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?w=1200&q=80">
+  <meta property="og:url" content="https://static.label/">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" id="tw-title" content="STATIC — Music the Algorithm Refuses">
+  <meta name="twitter:description" id="tw-desc" content="Independent label &amp; distribution for electronic and experimental artists. Vinyl, tape, digital. 50/50. You keep your masters.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?w=1200&q=80">
+  <meta name="twitter:site" content="@staticlabel">
+
+  <!-- Fonts: Anton (condensed grotesque display) + Space Mono (technical body) — contrast axis pairing -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    /* ================================================================
+       DESIGN SYSTEM — STATIC°
+       Family: Music / Independent Record Label
+       Style: Brutalist Zine — stark ink/paper binary, one acid accent,
+              hard offset shadows, visible grid, marquee tickers
+       Surface: Decide/Learn (landing page — asymmetric editorial hero)
+       Color strategy: Committed — one saturated accent (acid lime) on
+              chroma-0 paper + ink black. No cream, no gradients.
+       Typography: Anton (display, single weight) + Space Mono (body).
+       Motion: marquee tickers, clip reveal, magnetic CTA, vinyl spin.
+              Exponential ease-out only. prefers-reduced-motion respected.
+       z-index scale: header 40 → float-cta 50 → cookie 60
+       ================================================================ */
+
+    /* ---------- Tokens ---------- */
+    :root {
+      --paper: #fafafa;          /* chroma-0 off-white, NOT cream */
+      --ink: #0a0a0a;
+      --ink-soft: #3d3d3a;       /* muted body — 8.2:1 on paper */
+      --accent: #c8ff00;         /* acid lime — 16.9:1 on ink */
+      --accent-ink: #0a0a0a;     /* text on accent fills */
+      --line: 2px solid var(--ink);
+      --shadow: 8px 8px 0 0 var(--ink);
+      --shadow-sm: 4px 4px 0 0 var(--ink);
+      --font-display: 'Anton', 'Arial Narrow', sans-serif;
+      --font-mono: 'Space Mono', 'Courier New', monospace;
+      --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+      --maxw: 1200px;
+      --gutter: clamp(1rem, 4vw, 2.5rem);
+    }
+
+    [data-theme="dark"] {
+      --paper: #0a0a0a;
+      --ink: #fafafa;
+      --ink-soft: #b8b8b0;
+      --accent: #c8ff00;
+      --accent-ink: #0a0a0a;
+      --on-ink: #0a0a0a;          /* text on inverted (news) section */
+      --on-ink-soft: #6a6a64;     /* muted text on inverted section */
+      --on-ink-accent: #5c8a00;   /* accent text on inverted section — 4.1:1 on white */
+      --line: 2px solid var(--ink);
+      --shadow: 8px 8px 0 0 var(--ink);
+      --shadow-sm: 4px 4px 0 0 var(--ink);
+    }
+    :root {
+      --on-ink: #fafafa;          /* text on inverted (news) section */
+      --on-ink-soft: #b8b8b0;     /* muted text on inverted section */
+      --on-ink-accent: #c8ff00;   /* accent text on inverted section — 16.9:1 on black */
+    }
+
+    /* ---------- Reset / base ---------- */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+
+    body {
+      font-family: var(--font-mono);
+      font-size: 1rem;
+      line-height: 1.65;
+      color: var(--ink);
+      background: var(--paper);
+      transition: background-color .3s var(--ease-out), color .3s var(--ease-out);
+      overflow-x: hidden;
+    }
+
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+    button { font-family: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+
+    h1, h2, h3 {
+      font-family: var(--font-display);
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      line-height: 0.95;
+      text-wrap: balance;
+    }
+
+    p { text-wrap: pretty; max-width: 65ch; }
+
+    .container { max-width: var(--maxw); margin-inline: auto; padding-inline: var(--gutter); }
+
+    /* Skip link + focus states */
+    .skip-link {
+      position: absolute; left: -9999px; top: 0; z-index: 70;
+      background: var(--accent); color: var(--accent-ink);
+      padding: .6rem 1rem; font-weight: 700; text-transform: uppercase;
+    }
+    .skip-link:focus { left: 0; }
+
+    :focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    /* Reveal animation (JS-gated via html.js; content visible without JS) */
+    html.js .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .7s var(--ease-out), transform .7s var(--ease-out);
+    }
+    html.js .reveal.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      html.js .reveal { opacity: 1; transform: none; transition: none; }
+    }
+
+    /* ================================================================
+       TICKER (announcement marquee)
+       ================================================================ */
+    .ticker {
+      overflow: hidden;
+      border-bottom: var(--line);
+      background: var(--paper);
+      white-space: nowrap;
+      position: relative;
+    }
+    .ticker__track {
+      display: inline-flex;
+      gap: 3rem;
+      padding-block: .5rem;
+      animation: ticker-scroll 28s linear infinite;
+      will-change: transform;
+    }
+    .ticker__track span {
+      font-size: .8rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+    .ticker__track span::after { content: " ✦ "; margin-left: 3rem; color: var(--accent); }
+    @keyframes ticker-scroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .ticker__track { animation: none; flex-wrap: wrap; white-space: normal; }
+    }
+
+    /* ================================================================
+       HEADER
+       ================================================================ */
+    .header {
+      position: sticky; top: 0; z-index: 40;
+      background: var(--paper);
+      border-bottom: var(--line);
+    }
+    .header__inner {
+      display: flex; align-items: center; gap: 1.5rem;
+      padding-block: .9rem;
+    }
+    .logo {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      text-transform: uppercase;
+      letter-spacing: .01em;
+      text-decoration: none;
+      display: inline-flex; align-items: center; gap: .4rem;
+    }
+    .logo .deg { color: var(--accent); }
+
+    .nav { display: flex; gap: 1.25rem; margin-left: auto; }
+    .nav a {
+      font-size: .82rem; text-transform: uppercase; letter-spacing: .06em;
+      text-decoration: none; padding: .3rem .1rem;
+      border-bottom: 2px solid transparent;
+    }
+    .nav a:hover, .nav a:focus-visible { border-bottom-color: var(--accent); }
+
+    /* Lang switcher */
+    .lang-select { position: relative; display: inline-block; }
+    .lang-select__btn {
+      display: inline-flex; align-items: center; gap: .5rem;
+      height: 36px; padding: 0 .85rem;
+      font-family: var(--font-mono, inherit);
+      font-size: .75rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .04em;
+      color: var(--ink); background: var(--paper);
+      border: var(--line); border-radius: 6px;
+      cursor: pointer;
+      transition: background .2s ease, color .2s ease, border-color .2s ease;
+    }
+    .lang-select__btn:hover, .lang-select__btn[aria-expanded="true"] { background: var(--ink); color: var(--paper); }
+    .lang-select__chev { transition: transform .2s ease; }
+    .lang-select__btn[aria-expanded="true"] .lang-select__chev { transform: rotate(180deg); }
+    .lang-select__menu {
+      position: absolute; top: calc(100% + 8px); right: 0; z-index: 100;
+      min-width: 168px; padding: .35rem;
+      background: var(--paper); border: var(--line); border-radius: 8px;
+      box-shadow: 0 12px 28px rgba(0,0,0,.18);
+      opacity: 0; visibility: hidden; transform: translateY(-4px);
+      transition: all .2s ease;
+    }
+    .lang-select__menu.open { opacity: 1; visibility: visible; transform: translateY(0); }
+    .lang-select__opt {
+      display: flex; align-items: center; gap: .5rem; width: 100%;
+      padding: .45rem .6rem;
+      font-family: var(--font-mono, inherit);
+      font-size: .72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .04em;
+      color: var(--ink); background: none; border: none; border-radius: 5px;
+      cursor: pointer; text-align: left;
+      transition: background .15s ease;
+    }
+    .lang-select__opt:hover { background: var(--ink); color: var(--paper); }
+    .lang-select__opt[aria-selected="true"] { background: var(--accent); color: var(--accent-ink); }
+    .lang-select__opt[aria-selected="true"]::after { content: '\2713'; margin-left: auto; }
+
+    .theme-btn {
+      width: 40px; height: 40px; border: var(--line);
+      display: grid; place-items: center;
+      background: var(--paper);
+    }
+    .theme-btn:hover { background: var(--ink); }
+    .theme-btn:hover svg { stroke: var(--paper); }
+    .theme-btn svg { width: 20px; height: 20px; stroke: var(--ink); }
+    .theme-btn .icon-sun { display: none; }
+    [data-theme="dark"] .theme-btn .icon-sun { display: block; }
+    [data-theme="dark"] .theme-btn .icon-moon { display: none; }
+
+    @media (max-width: 860px) {
+      .nav { display: none; }
+      .header__inner { flex-wrap: wrap; }
+    }
+
+    /* ================================================================
+       HERO — asymmetric editorial zine spread (NOT centered stack)
+       ================================================================ */
+    .hero { padding-block: clamp(3rem, 7vw, 5.5rem) clamp(3.5rem, 8vw, 6rem); }
+    .hero__grid {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: clamp(2rem, 5vw, 4.5rem);
+      align-items: start;
+    }
+    .hero__stamp {
+      display: inline-flex; align-items: center; gap: .6rem;
+      border: var(--line); padding: .35rem .8rem;
+      font-size: .75rem; text-transform: uppercase; letter-spacing: .12em;
+      margin-bottom: 1.6rem;
+      box-shadow: var(--shadow-sm);
+      transform: rotate(-1deg);
+    }
+    .hero__stamp::before { content: "●"; color: var(--accent); font-size: .6rem; }
+
+    .hero h1 {
+      font-size: clamp(2.9rem, 8.5vw, 5.4rem); /* ceiling ≤6rem */
+      letter-spacing: -0.02em;
+      margin-bottom: 1.6rem;
+    }
+    .hero h1 .hl {
+      background: var(--accent);
+      color: var(--accent-ink);
+      padding-inline: .15em;
+      display: inline-block;
+      transform: rotate(-1.2deg);
+    }
+    .hero__sub {
+      font-size: clamp(.95rem, 1.4vw, 1.08rem);
+      color: var(--ink-soft);
+      margin-bottom: 2.2rem;
+      max-width: 52ch;
+    }
+    .hero__ctas { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem; }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: .6rem;
+      border: var(--line);
+      padding: .85rem 1.5rem;
+      font-family: var(--font-mono);
+      font-size: .85rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em;
+      text-decoration: none;
+      background: var(--paper);
+      box-shadow: var(--shadow-sm);
+      transition: transform .25s var(--ease-out), box-shadow .25s var(--ease-out), background .2s, color .2s;
+      position: relative;
+    }
+    .btn:hover { transform: translate(-3px, -3px); box-shadow: 7px 7px 0 0 var(--ink); }
+    .btn:active { transform: translate(3px, 3px); box-shadow: 1px 1px 0 0 var(--ink); }
+    .btn--accent { background: var(--accent); color: var(--accent-ink); }
+    .btn--ink { background: var(--ink); color: var(--paper); }
+    .btn--ink:hover { background: var(--ink); }
+
+    .hero__note {
+      font-size: .78rem; text-transform: uppercase; letter-spacing: .1em;
+      color: var(--ink-soft);
+      display: flex; align-items: center; gap: .6rem;
+    }
+    .hero__note::before {
+      content: ""; width: 44px; height: 2px; background: var(--accent); display: inline-block;
+    }
+
+    /* Hero visual collage */
+    .hero__visual { position: relative; padding-top: 2rem; }
+    .hero__img-wrap { position: relative; }
+    .hero__img {
+      border: var(--line);
+      box-shadow: var(--shadow);
+      transform: rotate(1.5deg);
+      width: 100%; aspect-ratio: 4 / 5; object-fit: cover;
+      filter: saturate(1.05) contrast(1.05);
+    }
+    .hero__img--back {
+      position: absolute; top: -1.4rem; right: -0.75rem; width: 56%;
+      aspect-ratio: 4 / 5; object-fit: cover;
+      border: var(--line);
+      box-shadow: var(--shadow-sm);
+      transform: rotate(-3deg);
+      z-index: -1;
+    }
+    .hero__barcode {
+      position: absolute; left: -1.2rem; bottom: -1.6rem;
+      background: var(--paper);
+      border: var(--line);
+      box-shadow: var(--shadow-sm);
+      padding: .7rem .9rem;
+      transform: rotate(2deg);
+      text-align: center;
+    }
+    .hero__barcode svg { width: 110px; height: 34px; }
+    .hero__barcode small { display: block; font-size: .62rem; letter-spacing: .18em; margin-top: .3rem; }
+
+    /* Spinning vinyl */
+    .vinyl {
+      position: absolute; right: -2.2rem; top: -2.2rem;
+      width: clamp(90px, 14vw, 140px);
+      filter: drop-shadow(4px 4px 0 rgba(10,10,10,.35));
+    }
+    .vinyl__disc { animation: none; }
+    .vinyl:hover .vinyl__disc { animation: vinyl-spin 2.2s linear infinite; }
+    @keyframes vinyl-spin { to { transform: rotate(360deg); } }
+    @media (prefers-reduced-motion: reduce) {
+      .vinyl:hover .vinyl__disc { animation: none; }
+    }
+
+    @media (max-width: 900px) {
+      .hero__grid { grid-template-columns: 1fr; }
+      .hero__visual { max-width: 480px; }
+    }
+
+    /* ================================================================
+       MARQUEE BAND (accent)
+       ================================================================ */
+    .band {
+      overflow: hidden;
+      background: var(--accent);
+      color: var(--accent-ink);
+      border-block: var(--line);
+      white-space: nowrap;
+      padding-block: .9rem;
+    }
+    .band__track {
+      display: inline-flex; gap: 2.5rem;
+      animation: ticker-scroll 22s linear infinite;
+      font-family: var(--font-display);
+      font-size: clamp(1.3rem, 2.6vw, 1.9rem);
+      text-transform: uppercase;
+      letter-spacing: .01em;
+    }
+    .band__track span::after { content: " ✦ "; margin-left: 2.5rem; }
+    @media (prefers-reduced-motion: reduce) {
+      .band__track { animation: none; flex-wrap: wrap; white-space: normal; }
+    }
+
+    /* ================================================================
+       SECTION scaffolding
+       ================================================================ */
+    .section { padding-block: clamp(3.5rem, 8vw, 6rem); border-top: var(--line); }
+    .section__head {
+      display: flex; align-items: baseline; gap: 1rem; flex-wrap: wrap;
+      margin-bottom: clamp(1.8rem, 4vw, 3rem);
+    }
+    .section__tag {
+      font-size: .72rem; text-transform: uppercase; letter-spacing: .16em;
+      border: var(--line); padding: .25rem .6rem;
+      background: var(--paper);
+      white-space: nowrap;
+    }
+    .section__title {
+      font-size: clamp(2rem, 5.5vw, 3.6rem);
+    }
+    .section__lede { color: var(--ink-soft); max-width: 60ch; }
+
+    /* ================================================================
+       CATALOG TABLE — brutalist, NOT cards
+       ================================================================ */
+    .catalog { border: var(--line); border-collapse: collapse; width: 100%; }
+    .catalog th, .catalog td {
+      text-align: left;
+      padding: .95rem 1.1rem;
+      border-bottom: var(--line);
+      font-size: .9rem;
+    }
+    .catalog th {
+      font-size: .72rem; text-transform: uppercase; letter-spacing: .14em;
+      border-bottom: 3px solid var(--ink);
+      background: var(--paper);
+    }
+    .catalog tr:last-child td { border-bottom: 0; }
+    .catalog tbody tr { transition: background .18s, color .18s; }
+    .catalog tbody tr:hover {
+      background: var(--ink);
+      color: var(--paper);
+    }
+    .catalog tbody tr:hover .cat-no, .catalog tbody tr:hover .cat-format { color: var(--accent); }
+    .cat-no { font-size: .75rem; color: var(--ink-soft); }
+    .cat-artist { font-weight: 700; }
+    .cat-title { font-style: italic; }
+    .cat-format { font-size: .78rem; text-transform: uppercase; color: var(--ink-soft); }
+    .cat-badge {
+      border: var(--line); padding: .1rem .5rem; font-size: .68rem;
+      letter-spacing: .1em; text-transform: uppercase;
+      background: var(--accent); color: var(--accent-ink);
+    }
+    .catalog tbody tr:hover .cat-badge { background: var(--accent); color: var(--accent-ink); }
+    @media (max-width: 640px) {
+      .catalog thead { display: none; }
+      .catalog, .catalog tbody, .catalog tr, .catalog td { display: block; width: 100%; }
+      .catalog tr { border-bottom: var(--line); }
+      .catalog tr:last-child { border-bottom: 0; }
+      .catalog td { border-bottom: 0; padding: .55rem 1rem; }
+      .cat-no { display: inline-block; margin-right: .5rem; }
+    }
+
+    /* ================================================================
+       FEATURED RELEASE — split block
+       ================================================================ */
+    .featured {
+      display: grid; grid-template-columns: .9fr 1.1fr;
+      border: var(--line); box-shadow: var(--shadow);
+      margin-top: clamp(2.5rem, 6vw, 4.5rem);
+      background: var(--paper);
+    }
+    .featured__imgwrap { position: relative; }
+    .featured__img {
+      width: 100%; height: 100%; object-fit: cover;
+      border-right: var(--line);
+      min-height: 320px;
+    }
+    .featured__body { padding: clamp(1.6rem, 4vw, 2.8rem); display: flex; flex-direction: column; gap: 1rem; }
+    .featured__tag {
+      display: inline-block; align-self: flex-start;
+      background: var(--ink); color: var(--paper);
+      font-size: .7rem; text-transform: uppercase; letter-spacing: .16em;
+      padding: .3rem .7rem;
+    }
+    .featured h3 { font-size: clamp(1.8rem, 4vw, 2.8rem); }
+    .featured__artist { font-size: .85rem; text-transform: uppercase; letter-spacing: .14em; color: var(--ink-soft); }
+    .featured__desc { color: var(--ink-soft); }
+    .featured__meta {
+      font-size: .75rem; text-transform: uppercase; letter-spacing: .1em;
+      color: var(--ink-soft); display: flex; gap: 1rem; flex-wrap: wrap;
+    }
+    .featured__meta b { color: var(--ink); }
+    .featured .btn { align-self: flex-start; }
+    @media (max-width: 820px) {
+      .featured { grid-template-columns: 1fr; }
+      .featured__img { border-right: 0; border-bottom: var(--line); min-height: 240px; }
+    }
+
+    /* ================================================================
+       PROCESS — numbered steps (real sequence, numbers earned)
+       ================================================================ */
+    .process__grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+    .process__step {
+      border: var(--line);
+      padding: 1.6rem 1.4rem;
+      display: flex; flex-direction: column; gap: .9rem;
+      background: var(--paper);
+      transition: transform .3s var(--ease-out), box-shadow .3s var(--ease-out);
+    }
+    .process__step:hover { transform: translate(-4px, -4px); box-shadow: var(--shadow); }
+    .process__num {
+      font-family: var(--font-display);
+      font-size: 3rem; line-height: 1;
+      color: var(--accent);
+      -webkit-text-stroke: 2px var(--ink);
+      paint-order: stroke fill;
+    }
+    .process__step h3 { font-size: 1.35rem; }
+    .process__step p { font-size: .9rem; color: var(--ink-soft); }
+    @media (max-width: 820px) {
+      .process__grid { grid-template-columns: 1fr; }
+    }
+
+    /* ================================================================
+       PRESS QUOTES — full-width bordered, no cards
+       ================================================================ */
+    .press__list { display: flex; flex-direction: column; }
+    .press__quote {
+      border: var(--line);
+      border-bottom: 0;
+      padding: clamp(1.8rem, 4vw, 3rem);
+      display: grid; grid-template-columns: auto 1fr;
+      gap: 1.5rem; align-items: start;
+      background: var(--paper);
+    }
+    .press__quote:last-child { border-bottom: var(--line); }
+    .press__mark {
+      font-family: var(--font-display);
+      font-size: 4.5rem; line-height: .7;
+      color: var(--accent);
+      -webkit-text-stroke: 2px var(--ink);
+      paint-order: stroke fill;
+      user-select: none;
+    }
+    .press__text { font-size: clamp(1.05rem, 2vw, 1.35rem); font-style: italic; max-width: 60ch; }
+    .press__src {
+      margin-top: .8rem; font-size: .78rem; font-style: normal;
+      text-transform: uppercase; letter-spacing: .14em; color: var(--ink-soft);
+    }
+    .press__src::before { content: "— "; color: var(--accent); }
+    @media (max-width: 640px) {
+      .press__quote { grid-template-columns: 1fr; gap: .6rem; }
+      .press__mark { font-size: 3rem; }
+    }
+
+    /* ================================================================
+       FAQ — native details/summary accordion
+       ================================================================ */
+    .faq__list { border: var(--line); }
+    .faq__item { border-bottom: var(--line); }
+    .faq__item:last-child { border-bottom: 0; }
+    .faq__item summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 1.1rem 1.3rem;
+      font-weight: 700;
+      font-size: .98rem;
+      display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+      text-transform: uppercase; letter-spacing: .04em;
+    }
+    .faq__item summary::-webkit-details-marker { display: none; }
+    .faq__item summary::after {
+      content: "+";
+      font-family: var(--font-display);
+      font-size: 1.6rem; line-height: 1;
+      color: var(--accent);
+      -webkit-text-stroke: 1.5px var(--ink);
+      paint-order: stroke fill;
+      transition: transform .3s var(--ease-out);
+    }
+    .faq__item[open] summary::after { transform: rotate(45deg); }
+    .faq__item summary:hover { background: var(--ink); color: var(--paper); }
+    .faq__item summary:hover::after { color: var(--accent); }
+    .faq__answer { padding: 0 1.3rem 1.3rem; color: var(--ink-soft); max-width: 70ch; }
+
+    /* ================================================================
+       NEWSLETTER — big raw form
+       ================================================================ */
+    .news {
+      background: var(--ink);
+      color: var(--on-ink);
+      border-top: var(--line);
+    }
+    .news .section__tag { background: var(--paper); color: var(--ink); border-color: var(--ink); }
+    .news .section__title { color: var(--on-ink-accent); }
+    .news .section__lede { color: var(--on-ink-soft); }
+    .news__form {
+      display: flex; gap: 1rem; flex-wrap: wrap;
+      margin-top: 2rem; max-width: 640px;
+    }
+    .news__input {
+      flex: 1 1 280px;
+      background: var(--paper);
+      border: 2px solid var(--ink);
+      box-shadow: var(--shadow-sm);
+      padding: .95rem 1.1rem;
+      font-family: var(--font-mono);
+      font-size: .95rem;
+      color: var(--ink);
+      min-width: 0;
+    }
+    .news__input::placeholder { color: #6a6a64; }
+    .news__input:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+    .news__status {
+      margin-top: 1rem; font-size: .85rem; font-weight: 700;
+      min-height: 1.2em; color: var(--on-ink);
+    }
+    .news__status[data-state="ok"] { color: var(--on-ink-accent); }
+    .news__status[data-state="err"] { color: #ff6b57; }
+
+    /* ================================================================
+       FOOTER
+       ================================================================ */
+    .footer {
+      border-top: var(--line);
+      background: var(--paper);
+    }
+    .footer__cols {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 2rem; padding-block: clamp(2.5rem, 6vw, 4rem);
+    }
+    .footer h4 {
+      font-size: .72rem; text-transform: uppercase; letter-spacing: .18em;
+      margin-bottom: 1rem; color: var(--ink-soft);
+    }
+    .footer ul { list-style: none; display: flex; flex-direction: column; gap: .55rem; }
+    .footer a {
+      text-decoration: none; font-size: .9rem;
+      border-bottom: 1px solid transparent;
+    }
+    .footer a:hover { border-bottom-color: var(--accent); }
+    .footer__colophon {
+      font-size: .75rem; color: var(--ink-soft);
+      padding-block: 1.4rem;
+      border-top: var(--line);
+      display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+    }
+    .footer__wordmark {
+      font-family: var(--font-display);
+      font-size: clamp(4.5rem, 19vw, 15rem);
+      line-height: .78;
+      text-transform: uppercase;
+      letter-spacing: .02em;
+      text-align: center;
+      overflow: hidden;
+      user-select: none;
+      white-space: nowrap;
+    }
+    .footer__wordmark span { color: var(--accent); }
+    @media (max-width: 640px) {
+      .footer__cols { grid-template-columns: 1fr; gap: 1.6rem; }
+    }
+
+    /* ================================================================
+       FLOATING CTA + COOKIE BANNER
+       ================================================================ */
+    .float-cta {
+      position: fixed; right: 1.25rem; bottom: 1.25rem; z-index: 50;
+      width: 52px; height: 52px;
+      border: var(--line);
+      background: var(--accent);
+      color: var(--accent-ink);
+      display: grid; place-items: center;
+      box-shadow: var(--shadow-sm);
+      opacity: 0; pointer-events: none;
+      transform: translateY(12px);
+      transition: opacity .35s var(--ease-out), transform .35s var(--ease-out);
+    }
+    .float-cta.visible { opacity: 1; pointer-events: auto; transform: none; }
+    .float-cta:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 0 var(--ink); }
+    .float-cta svg { width: 22px; height: 22px; }
+
+    .cookie {
+      position: fixed; left: 1.25rem; bottom: 1.25rem; z-index: 60;
+      max-width: min(420px, calc(100vw - 2.5rem));
+      background: var(--paper);
+      border: var(--line);
+      box-shadow: var(--shadow);
+      padding: 1.2rem 1.3rem;
+      font-size: .85rem;
+      display: none;
+    }
+    .cookie.show { display: block; animation: cookie-in .45s var(--ease-out); }
+    @keyframes cookie-in { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+    @media (prefers-reduced-motion: reduce) { .cookie.show { animation: none; } }
+    .cookie p { margin-bottom: 1rem; }
+    .cookie__btns { display: flex; gap: .6rem; }
+    .cookie .btn { padding: .55rem 1rem; font-size: .78rem; }
+
+    @media (max-width: 640px) {
+      .cookie { left: 1rem; right: 1rem; bottom: 1rem; max-width: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
+
+  <!-- ================= TICKER ================= -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker__track" id="ticker-track">
+      <span data-i18n="t1">NEW — VELA NULL · CHROMATIC STATIC OUT NOW</span>
+      <span data-i18n="t2">SUBMISSIONS OPEN FOR 2026</span>
+      <span data-i18n="t3">50/50 SPLITS · YOU KEEP YOUR MASTERS</span>
+      <span data-i18n="t4">VINYL · TAPE · DIGITAL · EVERYWHERE</span>
+    </div>
+  </div>
+
+  <!-- ================= HEADER ================= -->
+  <header class="header">
+    <div class="container header__inner">
+      <a class="logo" href="#top">STATIC<span class="deg">°</span></a>
+
+      <nav class="nav" aria-label="Main">
+        <a href="#catalog" data-i18n="navReleases">Catalog</a>
+        <a href="#process" data-i18n="navHow">How it works</a>
+        <a href="#press" data-i18n="navPress">Press</a>
+        <a href="#faq" data-i18n="navFaq">FAQ</a>
+      </nav>
+
+      <div class="lang-select" id="langSelect">
+        <button class="lang-select__btn" type="button" id="langBtn" aria-haspopup="listbox" aria-expanded="false" aria-label="Select language">
+          <span class="lang-select__cur" id="langCur">EN</span>
+          <svg class="lang-select__chev" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="lang-select__menu" role="listbox" aria-label="Choose language">
+          <button class="lang-select__opt" role="option" data-lang="en" aria-selected="true">English</button>
+          <button class="lang-select__opt" role="option" data-lang="es" aria-selected="false">Español</button>
+          <button class="lang-select__opt" role="option" data-lang="fr" aria-selected="false">Français</button>
+          <button class="lang-select__opt" role="option" data-lang="de" aria-selected="false">Deutsch</button>
+          <button class="lang-select__opt" role="option" data-lang="it" aria-selected="false">Italiano</button>
+          <button class="lang-select__opt" role="option" data-lang="pt" aria-selected="false">Português</button>
+        </div>
+      </div>
+
+      <button class="theme-btn" type="button" data-theme-toggle aria-label="Toggle color theme">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ================= HERO ================= -->
+    <section class="hero" id="top">
+      <div class="container hero__grid">
+        <div>
+          <p class="hero__stamp reveal" data-i18n="heroStamp">EST. 2019 · LONDON / BERLIN / MEXICO CITY</p>
+          <h1 class="reveal" style="transition-delay:.05s"><span data-i18n="heroH1a">MUSIC THE</span> <span class="hl" data-i18n="heroH1b">ALGORITHM</span> <span data-i18n="heroH1c">REFUSES.</span></h1>
+          <p class="hero__sub reveal" style="transition-delay:.1s" data-i18n="heroSub">STATIC is an independent label and distribution engine for electronic, experimental and left-field artists. We press vinyl, we stream everywhere, we split 50/50 — and we never let a recommendation engine decide what matters.</p>
+          <div class="hero__ctas reveal" style="transition-delay:.15s">
+            <a class="btn btn--accent" href="#catalog" data-i18n="heroCta1">Listen now</a>
+            <a class="btn btn--ink js-magnetic" href="#news" data-i18n="heroCta2">Submit a demo</a>
+          </div>
+          <p class="hero__note reveal" style="transition-delay:.2s" data-i18n="heroNote">CAT. ST-026 · 2×LP BLACK VINYL + DIGITAL · SHIPS WORLDWIDE</p>
+        </div>
+
+        <div class="hero__visual reveal" style="transition-delay:.1s">
+          <div class="hero__img-wrap">
+            <img class="hero__img" src="https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?w=900&q=80&auto=format&fit=crop" alt="Crowd at a live electronic music concert, hands raised under warm stage light" width="720" height="900" fetchpriority="high">
+            <img class="hero__img--back" src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=700&q=80&auto=format&fit=crop" alt="DJ performing behind a mixing console in a dark club" width="560" height="700" loading="lazy">
+          </div>
+          <div class="hero__barcode" aria-hidden="true">
+            <svg viewBox="0 0 110 34" preserveAspectRatio="none">
+              <rect x="0"  y="0" width="3"  height="34" fill="currentColor"/>
+              <rect x="5"  y="0" width="1"  height="34" fill="currentColor"/>
+              <rect x="8"  y="0" width="4"  height="34" fill="currentColor"/>
+              <rect x="14" y="0" width="1"  height="34" fill="currentColor"/>
+              <rect x="17" y="0" width="2"  height="34" fill="currentColor"/>
+              <rect x="21" y="0" width="5"  height="34" fill="currentColor"/>
+              <rect x="28" y="0" width="1"  height="34" fill="currentColor"/>
+              <rect x="31" y="0" width="3"  height="34" fill="currentColor"/>
+              <rect x="36" y="0" width="1"  height="34" fill="currentColor"/>
+              <rect x="39" y="0" width="4"  height="34" fill="currentColor"/>
+              <rect x="45" y="0" width="1"  height="34" fill="currentColor"/>
+              <rect x="48" y="0" width="2"  height="34" fill="currentColor"/>
+              <rect x="52" y="0" width="6"  height="34" fill="currentColor"/>
+              <rect x="60" y="0" width="1"  height="34" fill="currentColor"/>
+              <rect x="63" y="0" width="3"  height="34" fill="currentColor"/>
+              <rect x="68" y="0" width="1"  height="34" fill="currentColor"/>
+              <rect x="71" y="0" width="4"  height="34" fill="currentColor"/>
+              <rect x="77" y="0" width="2"  height="34" fill="currentColor"/>
+              <rect x="81" y="0" width="1"  height="34" fill="currentColor"/>
+              <rect x="84" y="0" width="5"  height="34" fill="currentColor"/>
+              <rect x="91" y="0" width="2"  height="34" fill="currentColor"/>
+              <rect x="95" y="0" width="1"  height="34" fill="currentColor"/>
+              <rect x="98" y="0" width="4"  height="34" fill="currentColor"/>
+              <rect x="104" y="0" width="2"  height="34" fill="currentColor"/>
+              <rect x="108" y="0" width="2"  height="34" fill="currentColor"/>
+            </svg>
+            <small>ST-026 · 33⅓ RPM</small>
+          </div>
+          <div class="vinyl" aria-hidden="true">
+            <svg class="vinyl__disc" viewBox="0 0 100 100" width="100%" height="100%">
+              <circle cx="50" cy="50" r="48" fill="#0a0a0a"/>
+              <circle cx="50" cy="50" r="46" fill="none" stroke="#1d1d1d" stroke-width="1.5"/>
+              <circle cx="50" cy="50" r="38" fill="none" stroke="#262626" stroke-width=".8"/>
+              <circle cx="50" cy="50" r="30" fill="none" stroke="#1d1d1d" stroke-width=".8"/>
+              <circle cx="50" cy="50" r="22" fill="none" stroke="#262626" stroke-width=".8"/>
+              <circle cx="50" cy="50" r="14" fill="none" stroke="#1d1d1d" stroke-width=".8"/>
+              <circle cx="50" cy="50" r="7" fill="#c8ff00"/>
+              <circle cx="50" cy="50" r="2.4" fill="#0a0a0a"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= MARQUEE BAND ================= -->
+    <div class="band" aria-hidden="true">
+      <div class="band__track" id="band-track">
+        <span data-i18n="band1">NO ALGORITHM · NO GATEKEEPERS</span>
+        <span data-i18n="band2">50/50 SPLITS FROM DAY ONE</span>
+        <span data-i18n="band3">YOU KEEP YOUR MASTERS</span>
+        <span data-i18n="band4">EVERY RELEASE PRESSED TO VINYL</span>
+      </div>
+    </div>
+
+    <!-- ================= CATALOG ================= -->
+    <section class="section" id="catalog">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__tag" data-i18n="catTag">CATALOG</span>
+          <h2 class="section__title" data-i18n="catTitle">THE CATALOG</h2>
+          <p class="section__lede" data-i18n="catSub">Every release, pressed and distributed on our terms. Ships worldwide — no algorithms, no gatekeepers, no 90-day exclusives.</p>
+        </div>
+
+        <div class="reveal">
+          <table class="catalog">
+            <thead>
+              <tr>
+                <th data-i18n="thNo">NO.</th>
+                <th data-i18n="thArtist">ARTIST</th>
+                <th data-i18n="thTitle">TITLE</th>
+                <th data-i18n="thFormat">FORMAT</th>
+                <th data-i18n="thYear">YEAR</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="cat-no">ST-026</td>
+                <td class="cat-artist">VELA NULL</td>
+                <td class="cat-title">Chromatic Static <span class="cat-badge" data-i18n="badgeNew">NEW</span></td>
+                <td class="cat-format">2×LP + DL</td>
+                <td class="cat-year">2026</td>
+              </tr>
+              <tr>
+                <td class="cat-no">ST-024</td>
+                <td class="cat-artist">KODA HIKO</td>
+                <td class="cat-title">Tidal Memory</td>
+                <td class="cat-format">LP + DL</td>
+                <td class="cat-year">2025</td>
+              </tr>
+              <tr>
+                <td class="cat-no">ST-022</td>
+                <td class="cat-artist">MAREK VOSS</td>
+                <td class="cat-title">Concrete Garden</td>
+                <td class="cat-format">TAPE + DL</td>
+                <td class="cat-year">2025</td>
+              </tr>
+              <tr>
+                <td class="cat-no">ST-019</td>
+                <td class="cat-artist">NYX &amp; THE ORBIT</td>
+                <td class="cat-title">Half-Light</td>
+                <td class="cat-format">2×LP</td>
+                <td class="cat-year">2024</td>
+              </tr>
+              <tr>
+                <td class="cat-no">ST-017</td>
+                <td class="cat-artist">SISTER FREQUENCY</td>
+                <td class="cat-title">Feedback Loops</td>
+                <td class="cat-format">DL</td>
+                <td class="cat-year">2024</td>
+              </tr>
+              <tr>
+                <td class="cat-no">ST-014</td>
+                <td class="cat-artist">TOMAS NOIR</td>
+                <td class="cat-title">Analog Ghosts</td>
+                <td class="cat-format">LP + DL</td>
+                <td class="cat-year">2023</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Featured release -->
+        <div class="featured reveal">
+          <div class="featured__imgwrap">
+            <img class="featured__img" src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=900&q=80&auto=format&fit=crop" alt="Concert stage silhouettes backlit by blue and red lights" width="720" height="720" loading="lazy">
+          </div>
+          <div class="featured__body">
+            <span class="featured__tag" data-i18n="featTag">FEATURED</span>
+            <p class="featured__artist" data-i18n="featArtist">VELA NULL</p>
+            <h3 data-i18n="featTitle">CHROMATIC STATIC</h3>
+            <p class="featured__desc" data-i18n="featBody">Six tracks recorded in one night in an empty swimming pool. Reverb you can drown in, bass that rearranges the furniture. Pressed on 180g black vinyl, cut at half speed.</p>
+            <p class="featured__meta"><span><b data-i18n="featCat">CAT.</b> ST-026</span><span><b data-i18n="featFmt">FMT</b> 2×LP / TAPE / DL</span><span><b data-i18n="featYr">YR</b> 2026</span></p>
+            <a class="btn btn--accent" href="#news" data-i18n="featCta">Order the record</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PROCESS ================= -->
+    <section class="section" id="process">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__tag" data-i18n="howTag">PROCESS</span>
+          <h2 class="section__title" data-i18n="howTitle">FROM YOUR HARD DRIVE TO THE WORLD</h2>
+        </div>
+
+        <div class="process__grid">
+          <div class="process__step reveal">
+            <span class="process__num" aria-hidden="true">01</span>
+            <h3 data-i18n="step1t">Send</h3>
+            <p data-i18n="step1d">A link or a file — three tracks is plenty. We listen to everything and we answer everyone, usually within a week.</p>
+          </div>
+          <div class="process__step reveal" style="transition-delay:.08s">
+            <span class="process__num" aria-hidden="true">02</span>
+            <h3 data-i18n="step2t">Sign</h3>
+            <p data-i18n="step2d">A one-page deal. 50/50 from day one, you keep your masters, and you can leave any time after a year. No traps.</p>
+          </div>
+          <div class="process__step reveal" style="transition-delay:.16s">
+            <span class="process__num" aria-hidden="true">03</span>
+            <h3 data-i18n="step3t">Release</h3>
+            <p data-i18n="step3d">Vinyl, tape, digital and every platform on Earth — on the same day. Distribution, promo and artwork handled.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PRESS ================= -->
+    <section class="section" id="press">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__tag" data-i18n="pressTag">PRESS</span>
+          <h2 class="section__title" data-i18n="pressTitle">THEY SAY</h2>
+        </div>
+
+        <div class="press__list">
+          <blockquote class="press__quote reveal">
+            <span class="press__mark" aria-hidden="true">“</span>
+            <div>
+              <p class="press__text" data-i18n="q1">The most exciting independent label in Europe right now.</p>
+              <footer class="press__src" data-i18n="q1src">Signal Journal</footer>
+            </div>
+          </blockquote>
+          <blockquote class="press__quote reveal">
+            <span class="press__mark" aria-hidden="true">“</span>
+            <div>
+              <p class="press__text" data-i18n="q2">STATIC press records like they're going out of style. They aren't.</p>
+              <footer class="press__src" data-i18n="q2src">Tone Wire</footer>
+            </div>
+          </blockquote>
+          <blockquote class="press__quote reveal">
+            <span class="press__mark" aria-hidden="true">“</span>
+            <div>
+              <p class="press__text" data-i18n="q3">A masterclass in trusting artists.</p>
+              <footer class="press__src" data-i18n="q3src">Frequency Quarterly</footer>
+            </div>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FAQ ================= -->
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__tag" data-i18n="faqTag">FAQ</span>
+          <h2 class="section__title" data-i18n="faqTitle">ASK US ANYTHING</h2>
+          <p class="section__lede" data-i18n="faqSub">Straight answers. If your question isn't here, write to <a href="mailto:hello@static.label" style="text-decoration-thickness:2px;text-underline-offset:3px">hello@static.label</a>.</p>
+        </div>
+
+        <div class="faq__list reveal">
+          <details class="faq__item">
+            <summary data-i18n="f1q">Do I keep my masters?</summary>
+            <p class="faq__answer" data-i18n="f1a">Always. We license your record for release; you own the recordings forever. If we part ways, the music leaves with you.</p>
+          </details>
+          <details class="faq__item">
+            <summary data-i18n="f2q">How do royalties work?</summary>
+            <p class="faq__answer" data-i18n="f2a">50/50 on everything, from the first stream. We split at the source — no recoupment tricks, no hidden deductions. Statements every quarter.</p>
+          </details>
+          <details class="faq__item">
+            <summary data-i18n="f3q">Do you press vinyl for every release?</summary>
+            <p class="faq__answer" data-i18n="f3a">Yes — every release gets a physical edition. Vinyl when the record deserves the weight, tape for the cheap-and-nasty stuff, and digital everywhere, always.</p>
+          </details>
+          <details class="faq__item">
+            <summary data-i18n="f4q">How long until my record is out?</summary>
+            <p class="faq__answer" data-i18n="f4a">Three to five months after signing, depending on pressing plant queues. We'll keep you posted at every step.</p>
+          </details>
+          <details class="faq__item">
+            <summary data-i18n="f5q">Can I leave the label?</summary>
+            <p class="faq__answer" data-i18n="f5a">After the first 12 months, you can leave with your masters and your rights. We'll even help you find your next home.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= NEWSLETTER ================= -->
+    <section class="section news" id="news">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__tag" data-i18n="newsTag">NEWSLETTER</span>
+          <h2 class="section__title" data-i18n="newsTitle">THE FEEDBACK LOOP</h2>
+          <p class="section__lede" data-i18n="newsSub">One email a month. New releases, label news, pressing-plant delays, zero spam. Unsubscribe whenever.</p>
+        </div>
+
+        <form class="news__form reveal" novalidate>
+          <label class="visually-hidden" for="news-email" data-i18n="newsLabel">Email address</label>
+          <input class="news__input" type="email" id="news-email" name="email" placeholder="you@example.com" data-i18n-placeholder="newsPh" autocomplete="email" required>
+          <button class="btn btn--accent" type="submit" data-i18n="newsBtn">Subscribe</button>
+        </form>
+        <p class="news__status reveal" role="status" aria-live="polite" data-state="" id="news-status"></p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <div class="container footer__cols">
+      <div>
+        <h4 data-i18n="footCol1">LABEL</h4>
+        <ul>
+          <li><a href="#catalog" data-i18n="footReleases">Catalog</a></li>
+          <li><a href="#process" data-i18n="footArtists">Artists</a></li>
+          <li><a href="#news" data-i18n="footDemo">Demo submissions</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="footCol2">LISTEN</h4>
+        <ul>
+          <li><a href="#catalog" data-i18n="footSpotify">Spotify</a></li>
+          <li><a href="#catalog" data-i18n="footBandcamp">Bandcamp</a></li>
+          <li><a href="#catalog" data-i18n="footApple">Apple Music</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="footCol3">LEGAL</h4>
+        <ul>
+          <li><a href="#top" data-i18n="footPrivacy">Privacy</a></li>
+          <li><a href="#top" data-i18n="footTerms">Terms</a></li>
+          <li><a href="#top" data-i18n="footImprint">Imprint</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer__colophon">
+      <p data-i18n="footColophon">© 2026 Static Records Ltd. Made loud in London, Berlin &amp; Mexico City.</p>
+      <p>STATIC° <span data-i18n="footRights">No copyright on sound.</span></p>
+    </div>
+    <div class="footer__wordmark" aria-hidden="true">STATIC<span>°</span>STATIC<span>°</span></div>
+  </footer>
+
+  <!-- Floating back-to-top -->
+  <button class="float-cta" type="button" id="float-cta" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
+  <!-- Cookie banner -->
+  <div class="cookie" id="cookie" role="dialog" aria-live="polite" aria-label="Cookie notice">
+    <p data-i18n="cookieText">We use a handful of cookies to count plays and remember your language. Nothing sold, ever.</p>
+    <div class="cookie__btns">
+      <button class="btn btn--accent" type="button" data-cookie="ok" data-i18n="cookieOk">Accept</button>
+      <button class="btn" type="button" data-cookie="no" data-i18n="cookieNo">Decline</button>
+    </div>
+  </div>
+
+  <style>
+    .visually-hidden {
+      position: absolute; width: 1px; height: 1px;
+      margin: -1px; padding: 0; overflow: hidden;
+      clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+    }
+  </style>
+
+  <script>
+    (function () {
+      'use strict';
+
+      /* ================================================================
+         i18n — 6 languages. Keys map to [data-i18n] nodes.
+         ================================================================ */
+      var I18N = {
+        en: {
+          metaTitle: 'STATIC — Independent Music Label & Distribution | Music the Algorithm Refuses',
+          metaDesc: 'STATIC is an independent label and distribution engine for electronic and experimental artists. Vinyl, tape and digital. 50/50 splits. You keep your masters.',
+          ogTitle: 'STATIC — Independent Music Label & Distribution',
+          ogDesc: 'Vinyl, tape and digital for electronic & experimental artists. 50/50 splits from day one. You keep your masters. No algorithms, no gatekeepers.',
+          twTitle: 'STATIC — Music the Algorithm Refuses',
+          twDesc: 'Independent label & distribution for electronic and experimental artists. Vinyl, tape, digital. 50/50. You keep your masters.',
+          skip: 'Skip to content',
+          t1: 'NEW — VELA NULL · CHROMATIC STATIC OUT NOW',
+          t2: 'SUBMISSIONS OPEN FOR 2026',
+          t3: '50/50 SPLITS · YOU KEEP YOUR MASTERS',
+          t4: 'VINYL · TAPE · DIGITAL · EVERYWHERE',
+          navReleases: 'Catalog',
+          navHow: 'How it works',
+          navPress: 'Press',
+          navFaq: 'FAQ',
+          heroStamp: 'EST. 2019 · LONDON / BERLIN / MEXICO CITY',
+          heroH1a: 'MUSIC THE',
+          heroH1b: 'ALGORITHM',
+          heroH1c: 'REFUSES.',
+          heroSub: 'STATIC is an independent label and distribution engine for electronic, experimental and left-field artists. We press vinyl, we stream everywhere, we split 50/50 — and we never let a recommendation engine decide what matters.',
+          heroCta1: 'Listen now',
+          heroCta2: 'Submit a demo',
+          heroNote: 'CAT. ST-026 · 2×LP BLACK VINYL + DIGITAL · SHIPS WORLDWIDE',
+          band1: 'NO ALGORITHM · NO GATEKEEPERS',
+          band2: '50/50 SPLITS FROM DAY ONE',
+          band3: 'YOU KEEP YOUR MASTERS',
+          band4: 'EVERY RELEASE PRESSED TO VINYL',
+          catTag: 'CATALOG',
+          catTitle: 'THE CATALOG',
+          catSub: 'Every release, pressed and distributed on our terms. Ships worldwide — no algorithms, no gatekeepers, no 90-day exclusives.',
+          thNo: 'NO.',
+          thArtist: 'ARTIST',
+          thTitle: 'TITLE',
+          thFormat: 'FORMAT',
+          thYear: 'YEAR',
+          badgeNew: 'NEW',
+          featTag: 'FEATURED',
+          featArtist: 'VELA NULL',
+          featTitle: 'CHROMATIC STATIC',
+          featBody: 'Six tracks recorded in one night in an empty swimming pool. Reverb you can drown in, bass that rearranges the furniture. Pressed on 180g black vinyl, cut at half speed.',
+          featCat: 'CAT.',
+          featFmt: 'FMT',
+          featYr: 'YR',
+          featCta: 'Order the record',
+          howTag: 'PROCESS',
+          howTitle: 'FROM YOUR HARD DRIVE TO THE WORLD',
+          step1t: 'Send',
+          step1d: 'A link or a file — three tracks is plenty. We listen to everything and we answer everyone, usually within a week.',
+          step2t: 'Sign',
+          step2d: 'A one-page deal. 50/50 from day one, you keep your masters, and you can leave any time after a year. No traps.',
+          step3t: 'Release',
+          step3d: 'Vinyl, tape, digital and every platform on Earth — on the same day. Distribution, promo and artwork handled.',
+          pressTag: 'PRESS',
+          pressTitle: 'THEY SAY',
+          q1: 'The most exciting independent label in Europe right now.',
+          q1src: 'Signal Journal',
+          q2: 'STATIC press records like they\u2019re going out of style. They aren\u2019t.',
+          q2src: 'Tone Wire',
+          q3: 'A masterclass in trusting artists.',
+          q3src: 'Frequency Quarterly',
+          faqTag: 'FAQ',
+          faqTitle: 'ASK US ANYTHING',
+          faqSub: 'Straight answers. If your question isn\u2019t here, write to hello@static.label.',
+          f1q: 'Do I keep my masters?',
+          f1a: 'Always. We license your record for release; you own the recordings forever. If we part ways, the music leaves with you.',
+          f2q: 'How do royalties work?',
+          f2a: '50/50 on everything, from the first stream. We split at the source — no recoupment tricks, no hidden deductions. Statements every quarter.',
+          f3q: 'Do you press vinyl for every release?',
+          f3a: 'Yes — every release gets a physical edition. Vinyl when the record deserves the weight, tape for the cheap-and-nasty stuff, and digital everywhere, always.',
+          f4q: 'How long until my record is out?',
+          f4a: 'Three to five months after signing, depending on pressing plant queues. We\u2019ll keep you posted at every step.',
+          f5q: 'Can I leave the label?',
+          f5a: 'After the first 12 months, you can leave with your masters and your rights. We\u2019ll even help you find your next home.',
+          newsTag: 'NEWSLETTER',
+          newsTitle: 'THE FEEDBACK LOOP',
+          newsSub: 'One email a month. New releases, label news, pressing-plant delays, zero spam. Unsubscribe whenever.',
+          newsLabel: 'Email address',
+          newsPh: 'you@example.com',
+          newsBtn: 'Subscribe',
+          newsOk: 'You\u2019re in. Check your inbox.',
+          newsErr: 'That email doesn\u2019t look right.',
+          footCol1: 'LABEL',
+          footCol2: 'LISTEN',
+          footCol3: 'LEGAL',
+          footReleases: 'Catalog',
+          footArtists: 'Artists',
+          footDemo: 'Demo submissions',
+          footSpotify: 'Spotify',
+          footBandcamp: 'Bandcamp',
+          footApple: 'Apple Music',
+          footPrivacy: 'Privacy',
+          footTerms: 'Terms',
+          footImprint: 'Imprint',
+          footColophon: '© 2026 Static Records Ltd. Made loud in London, Berlin & Mexico City.',
+          footRights: 'No copyright on sound.',
+          cookieText: 'We use a handful of cookies to count plays and remember your language. Nothing sold, ever.',
+          cookieOk: 'Accept',
+          cookieNo: 'Decline'
+        },
+        es: {
+          metaTitle: 'STATIC — Sello y distribución musical independiente | Música que el algoritmo rechaza',
+          metaDesc: 'STATIC es un sello independiente y motor de distribución para artistas electrónicos y experimentales. Vinilo, casete y digital. Reparto 50/50. Tú conservas tus masters.',
+          ogTitle: 'STATIC — Sello y distribución musical independiente',
+          ogDesc: 'Vinilo, casete y digital para artistas electrónicos y experimentales. Reparto 50/50 desde el primer día. Conservas tus masters. Sin algoritmos ni intermediarios.',
+          twTitle: 'STATIC — Música que el algoritmo rechaza',
+          twDesc: 'Sello y distribución independiente para artistas electrónicos y experimentales. Vinilo, casete, digital. 50/50. Conservas tus masters.',
+          skip: 'Saltar al contenido',
+          t1: 'NUEVO — VELA NULL · CHROMATIC STATIC YA A LA VENTA',
+          t2: 'SUBMISIONES ABIERTAS 2026',
+          t3: 'REPARTO 50/50 · CONSERVA TUS MASTERS',
+          t4: 'VINILO · CASETE · DIGITAL · EN TODAS PARTES',
+          navReleases: 'Catálogo',
+          navHow: 'Cómo funciona',
+          navPress: 'Prensa',
+          navFaq: 'FAQ',
+          heroStamp: 'FUNDADO EN 2019 · LONDRES / BERLÍN / CDMX',
+          heroH1a: 'MÚSICA QUE EL',
+          heroH1b: 'ALGORITMO',
+          heroH1c: 'RECHAZA.',
+          heroSub: 'STATIC es un sello independiente y un motor de distribución para artistas electrónicos, experimentales y de nicho. Prensamos vinilo, publicamos en todas las plataformas, repartimos 50/50 — y jamás dejamos que un motor de recomendaciones decida qué importa.',
+          heroCta1: 'Escuchar',
+          heroCta2: 'Enviar demo',
+          heroNote: 'CAT. ST-026 · 2×LP VINILO NEGRO + DIGITAL · ENVÍO A TODO EL MUNDO',
+          band1: 'SIN ALGORITMOS · SIN INTERMEDIARIOS',
+          band2: 'REPARTO 50/50 DESDE EL PRIMER DÍA',
+          band3: 'CONSERVAS TUS MASTERS',
+          band4: 'CADA LANZAMIENTO SE PRENSA EN VINILO',
+          catTag: 'CATÁLOGO',
+          catTitle: 'EL CATÁLOGO',
+          catSub: 'Cada lanzamiento, prensado y distribuido a nuestra manera. Envíos a todo el mundo — sin algoritmos, sin intermediarios, sin exclusivas de 90 días.',
+          thNo: 'N.º',
+          thArtist: 'ARTISTA',
+          thTitle: 'TÍTULO',
+          thFormat: 'FORMATO',
+          thYear: 'AÑO',
+          badgeNew: 'NUEVO',
+          featTag: 'DESTACADO',
+          featArtist: 'VELA NULL',
+          featTitle: 'CHROMATIC STATIC',
+          featBody: 'Seis temas grabados en una noche en una piscina vacía. Reverberación en la que ahogarse, graves que recolocan los muebles. Prensado en vinilo negro de 180 g, corte a media velocidad.',
+          featCat: 'CAT.',
+          featFmt: 'FMT',
+          featYr: 'AÑO',
+          featCta: 'Comprar el disco',
+          howTag: 'PROCESO',
+          howTitle: 'DEL DISCO DURO AL MUNDO ENTERO',
+          step1t: 'Enviar',
+          step1d: 'Un enlace o un archivo — con tres temas basta. Escuchamos todo y respondemos a todos, normalmente en menos de una semana.',
+          step2t: 'Firmar',
+          step2d: 'Un contrato de una página. 50/50 desde el primer día, conservas tus masters y puedes irte cuando quieras tras un año. Sin trampas.',
+          step3t: 'Publicar',
+          step3d: 'Vinilo, casete, digital y todas las plataformas de la Tierra — el mismo día. Distribución, promoción y arte incluidos.',
+          pressTag: 'PRENSA',
+          pressTitle: 'DICEN DE NOSOTROS',
+          q1: 'El sello independiente más emocionante de Europa ahora mismo.',
+          q1src: 'Signal Journal',
+          q2: 'STATIC prensa discos como si estuvieran pasando de moda. No lo están.',
+          q2src: 'Tone Wire',
+          q3: 'Una lección magistral sobre confiar en los artistas.',
+          q3src: 'Frequency Quarterly',
+          faqTag: 'FAQ',
+          faqTitle: 'PREGÚNTANOS LO QUE SEA',
+          faqSub: 'Respuestas claras. Si tu duda no está aquí, escribe a hello@static.label.',
+          f1q: '¿Conservo mis masters?',
+          f1a: 'Siempre. Licenciamos tu disco para publicarlo; las grabaciones son tuyas para siempre. Si nos separamos, la música se va contigo.',
+          f2q: '¿Cómo funcionan las regalías?',
+          f2a: '50/50 en todo, desde la primera reproducción. Repartimos en origen — sin trucos de amortización ni deducciones ocultas. Liquidaciones cada trimestre.',
+          f3q: '¿Prensáis vinilo en cada lanzamiento?',
+          f3a: 'Sí — cada lanzamiento tiene edición física. Vinilo cuando el disco merece ese peso, casete para lo crudo, y digital en todas partes, siempre.',
+          f4q: '¿Cuánto tarda en salir mi disco?',
+          f4a: 'De tres a cinco meses tras la firma, según las colas de la planta de prensado. Te informaremos en cada paso.',
+          f5q: '¿Puedo dejar el sello?',
+          f5a: 'Pasados los primeros 12 meses, puedes irte con tus masters y tus derechos. Incluso te ayudamos a encontrar tu próximo hogar.',
+          newsTag: 'BOLETÍN',
+          newsTitle: 'EL BUCLE DE RETROALIMENTACIÓN',
+          newsSub: 'Un correo al mes. Nuevos lanzamientos, noticias del sello, retrasos de prensado, cero spam. Date de baja cuando quieras.',
+          newsLabel: 'Correo electrónico',
+          newsPh: 'tu@correo.com',
+          newsBtn: 'Suscribirme',
+          newsOk: 'Dentro. Revisa tu bandeja de entrada.',
+          newsErr: 'Ese correo no parece válido.',
+          footCol1: 'SELLO',
+          footCol2: 'ESCUCHA',
+          footCol3: 'LEGAL',
+          footReleases: 'Catálogo',
+          footArtists: 'Artistas',
+          footDemo: 'Envío de demos',
+          footSpotify: 'Spotify',
+          footBandcamp: 'Bandcamp',
+          footApple: 'Apple Music',
+          footPrivacy: 'Privacidad',
+          footTerms: 'Términos',
+          footImprint: 'Aviso legal',
+          footColophon: '© 2026 Static Records Ltd. Hecho a todo volumen en Londres, Berlín y CDMX.',
+          footRights: 'Sin copyright sobre el sonido.',
+          cookieText: 'Usamos unas pocas cookies para contar reproducciones y recordar tu idioma. Nada se vende, nunca.',
+          cookieOk: 'Aceptar',
+          cookieNo: 'Rechazar'
+        },
+        fr: {
+          metaTitle: 'STATIC — Label et distribution musicale indépendants | La musique que l\u2019algorithme refuse',
+          metaDesc: 'STATIC est un label indépendant et un moteur de distribution pour les artistes électroniques et expérimentaux. Vinyle, cassette et numérique. Partage 50/50. Vous gardez vos masters.',
+          ogTitle: 'STATIC — Label et distribution musicale indépendants',
+          ogDesc: 'Vinyle, cassette et numérique pour les artistes électroniques et expérimentaux. Partage 50/50 dès le premier jour. Vos masters vous restent. Sans algorithme ni intermédiaire.',
+          twTitle: 'STATIC — La musique que l\u2019algorithme refuse',
+          twDesc: 'Label et distribution indépendants pour les artistes électroniques et expérimentaux. Vinyle, cassette, numérique. 50/50. Vos masters vous restent.',
+          skip: 'Aller au contenu',
+          t1: 'NOUVEAU — VELA NULL · CHROMATIC STATIC DISPONIBLE',
+          t2: 'SOUMISSIONS OUVERTES POUR 2026',
+          t3: 'PARTAGE 50/50 · VOS MASTERS VOUS RESTENT',
+          t4: 'VINYLE · CASSETTE · NUMÉRIQUE · PARTOUT',
+          navReleases: 'Catalogue',
+          navHow: 'Comment ça marche',
+          navPress: 'Presse',
+          navFaq: 'FAQ',
+          heroStamp: 'FONDÉ EN 2019 · LONDRES / BERLIN / MEXICO',
+          heroH1a: 'LA MUSIQUE QUE',
+          heroH1b: 'L\u2019ALGORITHME',
+          heroH1c: 'REFUSE.',
+          heroSub: 'STATIC est un label indépendant et un moteur de distribution pour les artistes électroniques, expérimentaux et hors normes. Nous pressons le vinyle, nous diffusons partout, nous partageons 50/50 — et nous ne laissons jamais un moteur de recommandation décider de ce qui compte.',
+          heroCta1: 'Écouter',
+          heroCta2: 'Envoyer une démo',
+          heroNote: 'CAT. ST-026 · 2×LP VINYLE NOIR + NUMÉRIQUE · EXPÉDIÉ DANS LE MONDE',
+          band1: 'SANS ALGORITHME · SANS INTERMÉDIAIRE',
+          band2: 'PARTAGE 50/50 DÈS LE PREMIER JOUR',
+          band3: 'VOS MASTERS VOUS RESTENT',
+          band4: 'CHAQUE SORTIE PRESSÉE EN VINYLE',
+          catTag: 'CATALOGUE',
+          catTitle: 'LE CATALOGUE',
+          catSub: 'Chaque sortie, pressée et distribuée à notre façon. Expédition mondiale — sans algorithme, sans intermédiaire, sans exclusivité de 90 jours.',
+          thNo: 'N°',
+          thArtist: 'ARTISTE',
+          thTitle: 'TITRE',
+          thFormat: 'FORMAT',
+          thYear: 'ANNÉE',
+          badgeNew: 'NOUVEAU',
+          featTag: 'À LA UNE',
+          featArtist: 'VELA NULL',
+          featTitle: 'CHROMATIC STATIC',
+          featBody: 'Six morceaux enregistrés en une nuit dans une piscine vide. Une réverbération où l\u2019on se noie, des basses qui déplacent les meubles. Pressé en vinyle noir 180 g, gravé à demi-vitesse.',
+          featCat: 'CAT.',
+          featFmt: 'FMT',
+          featYr: 'AN',
+          featCta: 'Commander le disque',
+          howTag: 'PROCESSUS',
+          howTitle: 'DE VOTRE DISQUE DUR AU MONDE',
+          step1t: 'Envoyer',
+          step1d: 'Un lien ou un fichier — trois morceaux suffisent. Nous écoutons tout et répondons à tout le monde, généralement en moins d\u2019une semaine.',
+          step2t: 'Signer',
+          step2d: 'Un contrat d\u2019une page. 50/50 dès le premier jour, vous gardez vos masters et vous pouvez partir à tout moment après un an. Aucun piège.',
+          step3t: 'Sortir',
+          step3d: 'Vinyle, cassette, numérique et toutes les plateformes de la Terre — le même jour. Distribution, promotion et visuel pris en charge.',
+          pressTag: 'PRESSE',
+          pressTitle: 'ILS DISENT',
+          q1: 'Le label indépendant le plus excitant d\u2019Europe en ce moment.',
+          q1src: 'Signal Journal',
+          q2: 'STATIC presse des disques comme s\u2019ils allaient passer de mode. Ce n\u2019est pas le cas.',
+          q2src: 'Tone Wire',
+          q3: 'Une leçon de confiance envers les artistes.',
+          q3src: 'Frequency Quarterly',
+          faqTag: 'FAQ',
+          faqTitle: 'DEMANDEZ-NOUS N\u2019IMPORTE QUOI',
+          faqSub: 'Des réponses claires. Si votre question n\u2019est pas là, écrivez à hello@static.label.',
+          f1q: 'Est-ce que je garde mes masters ?',
+          f1a: 'Toujours. Nous licencions votre disque pour la sortie ; les enregistrements vous appartiennent pour toujours. Si nos chemins se séparent, la musique part avec vous.',
+          f2q: 'Comment fonctionnent les redevances ?',
+          f2a: '50/50 sur tout, dès le premier stream. Nous partageons à la source — pas d\u2019astuces de recoupement, pas de déductions cachées. Relevés chaque trimestre.',
+          f3q: 'Pressez-vous du vinyle pour chaque sortie ?',
+          f3a: 'Oui — chaque sortie a une édition physique. Vinyle quand le disque mérite ce poids, cassette pour le brut, et numérique partout, toujours.',
+          f4q: 'Combien de temps avant la sortie ?',
+          f4a: 'Trois à cinq mois après la signature, selon les files d\u2019attente de la presse. Nous vous tenons au courant à chaque étape.',
+          f5q: 'Puis-je quitter le label ?',
+          f5a: 'Après les 12 premiers mois, vous pouvez partir avec vos masters et vos droits. Nous vous aiderons même à trouver votre prochain chez-vous.',
+          newsTag: 'NEWSLETTER',
+          newsTitle: 'LA BOUCLE DE RÉTROACTION',
+          newsSub: 'Un e-mail par mois. Nouvelles sorties, nouvelles du label, retards de pressage, zéro spam. Désabonnement à tout moment.',
+          newsLabel: 'Adresse e-mail',
+          newsPh: 'vous@exemple.com',
+          newsBtn: 'S\u2019abonner',
+          newsOk: 'C\u2019est fait. Vérifiez votre boîte mail.',
+          newsErr: 'Cet e-mail ne semble pas valide.',
+          footCol1: 'LABEL',
+          footCol2: 'ÉCOUTER',
+          footCol3: 'LÉGAL',
+          footReleases: 'Catalogue',
+          footArtists: 'Artistes',
+          footDemo: 'Soumissions de démos',
+          footSpotify: 'Spotify',
+          footBandcamp: 'Bandcamp',
+          footApple: 'Apple Music',
+          footPrivacy: 'Confidentialité',
+          footTerms: 'Conditions',
+          footImprint: 'Mentions légales',
+          footColophon: '© 2026 Static Records Ltd. Fait fort à Londres, Berlin et Mexico.',
+          footRights: 'Aucun droit d\u2019auteur sur le son.',
+          cookieText: 'Nous utilisons quelques cookies pour compter les écoutes et mémoriser votre langue. Rien n\u2019est vendu, jamais.',
+          cookieOk: 'Accepter',
+          cookieNo: 'Refuser'
+        },
+        de: {
+          metaTitle: 'STATIC — Unabhängiges Musiklabel & Vertrieb | Musik, die der Algorithmus ablehnt',
+          metaDesc: 'STATIC ist ein unabhängiges Label und Vertriebsmotor für elektronische und experimentelle Künstler. Vinyl, Kassette und digital. 50/50-Split. Deine Master bleiben bei dir.',
+          ogTitle: 'STATIC — Unabhängiges Musiklabel & Vertrieb',
+          ogDesc: 'Vinyl, Kassette und digital für elektronische und experimentelle Künstler. 50/50-Split ab dem ersten Tag. Deine Master bleiben bei dir. Keine Algorithmen, keine Gatekeeper.',
+          twTitle: 'STATIC — Musik, die der Algorithmus ablehnt',
+          twDesc: 'Unabhängiges Label & Vertrieb für elektronische und experimentelle Künstler. Vinyl, Kassette, digital. 50/50. Deine Master bleiben bei dir.',
+          skip: 'Zum Inhalt springen',
+          t1: 'NEU — VELA NULL · CHROMATIC STATIC DRAUSSEN',
+          t2: 'SUBMISSIONS FÜR 2026 OFFEN',
+          t3: '50/50-SPLIT · DEINE MASTER BLEIBEN BEI DIR',
+          t4: 'VINYL · KASSETTE · DIGITAL · ÜBERALL',
+          navReleases: 'Katalog',
+          navHow: 'So funktioniert\u2019s',
+          navPress: 'Presse',
+          navFaq: 'FAQ',
+          heroStamp: 'GEGRÜNDET 2019 · LONDON / BERLIN / MEXIKO-STADT',
+          heroH1a: 'MUSIK, DIE DER',
+          heroH1b: 'ALGORITHMUS',
+          heroH1c: 'ABLEHNT.',
+          heroSub: 'STATIC ist ein unabhängiges Label und Vertriebsmotor für elektronische, experimentelle und abseitige Künstler. Wir pressen Vinyl, wir streamen überall, wir teilen 50/50 — und wir lassen nie eine Empfehlungsmaschine entscheiden, was zählt.',
+          heroCta1: 'Anhören',
+          heroCta2: 'Demo einreichen',
+          heroNote: 'KAT. ST-026 · 2×LP SCHWARZES VINYL + DIGITAL · WELTWEITER VERSAND',
+          band1: 'KEIN ALGORITHMUS · KEINE GATEKEEPER',
+          band2: '50/50-SPLIT AB TAG EINS',
+          band3: 'DEINE MASTER BLEIBEN BEI DIR',
+          band4: 'JEDE RELEASE WIRD AUF VINYL GEPRESST',
+          catTag: 'KATALOG',
+          catTitle: 'DER KATALOG',
+          catSub: 'Jede Veröffentlichung, gepresst und vertrieben zu unseren Bedingungen. Weltweiter Versand — keine Algorithmen, keine Gatekeeper, keine 90-Tage-Exklusivität.',
+          thNo: 'NR.',
+          thArtist: 'KÜNSTLER',
+          thTitle: 'TITEL',
+          thFormat: 'FORMAT',
+          thYear: 'JAHR',
+          badgeNew: 'NEU',
+          featTag: 'IM FOKUS',
+          featArtist: 'VELA NULL',
+          featTitle: 'CHROMATIC STATIC',
+          featBody: 'Sechs Stücke, in einer Nacht in einem leeren Schwimmbecken aufgenommen. Hall zum Ertrinken, Bässe, die die Möbel verrücken. Gepresst auf 180-g-Schwarzvinyl, in halber Geschwindigkeit geschnitten.',
+          featCat: 'KAT.',
+          featFmt: 'FMT',
+          featYr: 'JAHR',
+          featCta: 'Platte bestellen',
+          howTag: 'ABLAUF',
+          howTitle: 'VON DEINER FESTPLATTE IN DIE WELT',
+          step1t: 'Einreichen',
+          step1d: 'Ein Link oder eine Datei — drei Stücke genügen. Wir hören alles an und antworten jedem, meist innerhalb einer Woche.',
+          step2t: 'Unterschreiben',
+          step2d: 'Ein Ein-Seiten-Vertrag. 50/50 ab dem ersten Tag, deine Master bleiben bei dir, und nach einem Jahr kannst du jederzeit gehen. Keine Fallen.',
+          step3t: 'Veröffentlichen',
+          step3d: 'Vinyl, Kassette, digital und jede Plattform der Erde — am selben Tag. Vertrieb, Promotion und Artwork übernehmen wir.',
+          pressTag: 'PRESSE',
+          pressTitle: 'SIE SAGEN',
+          q1: 'Das aufregendste unabhängige Label Europas gerade jetzt.',
+          q1src: 'Signal Journal',
+          q2: 'STATIC presst Platten, als würden sie aus der Mode kommen. Tun sie nicht.',
+          q2src: 'Tone Wire',
+          q3: 'Eine Meisterklasse im Vertrauen auf Künstler.',
+          q3src: 'Frequency Quarterly',
+          faqTag: 'FAQ',
+          faqTitle: 'FRAG UNS ALLES',
+          faqSub: 'Klare Antworten. Wenn deine Frage nicht dabei ist, schreib an hello@static.label.',
+          f1q: 'Behalte ich meine Master?',
+          f1a: 'Immer. Wir lizenzieren dein Album für die Veröffentlichung; die Aufnahmen gehören dir für immer. Trennen sich unsere Wege, geht die Musik mit dir.',
+          f2q: 'Wie funktionieren Tantiemen?',
+          f2a: '50/50 auf alles, ab dem ersten Stream. Wir teilen an der Quelle — keine Recoupment-Tricks, keine versteckten Abzüge. Abrechnung jedes Quartal.',
+          f3q: 'Presst ihr Vinyl für jede Veröffentlichung?',
+          f3a: 'Ja — jede Veröffentlichung bekommt eine physische Edition. Vinyl, wenn die Platte das Gewicht verdient, Kassette für das Rauhe, und digital überall, immer.',
+          f4q: 'Wie lange dauert es bis zur Veröffentlichung?',
+          f4a: 'Drei bis fünf Monate nach Vertragsschluss, je nach Warteschlange der Presserei. Wir halten dich auf dem Laufenden.',
+          f5q: 'Kann ich das Label verlassen?',
+          f5a: 'Nach den ersten 12 Monaten kannst du mit deinen Mastern und Rechten gehen. Wir helfen dir sogar, dein nächstes Zuhause zu finden.',
+          newsTag: 'NEWSLETTER',
+          newsTitle: 'DIE RÜCKKOPPLUNGSSCHLEIFE',
+          newsSub: 'Eine Mail im Monat. Neue Releases, Label-News, Presserei-Verzögerungen, null Spam. Jederzeit abbestellbar.',
+          newsLabel: 'E-Mail-Adresse',
+          newsPh: 'du@beispiel.de',
+          newsBtn: 'Abonnieren',
+          newsOk: 'Du bist drin. Check dein Postfach.',
+          newsErr: 'Diese E-Mail sieht nicht richtig aus.',
+          footCol1: 'LABEL',
+          footCol2: 'HÖREN',
+          footCol3: 'RECHTLICHES',
+          footReleases: 'Katalog',
+          footArtists: 'Künstler',
+          footDemo: 'Demo-Einreichungen',
+          footSpotify: 'Spotify',
+          footBandcamp: 'Bandcamp',
+          footApple: 'Apple Music',
+          footPrivacy: 'Datenschutz',
+          footTerms: 'AGB',
+          footImprint: 'Impressum',
+          footColophon: '© 2026 Static Records Ltd. Laut gemacht in London, Berlin & Mexiko-Stadt.',
+          footRights: 'Kein Copyright auf Sound.',
+          cookieText: 'Wir nutzen ein paar Cookies, um Streams zu zählen und deine Sprache zu merken. Nichts wird verkauft, nie.',
+          cookieOk: 'Akzeptieren',
+          cookieNo: 'Ablehnen'
+        },
+        it: {
+          metaTitle: 'STATIC — Etichetta e distribuzione musicale indipendente | La musica che l\u2019algoritmo rifiuta',
+          metaDesc: 'STATIC è un\u2019etichetta indipendente e un motore di distribuzione per artisti elettronici e sperimentali. Vinile, cassetta e digitale. Split 50/50. I master restano tuoi.',
+          ogTitle: 'STATIC — Etichetta e distribuzione musicale indipendente',
+          ogDesc: 'Vinile, cassetta e digitale per artisti elettronici e sperimentali. Split 50/50 dal primo giorno. I master restano tuoi. Niente algoritmi, niente intermediari.',
+          twTitle: 'STATIC — La musica che l\u2019algoritmo rifiuta',
+          twDesc: 'Etichetta e distribuzione indipendenti per artisti elettronici e sperimentali. Vinile, cassetta, digitale. 50/50. I master restano tuoi.',
+          skip: 'Vai al contenuto',
+          t1: 'NUOVO — VELA NULL · CHROMATIC STATIC FUORI ORA',
+          t2: 'SUBMISSIONI APERTE PER IL 2026',
+          t3: 'SPLIT 50/50 · I MASTER RESTANO TUOI',
+          t4: 'VINILE · CASSETTA · DIGITALE · OVUNQUE',
+          navReleases: 'Catalogo',
+          navHow: 'Come funziona',
+          navPress: 'Stampa',
+          navFaq: 'FAQ',
+          heroStamp: 'FONDATA NEL 2019 · LONDRA / BERLINO / CITTÀ DEL MESSICO',
+          heroH1a: 'LA MUSICA CHE',
+          heroH1b: 'L\u2019ALGORITMO',
+          heroH1c: 'RIFIUTA.',
+          heroSub: 'STATIC è un\u2019etichetta indipendente e un motore di distribuzione per artisti elettronici, sperimentali e fuori dagli schemi. Premiamo vinile, pubblichiamo ovunque, dividiamo 50/50 — e non lasciamo mai che un motore di raccomandazione decida cosa conta.',
+          heroCta1: 'Ascolta',
+          heroCta2: 'Invia una demo',
+          heroNote: 'CAT. ST-026 · 2×LP VINILE NERO + DIGITALE · SPEDIZIONE MONDIALE',
+          band1: 'SENZA ALGORITMI · SENZA INTERMEDIARI',
+          band2: 'SPLIT 50/50 DAL PRIMO GIORNO',
+          band3: 'I MASTER RESTANO TUOI',
+          band4: 'OGNI USCITA PREMUTA IN VINILE',
+          catTag: 'CATALOGO',
+          catTitle: 'IL CATALOGO',
+          catSub: 'Ogni uscita, premuta e distribuita alle nostre condizioni. Spedizione mondiale — niente algoritmi, niente intermediari, niente esclusive di 90 giorni.',
+          thNo: 'N.',
+          thArtist: 'ARTISTA',
+          thTitle: 'TITOLO',
+          thFormat: 'FORMATO',
+          thYear: 'ANNO',
+          badgeNew: 'NUOVO',
+          featTag: 'IN EVIDENZA',
+          featArtist: 'VELA NULL',
+          featTitle: 'CHROMATIC STATIC',
+          featBody: 'Sei tracce registrate in una notte in una piscina vuota. Riverbero in cui annegare, bassi che spostano i mobili. Premuto in vinile nero da 180 g, tagliato a mezza velocità.',
+          featCat: 'CAT.',
+          featFmt: 'FMT',
+          featYr: 'ANNO',
+          featCta: 'Ordina il disco',
+          howTag: 'PROCESSO',
+          howTitle: 'DAL TUO DISCO RIGIDO AL MONDO',
+          step1t: 'Invia',
+          step1d: 'Un link o un file — bastano tre tracce. Ascoltiamo tutto e rispondiamo a tutti, di solito entro una settimana.',
+          step2t: 'Firma',
+          step2d: 'Un contratto di una pagina. 50/50 dal primo giorno, i master restano tuoi e puoi andartene quando vuoi dopo un anno. Nessuna trappola.',
+          step3t: 'Pubblica',
+          step3d: 'Vinile, cassetta, digitale e ogni piattaforma della Terra — lo stesso giorno. Distribuzione, promozione e artwork inclusi.',
+          pressTag: 'STAMPA',
+          pressTitle: 'DICONO DI NOI',
+          q1: 'L\u2019etichetta indipendente più entusiasmante d\u2019Europa in questo momento.',
+          q1src: 'Signal Journal',
+          q2: 'STATIC stampa dischi come se stessero passando di moda. Non è così.',
+          q2src: 'Tone Wire',
+          q3: 'Una lezione magistrale sulla fiducia negli artisti.',
+          q3src: 'Frequency Quarterly',
+          faqTag: 'FAQ',
+          faqTitle: 'CHIEDICI QUALSIASI COSA',
+          faqSub: 'Risposte dirette. Se la tua domanda non è qui, scrivi a hello@static.label.',
+          f1q: 'I master restano miei?',
+          f1a: 'Sempre. Licenziamo il tuo disco per la pubblicazione; le registrazioni sono tue per sempre. Se le strade si dividono, la musica va via con te.',
+          f2q: 'Come funzionano le royalty?',
+          f2a: '50/50 su tutto, dal primo stream. Dividiamo alla fonte — niente trucchi di recoupment, niente trattenute nascoste. Rendiconti ogni trimestre.',
+          f3q: 'Premete il vinile per ogni uscita?',
+          f3a: 'Sì — ogni uscita ha un\u2019edizione fisica. Vinile quando il disco merita quel peso, cassetta per il grezzo, e digitale ovunque, sempre.',
+          f4q: 'Quanto tempo prima dell\u2019uscita?',
+          f4a: 'Da tre a cinque mesi dopo la firma, a seconda delle code della pressa. Ti aggiorniamo a ogni passo.',
+          f5q: 'Posso lasciare l\u2019etichetta?',
+          f5a: 'Dopo i primi 12 mesi puoi andartene con i tuoi master e i tuoi diritti. Ti aiuteremo persino a trovare la prossima casa.',
+          newsTag: 'NEWSLETTER',
+          newsTitle: 'IL CICLO DI RITORNO',
+          newsSub: 'Una mail al mese. Nuove uscite, novità dell\u2019etichetta, ritardi della pressa, zero spam. Disiscrizione quando vuoi.',
+          newsLabel: 'Indirizzo email',
+          newsPh: 'tu@esempio.it',
+          newsBtn: 'Iscriviti',
+          newsOk: 'Ci sei. Controlla la tua casella.',
+          newsErr: 'Questa email non sembra valida.',
+          footCol1: 'ETICHETTA',
+          footCol2: 'ASCOLTA',
+          footCol3: 'LEGALE',
+          footReleases: 'Catalogo',
+          footArtists: 'Artisti',
+          footDemo: 'Invio demo',
+          footSpotify: 'Spotify',
+          footBandcamp: 'Bandcamp',
+          footApple: 'Apple Music',
+          footPrivacy: 'Privacy',
+          footTerms: 'Termini',
+          footImprint: 'Note legali',
+          footColophon: '© 2026 Static Records Ltd. Fatto forte a Londra, Berlino e Città del Messico.',
+          footRights: 'Nessun copyright sul suono.',
+          cookieText: 'Usiamo qualche cookie per contare gli ascolti e ricordare la lingua. Niente viene venduto, mai.',
+          cookieOk: 'Accetta',
+          cookieNo: 'Rifiuta'
+        },
+        pt: {
+          metaTitle: 'STATIC — Gravadora e distribuição musical independente | Música que o algoritmo recusa',
+          metaDesc: 'STATIC é uma gravadora independente e motor de distribuição para artistas eletrônicos e experimentais. Vinil, fita e digital. Divisão 50/50. Você mantém seus masters.',
+          ogTitle: 'STATIC — Gravadora e distribuição musical independente',
+          ogDesc: 'Vinil, fita e digital para artistas eletrônicos e experimentais. Divisão 50/50 desde o primeiro dia. Você mantém seus masters. Sem algoritmos, sem intermediários.',
+          twTitle: 'STATIC — Música que o algoritmo recusa',
+          twDesc: 'Gravadora e distribuição independentes para artistas eletrônicos e experimentais. Vinil, fita, digital. 50/50. Você mantém seus masters.',
+          skip: 'Pular para o conteúdo',
+          t1: 'NOVO — VELA NULL · CHROMATIC STATIC AGORA',
+          t2: 'SUBMISSÕES ABERTAS PARA 2026',
+          t3: 'DIVISÃO 50/50 · VOCÊ MANTÉM SEUS MASTERS',
+          t4: 'VINIL · FITA · DIGITAL · EM TODA PARTE',
+          navReleases: 'Catálogo',
+          navHow: 'Como funciona',
+          navPress: 'Imprensa',
+          navFaq: 'FAQ',
+          heroStamp: 'FUNDADA EM 2019 · LONDRES / BERLIM / CIDADE DO MÉXICO',
+          heroH1a: 'A MÚSICA QUE O',
+          heroH1b: 'ALGORITMO',
+          heroH1c: 'RECUSA.',
+          heroSub: 'STATIC é uma gravadora independente e um motor de distribuição para artistas eletrônicos, experimentais e fora da curva. Prensamos vinil, publicamos em todas as plataformas, dividimos 50/50 — e nunca deixamos um algoritmo de recomendação decidir o que importa.',
+          heroCta1: 'Ouvir agora',
+          heroCta2: 'Enviar demo',
+          heroNote: 'CAT. ST-026 · 2×LP VINIL PRETO + DIGITAL · ENVIO MUNDIAL',
+          band1: 'SEM ALGORITMOS · SEM INTERMEDIÁRIOS',
+          band2: 'DIVISÃO 50/50 DESDE O PRIMEIRO DIA',
+          band3: 'VOCÊ MANTÉM SEUS MASTERS',
+          band4: 'TODO LANÇAMENTO PRENSADO EM VINIL',
+          catTag: 'CATÁLOGO',
+          catTitle: 'O CATÁLOGO',
+          catSub: 'Cada lançamento, prensado e distribuído do nosso jeito. Envio para o mundo todo — sem algoritmos, sem intermediários, sem exclusividade de 90 dias.',
+          thNo: 'N.º',
+          thArtist: 'ARTISTA',
+          thTitle: 'TÍTULO',
+          thFormat: 'FORMATO',
+          thYear: 'ANO',
+          badgeNew: 'NOVO',
+          featTag: 'DESTAQUE',
+          featArtist: 'VELA NULL',
+          featTitle: 'CHROMATIC STATIC',
+          featBody: 'Seis faixas gravadas em uma única noite numa piscina vazia. Reverberação de afogar, graves que reorganizam os móveis. Prensado em vinil preto de 180 g, corte em meia velocidade.',
+          featCat: 'CAT.',
+          featFmt: 'FMT',
+          featYr: 'ANO',
+          featCta: 'Comprar o disco',
+          howTag: 'PROCESSO',
+          howTitle: 'DO SEU HD PARA O MUNDO',
+          step1t: 'Enviar',
+          step1d: 'Um link ou arquivo — três faixas bastam. Ouvimos tudo e respondemos a todos, normalmente em menos de uma semana.',
+          step2t: 'Assinar',
+          step2d: 'Um contrato de uma página. 50/50 desde o primeiro dia, você mantém seus masters e pode sair quando quiser depois de um ano. Sem pegadinhas.',
+          step3t: 'Lançar',
+          step3d: 'Vinil, fita, digital e todas as plataformas da Terra — no mesmo dia. Distribuição, divulgação e arte por nossa conta.',
+          pressTag: 'IMPRENSA',
+          pressTitle: 'O QUE DIZEM',
+          q1: 'A gravadora independente mais empolgante da Europa agora.',
+          q1src: 'Signal Journal',
+          q2: 'STATIC prensa discos como se fossem sair de moda. Não vão.',
+          q2src: 'Tone Wire',
+          q3: 'Uma aula magistral sobre confiar nos artistas.',
+          q3src: 'Frequency Quarterly',
+          faqTag: 'FAQ',
+          faqTitle: 'PERGUNTE QUALQUER COISA',
+          faqSub: 'Respostas diretas. Se sua dúvida não está aqui, escreva para hello@static.label.',
+          f1q: 'Eu mantenho meus masters?',
+          f1a: 'Sempre. Licenciamos seu disco para o lançamento; as gravações são suas para sempre. Se nossos caminhos se separarem, a música vai com você.',
+          f2q: 'Como funcionam os royalties?',
+          f2a: '50/50 em tudo, desde o primeiro stream. Dividimos na fonte — sem truques de recoupment, sem deduções ocultas. Relatórios a cada trimestre.',
+          f3q: 'Vocês prensam vinil em todo lançamento?',
+          f3a: 'Sim — todo lançamento tem edição física. Vinil quando o disco merece o peso, fita para o cru, e digital em toda parte, sempre.',
+          f4q: 'Quanto tempo até o lançamento?',
+          f4a: 'De três a cinco meses após a assinatura, dependendo da fila da prensa. Vamos te manter informado em cada etapa.',
+          f5q: 'Posso sair da gravadora?',
+          f5a: 'Depois dos primeiros 12 meses, você pode sair com seus masters e direitos. Ainda ajudamos você a encontrar sua próxima casa.',
+          newsTag: 'NEWSLETTER',
+          newsTitle: 'O LOOP DE RETORNO',
+          newsSub: 'Um e-mail por mês. Novos lançamentos, novidades da gravadora, atrasos de prensagem, zero spam. Cancele quando quiser.',
+          newsLabel: 'Endereço de e-mail',
+          newsPh: 'voce@exemplo.com',
+          newsBtn: 'Assinar',
+          newsOk: 'Você está dentro. Confira sua caixa de entrada.',
+          newsErr: 'Esse e-mail não parece válido.',
+          footCol1: 'GRAVADORA',
+          footCol2: 'OUVIR',
+          footCol3: 'LEGAL',
+          footReleases: 'Catálogo',
+          footArtists: 'Artistas',
+          footDemo: 'Envio de demos',
+          footSpotify: 'Spotify',
+          footBandcamp: 'Bandcamp',
+          footApple: 'Apple Music',
+          footPrivacy: 'Privacidade',
+          footTerms: 'Termos',
+          footImprint: 'Aviso legal',
+          footColophon: '© 2026 Static Records Ltd. Feito alto em Londres, Berlim e Cidade do México.',
+          footRights: 'Sem direitos autorais sobre o som.',
+          cookieText: 'Usamos alguns cookies para contar reproduções e lembrar seu idioma. Nada é vendido, nunca.',
+          cookieOk: 'Aceitar',
+          cookieNo: 'Recusar'
+        }
+      };
+
+      var LANGS = ['es', 'en', 'fr', 'de', 'it', 'pt'];
+      var LANG_KEY = 'static-lang';
+      var THEME_KEY = 'kairos-theme'; /* shared key — capture pipeline forces light via this key */
+      var COOKIE_KEY = 'static-cookie';
+      var currentLang = 'en';
+      var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      /* ================================================================
+         Language detection & persistence
+         ================================================================ */
+      function detectLang() {
+        var saved = null;
+        try { saved = localStorage.getItem(LANG_KEY); } catch (e) {}
+        if (saved && LANGS.indexOf(saved) !== -1) return saved;
+        var nav = (navigator.language || 'en').toLowerCase().slice(0, 2);
+        return LANGS.indexOf(nav) !== -1 ? nav : 'en';
+      }
+
+      function applyLang(lang) {
+        currentLang = lang;
+        var dict = I18N[lang];
+        if (!dict) return;
+
+        document.documentElement.lang = lang;
+
+        var nodes = document.querySelectorAll('[data-i18n]');
+        for (var i = 0; i < nodes.length; i++) {
+          var key = nodes[i].getAttribute('data-i18n');
+          if (dict[key] !== undefined) nodes[i].textContent = dict[key];
+        }
+
+        var phs = document.querySelectorAll('[data-i18n-placeholder]');
+        for (var j = 0; j < phs.length; j++) {
+          var pk = phs[j].getAttribute('data-i18n-placeholder');
+          if (dict[pk] !== undefined) phs[j].placeholder = dict[pk];
+        }
+
+        /* SEO metadata */
+        document.title = dict.metaTitle;
+        document.getElementById('meta-desc').setAttribute('content', dict.metaDesc);
+        document.getElementById('og-title').setAttribute('content', dict.ogTitle);
+        document.getElementById('og-desc').setAttribute('content', dict.ogDesc);
+        document.getElementById('tw-title').setAttribute('content', dict.twTitle);
+        document.getElementById('tw-desc').setAttribute('content', dict.twDesc);
+
+        var ogLocale = { en: 'en_US', es: 'es_ES', fr: 'fr_FR', de: 'de_DE', it: 'it_IT', pt: 'pt_BR' }[lang];
+        document.querySelector('meta[property="og:locale"]').setAttribute('content', ogLocale);
+
+        var cur = document.getElementById('langCur');
+        if (cur) cur.textContent = lang.toUpperCase();
+        var opts = document.querySelectorAll('.lang-select__opt');
+        for (var k = 0; k < opts.length; k++) {
+          opts[k].setAttribute('aria-selected', opts[k].getAttribute('data-lang') === lang ? 'true' : 'false');
+        }
+
+        try { localStorage.setItem(LANG_KEY, lang); } catch (e) {}
+      }
+
+      /* ================================================================
+         Theme — light/dark with persistence (kairos-theme key)
+         ================================================================ */
+      function applyTheme(theme, persist) {
+        document.documentElement.setAttribute('data-theme', theme);
+        if (persist !== false) {
+          try { localStorage.setItem(THEME_KEY, theme); } catch (e) {}
+        }
+      }
+
+      function initTheme() {
+        var saved = null;
+        try { saved = localStorage.getItem(THEME_KEY); } catch (e) {}
+        if (saved === 'dark' || saved === 'light') applyTheme(saved, false);
+        /* default: light */
+      }
+
+      /* ================================================================
+         Marquee duplication (seamless loop)
+         ================================================================ */
+      function dupTrack(id) {
+        var track = document.getElementById(id);
+        if (!track) return;
+        var copy = track.cloneNode(true);
+        track.parentNode.appendChild(copy);
+      }
+
+      /* ================================================================
+         Scroll reveal (IntersectionObserver)
+         ================================================================ */
+      function initReveals() {
+        var items = document.querySelectorAll('.reveal');
+        if (prefersReduced || !('IntersectionObserver' in window)) {
+          for (var i = 0; i < items.length; i++) items[i].classList.add('in');
+          return;
+        }
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('in');
+              io.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+        for (var j = 0; j < items.length; j++) io.observe(items[j]);
+      }
+
+      /* ================================================================
+         Magnetic CTA (pointer proximity nudge)
+         ================================================================ */
+      function initMagnetic() {
+        var el = document.querySelector('.js-magnetic');
+        if (!el || prefersReduced || !window.matchMedia('(pointer: fine)').matches) return;
+        el.addEventListener('mousemove', function (e) {
+          var r = el.getBoundingClientRect();
+          var dx = e.clientX - (r.left + r.width / 2);
+          var dy = e.clientY - (r.top + r.height / 2);
+          el.style.transform = 'translate(' + dx * 0.12 + 'px,' + dy * 0.18 + 'px)';
+        });
+        el.addEventListener('mouseleave', function () {
+          el.style.transform = '';
+        });
+      }
+
+      /* ================================================================
+         Newsletter (validation + status)
+         ================================================================ */
+      function initNewsletter() {
+        var form = document.querySelector('.news__form');
+        if (!form) return;
+        var status = document.getElementById('news-status');
+        var input = document.getElementById('news-email');
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          var val = input.value.trim();
+          var ok = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(val);
+          if (!ok) {
+            status.textContent = I18N[currentLang].newsErr;
+            status.setAttribute('data-state', 'err');
+            input.focus();
+            return;
+          }
+          status.textContent = I18N[currentLang].newsOk;
+          status.setAttribute('data-state', 'ok');
+          form.reset();
+        });
+      }
+
+      /* ================================================================
+         Cookie banner
+         ================================================================ */
+      function initCookie() {
+        var banner = document.getElementById('cookie');
+        var consented = null;
+        try { consented = localStorage.getItem(COOKIE_KEY); } catch (e) {}
+        if (consented) return;
+        var shown = false;
+        var show = function () {
+          if (shown) return;
+          shown = true;
+          banner.classList.add('show');
+          window.removeEventListener('scroll', onScroll);
+        };
+        var onScroll = function () {
+          if ((window.scrollY || document.documentElement.scrollTop) > 300) show();
+        };
+        /* Show after 5s idle, or as soon as the user scrolls past 300px */
+        setTimeout(show, 5000);
+        window.addEventListener('scroll', onScroll, { passive: true });
+        banner.querySelectorAll('[data-cookie]').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            try { localStorage.setItem(COOKIE_KEY, btn.getAttribute('data-cookie')); } catch (e) {}
+            banner.classList.remove('show');
+          });
+        });
+      }
+
+      /* ================================================================
+         Floating back-to-top
+         ================================================================ */
+      function initFloat() {
+        var btn = document.getElementById('float-cta');
+        if (!btn) return;
+        var onScroll = function () {
+          var y = window.scrollY || document.documentElement.scrollTop;
+          btn.classList.toggle('visible', y > 600);
+        };
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+        btn.addEventListener('click', function () {
+          window.scrollTo({ top: 0, behavior: prefersReduced ? 'auto' : 'smooth' });
+        });
+      }
+
+      /* ================================================================
+         Wire up
+         ================================================================ */
+      document.documentElement.classList.add('js');
+      initTheme();
+
+      currentLang = detectLang();
+      applyLang(currentLang);
+
+      var langBtn = document.getElementById('langBtn');
+      var langWrap = document.getElementById('langSelect');
+      var langMenu = langWrap ? langWrap.querySelector('.lang-select__menu') : null;
+      function closeLangMenu() {
+        if (!langMenu) return;
+        langMenu.classList.remove('open');
+        if (langBtn) langBtn.setAttribute('aria-expanded', 'false');
+      }
+      if (langBtn && langMenu) {
+        langBtn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          var open = langMenu.classList.toggle('open');
+          langBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+        document.addEventListener('click', function (e) {
+          if (!langWrap.contains(e.target)) closeLangMenu();
+        });
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape') closeLangMenu();
+        });
+        var opts = langMenu.querySelectorAll('.lang-select__opt');
+        for (var o = 0; o < opts.length; o++) {
+          (function (opt) {
+            opt.addEventListener('click', function () {
+              applyLang(opt.getAttribute('data-lang'));
+              closeLangMenu();
+            });
+          })(opts[o]);
+        }
+      }
+
+      var themeBtn = document.querySelector('[data-theme-toggle]');
+      if (themeBtn) {
+        themeBtn.addEventListener('click', function () {
+          var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+          applyTheme(next);
+        });
+      }
+
+      dupTrack('ticker-track');
+      dupTrack('band-track');
+      initReveals();
+      initMagnetic();
+      initNewsletter();
+      initCookie();
+      initFloat();
+    })();
+  </script>
+</body>
+</html>

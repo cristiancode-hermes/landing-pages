@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="es" class="no-js" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="doc-title">HÉLICE · Escuela de vuelo en ultraligero · Toledo</title>
+<meta id="meta-desc" name="description" content="Primer vuelo en Toledo. Escuela de pilotos de ultraligero en Casarrubios del Monte: bautismos, licencia ULM y rutas por el valle del Tiétar con instructores titulados, 3.000 horas y una pista al borde del monte.">
+<link rel="canonical" href="https://proyectos.cristiancode.dev/landings/2026-08-26-helice.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="HÉLICE · Escuela de vuelo en ultraligero · Toledo">
+<meta property="og:description" content="Primer vuelo en Toledo. Bautismos, licencia ULM y rutas por el Tiétar en ultraligero, con instructores titulados y una pista al borde del monte.">
+<meta property="og:url" content="https://proyectos.cristiancode.dev/landings/2026-08-26-helice.html">
+<meta property="og:image" content="https://cristiancode.dev/assets/landing-2026-08-26-helice.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="HÉLICE · Escuela de vuelo en ultraligero · Toledo">
+<meta name="twitter:description" content="Primer vuelo en Toledo. Bautismos, licencia ULM y rutas por el Tiétar en ultraligero, con instructores titulados y una pista al borde del monte.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#F7F8FA">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%231B2A41'/%3E%3Ccircle cx='50' cy='50' r='40' fill='none' stroke='%23F4F6F8' stroke-width='2' stroke-dasharray='10 14'/%3E%3Cpath d='M50 50 L70 42' stroke='%23E4573D' stroke-width='6' stroke-linecap='round'/%3E%3Ccircle cx='50' cy='50' r='5' fill='%23F4F6F8'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   DESIGN SYSTEM — HÉLICE · Escuela de vuelo en ultraligero
+   Surface: Decide/Learn (landing; hero correct). Secondary
+            Monitor touches: live METAR strip + climb tape that
+            is a real glideplan sequence (numbers earn their
+            place there), Compare in the two-course band.
+   Derived from: Original — aeronautical chart style (principles
+            from the IBM template without Carbon branding:
+            lightweight Plex display, hairline grid, one
+            assertive accent, flat layering, 0px radius;
+            ink #1B2A41 is a navy-blue reinterpretation of
+            IBM Gray 100, not a copy). Family: Aviation.
+   Style: Aeronautical chart — paper-near-white canvas, hairlines,
+          wind-rose geometries, radar compass rings, one
+          drain-red accent for CTAs, monospace readouts.
+   Strategy: Restrained (white canvas ~82%, one red accent ≤8%,
+          navy ink carries the weight). Per Impeccable, canvas
+          stays chroma-0 off-white; the "paper" feel comes from
+          grid patterns and radar rings, not a cream background.
+   Type: IBM Plex Sans (300 display / 400 body / 600 labels) +
+         IBM Plex Mono (readouts) — dual-family Plex system.
+   ============================================================ */
+:root{
+  --z-nav:30; --z-banner:40; --z-menu:45; --z-modal:50; --z-toast:60;
+  --bg:#F7F8FA; --surface:#FFFFFF; --surface-2:#EEF1F4;
+  --ink:#1B2A41; --muted:#3D4A5C; --faint:#4E5C6E;
+  --line:#D8DEE5; --line-strong:#B7C1CC;
+  --red:#C7252D; --red-hover:#A81E25; --red-deep:#8E1A20; --red-ink:#FFFFFF;
+  --navy:#16304B; --navy-2:#1F3E5E; --link:#0D4B8C;
+  --paper-ink:#1B2A41; --paper-muted:#3D4A5C;
+  --focus:#C7252D; --focus-dark:#FF7A71;
+  --sans:'IBM Plex Sans',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --r:2px; --r-sm:4px; --r-pill:999px;
+  --ease:cubic-bezier(.22,1,.36,1);
+  --shadow:0 1px 2px rgba(27,42,65,.06), 0 8px 24px -12px rgba(27,42,65,.14);
+  --shadow-lg:0 2px 6px rgba(27,42,65,.08), 0 24px 48px -24px rgba(27,42,65,.22);
+}
+[data-theme="dark"]{
+  --bg:#0C1520; --surface:#111D2B; --surface-2:#16263A;
+  --ink:#EEF2F6; --muted:#B9C4D0; --faint:#97A5B4;
+  --line:#233349; --line-strong:#31445D;
+  --red:#E4573D; --red-hover:#EF6950; --red-deep:#EF6950; --red-ink:#15070A;
+  --navy:#0A1220; --navy-2:#142338; --link:#74A9E8;
+  --paper-ink:#EEF2F6; --paper-muted:#B9C4D0;
+  --focus:#FF7A71; --focus-dark:#FF7A71;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 16px 32px -16px rgba(0,0,0,.6);
+  --shadow-lg:0 2px 8px rgba(0,0,0,.5), 0 32px 64px -24px rgba(0,0,0,.7);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:1rem;line-height:1.6;font-weight:400;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img,svg{display:block;max-width:100%}
+a{color:var(--link)}
+h1,h2,h3{line-height:1.12;text-wrap:balance;color:var(--ink)}
+p,li{text-wrap:pretty}
+.container{width:min(1120px,100% - 2.5rem);margin-inline:auto}
+.visually-hidden{position:absolute;width:1px;height:1px;margin:-1px;padding:0;border:0;clip:rect(0 0 0 0);clip-path:inset(50%);overflow:hidden;white-space:nowrap}
+.skip{position:absolute;left:1rem;top:-4rem;z-index:var(--z-toast);background:var(--surface);color:var(--ink);padding:.6rem 1rem;border-radius:var(--r);transition:top .2s var(--ease)}
+.skip:focus{top:1rem}
+:focus-visible{outline:2px solid var(--focus);outline-offset:2px;border-radius:var(--r)}
+:focus:not(:focus-visible){outline:none}
+html.no-js .rv{opacity:1;transform:none}
+@media print{.rv{opacity:1;transform:none}}
+
+/* ============ buttons & chips ============ */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font-family:var(--sans);font-weight:600;font-size:.95rem;line-height:1;padding:.95rem 1.5rem;border-radius:0;border:1px solid transparent;cursor:pointer;text-decoration:none;transition:background .2s var(--ease),border-color .2s var(--ease),color .2s var(--ease),box-shadow .2s var(--ease);min-height:48px;text-align:center}
+.btn-primary{background:var(--red);color:#fff;border-color:var(--red)}
+.btn-primary:hover{background:var(--red-hover);border-color:var(--red-hover);box-shadow:0 10px 24px -12px rgba(199,37,45,.5)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--line-strong)}
+.btn-ghost:hover{border-color:var(--ink);background:var(--surface-2)}
+.mobile-menu a.btn-primary{color:#fff;background:var(--red);padding:.95rem 1.5rem}
+.mobile-menu a.btn-primary:hover{background:var(--red-hover);color:#fff}
+[data-theme="dark"] .btn-primary,[data-theme="dark"] .mobile-menu a.btn-primary{color:#15070A}
+.chip{display:inline-flex;align-items:center;gap:.45rem;font-family:var(--mono);font-size:.72rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;padding:.32rem .7rem;border-radius:var(--r-pill);border:1px solid var(--line);color:var(--muted);background:var(--surface)}
+.chip b{color:var(--ink);font-weight:600}
+.icon-btn{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:var(--r);border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;transition:border-color .2s var(--ease),color .2s var(--ease)}
+.icon-btn:hover{border-color:var(--ink)}
+.theme-toggle .sun{display:none}
+.theme-toggle .moon{display:block}
+[data-theme="dark"] .theme-toggle .sun{display:block}
+[data-theme="dark"] .theme-toggle .moon{display:none}
+
+/* ============ nav ============ */
+:root{--nav-h:64px}
+.nav{position:sticky;top:0;z-index:var(--z-nav);background:var(--bg);border-bottom:1px solid var(--line)}
+.nav-inner{display:flex;align-items:center;gap:1.25rem;height:var(--nav-h)}
+.logo{display:flex;align-items:center;gap:.6rem;font-weight:600;color:var(--ink);text-decoration:none;letter-spacing:.02em}
+.logo svg{width:30px;height:30px}
+nav.nav-desktop-only{display:flex;align-items:center}
+.nav-links{display:flex;align-items:center;gap:1.6rem;list-style:none;margin:0;padding:0;margin-left:.5rem}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:.94rem;font-weight:500;padding:.3rem 0;position:relative;transition:color .2s var(--ease)}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a::after{content:"";position:absolute;left:0;right:100%;bottom:-2px;height:2px;background:var(--red);transition:right .25s var(--ease)}
+.nav-links a:hover::after{right:0}
+.nav-actions{margin-left:auto;display:flex;align-items:center;gap:.7rem}
+.lang-select{position:relative}
+.lang-select__btn{display:inline-flex;align-items:center;gap:.45rem;height:42px;padding:0 .85rem;border-radius:var(--r);border:1px solid var(--line);background:var(--surface);color:var(--ink);font-family:var(--mono);font-size:.74rem;font-weight:600;letter-spacing:.06em;cursor:pointer;transition:border-color .2s var(--ease),color .2s var(--ease)}
+.lang-select__btn:hover,.lang-select__btn[aria-expanded="true"]{border-color:var(--ink);color:var(--ink)}
+.lang-select__btn[aria-expanded="true"] .lang-select__chev{transform:rotate(180deg)}
+.lang-select__chev{transition:transform .2s var(--ease)}
+.lang-select__menu{position:absolute;top:calc(100% + 6px);right:0;min-width:180px;background:var(--surface);border:1px solid var(--line-strong);border-radius:var(--r);box-shadow:var(--shadow-lg);padding:.35rem;opacity:0;visibility:hidden;transform:translateY(-4px);transition:opacity .18s var(--ease),transform .18s var(--ease),visibility .18s;z-index:var(--z-menu)}
+.lang-select__menu.open{opacity:1;visibility:visible;transform:none}
+.lang-select__opt{display:flex;align-items:center;justify-content:space-between;gap:.6rem;width:100%;padding:.55rem .7rem;border:0;background:transparent;color:var(--ink);font-family:var(--sans);font-size:.88rem;text-align:left;cursor:pointer;border-radius:var(--r-sm);transition:background .15s var(--ease)}
+.lang-select__opt:hover{background:var(--surface-2)}
+.lang-select__opt .tick{width:14px;height:14px;border:1px solid var(--line-strong);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:.6rem;color:transparent;flex:none}
+.lang-select__opt[aria-selected="true"] .tick{border-color:var(--red);color:var(--red)}
+.lang-select__opt[aria-selected="true"]{font-weight:600}
+.burger{display:none}
+.mobile-menu{display:none}
+@media (max-width:900px){
+  .burger{display:inline-flex}
+  nav.nav-desktop-only{display:none}
+  .lang-select.nav-desktop-only,.nav-actions > a.btn-primary.nav-desktop-only{display:none}
+  .mobile-menu{display:flex;flex-direction:column;gap:.15rem;position:absolute;left:1.25rem;right:1.25rem;top:calc(var(--nav-h) + .5rem);background:var(--surface);border:1px solid var(--line-strong);border-radius:8px;box-shadow:var(--shadow-lg);padding:.65rem;opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .2s var(--ease),transform .2s var(--ease),visibility .2s;z-index:var(--z-menu)}
+  .mobile-menu.open{opacity:1;visibility:visible;transform:none}
+  .mobile-menu a{display:block;padding:.7rem .9rem;border-radius:6px;color:var(--ink);text-decoration:none;font-weight:500;font-size:1rem}
+  .mobile-menu a:hover{background:var(--surface-2)}
+  .mobile-menu .nav-actions{margin-left:0;flex-wrap:wrap;gap:.6rem;padding:.5rem .1rem .2rem}
+  .mobile-menu .lang-select{flex:1;min-width:0}
+  .mobile-menu .lang-select__btn{width:100%;justify-content:space-between;height:48px}
+  .mobile-menu a.btn-primary{flex:1;min-width:0;justify-content:center}
+}
+
+/* ============ hero ============ */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line);padding:clamp(3.5rem,7vh,6rem) 0 clamp(4rem,8vh,6.5rem)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(2rem,5vw,4.5rem);align-items:center}
+.hero-tag{display:inline-flex;align-items:center;gap:.55rem;font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 1.4rem;padding:.5rem .85rem;border:1px solid var(--line);border-radius:var(--r-pill);background:var(--surface)}
+.hero-tag .dotw{width:9px;height:9px;border-radius:50%;background:#2E7D32;flex:none;box-shadow:0 0 0 3px rgba(46,125,50,.18)}
+.hero h1{font-weight:300;letter-spacing:-.02em;font-size:clamp(2.6rem,5.6vw,4.9rem);margin:0 0 1.5rem;max-width:13ch}
+.hero h1 .acc{color:var(--red);font-weight:400}
+.lead{font-size:clamp(1.05rem,1.4vw,1.18rem);line-height:1.65;color:var(--muted);max-width:56ch;margin:0 0 2.2rem}
+.hero-cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-bottom:2.2rem}
+.hero-meta{display:flex;flex-wrap:wrap;gap:.9rem 1.6rem;font-family:var(--mono);font-size:.78rem;color:var(--faint)}
+.hero-meta strong{color:var(--ink);font-weight:600}
+.hero-meta .sep{width:1px;height:14px;background:var(--line-strong);align-self:center}
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero-meta .sep{display:none}
+}
+/* compass art */
+.hero-art{display:flex;justify-content:center;align-items:center;position:relative;min-height:470px}
+.radar-wrap{position:relative;width:min(450px,86vw);aspect-ratio:1}
+.radar-ring{position:absolute;inset:0;border-radius:50%;border:1px solid var(--line);transition:border-color .4s var(--ease)}
+.radar-ring.r2{inset:12.5%}
+.radar-ring.r3{inset:25%}
+.radar-ring.r4{inset:37.5%}
+.radar-cross-x,.radar-cross-y{position:absolute;background:var(--line);opacity:.7}
+.radar-cross-x{left:0;right:0;top:50%;height:1px}
+.radar-cross-y{top:0;bottom:0;left:50%;width:1px}
+.radar-dial{position:absolute;inset:6%;border-radius:50%;border:1px dashed var(--line-strong);opacity:.55}
+.radar-sweep{position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 0deg, rgba(199,37,45,.16), transparent 60deg, transparent 360deg);pointer-events:none}
+.radar-plane{position:absolute;top:42%;left:50%;transform:translate(-50%,-50%);width:150px;height:150px;color:var(--ink);transition:color .4s var(--ease);filter:drop-shadow(0 18px 24px rgba(27,42,65,.18))}
+.track-path{fill:none;stroke:var(--red);stroke-width:2.2;stroke-linecap:round;stroke-dasharray:5 8;opacity:.9;animation:trackflow 14s linear infinite}
+.client-path{fill:none;stroke:var(--line-strong);stroke-width:1.4;stroke-dasharray:2 6;animation:trackflow 20s linear infinite}
+.track-dot{fill:var(--red)}
+.heading-dot{fill:var(--ink);transition:fill .4s var(--ease)}
+@keyframes trackflow{to{stroke-dashoffset:-260}}
+.fix{position:absolute;width:7px;height:7px;border:1.5px solid var(--red);border-radius:50%;background:var(--bg)}
+.fix::after{content:"";position:absolute;left:50%;top:50%;width:26px;height:26px;transform:translate(-50%,-50%);border-radius:50%;border:1px solid rgba(199,37,45,.3)}
+.radar-readout{position:absolute;top:6%;right:4%;font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;color:var(--faint);background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:.4rem .6rem}
+.radar-readout b{color:var(--ink);font-weight:600}
+@media (prefers-reduced-motion:reduce){
+  .radar-sweep{background:rgba(199,37,45,.08)}
+  .track-path,.client-path{animation:none;stroke-dasharray:none}
+}
+
+/* ============ METAR strip (Monitor moment) ============ */
+.metar{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden}
+.metar-inner{display:flex;align-items:stretch;min-height:74px}
+.metar-label{display:flex;align-items:center;gap:.65rem;font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding-right:1.4rem;border-right:1px solid var(--line);margin-right:1.4rem;flex:none}
+.metar-label .live{width:8px;height:8px;border-radius:50%;background:#2E7D32;animation:pulse 2.2s ease-in-out infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(46,125,50,.35)}50%{box-shadow:0 0 0 6px rgba(46,125,50,0)}}
+.metar-data{display:flex;align-items:center;gap:1.8rem;overflow-x:auto;scrollbar-width:none;padding:.9rem 0;flex:1}
+.metar-data::-webkit-scrollbar{display:none}
+.metar-line{font-family:var(--mono);font-size:.8rem;color:var(--muted);white-space:nowrap;display:flex;gap:1.8rem}
+.metar-line b{color:var(--ink);font-weight:600}
+@media (max-width:700px){
+  .metar-inner{flex-direction:column;padding:.8rem 0}
+  .metar-label{border-right:0;padding-right:0;margin-right:0;margin-bottom:.3rem}
+}
+
+/* ============ sections ============ */
+.section{padding:clamp(4rem,9vw,7rem) 0}
+.section-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:2rem;align-items:end;margin-bottom:clamp(2.5rem,5vw,4rem)}
+.section-head h2{font-weight:300;letter-spacing:-.018em;font-size:clamp(2rem,3.6vw,2.9rem);margin:0 0 .6rem;color:var(--ink)}
+.section-head .head-note{font-size:1.02rem;color:var(--muted);max-width:62ch;margin:0}
+.kicker{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--red);margin:0 0 1rem;display:flex;align-items:center;gap:.6rem}
+.kicker::before{content:"";width:18px;height:1px;background:var(--red)}
+@media (max-width:700px){.section-head{grid-template-columns:1fr}}
+
+/* ============ courses (Compare) ============ */
+.course-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.6rem}
+.course-card{background:var(--surface);border:1px solid var(--line);border-radius:0;padding:clamp(1.8rem,3.4vw,2.6rem);position:relative;transition:border-color .25s var(--ease),box-shadow .25s var(--ease)}
+.course-card:hover{border-color:var(--line-strong);box-shadow:var(--shadow-lg)}
+.course-card h3{font-size:1.5rem;font-weight:400;margin:0 0 .5rem;letter-spacing:-.01em}
+.course-code{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin:0 0 1.4rem}
+.course-card p{color:var(--muted);line-height:1.65;margin:0 0 1.8rem;font-size:.98rem}
+.course-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;border-top:1px solid var(--line);padding-top:1.4rem;margin-bottom:1.9rem}
+.stat b{display:block;font-family:var(--mono);font-size:1.25rem;font-weight:600;color:var(--ink);line-height:1.2}
+.stat span{font-size:.78rem;color:var(--faint)}
+.course-cta{display:flex;align-items:center;gap:1.1rem;flex-wrap:wrap}
+.course-card.primary{background:var(--navy);border-color:var(--navy);color:#EFF3F7}
+.course-card.primary h3,.course-card.primary .stat b{color:#EFF3F7}
+.course-card.primary .stat span{color:#8FA3B8}
+.course-card.primary .course-code{color:#8FA3B8}
+.course-card.primary p{color:#C9D6E2}
+.course-card.primary .course-stats{border-top-color:#2B4460}
+.course-card.primary .btn-primary{background:#fff;color:#1B2A41;border-color:#fff}
+.course-card.primary .btn-primary:hover{background:#EFF3F7}
+[data-theme="dark"] .course-card.primary{background:var(--navy-2);border-color:var(--navy-2)}
+@media (max-width:760px){.course-grid{grid-template-columns:1fr}}
+
+/* ============ phases timeline (real sequence) ============ */
+.timeline{display:grid;grid-template-columns:1fr}
+.phase{display:grid;grid-template-columns:64px 1fr;gap:1.2rem;padding:1.6rem 0;border-top:1px solid var(--line);position:relative}
+.phase:first-child{border-top:0}
+.phase-num{font-family:var(--mono);font-size:1rem;font-weight:500;color:var(--red);padding-top:.2rem}
+.phase h3{font-size:1.18rem;font-weight:500;margin:0 0 .35rem}
+.phase p{color:var(--muted);margin:0;max-width:70ch}
+.phase .phase-tag{display:block;font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-bottom:.4rem}
+
+/* ============ field day (bento) ============ */
+.field-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem}
+.tile{background:var(--surface);border:1px solid var(--line);padding:1.5rem 1.6rem;border-radius:0;transition:border-color .25s var(--ease)}
+.tile:hover{border-color:var(--line-strong)}
+.tile-a{grid-column:span 5;grid-row:span 2;background:var(--navy);border-color:var(--navy);color:#EFF3F7;display:flex;flex-direction:column;justify-content:flex-end;min-height:340px}
+.tile-b{grid-column:span 4}
+.tile-c{grid-column:span 3}
+.tile-d{grid-column:span 4}
+.tile-e{grid-column:span 4}
+.tile-f{grid-column:span 4}
+.tile-icon{width:38px;height:38px;border:1px solid var(--line-strong);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:1.1rem;color:var(--ink)}
+.tile h3{font-size:1.05rem;font-weight:500;margin:0 0 .3rem}
+.tile p{font-size:.92rem;color:var(--muted);margin:0}
+.tile-a .tile-num{font-family:var(--mono);font-size:3.1rem;font-weight:300;letter-spacing:-.03em;color:rgba(239,243,247,.92);line-height:1;margin-bottom:.9rem}
+.tile-a h3{color:#fff}
+.tile-a p{color:#C9D6E2}
+.tile-a .tile-icon{border-color:rgba(255,255,255,.28);background:rgba(255,255,255,.06);color:#EFF3F7}
+[data-theme="dark"] .tile-a{background:var(--navy-2);border-color:var(--navy-2)}
+@media (max-width:760px){
+  .tile-a{grid-column:span 12;grid-row:auto;min-height:250px}
+  .tile-b,.tile-c,.tile-d,.tile-e,.tile-f{grid-column:span 12}
+}
+
+/* ============ instructor quote ============ */
+.quote-wrap{max-width:74ch}
+blockquote{margin:0 0 2rem;border:0;padding:0}
+blockquote p{font-size:clamp(1.35rem,2.4vw,1.9rem);font-weight:300;line-height:1.35;letter-spacing:-.01em;color:var(--ink);margin:0;text-wrap:pretty}
+blockquote p::before{content:"“";color:var(--red);font-weight:400}
+.sig{display:flex;align-items:center;gap:1rem}
+.avatar{width:52px;height:52px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-weight:600;font-size:.9rem;letter-spacing:.04em;flex:none}
+.sig b{display:block;color:var(--ink);font-weight:600}
+.sig span{font-family:var(--mono);font-size:.76rem;color:var(--faint)}
+
+/* ============ FAQ ============ */
+.faq{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:3rem}
+.faq-side h2{font-weight:300;font-size:clamp(2rem,3.6vw,2.8rem);letter-spacing:-.018em;margin:0 0 1rem}
+.faq-side p{color:var(--muted);max-width:46ch}
+.faq-list{display:grid;gap:.8rem}
+.faq-item{border:1px solid var(--line);background:var(--surface);border-radius:0;transition:border-color .2s var(--ease)}
+.faq-item.open{border-color:var(--line-strong)}
+.faq-q{display:flex;align-items:center;justify-content:space-between;gap:1rem;width:100%;text-align:left;background:none;border:0;padding:1.15rem 1.3rem;font-family:var(--sans);font-size:1rem;font-weight:600;color:var(--ink);cursor:pointer}
+.faq-q .ic{width:22px;height:22px;flex:none;position:relative;border:1px solid var(--line-strong);border-radius:50%;transition:transform .25s var(--ease),border-color .2s var(--ease)}
+.faq-q .ic::before,.faq-q .ic::after{content:"";position:absolute;background:var(--red);top:50%;left:50%;transform:translate(-50%,-50%)}
+.faq-q .ic::before{width:9px;height:1.5px}
+.faq-q .ic::after{width:1.5px;height:9px}
+.faq-item.open .ic{transform:rotate(45deg);border-color:var(--red)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s var(--ease)}
+.faq-a p{margin:0;padding:0 1.3rem 1.2rem;color:var(--muted);font-size:.95rem;max-width:70ch}
+@media (max-width:820px){.faq{grid-template-columns:1fr}}
+
+/* ============ newsletter ============ */
+.newsletter{background:var(--navy);color:#EFF3F7;border-radius:0;position:relative;overflow:hidden}
+.newsletter::before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 85% 15%, rgba(255,255,255,.07) 0 1px, transparent 1px);background-size:26px 26px;opacity:.5;pointer-events:none}
+.news-inner{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:2.5rem;padding:clamp(2.5rem,5vw,4rem);position:relative}
+.news-head h2{font-weight:300;font-size:clamp(1.8rem,3vw,2.4rem);letter-spacing:-.015em;color:#fff;margin:0 0 .8rem}
+.news-head p{color:#C9D6E2;max-width:52ch;margin:0;font-size:.98rem}
+.news-form{display:flex;flex-direction:column;gap:1rem;justify-content:center}
+.field-row{display:flex;gap:.6rem;flex-wrap:wrap}
+.field-row input{flex:1;min-width:210px;height:52px;border:1px solid rgba(255,255,255,.25);background:#16304B;border-radius:0;color:#fff;font-family:var(--sans);font-size:.95rem;padding:0 1rem;transition:border-color .2s var(--ease)}
+.field-row input::placeholder{color:#8FA3B8}
+.field-row input:focus{outline:none;border-color:#fff}
+.field-row .btn{background:#fff;color:#1B2A41;border-color:#fff;min-height:52px;white-space:nowrap}
+.field-row .btn:hover{background:#EFF3F7}
+.nl-msg{display:none;font-family:var(--mono);font-size:.76rem;letter-spacing:.02em}
+.nl-msg.ok{display:block;color:#9FE6A0}
+.nl-msg.err{display:block;color:#FFB4A8}
+@media (max-width:760px){.news-inner{grid-template-columns:1fr}}
+[data-theme="dark"] .newsletter{background:var(--navy-2)}
+[data-theme="dark"] .field-row input{background:#16263A;border-color:#2B4460}
+
+/* ============ airspace map ============ */
+.airmap{border:1px solid var(--line);background:var(--surface);padding:1.4rem;border-radius:0}
+.airmap svg{width:100%;height:auto}
+.airmap-leg{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-family:var(--mono);font-size:.72rem;color:var(--faint);padding-top:1rem;border-top:1px solid var(--line);margin-top:1.2rem}
+
+/* ============ footer ============ */
+.footer{border-top:1px solid var(--line);padding:3rem 0 2.5rem}
+.footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2.5rem;margin-bottom:2.8rem}
+.footer h4{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin:0 0 1rem}
+.footer .f-brand p{color:var(--muted);font-size:.92rem;max-width:38ch;margin:.7rem 0 0}
+.footer-col a{display:block;color:var(--muted);text-decoration:none;font-size:.94rem;padding:.3rem 0;transition:color .2s var(--ease)}
+.footer-col a:hover{color:var(--ink)}
+.footer-col .addr{color:var(--muted);font-size:.94rem;line-height:1.7;margin:0 0 .8rem}
+.footer .maps{color:var(--link);text-decoration:underline;font-size:.9rem}
+.footer-bottom{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;align-items:center;border-top:1px solid var(--line);padding-top:1.6rem;font-family:var(--mono);font-size:.74rem;color:var(--faint)}
+@media (max-width:820px){.footer-top{grid-template-columns:1fr}}
+[data-theme="dark"] .footer-col a{color:#B9C4D0}
+[data-theme="dark"] .footer-col a:hover{color:#fff}
+
+/* ============ cookie ============ */
+.cookie{position:fixed;right:1rem;bottom:1rem;left:auto;width:min(400px,calc(100vw - 2rem));background:var(--navy);color:#EFF3F7;border-radius:6px;padding:.95rem 1.1rem;display:flex;align-items:center;gap:.9rem;box-shadow:var(--shadow-lg);border:1px solid #2B4460;transform:translateY(calc(100% + 1.6rem));transition:transform .4s var(--ease);z-index:var(--z-banner)}
+.cookie.show{transform:translateY(0)}
+.cookie p{font-size:.84rem;flex:1;line-height:1.45;color:#C9D6E2;margin:0}
+.cookie .ck{font-family:var(--mono);font-size:.72rem;font-weight:600;letter-spacing:.04em;border-radius:4px;padding:.5rem .8rem;cursor:pointer;border:1px solid transparent;background:none;color:#EFF3F7;transition:background .15s var(--ease)}
+.cookie .ck-ok{background:#fff;color:#1B2A41}
+.cookie .ck-ok:hover{background:#EFF3F7}
+.cookie .ck-no{color:#A8B9C9}
+.cookie .ck-no:hover{border-color:#5B7894}
+@media (max-width:700px){
+  .cookie{top:calc(var(--nav-h) + .6rem);bottom:auto;left:.75rem;right:.75rem;width:auto;max-width:none;transform:translateY(calc(-100% - 9rem))}
+  .cookie.show{transform:translateY(0)}
+}
+[data-theme="dark"] .cookie{background:#16263A;border-color:#2B4460}
+
+/* ============ reveal ============ */
+.rv{opacity:0;transform:translateY(20px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main" data-i18n="skip">Saltar al contenido</a>
+
+<header class="nav" id="nav">
+  <div class="container nav-inner">
+    <a class="logo" href="#main" aria-label="HÉLICE — inicio">
+      <svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="48" fill="#1B2A41"/><circle cx="50" cy="50" r="40" fill="none" stroke="#F4F6F8" stroke-width="2" stroke-dasharray="10 14"/><path d="M50 50 L70 42" stroke="#E4573D" stroke-width="6" stroke-linecap="round"/><circle cx="50" cy="50" r="5" fill="#F4F6F8"/></svg>
+      HÉLICE
+    </a>
+    <nav class="nav-desktop-only" aria-label="Principal">
+      <ul class="nav-links">
+        <li><a href="#cursos" data-i18n="nav.courses">Cursos</a></li>
+        <li><a href="#escuela" data-i18n="nav.school">La escuela</a></li>
+        <li><a href="#faq" data-i18n="nav.faq">Preguntas</a></li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <div class="lang-select nav-desktop-only">
+        <button class="lang-select__btn" type="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Seleccionar idioma">
+          <span class="lang-select__cur">ES</span>
+          <svg class="lang-select__chev" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="lang-select__menu" role="listbox" aria-label="Elegir idioma">
+          <button class="lang-select__opt" role="option" data-lang="en" aria-selected="false"><span>English</span><span class="tick">✓</span></button>
+          <button class="lang-select__opt" role="option" data-lang="es" aria-selected="false"><span>Español</span><span class="tick">✓</span></button>
+          <button class="lang-select__opt" role="option" data-lang="fr" aria-selected="false"><span>Français</span><span class="tick">✓</span></button>
+          <button class="lang-select__opt" role="option" data-lang="de" aria-selected="false"><span>Deutsch</span><span class="tick">✓</span></button>
+          <button class="lang-select__opt" role="option" data-lang="it" aria-selected="false"><span>Italiano</span><span class="tick">✓</span></button>
+          <button class="lang-select__opt" role="option" data-lang="pt" aria-selected="false"><span>Português</span><span class="tick">✓</span></button>
+        </div>
+      </div>
+      <button class="icon-btn theme-toggle" id="themeToggle" type="button" aria-label="Cambiar a modo oscuro" data-i18n-aria="theme.aria">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path class="sun" d="M12 3v2M12 19v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M3 12h2M19 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle class="sun" cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/><path class="moon" d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+      </button>
+      <a class="btn btn-primary btn-sm nav-desktop-only" href="#cursos" data-i18n="nav.cta">Reservar bautismo</a>
+      <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="mobileMenu" data-i18n-aria="menu.aria">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="container mobile-menu" id="mobileMenu">
+    <a href="#cursos" data-i18n="nav.courses">Cursos</a>
+    <a href="#escuela" data-i18n="nav.school">La escuela</a>
+    <a href="#faq" data-i18n="nav.faq">Preguntas</a>
+    <div class="nav-actions">
+      <div class="lang-select">
+        <button class="lang-select__btn" type="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Seleccionar idioma">
+          <span class="lang-select__cur">ES</span>
+          <svg class="lang-select__chev" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="lang-select__menu" role="listbox" aria-label="Elegir idioma">
+          <button class="lang-select__opt" role="option" data-lang="en" aria-selected="false"><span>English</span><span class="tick">✓</span></button>
+          <button class="lang-select__opt" role="option" data-lang="es" aria-selected="false"><span>Español</span><span class="tick">✓</span></button>
+          <button class="lang-select__opt" role="option" data-lang="fr" aria-selected="false"><span>Français</span><span class="tick">✓</span></button>
+          <button class="lang-select__opt" role="option" data-lang="de" aria-selected="false"><span>Deutsch</span><span class="tick">✓</span></button>
+          <button class="lang-select__opt" role="option" data-lang="it" aria-selected="false"><span>Italiano</span><span class="tick">✓</span></button>
+          <button class="lang-select__opt" role="option" data-lang="pt" aria-selected="false"><span>Português</span><span class="tick">✓</span></button>
+        </div>
+      </div>
+      <a class="btn btn-primary" href="#cursos" data-i18n="nav.cta">Reservar bautismo</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <!-- ======== HERO ======== -->
+  <section class="hero" id="hero" aria-labelledby="hero-title">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <p class="hero-tag"><span class="dotw" aria-hidden="true"></span><span data-i18n="hero.tag">Casarrubios del Monte · Toledo</span></p>
+        <h1 id="hero-title" data-i18n-html="hero.title">Tu primer vuelo lo <br>diriges <span class="acc">tú</span>.</h1>
+        <p class="lead" data-i18n="hero.sub">A 45 minutos de Madrid, en la pista de Casarrubios, pilotas de verdad desde el minuto uno. Bautismo o licencia ULM: mandos en tus manos, instructor al lado, y el valle del Tiétar ahí abajo.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#cursos" data-i18n="hero.cta1">Reservar bautismo</a>
+          <a class="btn btn-ghost" href="#escuela" data-i18n="hero.cta2">Conocer la escuela</a>
+        </div>
+        <div class="hero-meta">
+          <span><strong data-i18n="hero.rwy">RWY 06/24</strong> <span data-i18n="hero.day">pista de tierra, 950 m</span></span>
+          <span class="sep" aria-hidden="true"></span>
+          <span data-i18n="hero.op">Última escuadrilla: 19:30</span>
+          <span class="sep" aria-hidden="true"></span>
+          <span><span data-i18n="hero.radar">Viento</span> <strong id="radarWind">240°/9kt</strong></span>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="radar-wrap">
+          <div class="radar-sweep"></div>
+          <div class="radar-ring" style="inset:0"></div>
+          <div class="radar-ring" style="inset:12.5%"></div>
+          <div class="radar-ring" style="inset:25%"></div>
+          <div class="radar-ring" style="inset:37.5%"></div>
+          <div class="radar-cross-x"></div>
+          <div class="radar-cross-y"></div>
+          <div class="radar-dial"></div>
+          <!-- course line -->
+          <svg class="radar-plane" viewBox="0 0 150 150" fill="none">
+            <!-- client traffic -->
+            <path class="client-path" d="M14 118 C 44 96, 60 86, 78 82" stroke="currentColor" stroke-width="1.4"/>
+            <!-- our climb A-->
+            <path class="track-path" d="M14 132 C 40 110, 58 92, 70 70" stroke="currentColor"/>
+            <!-- climb B -->
+            <path class="track-path" d="M88 126 C 96 104, 100 88, 96 68" stroke="currentColor" opacity=".55"/>
+            <path class="client-path" d="M120 116 C 112 96, 104 84, 92 78" stroke="currentColor"/>
+            <!-- fixes -->
+            <circle class="track-dot" cx="70" cy="70" r="3"/>
+            <circle class="track-dot" cx="96" cy="68" r="3"/>
+            <circle class="track-dot" cx="62" cy="42" r="2.4" opacity=".8"/>
+            <circle class="heading-dot" cx="118" cy="34" r="4"/>
+          </svg>
+          <span class="fix" style="top:38%;left:52%"></span>
+          <span class="fix" style="top:64%;left:70%"></span>
+          <div class="radar-readout"><b id="radarHdg">HDG</b> 244° · <b id="radarAlt">1600</b> ft</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== METAR strip (Monitor moment) ======== -->
+  <div class="metar" role="region" aria-label="Condiciones meteorológicas de la pista">
+    <div class="container metar-inner">
+      <div class="metar-label"><span class="live" aria-hidden="true"></span><span data-i18n="metar.live">REPORTE EN VIVO · LECX</span></div>
+      <div class="metar-data">
+        <div class="metar-line">
+          <span><b data-i18n="metar.time">HORA</b> <span id="metarTime">14:50Z</span></span>
+          <span><b data-i18n="metar.wind">VIENTO</b> 240/09</span>
+          <span><b data-i18n="metar.vis">VIS</b> 10km+</span>
+          <span><b data-i18n="metar.clouds">NUBES</b> FEW 3500</span>
+          <span><b data-i18n="metar.temp">TEMP</b> 28/12</span>
+          <span><b data-i18n="metar.qnh">QNH</b> 1019</span>
+          <span id="metarEnd" data-i18n="metar.end">— apto para vuelo visual</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======== COURSES (Compare) ======== -->
+  <section class="section" id="cursos" aria-labelledby="cursos-title">
+    <div class="container">
+      <div class="section-head rv">
+        <div>
+          <p class="kicker" data-i18n="courses.kicker">Dos puertas de entrada</p>
+          <h2 id="cursos-title" data-i18n="courses.title">En el aire, las horas se cuentan de otra manera.</h2>
+        </div>
+        <p class="head-note" data-i18n="courses.note">Una tarde para probar, o un plan de 10 fines de semana para tu licencia. Ambos con la misma pista, el mismo instructor y el mismo cielo.</p>
+      </div>
+      <div class="course-grid rv">
+        <article class="course-card">
+          <h3 data-i18n="courses.p1">Bautismo de vuelo</h3>
+          <p class="course-code" data-i18n="courses.p1code">VUELO 001 · sin requisitos</p>
+          <p data-i18n="courses.p1sub">30 minutos de vuelo real. Tú llevas los mandos en rectas y virajes desde el aire; el instructor despega y aterriza. Paseo sobre el Tiétar incluido.</p>
+          <div class="course-stats">
+            <div class="stat"><b data-i18n="courses.s1">30'</b><span data-i18n="courses.s1l">en el aire</span></div>
+            <div class="stat"><b data-i18n="courses.s2">1</b><span data-i18n="courses.s2l">piloto al mando</span></div>
+            <div class="stat"><b data-i18n="courses.s3">6</b><span data-i18n="courses.s3l">plazas por escuadrilla</span></div>
+          </div>
+          <div class="course-cta">
+            <a class="btn btn-primary" href="#contacto" data-i18n="courses.p1cta">Reservar una plaza</a>
+            <span class="chip" data-i18n="courses.p1li">desde 89 €</span>
+          </div>
+        </article>
+        <article class="course-card primary">
+          <h3 data-i18n="courses.p2">Licencia ULM</h3>
+          <p class="course-code" data-i18n="courses.p2code">PROGRAMA 45H · mínimo 17 años</p>
+          <p data-i18n="courses.p2sub">El plan completo para volar en solitario: 25 horas con instructor, 10 en circuito de tráfico y 10 de navegación. Examen teórico y vuelo de demostración incluidos.</p>
+          <div class="course-stats">
+            <div class="stat"><b data-i18n="courses.s4">45h</b><span data-i18n="courses.s4l">de vuelo</span></div>
+            <div class="stat"><b data-i18n="courses.s5">10</b><span data-i18n="courses.s5l">fines de semana</span></div>
+            <div class="stat"><b data-i18n="courses.s6">3.2</b><span data-i18n="courses.s6l">k€ total</span></div>
+          </div>
+          <div class="course-cta">
+            <a class="btn btn-primary" href="#contacto" data-i18n="courses.p2cta">Hablar con el jefe de pilotos</a>
+            <span class="chip" data-i18n="courses.p2li">plazas 2026 abiertas</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== PHASES ======== -->
+  <section class="section" id="escuela" aria-labelledby="phases-title" style="padding-top:0">
+    <div class="container">
+      <div class="section-head rv">
+        <div>
+          <p class="kicker" data-i18n="ph.kicker">El camino, paso a paso</p>
+          <h2 id="phases-title" data-i18n="ph.title">De pasajero a piloto en cuatro salidas.</h2>
+        </div>
+        <p class="head-note" data-i18n="ph.note">Nada de simulador eterno ni teoría interminable: aquí la progresión se mide en salidas a la pista, y cada una tiene un objetivo concreto.</p>
+      </div>
+      <div class="timeline rv">
+        <div class="phase">
+          <span class="phase-num">01</span>
+          <div>
+            <span class="phase-tag" data-i18n="ph.1t">Salida 1 · familiarización</span>
+            <h3 data-i18n="ph.1h">Conoces el avión: pre-vuelo, placa y motor.</h3>
+            <p data-i18n="ph.1d">Reconoces cada pieza antes de encenderla: inspección exterior, presión de aceite, mandos que responden. El miedo se va por donde llegó: con información.</p>
+          </div>
+        </div>
+        <div class="phase">
+          <span class="phase-num">02</span>
+          <div>
+            <span class="phase-tag" data-i18n="ph.2t">Salidas 2–3 · picado y virajes</span>
+            <h3 data-i18n="ph.2h">El aire es un plano inclinado que tú gobiernas.</h3>
+            <p data-i18n="ph.2d">Subes, bajas, viras con el ala baja y recuperas la altura con el morro donde tú decides. El instructor habla poco: escucha tu respiración.</p>
+          </div>
+        </div>
+        <div class="phase">
+          <span class="phase-num">03</span>
+          <div>
+            <span class="phase-tag" data-i18n="ph.3t">Salidas 4–5 · tráfico y precisión</span>
+            <h3 data-i18n="ph.3h">El circuito se aprende leyendo la pista, no el móvil.</h3>
+            <p data-i18n="ph.3d">Vientos en contra en final, alineación con el eje, velocidad fijada en la aproximación. Cuando aterrizas con el viento cruzado, ya no eres pasajero.</p>
+          </div>
+        </div>
+        <div class="phase">
+          <span class="phase-num">04</span>
+          <div>
+            <span class="phase-tag" data-i18n="ph.4t">Salida 6 · tu primer vuelo en solitario</span>
+            <h3 data-i18n="ph.4h">Solo, derecho, y una libreta para el parte.</h3>
+            <p data-i18n="ph.4d">El instructor te baja del ala y te sube al corazón. Circuito completo sin compañía: tú, el viento y la pista de 950 metros.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== FIELD DAY (bento) ======== -->
+  <section class="section" style="padding-top:0" aria-labelledby="fd-title">
+    <div class="container">
+      <div class="section-head rv">
+        <div>
+          <p class="kicker" data-i18n="fd.kicker">Un día de escuela</p>
+          <h2 id="fd-title" data-i18n="fd.title">Antes de volar, preparamos el día completo.</h2>
+        </div>
+        <p class="head-note" data-i18n="fd.note">Cada escuadrilla se organiza como una pequeña operación: briefing, pre-vuelo, salidas y parte final. Así se vuelan los días buenos y se evitan los malos.</p>
+      </div>
+      <div class="field-grid rv">
+        <div class="tile tile-a">
+          <span class="tile-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 8h6M9 12h6M9 16h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><rect x="3" y="4" width="18" height="16" rx="1" stroke="currentColor" stroke-width="1.6"/></svg>
+          </span>
+          <span class="tile-num">05:30</span>
+          <h3 data-i18n="fd.aTitle">Primera luz sobre la sierra</h3>
+          <p data-i18n="fd.aSub">El mejor aire del día es el de las 6: menos térmicas, cielo abierto y la niebla pegada al Tajo. Por eso volamos temprano.</p>
+        </div>
+        <div class="tile tile-b">
+          <span class="tile-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.6"/><path d="M12 12 L16 8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M12 9a3 3 0 1 1 0 6 3 3 0 0 1 0-6Z" fill="currentColor"/></svg>
+          </span>
+          <h3 data-i18n="fd.bTitle">Briefing de 20 minutos</h3>
+          <p data-i18n="fd.bSub">Meteorología, NOTAMs y plan de vuelo del día. Si algo no cuadra, el vuelo espera: no negociamos eso.</p>
+        </div>
+        <div class="tile tile-c">
+          <span class="tile-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 4v16M6 4l10 6-10 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <h3 data-i18n="fd.cTitle">Pre-vuelo exterior</h3>
+          <p data-i18n="fd.cSub">Depósito, cables, superficies: tu primera lección de mantenimiento, mirando y tocando.</p>
+        </div>
+        <div class="tile tile-d">
+          <span class="tile-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 19c3-9 8-13 16-15-1 8-5 13-13 15-1 0-2 .5-3 0Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 18l2-6 4-3-6 3" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+          </span>
+          <h3 data-i18n="fd.dTitle">Salidas a 06/24</h3>
+          <p data-i18n="fd.dSub">Tres o cuatro tandas por escuadrilla según el viento, con descanso entre pasadas para repasar.</p>
+        </div>
+        <div class="tile tile-e">
+          <span class="tile-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 6h16v12H4z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M6 10l4 4 3-3 5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="17.5" cy="9.5" r="1" fill="currentColor"/></svg>
+          </span>
+          <h3 data-i18n="fd.eTitle">Parte y libreta</h3>
+          <p data-i18n="fd.eSub">Cada salida se anota: tiempos, viento real, sensaciones. La progresión se lee en la libreta.</p>
+        </div>
+        <div class="tile tile-f">
+          <span class="tile-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M7 17L4 8l4 2 1-5 2 5 4-2-1 5 4-2-3 9Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+          </span>
+          <h3 data-i18n="fd.fTitle">Operaciones en 2026</h3>
+          <p data-i18n="fd.fSub">Tres aviones, dos instructores en plantilla y campo de vuelo privado. Sin colas de aeródromo aglomerado.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== AIRMAP ======== -->
+  <section class="section" style="padding-top:0" aria-labelledby="map-title">
+    <div class="container">
+      <div class="section-head rv">
+        <div>
+          <p class="kicker" data-i18n="map.kicker">Nuestro espacio aéreo</p>
+          <h2 id="map-title" data-i18n="map.title">Rutas dibujadas sobre el mapa, no sobre la marcha.</h2>
+        </div>
+        <p class="head-note" data-i18n="map.note">Dos circuitos de navegación que estrenarás en tu licencia. Nada de atravesar zonas controladas: planificación limpia entre Casarrubios y el valle del Tiétar.</p>
+      </div>
+      <div class="airmap rv" aria-hidden="true">
+        <svg viewBox="0 0 720 220" fill="none">
+          <line x1="16" y1="60" x2="704" y2="60" stroke="var(--line)" stroke-width="1"/>
+          <line x1="16" y1="120" x2="704" y2="120" stroke="var(--line)" stroke-width="1"/>
+          <line x1="16" y1="180" x2="704" y2="180" stroke="var(--line)" stroke-width="1"/>
+          <line x1="240" y1="16" x2="240" y2="204" stroke="var(--line)" stroke-width="1"/>
+          <line x1="480" y1="16" x2="480" y2="204" stroke="var(--line)" stroke-width="1"/>
+          <circle cx="90" cy="150" r="26" stroke="var(--line-strong)" stroke-width="1"/>
+          <circle cx="90" cy="150" r="13" stroke="var(--line-strong)" stroke-width="1" stroke-dasharray="3 4"/>
+          <circle cx="90" cy="150" r="3" fill="var(--ink)"/>
+          <text x="104" y="128" fill="var(--faint)" font-family="var(--mono)" font-size="10" letter-spacing="1">CASARRUBIOS</text>
+          <text x="104" y="142" fill="var(--faint)" font-family="var(--mono)" font-size="9">EL EMPLAZAMIENTO</text>
+          <circle cx="630" cy="70" r="20" stroke="var(--line-strong)" stroke-width="1"/>
+          <circle cx="630" cy="70" r="3" fill="var(--ink)"/>
+          <text x="590" y="48" fill="var(--faint)" font-family="var(--mono)" font-size="10" letter-spacing="1">EL TIÉTAR</text>
+          <text x="590" y="62" fill="var(--faint)" font-family="var(--mono)" font-size="9">NAVEGACIÓN</text>
+          <path d="M90 150 C 220 150, 340 120, 390 96" stroke="var(--red)" stroke-width="2" stroke-dasharray="6 5" stroke-linecap="round"/>
+          <circle cx="390" cy="96" r="3.5" fill="var(--red)"/>
+          <path d="M90 150 C 260 160, 420 152, 630 70" stroke="var(--line-strong)" stroke-width="1.6" stroke-dasharray="3 5"/>
+          <text x="330" y="132" fill="var(--red)" font-family="var(--mono)" font-size="10">RUTA A · 25 NM</text>
+          <text x="430" y="160" fill="var(--faint)" font-family="var(--mono)" font-size="10">RUTA B · 40 NM</text>
+        </svg>
+        <div class="airmap-leg">
+          <span data-i18n="map.leg1">█ Corta (ruta A): valle del Tiétar · ida y vuelta 50 min</span>
+          <span data-i18n="map.leg2">· Larga (ruta B): sierra de Gredos · 1 h 40 min</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== QUOTE ======== -->
+  <section class="section" style="padding-top:0" aria-label="Cita del instructor">
+    <div class="container quote-wrap rv">
+      <blockquote>
+        <p data-i18n="qu.text">Llevo 3.000 horas delante de una placa de mandos y todas empiezan igual: el alumno que cree que volar es un truco y acaba entendiendo que es una conversación con el viento.</p>
+      </blockquote>
+      <div class="sig">
+        <span class="avatar" aria-hidden="true">JM</span>
+        <div>
+          <b data-i18n="qu.name">Juanma Ortega</b>
+          <span data-i18n="qu.role">Jefe de instructores · 3.000 h ULM y avioneta</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== FAQ ======== -->
+  <section class="section" style="padding-top:0" id="faq" aria-labelledby="faq-title">
+    <div class="container faq">
+      <div class="faq-side rv">
+        <p class="kicker" data-i18n="faq.kicker">Antes de despegar</p>
+        <h2 id="faq-title" data-i18n="faq.title">Lo que todo el mundo pregunta en la sala de espera.</h2>
+        <p data-i18n="faq.sub">Y si tu duda no está aquí, llámanos: preferimos responder mal una vez que adivinar dos veces.</p>
+      </div>
+      <div class="faq-list rv">
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false"><span data-i18n="faq.q1">¿Necesito experiencia previa para el bautismo?</span><span class="ic" aria-hidden="true"></span></button>
+          <div class="faq-a"><p data-i18n="faq.a1">Ninguna. Si puedes subirte a un coche y abrocharte el cinturón, puedes volar. El instructor hace el despegue y el aterrizaje; tú disfrutas y llevas los mandos en vuelo cuando el aire está tranquilo.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false"><span data-i18n="faq.q2">¿Cuánto tarda la licencia ULM?</span><span class="ic" aria-hidden="true"></span></button>
+          <div class="faq-a"><p data-i18n="faq.a2">Entre 4 y 6 meses volando un fin de semana sí y otro no. Las 45 horas se hacen en tandas de dos salidas por día; el examen teórico se prepara por tu cuenta con nuestro temario.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false"><span data-i18n="faq.q3">¿Y si me mareo en el aire?</span><span class="ic" aria-hidden="true"></span></button>
+          <div class="faq-a"><p data-i18n="faq.a3">Respira, mira al horizonte y dilo. Todo el mundo ha tenido mal día alguna vez. Bajamos, descansamos un rato y lo intentamos cuando el estómago y la cabeza se ponen de acuerdo.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false"><span data-i18n="faq.q4">¿Qué pasa si el día sale con mal tiempo?</span><span class="ic" aria-hidden="true"></span></button>
+          <div class="faq-a"><p data-i18n="faq.a4">Se cambia la fecha sin coste. Si el viento pasa de 15 nudos o hay nubes bajas, no volamos — es la regla de la casa y no se negocia. Tú no pagas nada y recuperamos tu hueco.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false"><span data-i18n="faq.q5">¿Puedo traer a alguien a mirar?</span><span class="ic" aria-hidden="true"></span></button>
+          <div class="faq-a"><p data-i18n="faq.a5">Claro, hay bancos al borde de la pista, y la barra de la escuela está abierta desde las 9. Si tu acompañante se anima, los bautismos se encadenan uno detrás de otro.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== CONTACT / NEWSLETTER ======== -->
+  <section class="section" id="contacto" style="padding-top:0" aria-labelledby="news-title">
+    <div class="container">
+      <div class="newsletter rv">
+        <div class="news-inner">
+          <div class="news-head">
+            <p class="kicker" data-i18n="news.kicker" style="color:#FF9D8C">El parte del viernes</p>
+            <h2 id="news-title" data-i18n="news.title">El tiempo del próximo fin de semana, en tu correo.</h2>
+            <p data-i18n="news.sub">Cada jueves: METAR del sábado, huecos libres de la escuadrilla y una foto del parte de vuelo. Sin publicidad, sin spam.</p>
+          </div>
+          <form class="news-form" id="newsForm" novalidate>
+            <div class="field-row">
+              <label class="visually-hidden" for="newsEmail" data-i18n="news.ph">Tu email</label>
+              <input type="email" id="newsEmail" name="email" required inputmode="email" autocomplete="email" data-i18n-ph="news.ph" placeholder="tu@correo.es">
+              <button class="btn" type="submit" data-i18n="news.cta">Suscribirme</button>
+            </div>
+            <p class="nl-msg" id="nlMsg" role="status"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="f-brand">
+        <a class="logo" href="#main" aria-label="HÉLICE — inicio">
+          <svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="48" fill="#1B2A41"/><circle cx="50" cy="50" r="40" fill="none" stroke="#F4F6F8" stroke-width="2" stroke-dasharray="10 14"/><path d="M50 50 L70 42" stroke="#E4573D" stroke-width="6" stroke-linecap="round"/><circle cx="50" cy="50" r="5" fill="#F4F6F8"/></svg>
+          HÉLICE
+        </a>
+        <p data-i18n="footer.tagline">Escuela de ultraligeros en Casarrubios del Monte, Toledo. 45 minutos desde Madrid por la A-42, al borde del monte y de los buenos vientos.</p>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.contact">Contacto</h4>
+        <p class="addr" data-i18n="footer.address">Camino de la Atalaya, s/n · 45950 Casarrubios del Monte, Toledo</p>
+        <a class="maps" href="https://www.google.com/maps/search/?api=1&amp;query=Casarrubios+del+Monte+ultraligero+pista" target="_blank" rel="noopener" data-i18n="footer.maps">Cómo llegar en el mapa →</a>
+        <a data-i18n="footer.mail" href="mailto:hola@heliceschool.es">hola@heliceschool.es</a>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.hours">Horario de escuela</h4>
+        <a data-i18n="footer.hoursVal" href="#contacto">sáb y dom · 08:00–14:00</a>
+        <a data-i18n="footer.rest" href="#contacto">bautismos también entre semana</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span data-i18n="footer.rights">© 2026 Escuela HÉLICE. Todos los derechos reservados.</span>
+      <span data-i18n="footer.made">Hecho en tierra, volado en aire.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ======== COOKIE ======== -->
+<div class="cookie" id="cookieBanner" role="region" aria-label="Aviso de cookies">
+  <p data-i18n="cookie.msg">Usamos cookies solo para recordar tu idioma y tu tema. Sin rastreo, sin anuncios.</p>
+  <div class="cookie-actions">
+    <button class="ck ck-ok" id="cookieOk" type="button" data-i18n="cookie.ok">De acuerdo</button>
+    <button class="ck ck-no" id="cookieNo" type="button" data-i18n="cookie.no">No</button>
+  </div>
+</div>
+
+<script>
+var I18N = {es: {"skip": "Saltar al contenido", "nav.courses": "Cursos", "nav.school": "La escuela", "nav.faq": "Preguntas", "nav.cta": "Reservar bautismo", "theme.aria": "Cambiar a modo oscuro", "theme.light": "Cambiar a modo claro", "menu.aria": "Abrir menú", "hero.tag": "Casarrubios del Monte · Toledo", "hero.title": "Tu primer vuelo lo <br>diriges <span class=\"acc\">tú</span>.", "hero.sub": "A 45 minutos de Madrid, en la pista de Casarrubios, pilotas de verdad desde el minuto uno. Bautismo o licencia ULM: mandos en tus manos, instructor al lado, y el valle del Tiétar ahí abajo.", "hero.cta1": "Reservar bautismo", "hero.cta2": "Conocer la escuela", "hero.rwy": "RWY 06/24", "hero.day": "pista de tierra, 950 m", "hero.op": "Última escuadrilla: 19:30", "hero.radar": "Viento", "metar.live": "REPORTE EN VIVO · LECX", "metar.time": "HORA", "metar.wind": "VIENTO", "metar.vis": "VIS", "metar.clouds": "NUBES", "metar.temp": "TEMP", "metar.qnh": "QNH", "metar.end": "— apto para vuelo visual", "courses.kicker": "Dos puertas de entrada", "courses.title": "En el aire, las horas se cuentan de otra manera.", "courses.note": "Una tarde para probar, o un plan de 10 fines de semana para tu licencia. Ambos con la misma pista, el mismo instructor y el mismo cielo.", "courses.p1": "Bautismo de vuelo", "courses.p1code": "VUELO 001 · sin requisitos", "courses.p1sub": "30 minutos de vuelo real. Tú llevas los mandos en rectas y virajes desde el aire; el instructor despega y aterriza. Paseo sobre el Tiétar incluido.", "courses.s1": "30'", "courses.s1l": "en el aire", "courses.s2": "1", "courses.s2l": "piloto al mando", "courses.s3": "6", "courses.s3l": "plazas por escuadrilla", "courses.p1cta": "Reservar una plaza", "courses.p1li": "desde 89 €", "courses.p2": "Licencia ULM", "courses.p2code": "PROGRAMA 45H · mínimo 17 años", "courses.p2sub": "El plan completo para volar en solitario: 25 horas con instructor, 10 en circuito de tráfico y 10 de navegación. Examen teórico y vuelo de demostración incluidos.", "courses.s4": "45h", "courses.s4l": "de vuelo", "courses.s5": "10", "courses.s5l": "fines de semana", "courses.s6": "3.2", "courses.s6l": "k€ total", "courses.p2cta": "Hablar con el jefe de pilotos", "courses.p2li": "plazas 2026 abiertas", "ph.kicker": "El camino, paso a paso", "ph.title": "De pasajero a piloto en seis salidas.", "ph.note": "Nada de simulador eterno ni teoría interminable: aquí la progresión se mide en salidas a la pista, y cada una tiene un objetivo concreto.", "ph.1t": "Salida 1 · familiarización", "ph.1h": "Conoces el avión: pre-vuelo, placa y motor.", "ph.1d": "Reconoces cada pieza antes de encenderla: inspección exterior, presión de aceite, mandos que responden. El miedo se va por donde llegó: con información.", "ph.2t": "Salidas 2–3 · picado y virajes", "ph.2h": "El aire es un plano inclinado que tú gobiernas.", "ph.2d": "Subes, bajas, viras con el ala baja y recuperas la altura con el morro donde tú decides. El instructor habla poco: escucha tu respiración.", "ph.3t": "Salidas 4–5 · tráfico y precisión", "ph.3h": "El circuito se aprende leyendo la pista, no el móvil.", "ph.3d": "Vientos en contra en final, alineación con el eje, velocidad fijada en la aproximación. Cuando aterrizas con viento cruzado, ya no eres pasajero.", "ph.4t": "Salida 6 · tu primer vuelo en solitario", "ph.4h": "Solo, derecho, y una libreta para el parte.", "ph.4d": "El instructor te baja del ala y te sube al corazón. Circuito completo sin compañía: tú, el viento y la pista de 950 metros.", "fd.kicker": "Un día de escuela", "fd.title": "Antes de volar, preparamos el día completo.", "fd.note": "Cada escuadrilla se organiza como una pequeña operación: briefing, pre-vuelo, salidas y parte final. Así se vuelan los días buenos y se evitan los malos.", "fd.aTitle": "Primera luz sobre la sierra", "fd.aSub": "El mejor aire del día es el de las 6: menos térmicas, cielo abierto y la niebla pegada al Tajo. Por eso volamos temprano.", "fd.bTitle": "Briefing de 20 minutos", "fd.bSub": "Meteorología, NOTAMs y plan de vuelo del día. Si algo no cuadra, el vuelo espera: no negociamos eso.", "fd.cTitle": "Pre-vuelo exterior", "fd.cSub": "Depósito, cables, superficies: tu primera lección de mantenimiento, mirando y tocando.", "fd.dTitle": "Salidas a 06/24", "fd.dSub": "Tres o cuatro tandas por escuadrilla según el viento, con descanso entre pasadas para repasar.", "fd.eTitle": "Parte y libreta", "fd.eSub": "Cada salida se anota: tiempos, viento real, sensaciones. La progresión se lee en la libreta.", "fd.fTitle": "Operaciones en 2026", "fd.fSub": "Tres aviones, dos instructores en plantilla y campo de vuelo privado. Sin colas de aeródromo aglomerado.", "map.kicker": "Nuestro espacio aéreo", "map.title": "Rutas dibujadas sobre el mapa, no sobre la marcha.", "map.note": "Dos circuitos de navegación que estrenarás en tu licencia. Nada de atravesar zonas controladas: planificación limpia entre Casarrubios y el valle del Tiétar.", "map.leg1": "Corta (ruta A): valle del Tiétar · ida y vuelta 50 min", "map.leg2": "Larga (ruta B): sierra de Gredos · 1 h 40 min", "qu.text": "Llevo 3.000 horas delante de una placa de mandos y todas empiezan igual: el alumno que cree que volar es un truco y acaba entendiendo que es una conversación con el viento.", "qu.name": "Juanma Ortega", "qu.role": "Jefe de instructores · 3.000 h ULM y avioneta", "faq.kicker": "Antes de despegar", "faq.title": "Lo que todo el mundo pregunta en la sala de espera.", "faq.sub": "Y si tu duda no está aquí, llámanos: preferimos responder mal una vez que adivinar dos veces.", "faq.q1": "¿Necesito experiencia previa para el bautismo?", "faq.a1": "Ninguna. Si puedes subirte a un coche y abrocharte el cinturón, puedes volar. El instructor hace el despegue y el aterrizaje; tú disfrutas y llevas los mandos en vuelo cuando el aire está tranquilo.", "faq.q2": "¿Cuánto tarda la licencia ULM?", "faq.a2": "Entre 4 y 6 meses volando un fin de semana sí y otro no. Las 45 horas se hacen en tandas de dos salidas por día; el examen teórico se prepara por tu cuenta con nuestro temario.", "faq.q3": "¿Y si me mareo en el aire?", "faq.a3": "Respira, mira al horizonte y dilo. Todo el mundo ha tenido mal día alguna vez. Bajamos, descansamos un rato y lo intentamos cuando el estómago y la cabeza se ponen de acuerdo.", "faq.q4": "¿Qué pasa si el día sale con mal tiempo?", "faq.a4": "Se cambia la fecha sin coste. Si el viento pasa de 15 nudos o hay nubes bajas, no volamos: es la regla de la casa y no se negocia. Tú no pagas nada y recuperamos tu hueco.", "faq.q5": "¿Puedo traer a alguien a mirar?", "faq.a5": "Claro, hay bancos al borde de la pista y la barra de la escuela está abierta desde las 9. Si tu acompañante se anima, los bautismos se encadenan uno detrás de otro.", "news.kicker": "El parte del viernes", "news.title": "El tiempo del próximo fin de semana, en tu correo.", "news.sub": "Cada jueves: METAR del sábado, huecos libres de la escuadrilla y una foto del parte de vuelo. Sin publicidad, sin spam.", "news.ph": "tu@correo.es", "news.cta": "Suscribirme", "news.honest": "Te abrimos el correo para que nos mandes tu dirección: escribimos un email corto de confirmación y ¡nada más!", "news.thanks": "Gracias por apuntarte. Te acabamos de abrir el correo para el primer parte.", "news.err": "Escribe una dirección válida (algo@dominio.es).", "footer.tagline": "Escuela de ultraligeros en Casarrubios del Monte, Toledo. 45 minutos desde Madrid por la A-42, al borde del monte y de los buenos vientos.", "footer.contact": "Contacto", "footer.address": "Camino de la Atalaya, s/n · 45950 Casarrubios del Monte, Toledo", "footer.maps": "Cómo llegar en el mapa →", "footer.mail": "hola@heliceschool.es", "footer.hours": "Horario de escuela", "footer.hoursVal": "sáb y dom · 08:00–14:00", "footer.rest": "bautismos también entre semana", "footer.rights": "© 2026 Escuela HÉLICE. Todos los derechos reservados.", "footer.made": "Hecho en tierra, volado en aire.", "cookie.msg": "Usamos cookies solo para recordar tu idioma y tu tema. Sin rastreo, sin anuncios.", "cookie.ok": "De acuerdo", "cookie.no": "No", "meta.title": "HÉLICE · Escuela de vuelo en ultraligero · Toledo", "meta.desc": "Primer vuelo en Toledo. Bautismos, licencia ULM y rutas por el valle del Tiétar en ultraligero, con instructores titulados y una pista al borde del monte.", "og.title": "HÉLICE · Escuela de vuelo en ultraligero", "og.desc": "Tu primer vuelo lo diriges tú. Bautismos y licencia ULM en Casarrubios del Monte, Toledo.", "tw.title": "HÉLICE · Escuela de vuelo en ultraligero", "tw.desc": "Pilota de verdad desde el minuto uno. Bautismos y licencia ULM en Toledo."}, en: {"skip": "Skip to content", "nav.courses": "Courses", "nav.school": "The school", "nav.faq": "FAQ", "nav.cta": "Book a flight", "theme.aria": "Switch to dark mode", "theme.light": "Switch to light mode", "menu.aria": "Open menu", "hero.tag": "Casarrubios del Monte · Toledo", "hero.title": "Your first flight —<br>you take the <span class=\"acc\">controls</span>.", "hero.sub": "45 minutes from Madrid, on the Casarrubios strip, you really fly from minute one. Trial flight or ULM licence: controls in your hands, instructor beside you, and the Tiétar valley below.", "hero.cta1": "Book a trial flight", "hero.cta2": "Meet the school", "hero.rwy": "RWY 06/24", "hero.day": "grass strip, 950 m", "hero.op": "Last flight of the day: 7:30 pm", "hero.radar": "Wind", "metar.live": "LIVE REPORT · LECX", "metar.time": "TIME", "metar.wind": "WIND", "metar.vis": "VIS", "metar.clouds": "CLOUDS", "metar.temp": "TEMP", "metar.qnh": "QNH", "metar.end": "— fit for visual flight", "courses.kicker": "Two ways in", "courses.title": "In the air, hours count differently.", "courses.note": "One afternoon to try it, or a 10-weekend plan for your licence. Same strip, same instructor, same sky.", "courses.p1": "Trial flight", "courses.p1code": "FLIGHT 001 · no experience needed", "courses.p1sub": "30 minutes of real flying. You handle the controls on straights and turns while airborne; the instructor takes off and lands. A run over the Tiétar included.", "courses.s1": "30'", "courses.s1l": "in the air", "courses.s2": "1", "courses.s2l": "pilot in command", "courses.s3": "6", "courses.s3l": "slots per flight group", "courses.p1cta": "Book a slot", "courses.p1li": "from €89", "courses.p2": "ULM Licence", "courses.p2code": "45-HOUR PROGRAM · min. age 17", "courses.p2sub": "The full plan to fly solo: 25 hours with an instructor, 10 in the traffic circuit and 10 of navigation. Theory exam and demonstration flight included.", "courses.s4": "45h", "courses.s4l": "of flying", "courses.s5": "10", "courses.s5l": "weekends", "courses.s6": "3.2", "courses.s6l": "k€ all in", "courses.p2cta": "Talk to the chief pilot", "courses.p2li": "2026 slots open", "ph.kicker": "The path, step by step", "ph.title": "From passenger to pilot in six outings.", "ph.note": "No endless simulator, no endless theory: here progress is measured in outings to the strip, and each one has a concrete goal.", "ph.1t": "Outing 1 · familiarisation", "ph.1h": "You meet the aircraft: pre-flight, panel and engine.", "ph.1d": "You check every part before starting it: exterior inspection, oil pressure, controls that answer. Fear leaves the way it came: through information.", "ph.2t": "Outings 2–3 · dives and turns", "ph.2h": "The air is a tilted plane that you command.", "ph.2d": "Climb, descend, bank with the low wing, regain height with the nose where you decide. The instructor says little: he listens to your breathing.", "ph.3t": "Outings 4–5 · traffic and precision", "ph.3h": "You learn the circuit by reading the strip, not your phone.", "ph.3d": "Headwinds on final, alignment with the centreline, airspeed nailed in the approach. When you land crosswind, you are no longer a passenger.", "ph.4t": "Outing 6 · your first solo", "ph.4h": "Alone, straight ahead, and a logbook for the debrief.", "ph.4d": "The instructor steps off the wing and puts you in charge. A full circuit with no company: you, the wind and the 950-metre strip.", "fd.kicker": "A school day", "fd.title": "Before flying, we plan the whole day.", "fd.note": "Every flight group runs like a small operation: briefing, pre-flight, sorties and final log. That is how good days are flown and bad ones avoided.", "fd.aTitle": "First light over the hills", "fd.aSub": "The best air of the day is at dawn: fewer thermals, open sky and mist clinging to the Tagus. That is why we fly early.", "fd.bTitle": "20-minute briefing", "fd.bSub": "Weather, NOTAMs and the day's flight plan. If something does not add up, the flight waits — that is not negotiable.", "fd.cTitle": "Exterior pre-flight", "fd.cSub": "Fuel, cables, surfaces: your first maintenance lesson, by looking and touching.", "fd.dTitle": "Sorties on 06/24", "fd.dSub": "Three or four runs per group depending on wind, with a break between passes to review.", "fd.eTitle": "Debrief and logbook", "fd.eSub": "Every sortie is recorded: times, real wind, feelings. Progress lives in the logbook.", "fd.fTitle": "Operations in 2026", "fd.fSub": "Three aircraft, two instructors on staff and a private flying field. No crowded-aerodrome queues.", "map.kicker": "Our airspace", "map.title": "Routes drawn on the chart, not improvised.", "map.note": "Two navigation circuits you will fly on your licence. No crossing controlled zones: clean planning between Casarrubios and the Tiétar valley.", "map.leg1": "Short (route A): Tiétar valley · return 50 min", "map.leg2": "Long (route B): Gredos range · 1 h 40 min", "qu.text": "I have 3,000 hours in front of an instrument panel and they all begin the same: the student who thinks flying is a trick ends up understanding it is a conversation with the wind.", "qu.name": "Juanma Ortega", "qu.role": "Chief instructor · 3,000 h ULM and light aircraft", "faq.kicker": "Before take-off", "faq.title": "What everyone asks in the waiting room.", "faq.sub": "And if your question is not here, call us: we prefer answering badly once to guessing twice.", "faq.q1": "Do I need prior experience for the trial flight?", "faq.a1": "None at all. If you can get into a car and buckle up, you can fly. The instructor handles take-off and landing; you enjoy it and take the controls in calm air.", "faq.q2": "How long does the ULM licence take?", "faq.a2": "Between 4 and 6 months flying every other weekend. The 45 hours are done in pairs of sorties a day; the theory exam is prepared on your own with our syllabus.", "faq.q3": "What if I feel airsick?", "faq.a3": "Breathe, look at the horizon and say it. Everyone has had an off day. We land, rest a while and try again when stomach and head agree.", "faq.q4": "What if the weather turns bad on the day?", "faq.a4": "We move the date at no cost. If wind goes past 15 knots or the clouds sit low, we do not fly — that is the house rule and it is not negotiable. You pay nothing and we keep your slot.", "faq.q5": "Can I bring someone to watch?", "faq.a5": "Sure — there are benches by the strip and the school bar opens at 9. If your guest feels brave, trial flights stack one after another.", "news.kicker": "The Friday brief", "news.title": "Next weekend's weather, in your inbox.", "news.sub": "Every Thursday: Saturday's METAR, free slots in the flight group and a photo of the flying log. No ads, no spam.", "news.ph": "you@email.com", "news.cta": "Subscribe", "news.honest": "We will open your mail app so you can send us your address: a short confirmation email, nothing more!", "news.thanks": "Thanks for signing up. We just opened your mail app for the first brief.", "news.err": "Please type a valid address (you@domain.com).", "footer.tagline": "Ultralight flight school in Casarrubios del Monte, Toledo. 45 minutes from Madrid on the A-42, at the edge of the hills and of the good winds.", "footer.contact": "Contact", "footer.address": "Camino de la Atalaya, s/n · 45950 Casarrubios del Monte, Toledo", "footer.maps": "Get here on the map →", "footer.mail": "hola@heliceschool.es", "footer.hours": "School hours", "footer.hoursVal": "Sat & Sun · 8:00 am–2:00 pm", "footer.rest": "trial flights also on weekdays", "footer.rights": "© 2026 HÉLICE Flight School. All rights reserved.", "footer.made": "Made on the ground, flown in the air.", "cookie.msg": "We use cookies only to remember your language and theme. No tracking, no ads.", "cookie.ok": "OK", "cookie.no": "No", "meta.title": "HÉLICE · Ultralight flight school · Toledo", "meta.desc": "Your first flight in Toledo. Trial flights, ULM licences and routes over the Tiétar valley, with certified instructors and a strip at the edge of the hills.", "og.title": "HÉLICE · Ultralight flight school", "og.desc": "You take the controls on your first flight. Trial flights and ULM licences in Casarrubios del Monte, Toledo.", "tw.title": "HÉLICE · Ultralight flight school", "tw.desc": "Really fly from minute one. Trial flights and ULM licences in Toledo."}, fr: {"skip": "Aller au contenu", "nav.courses": "Cours", "nav.school": "L'école", "nav.faq": "Questions", "nav.cta": "Réserver un vol", "theme.aria": "Passer en mode sombre", "theme.light": "Passer en mode clair", "menu.aria": "Ouvrir le menu", "hero.tag": "Casarrubios del Monte · Tolède", "hero.title": "Votre premier vol,<br>vous aux <span class=\"acc\">commandes</span>.", "hero.sub": "À 45 minutes de Madrid, sur la piste de Casarrubios, vous pilotez vraiment dès la première minute. Vol découverte ou licence ULM : manche en main, instructeur à côté, et la vallée du Tiétar en dessous.", "hero.cta1": "Réserver un vol découverte", "hero.cta2": "Découvrir l'école", "hero.rwy": "PISTE 06/24", "hero.day": "piste en herbe, 950 m", "hero.op": "Dernière escadrille : 19 h 30", "hero.radar": "Vent", "metar.live": "RELEVÉ EN DIRECT · LECX", "metar.time": "HEURE", "metar.wind": "VENT", "metar.vis": "VIS", "metar.clouds": "NUAGES", "metar.temp": "TEMP", "metar.qnh": "QNH", "metar.end": "— conditions aptes au vol à vue", "courses.kicker": "Deux portes d'entrée", "courses.title": "Dans les airs, les heures se comptent autrement.", "courses.note": "Un après-midi pour essayer, ou un plan de 10 week-ends pour votre licence. Même piste, même instructeur, même ciel.", "courses.p1": "Vol découverte", "courses.p1code": "VOL 001 · sans prérequis", "courses.p1sub": "30 minutes de vraie navigation. Vous tenez le manche en ligne droite et en virage ; l'instructeur décolle et atterrit. Un survol du Tiétar inclus.", "courses.s1": "30'", "courses.s1l": "en l'air", "courses.s2": "1", "courses.s2l": "pilote aux commandes", "courses.s3": "6", "courses.s3l": "places par escadrille", "courses.p1cta": "Réserver une place", "courses.p1li": "dès 89 €", "courses.p2": "Licence ULM", "courses.p2code": "PROGRAMME 45H · 17 ans min.", "courses.p2sub": "Le plan complet pour voler en solo : 25 heures avec instructeur, 10 en circuit de trafic et 10 de navigation. Examen théorique et vol de démonstration inclus.", "courses.s4": "45 h", "courses.s4l": "de vol", "courses.s5": "10", "courses.s5l": "week-ends", "courses.s6": "3,2", "courses.s6l": "k€ au total", "courses.p2cta": "Parler au chef des pilotes", "courses.p2li": "places 2026 ouvertes", "ph.kicker": "Le chemin, pas à pas", "ph.title": "De passager à pilote en six sorties.", "ph.note": "Pas de simulateur infini ni de théorie interminable : ici, la progression se mesure en sorties sur la piste, chacune avec un objectif précis.", "ph.1t": "Sortie 1 · familiarisation", "ph.1h": "Vous découvrez l'appareil : pré-vol, tableau de bord et moteur.", "ph.1d": "Vous vérifiez chaque pièce avant de démarrer : inspection extérieure, pression d'huile, commandes qui répondent. La peur s'en va par où elle est venue : par l'information.", "ph.2t": "Sorties 2–3 · piqués et virages", "ph.2h": "L'air est un plan incliné que vous gouvernez.", "ph.2d": "Vous montez, descendez, inclinez sur l'aile basse et reprenez de l'altitude avec le nez où vous décidez. L'instructeur parle peu : il écoute votre respiration.", "ph.3t": "Sorties 4–5 · trafic et précision", "ph.3h": "Le circuit s'apprend en lisant la piste, pas le téléphone.", "ph.3d": "Vent de face en finale, alignement sur l'axe, vitesse verrouillée en approche. Quand vous posez par vent de travers, vous n'êtes plus un passager.", "ph.4t": "Sortie 6 · votre premier vol en solo", "ph.4h": "Seul, droit devant, et un carnet pour le débrief.", "ph.4d": "L'instructeur descend de l'aile et vous passe le commandement. Un circuit complet sans compagnie : vous, le vent et la piste de 950 mètres.", "fd.kicker": "Une journée d'école", "fd.title": "Avant de voler, nous préparons toute la journée.", "fd.note": "Chaque escadrille s'organise comme une petite opération : briefing, pré-vol, sorties et carnet final. C'est ainsi que se volent les bons jours et s'évitent les mauvais.", "fd.aTitle": "Première lumière sur la sierra", "fd.aSub": "Le meilleur air de la journée est celui de 6 h : moins de thermiques, ciel ouvert et brouillard collé au Tage. Voilà pourquoi nous volons tôt.", "fd.bTitle": "Briefing de 20 minutes", "fd.bSub": "Météo, NOTAMs et plan de vol du jour. Si quelque chose ne colle pas, le vol attend : cela ne se négocie pas.", "fd.cTitle": "Pré-vol extérieur", "fd.cSub": "Réservoir, câbles, surfaces : votre première leçon de maintenance, en regardant et en touchant.", "fd.dTitle": "Sorties sur 06/24", "fd.dSub": "Trois ou quatre rotations par escadrille selon le vent, avec une pause entre les passes pour réviser.", "fd.eTitle": "Carnet et débrief", "fd.eSub": "Chaque sortie est notée : temps, vent réel, sensations. La progression se lit dans le carnet.", "fd.fTitle": "Opérations 2026", "fd.fSub": "Trois appareils, deux instructeurs en poste et un terrain privé. Pas de files d'attente d'aérodrome bondé.", "map.kicker": "Notre espace aérien", "map.title": "Des routes tracées sur la carte, pas improvisées.", "map.note": "Deux circuits de navigation que vous volerez en licence. Pas de traversée de zones contrôlées : une planification propre entre Casarrubios et la vallée du Tiétar.", "map.leg1": "Courte (route A) : vallée du Tiétar · aller-retour 50 min", "map.leg2": "Longue (route B) : sierra de Gredos · 1 h 40", "qu.text": "J'ai 3 000 heures devant une planche de bord et elles commencent toutes pareil : l'élève qui croit que voler est un truc finit par comprendre que c'est une conversation avec le vent.", "qu.name": "Juanma Ortega", "qu.role": "Chef instructeur · 3 000 h ULM et avions légers", "faq.kicker": "Avant le décollage", "faq.title": "Ce que tout le monde demande en salle d'attente.", "faq.sub": "Et si votre question n'est pas là, appelez-nous : nous préférons répondre mal une fois que deviner deux fois.", "faq.q1": "Faut-il de l'expérience pour le vol découverte ?", "faq.a1": "Aucune. Si vous savez monter dans une voiture et boucler la ceinture, vous savez voler. L'instructeur assure décollage et atterrissage ; vous profitez et tenez la manche en air calme.", "faq.q2": "Combien de temps pour la licence ULM ?", "faq.a2": "Entre 4 et 6 mois en volant un week-end sur deux. Les 45 heures se font par paires de sorties par jour ; l'examen théorique se prépare seul avec notre programme.", "faq.q3": "Et si j'ai le mal de l'air ?", "faq.a3": "Respirez, regardez l'horizon et dites-le. Tout le monde a eu son mauvais jour. Nous nous posons, nous soufflons un peu, et on réessaie quand l'estomac et la tête sont d'accord.", "faq.q4": "Et si le temps se gâte le jour J ?", "faq.a4": "On déplace la date sans frais. Si le vent dépasse 15 nœuds ou que les nuages sont bas, on ne vole pas : c'est la règle de la maison, non négociable. Vous ne payez rien et nous gardons votre créneau.", "faq.q5": "Puis-je venir avec quelqu'un pour regarder ?", "faq.a5": "Bien sûr : il y a des bancs au bord de la piste et le bar de l'école est ouvert dès 9 h. Si votre accompagnateur se lance, les vols découverte s'enchaînent.", "news.kicker": "Le brief du vendredi", "news.title": "La météo du week-end prochain, dans votre boîte mail.", "news.sub": "Chaque jeudi : le METAR du samedi, les créneaux libres de l'escadrille et une photo du carnet de vol. Sans pub, sans spam.", "news.ph": "vous@email.fr", "news.cta": "S'abonner", "news.honest": "Nous ouvrons votre application mail pour que vous nous envoyiez votre adresse : un court email de confirmation, rien de plus !", "news.thanks": "Merci pour votre inscription. Nous venons d'ouvrir votre application mail pour le premier brief.", "news.err": "Entrez une adresse valide (vous@domaine.fr).", "footer.tagline": "École d'ultralégers à Casarrubios del Monte, Tolède. À 45 minutes de Madrid par la A-42, au bord des collines et des bons vents.", "footer.contact": "Contact", "footer.address": "Camino de la Atalaya, s/n · 45950 Casarrubios del Monte, Tolède", "footer.maps": "Y aller sur la carte →", "footer.mail": "hola@heliceschool.es", "footer.hours": "Horaires de l'école", "footer.hoursVal": "sam et dim · 08:00–14:00", "footer.rest": "vols découverte en semaine aussi", "footer.rights": "© 2026 École HÉLICE. Tous droits réservés.", "footer.made": "Fait au sol, volé dans les airs.", "cookie.msg": "Nous utilisons des cookies uniquement pour mémoriser votre langue et votre thème. Pas de suivi, pas de publicité.", "cookie.ok": "D'accord", "cookie.no": "Non", "meta.title": "HÉLICE · École de vol ULM · Tolède", "meta.desc": "Votre premier vol à Tolède. Vols découverte, licence ULM et routes au-dessus de la vallée du Tiétar, avec des instructeurs certifiés et une piste au bord des collines.", "og.title": "HÉLICE · École de vol ULM", "og.desc": "Vous prenez les commandes dès le premier vol. Vols découverte et licence ULM à Casarrubios del Monte, Tolède.", "tw.title": "HÉLICE · École de vol ULM", "tw.desc": "Pilotez vraiment dès la première minute. Vols ULM à Tolède."}, de: {"skip": "Zum Inhalt springen", "nav.courses": "Kurse", "nav.school": "Die Schule", "nav.faq": "Fragen", "nav.cta": "Flug buchen", "theme.aria": "In den dunklen Modus wechseln", "theme.light": "In den hellen Modus wechseln", "menu.aria": "Menü öffnen", "hero.tag": "Casarrubios del Monte · Toledo", "hero.title": "Dein erster Flug —<br>du am <span class=\"acc\">Steuer</span>.", "hero.sub": "45 Minuten von Madrid, auf der Piste von Casarrubios: Du fliegst wirklich ab der ersten Minute. Schnupperflug oder ULM-Lizenz: Steuer in deiner Hand, Fluglehrer daneben, das Tiétar-Tal unter dir.", "hero.cta1": "Schnupperflug buchen", "hero.cta2": "Die Schule kennenlernen", "hero.rwy": "BAHN 06/24", "hero.day": "Graspiste, 950 m", "hero.op": "Letzte Staffel: 19:30 Uhr", "hero.radar": "Wind", "metar.live": "LIVE-REPORT · LECX", "metar.time": "ZEIT", "metar.wind": "WIND", "metar.vis": "SICHT", "metar.clouds": "WOLKEN", "metar.temp": "TEMP", "metar.qnh": "QNH", "metar.end": "— für Sichtflug geeignet", "courses.kicker": "Zwei Einstiege", "courses.title": "In der Luft zählen Stunden anders.", "courses.note": "Ein Nachmittag zum Ausprobieren oder ein 10-Wochenend-Plan für deine Lizenz. Gleiche Piste, gleicher Lehrer, gleicher Himmel.", "courses.p1": "Schnupperflug", "courses.p1code": "FLUG 001 · ohne Vorkenntnisse", "courses.p1sub": "30 Minuten echtes Fliegen. Du hältst das Steuer in Geraden und Kurven; der Lehrer startet und landet. Ein Überflug über das Tiétar inklusive.", "courses.s1": "30'", "courses.s1l": "in der Luft", "courses.s2": "1", "courses.s2l": "Pilot am Steuer", "courses.s3": "6", "courses.s3l": "Plätze pro Staffel", "courses.p1cta": "Platz reservieren", "courses.p1li": "ab 89 €", "courses.p2": "ULM-Lizenz", "courses.p2code": "PROGRAMM 45H · mind. 17 Jahre", "courses.p2sub": "Der komplette Plan zum Alleinflug: 25 Stunden mit Lehrer, 10 im Platzverkehr und 10 Navigation. Theorieprüfung und Vorführflug inklusive.", "courses.s4": "45 h", "courses.s4l": "Flugstunden", "courses.s5": "10", "courses.s5l": "Wochenenden", "courses.s6": "3,2", "courses.s6l": "k€ gesamt", "courses.p2cta": "Mit dem Chefpiloten sprechen", "courses.p2li": "Plätze 2026 offen", "ph.kicker": "Der Weg, Schritt für Schritt", "ph.title": "Vom Passagier zum Piloten in sechs Ausfahrten.", "ph.note": "Kein endloser Simulator, keine endlose Theorie: Hier misst sich Fortschritt in Ausfahrten auf der Piste, und jede hat ein konkretes Ziel.", "ph.1t": "Ausfahrt 1 · Vertraut machen", "ph.1h": "Du lernst das Flugzeug kennen: Vorbesichtigung, Panel und Motor.", "ph.1d": "Du prüfst jedes Teil, bevor du startest: Außenkontrolle, Öldruck, Steuer, die antwortet. Die Angst geht, woher sie kam: durch Information.", "ph.2t": "Ausfahrten 2–3 · Sturzflug und Kurven", "ph.2h": "Die Luft ist eine schiefe Ebene, die du beherrschst.", "ph.2d": "Du steigst, sinkst, kurvst mit dem tiefen Flügel und holst die Höhe mit der Nase dort zurück, wo du entscheidest. Der Lehrer spricht wenig: Er hört auf deine Atmung.", "ph.3t": "Ausfahrten 4–5 · Platzrunde und Präzision", "ph.3h": "Die Platzrunde lernt man, indem man die Piste liest, nicht das Handy.", "ph.3d": "Gegenwind im Endanflug, Ausrichtung auf der Mittellinie, Geschwindigkeit im Anflug fixiert. Wenn du mit Seitenwind landest, bist du kein Passagier mehr.", "ph.4t": "Ausfahrt 6 · dein erster Alleinflug", "ph.4h": "Allein, geradeaus, und ein Logbuch für das Debriefing.", "ph.4d": "Der Lehrer steigt vom Flügel und überlässt dir das Kommando. Eine komplette Platzrunde ohne Begleitung: du, der Wind und die 950-Meter-Piste.", "fd.kicker": "Ein Schultag", "fd.title": "Bevor wir fliegen, planen wir den ganzen Tag.", "fd.note": "Jede Staffel läuft wie eine kleine Operation: Briefing, Vorbesichtigung, Ausfahrten und Endprotokoll. So fliegt man gute Tage und vermeidet schlechte.", "fd.aTitle": "Erstes Licht über der Sierra", "fd.aSub": "Die beste Luft des Tages ist die um 6 Uhr: weniger Thermik, offener Himmel, Nebel am Tajo. Deshalb fliegen wir früh.", "fd.bTitle": "20-Minuten-Briefing", "fd.bSub": "Wetter, NOTAMs und der Tagesflugplan. Wenn etwas nicht passt, wartet der Flug: Das ist nicht verhandelbar.", "fd.cTitle": "Außenkontrolle", "fd.cSub": "Tank, Seile, Flächen: deine erste Wartungslektion, durch Schauen und Anfassen.", "fd.dTitle": "Ausfahrten auf 06/24", "fd.dSub": "Drei oder vier Runden pro Staffel je nach Wind, mit Pause zwischen den Durchgängen zum Nachbesprechen.", "fd.eTitle": "Logbuch und Debrief", "fd.eSub": "Jede Ausfahrt wird notiert: Zeiten, echter Wind, Gefühle. Der Fortschritt steht im Logbuch.", "fd.fTitle": "Betrieb 2026", "fd.fSub": "Drei Flugzeuge, zwei feste Fluglehrer und ein privates Flugfeld. Keine Schlangen auf überfüllten Flugplätzen.", "map.kicker": "Unser Luftraum", "map.title": "Routen auf der Karte gezeichnet, nicht improvisiert.", "map.note": "Zwei Navigationsrunden für deine Lizenz. Kein Durchqueren kontrollierter Zonen: saubere Planung zwischen Casarrubios und dem Tiétar-Tal.", "map.leg1": "Kurz (Route A): Tiétar-Tal · Rückkehr 50 min", "map.leg2": "Lang (Route B): Sierra de Gredos · 1 h 40", "qu.text": "Ich habe 3.000 Stunden vor einem Instrumentenpanel, und alle beginnen gleich: Der Schüler, der glaubt, Fliegen sei ein Trick, begreift schließlich, dass es ein Gespräch mit dem Wind ist.", "qu.name": "Juanma Ortega", "qu.role": "Cheffluglehrer · 3.000 h ULM und Kleinflugzeug", "faq.kicker": "Vor dem Start", "faq.title": "Was im Wartezimmer alle fragen.", "faq.sub": "Und ist deine Frage nicht dabei, ruf uns an: Wir beantworten lieber einmal schlecht, als zweimal zu raten.", "faq.q1": "Brauche ich Vorkenntnisse für den Schnupperflug?", "faq.a1": "Keine. Wenn du ins Auto steigen und dich anschnallen kannst, kannst du fliegen. Der Lehrer macht Start und Landung; du genießt und übernimmst das Steuer in ruhiger Luft.", "faq.q2": "Wie lange dauert die ULM-Lizenz?", "faq.a2": "Zwischen 4 und 6 Monaten, wenn du jedes zweite Wochenende fliegst. Die 45 Stunden laufen in Paaren von Ausfahrten pro Tag; die Theorie bereitest du allein mit unserem Lehrplan vor.", "faq.q3": "Und wenn mir in der Luft schlecht wird?", "faq.a3": "Atme, schau zum Horizont und sag es. Jeder hat mal einen schlechten Tag. Wir landen, ruhen kurz und versuchen es, wenn Magen und Kopf sich einig sind.", "faq.q4": "Was, wenn das Wetter am Tag nicht mitspielt?", "faq.a4": "Wir verschieben das Datum kostenlos. Über 15 Knoten Wind oder tiefe Wolken: Wir fliegen nicht — das ist die Hausregel und nicht verhandelbar. Du zahlst nichts und behältst deinen Slot.", "faq.q5": "Kann ich jemanden mitbringen?", "faq.a5": "Klar: Am Pistenrand stehen Bänke, und die Schulbar öffnet ab 9 Uhr. Wenn deine Begleitung Mut fasst, reihen sich Schnupperflüge aneinander.", "news.kicker": "Der Freitagsbrief", "news.title": "Das Wetter vom nächsten Wochenende, in deinem Postfach.", "news.sub": "Jeden Donnerstag: METAR für Samstag, freie Plätze der Staffel und ein Foto aus dem Fluglogbuch. Keine Werbung, kein Spam.", "news.ph": "du@email.de", "news.cta": "Abonnieren", "news.honest": "Wir öffnen deine Mail-App, damit du uns deine Adresse schickst: eine kurze Bestätigungsmail, mehr nicht!", "news.thanks": "Danke für die Anmeldung. Wir haben gerade deine Mail-App für den ersten Brief geöffnet.", "news.err": "Bitte gib eine gültige Adresse ein (du@domain.de).", "footer.tagline": "ULM-Flugschule in Casarrubios del Monte, Toledo. 45 Minuten von Madrid über die A-42, am Rand der Hügel und der guten Winde.", "footer.contact": "Kontakt", "footer.address": "Camino de la Atalaya, s/n · 45950 Casarrubios del Monte, Toledo", "footer.maps": "So findest du uns →", "footer.mail": "hola@heliceschool.es", "footer.hours": "Schulzeiten", "footer.hoursVal": "Sa & So · 08:00–14:00", "footer.rest": "Schnupperflüge auch unter der Woche", "footer.rights": "© 2026 Flugschule HÉLICE. Alle Rechte vorbehalten.", "footer.made": "Am Boden gemacht, in der Luft geflogen.", "cookie.msg": "Wir verwenden Cookies nur, um Sprache und Design zu merken. Kein Tracking, keine Werbung.", "cookie.ok": "OK", "cookie.no": "Nein", "meta.title": "HÉLICE · ULM-Flugschule · Toledo", "meta.desc": "Dein erster Flug in Toledo. Schnupperflüge, ULM-Lizenz und Routen über das Tiétar-Tal, mit zertifizierten Fluglehrern und einer Piste am Rand der Hügel.", "og.title": "HÉLICE · ULM-Flugschule", "og.desc": "Du übernimmst das Steuer beim ersten Flug. Schnupperflüge und ULM-Lizenz in Casarrubios del Monte, Toledo.", "tw.title": "HÉLICE · ULM-Flugschule", "tw.desc": "Fliege wirklich ab Minute eins. ULM-Flüge in Toledo."}, it: {"skip": "Salta al contenuto", "nav.courses": "Corsi", "nav.school": "La scuola", "nav.faq": "Domande", "nav.cta": "Prenota un volo", "theme.aria": "Passa alla modalità scura", "theme.light": "Passa alla modalità chiara", "menu.aria": "Apri il menu", "hero.tag": "Casarrubios del Monte · Toledo", "hero.title": "Il tuo primo volo,<br>a <span class=\"acc\">mano</span> sul comando.", "hero.sub": "A 45 minuti da Madrid, sulla pista di Casarrubios, piloti davvero dal primo minuto. Volo scoperta o licenza ULM: comandi nelle tue mani, istruttore accanto e la valle del Tiétar sotto.", "hero.cta1": "Prenota il volo scoperta", "hero.cta2": "Conoscere la scuola", "hero.rwy": "PISTA 06/24", "hero.day": "pista in erba, 950 m", "hero.op": "Ultima squadriglia: 19:30", "hero.radar": "Vento", "metar.live": "RAPPORTO IN DIRETTA · LECX", "metar.time": "ORA", "metar.wind": "VENTO", "metar.vis": "VIS", "metar.clouds": "NUVOLE", "metar.temp": "TEMP", "metar.qnh": "QNH", "metar.end": "— idoneo al volo a vista", "courses.kicker": "Due porte d'ingresso", "courses.title": "In aria, le ore si contano in un altro modo.", "courses.note": "Un pomeriggio per provare, o un piano di 10 weekend per la tua licenza. Stessa pista, stesso istruttore, stesso cielo.", "courses.p1": "Volo scoperta", "courses.p1code": "VOLO 001 · senza requisiti", "courses.p1sub": "30 minuti di volo vero. Tieni il comando in rettilinei e virate; l'istruttore decolla e atterra. Passaggio sul Tiétar incluso.", "courses.s1": "30'", "courses.s1l": "in volo", "courses.s2": "1", "courses.s2l": "pilota al comando", "courses.s3": "6", "courses.s3l": "posti per squadriglia", "courses.p1cta": "Prenota un posto", "courses.p1li": "da 89 €", "courses.p2": "Licenza ULM", "courses.p2code": "PROGRAMMA 45H · min 17 anni", "courses.p2sub": "Il piano completo per volare in solitaria: 25 ore con istruttore, 10 in circuito di traffico e 10 di navigazione. Esame teorico e volo dimostrativo inclusi.", "courses.s4": "45 h", "courses.s4l": "di volo", "courses.s5": "10", "courses.s5l": "weekend", "courses.s6": "3,2", "courses.s6l": "k€ totali", "courses.p2cta": "Parlare col capo piloti", "courses.p2li": "posti 2026 aperti", "ph.kicker": "Il percorso, passo dopo passo", "ph.title": "Da passeggero a pilota in sei uscite.", "ph.note": "Niente simulatore infinito né teoria interminabile: qui il progresso si misura in uscite in pista, e ognuna ha un obiettivo concreto.", "ph.1t": "Uscita 1 · familiarizzazione", "ph.1h": "Conosci l'aereo: pre-volo, pannello e motore.", "ph.1d": "Controlli ogni pezzo prima di accenderlo: ispezione esterna, pressione dell'olio, comandi che rispondono. La paura se ne va da dove è venuta: con l'informazione.", "ph.2t": "Uscite 2–3 · picchiate e virate", "ph.2h": "L'aria è un piano inclinato che governi tu.", "ph.2d": "Sali, scendi, viri con l'ala bassa e recuperi quota con il muso dove decidi tu. L'istruttore parla poco: ascolta il tuo respiro.", "ph.3t": "Uscite 4–5 · traffico e precisione", "ph.3h": "Il circuito si impara leggendo la pista, non il telefono.", "ph.3d": "Vento contrario in finale, allineamento sull'asse, velocità fissata in avvicinamento. Quando atterri col vento al traverso, non sei più un passeggero.", "ph.4t": "Uscita 6 · il tuo primo volo in solitaria", "ph.4h": "Solo, dritto, e un quaderno per il debrief.", "ph.4d": "L'istruttore scende dall'ala e ti affida il comando. Circuito completo senza compagnia: tu, il vento e la pista di 950 metri.", "fd.kicker": "Una giornata di scuola", "fd.title": "Prima di volare, prepariamo l'intera giornata.", "fd.note": "Ogni squadriglia si organizza come una piccola operazione: briefing, pre-volo, uscite e verbale finale. È così che si volano i giorni buoni e si evitano quelli cattivi.", "fd.aTitle": "Prima luce sulla sierra", "fd.aSub": "L'aria migliore della giornata è quella delle 6: meno termiche, cielo aperto e nebbia sul Tago. Per questo voliamo presto.", "fd.bTitle": "Briefing di 20 minuti", "fd.bSub": "Meteo, NOTAM e piano di volo del giorno. Se qualcosa non torna, il volo aspetta: non si negozia.", "fd.cTitle": "Pre-volo esterno", "fd.cSub": "Serbatoio, cavi, superfici: la tua prima lezione di manutenzione, guardando e toccando.", "fd.dTitle": "Uscite su 06/24", "fd.dSub": "Tre o quattro passate per squadriglia secondo il vento, con pausa tra le uscite per ripassare.", "fd.eTitle": "Verbale e quaderno", "fd.eSub": "Ogni uscita si annota: tempi, vento reale, sensazioni. Il progresso si legge nel quaderno.", "fd.fTitle": "Operazioni 2026", "fd.fSub": "Tre velivoli, due istruttori in organico e campo di volo privato. Niente code da aerodromo affollato.", "map.kicker": "Il nostro spazio aereo", "map.title": "Rotte disegnate sulla carta, non improvvisate.", "map.note": "Due circuiti di navigazione che userai in licenza. Niente attraversamenti di zone controllate: pianificazione pulita tra Casarrubios e la valle del Tiétar.", "map.leg1": "Corta (rotta A): valle del Tiétar · andata e ritorno 50 min", "map.leg2": "Lunga (rotta B): sierra di Gredos · 1 h 40", "qu.text": "Ho 3.000 ore davanti a una plancia di comando e iniziano tutte uguali: l'allievo che crede che volare sia un trucco finisce per capire che è una conversazione con il vento.", "qu.name": "Juanma Ortega", "qu.role": "Capo istruttori · 3.000 h ULM e aereo leggero", "faq.kicker": "Prima del decollo", "faq.title": "Quello che tutti chiedono in sala d'attesa.", "faq.sub": "E se il tuo dubbio non c'è, chiamaci: preferiamo rispondere male una volta che indovinare due volte.", "faq.q1": "Serve esperienza per il volo scoperta?", "faq.a1": "Nessuna. Se sai salire in auto e allacciarti la cintura, sai volare. L'istruttore fa decollo e atterraggio; tu ti godi il volo e prendi i comandi in aria calma.", "faq.q2": "Quanto dura la licenza ULM?", "faq.a2": "Tra 4 e 6 mesi volando un weekend sì e uno no. Le 45 ore si fanno in coppie di uscite al giorno; l'esame teorico si prepara da soli con il nostro programma.", "faq.q3": "E se ho il mal d'aria?", "faq.a3": "Respira, guarda l'orizzonte e dillo. Tutti hanno avuto un brutto giorno. Atterriamo, riposiamo un po' e riproviamo quando stomaco e testa si mettono d'accordo.", "faq.q4": "Che succede se il tempo si mette male?", "faq.a4": "Si sposta la data senza costi. Se il vento supera i 15 nodi o le nuvole sono basse, non si vola: è la regola della casa e non si negozia. Tu non paghi nulla e teniamo il tuo posto.", "faq.q5": "Posso portare qualcuno a guardare?", "faq.a5": "Certo: ci sono panchine sul bordo pista e il bar della scuola apre alle 9. Se il tuo accompagnatore si lancia, i voli scoperta si incatenano uno dopo l'altro.", "news.kicker": "Il bollettino del venerdì", "news.title": "Il meteo del prossimo weekend, nella tua casella.", "news.sub": "Ogni giovedì: METAR del sabato, posti liberi della squadriglia e una foto del verbale di volo. Nessuna pubblicità, nessuno spam.", "news.ph": "tu@email.it", "news.cta": "Iscriviti", "news.honest": "Ti apriamo la posta perché ci mandi il tuo indirizzo: una breve email di conferma, niente di più!", "news.thanks": "Grazie per esserti iscritto. Ti abbiamo appena aperto la posta per il primo bollettino.", "news.err": "Inserisci un indirizzo valido (tu@dominio.it).", "footer.tagline": "Scuola di ultraleggeri a Casarrubios del Monte, Toledo. A 45 minuti da Madrid sulla A-42, al confine con i colli e con i venti buoni.", "footer.contact": "Contatti", "footer.address": "Camino de la Atalaya, s/n · 45950 Casarrubios del Monte, Toledo", "footer.maps": "Come arrivare sulla mappa →", "footer.mail": "hola@heliceschool.es", "footer.hours": "Orari della scuola", "footer.hoursVal": "sab e dom · 08:00–14:00", "footer.rest": "voli scoperta anche in settimana", "footer.rights": "© 2026 Scuola HÉLICE. Tutti i diritti riservati.", "footer.made": "Fatto a terra, volato in aria.", "cookie.msg": "Usiamo i cookie solo per ricordare lingua e tema. Nessun tracciamento, nessuna pubblicità.", "cookie.ok": "OK", "cookie.no": "No", "meta.title": "HÉLICE · Scuola di volo ULM · Toledo", "meta.desc": "Il tuo primo volo a Toledo. Voli scoperta, licenza ULM e rotte sulla valle del Tiétar, con istruttori certificati e una pista al confine con i colli.", "og.title": "HÉLICE · Scuola di volo ULM", "og.desc": "Prendi i comandi al primo volo. Voli scoperta e licenza ULM a Casarrubios del Monte, Toledo.", "tw.title": "HÉLICE · Scuola di volo ULM", "tw.desc": "Pilota davvero dal primo minuto. Voli ULM a Toledo."}, pt: {"skip": "Saltar para o conteúdo", "nav.courses": "Cursos", "nav.school": "A escola", "nav.faq": "Perguntas", "nav.cta": "Reservar voo", "theme.aria": "Mudar para o modo escuro", "theme.light": "Mudar para o modo claro", "menu.aria": "Abrir menu", "hero.tag": "Casarrubios del Monte · Toledo", "hero.title": "O teu primeiro voo,<br>tu ao <span class=\"acc\">comando</span>.", "hero.sub": "A 45 minutos de Madrid, na pista de Casarrubios, pilotas a sério desde o primeiro minuto. Voo experimental ou licença ULM: comandos nas tuas mãos, instrutor ao lado e o vale do Tiétar lá em baixo.", "hero.cta1": "Reservar voo experimental", "hero.cta2": "Conhecer a escola", "hero.rwy": "PISTA 06/24", "hero.day": "pista de terra, 950 m", "hero.op": "Última esquadrilha: 19:30", "hero.radar": "Vento", "metar.live": "RELATÓRIO AO VIVO · LECX", "metar.time": "HORA", "metar.wind": "VENTO", "metar.vis": "VIS", "metar.clouds": "NUVENS", "metar.temp": "TEMP", "metar.qnh": "QNH", "metar.end": "— apto para voo visual", "courses.kicker": "Duas portas de entrada", "courses.title": "No ar, as horas contam-se de outra maneira.", "courses.note": "Uma tarde para experimentar, ou um plano de 10 fins de semana para a tua licença. A mesma pista, o mesmo instrutor, o mesmo céu.", "courses.p1": "Voo experimental", "courses.p1code": "VOO 001 · sem requisitos", "courses.p1sub": "30 minutos de voo a sério. Tu tens os comandos em retas e curvas; o instrutor descola e aterra. Passeio sobre o Tiétar incluído.", "courses.s1": "30'", "courses.s1l": "no ar", "courses.s2": "1", "courses.s2l": "piloto ao comando", "courses.s3": "6", "courses.s3l": "lugares por esquadrilha", "courses.p1cta": "Reservar um lugar", "courses.p1li": "desde 89 €", "courses.p2": "Licença ULM", "courses.p2code": "PROGRAMA 45H · mín. 17 anos", "courses.p2sub": "O plano completo para voar a solo: 25 horas com instrutor, 10 em circuito de tráfego e 10 de navegação. Exame teórico e voo de demonstração incluídos.", "courses.s4": "45 h", "courses.s4l": "de voo", "courses.s5": "10", "courses.s5l": "fins de semana", "courses.s6": "3,2", "courses.s6l": "k€ no total", "courses.p2cta": "Falar com o chefe de pilotos", "courses.p2li": "vagas 2026 abertas", "ph.kicker": "O caminho, passo a passo", "ph.title": "De passageiro a piloto em seis saídas.", "ph.note": "Nada de simulador infinito nem teoria interminável: aqui o progresso mede-se em saídas para a pista, e cada uma tem um objetivo concreto.", "ph.1t": "Saída 1 · familiarização", "ph.1h": "Conheces o avião: pré-voo, painel e motor.", "ph.1d": "Verificas cada peça antes de a ligar: inspeção exterior, pressão do óleo, comandos que respondem. O medo vai-se por onde veio: com informação.", "ph.2t": "Saídas 2–3 · picados e curvas", "ph.2h": "O ar é um plano inclinado que tu governas.", "ph.2d": "Sobes, desces, curvas com a asa baixa e recuperas a altura com o nariz onde tu decides. O instrutor fala pouco: escuta a tua respiração.", "ph.3t": "Saídas 4–5 · tráfego e precisão", "ph.3h": "O circuito aprende-se a ler a pista, não o telemóvel.", "ph.3d": "Vento de frente na final, alinhamento com o eixo, velocidade fixada na aproximação. Quando aterras com vento cruzado, já não és passageiro.", "ph.4t": "Saída 6 · o teu primeiro voo a solo", "ph.4h": "Sozinho, mesmo à frente, e um caderno para o debrief.", "ph.4d": "O instrutor desce da asa e passa-te o comando. Circuito completo sem companhia: tu, o vento e a pista de 950 metros.", "fd.kicker": "Um dia de escola", "fd.title": "Antes de voar, preparamos o dia inteiro.", "fd.note": "Cada esquadrilha organiza-se como uma pequena operação: briefing, pré-voo, saídas e relatório final. É assim que se voam os dias bons e se evitam os maus.", "fd.aTitle": "Primeira luz sobre a serra", "fd.aSub": "O melhor ar do dia é o das 6: menos térmicas, céu aberto e nevoeiro colado ao Tejo. Por isso voamos cedo.", "fd.bTitle": "Briefing de 20 minutos", "fd.bSub": "Meteorologia, NOTAMs e plano de voo do dia. Se algo não bate certo, o voo espera: isso não se negocia.", "fd.cTitle": "Pré-voo exterior", "fd.cSub": "Depósito, cabos, superfícies: a tua primeira lição de manutenção, olhando e tocando.", "fd.dTitle": "Saídas na 06/24", "fd.dSub": "Três ou quatro passagens por esquadrilha conforme o vento, com pausa entre saídas para rever.", "fd.eTitle": "Relatório e caderno", "fd.eSub": "Cada saída fica anotada: tempos, vento real, sensações. O progresso lê-se no caderno.", "fd.fTitle": "Operações em 2026", "fd.fSub": "Três aviões, dois instrutores no quadro e campo de voo privado. Sem filas de aeródromo cheio.", "map.kicker": "O nosso espaço aéreo", "map.title": "Rotas desenhadas no mapa, não improvisadas.", "map.note": "Dois circuitos de navegação que vais usar na licença. Nada de atravessar zonas controladas: planeamento limpo entre Casarrubios e o vale do Tiétar.", "map.leg1": "Curta (rota A): vale do Tiétar · ida e volta 50 min", "map.leg2": "Longa (rota B): serra de Gredos · 1 h 40", "qu.text": "Tenho 3.000 horas diante de um painel de instrumentos e todas começam igual: o aluno que pensa que voar é um truque acaba por perceber que é uma conversa com o vento.", "qu.name": "Juanma Ortega", "qu.role": "Chefe de instrutores · 3.000 h ULM e avioneta", "faq.kicker": "Antes de descolar", "faq.title": "O que toda a gente pergunta na sala de espera.", "faq.sub": "E se a tua dúvida não está aqui, liga-nos: preferimos responder mal uma vez a adivinhar duas.", "faq.q1": "Preciso de experiência para o voo experimental?", "faq.a1": "Nenhuma. Se sabes entrar num carro e apertar o cinto, sabes voar. O instrutor faz a descolagem e a aterragem; tu aproveitas e tens os comandos em ar calmo.", "faq.q2": "Quanto tempo demora a licença ULM?", "faq.a2": "Entre 4 e 6 meses a voar um fim de semana sim e outro não. As 45 horas fazem-se em pares de saídas por dia; o exame teórico prepara-se sozinho com o nosso programa.", "faq.q3": "E se me sentir mal no ar?", "faq.a3": "Respira, olha para o horizonte e diz. Toda a gente já teve um mau dia. Aterramos, descansamos um bocado e tentamos quando o estômago e a cabeça se põem de acordo.", "faq.q4": "E se o dia sair com mau tempo?", "faq.a4": "Mudamos a data sem custos. Se o vento passar dos 15 nós ou houver nuvens baixas, não voamos: é a regra da casa e não se negocia. Tu não pagas nada e guardamos o teu lugar.", "faq.q5": "Posso levar alguém para ver?", "faq.a5": "Claro: há bancos ao lado da pista e o bar da escola abre às 9. Se o teu acompanhante se animar, os voos experimentais encadeiam-se um atrás do outro.", "news.kicker": "O relatório de sexta-feira", "news.title": "O tempo do próximo fim de semana, no teu e-mail.", "news.sub": "Toda a quinta: METAR do sábado, vagas livres da esquadrilha e uma foto do relatório de voo. Sem publicidade, sem spam.", "news.ph": "tu@email.pt", "news.cta": "Subscrever", "news.honest": "Abrimos o teu correio para nos enviares o endereço: um e-mail curto de confirmação, nada mais!", "news.thanks": "Obrigado por te juntares. Acabámos de abrir o teu correio para o primeiro relatório.", "news.err": "Escreve um endereço válido (tu@dominio.pt).", "footer.tagline": "Escola de ultraleves em Casarrubios del Monte, Toledo. A 45 minutos de Madrid pela A-42, no limite do monte e dos bons ventos.", "footer.contact": "Contacto", "footer.address": "Camino de la Atalaya, s/n · 45950 Casarrubios del Monte, Toledo", "footer.maps": "Como chegar no mapa →", "footer.mail": "hola@heliceschool.es", "footer.hours": "Horário da escola", "footer.hoursVal": "sáb e dom · 08:00–14:00", "footer.rest": "voos experimentais também durante a semana", "footer.rights": "© 2026 Escola HÉLICE. Todos os direitos reservados.", "footer.made": "Feito em terra, voado no ar.", "cookie.msg": "Usamos cookies só para lembrar o teu idioma e o teu tema. Sem rastreio, sem anúncios.", "cookie.ok": "OK", "cookie.no": "Não", "meta.title": "HÉLICE · Escola de voo em ultraleve · Toledo", "meta.desc": "O teu primeiro voo em Toledo. Voos experimentais, licença ULM e rotas sobre o vale do Tiétar, com instrutores certificados e uma pista no limite do monte.", "og.title": "HÉLICE · Escola de voo em ultraleve", "og.desc": "Agarra nos comandos desde o primeiro voo. Voos experimentais e licença ULM em Casarrubios del Monte, Toledo.", "tw.title": "HÉLICE · Escola de voo em ultraleve", "tw.desc": "Pilota a sério desde o primeiro minuto. Voos ULM em Toledo."}};
+
+/* ============ helpers ============ */
+function $(s, c) { return (c || document).querySelector(s); }
+function $$(s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); }
+var LANGS = ['en', 'es', 'fr', 'de', 'it', 'pt'];
+
+/* ============ lang (declared BEFORE theme: applyTheme reads getLang) ============ */
+var LANG_KEY = 'helice-lang';
+function getLang() {
+  var saved = null;
+  try { saved = localStorage.getItem(LANG_KEY); } catch (e) {}
+  if (saved && I18N[saved]) return saved;
+  var nav = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
+  for (var i = 0; i < LANGS.length; i++) {
+    if (nav.indexOf(LANGS[i]) === 0) return LANGS[i];
+  }
+  return 'es';
+}
+
+/* ============ theme ============ */
+var THEME_KEY = 'kairos-theme';
+function getTheme() {
+  var saved = null;
+  try { saved = localStorage.getItem(THEME_KEY); } catch (e) {}
+  return saved === 'dark' ? 'dark' : 'light';
+}
+function applyTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  try { localStorage.setItem(THEME_KEY, theme); } catch (e) {}
+  var t = $('#themeToggle');
+  if (t) {
+    var dark = theme === 'dark';
+    t.setAttribute('aria-label', dark ? I18N[getLang()]['theme.light'] : I18N[getLang()]['theme.aria']);
+  }
+}
+var themeToggle = $('#themeToggle');
+if (themeToggle) {
+  themeToggle.addEventListener('click', function () {
+    applyTheme(getTheme() === 'dark' ? 'light' : 'dark');
+  });
+}
+
+/* ============ i18n apply ============ */
+function applyLang(lang) {
+  if (!I18N[lang]) lang = 'es';
+  var dict = I18N[lang];
+  try { localStorage.setItem(LANG_KEY, lang); } catch (e) {}
+  $$('[data-i18n]').forEach(function (el) {
+    var val = dict[el.getAttribute('data-i18n')];
+    if (val !== undefined) el.textContent = val;
+  });
+  $$('[data-i18n-html]').forEach(function (el) {
+    var val = dict[el.getAttribute('data-i18n-html')];
+    if (val !== undefined) el.innerHTML = val;
+  });
+  $$('[data-i18n-aria]').forEach(function (el) {
+    var val = dict[el.getAttribute('data-i18n-aria')];
+    if (val !== undefined) el.setAttribute('aria-label', val);
+  });
+  $$('[data-i18n-ph]').forEach(function (el) {
+    var val = dict[el.getAttribute('data-i18n-ph')];
+    if (val !== undefined) el.setAttribute('placeholder', val);
+  });
+  var mt = $('#doc-title');
+  if (mt && dict['meta.title']) mt.textContent = dict['meta.title'];
+  var md = $('#meta-desc');
+  if (md && dict['meta.desc']) md.setAttribute('content', dict['meta.desc']);
+  var ogt = $('meta[property="og:title"]');
+  if (ogt && dict['og.title']) ogt.setAttribute('content', dict['og.title']);
+  var ogd = $('meta[property="og:description"]');
+  if (ogd && dict['og.desc']) ogd.setAttribute('content', dict['og.desc']);
+  var twt = $('meta[name="twitter:title"]');
+  if (twt && dict['tw.title']) twt.setAttribute('content', dict['tw.title']);
+  var twd = $('meta[name="twitter:description"]');
+  if (twd && dict['tw.desc']) twd.setAttribute('content', dict['tw.desc']);
+  document.documentElement.setAttribute('lang', lang);
+  $$('.lang-select__cur').forEach(function (el) { el.textContent = lang.toUpperCase(); });
+  $$('.lang-select__opt').forEach(function (opt) {
+    opt.setAttribute('aria-selected', opt.getAttribute('data-lang') === lang ? 'true' : 'false');
+  });
+  applyTheme(getTheme());
+}
+
+/* ============ lang dropdowns (both copies) ============ */
+function closeLangMenus() {
+  $$('.lang-select').forEach(function (sel) {
+    var menu = $('.lang-select__menu', sel), btn = $('.lang-select__btn', sel);
+    if (!menu) return;
+    menu.classList.remove('open');
+    if (btn) btn.setAttribute('aria-expanded', 'false');
+  });
+}
+$$('.lang-select').forEach(function (sel) {
+  var btn = $('.lang-select__btn', sel), menu = $('.lang-select__menu', sel);
+  if (!btn || !menu) return;
+  btn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    var open = menu.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (open) {
+      $$('.lang-select').forEach(function (other) {
+        if (other !== sel) {
+          var om = $('.lang-select__menu', other), ob = $('.lang-select__btn', other);
+          if (om) om.classList.remove('open');
+          if (ob) ob.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+  });
+  $$('.lang-select__opt', sel).forEach(function (opt) {
+    opt.addEventListener('click', function () {
+      applyLang(opt.getAttribute('data-lang'));
+      closeLangMenus();
+    });
+  });
+});
+document.addEventListener('click', function (e) {
+  var inside = false;
+  $$('.lang-select').forEach(function (sel) { if (sel.contains(e.target)) inside = true; });
+  if (!inside) closeLangMenus();
+});
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape') { closeLangMenus(); closeMobile(); }
+});
+
+/* ============ mobile menu ============ */
+var burger = $('#burger'), mobileMenu = $('#mobileMenu');
+function closeMobile() {
+  if (!mobileMenu) return;
+  mobileMenu.classList.remove('open');
+  if (burger) burger.setAttribute('aria-expanded', 'false');
+}
+if (burger && mobileMenu) {
+  burger.addEventListener('click', function () {
+    var open = mobileMenu.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  $$('a', mobileMenu).forEach(function (a) {
+    a.addEventListener('click', closeMobile);
+  });
+}
+
+/* ============ boot order: theme must not crash before getLang is ready ============ */
+applyLang(getLang());
+
+/* ============ live METAR clock (Zulu time) ============ */
+function zuluNow() {
+  var d = new Date();
+  function p(n) { return (n < 10 ? '0' : '') + n; }
+  return p(d.getUTCHours()) + ':' + p(d.getUTCMinutes()) + 'Z';
+}
+var metarTime = $('#metarTime');
+if (metarTime) {
+  metarTime.textContent = zuluNow();
+  setInterval(function () { metarTime.textContent = zuluNow(); }, 60000);
+}
+
+/* ============ scroll reveal (rAF geometry-safe, fail-open) ============ */
+var rvEls = $$('.rv');
+function revealCheck() {
+  var vh = window.innerHeight || document.documentElement.clientHeight;
+  rvEls.forEach(function (el) {
+    if (el.classList.contains('in')) return;
+    var r = el.getBoundingClientRect();
+    if (r.top < vh * 0.92) el.classList.add('in');
+  });
+}
+var ticking = false;
+function onScroll() {
+  if (ticking) return;
+  ticking = true;
+  window.requestAnimationFrame(function () {
+    revealCheck();
+    ticking = false;
+  });
+}
+window.addEventListener('scroll', onScroll, { passive: true });
+window.addEventListener('resize', onScroll, { passive: true });
+if ('IntersectionObserver' in window) {
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (en.isIntersecting) en.target.classList.add('in');
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.01 });
+  rvEls.forEach(function (el) { io.observe(el); });
+}
+revealCheck();
+document.documentElement.classList.remove('no-js');
+setTimeout(revealCheck, 600);
+setTimeout(function () {
+  var vh = window.innerHeight || document.documentElement.clientHeight;
+  var missed = false;
+  rvEls.forEach(function (el) {
+    var r = el.getBoundingClientRect();
+    if (r.top < vh * 0.92 && r.bottom > 0 && !el.classList.contains('in')) missed = true;
+  });
+  if (missed) rvEls.forEach(function (el) { el.classList.add('in'); });
+}, 1800);
+
+/* ============ FAQ accordion ============ */
+$$('.faq-item').forEach(function (item) {
+  var q = $('.faq-q', item), a = $('.faq-a', item);
+  if (!q || !a) return;
+  q.addEventListener('click', function () {
+    var isOpen = item.classList.contains('open');
+    $$('.faq-item.open').forEach(function (other) {
+      if (other !== item) {
+        other.classList.remove('open');
+        var oq = $('.faq-q', other), oa = $('.faq-a', other);
+        if (oq) oq.setAttribute('aria-expanded', 'false');
+        if (oa) oa.style.maxHeight = '0px';
+      }
+    });
+    item.classList.toggle('open', !isOpen);
+    q.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+    a.style.maxHeight = isOpen ? '0px' : a.scrollHeight + 'px';
+  });
+});
+
+/* ============ cookie banner ============ */
+var cookieBanner = $('#cookieBanner');
+var COOKIE_KEY = 'helice-cookie';
+function hideCookie() {
+  if (!cookieBanner) return;
+  cookieBanner.classList.remove('show');
+  try { localStorage.setItem(COOKIE_KEY, '1'); } catch (e) {}
+}
+var ckOk = $('#cookieOk'), ckNo = $('#cookieNo');
+if (ckOk) ckOk.addEventListener('click', hideCookie);
+if (ckNo) ckNo.addEventListener('click', hideCookie);
+(function () {
+  var done = false;
+  try { done = localStorage.getItem(COOKIE_KEY) === '1'; } catch (e) {}
+  if (done || !cookieBanner) return;
+  setTimeout(function () { cookieBanner.classList.add('show'); }, 3200);
+})();
+
+/* ============ newsletter — honest mailto (no fake OK) ============ */
+var newsForm = $('#newsForm');
+if (newsForm) {
+  var nlMsg = $('#nlMsg');
+  newsForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var email = ($('#newsEmail') || {}).value || '';
+    var lang = getLang();
+    if (!email || email.indexOf('@') < 1) {
+      if (nlMsg) {
+        nlMsg.textContent = I18N[lang]['news.err'];
+        nlMsg.className = 'nl-msg err';
+      }
+      return;
+    }
+    var subject = 'El parte del viernes — HÉLICE';
+    var body = 'Hola HÉLICE, quiero recibir el parte del viernes.\nMi correo: ' + email;
+    window.location.href = 'mailto:hola@heliceschool.es?subject='
+      + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    if (nlMsg) {
+      nlMsg.textContent = I18N[lang]['news.thanks'];
+      nlMsg.className = 'nl-msg ok';
+    }
+  });
+}
+</script>
+</body>
+</html>

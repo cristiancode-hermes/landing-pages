@@ -1,0 +1,1589 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" class="no-js">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ritmo — Train to your own rhythm</title>
+<meta name="description" content="Ritmo builds an adaptive training plan around your body — your zones, your schedule, your recovery. Coaching for runners and riders who want real progress.">
+<link rel="canonical" href="https://ritmo.example.com/">
+<meta name="theme-color" content="#f5f0e7">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ritmo — Train to your own rhythm">
+<meta property="og:description" content="Adaptive training plans built around your zones, schedule and recovery. Run and ride to your own rhythm.">
+<meta property="og:url" content="https://ritmo.example.com/">
+<meta property="og:image" content="https://ritmo.example.com/og.png">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="es_ES">
+<meta property="og:locale:alternate" content="fr_FR">
+<meta property="og:locale:alternate" content="de_DE">
+<meta property="og:locale:alternate" content="it_IT">
+<meta property="og:locale:alternate" content="pt_PT">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ritmo — Train to your own rhythm">
+<meta name="twitter:description" content="Adaptive training plans built around your zones, schedule and recovery.">
+<meta name="twitter:image" content="https://ritmo.example.com/og.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,500;0,600;0,700;0,800;0,900;1,700&family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   RITMO — Training, tuned to your rhythm
+   Design tokens · Bento UI · warm paper / coral on ink
+   ============================================================ */
+
+/* ---------- Design tokens (OKLCH-informed, WCAG-verified) ---------- */
+:root {
+  /* Light theme (default) */
+  --bg: #f5f0e7;            /* warm paper, chroma tinted toward brand hue */
+  --surface: #fffdf9;
+  --surface-2: #efe8da;
+  --ink: #241d15;
+  --muted: #6d6150;         /* 5.32:1 on --bg — passes body text */
+  --accent: #e0451a;        /* coral — decorative / large type / charts */
+  --accent-deep: #b93a12;   /* 5.71:1 with white — buttons & accent text */
+  --accent-soft: #fae6da;
+  --border: #e2d8c6;
+  --shadow: 0 1px 2px rgba(36,29,21,.06), 0 12px 32px -12px rgba(36,29,21,.16);
+
+  /* Type */
+  --font-display: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --font-body: "Barlow", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", monospace;
+
+  /* Scale */
+  --sp-1: .25rem; --sp-2: .5rem; --sp-3: .75rem; --sp-4: 1rem;
+  --sp-5: 1.5rem; --sp-6: 2rem; --sp-7: 3rem; --sp-8: 4rem; --sp-9: 6rem;
+  --r-sm: 8px; --r-md: 14px; --r-lg: 20px;
+
+  /* Semantic z-index scale (never arbitrary 999) */
+  --z-nav: 10;
+  --z-cookie: 20;
+
+  --maxw: 1180px;
+}
+
+[data-theme="dark"] {
+  --bg: #1c1712;
+  --surface: #251f18;
+  --surface-2: #2e271d;
+  --ink: #f1e9db;
+  --muted: #a99c87;          /* 6.60:1 on --bg */
+  --accent: #ff6a3b;
+  --accent-deep: #ff8a63;    /* 7.68:1 on --bg */
+  --accent-soft: #3a2318;
+  --border: #3d3428;
+  --shadow: 0 1px 2px rgba(0,0,0,.35), 0 16px 40px -14px rgba(0,0,0,.5);
+}
+
+/* ---------- Reset & base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--bg);
+  transition: background-color .35s ease, color .35s ease;
+}
+img, svg { display: block; max-width: 100%; }
+h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; margin: 0; line-height: 1.05; }
+p { text-wrap: pretty; }
+a { color: var(--accent-deep); }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+::selection { background: var(--accent); color: var(--bg); }
+.skip-link {
+  position: absolute; left: -999px; top: 0; z-index: var(--z-nav);
+  background: var(--ink); color: var(--bg); padding: var(--sp-3) var(--sp-5);
+  border-radius: 0 0 var(--r-sm) 0; font-weight: 600;
+}
+.skip-link:focus { left: 0; }
+
+.wrap { max-width: var(--maxw); margin-inline: auto; padding-inline: clamp(1rem, 4vw, 2rem); }
+.section { padding-block: clamp(3.5rem, 8vw, 6.5rem); }
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex; align-items: center; gap: .5rem;
+  font-family: var(--font-display); font-weight: 700; font-size: 1.15rem;
+  letter-spacing: .01em; text-transform: uppercase;
+  padding: .8rem 1.6rem; border-radius: var(--r-sm);
+  border: 2px solid transparent; cursor: pointer;
+  text-decoration: none; line-height: 1;
+  transition: transform .25s cubic-bezier(.16,1,.3,1), box-shadow .25s;
+}
+.btn:active { transform: translateY(1px) scale(.99); }
+.btn-primary { background: var(--accent-deep); color: #fff; box-shadow: 0 6px 0 var(--accent-soft); }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 0 var(--accent-soft); }
+.btn-ghost { background: transparent; color: var(--ink); border-color: var(--ink); }
+.btn-ghost:hover { background: var(--ink); color: var(--bg); }
+
+/* ---------- Nav ---------- */
+.nav {
+  position: sticky; top: 0; z-index: var(--z-nav);
+  background: var(--bg); border-bottom: 1px solid transparent;
+  transition: border-color .3s;
+}
+.nav.scrolled { border-bottom-color: var(--border); }
+.nav-inner { display: flex; align-items: center; gap: var(--sp-5); height: 68px; }
+.brand { display: flex; align-items: baseline; gap: .45rem; text-decoration: none; color: var(--ink); font-family: var(--font-display); font-weight: 900; font-size: 1.55rem; letter-spacing: .02em; }
+.brand .dot { color: var(--accent); font-size: 1.9rem; line-height: 0; }
+.brand small { font-family: var(--font-mono); font-size: .62rem; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.nav-links { display: flex; gap: var(--sp-5); margin-left: auto; }
+.nav-links a { text-decoration: none; color: var(--muted); font-weight: 500; font-size: .98rem; }
+.nav-links a:hover { color: var(--ink); }
+.nav-tools { display: flex; align-items: center; gap: var(--sp-3); }
+.lang-switch {
+  font-family: var(--font-mono); font-size: .8rem; font-weight: 500;
+  background: var(--surface); color: var(--ink); border: 1px solid var(--border);
+  border-radius: var(--r-sm); padding: .45rem .6rem; cursor: pointer;
+}
+.theme-btn {
+  width: 40px; height: 40px; display: grid; place-items: center;
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-sm);
+  color: var(--ink); cursor: pointer;
+}
+.theme-btn svg { width: 18px; height: 18px; }
+[data-theme="light"] .icon-sun { display: none; }
+[data-theme="dark"] .icon-moon { display: none; }
+.nav-cta { display: none; }
+@media (min-width: 640px) { .nav-cta { display: inline-flex; padding: .6rem 1.1rem; font-size: 1rem; } }
+@media (max-width: 900px) { .nav-links { display: none; } }
+
+/* ---------- Hero ---------- */
+.hero { padding-top: clamp(2.5rem, 6vw, 4.5rem); padding-bottom: clamp(3rem, 7vw, 5.5rem); }
+.hero-grid {
+  display: grid; gap: clamp(2.5rem, 5vw, 4rem);
+  grid-template-columns: 1fr;
+  align-items: center;
+}
+@media (min-width: 980px) { .hero-grid { grid-template-columns: 1.05fr .95fr; } }
+
+.hero-badge {
+  display: inline-flex; align-items: center; gap: .5rem;
+  font-family: var(--font-mono); font-size: .78rem; font-weight: 500;
+  color: var(--accent-deep); background: var(--accent-soft);
+  border: 1px solid var(--border); border-radius: 999px;
+  padding: .35rem .85rem; margin-bottom: var(--sp-5);
+}
+.hero-badge .pulse { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); animation: pulse 2.4s ease-in-out infinite; }
+@keyframes pulse { 0%,100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.5); opacity: .45; } }
+
+.hero h1 {
+  font-weight: 800; text-transform: uppercase;
+  font-size: clamp(2.7rem, 7vw, 5.4rem);   /* ceiling ≤ 6rem */
+  letter-spacing: -.01em;
+  max-width: 12ch;
+}
+.hero h1 .accent-word { color: var(--accent-deep); display: block; }
+.hero-sub { font-size: 1.15rem; color: var(--muted); max-width: 52ch; margin: var(--sp-5) 0 var(--sp-6); }
+.hero-ctas { display: flex; flex-wrap: wrap; gap: var(--sp-4); align-items: center; }
+.hero-note { font-family: var(--font-mono); font-size: .8rem; color: var(--muted); margin-top: var(--sp-5); }
+
+/* Hero product mock — "Today's session" screen */
+.mock {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--r-lg); box-shadow: var(--shadow);
+  padding: clamp(1.1rem, 3vw, 1.6rem);
+  position: relative;
+}
+.mock-bar { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: var(--sp-5); }
+.mock-bar h3 { font-size: 1.35rem; font-weight: 700; text-transform: uppercase; letter-spacing: .01em; }
+.mock-date { font-family: var(--font-mono); font-size: .74rem; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; }
+.mock-body { display: grid; gap: var(--sp-4); grid-template-columns: auto 1fr; align-items: center; }
+@media (max-width: 420px) { .mock-body { grid-template-columns: 1fr; } }
+
+.ring-wrap { position: relative; width: 150px; height: 150px; }
+.ring-wrap .ring-center { position: absolute; inset: 0; display: grid; place-content: center; text-align: center; }
+.ring-center b { font-family: var(--font-mono); font-size: 1.7rem; font-weight: 700; line-height: 1; }
+.ring-center span { font-family: var(--font-mono); font-size: .66rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.ring-progress { transform: rotate(-90deg); }
+.ring-progress circle { fill: none; stroke-width: 10; }
+.ring-track { stroke: var(--surface-2); }
+.ring-arc {
+  stroke: var(--accent); stroke-linecap: round;
+  stroke-dasharray: 283; stroke-dashoffset: 283;
+  animation: ring 1.6s cubic-bezier(.16,1,.3,1) .3s forwards;
+}
+@keyframes ring { to { stroke-dashoffset: 118; } }  /* ~ Zone 3 arc */
+
+.mock-list { display: grid; gap: var(--sp-3); }
+.mock-row {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--sp-3);
+  border: 1px solid var(--border); border-radius: var(--r-md);
+  padding: .65rem .8rem; background: var(--bg);
+}
+.mock-row .row-main { display: flex; flex-direction: column; }
+.mock-row .row-name { font-weight: 600; font-size: .95rem; }
+.mock-row .row-sub { font-family: var(--font-mono); font-size: .72rem; color: var(--muted); }
+.chip {
+  font-family: var(--font-mono); font-size: .68rem; font-weight: 500;
+  padding: .22rem .55rem; border-radius: 999px;
+  background: var(--accent-soft); color: var(--accent-deep);
+  white-space: nowrap;
+}
+.chip.done { background: var(--surface-2); color: var(--muted); }
+.mock-foot { margin-top: var(--sp-5); }
+.progress-label { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: .72rem; color: var(--muted); margin-bottom: .4rem; }
+.progress-track { height: 8px; border-radius: 999px; background: var(--surface-2); overflow: hidden; }
+.progress-fill { height: 100%; width: 68%; background: var(--accent); border-radius: 999px; animation: fill 1.4s cubic-bezier(.16,1,.3,1) .6s backwards; }
+@keyframes fill { from { width: 0; } }
+
+/* ---------- Cadence trace (scroll-drawn SVG) ---------- */
+.trace-band { padding-block: clamp(2rem, 5vw, 3.5rem); border-block: 1px solid var(--border); }
+.trace-cap { display: flex; justify-content: space-between; align-items: baseline; gap: var(--sp-4); margin-bottom: var(--sp-3); flex-wrap: wrap; }
+.trace-cap p { font-family: var(--font-mono); font-size: .78rem; color: var(--muted); margin: 0; letter-spacing: .06em; text-transform: uppercase; }
+.trace-svg { width: 100%; height: auto; }
+.trace-path {
+  fill: none; stroke: var(--accent); stroke-width: 3; stroke-linecap: round;
+  stroke-dasharray: 1; stroke-dashoffset: 1;   /* pathLength=1 → drawn on scroll */
+}
+
+/* ---------- Marquee ---------- */
+.marquee { overflow: hidden; border-block: 1px solid var(--border); padding-block: var(--sp-4); background: var(--surface); }
+.marquee-track { display: flex; gap: var(--sp-7); width: max-content; animation: marquee 32s linear infinite; }
+.marquee span {
+  font-family: var(--font-display); font-weight: 700; text-transform: uppercase;
+  font-size: 1.3rem; letter-spacing: .05em; color: var(--muted);
+  display: inline-flex; align-items: center; gap: var(--sp-7); white-space: nowrap;
+}
+.marquee span::after { content: ""; width: 10px; height: 10px; background: var(--accent); border-radius: 50%; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+
+/* ---------- Section headings ---------- */
+.sec-head { margin-bottom: clamp(2rem, 5vw, 3.5rem); max-width: 60ch; }
+.sec-head h2 { font-size: clamp(2rem, 4.5vw, 3.2rem); font-weight: 800; text-transform: uppercase; letter-spacing: -.005em; }
+.sec-head p { color: var(--muted); font-size: 1.08rem; margin: var(--sp-4) 0 0; }
+
+/* ---------- Process (real 3-step sequence → numbers justified) ---------- */
+.process-grid { display: grid; gap: var(--sp-5); grid-template-columns: 1fr; }
+@media (min-width: 820px) { .process-grid { grid-template-columns: repeat(3, 1fr); } }
+.step {
+  position: relative; padding: var(--sp-6) var(--sp-5);
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+}
+.step-num {
+  font-family: var(--font-display); font-weight: 900; font-size: 1.05rem;
+  width: 2.4rem; height: 2.4rem; display: grid; place-items: center;
+  border-radius: 50%; background: var(--ink); color: var(--bg);
+  margin-bottom: var(--sp-4);
+}
+.step h3 { font-size: 1.5rem; font-weight: 700; text-transform: uppercase; margin-bottom: var(--sp-2); }
+.step p { color: var(--muted); margin: 0; font-size: .98rem; }
+
+/* ---------- Feature splits (editorial, alternating) ---------- */
+.split { display: grid; gap: clamp(2rem, 5vw, 4rem); align-items: center; }
+.split + .split { margin-top: clamp(3.5rem, 8vw, 6rem); }
+@media (min-width: 900px) {
+  .split { grid-template-columns: 1fr 1fr; }
+  .split.flip > .split-visual { order: -1; }
+}
+.split-copy h3 { font-size: clamp(1.7rem, 3.5vw, 2.5rem); font-weight: 800; text-transform: uppercase; letter-spacing: -.002em; }
+.split-copy > p { color: var(--muted); margin: var(--sp-4) 0 var(--sp-5); max-width: 46ch; }
+.split-points { display: grid; gap: var(--sp-4); margin: 0; padding: 0; list-style: none; }
+.split-points li { display: flex; gap: var(--sp-3); align-items: flex-start; }
+.split-points .pt-ico {
+  flex: 0 0 auto; width: 1.9rem; height: 1.9rem; border-radius: var(--r-sm);
+  background: var(--accent-soft); color: var(--accent-deep);
+  display: grid; place-items: center; margin-top: .15rem;
+}
+.split-points .pt-ico svg { width: 16px; height: 16px; }
+.split-points b { display: block; font-weight: 600; font-size: 1rem; }
+.split-points span { color: var(--muted); font-size: .93rem; }
+
+.split-visual { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-lg); box-shadow: var(--shadow); padding: clamp(1.1rem, 3vw, 1.6rem); }
+.viz-title { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: var(--sp-4); }
+.viz-title h4 { font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; text-transform: uppercase; margin: 0; letter-spacing: .01em; }
+.viz-title span { font-family: var(--font-mono); font-size: .7rem; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; }
+
+/* Zone chart */
+.zone-chart { display: grid; gap: .55rem; }
+.zone-row { display: grid; grid-template-columns: 2.4rem 1fr; gap: var(--sp-3); align-items: center; }
+.zone-row .z-name { font-family: var(--font-mono); font-size: .7rem; color: var(--muted); }
+.zone-bar { height: 22px; border-radius: 6px; background: var(--surface-2); position: relative; overflow: hidden; }
+.zone-bar i { position: absolute; inset-block: 0; left: 0; border-radius: 6px; background: var(--accent); opacity: .85; }
+.zone-row.active .zone-bar { background: var(--accent-soft); }
+.zone-row.active .zone-bar i { background: var(--accent); opacity: 1; }
+.zone-row.active .z-name { color: var(--accent-deep); font-weight: 700; }
+
+/* Recovery panel */
+.recovery-list { display: grid; gap: var(--sp-3); }
+.rec-row { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed var(--border); padding-block: .6rem; }
+.rec-row:last-child { border-bottom: 0; }
+.rec-row .k { color: var(--muted); font-size: .93rem; }
+.rec-row .v { font-family: var(--font-mono); font-weight: 700; font-size: .95rem; }
+.rec-row .v.good { color: var(--accent-deep); }
+.readiness { display: flex; align-items: center; gap: var(--sp-4); margin-top: var(--sp-4); }
+.readiness .readiness-label { font-size: .9rem; color: var(--muted); }
+.readiness .readiness-label b { display: block; color: var(--ink); font-size: 1.1rem; }
+
+/* Team map */
+.team-map { position: relative; aspect-ratio: 16/9; border-radius: var(--r-md); background: var(--surface-2); overflow: hidden; }
+.team-map .route { fill: none; stroke: var(--accent); stroke-width: 3; stroke-dasharray: 7 7; opacity: .8; }
+.team-map .dot { fill: var(--accent-deep); }
+.team-map .dot.mate { fill: var(--ink); opacity: .75; }
+.team-map .pin-label { font-family: var(--font-mono); font-size: 10px; fill: var(--muted); }
+.team-roster { display: flex; gap: var(--sp-3); margin-top: var(--sp-4); flex-wrap: wrap; }
+.avatar { width: 38px; height: 38px; border-radius: 50%; border: 2px solid var(--border); display: grid; place-items: center; font-family: var(--font-display); font-weight: 800; font-size: .85rem; background: var(--bg); }
+.avatar.lead { border-color: var(--accent); }
+
+/* ---------- Bento showcase ---------- */
+.bento { display: grid; gap: var(--sp-4); grid-template-columns: repeat(4, 1fr); }
+.bento-cell {
+  container-type: inline-size;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--r-lg); padding: clamp(1rem, 4cqw, 1.6rem);
+  box-shadow: var(--shadow);
+  display: flex; flex-direction: column; gap: var(--sp-3); min-height: 190px;
+}
+.bento-cell h3 { font-size: 1.35rem; font-weight: 700; text-transform: uppercase; letter-spacing: .005em; }
+.bento-cell p { color: var(--muted); font-size: .93rem; margin: 0; }
+.bento-cell .cell-tag { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; color: var(--accent-deep); }
+.bento-cell .cell-vis { margin-top: auto; }
+.bento-big { grid-column: span 2; grid-row: span 2; min-height: 320px; background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.bento-big p { color: var(--bg); opacity: .75; }
+.bento-big .cell-tag { color: var(--accent); }
+.bento-wide { grid-column: span 2; }
+.bento-tall { grid-row: span 2; }
+@media (max-width: 900px) { .bento { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .bento { grid-template-columns: 1fr; } .bento-big, .bento-wide { grid-column: span 1; } .bento-big { grid-row: span 1; } }
+
+/* mini visuals inside bento cells */
+.mini-bars { display: flex; align-items: flex-end; gap: 6px; height: 64px; }
+.mini-bars i { flex: 1; border-radius: 4px 4px 0 0; background: var(--accent); opacity: .35; }
+.mini-bars i.hot { opacity: 1; background: var(--accent); }
+.mini-bars i.cool { background: var(--surface-2); opacity: 1; }
+.bento-big .mini-bars i.cool { background: rgba(255,255,255,.15); }
+.mini-ring { width: 74px; height: 74px; }
+.mini-dots { display: flex; gap: 8px; flex-wrap: wrap; }
+.mini-dots .avatar { width: 30px; height: 30px; font-size: .7rem; }
+.streak-days { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
+.streak-days i { aspect-ratio: 1; border-radius: 5px; background: var(--surface-2); }
+.streak-days i.on { background: var(--accent); }
+.mini-race { font-family: var(--font-mono); font-size: .74rem; color: var(--muted); display: flex; justify-content: space-between; border-top: 1px dashed var(--border); padding-top: .5rem; }
+.bento-big .mini-race { border-top-color: rgba(255,255,255,.2); color: var(--bg); opacity: .8; }
+.mini-race b { color: var(--ink); font-family: var(--font-mono); }
+.bento-big .mini-race b { color: var(--bg); }
+
+/* ---------- Testimonials ---------- */
+.testi-grid { display: grid; gap: var(--sp-5); grid-template-columns: 1fr; }
+@media (min-width: 900px) { .testi-grid { grid-template-columns: 1.3fr 1fr; } }
+.quote-feat {
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-lg);
+  padding: clamp(1.4rem, 4vw, 2.2rem); box-shadow: var(--shadow);
+  display: flex; flex-direction: column; gap: var(--sp-5);
+}
+.quote-feat blockquote { margin: 0; font-family: var(--font-display); font-weight: 600; font-size: clamp(1.35rem, 3vw, 1.85rem); line-height: 1.25; text-wrap: balance; }
+.quote-feat .qmark { color: var(--accent); font-family: var(--font-display); font-weight: 900; font-size: 3rem; line-height: 0; margin-bottom: var(--sp-2); }
+.quote-feat footer { display: flex; align-items: center; gap: var(--sp-3); margin-top: auto; }
+.quote-feat footer .avatar { width: 46px; height: 46px; font-size: 1rem; }
+.quote-feat footer b { display: block; font-weight: 600; }
+.quote-feat footer span { color: var(--muted); font-size: .9rem; }
+.testi-col { display: grid; gap: var(--sp-5); align-content: start; }
+.quote-sm { border-left: 0; border: 1px solid var(--border); border-radius: var(--r-md); padding: var(--sp-5); background: var(--surface); margin: 0; }
+.quote-sm p { margin: 0 0 var(--sp-4); color: var(--ink); font-size: .98rem; }
+.quote-sm footer { display: flex; align-items: center; gap: var(--sp-3); }
+.quote-sm footer b { font-size: .9rem; display: block; }
+.quote-sm footer span { color: var(--muted); font-size: .82rem; }
+
+/* ---------- Pricing (compare) ---------- */
+.pricing-grid { display: grid; gap: var(--sp-5); grid-template-columns: 1fr; align-items: stretch; }
+@media (min-width: 860px) { .pricing-grid { grid-template-columns: repeat(3, 1fr); } }
+.plan {
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-lg);
+  padding: var(--sp-6); display: flex; flex-direction: column; position: relative;
+}
+.plan.hot { border-color: var(--accent); box-shadow: var(--shadow); }
+.plan-badge {
+  position: absolute; top: -13px; left: 50%; translate: -50% 0;
+  font-family: var(--font-mono); font-size: .68rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+  background: var(--accent-deep); color: #fff; padding: .3rem .8rem; border-radius: 999px; white-space: nowrap;
+}
+.plan h3 { font-size: 1.4rem; font-weight: 800; text-transform: uppercase; }
+.plan-price { display: flex; align-items: baseline; gap: .3rem; margin: var(--sp-4) 0 var(--sp-5); }
+.plan-price .amt { font-family: var(--font-display); font-weight: 900; font-size: 3rem; line-height: 1; }
+.plan-price .per { font-family: var(--font-mono); font-size: .78rem; color: var(--muted); }
+.plan ul { list-style: none; margin: 0 0 var(--sp-6); padding: 0; display: grid; gap: .7rem; }
+.plan li { display: flex; gap: .6rem; align-items: flex-start; font-size: .95rem; }
+.plan li .tick { color: var(--accent-deep); flex: 0 0 auto; margin-top: .1rem; }
+.plan li svg { width: 15px; height: 15px; }
+.plan .btn { margin-top: auto; justify-content: center; }
+
+/* ---------- FAQ ---------- */
+.faq-list { max-width: 760px; margin-inline: auto; display: grid; gap: var(--sp-3); }
+.faq-item { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-md); overflow: hidden; }
+.faq-item summary {
+  cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: var(--sp-4);
+  padding: var(--sp-5); font-weight: 600; font-size: 1.02rem;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: "+"; font-family: var(--font-display); font-weight: 700; font-size: 1.5rem; line-height: 1;
+  color: var(--accent-deep); transition: transform .3s cubic-bezier(.16,1,.3,1);
+}
+.faq-item[open] summary::after { transform: rotate(45deg); }
+.faq-item .faq-body { padding: 0 var(--sp-5) var(--sp-5); color: var(--muted); }
+.faq-item .faq-body p { margin: 0; }
+
+/* ---------- CTA band ---------- */
+.cta-band {
+  background: var(--ink); color: var(--bg); border-radius: var(--r-lg);
+  padding: clamp(2rem, 6vw, 3.5rem); text-align: center;
+  display: grid; gap: var(--sp-5); justify-items: center;
+}
+.cta-band h2 { font-size: clamp(2rem, 5vw, 3.4rem); font-weight: 900; text-transform: uppercase; }
+.cta-band p { color: var(--bg); opacity: .75; max-width: 46ch; margin: 0; }
+.cta-band .btn-primary { background: var(--accent); color: var(--ink); box-shadow: 0 6px 0 rgba(0,0,0,.35); }
+.cta-band .btn-primary:hover { box-shadow: 0 8px 0 rgba(0,0,0,.35); }
+.news-form { display: flex; gap: var(--sp-3); flex-wrap: wrap; justify-content: center; width: 100%; max-width: 480px; }
+.news-form input {
+  flex: 1 1 220px; font-family: var(--font-body); font-size: .98rem;
+  padding: .85rem 1rem; border-radius: var(--r-sm); border: 2px solid transparent;
+  background: rgba(255,255,255,.12); color: var(--bg);
+}
+.news-form input::placeholder { color: rgba(255,255,255,.55); }
+.news-form input:focus { border-color: var(--accent); outline: none; }
+.news-ok { font-family: var(--font-mono); font-size: .85rem; color: var(--accent); display: none; }
+.news-ok.show { display: block; }
+
+/* ---------- Footer ---------- */
+.footer { border-top: 1px solid var(--border); padding-block: var(--sp-7) var(--sp-6); }
+.footer-grid { display: grid; gap: var(--sp-6); grid-template-columns: 1fr; }
+@media (min-width: 760px) { .footer-grid { grid-template-columns: 2fr 1fr 1fr 1fr; } }
+.footer .brand { margin-bottom: var(--sp-3); }
+.footer p.tag { color: var(--muted); font-size: .95rem; max-width: 34ch; margin: 0; }
+.footer h4 { font-family: var(--font-mono); font-size: .74rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin: 0 0 var(--sp-4); }
+.footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .55rem; }
+.footer a { color: var(--muted); text-decoration: none; font-size: .95rem; }
+.footer a:hover { color: var(--ink); }
+.footer-bottom { margin-top: var(--sp-7); padding-top: var(--sp-5); border-top: 1px solid var(--border); display: flex; justify-content: space-between; gap: var(--sp-3); flex-wrap: wrap; color: var(--muted); font-size: .85rem; }
+
+/* ---------- Cookie banner ---------- */
+.cookie {
+  position: fixed; bottom: var(--sp-5); left: 50%; translate: -50% 0; z-index: var(--z-cookie);
+  width: min(94vw, 560px); background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--r-md); box-shadow: var(--shadow);
+  padding: var(--sp-5); display: flex; gap: var(--sp-4); align-items: center; flex-wrap: wrap;
+}
+.cookie p { margin: 0; flex: 1 1 260px; color: var(--muted); font-size: .92rem; }
+.cookie.hidden { display: none; }
+
+/* ---------- Reveal-on-scroll ---------- */
+.rv { opacity: 0; transform: translateY(22px); transition: opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1); transition-delay: var(--d, 0s); }
+.rv.in { opacity: 1; transform: none; }
+
+/* ---------- No-JS fallback: never gate content behind JS ---------- */
+.no-js .rv { opacity: 1; transform: none; }
+
+/* ---------- Print: content must never be hidden ---------- */
+@media print {
+  .rv { opacity: 1; transform: none; }
+  .marquee-track { animation: none; }
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+  .trace-path { stroke-dashoffset: 0; }
+  .ring-arc { stroke-dashoffset: 118; }
+  .progress-fill { width: 68%; }
+  .marquee-track { animation: none; }
+  .rv { opacity: 1; transform: none; }
+  .hero-badge .pulse { animation: none; }
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#" aria-label="Ritmo">
+      RITMO<span class="dot">.</span><small data-i18n="nav_small">training</small>
+    </a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="#how" data-i18n="nav_how">How it works</a>
+      <a href="#features" data-i18n="nav_features">Features</a>
+      <a href="#pricing" data-i18n="nav_pricing">Pricing</a>
+      <a href="#faq" data-i18n="nav_faq">FAQ</a>
+    </nav>
+    <div class="nav-tools">
+      <select class="lang-switch" id="langSwitch" aria-label="Language">
+        <option value="en">EN</option>
+        <option value="es">ES</option>
+        <option value="fr">FR</option>
+        <option value="de">DE</option>
+        <option value="it">IT</option>
+        <option value="pt">PT</option>
+      </select>
+      <button class="theme-btn" id="themeBtn" aria-label="Toggle dark mode">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      </button>
+      <a class="btn btn-primary nav-cta" href="#pricing" data-i18n="nav_cta">Start free</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <!-- ============ HERO ============ -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="hero-badge"><span class="pulse" aria-hidden="true"></span><span data-i18n="hero_badge">New — Race Plans are here</span></span>
+        <h1 id="hero-title"><span data-i18n="hero_l1">Train to your</span><span class="accent-word" data-i18n="hero_l2">own rhythm</span></h1>
+        <p class="hero-sub" data-i18n="hero_sub">Ritmo builds a training plan around your body — your zones, your schedule, your recovery. Adaptive coaching for runners and riders who want real progress.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="#pricing" data-i18n="hero_cta1">Start free</a>
+          <a class="btn btn-ghost" href="#how" data-i18n="hero_cta2">See how it works</a>
+        </div>
+        <p class="hero-note" data-i18n="hero_note">14-day trial · No credit card · Cancel anytime</p>
+      </div>
+
+      <!-- Product mock: Today's session -->
+      <div class="mock rv" aria-label="App preview: today's session">
+        <div class="mock-bar">
+          <h3 data-i18n="mock_title">Today's session</h3>
+          <span class="mock-date" data-i18n="mock_date">Tue · Aug 11</span>
+        </div>
+        <div class="mock-body">
+          <div class="ring-wrap">
+            <svg class="ring-progress" width="150" height="150" viewBox="0 0 100 100" aria-hidden="true">
+              <circle class="ring-track" cx="50" cy="50" r="45"></circle>
+              <circle class="ring-arc" cx="50" cy="50" r="45"></circle>
+            </svg>
+            <div class="ring-center">
+              <b>168</b>
+              <span data-i18n="mock_cadence">cadence</span>
+            </div>
+          </div>
+          <div class="mock-list">
+            <div class="mock-row">
+              <div class="row-main"><span class="row-name" data-i18n="mock_warm">Warm-up</span><span class="row-sub" data-i18n="mock_warm_d">10 min easy jog</span></div>
+              <span class="chip done" data-i18n="mock_done">Done</span>
+            </div>
+            <div class="mock-row">
+              <div class="row-main"><span class="row-name" data-i18n="mock_main">Main set</span><span class="row-sub">5 × 800 m · <span data-i18n="mock_zone">Zone 3</span></span></div>
+              <span class="chip" data-i18n="mock_live">Live</span>
+            </div>
+            <div class="mock-row">
+              <div class="row-main"><span class="row-name" data-i18n="mock_cool">Cool-down</span><span class="row-sub" data-i18n="mock_cool_d">8 min slow run</span></div>
+              <span class="chip done" data-i18n="mock_est">Est. 42 min</span>
+            </div>
+          </div>
+        </div>
+        <div class="mock-foot">
+          <div class="progress-label"><span data-i18n="mock_plan">Plan progress</span><span>68%</span></div>
+          <div class="progress-track"><div class="progress-fill"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CADENCE TRACE (scroll-drawn) ============ -->
+  <section class="trace-band" id="trace" aria-hidden="true">
+    <div class="wrap">
+      <div class="trace-cap">
+        <p data-i18n="trace_a">A season of pace, one line</p>
+        <p data-i18n="trace_b">scroll to draw</p>
+      </div>
+    </div>
+    <svg class="trace-svg" viewBox="0 0 1200 120" preserveAspectRatio="none" aria-hidden="true">
+      <path class="trace-path" pathLength="1" d="M0 78 C 60 78, 90 40, 140 40 S 220 96, 270 96 S 350 30, 400 30 S 480 84, 530 84 S 610 46, 660 46 S 740 92, 790 92 S 870 36, 920 36 S 1000 74, 1050 74 S 1130 52, 1200 52"></path>
+    </svg>
+  </section>
+
+  <!-- ============ MARQUEE ============ -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track" id="marqueeTrack">
+      <span data-i18n="mq1">Adaptive plans</span><span data-i18n="mq2">Zone coaching</span><span data-i18n="mq3">Recovery score</span><span data-i18n="mq4">Race readiness</span><span data-i18n="mq5">Team challenges</span><span data-i18n="mq6">Streaks &amp; habits</span>
+      <span data-i18n="mq1">Adaptive plans</span><span data-i18n="mq2">Zone coaching</span><span data-i18n="mq3">Recovery score</span><span data-i18n="mq4">Race readiness</span><span data-i18n="mq5">Team challenges</span><span data-i18n="mq6">Streaks &amp; habits</span>
+    </div>
+  </div>
+
+  <!-- ============ PROCESS ============ -->
+  <section class="section" id="how" aria-labelledby="how-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="how-title" data-i18n="proc_title">Three steps to a better season</h2>
+        <p data-i18n="proc_sub">No guesswork, no generic months of “base”. Ritmo shapes itself around you from the very first run.</p>
+      </div>
+      <div class="process-grid">
+        <article class="step rv">
+          <div class="step-num" aria-hidden="true">1</div>
+          <h3 data-i18n="s1_t">Assess</h3>
+          <p data-i18n="s1_d">Tell Ritmo your goals, schedule and how you feel after each run. Your baseline forms in minutes.</p>
+        </article>
+        <article class="step rv" style="--d:.12s">
+          <div class="step-num" aria-hidden="true">2</div>
+          <h3 data-i18n="s2_t">Adapt</h3>
+          <p data-i18n="s2_d">Plans reshape every week around your zones, sleep and recovery score. No two weeks look the same.</p>
+        </article>
+        <article class="step rv" style="--d:.24s">
+          <div class="step-num" aria-hidden="true">3</div>
+          <h3 data-i18n="s3_t">Achieve</h3>
+          <p data-i18n="s3_d">Race with confidence. Ritmo peeks your fitness curve, so you arrive at the start line ready.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FEATURES (editorial splits) ============ -->
+  <section class="section" id="features" style="padding-top:0" aria-labelledby="feat-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="feat-title" data-i18n="feat_title">Coaching that listens</h2>
+        <p data-i18n="feat_sub">Every session is built from the ground up on your live data. Here is what that feels like.</p>
+      </div>
+
+      <div class="split">
+        <div class="split-copy rv">
+          <h3 data-i18n="f1_t">Train with intent</h3>
+          <p data-i18n="f1_d">Generic plans guess. Ritmo listens. Hard days stay hard, easy days actually recover you — because every effort is anchored to your live heart-rate zones.</p>
+          <ul class="split-points">
+            <li>
+              <span class="pt-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4 12 14.01l-3-3"/></svg></span>
+              <div><b data-i18n="f1_p1">Zone-aware intervals</b><span data-i18n="f1_p1d">Workouts adjust on the fly when your legs say no.</span></div>
+            </li>
+            <li>
+              <span class="pt-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16z"/><path d="M12 8v4l2.5 2.5"/></svg></span>
+              <div><b data-i18n="f1_p2">Cadence feedback</b><span data-i18n="f1_p2d">A live metronome keeps your stride honest.</span></div>
+            </li>
+          </ul>
+        </div>
+        <div class="split-visual rv" style="--d:.1s">
+          <div class="viz-title"><h4 data-i18n="vz_t">Today's zone mix</h4><span data-i18n="vz_s">session · 42 min</span></div>
+          <div class="zone-chart">
+            <div class="zone-row"><span class="z-name">Z1</span><div class="zone-bar"><i style="width:18%"></i></div></div>
+            <div class="zone-row"><span class="z-name">Z2</span><div class="zone-bar"><i style="width:34%"></i></div></div>
+            <div class="zone-row active"><span class="z-name">Z3</span><div class="zone-bar"><i style="width:66%"></i></div></div>
+            <div class="zone-row"><span class="z-name">Z4</span><div class="zone-bar"><i style="width:42%"></i></div></div>
+            <div class="zone-row"><span class="z-name">Z5</span><div class="zone-bar"><i style="width:12%"></i></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="split flip">
+        <div class="split-copy rv">
+          <h3 data-i18n="f2_t">Recover like a pro</h3>
+          <p data-i18n="f2_d">Readiness isn't a feeling — it's data. Ritmo blends sleep, resting heart rate and training load into one honest recovery score that tells you when to push and when to rest.</p>
+          <ul class="split-points">
+            <li>
+              <span class="pt-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2h4v4"/><path d="M3 22V8h4v14zM11 22V2h4v20zM19 22V12h4v10z"/></svg></span>
+              <div><b data-i18n="f2_p1">One honest score</b><span data-i18n="f2_p1d">Sleep, load and HRV — merged, not mushed.</span></div>
+            </li>
+            <li>
+              <span class="pt-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M2 12h4M18 12h4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></span>
+              <div><b data-i18n="f2_p2">Rest days, earned</b><span data-i18n="f2_p2d">Plans reshuffle automatically when your score dips.</span></div>
+            </li>
+          </ul>
+        </div>
+        <div class="split-visual rv" style="--d:.1s">
+          <div class="viz-title"><h4 data-i18n="vr_t">Recovery panel</h4><span data-i18n="vr_s">ready · 87%</span></div>
+          <div class="recovery-list">
+            <div class="rec-row"><span class="k" data-i18n="vr_sleep">Sleep</span><span class="v">7h 42m</span></div>
+            <div class="rec-row"><span class="k" data-i18n="vr_rhr">Resting HR</span><span class="v">48 bpm</span></div>
+            <div class="rec-row"><span class="k" data-i18n="vr_hrv">HRV trend</span><span class="v good">+12%</span></div>
+          </div>
+          <div class="readiness">
+            <svg width="46" height="46" viewBox="0 0 46 46" aria-hidden="true">
+              <circle cx="23" cy="23" r="19" fill="none" stroke="var(--surface-2)" stroke-width="6"></circle>
+              <circle cx="23" cy="23" r="19" fill="none" stroke="var(--accent)" stroke-width="6" stroke-linecap="round" stroke-dasharray="119.4" stroke-dashoffset="16" transform="rotate(-90 23 23)"></circle>
+            </svg>
+            <div class="readiness-label"><b data-i18n="vr_go">Go for it</b><span data-i18n="vr_go_d">Intervals are on for today</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="split">
+        <div class="split-copy rv">
+          <h3 data-i18n="f3_t">Run your world</h3>
+          <p data-i18n="f3_d">Solo training is lonely. Join clubs, chase monthly challenges and cheer teammates mid-run — from your watch or your phone.</p>
+          <ul class="split-points">
+            <li>
+              <span class="pt-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+              <div><b data-i18n="f3_p1">Clubs &amp; squads</b><span data-i18n="f3_p1d">Shared calendars, friendly rivalries.</span></div>
+            </li>
+            <li>
+              <span class="pt-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M4 22h16M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22M14 14.66V17c0 .55.47.98.97 1.21 1.18.54 2.03 2.03 2.03 3.79"/></svg></span>
+              <div><b data-i18n="f3_p2">Live cheering</b><span data-i18n="f3_p2d">Race-day cheers land on your wrist.</span></div>
+            </li>
+          </ul>
+        </div>
+        <div class="split-visual rv" style="--d:.1s">
+          <div class="viz-title"><h4 data-i18n="vm_t">Saturday long run</h4><span data-i18n="vm_s">club · 12 runners</span></div>
+          <div class="team-map">
+            <svg viewBox="0 0 400 225" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+              <path class="route" d="M30 190 C 90 160, 110 110, 170 100 S 260 120, 290 70 S 350 40, 380 28"></path>
+              <circle class="dot" cx="30" cy="190" r="7"></circle>
+              <circle class="dot" cx="380" cy="28" r="7"></circle>
+              <circle class="dot mate" cx="170" cy="100" r="5"></circle>
+              <circle class="dot mate" cx="290" cy="70" r="5"></circle>
+              <text class="pin-label" x="38" y="214">START</text>
+              <text class="pin-label" x="330" y="22">FINISH</text>
+            </svg>
+          </div>
+          <div class="team-roster">
+            <span class="avatar lead">AO</span><span class="avatar">DK</span><span class="avatar">LS</span><span class="avatar">JP</span><span class="avatar">+8</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BENTO SHOWCASE ============ -->
+  <section class="section" style="background:var(--surface-2); border-block:1px solid var(--border)" aria-labelledby="bento-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="bento-title" data-i18n="bento_title">One app. Your whole season.</h2>
+        <p data-i18n="bento_sub">Six modules, one rhythm. Everything you need between the start line and the sofa.</p>
+      </div>
+      <div class="bento">
+        <article class="bento-cell bento-big rv">
+          <span class="cell-tag" data-i18n="b1_t">Live coaching</span>
+          <h3 data-i18n="b1_h">A coach in your ear</h3>
+          <p data-i18n="b1_d">Voice cues, real-time pace targets and honest mid-run corrections — no screen staring, no guesswork.</p>
+          <div class="cell-vis mini-bars" aria-hidden="true">
+            <i style="height:32%"></i><i style="height:48%"></i><i class="cool" style="height:22%"></i><i style="height:62%"></i><i class="hot" style="height:88%"></i><i style="height:55%"></i><i class="cool" style="height:30%"></i><i style="height:70%"></i><i class="hot" style="height:95%"></i><i style="height:44%"></i>
+          </div>
+        </article>
+        <article class="bento-cell bento-tall rv" style="--d:.08s">
+          <span class="cell-tag" data-i18n="b2_t">Cadence lab</span>
+          <h3 data-i18n="b2_h">Find your sweet spot</h3>
+          <p data-i18n="b2_d">Stride by stride, Ritmo tunes your rhythm toward your most efficient cadence.</p>
+          <div class="cell-vis" style="display:flex; align-items:center; gap:var(--sp-4)">
+            <svg class="mini-ring" viewBox="0 0 74 74" aria-hidden="true">
+              <circle cx="37" cy="37" r="31" fill="none" stroke="var(--surface-2)" stroke-width="8"></circle>
+              <circle cx="37" cy="37" r="31" fill="none" stroke="var(--accent)" stroke-width="8" stroke-linecap="round" stroke-dasharray="194.8" stroke-dashoffset="70" transform="rotate(-90 37 37)"></circle>
+            </svg>
+            <div style="font-family:var(--font-mono)">
+              <div style="font-size:1.15rem; font-weight:700" data-i18n="b2_val">172 spm</div>
+              <div style="font-size:.72rem; color:var(--muted)" data-i18n="b2_lbl">target cadence</div>
+            </div>
+          </div>
+        </article>
+        <article class="bento-cell bento-tall rv" style="--d:.16s">
+          <span class="cell-tag" data-i18n="b3_t">Race planner</span>
+          <h3 data-i18n="b3_h">Peak on the day</h3>
+          <p data-i18n="b3_d">Countdown blocks and a taper that protects your fitness.</p>
+          <div class="cell-vis" style="display:grid; gap:6px">
+            <div class="mini-race"><span data-i18n="b3_d1">Berlin Marathon</span><b>9 wks</b></div>
+            <div class="mini-race"><span data-i18n="b3_d2">Taper</span><b>W-2</b></div>
+            <div class="mini-race"><span data-i18n="b3_d3">Race day</span><b>28.09</b></div>
+          </div>
+        </article>
+        <article class="bento-cell rv" style="--d:.24s">
+          <span class="cell-tag" data-i18n="b4_t">Recovery score</span>
+          <h3 data-i18n="b4_h">Sleep + load + HRV</h3>
+          <p data-i18n="b4_d">One number that keeps you honest about rest.</p>
+          <div class="cell-vis"><span class="chip" data-i18n="b4_chip">Ready · 87</span></div>
+        </article>
+        <article class="bento-cell bento-wide rv" style="--d:.1s">
+          <span class="cell-tag" data-i18n="b5_t">Team sync</span>
+          <h3 data-i18n="b5_h">Share sessions, rally the squad</h3>
+          <p data-i18n="b5_d">Post runs to the club feed, tag teammates, and let the friendly fire begin.</p>
+          <div class="cell-vis mini-dots" aria-hidden="true">
+            <span class="avatar lead">AO</span><span class="avatar">DK</span><span class="avatar">LS</span><span class="avatar">JP</span><span class="avatar">+8</span>
+          </div>
+        </article>
+        <article class="bento-cell rv" style="--d:.18s">
+          <span class="cell-tag" data-i18n="b6_t">Streak guard</span>
+          <h3 data-i18n="b6_h">Habits, not guilt</h3>
+          <p data-i18n="b6_d">Gentle nudges that protect your streak — never nagging.</p>
+          <div class="cell-vis streak-days" aria-hidden="true">
+            <i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i class="on"></i>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TESTIMONIALS ============ -->
+  <section class="section" aria-labelledby="testi-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="testi-title" data-i18n="testi_title">Run together, improve together</h2>
+      </div>
+      <div class="testi-grid">
+        <figure class="quote-feat rv">
+          <div><div class="qmark" aria-hidden="true">“</div>
+          <blockquote data-i18n="t1_q">I stopped following cookie-cutter plans and started listening to my own body. My marathon PB dropped by nine minutes in one season.</blockquote></div>
+          <footer>
+            <span class="avatar lead">MK</span>
+            <div><b data-i18n="t1_n">Marta Keller</b><span data-i18n="t1_r">Marathoner · Berlin</span></div>
+          </footer>
+        </figure>
+        <div class="testi-col">
+          <figure class="quote-sm rv">
+            <p data-i18n="t2_q">The recovery score is scarily accurate. It told me to rest before I knew I needed it.</p>
+            <footer><span class="avatar">DF</span><div><b data-i18n="t2_n">Diego Fontes</b><span data-i18n="t2_r">Trail runner · Lisbon</span></div></footer>
+          </figure>
+          <figure class="quote-sm rv" style="--d:.1s">
+            <p data-i18n="t3_q">Our club runs together on Ritmo. Saturday long runs finally feel like a team sport.</p>
+            <footer><span class="avatar">AO</span><div><b data-i18n="t3_n">Amara Osei</b><span data-i18n="t3_r">Club captain · Accra</span></div></footer>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PRICING ============ -->
+  <section class="section" style="background:var(--surface-2); border-block:1px solid var(--border)" id="pricing" aria-labelledby="pricing-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="pricing-title" data-i18n="pricing_title">Simple plans, honest pricing</h2>
+        <p data-i18n="pricing_sub">Start free. Upgrade when your goals outgrow the basics.</p>
+      </div>
+      <div class="pricing-grid">
+        <article class="plan rv">
+          <h3 data-i18n="pl1_n">Starter</h3>
+          <div class="plan-price"><span class="amt">$0</span><span class="per" data-i18n="pl1_per">/mo · forever</span></div>
+          <ul>
+            <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="pl1_f1">1 adaptive plan</span></li>
+            <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="pl1_f2">Zone coaching</span></li>
+            <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="pl1_f3">3 workouts a week</span></li>
+          </ul>
+          <a class="btn btn-ghost" href="#pricing" data-i18n="pl_cta1">Start free</a>
+        </article>
+        <article class="plan hot rv" style="--d:.1s">
+          <span class="plan-badge" data-i18n="pl2_badge">Most popular</span>
+          <h3 data-i18n="pl2_n">Pro</h3>
+          <div class="plan-price"><span class="amt">$9</span><span class="per" data-i18n="pl2_per">/mo</span></div>
+          <ul>
+            <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="pl2_f1">Unlimited adaptive plans</span></li>
+            <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="pl2_f2">Race planner + taper</span></li>
+            <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="pl2_f3">Recovery intelligence</span></li>
+            <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="pl2_f4">Cadence lab</span></li>
+          </ul>
+          <a class="btn btn-primary" href="#pricing" data-i18n="pl_cta2">Go Pro</a>
+        </article>
+        <article class="plan rv" style="--d:.2s">
+          <h3 data-i18n="pl3_n">Club</h3>
+          <div class="plan-price"><span class="amt">$6</span><span class="per" data-i18n="pl3_per">/member /mo</span></div>
+          <ul>
+            <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="pl3_f1">Everything in Pro</span></li>
+            <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="pl3_f2">Team challenges</span></li>
+            <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span data-i18n="pl3_f3">Coach dashboard</span></li>
+          </ul>
+          <a class="btn btn-ghost" href="#pricing" data-i18n="pl_cta3">Start a club</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="section" id="faq" aria-labelledby="faq-title">
+    <div class="wrap">
+      <div class="sec-head" style="margin-inline:auto; text-align:center">
+        <h2 id="faq-title" data-i18n="faq_title">Questions, answered</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item rv"><summary data-i18n="q1">Do I need a smartwatch?</summary><div class="faq-body"><p data-i18n="q1a">No. Your phone alone works for plans and coaching. A heart-rate strap or watch unlocks zone training and recovery scoring.</p></div></details>
+        <details class="faq-item rv" style="--d:.05s"><summary data-i18n="q2">How does the plan adapt?</summary><div class="faq-body"><p data-i18n="q2a">After every session, Ritmo reads how your body actually responded — zones, pace, feel — and reshapes the coming week. Miss a run? The plan rebalances instead of punishing you.</p></div></details>
+        <details class="faq-item rv" style="--d:.1s"><summary data-i18n="q3">Can I import my training history?</summary><div class="faq-body"><p data-i18n="q3a">Yes. One-click import from the major platforms, or a quick manual baseline if you're starting fresh.</p></div></details>
+        <details class="faq-item rv" style="--d:.15s"><summary data-i18n="q4">Is there a free tier?</summary><div class="faq-body"><p data-i18n="q4a">Starter is free forever — one adaptive plan, zone coaching and three workouts a week. Pro adds the race planner, recovery intelligence and cadence lab.</p></div></details>
+        <details class="faq-item rv" style="--d:.2s"><summary data-i18n="q5">Does Ritmo work for cycling too?</summary><div class="faq-body"><p data-i18n="q5a">Absolutely. Runners, riders and duathletes all use Ritmo. Plans adapt to your sport — and to mixing both across a season.</p></div></details>
+        <details class="faq-item rv" style="--d:.25s"><summary data-i18n="q6">What happens after the trial?</summary><div class="faq-body"><p data-i18n="q6a">You keep your Starter plan for free. Upgrade to Pro any time — no lock-in, cancel in two taps.</p></div></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA BAND ============ -->
+  <section class="section" style="padding-top:0" aria-labelledby="cta-title">
+    <div class="wrap">
+      <div class="cta-band rv">
+        <h2 id="cta-title" data-i18n="cta_title">Your next PB starts today</h2>
+        <p data-i18n="cta_sub">Join 120,000 athletes who stopped guessing. Your first 14 days are free — and your first plan is already listening.</p>
+        <form class="news-form" id="newsForm" novalidate>
+          <input type="email" id="newsEmail" required data-i18n-ph="news_ph" placeholder="you@example.com" aria-label="Email">
+          <button class="btn btn-primary" type="submit" data-i18n="news_btn">Start your free trial</button>
+        </form>
+        <p class="news-ok" id="newsOk" data-i18n="news_ok" role="status">You're on the list — see you Sunday.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="#">RITMO<span class="dot">.</span></a>
+        <p class="tag" data-i18n="foot_tag">Train to your own rhythm. Plans that adapt, coaching that listens, community that pushes.</p>
+      </div>
+      <nav aria-label="Product">
+        <h4 data-i18n="foot_product">Product</h4>
+        <ul>
+          <li><a href="#features" data-i18n="foot_p1">Features</a></li>
+          <li><a href="#pricing" data-i18n="foot_p2">Pricing</a></li>
+          <li><a href="#how" data-i18n="foot_p3">How it works</a></li>
+          <li><a href="#faq" data-i18n="foot_p4">FAQ</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Company">
+        <h4 data-i18n="foot_co">Company</h4>
+        <ul>
+          <li><a href="#" data-i18n="foot_c1">About</a></li>
+          <li><a href="#" data-i18n="foot_c2">Careers</a></li>
+          <li><a href="#" data-i18n="foot_c3">Blog</a></li>
+          <li><a href="#" data-i18n="foot_c4">Press kit</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Legal">
+        <h4 data-i18n="foot_legal">Legal</h4>
+        <ul>
+          <li><a href="#" data-i18n="foot_l1">Privacy</a></li>
+          <li><a href="#" data-i18n="foot_l2">Terms</a></li>
+          <li><a href="#" data-i18n="foot_l3">Cookies</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Ritmo Training BV</span>
+      <span data-i18n="foot_geo">Amsterdam · Berlin · Lisbon</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ COOKIE BANNER ============ -->
+<div class="cookie" id="cookieBar" role="region" aria-label="Cookie notice">
+  <p data-i18n="cookie_text">We use cookies to tune your experience — and a couple to remember your favourite zone.</p>
+  <button class="btn btn-ghost" id="cookieDecline" style="padding:.5rem .9rem; font-size:.95rem" data-i18n="cookie_decline">Decline</button>
+  <button class="btn btn-primary" id="cookieAccept" style="padding:.5rem .9rem; font-size:.95rem" data-i18n="cookie_accept">Accept</button>
+</div>
+
+<script>
+/* ============================================================
+   RITMO — i18n (6 langs), theme, scroll trace, reveals
+   ============================================================ */
+(function () {
+  "use strict";
+
+  /* ---------- Utilities ---------- */
+  var $ = function (sel, ctx) { return (ctx || document).querySelector(sel); };
+  var $$ = function (sel, ctx) { return Array.prototype.slice.call((ctx || document).querySelectorAll(sel)); };
+
+  /* ---------- i18n dictionary ---------- */
+  var I18N = {
+    es: {
+      skip: "Saltar al contenido", nav_small: "entrenamiento",
+      nav_how: "Cómo funciona", nav_features: "Funciones", nav_pricing: "Precios", nav_faq: "FAQ", nav_cta: "Empezar gratis",
+      hero_badge: "Nuevo — Planes de carrera ya aquí", hero_l1: "Entrena a tu", hero_l2: "propio ritmo",
+      hero_sub: "Ritmo construye un plan de entrenamiento alrededor de tu cuerpo: tus zonas, tu agenda, tu recuperación. Coaching adaptativo para corredores y ciclistas que quieren progreso real.",
+      hero_cta1: "Empezar gratis", hero_cta2: "Ver cómo funciona", hero_note: "14 días de prueba · Sin tarjeta · Cancela cuando quieras",
+      mock_title: "Sesión de hoy", mock_date: "Mar · 11 ago", mock_cadence: "cadencia",
+      mock_warm: "Calentamiento", mock_warm_d: "10 min trote suave", mock_main: "Serie principal", mock_zone: "Zona 3",
+      mock_cool: "Vuelta a la calma", mock_cool_d: "8 min carrera suave", mock_done: "Hecho", mock_live: "En vivo", mock_est: "Est. 42 min",
+      mock_plan: "Progreso del plan",
+      trace_a: "Una temporada de ritmo, en una línea", trace_b: "desplázate para dibujar",
+      mq1: "Planes adaptativos", mq2: "Entreno por zonas", mq3: "Puntuación de recuperación", mq4: "Listo para competir", mq5: "Retos de equipo", mq6: "Rachas y hábitos",
+      proc_title: "Tres pasos hacia una mejor temporada", proc_sub: "Sin conjeturas ni meses genéricos de «base». Ritmo se moldea a tu medida desde la primera carrera.",
+      s1_t: "Evalúa", s1_d: "Cuéntale a Ritmo tus objetivos, tu agenda y cómo te sientes tras cada carrera. Tu punto de partida se forma en minutos.",
+      s2_t: "Adapta", s2_d: "El plan se reconstruye cada semana según tus zonas, tu sueño y tu puntuación de recuperación. No hay dos semanas iguales.",
+      s3_t: "Logra", s3_d: "Compite con confianza. Ritmo vigila tu curva de forma para que llegues a la línea de salida listo.",
+      feat_title: "Coaching que escucha", feat_sub: "Cada sesión se construye desde cero sobre tus datos en vivo. Así se siente.",
+      f1_t: "Entrena con intención", f1_d: "Los planes genéricos adivinan. Ritmo escucha. Los días duros siguen siendo duros y los fáciles de verdad te recuperan, porque cada esfuerzo se ancla a tus zonas de frecuencia cardiaca en vivo.",
+      f1_p1: "Intervalos por zonas", f1_p1d: "Los entrenamientos se ajustan sobre la marcha cuando las piernas dicen que no.",
+      f1_p2: "Feedback de cadencia", f1_p2d: "Un metrónomo en vivo mantiene honesta tu zancada.",
+      vz_t: "Mezcla de zonas de hoy", vz_s: "sesión · 42 min",
+      f2_t: "Recupérate como un profesional", f2_d: "La preparación no es una sensación: es datos. Ritmo combina sueño, frecuencia cardiaca en reposo y carga de entrenamiento en una puntuación de recuperación honesta que te dice cuándo apretar y cuándo descansar.",
+      f2_p1: "Una puntuación honesta", f2_p1d: "Sueño, carga y VFC — integrados, no mezclados.",
+      f2_p2: "Días de descanso merecidos", f2_p2d: "El plan se reorganiza solo cuando tu puntuación baja.",
+      vr_t: "Panel de recuperación", vr_s: "listo · 87%", vr_sleep: "Sueño", vr_rhr: "FC en reposo", vr_hrv: "Tendencia VFC",
+      vr_go: "A por ello", vr_go_d: "Los intervalos de hoy están confirmados",
+      f3_t: "Corre tu mundo", f3_d: "Entrenar en solitario es solitario. Únete a clubes, persigue retos mensuales y anima a tu equipo a mitad de carrera, desde el reloj o el móvil.",
+      f3_p1: "Clubes y escuadras", f3_p1d: "Calendarios compartidos y rivalidades sanas.",
+      f3_p2: "Animación en vivo", f3_p2d: "Los ánimos del día de carrera llegan a tu muñeca.",
+      vm_t: "Tirada larga del sábado", vm_s: "club · 12 corredores",
+      bento_title: "Una app. Toda tu temporada.", bento_sub: "Seis módulos, un mismo ritmo. Todo lo que necesitas entre la línea de salida y el sofá.",
+      b1_t: "Coaching en vivo", b1_h: "Un entrenador en tu oído", b1_d: "Avisos por voz, ritmos objetivo en tiempo real y correcciones honestas a mitad de carrera. Sin mirar pantallas, sin dudas.",
+      b2_t: "Laboratorio de cadencia", b2_h: "Encuentra tu punto dulce", b2_d: "Zancada a zancada, Ritmo afina tu ritmo hacia tu cadencia más eficiente.",
+      b3_t: "Planificador de carreras", b3_h: "Pico el día exacto", b3_d: "Bloques de cuenta atrás y una tapering que protege tu forma.", b3_d1: "Maratón de Berlín", b3_d1: "Maratón de Berlín", b3_d2: "Taper", b3_d3: "Día de carrera", b2_val: "172 ppm", b2_lbl: "cadencia objetivo",
+      b4_t: "Puntuación de recuperación", b4_h: "Sueño + carga + VFC", b4_d: "Un número que te mantiene honesto con el descanso.", b4_chip: "Listo · 87",
+      b5_t: "Sincronización de equipo", b5_h: "Comparte sesiones, moviliza al grupo", b5_d: "Publica tus carreras en el feed del club, menciona a tu equipo y que empiece la sana competencia.",
+      b6_t: "Guardián de rachas", b6_h: "Hábitos, no culpa", b6_d: "Avisos amables que protegen tu racha — nunca te agobian.",
+      testi_title: "Corre en grupo, mejora en grupo",
+      t1_q: "Dejé de seguir planes de corta-pega y empecé a escuchar a mi propio cuerpo. Mi marca personal en maratón bajó nueve minutos en una temporada.",
+      t1_n: "Marta Keller", t1_r: "Maratoniana · Berlín",
+      t2_q: "La puntuación de recuperación es inquietantemente precisa. Me dijo que descansara antes de que yo supiera que lo necesitaba.",
+      t2_n: "Diego Fontes", t2_r: "Corredor de trail · Lisboa",
+      t3_q: "Nuestro club corre junto con Ritmo. Las tiradas largas del sábado por fin son deporte de equipo.",
+      t3_n: "Amara Osei", t3_r: "Capitana de club · Acra",
+      pricing_title: "Planes simples, precios honestos", pricing_sub: "Empieza gratis. Mejora cuando tus objetivos superen lo básico.",
+      pl1_n: "Starter", pl1_per: "/mes · para siempre",
+      pl1_f1: "1 plan adaptativo", pl1_f2: "Coaching por zonas", pl1_f3: "3 entrenamientos por semana",
+      pl2_badge: "El más popular", pl2_n: "Pro", pl2_per: "/mes",
+      pl2_f1: "Planes adaptativos ilimitados", pl2_f2: "Planificador de carreras + tapering", pl2_f3: "Inteligencia de recuperación", pl2_f4: "Laboratorio de cadencia",
+      pl3_n: "Club", pl3_per: "/miembro /mes",
+      pl3_f1: "Todo lo de Pro", pl3_f2: "Retos de equipo", pl3_f3: "Panel para entrenadores",
+      pl_cta1: "Empezar gratis", pl_cta2: "Hazte Pro", pl_cta3: "Crear un club",
+      faq_title: "Preguntas, respondidas",
+      q1: "¿Necesito un smartwatch?", q1a: "No. Solo con el móvil ya tienes planes y coaching. Una banda de frecuencia cardiaca o un reloj desbloquean el entreno por zonas y la puntuación de recuperación.",
+      q2: "¿Cómo se adapta el plan?", q2a: "Después de cada sesión, Ritmo lee cómo respondió tu cuerpo —zonas, ritmo, sensaciones— y rehace la semana siguiente. ¿Te saltaste una carrera? El plan se reequilibra en lugar de castigarte.",
+      q3: "¿Puedo importar mi historial de entrenamiento?", q3a: "Sí. Importación en un clic desde las principales plataformas, o un punto de partida manual rápido si empiezas de cero.",
+      q4: "¿Hay versión gratuita?", q4a: "Starter es gratis para siempre: un plan adaptativo, coaching por zonas y tres entrenamientos a la semana. Pro añade el planificador de carreras, la inteligencia de recuperación y el laboratorio de cadencia.",
+      q5: "¿Ritmo sirve también para ciclismo?", q5a: "Por supuesto. Corredores, ciclistas y duatletas usan Ritmo. Los planes se adaptan a tu deporte — y a combinar ambos en una temporada.",
+      q6: "¿Qué pasa después de la prueba?", q6a: "Te quedas con el plan Starter gratis. Mejora a Pro cuando quieras — sin permanencia, cancela en dos toques.",
+      cta_title: "Tu próxima marca personal empieza hoy", cta_sub: "Únete a 120.000 atletas que dejaron de adivinar. Tus primeros 14 días son gratis — y tu primer plan ya te está escuchando.",
+      news_btn: "Empezar tu prueba gratis", news_ph: "tu@correo.com", news_ok: "Ya estás en la lista — nos vemos el domingo.",
+      foot_tag: "Entrena a tu propio ritmo. Planes que se adaptan, coaching que escucha, comunidad que empuja.",
+      foot_product: "Producto", foot_p1: "Funciones", foot_p2: "Precios", foot_p3: "Cómo funciona", foot_p4: "FAQ",
+      foot_co: "Empresa", foot_c1: "Nosotros", foot_c2: "Empleo", foot_c3: "Blog", foot_c4: "Prensa",
+      foot_legal: "Legal", foot_l1: "Privacidad", foot_l2: "Términos", foot_l3: "Cookies",
+      foot_geo: "Ámsterdam · Berlín · Lisboa",
+      cookie_text: "Usamos cookies para afinar tu experiencia — y un par para recordar tu zona favorita.",
+      cookie_accept: "Aceptar", cookie_decline: "Rechazar",
+      meta_title: "Ritmo — Entrena a tu propio ritmo",
+      meta_desc: "Ritmo construye un plan de entrenamiento adaptativo alrededor de tu cuerpo: tus zonas, tu agenda, tu recuperación."
+    },
+    en: {
+      skip: "Skip to content", nav_small: "training",
+      nav_how: "How it works", nav_features: "Features", nav_pricing: "Pricing", nav_faq: "FAQ", nav_cta: "Start free",
+      hero_badge: "New — Race Plans are here", hero_l1: "Train to your", hero_l2: "own rhythm",
+      hero_sub: "Ritmo builds a training plan around your body — your zones, your schedule, your recovery. Adaptive coaching for runners and riders who want real progress.",
+      hero_cta1: "Start free", hero_cta2: "See how it works", hero_note: "14-day trial · No credit card · Cancel anytime",
+      mock_title: "Today's session", mock_date: "Tue · Aug 11", mock_cadence: "cadence",
+      mock_warm: "Warm-up", mock_warm_d: "10 min easy jog", mock_main: "Main set", mock_zone: "Zone 3",
+      mock_cool: "Cool-down", mock_cool_d: "8 min slow run", mock_done: "Done", mock_live: "Live", mock_est: "Est. 42 min",
+      mock_plan: "Plan progress",
+      trace_a: "A season of pace, one line", trace_b: "scroll to draw",
+      mq1: "Adaptive plans", mq2: "Zone coaching", mq3: "Recovery score", mq4: "Race readiness", mq5: "Team challenges", mq6: "Streaks & habits",
+      proc_title: "Three steps to a better season", proc_sub: "No guesswork, no generic months of “base”. Ritmo shapes itself around you from the very first run.",
+      s1_t: "Assess", s1_d: "Tell Ritmo your goals, schedule and how you feel after each run. Your baseline forms in minutes.",
+      s2_t: "Adapt", s2_d: "Plans reshape every week around your zones, sleep and recovery score. No two weeks look the same.",
+      s3_t: "Achieve", s3_d: "Race with confidence. Ritmo peeks your fitness curve, so you arrive at the start line ready.",
+      feat_title: "Coaching that listens", feat_sub: "Every session is built from the ground up on your live data. Here is what that feels like.",
+      f1_t: "Train with intent", f1_d: "Generic plans guess. Ritmo listens. Hard days stay hard, easy days actually recover you — because every effort is anchored to your live heart-rate zones.",
+      f1_p1: "Zone-aware intervals", f1_p1d: "Workouts adjust on the fly when your legs say no.",
+      f1_p2: "Cadence feedback", f1_p2d: "A live metronome keeps your stride honest.",
+      vz_t: "Today's zone mix", vz_s: "session · 42 min",
+      f2_t: "Recover like a pro", f2_d: "Readiness isn't a feeling — it's data. Ritmo blends sleep, resting heart rate and training load into one honest recovery score that tells you when to push and when to rest.",
+      f2_p1: "One honest score", f2_p1d: "Sleep, load and HRV — merged, not mushed.",
+      f2_p2: "Rest days, earned", f2_p2d: "Plans reshuffle automatically when your score dips.",
+      vr_t: "Recovery panel", vr_s: "ready · 87%", vr_sleep: "Sleep", vr_rhr: "Resting HR", vr_hrv: "HRV trend",
+      vr_go: "Go for it", vr_go_d: "Intervals are on for today",
+      f3_t: "Run your world", f3_d: "Solo training is lonely. Join clubs, chase monthly challenges and cheer teammates mid-run — from your watch or your phone.",
+      f3_p1: "Clubs & squads", f3_p1d: "Shared calendars, friendly rivalries.",
+      f3_p2: "Live cheering", f3_p2d: "Race-day cheers land on your wrist.",
+      vm_t: "Saturday long run", vm_s: "club · 12 runners",
+      bento_title: "One app. Your whole season.", bento_sub: "Six modules, one rhythm. Everything you need between the start line and the sofa.",
+      b1_t: "Live coaching", b1_h: "A coach in your ear", b1_d: "Voice cues, real-time pace targets and honest mid-run corrections — no screen staring, no guesswork.",
+      b2_t: "Cadence lab", b2_h: "Find your sweet spot", b2_d: "Stride by stride, Ritmo tunes your rhythm toward your most efficient cadence.",
+      b3_t: "Race planner", b3_h: "Peak on the day", b3_d: "Countdown blocks and a taper that protects your fitness.", b3_d1: "Berlin Marathon", b3_d1: "Berlin Marathon", b3_d2: "Taper", b3_d3: "Race day", b2_val: "172 spm", b2_lbl: "target cadence",
+      b4_t: "Recovery score", b4_h: "Sleep + load + HRV", b4_d: "One number that keeps you honest about rest.", b4_chip: "Ready · 87",
+      b5_t: "Team sync", b5_h: "Share sessions, rally the squad", b5_d: "Post runs to the club feed, tag teammates, and let the friendly fire begin.",
+      b6_t: "Streak guard", b6_h: "Habits, not guilt", b6_d: "Gentle nudges that protect your streak — never nagging.",
+      testi_title: "Run together, improve together",
+      t1_q: "I stopped following cookie-cutter plans and started listening to my own body. My marathon PB dropped by nine minutes in one season.",
+      t1_n: "Marta Keller", t1_r: "Marathoner · Berlin",
+      t2_q: "The recovery score is scarily accurate. It told me to rest before I knew I needed it.",
+      t2_n: "Diego Fontes", t2_r: "Trail runner · Lisbon",
+      t3_q: "Our club runs together on Ritmo. Saturday long runs finally feel like a team sport.",
+      t3_n: "Amara Osei", t3_r: "Club captain · Accra",
+      pricing_title: "Simple plans, honest pricing", pricing_sub: "Start free. Upgrade when your goals outgrow the basics.",
+      pl1_n: "Starter", pl1_per: "/mo · forever",
+      pl1_f1: "1 adaptive plan", pl1_f2: "Zone coaching", pl1_f3: "3 workouts a week",
+      pl2_badge: "Most popular", pl2_n: "Pro", pl2_per: "/mo",
+      pl2_f1: "Unlimited adaptive plans", pl2_f2: "Race planner + taper", pl2_f3: "Recovery intelligence", pl2_f4: "Cadence lab",
+      pl3_n: "Club", pl3_per: "/member /mo",
+      pl3_f1: "Everything in Pro", pl3_f2: "Team challenges", pl3_f3: "Coach dashboard",
+      pl_cta1: "Start free", pl_cta2: "Go Pro", pl_cta3: "Start a club",
+      faq_title: "Questions, answered",
+      q1: "Do I need a smartwatch?", q1a: "No. Your phone alone works for plans and coaching. A heart-rate strap or watch unlocks zone training and recovery scoring.",
+      q2: "How does the plan adapt?", q2a: "After every session, Ritmo reads how your body actually responded — zones, pace, feel — and reshapes the coming week. Miss a run? The plan rebalances instead of punishing you.",
+      q3: "Can I import my training history?", q3a: "Yes. One-click import from the major platforms, or a quick manual baseline if you're starting fresh.",
+      q4: "Is there a free tier?", q4a: "Starter is free forever — one adaptive plan, zone coaching and three workouts a week. Pro adds the race planner, recovery intelligence and cadence lab.",
+      q5: "Does Ritmo work for cycling too?", q5a: "Absolutely. Runners, riders and duathletes all use Ritmo. Plans adapt to your sport — and to mixing both across a season.",
+      q6: "What happens after the trial?", q6a: "You keep your Starter plan for free. Upgrade to Pro any time — no lock-in, cancel in two taps.",
+      cta_title: "Your next PB starts today", cta_sub: "Join 120,000 athletes who stopped guessing. Your first 14 days are free — and your first plan is already listening.",
+      news_btn: "Start your free trial", news_ph: "you@example.com", news_ok: "You're on the list — see you Sunday.",
+      foot_tag: "Train to your own rhythm. Plans that adapt, coaching that listens, community that pushes.",
+      foot_product: "Product", foot_p1: "Features", foot_p2: "Pricing", foot_p3: "How it works", foot_p4: "FAQ",
+      foot_co: "Company", foot_c1: "About", foot_c2: "Careers", foot_c3: "Blog", foot_c4: "Press kit",
+      foot_legal: "Legal", foot_l1: "Privacy", foot_l2: "Terms", foot_l3: "Cookies",
+      foot_geo: "Amsterdam · Berlin · Lisbon",
+      cookie_text: "We use cookies to tune your experience — and a couple to remember your favourite zone.",
+      cookie_accept: "Accept", cookie_decline: "Decline",
+      meta_title: "Ritmo — Train to your own rhythm",
+      meta_desc: "Ritmo builds an adaptive training plan around your body — your zones, your schedule, your recovery."
+    },
+    fr: {
+      skip: "Aller au contenu", nav_small: "entraînement",
+      nav_how: "Comment ça marche", nav_features: "Fonctionnalités", nav_pricing: "Tarifs", nav_faq: "FAQ", nav_cta: "Commencer gratuitement",
+      hero_badge: "Nouveau — Les plans de course sont là", hero_l1: "Entraînez-vous à", hero_l2: "votre propre rythme",
+      hero_sub: "Ritmo construit un plan d'entraînement autour de votre corps — vos zones, votre emploi du temps, votre récupération. Un coaching adaptatif pour les coureurs et les cyclistes qui veulent de vrais progrès.",
+      hero_cta1: "Commencer gratuitement", hero_cta2: "Voir comment ça marche", hero_note: "Essai 14 jours · Sans carte · Annulable à tout moment",
+      mock_title: "Séance du jour", mock_date: "Mar · 11 août", mock_cadence: "cadence",
+      mock_warm: "Échauffement", mock_warm_d: "10 min de footing facile", mock_main: "Série principale", mock_zone: "Zone 3",
+      mock_cool: "Retour au calme", mock_cool_d: "8 min de course lente", mock_done: "Terminé", mock_live: "En direct", mock_est: "Est. 42 min",
+      mock_plan: "Progression du plan",
+      trace_a: "Une saison d'allure, en une ligne", trace_b: "faites défiler pour dessiner",
+      mq1: "Plans adaptatifs", mq2: "Entraînement par zones", mq3: "Score de récupération", mq4: "Prêt pour la course", mq5: "Défis d'équipe", mq6: "Séries et habitudes",
+      proc_title: "Trois étapes vers une meilleure saison", proc_sub: "Ni devinettes, ni mois génériques de « base ». Ritmo se façonne autour de vous dès la première sortie.",
+      s1_t: "Évaluer", s1_d: "Dites à Ritmo vos objectifs, votre emploi du temps et ce que vous ressentez après chaque sortie. Votre point de départ se dessine en quelques minutes.",
+      s2_t: "Adapter", s2_d: "Le plan se reconstruit chaque semaine selon vos zones, votre sommeil et votre score de récupération. Deux semaines ne se ressemblent jamais.",
+      s3_t: "Réussir", s3_d: "Courez avec confiance. Ritmo surveille votre courbe de forme pour que vous arriviez sur la ligne de départ prêt.",
+      feat_title: "Un coaching qui écoute", feat_sub: "Chaque séance est construite de zéro sur vos données en direct. Voici ce que ça donne.",
+      f1_t: "Entraînez-vous avec intention", f1_d: "Les plans génériques devinent. Ritmo écoute. Les jours durs restent durs, les jours faciles vous récupèrent vraiment — parce que chaque effort est ancré dans vos zones de fréquence cardiaque en direct.",
+      f1_p1: "Intervalles par zones", f1_p1d: "Les séances s'ajustent en cours de route quand vos jambes disent non.",
+      f1_p2: "Retour de cadence", f1_p2d: "Un métronome en direct garde votre foulée honnête.",
+      vz_t: "Mélange de zones du jour", vz_s: "séance · 42 min",
+      f2_t: "Récupérez comme un pro", f2_d: "La fraîcheur n'est pas une sensation — c'est une donnée. Ritmo fusionne sommeil, fréquence cardiaque au repos et charge d'entraînement en un score de récupération honnête qui vous dit quand pousser et quand vous reposer.",
+      f2_p1: "Un score honnête", f2_p1d: "Sommeil, charge et VFC — fusionnés, pas mélangés.",
+      f2_p2: "Des jours de repos mérités", f2_p2d: "Le plan se réorganise seul quand votre score baisse.",
+      vr_t: "Panneau de récupération", vr_s: "prêt · 87%", vr_sleep: "Sommeil", vr_rhr: "FC au repos", vr_hrv: "Tendance VFC",
+      vr_go: "C'est parti", vr_go_d: "Les intervalles sont confirmés aujourd'hui",
+      f3_t: "Courez votre monde", f3_d: "S'entraîner seul, c'est solitaire. Rejoignez des clubs, poursuivez des défis mensuels et encouragez vos coéquipiers en pleine course — depuis votre montre ou votre téléphone.",
+      f3_p1: "Clubs et équipes", f3_p1d: "Calendriers partagés, rivalités amicales.",
+      f3_p2: "Encouragements en direct", f3_p2d: "Les encouragements du jour de course arrivent sur votre poignet.",
+      vm_t: "Sortie longue du samedi", vm_s: "club · 12 coureurs",
+      bento_title: "Une app. Toute votre saison.", bento_sub: "Six modules, un même rythme. Tout ce qu'il faut entre la ligne de départ et le canapé.",
+      b1_t: "Coaching en direct", b1_h: "Un coach à votre oreille", b1_d: "Consignes vocales, allures cibles en temps réel et corrections honnêtes en pleine course — sans fixer d'écran, sans hésiter.",
+      b2_t: "Labo de cadence", b2_h: "Trouvez votre point idéal", b2_d: "Foulée après foulée, Ritmo ajuste votre rythme vers votre cadence la plus efficace.",
+      b3_t: "Planificateur de course", b3_h: "Être au top le jour J", b3_d: "Blocs de compte à rebours et un affûtage qui protège votre forme.", b3_d1: "Marathon de Berlin", b3_d1: "Marathon de Berlin", b3_d2: "Affûtage", b3_d3: "Jour de course", b2_val: "172 ppm", b2_lbl: "cadence cible",
+      b4_t: "Score de récupération", b4_h: "Sommeil + charge + VFC", b4_d: "Un chiffre qui vous garde honnête sur le repos.", b4_chip: "Prêt · 87",
+      b5_t: "Synchro d'équipe", b5_h: "Partagez vos séances, mobilisez le groupe", b5_d: "Publiez vos sorties dans le fil du club, mentionnez vos coéquipiers, et que la chamaillerie commence.",
+      b6_t: "Garde des séries", b6_h: "Des habitudes, pas de culpabilité", b6_d: "De douces piqûres de rappel protègent votre série — sans jamais harceler.",
+      testi_title: "Courez ensemble, progressez ensemble",
+      t1_q: "J'ai arrêté les plans copiés-collés et j'ai commencé à écouter mon propre corps. Mon record sur marathon a chuté de neuf minutes en une saison.",
+      t1_n: "Marta Keller", t1_r: "Marathonienne · Berlin",
+      t2_q: "Le score de récupération est d'une précision troublante. Il m'a dit de me reposer avant même que je sache en avoir besoin.",
+      t2_n: "Diego Fontes", t2_r: "Traileur · Lisbonne",
+      t3_q: "Notre club court ensemble sur Ritmo. Les sorties longues du samedi ont enfin un goût d'équipe.",
+      t3_n: "Amara Osei", t3_r: "Capitaine de club · Accra",
+      pricing_title: "Des plans simples, des tarifs honnêtes", pricing_sub: "Commencez gratuitement. Passez au niveau supérieur quand vos objectifs dépassent l'essentiel.",
+      pl1_n: "Starter", pl1_per: "/mois · pour toujours",
+      pl1_f1: "1 plan adaptatif", pl1_f2: "Coaching par zones", pl1_f3: "3 séances par semaine",
+      pl2_badge: "Le plus populaire", pl2_n: "Pro", pl2_per: "/mois",
+      pl2_f1: "Plans adaptatifs illimités", pl2_f2: "Planificateur de course + affûtage", pl2_f3: "Intelligence de récupération", pl2_f4: "Labo de cadence",
+      pl3_n: "Club", pl3_per: "/membre /mois",
+      pl3_f1: "Tout Pro inclus", pl3_f2: "Défis d'équipe", pl3_f3: "Tableau de bord coach",
+      pl_cta1: "Commencer gratuitement", pl_cta2: "Passer Pro", pl_cta3: "Créer un club",
+      faq_title: "Des questions, des réponses",
+      q1: "Faut-il une montre connectée ?", q1a: "Non. Votre téléphone suffit pour les plans et le coaching. Une ceinture cardio ou une montre débloque l'entraînement par zones et le score de récupération.",
+      q2: "Comment le plan s'adapte-t-il ?", q2a: "Après chaque séance, Ritmo lit la vraie réponse de votre corps — zones, allure, ressenti — et reconstruit la semaine à venir. Une sortie manquée ? Le plan se rééquilibre au lieu de vous punir.",
+      q3: "Puis-je importer mon historique ?", q3a: "Oui. Import en un clic depuis les principales plateformes, ou un point de départ manuel rapide si vous repartez de zéro.",
+      q4: "Y a-t-il une offre gratuite ?", q4a: "Starter est gratuit pour toujours — un plan adaptatif, le coaching par zones et trois séances par semaine. Pro ajoute le planificateur de course, l'intelligence de récupération et le labo de cadence.",
+      q5: "Ritmo fonctionne-t-il aussi à vélo ?", q5a: "Absolument. Coureurs, cyclistes et duathlètes utilisent Ritmo. Les plans s'adaptent à votre sport — et au mix des deux sur une saison.",
+      q6: "Que se passe-t-il après l'essai ?", q6a: "Vous gardez le plan Starter gratuitement. Passez à Pro quand vous voulez — sans engagement, annulation en deux gestes.",
+      cta_title: "Votre prochain record commence aujourd'hui", cta_sub: "Rejoignez 120 000 athlètes qui ont arrêté de deviner. Vos 14 premiers jours sont gratuits — et votre premier plan vous écoute déjà.",
+      news_btn: "Démarrer votre essai gratuit", news_ph: "vous@exemple.com", news_ok: "Vous êtes inscrit — à dimanche.",
+      foot_tag: "Entraînez-vous à votre rythme. Des plans qui s'adaptent, un coaching qui écoute, une communauté qui pousse.",
+      foot_product: "Produit", foot_p1: "Fonctionnalités", foot_p2: "Tarifs", foot_p3: "Comment ça marche", foot_p4: "FAQ",
+      foot_co: "Entreprise", foot_c1: "À propos", foot_c2: "Carrières", foot_c3: "Blog", foot_c4: "Presse",
+      foot_legal: "Légal", foot_l1: "Confidentialité", foot_l2: "Conditions", foot_l3: "Cookies",
+      foot_geo: "Amsterdam · Berlin · Lisbonne",
+      cookie_text: "Nous utilisons des cookies pour affiner votre expérience — et quelques-uns pour retenir votre zone préférée.",
+      cookie_accept: "Accepter", cookie_decline: "Refuser",
+      meta_title: "Ritmo — Entraînez-vous à votre propre rythme",
+      meta_desc: "Ritmo construit un plan d'entraînement adaptatif autour de votre corps — vos zones, votre emploi du temps, votre récupération."
+    },
+    de: {
+      skip: "Zum Inhalt springen", nav_small: "training",
+      nav_how: "So funktioniert's", nav_features: "Funktionen", nav_pricing: "Preise", nav_faq: "FAQ", nav_cta: "Kostenlos starten",
+      hero_badge: "Neu — Rennpläne sind da", hero_l1: "Trainiere in", hero_l2: "deinem eigenen Rhythmus",
+      hero_sub: "Ritmo baut deinen Trainingsplan um deinen Körper herum — deine Zonen, deinen Zeitplan, deine Erholung. Adaptives Coaching für Läufer und Radler, die echte Fortschritte wollen.",
+      hero_cta1: "Kostenlos starten", hero_cta2: "So funktioniert's", hero_note: "14 Tage Testphase · Keine Karte · Jederzeit kündbar",
+      mock_title: "Heutige Session", mock_date: "Di · 11. Aug", mock_cadence: "kadenz",
+      mock_warm: "Aufwärmen", mock_warm_d: "10 min lockeres Joggen", mock_main: "Hauptsatz", mock_zone: "Zone 3",
+      mock_cool: "Auslaufen", mock_cool_d: "8 min langsames Laufen", mock_done: "Erledigt", mock_live: "Live", mock_est: "Ca. 42 min",
+      mock_plan: "Planfortschritt",
+      trace_a: "Eine Saison Tempo, eine Linie", trace_b: "scrollen zum Zeichnen",
+      mq1: "Adaptive Pläne", mq2: "Zonentraining", mq3: "Erholungswert", mq4: "Wettkampfbereit", mq5: "Team-Challenges", mq6: "Serien & Gewohnheiten",
+      proc_title: "Drei Schritte zu einer besseren Saison", proc_sub: "Kein Raten, keine generischen «Basis»-Monate. Ritmo formt sich von deinem ersten Lauf an um dich herum.",
+      s1_t: "Erfassen", s1_d: "Sag Ritmo deine Ziele, deinen Zeitplan und wie du dich nach jedem Lauf fühlst. Dein Ausgangspunkt entsteht in Minuten.",
+      s2_t: "Anpassen", s2_d: "Der Plan formt sich jede Woche neu um deine Zonen, Schlaf und Erholungswert. Keine zwei Wochen sehen gleich aus.",
+      s3_t: "Erreichen", s3_d: "Starte mit Selbstvertrauen. Ritmo beobachtet deine Formkurve, damit du startklar an der Linie stehst.",
+      feat_title: "Coaching, das zuhört", feat_sub: "Jede Session wird von Grund auf aus deinen Live-Daten gebaut. So fühlt sich das an.",
+      f1_t: "Trainiere mit Absicht", f1_d: "Generische Pläne raten. Ritmo hört zu. Harte Tage bleiben hart, leichte Tage erholen dich wirklich — weil jede Anstrengung an deinen Live-Herzfrequenzzonen verankert ist.",
+      f1_p1: "Zonen-Intervalle", f1_p1d: "Workouts passen sich spontan an, wenn deine Beine Nein sagen.",
+      f1_p2: "Kadenz-Feedback", f1_p2d: "Ein Live-Metronom hält deinen Schritt ehrlich.",
+      vz_t: "Heutige Zonenmischung", vz_s: "Session · 42 min",
+      f2_t: "Erhole dich wie ein Profi", f2_d: "Bereitschaft ist kein Gefühl — sie ist Daten. Ritmo verbindet Schlaf, Ruhepuls und Trainingsbelastung zu einem ehrlichen Erholungswert, der dir sagt, wann du pushen und wann du ruhen sollst.",
+      f2_p1: "Ein ehrlicher Wert", f2_p1d: "Schlaf, Belastung und HRV — vereint, nicht verwässert.",
+      f2_p2: "Verdiente Ruhetage", f2_p2d: "Der Plan sortiert sich automatisch um, wenn dein Wert sinkt.",
+      vr_t: "Erholungs-Panel", vr_s: "bereit · 87%", vr_sleep: "Schlaf", vr_rhr: "Ruhepuls", vr_hrv: "HRV-Trend",
+      vr_go: "Leg los", vr_go_d: "Die Intervalle sind heute bestätigt",
+      f3_t: "Laufe deine Welt", f3_d: "Allein trainieren ist einsam. Tritt Clubs bei, jage monatliche Challenges und feuere Teamkollegen mitten im Lauf an — von der Uhr oder vom Handy.",
+      f3_p1: "Clubs & Teams", f3_p1d: "Geteilte Kalender, freundschaftliche Rivalitäten.",
+      f3_p2: "Live-Anfeuern", f3_p2d: "Anfeuerungen am Renntag landen auf deinem Handgelenk.",
+      vm_t: "Samstäglicher Long Run", vm_s: "Club · 12 Läufer",
+      bento_title: "Eine App. Deine ganze Saison.", bento_sub: "Sechs Module, ein Rhythmus. Alles, was du zwischen Startlinie und Sofa brauchst.",
+      b1_t: "Live-Coaching", b1_h: "Ein Coach im Ohr", b1_d: "Sprachhinweise, Tempoziele in Echtzeit und ehrliche Korrekturen mitten im Lauf — ohne auf den Bildschirm zu starren.",
+      b2_t: "Kadenzlabor", b2_h: "Finde deinen Sweet Spot", b2_d: "Schritt für Schritt stimmt Ritmo deinen Rhythmus auf deine effizienteste Kadenz ab.",
+      b3_t: "Rennplaner", b3_h: "Am Tag die Spitze", b3_d: "Countdown-Blöcke und ein Taper, das deine Form schützt.", b3_d1: "Berlin-Marathon", b3_d1: "Berlin-Marathon", b3_d2: "Taper", b3_d3: "Renntag", b2_val: "172 spm", b2_lbl: "Zielkadenz",
+      b4_t: "Erholungswert", b4_h: "Schlaf + Belastung + HRV", b4_d: "Eine Zahl, die dich beim Ruhen ehrlich hält.", b4_chip: "Bereit · 87",
+      b5_t: "Team-Sync", b5_h: "Teile Sessions, mobilisiere das Team", b5_d: "Poste Läufe in den Club-Feed, erwähne Teamkollegen — und die freundschaftliche Scharmützel beginnen.",
+      b6_t: "Serien-Wächter", b6_h: "Gewohnheiten statt Schuld", b6_d: "Sanfte Erinnerungen schützen deine Serie — ohne zu nerven.",
+      testi_title: "Gemeinsam laufen, gemeinsam besser werden",
+      t1_q: "Ich habe aufgehört, Standardpläne zu befolgen, und angefangen, auf meinen eigenen Körper zu hören. Mein Marathon-PB fiel in einer Saison um neun Minuten.",
+      t1_n: "Marta Keller", t1_r: "Marathonläuferin · Berlin",
+      t2_q: "Der Erholungswert ist unheimlich genau. Er hat mir gesagt, ich solle mich ausruhen, bevor ich wusste, dass ich es brauchte.",
+      t2_n: "Diego Fontes", t2_r: "Trailrunner · Lissabon",
+      t3_q: "Unser Club läuft gemeinsam mit Ritmo. Samstags fühlen sich die langen Läufe endlich wie Teamsport an.",
+      t3_n: "Amara Osei", t3_r: "Club-Kapitänin · Accra",
+      pricing_title: "Einfache Pläne, ehrliche Preise", pricing_sub: "Starte kostenlos. Upgrade, wenn deine Ziele das Basisangebot überholen.",
+      pl1_n: "Starter", pl1_per: "/Monat · für immer",
+      pl1_f1: "1 adaptiver Plan", pl1_f2: "Zonen-Coaching", pl1_f3: "3 Workouts pro Woche",
+      pl2_badge: "Am beliebtesten", pl2_n: "Pro", pl2_per: "/Monat",
+      pl2_f1: "Unbegrenzte adaptive Pläne", pl2_f2: "Rennplaner + Taper", pl2_f3: "Erholungs-Intelligenz", pl2_f4: "Kadenzlabor",
+      pl3_n: "Club", pl3_per: "/Mitglied /Monat",
+      pl3_f1: "Alles aus Pro", pl3_f2: "Team-Challenges", pl3_f3: "Coach-Dashboard",
+      pl_cta1: "Kostenlos starten", pl_cta2: "Pro holen", pl_cta3: "Club gründen",
+      faq_title: "Fragen, beantwortet",
+      q1: "Brauche ich eine Smartwatch?", q1a: "Nein. Dein Handy allein reicht für Pläne und Coaching. Ein Pulsgurt oder eine Uhr schaltet Zonentraining und Erholungswert frei.",
+      q2: "Wie passt sich der Plan an?", q2a: "Nach jeder Session liest Ritmo, wie dein Körper wirklich reagiert hat — Zonen, Tempo, Gefühl — und formt die kommende Woche neu. Lauf verpasst? Der Plan balanciert sich aus, statt dich zu bestrafen.",
+      q3: "Kann ich meine Trainingshistorie importieren?", q3a: "Ja. Ein-Klick-Import von den gängigen Plattformen oder ein schneller manueller Start, wenn du neu beginnst.",
+      q4: "Gibt es eine kostenlose Stufe?", q4a: "Starter ist für immer kostenlos — ein adaptiver Plan, Zonen-Coaching und drei Workouts pro Woche. Pro bringt Rennplaner, Erholungs-Intelligenz und Kadenzlabor.",
+      q5: "Funktioniert Ritmo auch beim Radfahren?", q5a: "Absolut. Läufer, Radler und Duathleten nutzen Ritmo. Die Pläne passen sich deiner Sportart an — und dem Mix aus beiden in einer Saison.",
+      q6: "Was passiert nach der Testphase?", q6a: "Du behältst den Starter-Plan kostenlos. Upgrade auf Pro jederzeit — ohne Bindung, Kündigung in zwei Taps.",
+      cta_title: "Dein nächster PB beginnt heute", cta_sub: "Schließe dich 120.000 Athleten an, die mit dem Raten aufgehört haben. Deine ersten 14 Tage sind kostenlos — und dein erster Plan hört schon zu.",
+      news_btn: "Kostenlose Testphase starten", news_ph: "du@beispiel.de", news_ok: "Du bist dabei — bis Sonntag.",
+      foot_tag: "Trainiere in deinem Rhythmus. Pläne, die sich anpassen, Coaching, das zuhört, Community, die antreibt.",
+      foot_product: "Produkt", foot_p1: "Funktionen", foot_p2: "Preise", foot_p3: "So funktioniert's", foot_p4: "FAQ",
+      foot_co: "Unternehmen", foot_c1: "Über uns", foot_c2: "Karriere", foot_c3: "Blog", foot_c4: "Presse",
+      foot_legal: "Rechtliches", foot_l1: "Datenschutz", foot_l2: "AGB", foot_l3: "Cookies",
+      foot_geo: "Amsterdam · Berlin · Lissabon",
+      cookie_text: "Wir verwenden Cookies, um dein Erlebnis zu optimieren — und ein paar, um deine Lieblingszone zu merken.",
+      cookie_accept: "Akzeptieren", cookie_decline: "Ablehnen",
+      meta_title: "Ritmo — Trainiere in deinem eigenen Rhythmus",
+      meta_desc: "Ritmo baut einen adaptiven Trainingsplan um deinen Körper herum — deine Zonen, deinen Zeitplan, deine Erholung."
+    },
+    it: {
+      skip: "Vai al contenuto", nav_small: "allenamento",
+      nav_how: "Come funziona", nav_features: "Funzioni", nav_pricing: "Prezzi", nav_faq: "FAQ", nav_cta: "Inizia gratis",
+      hero_badge: "Novità — I piani gara sono arrivati", hero_l1: "Allenati al", hero_l2: "tuo ritmo",
+      hero_sub: "Ritmo costruisce un piano di allenamento attorno al tuo corpo — le tue zone, i tuoi impegni, il tuo recupero. Coaching adattivo per runner e ciclisti che vogliono progressi veri.",
+      hero_cta1: "Inizia gratis", hero_cta2: "Guarda come funziona", hero_note: "14 giorni di prova · Senza carta · Disdici quando vuoi",
+      mock_title: "Sessione di oggi", mock_date: "Mar · 11 ago", mock_cadence: "cadenza",
+      mock_warm: "Riscaldamento", mock_warm_d: "10 min di jogging facile", mock_main: "Serie principale", mock_zone: "Zona 3",
+      mock_cool: "Defaticamento", mock_cool_d: "8 min di corsa lenta", mock_done: "Fatto", mock_live: "Live", mock_est: "Circa 42 min",
+      mock_plan: "Progresso del piano",
+      trace_a: "Una stagione di ritmo, una linea", trace_b: "scorri per disegnare",
+      mq1: "Piani adattivi", mq2: "Allenamento a zone", mq3: "Score di recupero", mq4: "Pronto per la gara", mq5: "Sfide di squadra", mq6: "Strisce e abitudini",
+      proc_title: "Tre passi verso una stagione migliore", proc_sub: "Niente congetture, niente mesi generici di «base». Ritmo si modella su di te fin dalla prima corsa.",
+      s1_t: "Valuta", s1_d: "Racconta a Ritmo i tuoi obiettivi, i tuoi impegni e come ti senti dopo ogni corsa. Il tuo punto di partenza prende forma in minuti.",
+      s2_t: "Adatta", s2_d: "Il piano si rimodella ogni settimana attorno a zone, sonno e score di recupero. Non esistono due settimane uguali.",
+      s3_t: "Raggiungi", s3_d: "Gara con sicurezza. Ritmo osserva la tua curva di forma, così arrivi alla linea di partenza pronto.",
+      feat_title: "Coaching che ascolta", feat_sub: "Ogni sessione nasce da zero dai tuoi dati in tempo reale. Ecco come ci si sente.",
+      f1_t: "Allenati con intenzione", f1_d: "I piani generici indovinano. Ritmo ascolta. I giorni duri restano duri, quelli facili ti recuperano davvero — perché ogni sforzo è ancorato alle tue zone cardiache in tempo reale.",
+      f1_p1: "Intervalle a zone", f1_p1d: "Gli allenamenti si adattano al volo quando le gambe dicono no.",
+      f1_p2: "Feedback di cadenza", f1_p2d: "Un metronomo live tiene onesta la tua falcata.",
+      vz_t: "Mix di zone di oggi", vz_s: "sessione · 42 min",
+      f2_t: "Recupera come un professionista", f2_d: "La prontezza non è una sensazione — è un dato. Ritmo fonde sonno, frequenza a riposo e carico di allenamento in uno score di recupero onesto che ti dice quando spingere e quando riposare.",
+      f2_p1: "Uno score onesto", f2_p1d: "Sonno, carico e VFC — fusi, non confusi.",
+      f2_p2: "Giorni di riposo meritati", f2_p2d: "Il piano si riorganizza da solo quando lo score cala.",
+      vr_t: "Pannello recupero", vr_s: "pronto · 87%", vr_sleep: "Sonno", vr_rhr: "FC a riposo", vr_hrv: "Trend VFC",
+      vr_go: "Vai!", vr_go_d: "Gli intervalli di oggi sono confermati",
+      f3_t: "Corri il tuo mondo", f3_d: "Allenarsi da soli è solitario. Unisciti a club, insegui sfide mensili e tifa i compagni a metà corsa — dall'orologio o dal telefono.",
+      f3_p1: "Club e squadre", f3_p1d: "Calendari condivisi, rivalità amichevoli.",
+      f3_p2: "Tifo in diretta", f3_p2d: "Gli incitamenti del giorno di gara arrivano al polso.",
+      vm_t: "Lungo del sabato", vm_s: "club · 12 runner",
+      bento_title: "Un'app. Tutta la tua stagione.", bento_sub: "Sei moduli, un ritmo solo. Tutto ciò che serve tra la linea di partenza e il divano.",
+      b1_t: "Coaching live", b1_h: "Un coach nell'orecchio", b1_d: "Indicazioni vocali, ritmi target in tempo reale e correzioni oneste a metà corsa — senza guardare lo schermo, senza dubbi.",
+      b2_t: "Laboratorio di cadenza", b2_h: "Trova il tuo punto dolce", b2_d: "Falcata dopo falcata, Ritmo accorda il tuo ritmo verso la cadenza più efficiente.",
+      b3_t: "Pianificatore di gara", b3_h: "Al top nel giorno giusto", b3_d: "Blocchi di conto alla rovescia e un taper che protegge la forma.", b3_d1: "Maratona di Berlino", b3_d1: "Maratona di Berlino", b3_d2: "Taper", b3_d3: "Giorno di gara", b2_val: "172 ppm", b2_lbl: "cadenza target",
+      b4_t: "Score di recupero", b4_h: "Sonno + carico + VFC", b4_d: "Un numero che ti tiene onesto sul riposo.", b4_chip: "Pronto · 87",
+      b5_t: "Sync di squadra", b5_h: "Condividi sessioni, mobilita la squadra", b5_d: "Pubblica le corse nel feed del club, tagga i compagni e che la sana rivalità abbia inizio.",
+      b6_t: "Guardia delle strisce", b6_h: "Abitudini, non sensi di colpa", b6_d: "Gentili promemoria proteggono la tua striscia — senza mai assillarti.",
+      testi_title: "Corri insieme, migliora insieme",
+      t1_q: "Ho smesso di seguire piani copia-incolla e ho iniziato ad ascoltare il mio corpo. Il mio PB in maratona è sceso di nove minuti in una stagione.",
+      t1_n: "Marta Keller", t1_r: "Maratoneta · Berlino",
+      t2_q: "Lo score di recupero è spaventosamente preciso. Mi ha detto di riposare prima ancora che capissi di averne bisogno.",
+      t2_n: "Diego Fontes", t2_r: "Trail runner · Lisbona",
+      t3_q: "Il nostro club corre insieme su Ritmo. I lunghi del sabato sembrano finalmente sport di squadra.",
+      t3_n: "Amara Osei", t3_r: "Capitana del club · Accra",
+      pricing_title: "Piani semplici, prezzi onesti", pricing_sub: "Inizia gratis. Passa al livello superiore quando i tuoi obiettivi superano le basi.",
+      pl1_n: "Starter", pl1_per: "/mese · per sempre",
+      pl1_f1: "1 piano adattivo", pl1_f2: "Coaching a zone", pl1_f3: "3 allenamenti a settimana",
+      pl2_badge: "Più popolare", pl2_n: "Pro", pl2_per: "/mese",
+      pl2_f1: "Piani adattivi illimitati", pl2_f2: "Pianificatore di gara + taper", pl2_f3: "Intelligenza di recupero", pl2_f4: "Laboratorio di cadenza",
+      pl3_n: "Club", pl3_per: "/membro /mese",
+      pl3_f1: "Tutto di Pro", pl3_f2: "Sfide di squadra", pl3_f3: "Dashboard allenatore",
+      pl_cta1: "Inizia gratis", pl_cta2: "Passa a Pro", pl_cta3: "Crea un club",
+      faq_title: "Domande, risposte",
+      q1: "Serve uno smartwatch?", q1a: "No. Bastano il telefono per piani e coaching. Una fascia cardio o un orologio sbloccano l'allenamento a zone e lo score di recupero.",
+      q2: "Come si adatta il piano?", q2a: "Dopo ogni sessione, Ritmo legge come ha reagito davvero il tuo corpo — zone, ritmo, sensazioni — e rimodella la settimana successiva. Corsa saltata? Il piano si riequilibra invece di punirti.",
+      q3: "Posso importare la mia cronologia?", q3a: "Sì. Import in un clic dalle principali piattaforme, o un punto di partenza manuale rapido se parti da zero.",
+      q4: "Esiste una versione gratuita?", q4a: "Starter è gratis per sempre — un piano adattivo, coaching a zone e tre allenamenti a settimana. Pro aggiunge il pianificatore di gara, l'intelligenza di recupero e il laboratorio di cadenza.",
+      q5: "Ritmo funziona anche in bici?", q5a: "Assolutamente. Runner, ciclisti e duatleti usano Ritmo. I piani si adattano al tuo sport — e alla combinazione di entrambi in una stagione.",
+      q6: "Cosa succede dopo la prova?", q6a: "Tieni il piano Starter gratis. Passa a Pro quando vuoi — senza vincoli, disdici in due tocchi.",
+      cta_title: "Il tuo prossimo PB inizia oggi", cta_sub: "Unisciti a 120.000 atleti che hanno smesso di tirare a indovinare. I primi 14 giorni sono gratis — e il tuo primo piano ti sta già ascoltando.",
+      news_btn: "Inizia la prova gratuita", news_ph: "tu@esempio.it", news_ok: "Sei nella lista — a domenica.",
+      foot_tag: "Allenati al tuo ritmo. Piani che si adattano, coaching che ascolta, comunità che spinge.",
+      foot_product: "Prodotto", foot_p1: "Funzioni", foot_p2: "Prezzi", foot_p3: "Come funziona", foot_p4: "FAQ",
+      foot_co: "Azienda", foot_c1: "Chi siamo", foot_c2: "Lavora con noi", foot_c3: "Blog", foot_c4: "Stampa",
+      foot_legal: "Legale", foot_l1: "Privacy", foot_l2: "Termini", foot_l3: "Cookie",
+      foot_geo: "Amsterdam · Berlino · Lisbona",
+      cookie_text: "Usiamo i cookie per ottimizzare la tua esperienza — e un paio per ricordare la tua zona preferita.",
+      cookie_accept: "Accetta", cookie_decline: "Rifiuta",
+      meta_title: "Ritmo — Allenati al tuo ritmo",
+      meta_desc: "Ritmo costruisce un piano di allenamento adattivo attorno al tuo corpo — le tue zone, i tuoi impegni, il tuo recupero."
+    },
+    pt: {
+      skip: "Ir para o conteúdo", nav_small: "treino",
+      nav_how: "Como funciona", nav_features: "Recursos", nav_pricing: "Preços", nav_faq: "FAQ", nav_cta: "Começar grátis",
+      hero_badge: "Novidade — Planos de corrida já chegaram", hero_l1: "Treine no", hero_l2: "seu próprio ritmo",
+      hero_sub: "O Ritmo cria um plano de treino à volta do seu corpo — as suas zonas, a sua agenda, a sua recuperação. Coaching adaptativo para corredores e ciclistas que querem progresso real.",
+      hero_cta1: "Começar grátis", hero_cta2: "Ver como funciona", hero_note: "14 dias de teste · Sem cartão · Cancele quando quiser",
+      mock_title: "Sessão de hoje", mock_date: "Ter · 11 ago", mock_cadence: "cadência",
+      mock_warm: "Aquecimento", mock_warm_d: "10 min de trote leve", mock_main: "Série principal", mock_zone: "Zona 3",
+      mock_cool: "Desaquecimento", mock_cool_d: "8 min de corrida lenta", mock_done: "Feito", mock_live: "Ao vivo", mock_est: "Est. 42 min",
+      mock_plan: "Progresso do plano",
+      trace_a: "Uma temporada de ritmo, numa linha", trace_b: "role para desenhar",
+      mq1: "Planos adaptativos", mq2: "Treino por zonas", mq3: "Pontuação de recuperação", mq4: "Pronto para competir", mq5: "Desafios de equipe", mq6: "Rachas e hábitos",
+      proc_title: "Três passos para uma temporada melhor", proc_sub: "Sem adivinhação, sem meses genéricos de «base». O Ritmo molda-se a si desde a primeira corrida.",
+      s1_t: "Avalie", s1_d: "Conte ao Ritmo os seus objetivos, a sua agenda e como se sente após cada corrida. O seu ponto de partida forma-se em minutos.",
+      s2_t: "Adapte", s2_d: "O plano remodela-se todas as semanas em torno das zonas, do sono e da pontuação de recuperação. Não há duas semanas iguais.",
+      s3_t: "Conquiste", s3_d: "Compita com confiança. O Ritmo vigia a sua curva de forma para chegar à linha de partida pronto.",
+      feat_title: "Coaching que escuta", feat_sub: "Cada sessão nasce do zero a partir dos seus dados em tempo real. É assim que se sente.",
+      f1_t: "Treine com intenção", f1_d: "Planos genéricos adivinham. O Ritmo escuta. Dias duros continuam duros, dias fáceis recuperam-no a sério — porque cada esforço é ancorado às suas zonas cardíacas em tempo real.",
+      f1_p1: "Intervalos por zonas", f1_p1d: "Os treinos ajustam-se em tempo real quando as pernas dizem que não.",
+      f1_p2: "Feedback de cadência", f1_p2d: "Um metrónomo ao vivo mantém a sua passada honesta.",
+      vz_t: "Mistura de zonas de hoje", vz_s: "sessão · 42 min",
+      f2_t: "Recupere como um profissional", f2_d: "Prontidão não é sensação — é dado. O Ritmo combina sono, frequência em repouso e carga de treino numa pontuação de recuperação honesta que diz quando forçar e quando descansar.",
+      f2_p1: "Uma pontuação honesta", f2_p1d: "Sono, carga e VFC — fundidos, não misturados.",
+      f2_p2: "Dias de descanso merecidos", f2_p2d: "O plano reorganiza-se sozinho quando a pontuação cai.",
+      vr_t: "Painel de recuperação", vr_s: "pronto · 87%", vr_sleep: "Sono", vr_rhr: "FC em repouso", vr_hrv: "Tendência VFC",
+      vr_go: "Vai!", vr_go_d: "Os intervalos de hoje estão confirmados",
+      f3_t: "Corra o seu mundo", f3_d: "Treinar sozinho é solitário. Junte-se a clubes, persiga desafios mensais e torça pelos colegas a meio da corrida — do relógio ou do telemóvel.",
+      f3_p1: "Clubes e equipas", f3_p1d: "Calendários partilhados, rivalidades amigáveis.",
+      f3_p2: "Apoio ao vivo", f3_p2d: "As palmas do dia de corrida chegam ao seu pulso.",
+      vm_t: "Tirada longa de sábado", vm_s: "clube · 12 corredores",
+      bento_title: "Uma app. Toda a sua temporada.", bento_sub: "Seis módulos, um ritmo. Tudo o que precisa entre a linha de partida e o sofá.",
+      b1_t: "Coaching ao vivo", b1_h: "Um treinador no seu ouvido", b1_d: "Indicações por voz, ritmos-alvo em tempo real e correções honestas a meio da corrida — sem olhar para o ecrã, sem dúvidas.",
+      b2_t: "Laboratório de cadência", b2_h: "Encontre o seu ponto ideal", b2_d: "Passada a passada, o Ritmo ajusta o seu ritmo para a cadência mais eficiente.",
+      b3_t: "Planeador de corrida", b3_h: "Pico no dia certo", b3_d: "Blocos de contagem decrescente e um taper que protege a sua forma.", b3_d1: "Maratona de Berlim", b3_d1: "Maratona de Berlim", b3_d2: "Taper", b3_d3: "Dia da corrida", b2_val: "172 ppm", b2_lbl: "cadência-alvo",
+      b4_t: "Pontuação de recuperação", b4_h: "Sono + carga + VFC", b4_d: "Um número que o mantém honesto quanto ao descanso.", b4_chip: "Pronto · 87",
+      b5_t: "Sincronização de equipe", b5_h: "Partilhe sessões, mobilize a equipa", b5_d: "Publique corridas no feed do clube, marque colegas e que a competição amigável comece.",
+      b6_t: "Guardião de rachas", b6_h: "Hábitos, não culpa", b6_d: "Lembretes suaves protegem a sua racha — sem nunca aborrecer.",
+      testi_title: "Corra junto, melhore junto",
+      t1_q: "Deixei de seguir planos de copiar-colar e comecei a ouvir o meu próprio corpo. O meu recorde na maratona caiu nove minutos numa temporada.",
+      t1_n: "Marta Keller", t1_r: "Maratonista · Berlim",
+      t2_q: "A pontuação de recuperação é assustadoramente precisa. Disse-me para descansar antes de eu saber que precisava.",
+      t2_n: "Diego Fontes", t2_r: "Trail runner · Lisboa",
+      t3_q: "O nosso clube corre junto no Ritmo. As tiradas longas de sábado finalmente parecem desporto de equipa.",
+      t3_n: "Amara Osei", t3_r: "Capitã do clube · Acra",
+      pricing_title: "Planos simples, preços honestos", pricing_sub: "Comece grátis. Faça upgrade quando os seus objetivos superarem o básico.",
+      pl1_n: "Starter", pl1_per: "/mês · para sempre",
+      pl1_f1: "1 plano adaptativo", pl1_f2: "Coaching por zonas", pl1_f3: "3 treinos por semana",
+      pl2_badge: "Mais popular", pl2_n: "Pro", pl2_per: "/mês",
+      pl2_f1: "Planos adaptativos ilimitados", pl2_f2: "Planeador de corrida + taper", pl2_f3: "Inteligência de recuperação", pl2_f4: "Laboratório de cadência",
+      pl3_n: "Clube", pl3_per: "/membro /mês",
+      pl3_f1: "Tudo do Pro", pl3_f2: "Desafios de equipe", pl3_f3: "Painel do treinador",
+      pl_cta1: "Começar grátis", pl_cta2: "Ser Pro", pl_cta3: "Criar um clube",
+      faq_title: "Perguntas, respostas",
+      q1: "Preciso de um smartwatch?", q1a: "Não. Só o telemóvel já serve para planos e coaching. Uma cinta cardíaca ou um relógio desbloqueiam o treino por zonas e a pontuação de recuperação.",
+      q2: "Como é que o plano se adapta?", q2a: "Depois de cada sessão, o Ritmo lê como o seu corpo respondeu — zonas, ritmo, sensações — e remodela a semana seguinte. Faltou uma corrida? O plano reequilibra-se em vez de o castigar.",
+      q3: "Posso importar o meu histórico de treinos?", q3a: "Sim. Importação num clique das principais plataformas, ou um ponto de partida manual rápido se começar do zero.",
+      q4: "Existe versão gratuita?", q4a: "Starter é grátis para sempre — um plano adaptativo, coaching por zonas e três treinos por semana. O Pro acrescenta o planeador de corrida, a inteligência de recuperação e o laboratório de cadência.",
+      q5: "O Ritmo também funciona para ciclismo?", q5a: "Absolutamente. Corredores, ciclistas e duatletas usam o Ritmo. Os planos adaptam-se ao seu desporto — e à combinação de ambos numa temporada.",
+      q6: "O que acontece depois do teste?", q6a: "Fica com o plano Starter grátis. Faça upgrade para Pro quando quiser — sem fidelização, cancele em dois toques.",
+      cta_title: "O seu próximo recorde começa hoje", cta_sub: "Junte-se a 120.000 atletas que pararam de adivinhar. Os primeiros 14 dias são grátis — e o seu primeiro plano já o está a ouvir.",
+      news_btn: "Começar o teste grátis", news_ph: "voce@exemplo.com", news_ok: "Está na lista — vemo-nos domingo.",
+      foot_tag: "Treine ao seu ritmo. Planos que se adaptam, coaching que escuta, comunidade que empurra.",
+      foot_product: "Produto", foot_p1: "Recursos", foot_p2: "Preços", foot_p3: "Como funciona", foot_p4: "FAQ",
+      foot_co: "Empresa", foot_c1: "Sobre", foot_c2: "Carreiras", foot_c3: "Blog", foot_c4: "Imprensa",
+      foot_legal: "Legal", foot_l1: "Privacidade", foot_l2: "Termos", foot_l3: "Cookies",
+      foot_geo: "Amesterdão · Berlim · Lisboa",
+      cookie_text: "Usamos cookies para afinar a sua experiência — e alguns para lembrar a sua zona favorita.",
+      cookie_accept: "Aceitar", cookie_decline: "Recusar",
+      meta_title: "Ritmo — Treine ao seu próprio ritmo",
+      meta_desc: "O Ritmo cria um plano de treino adaptativo à volta do seu corpo — as suas zonas, a sua agenda, a sua recuperação."
+    }
+  };
+
+  var SUPPORTED = ["es", "en", "fr", "de", "it", "pt"];
+  var LANG_KEY = "ritmo-lang";
+  var COOKIE_KEY = "ritmo-cookie";
+  var THEME_KEY = "kairos-theme";   // ecosystem convention (portfolio capture)
+
+  /* ---------- Language ---------- */
+  function detectLang() {
+    var stored = null;
+    try { stored = localStorage.getItem(LANG_KEY); } catch (e) {}
+    if (stored && SUPPORTED.indexOf(stored) !== -1) return stored;
+    var nav = (navigator.language || "en").toLowerCase().slice(0, 2);
+    return SUPPORTED.indexOf(nav) !== -1 ? nav : "en";
+  }
+
+  function applyLang(lang) {
+    var dict = I18N[lang];
+    if (!dict) return;
+    document.documentElement.lang = lang === "en" ? "en" : lang;
+    $$("[data-i18n]").forEach(function (el) {
+      var key = el.getAttribute("data-i18n");
+      if (dict[key] !== undefined) el.textContent = dict[key];
+    });
+    $$("[data-i18n-ph]").forEach(function (el) {
+      var key = el.getAttribute("data-i18n-ph");
+      if (dict[key] !== undefined) el.setAttribute("placeholder", dict[key]);
+    });
+    // SEO metadata per language
+    if (dict.meta_title) document.title = dict.meta_title;
+    var desc = $('meta[name="description"]');
+    if (desc && dict.meta_desc) desc.setAttribute("content", dict.meta_desc);
+    var og = $('meta[property="og:title"]');
+    if (og && dict.meta_title) og.setAttribute("content", dict.meta_title);
+    var ogd = $('meta[property="og:description"]');
+    if (ogd && dict.meta_desc) ogd.setAttribute("content", dict.meta_desc);
+    try { localStorage.setItem(LANG_KEY, lang); } catch (e) {}
+    var sw = $("#langSwitch");
+    if (sw) sw.value = lang;
+  }
+
+  /* ---------- Theme (light default; dark optional; external attr respected) ---------- */
+  function applyTheme(theme) {
+    document.documentElement.setAttribute("data-theme", theme);
+    try { localStorage.setItem(THEME_KEY, theme); } catch (e) {}
+  }
+  function initTheme() {
+    var saved = null;
+    try { saved = localStorage.getItem(THEME_KEY); } catch (e) {}
+    var theme = saved === "dark" ? "dark" : "light";   // default light
+    applyTheme(theme);
+  }
+  // Respect external data-theme changes (e.g. capture scripts)
+  if (window.MutationObserver) {
+    new MutationObserver(function () {
+      var t = document.documentElement.getAttribute("data-theme");
+      if (t === "dark" || t === "light") { /* keep in sync with any CSS wants */ }
+    }).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+  }
+
+  /* ---------- Nav scrolled state ---------- */
+  function onScrollNav() {
+    var nav = $("#nav");
+    if (!nav) return;
+    nav.classList.toggle("scrolled", window.scrollY > 8);
+  }
+
+  /* ---------- Scroll-drawn cadence trace ---------- */
+  function initTrace() {
+    var path = $(".trace-path");
+    var band = $("#trace");
+    if (!path || !band) return;
+    var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduced) { path.style.strokeDashoffset = 0; return; }
+    var ticking = false;
+    function draw() {
+      var rect = band.getBoundingClientRect();
+      var vh = window.innerHeight;
+      var p = Math.min(1, Math.max(0, (vh * 0.85 - rect.top) / (rect.height + vh * 0.3)));
+      path.style.strokeDashoffset = String(1 - p);
+      ticking = false;
+    }
+    function request() { if (!ticking) { ticking = true; requestAnimationFrame(draw); } }
+    window.addEventListener("scroll", request, { passive: true });
+    window.addEventListener("resize", request);
+    draw();
+  }
+
+  /* ---------- Reveal on scroll ---------- */
+  function initReveals() {
+    var items = $$(".rv");
+    if (!("IntersectionObserver" in window)) {
+      items.forEach(function (el) { el.classList.add("in"); });
+      return;
+    }
+    var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in");
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
+    items.forEach(function (el) {
+      if (reduced) { el.classList.add("in"); return; }
+      io.observe(el);
+    });
+  }
+
+  /* ---------- Marquee (duplicate track when short) ---------- */
+  function initMarquee() {
+    var track = $("#marqueeTrack");
+    if (!track) return;
+    // ensure enough width for seamless loop on very wide screens
+    while (track.scrollWidth < window.innerWidth * 2) {
+      var clone = track.cloneNode(true);
+      track.appendChild(clone);
+    }
+  }
+
+  /* ---------- Cookie banner ---------- */
+  function initCookie() {
+    var bar = $("#cookieBar");
+    if (!bar) return;
+    var accepted = null;
+    try { accepted = localStorage.getItem(COOKIE_KEY); } catch (e) {}
+    if (accepted) { bar.classList.add("hidden"); return; }
+    var hide = function () {
+      bar.classList.add("hidden");
+      try { localStorage.setItem(COOKIE_KEY, "1"); } catch (e) {}
+    };
+    var acc = $("#cookieAccept"), dec = $("#cookieDecline");
+    if (acc) acc.addEventListener("click", hide);
+    if (dec) dec.addEventListener("click", hide);
+  }
+
+  /* ---------- Newsletter ---------- */
+  function initNewsletter() {
+    var form = $("#newsForm");
+    if (!form) return;
+    form.addEventListener("submit", function (ev) {
+      ev.preventDefault();
+      var input = $("#newsEmail");
+      var ok = $("#newsOk");
+      if (!input || !input.value || input.value.indexOf("@") === -1) {
+        input.focus();
+        return;
+      }
+      if (ok) ok.classList.add("show");
+      form.reset();
+    });
+  }
+
+  /* ---------- Boot ---------- */
+  function boot() {
+    document.documentElement.classList.remove("no-js");   // reveals may now animate
+    initTheme();
+    applyLang(detectLang());
+    initReveals();
+    initTrace();
+    initMarquee();
+    initCookie();
+    initNewsletter();
+    onScrollNav();
+
+    var sw = $("#langSwitch");
+    if (sw) sw.addEventListener("change", function () { applyLang(sw.value); });
+    var tb = $("#themeBtn");
+    if (tb) tb.addEventListener("click", function () {
+      var next = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      applyTheme(next);
+    });
+    window.addEventListener("scroll", onScrollNav, { passive: true });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", boot);
+  } else {
+    boot();
+  }
+})();
+</script>
+</body>
+</html>

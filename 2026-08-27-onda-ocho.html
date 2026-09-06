@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="es" class="no-js" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="doc-title">ONDA OCHO · 88.8 FM · Radio comunitaria en Malasaña</title>
+<meta id="meta-desc" name="description" content="Radio comunitaria 88.8 FM desde Malasaña: parrilla hecha a mano, archivo de barrio y un estudio con la puerta abierta los sábados.">
+<link rel="canonical" href="https://proyectos.cristiancode.dev/landings/2026-08-27-onda-ocho.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ONDA OCHO · 88.8 FM · Malasaña">
+<meta property="og:description" content="No hay algoritmo. Hay un micro y una calle. Radio comunitaria desde San Vicente Ferrer.">
+<meta property="og:url" content="https://proyectos.cristiancode.dev/landings/2026-08-27-onda-ocho.html">
+<meta property="og:image" content="https://cristiancode.dev/assets/landing-2026-08-27-onda-ocho.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ONDA OCHO · 88.8 FM">
+<meta name="twitter:description" content="Radio comunitaria en Malasaña. Escucha ahora o pasa el sábado por el estudio.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#F4F4F4">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%23121212'/%3E%3Ccircle cx='16' cy='16' r='7' fill='none' stroke='%231ED760' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='2.2' fill='%231ED760'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   DESIGN SYSTEM — ONDA OCHO · 88.8 FM
+   Surface: Decide/Learn (landing; hero correct). Secondary
+            Operate: live desk / now-playing console.
+   Derived from: Spotify (popular-web-designs) — near-black
+            theater, singular green as functional accent,
+            pill/circle geometry, compact type, heavy shadows
+            on dark, album-art (here: vinyl + VU) as colour.
+            Transformed into a community-radio landing, NOT a
+            streaming clone: light marketing canvas + a dark
+            physical radio as the hero object.
+   Family: Radio / community FM
+   Style: Dark-device on light paper; on-air green; pills.
+   Strategy: Committed (stage black 35–45% + one green ≤10%).
+   Type: Plus Jakarta Sans (Circular-like geometric) +
+         JetBrains Mono (frequency readouts).
+   Impeccable: no gradient text, no glass, no side-stripe,
+         no 3 equal feature tiles, no hero-metrics, no
+         uppercase eyebrows on every section, no 01/02/03.
+   ============================================================ */
+:root{
+  --z-nav:30; --z-banner:40; --z-menu:45; --z-toast:60;
+  --bg:#F4F4F4; --surface:#FFFFFF; --surface-2:#EAEAEA;
+  --ink:#121212; --muted:#3A3A3A; --faint:#4A4A4A;
+  --line:#D6D6D6; --line-strong:#B8B8B8;
+  --green:#1ED760; --green-border:#1DB954;
+  --cta:#0D7A38; --cta-hover:#0B6A30; --cta-ink:#FFFFFF;
+  --link:#0B6E30;
+  --stage:#121212; --stage-2:#181818; --stage-3:#1F1F1F;
+  --stage-ink:#FFFFFF; --stage-muted:#C8C8C8; --stage-faint:#A8A8A8;
+  --stage-line:#4D4D4D;
+  --danger:#B42348;
+  --focus:#0D7A38;
+  --sans:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --r:8px; --r-sm:6px; --pill:999px;
+  --ease:cubic-bezier(.22,1,.36,1);
+  --shadow:rgba(0,0,0,.08) 0 8px 24px;
+  --shadow-heavy:rgba(0,0,0,.5) 0 8px 24px;
+  --nav-h:64px;
+}
+[data-theme="dark"]{
+  --bg:#121212; --surface:#181818; --surface-2:#1F1F1F;
+  --ink:#FFFFFF; --muted:#C8C8C8; --faint:#A8A8A8;
+  --line:#2A2A2A; --line-strong:#4D4D4D;
+  --cta:#1ED760; --cta-hover:#1DB954; --cta-ink:#121212;
+  --link:#1ED760;
+  --focus:#1ED760;
+  --shadow:rgba(0,0,0,.45) 0 8px 24px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:1rem;line-height:1.55;font-weight:400;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img,svg{display:block;max-width:100%}
+a{color:var(--link)}
+h1,h2,h3{line-height:1.12;text-wrap:balance;color:var(--ink);letter-spacing:-0.03em;margin:0}
+p,li{text-wrap:pretty}
+.container{width:min(1120px,100% - 2.5rem);margin-inline:auto}
+.visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.skip{position:absolute;left:1rem;top:-4rem;background:var(--cta);color:var(--cta-ink);padding:.6rem 1rem;border-radius:var(--pill);z-index:70}
+.skip:focus{top:1rem}
+:focus-visible{outline:2px solid var(--focus);outline-offset:3px}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:44px;padding:.75rem 1.4rem;border-radius:var(--pill);font-family:var(--sans);font-size:.875rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border:0;cursor:pointer;transition:transform .2s var(--ease),background .2s var(--ease),color .2s var(--ease)}
+.btn-primary,.btn-primary:visited{background:var(--cta);color:var(--cta-ink)}
+.btn-primary:hover{background:var(--cta-hover);color:var(--cta-ink)}
+.btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--line-strong)}
+.btn-ghost:hover{border-color:var(--ink)}
+.desk .btn-play{width:56px;height:56px;min-height:56px;padding:0;border-radius:50%;background:var(--green);color:#121212;border:0;cursor:pointer;display:grid;place-items:center;flex-shrink:0}
+.desk .btn-play:hover{transform:scale(1.04)}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:var(--z-nav);height:var(--nav-h);background:var(--bg);border-bottom:1px solid var(--line)}
+.nav-inner{height:100%;display:flex;align-items:center;gap:1rem}
+.logo{display:flex;align-items:center;gap:.6rem;text-decoration:none;color:var(--ink);font-weight:800;letter-spacing:-.04em;font-size:1.05rem}
+.logo svg{width:28px;height:28px}
+.nav-desktop{display:flex;align-items:center;gap:1.25rem;margin-left:auto}
+.nav-desktop a{color:var(--ink);text-decoration:none;font-size:.9rem;font-weight:600}
+.nav-desktop a:hover{color:var(--link)}
+.nav-actions{display:flex;align-items:center;gap:.5rem}
+.icon-btn{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer;display:grid;place-items:center}
+#burger{display:none}
+.mobile-menu{display:none}
+
+/* lang */
+.lang-select{position:relative;display:inline-block}
+.lang-select__btn{display:inline-flex;align-items:center;gap:.45rem;height:40px;padding:0 .85rem;border:1px solid var(--line);border-radius:var(--pill);background:transparent;color:var(--ink);font-size:.8125rem;font-weight:600;cursor:pointer;font-family:var(--sans)}
+.lang-select__btn[aria-expanded="true"] .lang-select__chev{transform:rotate(180deg)}
+.lang-select__chev{transition:transform .2s var(--ease)}
+.lang-select__menu{position:absolute;top:calc(100% + 8px);right:0;z-index:var(--z-menu);min-width:170px;padding:.4rem;background:var(--surface);border:1px solid var(--line);border-radius:10px;box-shadow:var(--shadow);opacity:0;visibility:hidden;transform:translateY(-4px);transition:opacity .2s var(--ease),transform .2s var(--ease),visibility .2s}
+.lang-select__menu.open{opacity:1;visibility:visible;transform:translateY(0)}
+.lang-select__opt{display:flex;align-items:center;gap:.5rem;width:100%;padding:.5rem .7rem;border:none;background:none;font-size:.84375rem;color:var(--ink);text-align:left;border-radius:6px;cursor:pointer;font-family:var(--sans)}
+.lang-select__opt:hover{background:var(--surface-2)}
+.lang-select__opt[aria-selected="true"]{color:var(--link);font-weight:700}
+.lang-select__opt[aria-selected="true"]::after{content:'\2713';margin-left:auto}
+
+/* hero */
+.hero{padding:clamp(2.5rem,6vw,4.5rem) 0 3rem}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(1.5rem,4vw,3.5rem);align-items:center}
+.live-pill{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--mono);font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--link);margin:0 0 1rem}
+.live-dot{width:8px;height:8px;border-radius:50%;background:var(--cta);box-shadow:0 0 0 0 var(--cta);animation:pulse 1.8s var(--ease) infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--cta) 55%, transparent)}70%{box-shadow:0 0 0 10px transparent}100%{box-shadow:0 0 0 0 transparent}}
+.hero h1{font-size:clamp(2.1rem,5.2vw,4.4rem);font-weight:800;max-width:16ch;margin-bottom:1rem}
+.hero h1 .acc{color:var(--link)}
+.hero-sub{max-width:62ch;color:var(--muted);font-size:1.05rem;margin:0 0 1.6rem}
+.hero-cta{display:flex;flex-wrap:wrap;gap:.75rem}
+.freq{margin-top:1.4rem;font-family:var(--mono);font-size:.8rem;color:var(--faint);letter-spacing:.08em}
+
+/* desk — FIXED dark device */
+.desk{background:var(--stage);color:var(--stage-ink);border-radius:20px;padding:1.25rem 1.25rem 1.1rem;box-shadow:var(--shadow-heavy);display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:center}
+.desk,.desk *{color:inherit}
+.vinyl-wrap{width:118px;height:118px;position:relative}
+.vinyl{width:118px;height:118px;border-radius:50%;background:conic-gradient(from 0deg,#0a0a0a 0 8%,#1a1a1a 0 16%,#0a0a0a 0 24%,#222 0 32%,#0a0a0a 0 100%);box-shadow:inset 0 0 0 18px #161616, inset 0 0 0 22px #1ED760, 0 8px 18px rgba(0,0,0,.5);animation:spin 8s linear infinite}
+.vinyl.paused{animation-play-state:paused}
+@keyframes spin{to{transform:rotate(360deg)}}
+.vinyl-label{position:absolute;inset:38px;border-radius:50%;background:#1ED760;color:#121212;display:grid;place-items:center;font-family:var(--mono);font-size:.62rem;font-weight:700;letter-spacing:.04em}
+.desk-meta{display:flex;flex-direction:column;gap:.35rem;min-width:0}
+.desk-kicker{font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--green);margin:0}
+.desk-show{font-size:1.15rem;font-weight:800;letter-spacing:-.03em;margin:0;color:#fff}
+.desk-host,.desk-slot{margin:0;color:var(--stage-muted);font-size:.9rem}
+.vu{display:flex;align-items:flex-end;gap:3px;height:36px;margin-top:.6rem}
+.vu span{display:block;width:5px;border-radius:2px;background:var(--green);transform-origin:bottom;animation:vu 1.1s ease-in-out infinite alternate}
+.vu span:nth-child(1){height:40%;animation-delay:0s}
+.vu span:nth-child(2){height:70%;animation-delay:.12s}
+.vu span:nth-child(3){height:55%;animation-delay:.24s}
+.vu span:nth-child(4){height:90%;animation-delay:.08s}
+.vu span:nth-child(5){height:45%;animation-delay:.3s}
+.vu span:nth-child(6){height:75%;animation-delay:.18s}
+.vu span:nth-child(7){height:60%;animation-delay:.05s}
+@keyframes vu{from{transform:scaleY(.45)}to{transform:scaleY(1)}}
+.desk.paused .vu span{animation:none;opacity:.45}
+.desk-readout{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;padding-top:.85rem;margin-top:.2rem;border-top:1px solid #2a2a2a;font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;color:var(--stage-muted)}
+.mhz{font-size:1.35rem;color:#fff;letter-spacing:0;font-weight:600}
+
+/* now bar */
+.nowbar{background:var(--stage);color:var(--stage-ink)}
+.nowbar-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.85rem 0;font-family:var(--mono);font-size:.78rem;letter-spacing:.08em}
+.nowbar strong{color:var(--green);font-weight:700}
+
+/* schedule — timetable, not cards */
+.section{padding:clamp(3.2rem,7vw,5.5rem) 0}
+.lead{max-width:62ch;color:var(--muted);margin:.85rem 0 0;font-size:1.05rem}
+.section h2{font-size:clamp(1.6rem,3.2vw,2.6rem);font-weight:800;max-width:22ch}
+.grid-wrap{margin-top:2rem;overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+.sched{width:100%;border-collapse:collapse;min-width:820px}
+.sched th,.sched td{padding:.85rem .9rem;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+.sched th{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:600;background:var(--surface-2)}
+.sched td .t{font-family:var(--mono);font-size:.75rem;color:var(--link);display:block}
+.sched td .n{font-weight:700;display:block;margin:.15rem 0 .1rem}
+.sched td .h{color:var(--muted);font-size:.85rem}
+.sched tr:last-child td{border-bottom:0}
+.sched tbody tr:hover td{background:color-mix(in srgb,var(--green) 8%, var(--surface))}
+
+/* voices — asymmetric, not identical cards */
+.voices-grid{display:grid;grid-template-columns:1.25fr .85fr;gap:1.25rem;margin-top:2rem}
+.voice{padding:1.6rem 1.5rem 1.4rem;border-radius:12px;background:var(--surface);border:1px solid var(--line)}
+.voice.featured{background:var(--stage);color:var(--stage-ink);border-color:transparent}
+.voice.featured h3,.voice.featured p,.voice.featured .role{color:inherit}
+.role{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--link);margin:0 0 .5rem}
+.voice.featured .role{color:var(--green)}
+.voice h3{font-size:1.55rem;margin:0 0 .7rem}
+.voice p{margin:0;color:var(--muted)}
+.voice.featured p{color:var(--stage-muted)}
+.v-meta{margin-top:1rem;font-size:.85rem;color:var(--faint)}
+.voice.featured .v-meta{color:var(--stage-faint)}
+
+/* listen — one featured band + two stacked, not 3 equal tiles */
+.listen-layout{display:grid;grid-template-columns:1.4fr .8fr;gap:1rem;margin-top:2rem}
+.listen-fm{background:var(--stage);color:var(--stage-ink);border-radius:16px;padding:1.8rem 1.6rem;min-height:220px;display:flex;flex-direction:column;justify-content:flex-end}
+.listen-fm .num{font-family:var(--mono);font-size:clamp(3rem,8vw,5.5rem);font-weight:600;letter-spacing:-.04em;line-height:.9;color:#fff}
+.listen-fm .unit{color:var(--green);font-family:var(--mono);font-size:1rem;letter-spacing:.16em}
+.listen-fm p{color:var(--stage-muted);max-width:36ch;margin:.8rem 0 0}
+.listen-side{display:flex;flex-direction:column;gap:1rem}
+.listen-side a,.listen-side .blk{display:block;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:1.2rem 1.15rem;text-decoration:none;color:inherit;flex:1}
+.listen-side h3{font-size:1.05rem;margin:0 0 .35rem}
+.listen-side p{margin:0;color:var(--muted);font-size:.95rem}
+
+/* club — two columns, Compare */
+.club-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:1rem;margin-top:2rem}
+.plan{border:1px solid var(--line);border-radius:16px;padding:1.6rem 1.5rem;background:var(--surface);display:flex;flex-direction:column;gap:.7rem}
+.plan.featured{background:var(--stage);color:var(--stage-ink);border-color:transparent}
+.plan.featured h3,.plan.featured p,.plan.featured li{color:inherit}
+.plan h3{font-size:1.2rem}
+.price{font-family:var(--mono);font-size:2.4rem;font-weight:600;letter-spacing:-.04em;line-height:1}
+.price .per{font-size:.9rem;color:var(--muted);letter-spacing:0;font-family:var(--sans);font-weight:500;margin-left:.25rem}
+.plan.featured .price .per{color:var(--stage-muted)}
+.plan ul{margin:0 0 1rem;padding:0;list-style:none;display:flex;flex-direction:column;gap:.45rem}
+.plan li{color:var(--muted)}
+.plan.featured li{color:var(--stage-muted)}
+.plan .btn{margin-top:auto;align-self:flex-start}
+.plan.featured .btn-primary{background:var(--green);color:#121212}
+.plan.featured .btn-primary:hover{background:#1DB954;color:#121212}
+.club-note{margin-top:1rem;color:var(--muted);font-size:.92rem;max-width:70ch}
+
+/* faq */
+.faq-list{margin-top:1.6rem;display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-q{width:100%;background:none;border:0;color:var(--ink);font:inherit;font-weight:700;text-align:left;padding:1.05rem 0;display:flex;justify-content:space-between;gap:1rem;cursor:pointer;min-height:44px}
+.faq-q .ic{width:22px;height:22px;flex-shrink:0;position:relative}
+.faq-q .ic::before,.faq-q .ic::after{content:"";position:absolute;background:var(--ink);top:50%;left:50%;transform:translate(-50%,-50%)}
+.faq-q .ic::before{width:14px;height:2px}
+.faq-q .ic::after{width:2px;height:14px}
+.faq-item.open .ic::after{display:none}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s var(--ease)}
+.faq-a p{margin:0 0 1.1rem;color:var(--muted);max-width:65ch}
+
+/* newsletter — stage band, FIXED colours */
+.newsletter{background:var(--stage);color:var(--stage-ink);border-radius:20px;padding:clamp(1.6rem,4vw,2.4rem)}
+.newsletter h2,.newsletter p{color:inherit}
+.newsletter p{color:var(--stage-muted)}
+.news-form{margin-top:1.2rem}
+.field-row{display:flex;flex-wrap:wrap;gap:.6rem}
+.field-row input{flex:1;min-width:220px;min-height:48px;border-radius:var(--pill);border:1px solid #4d4d4d;background:#1f1f1f;color:#fff;padding:.7rem 1.1rem;font:inherit}
+.newsletter .btn{background:var(--green);color:#121212}
+.newsletter .btn:hover{background:#1DB954;color:#121212}
+.nl-msg{margin:.7rem 0 0;min-height:1.2em;font-size:.9rem}
+.nl-msg.ok{color:var(--green)}
+.nl-msg.err{color:#f3727f}
+.news-hint{margin-top:.6rem;font-size:.85rem;color:var(--stage-faint)!important}
+
+/* footer */
+.footer{padding:3rem 0 2rem;border-top:1px solid var(--line)}
+.footer-top{display:grid;grid-template-columns:1.4fr .8fr .8fr;gap:1.5rem}
+.f-brand p{color:var(--muted);max-width:42ch}
+.footer-col h4{margin:0 0 .6rem;font-size:.85rem}
+.footer-col a,.footer-col p{display:block;color:var(--muted);text-decoration:none;margin:.25rem 0}
+.footer-col a:hover{color:var(--link)}
+.footer-bottom{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-top:2rem;padding-top:1rem;border-top:1px solid var(--line);color:var(--faint);font-size:.85rem}
+
+/* cookie — desktop bottom-right; mobile under nav */
+.cookie{position:fixed;right:1rem;bottom:1rem;left:auto;z-index:var(--z-banner);width:min(360px,calc(100% - 2rem));background:var(--stage);color:var(--stage-ink);padding:1rem 1.05rem;border-radius:14px;box-shadow:var(--shadow-heavy);transform:translateY(calc(100% + 1.5rem));opacity:0;pointer-events:none;transition:transform .4s var(--ease),opacity .4s var(--ease)}
+.cookie.show{transform:none;opacity:1;pointer-events:auto}
+.cookie p{margin:0 0 .8rem;color:var(--stage-muted);font-size:.9rem}
+.cookie-actions{display:flex;gap:.5rem}
+.ck{min-height:40px;padding:.45rem 1rem;border-radius:var(--pill);font-weight:700;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;font-family:var(--sans)}
+.ck-ok{background:#fff;color:#121212;border:0}
+.ck-no{background:transparent;color:#fff;border:1px solid #7c7c7c}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(14px);transition:opacity .55s var(--ease),transform .55s var(--ease)}
+.rv.in{opacity:1;transform:none}
+html.no-js .rv{opacity:1;transform:none}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+  .rv{opacity:1;transform:none}
+  .vinyl{animation:none}
+  .live-dot{box-shadow:none}
+}
+
+@media print{
+  .rv{opacity:1;transform:none}
+  .nav,.cookie,.mobile-menu{display:none!important}
+}
+
+@media (max-width:900px){
+  .hero-grid,.voices-grid,.listen-layout,.club-grid,.footer-top{grid-template-columns:1fr}
+  .nav-desktop{display:none}
+  #burger{display:grid}
+  .mobile-menu{display:none;position:fixed;inset:var(--nav-h) 0 auto 0;background:var(--bg);border-bottom:1px solid var(--line);padding:1rem 1.25rem 1.4rem;z-index:var(--z-menu);flex-direction:column;gap:.4rem}
+  .mobile-menu.open{display:flex}
+  .mobile-menu a.m-link{color:var(--ink);text-decoration:none;padding:.7rem 0;font-weight:600}
+  .mobile-menu a.btn-primary{color:var(--cta-ink);background:var(--cta);padding:.75rem 1.4rem;margin-top:.5rem}
+  .mobile-menu .lang-select{width:100%}
+  .mobile-menu .lang-select__btn{width:100%;justify-content:space-between}
+  .desk{grid-template-columns:1fr}
+  .vinyl-wrap{margin:0 auto}
+}
+
+@media (max-width:700px){
+  .cookie{left:1rem;right:1rem;bottom:auto;top:calc(var(--nav-h) + .5rem);width:auto;transform:translateY(calc(-100% - 8rem))}
+  .cookie.show{transform:none}
+  .container{width:min(1120px,100% - 1.5rem)}
+  .hero h1{max-width:none}
+  .field-row input{min-width:0;width:100%}
+}
+
+</style>
+</head>
+<body>
+<a class="skip" href="#main" data-i18n="skip">Saltar al contenido</a>
+<header class="nav" role="banner">
+  <div class="container nav-inner">
+    <a class="logo" href="#main" aria-label="ONDA OCHO — inicio"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="16" fill="#121212"/><circle cx="16" cy="16" r="7" fill="none" stroke="#1ED760" stroke-width="2"/><circle cx="16" cy="16" r="2.2" fill="#1ED760"/><path d="M6 16h4M22 16h4" stroke="#1ED760" stroke-width="1.6" stroke-linecap="round"/></svg>ONDA OCHO</a>
+    <nav class="nav-desktop" aria-label="Principal">
+      <a href="#parrilla" data-i18n="nav.grid">Parrilla</a>
+      <a href="#voces" data-i18n="nav.voices">Voces</a>
+      <a href="#club" data-i18n="nav.club">Club</a>
+      <a href="#faq" data-i18n="nav.faq">Preguntas</a>
+    </nav>
+    <div class="nav-actions">
+      
+<div class="lang-select">
+  <button class="lang-select__btn" type="button" aria-haspopup="listbox" aria-expanded="false" data-i18n-aria="lang.aria" aria-label="Elegir idioma">
+    <span class="lang-select__cur">ES</span>
+    <svg class="lang-select__chev" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+  <div class="lang-select__menu" role="listbox" aria-label="Choose language">
+    <button class="lang-select__opt" role="option" data-lang="en" aria-selected="false">English</button>
+    <button class="lang-select__opt" role="option" data-lang="es" aria-selected="true">Español</button>
+    <button class="lang-select__opt" role="option" data-lang="fr" aria-selected="false">Français</button>
+    <button class="lang-select__opt" role="option" data-lang="de" aria-selected="false">Deutsch</button>
+    <button class="lang-select__opt" role="option" data-lang="it" aria-selected="false">Italiano</button>
+    <button class="lang-select__opt" role="option" data-lang="pt" aria-selected="false">Português</button>
+  </div>
+</div>
+
+      <button class="icon-btn" id="themeToggle" type="button" data-i18n-aria="theme.aria" aria-label="Cambiar a modo oscuro">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.8"/><path d="M12 2.5v2.2M12 19.3v2.2M4.7 4.7l1.6 1.6M17.7 17.7l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.7 19.3l1.6-1.6M17.7 6.3l1.6-1.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+      <a class="btn btn-primary nav-desktop" href="#estudio" data-i18n="nav.cta">Escuchar ahora</a>
+      <button class="icon-btn" id="burger" type="button" aria-expanded="false" data-i18n-aria="menu.aria" aria-label="Abrir menú" aria-controls="mobileMenu">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a class="m-link" href="#parrilla" data-i18n="nav.grid">Parrilla</a>
+    <a class="m-link" href="#voces" data-i18n="nav.voices">Voces</a>
+    <a class="m-link" href="#club" data-i18n="nav.club">Club</a>
+    <a class="m-link" href="#faq" data-i18n="nav.faq">Preguntas</a>
+    
+<div class="lang-select">
+  <button class="lang-select__btn" type="button" aria-haspopup="listbox" aria-expanded="false" data-i18n-aria="lang.aria" aria-label="Elegir idioma">
+    <span class="lang-select__cur">ES</span>
+    <svg class="lang-select__chev" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+  <div class="lang-select__menu" role="listbox" aria-label="Choose language">
+    <button class="lang-select__opt" role="option" data-lang="en" aria-selected="false">English</button>
+    <button class="lang-select__opt" role="option" data-lang="es" aria-selected="true">Español</button>
+    <button class="lang-select__opt" role="option" data-lang="fr" aria-selected="false">Français</button>
+    <button class="lang-select__opt" role="option" data-lang="de" aria-selected="false">Deutsch</button>
+    <button class="lang-select__opt" role="option" data-lang="it" aria-selected="false">Italiano</button>
+    <button class="lang-select__opt" role="option" data-lang="pt" aria-selected="false">Português</button>
+  </div>
+</div>
+
+    <a class="btn btn-primary" href="#estudio" data-i18n="nav.cta">Escuchar ahora</a>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="hero" aria-labelledby="hero-title">
+    <div class="container hero-grid">
+      <div>
+        <p class="live-pill"><span class="live-dot" aria-hidden="true"></span><span data-i18n="hero.onair">AL AIRE</span></p>
+        <h1 id="hero-title" data-i18n-html="hero.title">No hay algoritmo.<br>Hay un <span class="acc">micro</span> y una calle.</h1>
+        <p class="hero-sub" data-i18n="hero.sub">Desde un segundo piso de San Vicente Ferrer, ONDA OCHO emite radio hecha a mano: discos que no caben en ninguna lista, asambleas de barrio y la cocina de medianoche que solo se escucha con la ventana abierta.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#estudio" data-i18n="hero.cta1">Escuchar ahora</a>
+          <a class="btn btn-ghost" href="#parrilla" data-i18n="hero.cta2">Ver la parrilla</a>
+        </div>
+        <p class="freq" data-i18n="hero.freq">88.8 FM · Malasaña</p>
+      </div>
+      <div class="desk" id="estudio" aria-label="Mesa de emisión">
+        <div class="vinyl-wrap" aria-hidden="true">
+          <div class="vinyl" id="vinyl"></div>
+          <div class="vinyl-label">88.8</div>
+        </div>
+        <div class="desk-meta">
+          <p class="desk-kicker" data-i18n="hero.live">En antena ahora</p>
+          <p class="desk-show" data-i18n="hero.show">Cocina de medianoche</p>
+          <p class="desk-host" data-i18n="hero.host">con Lina Varela</p>
+          <p class="desk-slot" data-i18n="hero.slot">00:00 – 02:00</p>
+          <div class="vu" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        </div>
+        <div class="desk-readout">
+          <span data-i18n="desk.tuned">SINTONIZADO</span>
+          <span class="mhz" data-i18n="desk.mhz">88.8</span>
+          <span data-i18n="desk.band">FM MADRID</span>
+          <button class="btn-play" id="playBtn" type="button" data-i18n-aria="desk.pause" aria-pressed="true" aria-label="Pausar emisión">
+            <svg id="playIcon" width="18" height="18" viewBox="0 0 24 24" fill="#121212" aria-hidden="true"><rect x="6" y="5" width="4" height="14"/><rect x="14" y="5" width="4" height="14"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="nowbar" aria-live="polite">
+    <div class="container nowbar-inner">
+      <span><strong data-i18n="hero.onair">AL AIRE</strong> · <span data-i18n="hero.show">Cocina de medianoche</span></span>
+      <span data-i18n="hero.slot">00:00 – 02:00</span>
+    </div>
+  </div>
+
+  <section class="section" id="parrilla" aria-labelledby="sched-title">
+    <div class="container">
+      <h2 id="sched-title" class="rv" data-i18n="sched.title">La parrilla se escribe a lápiz, no a golpe de clic.</h2>
+      <p class="lead rv" data-i18n="sched.lead">Si un vecino trae un disco, entra. Si una asamblea pide media hora, se la damos. Esto es lo que suena esta semana — sujeto a que el mundo no se ponga más interesante.</p>
+      <div class="grid-wrap rv">
+        <table class="sched">
+          <caption class="visually-hidden">Parrilla semanal de ONDA OCHO</caption>
+          <thead>
+            <tr>
+              <th data-i18n="sched.mon">Lun</th>
+              <th data-i18n="sched.tue">Mar</th>
+              <th data-i18n="sched.wed">Mié</th>
+              <th data-i18n="sched.thu">Jue</th>
+              <th data-i18n="sched.fri">Vie</th>
+              <th data-i18n="sched.sat">Sáb</th>
+              <th data-i18n="sched.sun">Dom</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="t" data-i18n="s.m1t">07:00</span><span class="n" data-i18n="s.m1n">Apertura con café</span><span class="h" data-i18n="s.m1h">Nerea Sol</span></td><td><span class="t" data-i18n="s.t1t">08:00</span><span class="n" data-i18n="s.t1n">Parte de barrio</span><span class="h" data-i18n="s.t1h">Redacción</span></td><td><span class="t" data-i18n="s.w1t">09:00</span><span class="n" data-i18n="s.w1n">Taller de ondas</span><span class="h" data-i18n="s.w1h">colegio</span></td><td><span class="t" data-i18n="s.h1t">07:30</span><span class="n" data-i18n="s.h1n">Ruta de panaderías</span><span class="h" data-i18n="s.h1h">Lina</span></td><td><span class="t" data-i18n="s.f1t">10:00</span><span class="n" data-i18n="s.f1n">Crónica de terrazas</span><span class="h" data-i18n="s.f1h">Nerea</span></td><td><span class="t" data-i18n="s.a1t">11:00</span><span class="n" data-i18n="s.a1n">Mercadillo sonoro</span><span class="h" data-i18n="s.a1h">calle</span></td><td><span class="t" data-i18n="s.u1t">10:00</span><span class="n" data-i18n="s.u1n">Misas laicas</span><span class="h" data-i18n="s.u1h">archivo</span></td>
+            </tr>
+            <tr>
+              <td><span class="t" data-i18n="s.m2t">10:00</span><span class="n" data-i18n="s.m2n">Mercado de San Ildefonso</span><span class="h" data-i18n="s.m2h">Iago M.</span></td><td><span class="t" data-i18n="s.t2t">13:00</span><span class="n" data-i18n="s.t2n">Fado y otras orillas</span><span class="h" data-i18n="s.t2h">Inés R.</span></td><td><span class="t" data-i18n="s.w2t">18:00</span><span class="n" data-i18n="s.w2n">Asamblea abierta</span><span class="h" data-i18n="s.w2h">vecinas</span></td><td><span class="t" data-i18n="s.h2t">15:00</span><span class="n" data-i18n="s.h2n">Lectura en voz alta</span><span class="h" data-i18n="s.h2h">club</span></td><td><span class="t" data-i18n="s.f2t">17:00</span><span class="n" data-i18n="s.f2n">Entrevistas de portal</span><span class="h" data-i18n="s.f2h">Iago</span></td><td><span class="t" data-i18n="s.a2t">16:00</span><span class="n" data-i18n="s.a2n">Concierto de salón</span><span class="h" data-i18n="s.a2h">vivo</span></td><td><span class="t" data-i18n="s.u2t">18:00</span><span class="n" data-i18n="s.u2n">Cartas al estudio</span><span class="h" data-i18n="s.u2h">lectores</span></td>
+            </tr>
+            <tr>
+              <td><span class="t" data-i18n="s.m3t">16:00</span><span class="n" data-i18n="s.m3n">Clases de guitarra al aire</span><span class="h" data-i18n="s.m3h">en directo</span></td><td><span class="t" data-i18n="s.t3t">21:00</span><span class="n" data-i18n="s.t3n">Archivo de vinilos</span><span class="h" data-i18n="s.t3h">Dani P.</span></td><td><span class="t" data-i18n="s.w3t">23:00</span><span class="n" data-i18n="s.w3n">Nocturna experimental</span><span class="h" data-i18n="s.w3h">guest</span></td><td><span class="t" data-i18n="s.h3t">20:00</span><span class="n" data-i18n="s.h3n">Sesión de baile lento</span><span class="h" data-i18n="s.h3h">DJ Ocho</span></td><td><span class="t" data-i18n="s.f3t">22:00</span><span class="n" data-i18n="s.f3n">Disco invitado</span><span class="h" data-i18n="s.f3h">tú</span></td><td><span class="t" data-i18n="s.a3t">00:00</span><span class="n" data-i18n="s.a3n">Cocina de medianoche</span><span class="h" data-i18n="s.a3h">Lina</span></td><td><span class="t" data-i18n="s.u3t">21:00</span><span class="n" data-i18n="s.u3n">Cierre con campanas</span><span class="h" data-i18n="s.u3h">88.8</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="voces" aria-labelledby="voices-title" style="padding-top:0">
+    <div class="container">
+      <h2 id="voices-title" class="rv" data-i18n="voices.title">Quién habla cuando suena el piloto.</h2>
+      <p class="lead rv" data-i18n="voices.lead">No hay presentadores de catálogo. Hay vecinas que aprendieron a abrir el micro y no lo han soltado.</p>
+      <div class="voices-grid">
+        <article class="voice featured rv">
+          <p class="role" data-i18n="v1.role">Directora de antena</p>
+          <h3 data-i18n="v1.name">Lina Varela</h3>
+          <p data-i18n="v1.bio">Llegó en 2016 con una caja de cintas de su madre en Vigo. Monta Cocina de medianoche, responde el teléfono a las tres y deja entrar a quien traiga un disco que no hayamos oído.</p>
+          <p class="v-meta" data-i18n="v1.meta">Martes y madrugadas · desde el piso de arriba</p>
+        </article>
+        <article class="voice rv">
+          <p class="role" data-i18n="v2.role">Crónica de calle</p>
+          <h3 data-i18n="v2.name">Iago Mendes</h3>
+          <p data-i18n="v2.bio">Sale con la grabadora a San Ildefonso, al Rastro y a las colas del ambulatorio. Lo que no cabe en un titular, cabe en veinte minutos de radio.</p>
+          <p class="v-meta" data-i18n="v2.meta">Lunes y viernes · a pie de acera</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="escuchar" aria-labelledby="listen-title" style="padding-top:0">
+    <div class="container">
+      <h2 id="listen-title" class="rv" data-i18n="listen.title">Tres maneras de sintonizarnos. Ninguna pide cuenta.</h2>
+      <p class="lead rv" data-i18n="listen.lead">FM, web o el altavoz de la cocina. Elige la que menos te estorbe.</p>
+      <div class="listen-layout rv">
+        <div class="listen-fm">
+          <span class="unit" data-i18n="listen.fm">88.8 FM</span>
+          <div class="num">88.8</div>
+          <p data-i18n="listen.fmsub">En un radio de 12 km desde Malasaña. Si vives más lejos, la web.</p>
+        </div>
+        <div class="listen-side">
+          <div class="blk">
+            <h3 data-i18n="listen.web">emision.ondaocho.fm</h3>
+            <p data-i18n="listen.websub">Misma señal, sin publicidad. Sin app: el 88.8 o la mesa de esta página.</p>
+          </div>
+          <a class="blk" href="https://www.google.com/maps/search/?api=1&amp;query=Calle+de+San+Vicente+Ferrer+22+Madrid" target="_blank" rel="noopener">
+            <h3 data-i18n="listen.app">Altavoz del estudio</h3>
+            <p data-i18n="listen.appsub">Si pasas por San Vicente Ferrer 22, la puerta está abierta los sábados.</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="club" aria-labelledby="club-title">
+    <div class="container">
+      <h2 id="club-title" class="rv" data-i18n="club.title">El Club de la antena paga el alquiler. Tú decides si entras.</h2>
+      <p class="lead rv" data-i18n="club.lead">La radio es gratis. El piso, la luz y las válvulas del transmisor no. Dos puertas, ninguna con letra pequeña.</p>
+      <div class="club-grid">
+        <article class="plan rv">
+          <h3 data-i18n="club.p1">Oyente libre</h3>
+          <p class="price"><span data-i18n="club.p1price">0 €</span> <span class="per" data-i18n="club.p1per">siempre</span></p>
+          <ul>
+            <li data-i18n="club.p1a">Toda la parrilla en FM y web</li>
+            <li data-i18n="club.p1b">Cartas al estudio sin filtro</li>
+            <li data-i18n="club.p1c">Sin registro, sin newsletter obligatoria</li>
+          </ul>
+          <a class="btn btn-ghost" href="#estudio" data-i18n="club.p1cta">Solo escuchar</a>
+        </article>
+        <article class="plan featured rv">
+          <h3 data-i18n="club.p2">Club de la antena</h3>
+          <p class="price"><span data-i18n="club.p2price">6 €</span> <span class="per" data-i18n="club.p2per">al mes</span></p>
+          <ul>
+            <li data-i18n="club.p2a">Archivo de los últimos 30 días</li>
+            <li data-i18n="club.p2b">Una hora tuya al mes, si quieres</li>
+            <li data-i18n="club.p2c">El alquiler de agosto, cubierto entre todos</li>
+          </ul>
+          <a class="btn btn-primary" href="mailto:estudio@ondaocho.fm?subject=Club%20de%20la%20antena" data-i18n="club.p2cta">Escribir al estudio</a>
+        </article>
+      </div>
+      <p class="club-note rv" data-i18n="club.note">El club se paga por transferencia a nombre de Asociación Onda Ocho. Cancelas cuando quieras, con un correo.</p>
+    </div>
+  </section>
+
+  <section class="section" id="faq" aria-labelledby="faq-title" style="padding-top:0">
+    <div class="container">
+      <h2 id="faq-title" class="rv" data-i18n="faq.title">Lo que nos preguntan con la puerta entreabierta.</h2>
+      <div class="faq-list rv">
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false"><span data-i18n="faq.q1">¿Emitís de verdad en FM o es solo un podcast?</span><span class="ic" aria-hidden="true"></span></button>
+          <div class="faq-a"><p data-i18n="faq.a1">En FM, 88.8, con licencia comunitaria de la Comunidad de Madrid. El podcast es el archivo de lo que ya salió al aire, no al revés.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false"><span data-i18n="faq.q2">¿Puedo llevar un disco y que lo pongan?</span><span class="ic" aria-hidden="true"></span></button>
+          <div class="faq-a"><p data-i18n="faq.a2">Sí. Sábados de 11 a 16, deja el vinilo o el enlace en el buzón del 2ºA. Si no cabe esa semana, cabe la siguiente. Firmamos el préstamo.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false"><span data-i18n="faq.q3">¿Hacéis publicidad?</span><span class="ic" aria-hidden="true"></span></button>
+          <div class="faq-a"><p data-i18n="faq.a3">No de marcas. Sí de merenderos, librerías y talleres del barrio que nos dejan un cartel. El aire no se vende al mejor postor.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false"><span data-i18n="faq.q4">¿Cómo me hago con el micro?</span><span class="ic" aria-hidden="true"></span></button>
+          <div class="faq-a"><p data-i18n="faq.a4">Escribe a estudio@ondaocho.fm con media página de lo que quieres contar. Si encaja, te damos una hora de prueba con Lina al lado. No hay casting.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false"><span data-i18n="faq.q5">¿El club es una suscripción de esas que no se pueden cancelar?</span><span class="ic" aria-hidden="true"></span></button>
+          <div class="faq-a"><p data-i18n="faq.a5">Un correo y se corta el mes siguiente. No hay permanencia. El archivo deja de abrirse; la FM sigue siendo tuya.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contacto" style="padding-top:0" aria-labelledby="news-title">
+    <div class="container">
+      <div class="newsletter rv">
+        <h2 id="news-title" data-i18n="news.title">La parrilla de la semana, el domingo por la noche.</h2>
+        <p data-i18n="news.sub">Un correo. Lo que suena, quién cubre y si hay concierto de salón. Sin ofertas, sin recetas, sin reenviar a un amigo.</p>
+        <form class="news-form" id="newsForm" novalidate>
+          <div class="field-row">
+            <label class="visually-hidden" for="newsEmail" data-i18n="news.ph">Tu email</label>
+            <input type="email" id="newsEmail" name="email" required inputmode="email" autocomplete="email" data-i18n-ph="news.ph" placeholder="tu@correo.es">
+            <button class="btn" type="submit" data-i18n="news.cta">Abrir el correo</button>
+          </div>
+          <p class="nl-msg" id="nlMsg" role="status"></p>
+          <p class="news-hint" data-i18n="news.hint">No hay lista automática: tu cliente envía el alta. Si no quieres abrir el correo, escribe directo a estudio@ondaocho.fm.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="f-brand">
+        <a class="logo" href="#main"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="16" fill="#121212"/><circle cx="16" cy="16" r="7" fill="none" stroke="#1ED760" stroke-width="2"/><circle cx="16" cy="16" r="2.2" fill="#1ED760"/><path d="M6 16h4M22 16h4" stroke="#1ED760" stroke-width="1.6" stroke-linecap="round"/></svg>ONDA OCHO</a>
+        <p data-i18n="footer.tagline">Radio comunitaria 88.8 FM. Asociación Onda Ocho, Malasaña, Madrid.</p>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.contact">Estudio</h4>
+        <p class="addr" data-i18n="footer.address">C. de San Vicente Ferrer 22, 2ºA · 28004 Madrid</p>
+        <a class="maps" href="https://www.google.com/maps/search/?api=1&amp;query=Calle+de+San+Vicente+Ferrer+22+Madrid" target="_blank" rel="noopener" data-i18n="footer.maps">Abrir en el mapa</a>
+        <a data-i18n="footer.mail" href="mailto:estudio@ondaocho.fm">estudio@ondaocho.fm</a>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.hours">Puerta abierta</h4>
+        <a data-i18n="footer.hoursVal" href="#contacto">sábados 11:00–16:00</a>
+        <a data-i18n="footer.rest" href="#parrilla">el resto, por el 88.8</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span data-i18n="footer.rights">© 2026 Asociación Onda Ocho. Emisión comunitaria.</span>
+      <span data-i18n="footer.made">Hecho en un segundo piso, emitido a doce kilómetros.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="cookie" id="cookieBanner" role="region" aria-label="Aviso de cookies">
+  <p data-i18n="cookie.msg">Solo recordamos idioma y tema en este dispositivo. Sin rastreo.</p>
+  <div class="cookie-actions">
+    <button class="ck ck-ok" id="cookieOk" type="button" data-i18n="cookie.ok">De acuerdo</button>
+    <button class="ck ck-no" id="cookieNo" type="button" data-i18n="cookie.no">No</button>
+  </div>
+</div>
+
+<script>
+var I18N = {es: {"skip": "Saltar al contenido", "nav.grid": "Parrilla", "nav.voices": "Voces", "nav.club": "Club", "nav.faq": "Preguntas", "nav.cta": "Escuchar ahora", "theme.aria": "Cambiar a modo oscuro", "theme.light": "Cambiar a modo claro", "menu.aria": "Abrir menú", "lang.aria": "Elegir idioma", "hero.onair": "AL AIRE", "hero.freq": "88.8 FM · Malasaña", "hero.title": "No hay algoritmo.<br>Hay un <span class=\"acc\">micro</span> y una calle.", "hero.sub": "Desde un segundo piso de San Vicente Ferrer, ONDA OCHO emite radio hecha a mano: discos que no caben en ninguna lista, asambleas de barrio y la cocina de medianoche que solo se escucha con la ventana abierta.", "hero.cta1": "Escuchar ahora", "hero.cta2": "Ver la parrilla", "hero.live": "En antena ahora", "hero.show": "Cocina de medianoche", "hero.host": "con Lina Varela", "hero.slot": "00:00 – 02:00", "desk.play": "Reproducir emisión", "desk.pause": "Pausar emisión", "desk.tuned": "SINTONIZADO", "desk.mhz": "88.8", "desk.band": "FM MADRID", "desk.vu": "Nivel de antena", "sched.kicker": "Siete días, una frecuencia", "sched.title": "La parrilla se escribe a lápiz, no a golpe de clic.", "sched.lead": "Si un vecino trae un disco, entra. Si una asamblea pide media hora, se la damos. Esto es lo que suena esta semana — sujeto a que el mundo no se ponga más interesante.", "sched.mon": "Lun", "sched.tue": "Mar", "sched.wed": "Mié", "sched.thu": "Jue", "sched.fri": "Vie", "sched.sat": "Sáb", "sched.sun": "Dom", "s.m1t": "07:00", "s.m1n": "Apertura con café", "s.m1h": "Nerea Sol", "s.m2t": "10:00", "s.m2n": "Mercado de San Ildefonso", "s.m2h": "Iago M.", "s.m3t": "16:00", "s.m3n": "Clases de guitarra al aire", "s.m3h": "en directo", "s.t1t": "08:00", "s.t1n": "Parte de barrio", "s.t1h": "Redacción", "s.t2t": "13:00", "s.t2n": "Fado y otras orillas", "s.t2h": "Inés R.", "s.t3t": "21:00", "s.t3n": "Archivo de vinilos", "s.t3h": "Dani P.", "s.w1t": "09:00", "s.w1n": "Taller de ondas", "s.w1h": "colegio", "s.w2t": "18:00", "s.w2n": "Asamblea abierta", "s.w2h": "vecinas", "s.w3t": "23:00", "s.w3n": "Nocturna experimental", "s.w3h": "guest", "s.h1t": "07:30", "s.h1n": "Ruta de panaderías", "s.h1h": "Lina", "s.h2t": "15:00", "s.h2n": "Lectura en voz alta", "s.h2h": "club", "s.h3t": "20:00", "s.h3n": "Sesión de baile lento", "s.h3h": "DJ Ocho", "s.f1t": "10:00", "s.f1n": "Crónica de terrazas", "s.f1h": "Nerea", "s.f2t": "17:00", "s.f2n": "Entrevistas de portal", "s.f2h": "Iago", "s.f3t": "22:00", "s.f3n": "Disco invitado", "s.f3h": "tú", "s.a1t": "11:00", "s.a1n": "Mercadillo sonoro", "s.a1h": "calle", "s.a2t": "16:00", "s.a2n": "Concierto de salón", "s.a2h": "vivo", "s.a3t": "00:00", "s.a3n": "Cocina de medianoche", "s.a3h": "Lina", "s.u1t": "10:00", "s.u1n": "Misas laicas", "s.u1h": "archivo", "s.u2t": "18:00", "s.u2n": "Cartas al estudio", "s.u2h": "lectores", "s.u3t": "21:00", "s.u3n": "Cierre con campanas", "s.u3h": "88.8", "voices.title": "Quién habla cuando suena el piloto.", "voices.lead": "No hay presentadores de catálogo. Hay vecinas que aprendieron a abrir el micro y no lo han soltado.", "v1.role": "Directora de antena", "v1.name": "Lina Varela", "v1.bio": "Llegó en 2016 con una caja de cintas de su madre en Vigo. Monta Cocina de medianoche, responde el teléfono a las tres y deja entrar a quien traiga un disco que no hayamos oído.", "v1.meta": "Martes y madrugadas · desde el piso de arriba", "v2.role": "Crónica de calle", "v2.name": "Iago Mendes", "v2.bio": "Sale con la grabadora a San Ildefonso, al Rastro y a las colas del ambulatorio. Lo que no cabe en un titular, cabe en veinte minutos de radio.", "v2.meta": "Lunes y viernes · a pie de acera", "listen.title": "Tres maneras de sintonizarnos. Ninguna pide cuenta.", "listen.lead": "FM, web o el altavoz de la cocina. Elige la que menos te estorbe.", "listen.fm": "88.8 FM", "listen.fmsub": "En un radio de 12 km desde Malasaña. Si vives más lejos, la web.", "listen.web": "emision.ondaocho.fm", "listen.websub": "Misma señal, sin publicidad. Sin app: el 88.8 o la mesa de esta página.", "listen.app": "Altavoz del estudio", "listen.appsub": "Si pasas por San Vicente Ferrer 22, la puerta está abierta los sábados.", "club.title": "El Club de la antena paga el alquiler. Tú decides si entras.", "club.lead": "La radio es gratis. El piso, la luz y las válvulas del transmisor no. Dos puertas, ninguna con letra pequeña.", "club.p1": "Oyente libre", "club.p1price": "0 €", "club.p1per": "siempre", "club.p1a": "Toda la parrilla en FM y web", "club.p1b": "Cartas al estudio sin filtro", "club.p1c": "Sin registro, sin newsletter obligatoria", "club.p1cta": "Solo escuchar", "club.p2": "Club de la antena", "club.p2price": "6 €", "club.p2per": "al mes", "club.p2a": "Archivo de los últimos 30 días", "club.p2b": "Una hora tuya al mes, si quieres", "club.p2c": "El alquiler de agosto, cubierto entre todos", "club.p2cta": "Escribir al estudio", "club.note": "El club se paga por transferencia a nombre de Asociación Onda Ocho. Cancelas cuando quieras, con un correo.", "faq.title": "Lo que nos preguntan con la puerta entreabierta.", "faq.q1": "¿Emitís de verdad en FM o es solo un podcast?", "faq.a1": "En FM, 88.8, con licencia comunitaria de la Comunidad de Madrid. El podcast es el archivo de lo que ya salió al aire, no al revés.", "faq.q2": "¿Puedo llevar un disco y que lo pongan?", "faq.a2": "Sí. Sábados de 11 a 16, deja el vinilo o el enlace en el buzón del 2ºA. Si no cabe esa semana, cabe la siguiente. Firmamos el préstamo.", "faq.q3": "¿Hacéis publicidad?", "faq.a3": "No de marcas. Sí de merenderos, librerías y talleres del barrio que nos dejan un cartel. El aire no se vende al mejor postor.", "faq.q4": "¿Cómo me hago con el micro?", "faq.a4": "Escribe a estudio@ondaocho.fm con media página de lo que quieres contar. Si encaja, te damos una hora de prueba con Lina al lado. No hay casting.", "faq.q5": "¿El club es una suscripción de esas que no se pueden cancelar?", "faq.a5": "Un correo y se corta el mes siguiente. No hay permanencia. El archivo deja de abrirse; la FM sigue siendo tuya.", "news.title": "La parrilla de la semana, el domingo por la noche.", "news.sub": "Un correo. Lo que suena, quién cubre y si hay concierto de salón. Sin ofertas, sin recetas, sin reenviar a un amigo.", "news.ph": "tu@correo.es", "news.cta": "Abrir el correo", "news.err": "Necesitamos un correo con @ para escribirte.", "news.thanks": "Se abrirá tu cliente de correo con el mensaje listo. Si no, escríbenos a estudio@ondaocho.fm.", "news.hint": "No hay lista automática: tu cliente envía el alta. Si no quieres abrir el correo, escribe directo a estudio@ondaocho.fm.", "cookie.msg": "Solo recordamos idioma y tema en este dispositivo. Sin rastreo.", "cookie.ok": "De acuerdo", "cookie.no": "No", "footer.tagline": "Radio comunitaria 88.8 FM. Asociación Onda Ocho, Malasaña, Madrid.", "footer.contact": "Estudio", "footer.address": "C. de San Vicente Ferrer 22, 2ºA · 28004 Madrid", "footer.maps": "Abrir en el mapa", "footer.mail": "estudio@ondaocho.fm", "footer.hours": "Puerta abierta", "footer.hoursVal": "sábados 11:00–16:00", "footer.rest": "el resto, por el 88.8", "footer.rights": "© 2026 Asociación Onda Ocho. Emisión comunitaria.", "footer.made": "Hecho en un segundo piso, emitido a doce kilómetros.", "meta.title": "ONDA OCHO · 88.8 FM · Radio comunitaria en Malasaña", "meta.desc": "Radio comunitaria 88.8 FM desde Malasaña: parrilla hecha a mano, archivo de barrio y un estudio con la puerta abierta los sábados.", "og.title": "ONDA OCHO · 88.8 FM · Malasaña", "og.desc": "No hay algoritmo. Hay un micro y una calle. Radio comunitaria desde San Vicente Ferrer.", "tw.title": "ONDA OCHO · 88.8 FM", "tw.desc": "Radio comunitaria en Malasaña. Escucha ahora o pasa el sábado por el estudio."}, en: {"skip": "Skip to content", "nav.grid": "Schedule", "nav.voices": "Voices", "nav.club": "Club", "nav.faq": "Questions", "nav.cta": "Listen now", "theme.aria": "Switch to dark mode", "theme.light": "Switch to light mode", "menu.aria": "Open menu", "lang.aria": "Choose language", "hero.onair": "ON AIR", "hero.freq": "88.8 FM · Malasaña", "hero.title": "No algorithm.<br>Just a <span class=\"acc\">mic</span> and a street.", "hero.sub": "From a second-floor flat on San Vicente Ferrer, ONDA OCHO broadcasts handmade radio: records that fit no playlist, neighbourhood meetings, and the midnight kitchen show you only hear with the window open.", "hero.cta1": "Listen now", "hero.cta2": "See the schedule", "hero.live": "On air now", "hero.show": "Midnight kitchen", "hero.host": "with Lina Varela", "hero.slot": "00:00 – 02:00", "desk.play": "Play the live stream", "desk.pause": "Pause the live stream", "desk.tuned": "TUNED", "desk.mhz": "88.8", "desk.band": "FM MADRID", "desk.vu": "Antenna level", "sched.kicker": "Seven days, one frequency", "sched.title": "The grid is written in pencil, not by click-through.", "sched.lead": "If a neighbour brings a record, it goes on. If a meeting needs half an hour, we give it. This is what airs this week — unless the street gets more interesting.", "sched.mon": "Mon", "sched.tue": "Tue", "sched.wed": "Wed", "sched.thu": "Thu", "sched.fri": "Fri", "sched.sat": "Sat", "sched.sun": "Sun", "s.m1t": "07:00", "s.m1n": "Coffee open", "s.m1h": "Nerea Sol", "s.m2t": "10:00", "s.m2n": "San Ildefonso market", "s.m2h": "Iago M.", "s.m3t": "16:00", "s.m3n": "Open-air guitar class", "s.m3h": "live", "s.t1t": "08:00", "s.t1n": "Neighbourhood bulletin", "s.t1h": "Newsroom", "s.t2t": "13:00", "s.t2n": "Fado and other shores", "s.t2h": "Inés R.", "s.t3t": "21:00", "s.t3n": "Vinyl archive", "s.t3h": "Dani P.", "s.w1t": "09:00", "s.w1n": "Wave workshop", "s.w1h": "school", "s.w2t": "18:00", "s.w2n": "Open assembly", "s.w2h": "neighbours", "s.w3t": "23:00", "s.w3n": "Experimental night", "s.w3h": "guest", "s.h1t": "07:30", "s.h1n": "Bakery route", "s.h1h": "Lina", "s.h2t": "15:00", "s.h2n": "Reading aloud", "s.h2h": "club", "s.h3t": "20:00", "s.h3n": "Slow-dance session", "s.h3h": "DJ Ocho", "s.f1t": "10:00", "s.f1n": "Terrace chronicle", "s.f1h": "Nerea", "s.f2t": "17:00", "s.f2n": "Doorway interviews", "s.f2h": "Iago", "s.f3t": "22:00", "s.f3n": "Guest record", "s.f3h": "you", "s.a1t": "11:00", "s.a1n": "Sound jumble sale", "s.a1h": "street", "s.a2t": "16:00", "s.a2n": "Parlour concert", "s.a2h": "live", "s.a3t": "00:00", "s.a3n": "Midnight kitchen", "s.a3h": "Lina", "s.u1t": "10:00", "s.u1n": "Secular hymns", "s.u1h": "archive", "s.u2t": "18:00", "s.u2n": "Letters to the studio", "s.u2h": "listeners", "s.u3t": "21:00", "s.u3n": "Close with bells", "s.u3h": "88.8", "voices.title": "Who speaks when the pilot light is on.", "voices.lead": "No catalogue presenters. Neighbours who learned to open a mic and never put it down.", "v1.role": "Antenna director", "v1.name": "Lina Varela", "v1.bio": "She arrived in 2016 with a box of her mother's tapes from Vigo. She runs Midnight kitchen, answers the phone at three, and lets in anyone carrying a record we haven't heard.", "v1.meta": "Tuesdays and late nights · from the upstairs flat", "v2.role": "Street chronicle", "v2.name": "Iago Mendes", "v2.bio": "He walks out with a recorder to San Ildefonso, El Rastro and the clinic queue. What will not fit a headline fits twenty minutes of radio.", "v2.meta": "Mondays and Fridays · at kerb height", "listen.title": "Three ways to tune in. None of them want an account.", "listen.lead": "FM, the web, or the studio speaker. Pick the one that gets in your way least.", "listen.fm": "88.8 FM", "listen.fmsub": "About 12 km out from Malasaña. Farther than that, use the web.", "listen.web": "emision.ondaocho.fm", "listen.websub": "Same signal, no ads. No app: 88.8 or the desk on this page.", "listen.app": "Studio speaker", "listen.appsub": "If you pass San Vicente Ferrer 22, the door is open on Saturdays.", "club.title": "The Antenna Club pays the rent. You decide whether to join.", "club.lead": "The radio is free. The flat, the electricity and the transmitter valves are not. Two doors, no small print.", "club.p1": "Open listener", "club.p1price": "€0", "club.p1per": "always", "club.p1a": "The full grid on FM and web", "club.p1b": "Unfiltered letters to the studio", "club.p1c": "No sign-up, no mandatory newsletter", "club.p1cta": "Just listen", "club.p2": "Antenna Club", "club.p2price": "€6", "club.p2per": "a month", "club.p2a": "Archive of the last 30 days", "club.p2b": "An hour of yours each month, if you want it", "club.p2c": "August rent, split among us", "club.p2cta": "Write to the studio", "club.note": "The club is paid by transfer to Asociación Onda Ocho. Cancel whenever you like, with one email.", "faq.title": "What they ask us with the door half open.", "faq.q1": "Do you actually broadcast on FM, or is this a podcast?", "faq.a1": "FM, 88.8, with a community licence from the Comunidad de Madrid. The podcast is the archive of what already went out — not the other way round.", "faq.q2": "Can I bring a record and have it played?", "faq.a2": "Yes. Saturdays 11–16, leave the vinyl or a link in the 2ºA letterbox. If it does not fit this week, it fits the next. We sign the loan.", "faq.q3": "Do you run ads?", "faq.a3": "Not for brands. Yes for the bars, bookshops and workshops that leave a poster. Airtime is not sold to the highest bidder.", "faq.q4": "How do I get on the mic?", "faq.a4": "Write to estudio@ondaocho.fm with half a page of what you want to say. If it fits, you get a trial hour with Lina beside you. There is no casting.", "faq.q5": "Is the club one of those subscriptions you cannot leave?", "faq.a5": "One email and it stops the following month. No lock-in. The archive closes; FM stays yours.", "news.title": "Next week's grid, Sunday night.", "news.sub": "One email. What airs, who covers, and whether there is a parlour concert. No deals, no recipes, no forward-to-a-friend.", "news.ph": "you@email.com", "news.cta": "Open your mail app", "news.err": "We need an address with an @ to write to you.", "news.thanks": "Your mail app will open with the message ready. If it does not, write to estudio@ondaocho.fm.", "news.hint": "There is no silent list: your mail app sends the request. Or write straight to estudio@ondaocho.fm.", "cookie.msg": "We only remember language and theme on this device. No tracking.", "cookie.ok": "Agreed", "cookie.no": "No", "footer.tagline": "Community radio 88.8 FM. Asociación Onda Ocho, Malasaña, Madrid.", "footer.contact": "Studio", "footer.address": "C. de San Vicente Ferrer 22, 2ºA · 28004 Madrid", "footer.maps": "Open in maps", "footer.mail": "estudio@ondaocho.fm", "footer.hours": "Open door", "footer.hoursVal": "Saturdays 11:00–16:00", "footer.rest": "the rest, on 88.8", "footer.rights": "© 2026 Asociación Onda Ocho. Community broadcast.", "footer.made": "Made on a second floor, heard twelve kilometres out.", "meta.title": "ONDA OCHO · 88.8 FM · Community radio in Malasaña", "meta.desc": "Community radio 88.8 FM from Malasaña: a handmade schedule, a neighbourhood archive, and a studio with the door open on Saturdays.", "og.title": "ONDA OCHO · 88.8 FM · Malasaña", "og.desc": "No algorithm. Just a mic and a street. Community radio from San Vicente Ferrer.", "tw.title": "ONDA OCHO · 88.8 FM", "tw.desc": "Community radio in Malasaña. Listen now or drop by the studio on Saturday."}, fr: {"skip": "Aller au contenu", "nav.grid": "Grille", "nav.voices": "Voix", "nav.club": "Club", "nav.faq": "Questions", "nav.cta": "Écouter maintenant", "theme.aria": "Passer en mode sombre", "theme.light": "Passer en mode clair", "menu.aria": "Ouvrir le menu", "lang.aria": "Choisir la langue", "hero.onair": "À L'ANTENNE", "hero.freq": "88.8 FM · Malasaña", "hero.title": "Pas d'algorithme.<br>Juste un <span class=\"acc\">micro</span> et une rue.", "hero.sub": "Depuis un deuxième étage de San Vicente Ferrer, ONDA OCHO diffuse une radio faite à la main : des disques qui n'entrent dans aucune liste, des assemblées de quartier et l'émission de cuisine de minuit qu'on n'entend qu'avec la fenêtre ouverte.", "hero.cta1": "Écouter maintenant", "hero.cta2": "Voir la grille", "hero.live": "À l'antenne", "hero.show": "Cuisine de minuit", "hero.host": "avec Lina Varela", "hero.slot": "00:00 – 02:00", "desk.play": "Lancer l'émission", "desk.pause": "Mettre l'émission en pause", "desk.tuned": "ACCORDÉ", "desk.mhz": "88.8", "desk.band": "FM MADRID", "desk.vu": "Niveau d'antenne", "sched.kicker": "Sept jours, une fréquence", "sched.title": "La grille s'écrit au crayon, pas au clic.", "sched.lead": "Si un voisin apporte un disque, il passe. Si une assemblée demande une demi-heure, on la lui donne. Voici ce qui sonne cette semaine — sauf si la rue devient plus intéressante.", "sched.mon": "Lun", "sched.tue": "Mar", "sched.wed": "Mer", "sched.thu": "Jeu", "sched.fri": "Ven", "sched.sat": "Sam", "sched.sun": "Dim", "s.m1t": "07:00", "s.m1n": "Ouverture café", "s.m1h": "Nerea Sol", "s.m2t": "10:00", "s.m2n": "Marché San Ildefonso", "s.m2h": "Iago M.", "s.m3t": "16:00", "s.m3n": "Cours de guitare dehors", "s.m3h": "en direct", "s.t1t": "08:00", "s.t1n": "Bulletin de quartier", "s.t1h": "Rédaction", "s.t2t": "13:00", "s.t2n": "Fado et autres rives", "s.t2h": "Inés R.", "s.t3t": "21:00", "s.t3n": "Archives vinyle", "s.t3h": "Dani P.", "s.w1t": "09:00", "s.w1n": "Atelier d'ondes", "s.w1h": "école", "s.w2t": "18:00", "s.w2n": "Assemblée ouverte", "s.w2h": "voisines", "s.w3t": "23:00", "s.w3n": "Nocturne expérimentale", "s.w3h": "invité", "s.h1t": "07:30", "s.h1n": "Tournée des boulangeries", "s.h1h": "Lina", "s.h2t": "15:00", "s.h2n": "Lecture à voix haute", "s.h2h": "club", "s.h3t": "20:00", "s.h3n": "Bal lent", "s.h3h": "DJ Ocho", "s.f1t": "10:00", "s.f1n": "Chronique des terrasses", "s.f1h": "Nerea", "s.f2t": "17:00", "s.f2n": "Interviews de palier", "s.f2h": "Iago", "s.f3t": "22:00", "s.f3n": "Disque invité", "s.f3h": "toi", "s.a1t": "11:00", "s.a1n": "Braderie sonore", "s.a1h": "rue", "s.a2t": "16:00", "s.a2n": "Concert de salon", "s.a2h": "live", "s.a3t": "00:00", "s.a3n": "Cuisine de minuit", "s.a3h": "Lina", "s.u1t": "10:00", "s.u1n": "Hymnes laïques", "s.u1h": "archives", "s.u2t": "18:00", "s.u2n": "Lettres au studio", "s.u2h": "auditeurs", "s.u3t": "21:00", "s.u3n": "Clôture aux cloches", "s.u3h": "88.8", "voices.title": "Qui parle quand le voyant s'allume.", "voices.lead": "Pas d'animateurs de catalogue. Des voisines qui ont appris à ouvrir un micro et ne l'ont plus lâché.", "v1.role": "Directrice d'antenne", "v1.name": "Lina Varela", "v1.bio": "Elle est arrivée en 2016 avec une caisse de cassettes de sa mère à Vigo. Elle monte Cuisine de minuit, répond au téléphone à trois heures et laisse entrer quiconque apporte un disque qu'on n'a pas encore entendu.", "v1.meta": "Mardis et nuits · depuis l'étage du dessus", "v2.role": "Chronique de rue", "v2.name": "Iago Mendes", "v2.bio": "Il sort avec l'enregistreur vers San Ildefonso, El Rastro et la file du dispensaire. Ce qui ne tient pas dans un titre tient en vingt minutes de radio.", "v2.meta": "Lundis et vendredis · au ras du trottoir", "listen.title": "Trois façons de nous capter. Aucune ne demande un compte.", "listen.lead": "FM, le web, ou le haut-parleur du studio. Choisis celle qui te gêne le moins.", "listen.fm": "88.8 FM", "listen.fmsub": "Environ 12 km autour de Malasaña. Plus loin, prends le web.", "listen.web": "emision.ondaocho.fm", "listen.websub": "Même signal, sans pub. Pas d’app : le 88.8 ou la table de cette page.", "listen.app": "Haut-parleur du studio", "listen.appsub": "Si tu passes 22 San Vicente Ferrer, la porte est ouverte le samedi.", "club.title": "Le Club de l'antenne paie le loyer. À toi de décider d'entrer.", "club.lead": "La radio est gratuite. L'appartement, l'électricité et les lampes de l'émetteur ne le sont pas. Deux portes, aucune en petits caractères.", "club.p1": "Auditeur libre", "club.p1price": "0 €", "club.p1per": "toujours", "club.p1a": "Toute la grille en FM et sur le web", "club.p1b": "Lettres au studio sans filtre", "club.p1c": "Sans inscription, sans newsletter obligatoire", "club.p1cta": "Écouter seulement", "club.p2": "Club de l'antenne", "club.p2price": "6 €", "club.p2per": "par mois", "club.p2a": "Archives des 30 derniers jours", "club.p2b": "Une heure à toi chaque mois, si tu veux", "club.p2c": "Le loyer d'août, partagé entre nous", "club.p2cta": "Écrire au studio", "club.note": "Le club se paie par virement au nom de Asociación Onda Ocho. Tu résilies quand tu veux, d'un courriel.", "faq.title": "Ce qu'on nous demande la porte entrouverte.", "faq.q1": "Vous émettez vraiment en FM, ou c'est un podcast ?", "faq.a1": "En FM, 88.8, avec une licence communautaire de la Comunidad de Madrid. Le podcast, c'est l'archive de ce qui est déjà passé à l'antenne — pas l'inverse.", "faq.q2": "Je peux apporter un disque pour qu'on le passe ?", "faq.a2": "Oui. Samedis 11–16, laisse le vinyle ou le lien dans la boîte du 2ºA. S'il ne rentre pas cette semaine, il rentre la suivante. On signe le prêt.", "faq.q3": "Vous faites de la pub ?", "faq.a3": "Pas de marques. Oui pour les bars, librairies et ateliers du quartier qui nous laissent une affiche. L'antenne ne se vend pas au plus offrant.", "faq.q4": "Comment j'attrape le micro ?", "faq.a4": "Écris à estudio@ondaocho.fm avec une demi-page de ce que tu veux raconter. Si ça colle, tu as une heure d'essai avec Lina à côté. Pas de casting.", "faq.q5": "Le club, c'est un de ces abonnements qu'on ne peut pas quitter ?", "faq.a5": "Un courriel et ça s'arrête le mois suivant. Pas d'engagement. L'archive se ferme ; la FM reste à toi.", "news.title": "La grille de la semaine, dimanche soir.", "news.sub": "Un courriel. Ce qui passe, qui couvre, et s'il y a un concert de salon. Sans offres, sans recettes, sans transférer à un ami.", "news.ph": "toi@email.fr", "news.cta": "Ouvrir le courrier", "news.err": "Il nous faut une adresse avec un @ pour t'écrire.", "news.thanks": "Ton client mail s'ouvrira avec le message prêt. Sinon, écris à estudio@ondaocho.fm.", "news.hint": "Pas de liste silencieuse : c'est ton client qui envoie la demande. Ou écris direct à estudio@ondaocho.fm.", "cookie.msg": "On ne retient que la langue et le thème sur cet appareil. Pas de suivi.", "cookie.ok": "D'accord", "cookie.no": "Non", "footer.tagline": "Radio communautaire 88.8 FM. Asociación Onda Ocho, Malasaña, Madrid.", "footer.contact": "Studio", "footer.address": "C. de San Vicente Ferrer 22, 2ºA · 28004 Madrid", "footer.maps": "Ouvrir sur la carte", "footer.mail": "estudio@ondaocho.fm", "footer.hours": "Porte ouverte", "footer.hoursVal": "samedis 11:00–16:00", "footer.rest": "le reste, sur 88.8", "footer.rights": "© 2026 Asociación Onda Ocho. Émission communautaire.", "footer.made": "Fait au deuxième étage, entendu à douze kilomètres.", "meta.title": "ONDA OCHO · 88.8 FM · Radio communautaire à Malasaña", "meta.desc": "Radio communautaire 88.8 FM depuis Malasaña : une grille faite à la main, des archives de quartier et un studio ouvert le samedi.", "og.title": "ONDA OCHO · 88.8 FM · Malasaña", "og.desc": "Pas d'algorithme. Juste un micro et une rue. Radio communautaire depuis San Vicente Ferrer.", "tw.title": "ONDA OCHO · 88.8 FM", "tw.desc": "Radio communautaire à Malasaña. Écoute maintenant ou passe samedi au studio."}, de: {"skip": "Zum Inhalt springen", "nav.grid": "Programm", "nav.voices": "Stimmen", "nav.club": "Club", "nav.faq": "Fragen", "nav.cta": "Jetzt hören", "theme.aria": "Dunkles Design einschalten", "theme.light": "Helles Design einschalten", "menu.aria": "Menü öffnen", "lang.aria": "Sprache wählen", "hero.onair": "ON AIR", "hero.freq": "88.8 FM · Malasaña", "hero.title": "Kein Algorithmus.<br>Nur ein <span class=\"acc\">Mikro</span> und eine Straße.", "hero.sub": "Aus einer Wohnung im zweiten Stock an der San Vicente Ferrer sendet ONDA OCHO handgemachtes Radio: Platten, die in keine Liste passen, Nachbarschaftsversammlungen und die Mitternachtsküche, die man nur bei offenem Fenster hört.", "hero.cta1": "Jetzt hören", "hero.cta2": "Programm ansehen", "hero.live": "Jetzt auf Sendung", "hero.show": "Mitternachtsküche", "hero.host": "mit Lina Varela", "hero.slot": "00:00 – 02:00", "desk.play": "Sendung abspielen", "desk.pause": "Sendung pausieren", "desk.tuned": "EINGESTELLT", "desk.mhz": "88.8", "desk.band": "FM MADRID", "desk.vu": "Antennenpegel", "sched.kicker": "Sieben Tage, eine Frequenz", "sched.title": "Das Raster wird mit Bleistift geschrieben, nicht per Klick.", "sched.lead": "Bringt ein Nachbar eine Platte, kommt sie rein. Braucht eine Versammlung eine halbe Stunde, bekommt sie die. Das läuft diese Woche — außer die Straße wird interessanter.", "sched.mon": "Mo", "sched.tue": "Di", "sched.wed": "Mi", "sched.thu": "Do", "sched.fri": "Fr", "sched.sat": "Sa", "sched.sun": "So", "s.m1t": "07:00", "s.m1n": "Öffnung mit Kaffee", "s.m1h": "Nerea Sol", "s.m2t": "10:00", "s.m2n": "Markt San Ildefonso", "s.m2h": "Iago M.", "s.m3t": "16:00", "s.m3n": "Gitarrenklasse draußen", "s.m3h": "live", "s.t1t": "08:00", "s.t1n": "Kiezbote", "s.t1h": "Redaktion", "s.t2t": "13:00", "s.t2n": "Fado und andere Ufer", "s.t2h": "Inés R.", "s.t3t": "21:00", "s.t3n": "Vinylarchiv", "s.t3h": "Dani P.", "s.w1t": "09:00", "s.w1n": "Wellenwerkstatt", "s.w1h": "Schule", "s.w2t": "18:00", "s.w2n": "Offene Versammlung", "s.w2h": "Nachbarn", "s.w3t": "23:00", "s.w3n": "Experimentelle Nacht", "s.w3h": "Gast", "s.h1t": "07:30", "s.h1n": "Bäckereirunde", "s.h1h": "Lina", "s.h2t": "15:00", "s.h2n": "Lautes Vorlesen", "s.h2h": "Club", "s.h3t": "20:00", "s.h3n": "Langsamer Tanz", "s.h3h": "DJ Ocho", "s.f1t": "10:00", "s.f1n": "Terrassenchronik", "s.f1h": "Nerea", "s.f2t": "17:00", "s.f2n": "Interviews im Hausflur", "s.f2h": "Iago", "s.f3t": "22:00", "s.f3n": "Gastplatte", "s.f3h": "du", "s.a1t": "11:00", "s.a1n": "Klangflohmarkt", "s.a1h": "Straße", "s.a2t": "16:00", "s.a2n": "Salonkonzert", "s.a2h": "live", "s.a3t": "00:00", "s.a3n": "Mitternachtsküche", "s.a3h": "Lina", "s.u1t": "10:00", "s.u1n": "Weltliche Hymnen", "s.u1h": "Archiv", "s.u2t": "18:00", "s.u2n": "Briefe ans Studio", "s.u2h": "Hörer", "s.u3t": "21:00", "s.u3n": "Schluss mit Glocken", "s.u3h": "88.8", "voices.title": "Wer spricht, wenn die Kontrollleuchte brennt.", "voices.lead": "Keine Katalogmoderatoren. Nachbarinnen, die ein Mikro öffnen lernten und es nicht mehr losließen.", "v1.role": "Antennendirektorin", "v1.name": "Lina Varela", "v1.bio": "Sie kam 2016 mit einer Kiste Kassetten ihrer Mutter aus Vigo. Sie macht Mitternachtsküche, geht um drei ans Telefon und lässt jeden rein, der eine Platte mitbringt, die wir noch nicht gehört haben.", "v1.meta": "Dienstage und Nächte · aus der Wohnung oben", "v2.role": "Straßenchronik", "v2.name": "Iago Mendes", "v2.bio": "Er geht mit dem Recorder nach San Ildefonso, zum Rastro und in die Schlange vor der Ambulanz. Was in keine Überschrift passt, passt in zwanzig Minuten Radio.", "v2.meta": "Montags und freitags · auf Bordsteinhöhe", "listen.title": "Drei Wege, uns zu empfangen. Keiner will ein Konto.", "listen.lead": "UKW, das Netz oder der Studiobox. Nimm den, der am wenigsten stört.", "listen.fm": "88.8 FM", "listen.fmsub": "Etwa 12 km um Malasaña. Weiter weg: das Netz.", "listen.web": "emision.ondaocho.fm", "listen.websub": "Dasselbe Signal, ohne Werbung. Keine App: 88.8 oder der Tisch auf dieser Seite.", "listen.app": "Studiobox", "listen.appsub": "Kommst du an San Vicente Ferrer 22 vorbei, ist die Tür samstags offen.", "club.title": "Der Antennenclub zahlt die Miete. Du entscheidest, ob du eintrittst.", "club.lead": "Das Radio ist frei. Die Wohnung, der Strom und die Senderöhren nicht. Zwei Türen, kein Kleingedrucktes.", "club.p1": "Freier Hörer", "club.p1price": "0 €", "club.p1per": "immer", "club.p1a": "Das ganze Raster auf UKW und im Netz", "club.p1b": "Ungefilterte Briefe ans Studio", "club.p1c": "Keine Anmeldung, kein Pflichtnewsletter", "club.p1cta": "Nur hören", "club.p2": "Antennenclub", "club.p2price": "6 €", "club.p2per": "im Monat", "club.p2a": "Archiv der letzten 30 Tage", "club.p2b": "Eine Stunde von dir im Monat, wenn du willst", "club.p2c": "Die Augustmiete, unter uns geteilt", "club.p2cta": "Ans Studio schreiben", "club.note": "Der Club wird per Überweisung an Asociación Onda Ocho gezahlt. Kündigung jederzeit mit einer Mail.", "faq.title": "Was uns mit halb offener Tür gefragt wird.", "faq.q1": "Sendet ihr wirklich auf UKW, oder ist das ein Podcast?", "faq.a1": "Auf UKW, 88.8, mit einer Community-Lizenz der Comunidad de Madrid. Der Podcast ist das Archiv dessen, was schon rausging — nicht umgekehrt.", "faq.q2": "Kann ich eine Platte vorbeibringen, damit ihr sie spielt?", "faq.a2": "Ja. Samstags 11–16, Vinyl oder Link in den Briefkasten 2ºA. Passt sie diese Woche nicht, passt sie nächste. Wir unterschreiben die Leihe.", "faq.q3": "Macht ihr Werbung?", "faq.a3": "Keine Marken. Ja für Kneipen, Buchläden und Werkstätten im Viertel, die ein Plakat dalassen. Sendezeit geht nicht an den Meistbietenden.", "faq.q4": "Wie komme ich ans Mikro?", "faq.a4": "Schreib an estudio@ondaocho.fm mit einer halben Seite, was du erzählen willst. Passt es, bekommst du eine Probestunde mit Lina daneben. Kein Casting.", "faq.q5": "Ist der Club eines dieser Abos, aus denen man nicht rauskommt?", "faq.a5": "Eine Mail, und es endet im Folgemonat. Keine Bindung. Das Archiv schließt; UKW bleibt deins.", "news.title": "Das Raster der Woche, Sonntagabend.", "news.sub": "Eine Mail. Was läuft, wer vertritt, ob es ein Salonkonzert gibt. Keine Angebote, keine Rezepte, kein Weiterleiten an Freunde.", "news.ph": "du@mail.de", "news.cta": "Mailprogramm öffnen", "news.err": "Wir brauchen eine Adresse mit @, um dir zu schreiben.", "news.thanks": "Dein Mailprogramm öffnet sich mit der fertigen Nachricht. Sonst schreib an estudio@ondaocho.fm.", "news.hint": "Keine stille Liste: dein Mailprogramm schickt die Anmeldung. Oder direkt an estudio@ondaocho.fm.", "cookie.msg": "Wir merken uns nur Sprache und Design auf diesem Gerät. Kein Tracking.", "cookie.ok": "Einverstanden", "cookie.no": "Nein", "footer.tagline": "Community-Radio 88.8 FM. Asociación Onda Ocho, Malasaña, Madrid.", "footer.contact": "Studio", "footer.address": "C. de San Vicente Ferrer 22, 2ºA · 28004 Madrid", "footer.maps": "Auf der Karte öffnen", "footer.mail": "estudio@ondaocho.fm", "footer.hours": "Offene Tür", "footer.hoursVal": "samstags 11:00–16:00", "footer.rest": "sonst auf 88.8", "footer.rights": "© 2026 Asociación Onda Ocho. Community-Sendung.", "footer.made": "Im zweiten Stock gemacht, zwölf Kilometer weit gehört.", "meta.title": "ONDA OCHO · 88.8 FM · Community-Radio in Malasaña", "meta.desc": "Community-Radio 88.8 FM aus Malasaña: handgeschriebenes Raster, Kiezarchiv und ein Studio mit offener Tür am Samstag.", "og.title": "ONDA OCHO · 88.8 FM · Malasaña", "og.desc": "Kein Algorithmus. Nur ein Mikro und eine Straße. Community-Radio von der San Vicente Ferrer.", "tw.title": "ONDA OCHO · 88.8 FM", "tw.desc": "Community-Radio in Malasaña. Jetzt hören oder samstags im Studio vorbeikommen."}, it: {"skip": "Salta al contenuto", "nav.grid": "Palinsesto", "nav.voices": "Voci", "nav.club": "Club", "nav.faq": "Domande", "nav.cta": "Ascolta ora", "theme.aria": "Passa al tema scuro", "theme.light": "Passa al tema chiaro", "menu.aria": "Apri il menu", "lang.aria": "Scegli la lingua", "hero.onair": "IN ONDA", "hero.freq": "88.8 FM · Malasaña", "hero.title": "Niente algoritmo.<br>Solo un <span class=\"acc\">microfono</span> e una strada.", "hero.sub": "Da un secondo piano in San Vicente Ferrer, ONDA OCHO manda in onda radio fatta a mano: dischi che non stanno in nessuna lista, assemblee di quartiere e la cucina di mezzanotte che si sente solo con la finestra aperta.", "hero.cta1": "Ascolta ora", "hero.cta2": "Vedi il palinsesto", "hero.live": "In antenna ora", "hero.show": "Cucina di mezzanotte", "hero.host": "con Lina Varela", "hero.slot": "00:00 – 02:00", "desk.play": "Riproduci la diretta", "desk.pause": "Metti in pausa la diretta", "desk.tuned": "SINTONIZZATO", "desk.mhz": "88.8", "desk.band": "FM MADRID", "desk.vu": "Livello antenna", "sched.kicker": "Sette giorni, una frequenza", "sched.title": "Il palinsesto si scrive a matita, non a colpi di clic.", "sched.lead": "Se un vicino porta un disco, entra. Se un'assemblea chiede mezz'ora, gliela diamo. Questo è quello che suona questa settimana — a meno che la strada non diventi più interessante.", "sched.mon": "Lun", "sched.tue": "Mar", "sched.wed": "Mer", "sched.thu": "Gio", "sched.fri": "Ven", "sched.sat": "Sab", "sched.sun": "Dom", "s.m1t": "07:00", "s.m1n": "Apertura col caffè", "s.m1h": "Nerea Sol", "s.m2t": "10:00", "s.m2n": "Mercato San Ildefonso", "s.m2h": "Iago M.", "s.m3t": "16:00", "s.m3n": "Lezione di chitarra all'aperto", "s.m3h": "dal vivo", "s.t1t": "08:00", "s.t1n": "Bollettino di quartiere", "s.t1h": "Redazione", "s.t2t": "13:00", "s.t2n": "Fado e altre rive", "s.t2h": "Inés R.", "s.t3t": "21:00", "s.t3n": "Archivio vinili", "s.t3h": "Dani P.", "s.w1t": "09:00", "s.w1n": "Laboratorio di onde", "s.w1h": "scuola", "s.w2t": "18:00", "s.w2n": "Assemblea aperta", "s.w2h": "vicine", "s.w3t": "23:00", "s.w3n": "Notturna sperimentale", "s.w3h": "ospite", "s.h1t": "07:30", "s.h1n": "Giro delle panetterie", "s.h1h": "Lina", "s.h2t": "15:00", "s.h2n": "Lettura ad alta voce", "s.h2h": "club", "s.h3t": "20:00", "s.h3n": "Ballo lento", "s.h3h": "DJ Ocho", "s.f1t": "10:00", "s.f1n": "Cronaca delle terrazze", "s.f1h": "Nerea", "s.f2t": "17:00", "s.f2n": "Interviste sul pianerottolo", "s.f2h": "Iago", "s.f3t": "22:00", "s.f3n": "Disco ospite", "s.f3h": "tu", "s.a1t": "11:00", "s.a1n": "Mercatino sonoro", "s.a1h": "strada", "s.a2t": "16:00", "s.a2n": "Concerto da salotto", "s.a2h": "live", "s.a3t": "00:00", "s.a3n": "Cucina di mezzanotte", "s.a3h": "Lina", "s.u1t": "10:00", "s.u1n": "Inni laici", "s.u1h": "archivio", "s.u2t": "18:00", "s.u2n": "Lettere allo studio", "s.u2h": "ascoltatori", "s.u3t": "21:00", "s.u3n": "Chiusura con le campane", "s.u3h": "88.8", "voices.title": "Chi parla quando si accende la spia.", "voices.lead": "Niente conduttori da catalogo. Vicine che hanno imparato ad aprire un microfono e non l'hanno più lasciato.", "v1.role": "Direttrice d'antenna", "v1.name": "Lina Varela", "v1.bio": "È arrivata nel 2016 con una cassa di nastri di sua madre a Vigo. Tiene Cucina di mezzanotte, risponde al telefono alle tre e fa entrare chiunque porti un disco che non abbiamo ancora sentito.", "v1.meta": "Martedì e notti · dal piano di sopra", "v2.role": "Cronaca di strada", "v2.name": "Iago Mendes", "v2.bio": "Esce col registratore verso San Ildefonso, El Rastro e la coda del ambulatorio. Quello che non sta in un titolo sta in venti minuti di radio.", "v2.meta": "Lunedì e venerdì · a filo di marciapiede", "listen.title": "Tre modi per sintonizzarci. Nessuno chiede un account.", "listen.lead": "FM, il web o l'altoparlante dello studio. Scegli quello che ti dà meno fastidio.", "listen.fm": "88.8 FM", "listen.fmsub": "Circa 12 km da Malasaña. Più lontano, usa il web.", "listen.web": "emision.ondaocho.fm", "listen.websub": "Stesso segnale, senza pubblicità. Niente app: l’88.8 o il tavolo di questa pagina.", "listen.app": "Altoparlante dello studio", "listen.appsub": "Se passi da San Vicente Ferrer 22, il sabato la porta è aperta.", "club.title": "Il Club dell'antenna paga l'affitto. Decidi tu se entrare.", "club.lead": "La radio è gratis. L'appartamento, la luce e le valvole del trasmettitore no. Due porte, niente caratteri piccoli.", "club.p1": "Ascoltatore libero", "club.p1price": "0 €", "club.p1per": "sempre", "club.p1a": "Tutto il palinsesto in FM e sul web", "club.p1b": "Lettere allo studio senza filtro", "club.p1c": "Senza registrazione, senza newsletter obbligatoria", "club.p1cta": "Solo ascoltare", "club.p2": "Club dell'antenna", "club.p2price": "6 €", "club.p2per": "al mese", "club.p2a": "Archivio degli ultimi 30 giorni", "club.p2b": "Un'ora tua al mese, se vuoi", "club.p2c": "L'affitto di agosto, diviso tra noi", "club.p2cta": "Scrivi allo studio", "club.note": "Il club si paga con bonifico a Asociación Onda Ocho. Disdici quando vuoi, con una mail.", "faq.title": "Quello che ci chiedono con la porta socchiusa.", "faq.q1": "Trasmettete davvero in FM o è solo un podcast?", "faq.a1": "In FM, 88.8, con licenza comunitaria della Comunidad de Madrid. Il podcast è l'archivio di ciò che è già andato in onda, non il contrario.", "faq.q2": "Posso portare un disco perché lo mettiate?", "faq.a2": "Sì. Sabato 11–16, lascia il vinile o il link nella cassetta del 2ºA. Se non entra questa settimana, entra la prossima. Firmiamo il prestito.", "faq.q3": "Fate pubblicità?", "faq.a3": "Non di marche. Sì di bar, librerie e laboratori del quartiere che ci lasciano un manifesto. L'antenna non si vende al miglior offerente.", "faq.q4": "Come arrivo al microfono?", "faq.a4": "Scrivi a estudio@ondaocho.fm con mezza pagina di quello che vuoi raccontare. Se sta, ti diamo un'ora di prova con Lina accanto. Niente casting.", "faq.q5": "Il club è uno di quegli abbonamenti da cui non si esce?", "faq.a5": "Una mail e si interrompe il mese dopo. Nessuna permanenza. L'archivio si chiude; la FM resta tua.", "news.title": "Il palinsesto della settimana, domenica sera.", "news.sub": "Una mail. Cosa va in onda, chi copre e se c'è un concerto da salotto. Senza offerte, senza ricette, senza inoltrare a un amico.", "news.ph": "tu@email.it", "news.cta": "Apri la posta", "news.err": "Ci serve un indirizzo con la @ per scriverti.", "news.thanks": "Si aprirà il tuo client con il messaggio pronto. Altrimenti scrivi a estudio@ondaocho.fm.", "news.hint": "Niente lista silenziosa: è il tuo client a inviare la richiesta. Oppure scrivi diretto a estudio@ondaocho.fm.", "cookie.msg": "Ricordiamo solo lingua e tema su questo dispositivo. Nessun tracciamento.", "cookie.ok": "D'accordo", "cookie.no": "No", "footer.tagline": "Radio comunitaria 88.8 FM. Asociación Onda Ocho, Malasaña, Madrid.", "footer.contact": "Studio", "footer.address": "C. de San Vicente Ferrer 22, 2ºA · 28004 Madrid", "footer.maps": "Apri sulla mappa", "footer.mail": "estudio@ondaocho.fm", "footer.hours": "Porta aperta", "footer.hoursVal": "sabato 11:00–16:00", "footer.rest": "il resto, su 88.8", "footer.rights": "© 2026 Asociación Onda Ocho. Emissione comunitaria.", "footer.made": "Fatto al secondo piano, ascoltato a dodici chilometri.", "meta.title": "ONDA OCHO · 88.8 FM · Radio comunitaria a Malasaña", "meta.desc": "Radio comunitaria 88.8 FM da Malasaña: palinsesto fatto a mano, archivio di quartiere e uno studio con la porta aperta il sabato.", "og.title": "ONDA OCHO · 88.8 FM · Malasaña", "og.desc": "Niente algoritmo. Solo un microfono e una strada. Radio comunitaria da San Vicente Ferrer.", "tw.title": "ONDA OCHO · 88.8 FM", "tw.desc": "Radio comunitaria a Malasaña. Ascolta ora o passa sabato in studio."}, pt: {"skip": "Saltar para o conteúdo", "nav.grid": "Grelha", "nav.voices": "Vozes", "nav.club": "Clube", "nav.faq": "Perguntas", "nav.cta": "Ouvir agora", "theme.aria": "Mudar para modo escuro", "theme.light": "Mudar para modo claro", "menu.aria": "Abrir menu", "lang.aria": "Escolher idioma", "hero.onair": "NO AR", "hero.freq": "88.8 FM · Malasaña", "hero.title": "Não há algoritmo.<br>Há um <span class=\"acc\">microfone</span> e uma rua.", "hero.sub": "De um segundo andar na San Vicente Ferrer, a ONDA OCHO emite rádio feita à mão: discos que não cabem em nenhuma lista, assembleias de bairro e a cozinha da meia-noite que só se ouve com a janela aberta.", "hero.cta1": "Ouvir agora", "hero.cta2": "Ver a grelha", "hero.live": "No ar agora", "hero.show": "Cozinha da meia-noite", "hero.host": "com Lina Varela", "hero.slot": "00:00 – 02:00", "desk.play": "Reproduzir a emissão", "desk.pause": "Pausar a emissão", "desk.tuned": "SINTONIZADO", "desk.mhz": "88.8", "desk.band": "FM MADRID", "desk.vu": "Nível de antena", "sched.kicker": "Sete dias, uma frequência", "sched.title": "A grelha escreve-se a lápis, não à custa de cliques.", "sched.lead": "Se um vizinho traz um disco, entra. Se uma assembleia pede meia hora, damos-lha. Isto é o que toca esta semana — a menos que a rua fique mais interessante.", "sched.mon": "Seg", "sched.tue": "Ter", "sched.wed": "Qua", "sched.thu": "Qui", "sched.fri": "Sex", "sched.sat": "Sáb", "sched.sun": "Dom", "s.m1t": "07:00", "s.m1n": "Abertura com café", "s.m1h": "Nerea Sol", "s.m2t": "10:00", "s.m2n": "Mercado San Ildefonso", "s.m2h": "Iago M.", "s.m3t": "16:00", "s.m3n": "Aula de guitarra ao ar livre", "s.m3h": "ao vivo", "s.t1t": "08:00", "s.t1n": "Boletim de bairro", "s.t1h": "Redação", "s.t2t": "13:00", "s.t2n": "Fado e outras margens", "s.t2h": "Inés R.", "s.t3t": "21:00", "s.t3n": "Arquivo de vinis", "s.t3h": "Dani P.", "s.w1t": "09:00", "s.w1n": "Oficina de ondas", "s.w1h": "escola", "s.w2t": "18:00", "s.w2n": "Assembleia aberta", "s.w2h": "vizinhas", "s.w3t": "23:00", "s.w3n": "Noturna experimental", "s.w3h": "convidado", "s.h1t": "07:30", "s.h1n": "Rota das padarias", "s.h1h": "Lina", "s.h2t": "15:00", "s.h2n": "Leitura em voz alta", "s.h2h": "clube", "s.h3t": "20:00", "s.h3n": "Sessão de baile lento", "s.h3h": "DJ Ocho", "s.f1t": "10:00", "s.f1n": "Crónica das esplanadas", "s.f1h": "Nerea", "s.f2t": "17:00", "s.f2n": "Entrevistas no patamar", "s.f2h": "Iago", "s.f3t": "22:00", "s.f3n": "Disco convidado", "s.f3h": "tu", "s.a1t": "11:00", "s.a1n": "Feira sonora", "s.a1h": "rua", "s.a2t": "16:00", "s.a2n": "Concerto de sala", "s.a2h": "ao vivo", "s.a3t": "00:00", "s.a3n": "Cozinha da meia-noite", "s.a3h": "Lina", "s.u1t": "10:00", "s.u1n": "Hinos laicos", "s.u1h": "arquivo", "s.u2t": "18:00", "s.u2n": "Cartas ao estúdio", "s.u2h": "ouvintes", "s.u3t": "21:00", "s.u3n": "Fecho com sinos", "s.u3h": "88.8", "voices.title": "Quem fala quando acende o piloto.", "voices.lead": "Não há apresentadores de catálogo. Há vizinhas que aprenderam a abrir o microfone e não o largaram.", "v1.role": "Diretora de antena", "v1.name": "Lina Varela", "v1.bio": "Chegou em 2016 com uma caixa de cassetes da mãe, de Vigo. Monta a Cozinha da meia-noite, atende o telefone às três e deixa entrar quem trouxer um disco que ainda não tenhamos ouvido.", "v1.meta": "Terças e madrugadas · do andar de cima", "v2.role": "Crónica de rua", "v2.name": "Iago Mendes", "v2.bio": "Sai com o gravador para San Ildefonso, o Rastro e as filas do ambulatório. O que não cabe num título cabe em vinte minutos de rádio.", "v2.meta": "Segundas e sextas · ao rés do passeio", "listen.title": "Três formas de nos sintonizar. Nenhuma pede conta.", "listen.lead": "FM, a web ou a coluna do estúdio. Escolhe a que menos te estorva.", "listen.fm": "88.8 FM", "listen.fmsub": "Cerca de 12 km a partir de Malasaña. Mais longe, usa a web.", "listen.web": "emision.ondaocho.fm", "listen.websub": "O mesmo sinal, sem publicidade. Sem app: o 88.8 ou a mesa desta página.", "listen.app": "Coluna do estúdio", "listen.appsub": "Se passares na San Vicente Ferrer 22, ao sábado a porta está aberta.", "club.title": "O Clube da antena paga a renda. Tu decides se entras.", "club.lead": "A rádio é grátis. O andar, a luz e as válvulas do transmissor não. Duas portas, sem letra pequena.", "club.p1": "Ouvinte livre", "club.p1price": "0 €", "club.p1per": "sempre", "club.p1a": "Toda a grelha em FM e na web", "club.p1b": "Cartas ao estúdio sem filtro", "club.p1c": "Sem registo, sem newsletter obrigatória", "club.p1cta": "Só ouvir", "club.p2": "Clube da antena", "club.p2price": "6 €", "club.p2per": "por mês", "club.p2a": "Arquivo dos últimos 30 dias", "club.p2b": "Uma hora tua por mês, se quiseres", "club.p2c": "A renda de agosto, dividida entre nós", "club.p2cta": "Escrever ao estúdio", "club.note": "O clube paga-se por transferência à Asociación Onda Ocho. Cancelas quando quiseres, com um email.", "faq.title": "O que nos perguntam com a porta entreaberta.", "faq.q1": "Emitem mesmo em FM ou é só um podcast?", "faq.a1": "Em FM, 88.8, com licença comunitária da Comunidad de Madrid. O podcast é o arquivo do que já saiu no ar, não o contrário.", "faq.q2": "Posso levar um disco para o porem?", "faq.a2": "Sim. Sábados das 11 às 16, deixa o vinil ou o link na caixa do 2ºA. Se não couber esta semana, cabe na seguinte. Assinamos o empréstimo.", "faq.q3": "Fazem publicidade?", "faq.a3": "Não de marcas. Sim de mercearias, livrarias e oficinas do bairro que nos deixam um cartaz. O ar não se vende ao melhor lance.", "faq.q4": "Como pego no microfone?", "faq.a4": "Escreve para estudio@ondaocho.fm com meia página do que queres contar. Se encaixar, damos-te uma hora de prova com a Lina ao lado. Não há casting.", "faq.q5": "O clube é uma dessas subscrições de que não se sai?", "faq.a5": "Um email e corta-se no mês seguinte. Sem permanência. O arquivo fecha; a FM continua a ser tua.", "news.title": "A grelha da semana, domingo à noite.", "news.sub": "Um email. O que toca, quem cobre e se há concerto de sala. Sem ofertas, sem receitas, sem reenviar a um amigo.", "news.ph": "tu@email.pt", "news.cta": "Abrir o correio", "news.err": "Precisamos de um endereço com @ para te escrever.", "news.thanks": "O teu cliente de correio abre com a mensagem pronta. Se não, escreve para estudio@ondaocho.fm.", "news.hint": "Não há lista silenciosa: o teu cliente envia o pedido. Ou escreve direto para estudio@ondaocho.fm.", "cookie.msg": "Só lembramos idioma e tema neste dispositivo. Sem rastreio.", "cookie.ok": "De acordo", "cookie.no": "Não", "footer.tagline": "Rádio comunitária 88.8 FM. Asociación Onda Ocho, Malasaña, Madrid.", "footer.contact": "Estúdio", "footer.address": "C. de San Vicente Ferrer 22, 2ºA · 28004 Madrid", "footer.maps": "Abrir no mapa", "footer.mail": "estudio@ondaocho.fm", "footer.hours": "Porta aberta", "footer.hoursVal": "sábados 11:00–16:00", "footer.rest": "o resto, no 88.8", "footer.rights": "© 2026 Asociación Onda Ocho. Emissão comunitária.", "footer.made": "Feito num segundo andar, ouvido a doze quilómetros.", "meta.title": "ONDA OCHO · 88.8 FM · Rádio comunitária em Malasaña", "meta.desc": "Rádio comunitária 88.8 FM desde Malasaña: grelha feita à mão, arquivo de bairro e um estúdio com a porta aberta aos sábados.", "og.title": "ONDA OCHO · 88.8 FM · Malasaña", "og.desc": "Não há algoritmo. Há um microfone e uma rua. Rádio comunitária desde San Vicente Ferrer.", "tw.title": "ONDA OCHO · 88.8 FM", "tw.desc": "Rádio comunitária em Malasaña. Ouve agora ou passa sábado pelo estúdio."}};
+function $(s, c) { return (c || document).querySelector(s); }
+function $$(s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); }
+var LANGS = ['en', 'es', 'fr', 'de', 'it', 'pt'];
+var LANG_KEY = 'ondaocho-lang';
+function getLang() {
+  var saved = null;
+  try { saved = localStorage.getItem(LANG_KEY); } catch (e) {}
+  if (saved && I18N[saved]) return saved;
+  var nav = (navigator.language || navigator.userLanguage || 'es').toLowerCase();
+  for (var i = 0; i < LANGS.length; i++) {
+    if (nav.indexOf(LANGS[i]) === 0) return LANGS[i];
+  }
+  return 'es';
+}
+var THEME_KEY = 'kairos-theme';
+function getTheme() {
+  var saved = null;
+  try { saved = localStorage.getItem(THEME_KEY); } catch (e) {}
+  return saved === 'dark' ? 'dark' : 'light';
+}
+function applyTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  try { localStorage.setItem(THEME_KEY, theme); } catch (e) {}
+  var t = $('#themeToggle');
+  if (t) {
+    var dark = theme === 'dark';
+    t.setAttribute('aria-label', dark ? I18N[getLang()]['theme.light'] : I18N[getLang()]['theme.aria']);
+  }
+}
+var themeToggle = $('#themeToggle');
+if (themeToggle) {
+  themeToggle.addEventListener('click', function () {
+    applyTheme(getTheme() === 'dark' ? 'light' : 'dark');
+  });
+}
+function applyLang(lang) {
+  if (!I18N[lang]) lang = 'es';
+  var dict = I18N[lang];
+  try { localStorage.setItem(LANG_KEY, lang); } catch (e) {}
+  $$('[data-i18n]').forEach(function (el) {
+    var val = dict[el.getAttribute('data-i18n')];
+    if (val !== undefined) el.textContent = val;
+  });
+  $$('[data-i18n-html]').forEach(function (el) {
+    var val = dict[el.getAttribute('data-i18n-html')];
+    if (val !== undefined) el.innerHTML = val;
+  });
+  $$('[data-i18n-aria]').forEach(function (el) {
+    var val = dict[el.getAttribute('data-i18n-aria')];
+    if (val !== undefined) el.setAttribute('aria-label', val);
+  });
+  $$('[data-i18n-ph]').forEach(function (el) {
+    var val = dict[el.getAttribute('data-i18n-ph')];
+    if (val !== undefined) el.setAttribute('placeholder', val);
+  });
+  var mt = $('#doc-title');
+  if (mt && dict['meta.title']) mt.textContent = dict['meta.title'];
+  var md = $('#meta-desc');
+  if (md && dict['meta.desc']) md.setAttribute('content', dict['meta.desc']);
+  var ogt = $('meta[property="og:title"]');
+  if (ogt && dict['og.title']) ogt.setAttribute('content', dict['og.title']);
+  var ogd = $('meta[property="og:description"]');
+  if (ogd && dict['og.desc']) ogd.setAttribute('content', dict['og.desc']);
+  var twt = $('meta[name="twitter:title"]');
+  if (twt && dict['tw.title']) twt.setAttribute('content', dict['tw.title']);
+  var twd = $('meta[name="twitter:description"]');
+  if (twd && dict['tw.desc']) twd.setAttribute('content', dict['tw.desc']);
+  document.documentElement.setAttribute('lang', lang);
+  $$('.lang-select__cur').forEach(function (el) { el.textContent = lang.toUpperCase(); });
+  $$('.lang-select__opt').forEach(function (opt) {
+    opt.setAttribute('aria-selected', opt.getAttribute('data-lang') === lang ? 'true' : 'false');
+  });
+  applyTheme(getTheme());
+}
+function closeLangMenus() {
+  $$('.lang-select').forEach(function (sel) {
+    var menu = $('.lang-select__menu', sel), btn = $('.lang-select__btn', sel);
+    if (!menu) return;
+    menu.classList.remove('open');
+    if (btn) btn.setAttribute('aria-expanded', 'false');
+  });
+}
+$$('.lang-select').forEach(function (sel) {
+  var btn = $('.lang-select__btn', sel), menu = $('.lang-select__menu', sel);
+  if (!btn || !menu) return;
+  btn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    var open = menu.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (open) {
+      $$('.lang-select').forEach(function (other) {
+        if (other !== sel) {
+          var om = $('.lang-select__menu', other), ob = $('.lang-select__btn', other);
+          if (om) om.classList.remove('open');
+          if (ob) ob.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+  });
+  $$('.lang-select__opt', sel).forEach(function (opt) {
+    opt.addEventListener('click', function () {
+      applyLang(opt.getAttribute('data-lang'));
+      closeLangMenus();
+    });
+  });
+});
+document.addEventListener('click', function (e) {
+  var inside = false;
+  $$('.lang-select').forEach(function (sel) { if (sel.contains(e.target)) inside = true; });
+  if (!inside) closeLangMenus();
+});
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape') { closeLangMenus(); closeMobile(); }
+});
+var burger = $('#burger'), mobileMenu = $('#mobileMenu');
+function closeMobile() {
+  if (!mobileMenu) return;
+  mobileMenu.classList.remove('open');
+  if (burger) burger.setAttribute('aria-expanded', 'false');
+}
+if (burger && mobileMenu) {
+  burger.addEventListener('click', function () {
+    var open = mobileMenu.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  $$('a', mobileMenu).forEach(function (a) {
+    a.addEventListener('click', closeMobile);
+  });
+}
+applyLang(getLang());
+try {
+  var rvEls = $$('.rv');
+  function revealCheck() {
+    var vh = window.innerHeight || document.documentElement.clientHeight;
+    rvEls.forEach(function (el) {
+      if (el.classList.contains('in')) return;
+      var r = el.getBoundingClientRect();
+      if (r.top < vh * 0.92) el.classList.add('in');
+    });
+  }
+  var ticking = false;
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(function () { revealCheck(); ticking = false; });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+  revealCheck();
+  document.documentElement.classList.remove('no-js');
+  setTimeout(revealCheck, 600);
+  setTimeout(function () {
+    var vh = window.innerHeight || document.documentElement.clientHeight;
+    var missed = false;
+    rvEls.forEach(function (el) {
+      var r = el.getBoundingClientRect();
+      if (r.top < vh * 0.92 && r.bottom > 0 && !el.classList.contains('in')) missed = true;
+    });
+    if (missed) rvEls.forEach(function (el) { el.classList.add('in'); });
+  }, 1800);
+} catch (e) {
+  $$('.rv').forEach(function (el) { el.classList.add('in'); });
+  document.documentElement.classList.remove('no-js');
+}
+$$('.faq-item').forEach(function (item) {
+  var q = $('.faq-q', item), a = $('.faq-a', item);
+  if (!q || !a) return;
+  q.addEventListener('click', function () {
+    var isOpen = item.classList.contains('open');
+    $$('.faq-item.open').forEach(function (other) {
+      if (other !== item) {
+        other.classList.remove('open');
+        var oq = $('.faq-q', other), oa = $('.faq-a', other);
+        if (oq) oq.setAttribute('aria-expanded', 'false');
+        if (oa) oa.style.maxHeight = '0px';
+      }
+    });
+    item.classList.toggle('open', !isOpen);
+    q.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+    a.style.maxHeight = isOpen ? '0px' : a.scrollHeight + 'px';
+  });
+});
+var cookieBanner = $('#cookieBanner');
+var COOKIE_KEY = 'ondaocho-cookie';
+function hideCookie() {
+  if (!cookieBanner) return;
+  cookieBanner.classList.remove('show');
+  try { localStorage.setItem(COOKIE_KEY, '1'); } catch (e) {}
+}
+var ckOk = $('#cookieOk'), ckNo = $('#cookieNo');
+if (ckOk) ckOk.addEventListener('click', hideCookie);
+if (ckNo) ckNo.addEventListener('click', hideCookie);
+(function () {
+  var done = false;
+  try { done = localStorage.getItem(COOKIE_KEY) === '1'; } catch (e) {}
+  if (done || !cookieBanner) return;
+  setTimeout(function () { cookieBanner.classList.add('show'); }, 3200);
+})();
+var newsForm = $('#newsForm');
+if (newsForm) {
+  var nlMsg = $('#nlMsg');
+  newsForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var email = ($('#newsEmail') || {}).value || '';
+    var lang = getLang();
+    if (!email || email.indexOf('@') < 1) {
+      if (nlMsg) { nlMsg.textContent = I18N[lang]['news.err']; nlMsg.className = 'nl-msg err'; }
+      return;
+    }
+    var subject = 'Parrilla semanal — ONDA OCHO';
+    var body = 'Hola ONDA OCHO, quiero recibir la parrilla del domingo.\nMi correo: ' + email;
+    window.location.href = 'mailto:estudio@ondaocho.fm?subject='
+      + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    if (nlMsg) { nlMsg.textContent = I18N[lang]['news.thanks']; nlMsg.className = 'nl-msg ok'; }
+  });
+}
+var playBtn = $('#playBtn'), vinyl = $('#vinyl'), desk = $('#estudio');
+var playing = true;
+if (playBtn) {
+  playBtn.addEventListener('click', function () {
+    playing = !playing;
+    playBtn.setAttribute('aria-pressed', playing ? 'true' : 'false');
+    playBtn.setAttribute('aria-label', I18N[getLang()][playing ? 'desk.pause' : 'desk.play']);
+    if (vinyl) vinyl.classList.toggle('paused', !playing);
+    if (desk) desk.classList.toggle('paused', !playing);
+    var icon = $('#playIcon');
+    if (icon) {
+      icon.innerHTML = playing ? '<path d="M8 5v14l11-7z"/>' : '<rect x="6" y="5" width="4" height="14"/><rect x="14" y="5" width="4" height="14"/>';
+    }
+  });
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,1681 @@
+<!DOCTYPE html>
+<html lang="es" class="no-js" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="doc-title">AZIMUT · Planetario del Parque del Oeste · Madrid</title>
+<meta id="meta-desc" name="description" content="Planetario de barrio en el Parque del Oeste: sesiones de 45 minutos bajo la cúpula, pases de escuela y noches de cielo oscuro. Reserva asiento por correo.">
+<link rel="canonical" href="https://proyectos.cristiancode.dev/landings/2026-09-03-azimut.html">
+<meta property="og:type" content="website">
+<meta id="og-title" property="og:title" content="AZIMUT · El cielo de Madrid se lee en la cúpula">
+<meta id="og-desc" property="og:description" content="Planetario de barrio en el Parque del Oeste. Cuarenta y cinco minutos bajo una carta celeste leída en voz alta.">
+<meta property="og:url" content="https://proyectos.cristiancode.dev/landings/2026-09-03-azimut.html">
+<meta property="og:image" content="https://cristiancode.dev/assets/landing-2026-09-03-azimut.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta id="tw-title" name="twitter:title" content="AZIMUT · Planetario del Parque del Oeste">
+<meta id="tw-desc" name="twitter:description" content="El cielo de Madrid se lee en la cúpula.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#12161F">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2312161F'/%3E%3Ccircle cx='16' cy='16' r='12' fill='none' stroke='%23E8A317' stroke-width='1.5'/%3E%3Ccircle cx='16' cy='16' r='3' fill='%23E8A317'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&amp;display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   DESIGN SYSTEM — AZIMUT · Planetario del Parque del Oeste
+   Surface: Decide/Learn (landing; hero is correct). Secondary
+            Operate in the session table (hold a seat), Compare
+            across the three passes (público / escuela / noche).
+   Derived from: Original — celestial chart / observatory ledger.
+            Not a brand clone. Last two days were Wise + Uber.
+   Family: Educación / Astronomía pública
+   Style: Editorial night-chart — cool off-white paper, one
+          amber accent, drawn dome as the product object
+   Strategy: Restrained (tinted cool neutrals + amber ≤10%;
+          the dome is a fixed night stage, not the page)
+   Type: Fraunces (display, optical serif) + Figtree (body)
+   Impeccable: no gradient text, no glass, no side-stripe,
+         no hero-metrics, no identical 3-card grid (tonight
+         is a TABLE; passes is a Compare table; how is a
+         real 3-step sequence), no per-section eyebrows
+         (one kicker only on data), no Inter, no indigo.
+         Contrast ≥4.5:1 both themes. CTA ink #1A1008 on
+         amber #E8A317 (8.63:1) — never white on copper.
+   ============================================================ */
+:root{
+  --z-nav:30; --z-banner:40; --z-menu:45; --z-toast:60; --z-fab:70;
+  --bg:#F3F4F6; --paper:#E6E8ED; --card:#FFFFFF;
+  --ink:#16181E; --muted:#454954; --faint:#5A5E6A;
+  --line:#D2D6DE; --line-strong:#B8BDC8;
+  --cta:#E8A317; --cta-hover:#D49410; --cta-ink:#1A1008;
+  --accent-text:#8A3B08; --accent-soft:#F6E7C8;
+  --link:#8A3B08;
+  --ok:#1F6B45; --err:#B42318;
+  --dome:#12161F; --dome-2:#1A2030; --dome-ink:#F4EFE6; --dome-muted:#C9C3B6; --star:#E8A317;
+  --disp:'Fraunces',Georgia,'Times New Roman',serif;
+  --body:'Figtree',system-ui,'Segoe UI',sans-serif;
+  --mono:ui-monospace,SFMono-Regular,'IBM Plex Mono',Menlo,Consolas,monospace;
+  --r:6px; --r-lg:12px;
+  --shadow:0 1px 0 rgba(22,24,30,.06);
+  --ease:cubic-bezier(.16,1,.3,1);
+  --nav-h:64px;
+}
+[data-theme="dark"]{
+  --bg:#10141C; --paper:#171C26; --card:#1C222D;
+  --ink:#EEF0F4; --muted:#B8BDC8; --faint:#8E94A3;
+  --line:#2A3140; --line-strong:#3A4254;
+  --cta:#E8A317; --cta-hover:#F0B429; --cta-ink:#1A1008;
+  --accent-text:#F0C14A; --accent-soft:#2A2414;
+  --link:#F0C14A;
+  --ok:#5FBF6F; --err:#E0667A;
+  --shadow:0 1px 0 rgba(244,239,230,.06);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:var(--body); font-size:1.0625rem; line-height:1.55;
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+}
+img,svg{display:block;max-width:100%}
+a{color:var(--link)}
+h1,h2,h3{margin:0;font-family:var(--disp);font-weight:600;line-height:1.05;letter-spacing:-.03em;text-wrap:balance}
+p{margin:0}
+ul{margin:0;padding:0;list-style:none}
+button,input,select{font-family:inherit}
+.container{max-width:1160px;margin:0 auto;padding:0 24px}
+.visually-hidden{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);border:0;white-space:nowrap}
+.skip-link{position:absolute;left:-999px;top:8px;z-index:var(--z-toast);background:var(--cta);color:var(--cta-ink);padding:.6rem 1.1rem;border-radius:var(--r);font-weight:700;text-decoration:none}
+.skip-link:focus{left:8px}
+:focus-visible{outline:3px solid var(--accent-text);outline-offset:2px}
+
+.nav{position:sticky;top:0;z-index:var(--z-nav);height:var(--nav-h);display:flex;align-items:center;background:var(--bg);border-bottom:1px solid var(--line)}
+.nav-inner{display:flex;align-items:center;gap:1.2rem;width:100%}
+.nav-logo{display:inline-flex;align-items:center;gap:.6rem;color:var(--ink);text-decoration:none}
+.nav-logo .word{font-family:var(--disp);font-size:1.2rem;font-weight:600;letter-spacing:-.02em}
+.nav-logo .az{width:28px;height:28px}
+.nav-links{display:flex;gap:1.25rem;margin:0 0 0 auto}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:.95rem;font-weight:600;transition:color .2s var(--ease)}
+.nav-links a:hover{color:var(--accent-text)}
+.nav-actions{display:flex;align-items:center;gap:.55rem}
+.nav-desktop-only{display:flex}
+
+.lang-select{position:relative;display:inline-block}
+.lang-select__btn{display:inline-flex;align-items:center;gap:.45rem;height:40px;padding:0 .8rem;border:1px solid var(--line-strong);border-radius:var(--r);background:transparent;color:var(--ink);font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
+.lang-select__btn:hover,.lang-select__btn[aria-expanded="true"]{border-color:var(--ink);background:var(--paper)}
+.lang-select__chev{transition:transform .2s var(--ease)}
+.lang-select__btn[aria-expanded="true"] .lang-select__chev{transform:rotate(180deg)}
+.lang-select__menu{position:absolute;top:calc(100% + 8px);right:0;z-index:var(--z-menu);min-width:176px;padding:.35rem;background:var(--card);border:1px solid var(--line-strong);border-radius:var(--r-lg);box-shadow:0 16px 40px -18px rgba(0,0,0,.28);opacity:0;visibility:hidden;transform:translateY(-4px);transition:opacity .2s var(--ease),transform .2s var(--ease),visibility .2s}
+.lang-select__menu.open{opacity:1;visibility:visible;transform:none}
+.lang-select__opt{display:flex;align-items:center;gap:.5rem;width:100%;padding:.5rem .7rem;border:0;background:none;border-radius:var(--r);font-size:.9rem;color:var(--ink);text-align:left;cursor:pointer}
+.lang-select__opt:hover{background:var(--paper)}
+.lang-select__opt[aria-selected="true"]{color:var(--accent-text);font-weight:700}
+.lang-select__opt[aria-selected="true"]::after{content:'✓';margin-left:auto}
+
+.theme-toggle,.menu-toggle{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border:1px solid var(--line-strong);border-radius:var(--r);background:transparent;color:var(--ink);cursor:pointer}
+.theme-toggle:hover{border-color:var(--ink);background:var(--paper)}
+.theme-toggle .ico-moon{display:none}
+[data-theme="dark"] .theme-toggle .ico-sun{display:none}
+[data-theme="dark"] .theme-toggle .ico-moon{display:block}
+.menu-toggle{display:none}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.45rem;border:0;border-radius:var(--r);padding:.8rem 1.35rem;font-size:.95rem;font-weight:700;text-decoration:none;cursor:pointer;transition:background .2s var(--ease),transform .2s var(--ease)}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary,.nav-actions > a.btn-primary,a.btn-primary{background:var(--cta);color:var(--cta-ink)}
+.btn-primary:hover{background:var(--cta-hover);color:var(--cta-ink)}
+.btn-ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:var(--bg)}
+.nav .btn{padding:.55rem 1rem;font-size:.85rem}
+
+.mobile-menu{position:fixed;inset:0;z-index:var(--z-banner);display:flex;flex-direction:column;gap:1.1rem;padding:calc(var(--nav-h) + 18px) 26px 32px;background:var(--bg);transform:translateX(100%);visibility:hidden;transition:transform .4s var(--ease),visibility .4s}
+.mobile-menu.open{transform:none;visibility:visible}
+.mobile-menu nav{display:flex;flex-direction:column}
+.mobile-menu nav a{color:var(--ink);text-decoration:none;font-family:var(--disp);font-size:1.65rem;padding:.55rem 0;border-bottom:1px solid var(--line)}
+.mobile-menu .m-utils{display:flex;flex-direction:column;gap:.7rem;margin-top:auto}
+.mobile-menu .lang-select{width:100%}
+.mobile-menu .lang-select__btn{width:100%;justify-content:center}
+.mobile-menu .lang-select__menu{right:auto;left:0}
+.mobile-menu a.btn-primary{color:var(--cta-ink);background:var(--cta);padding:.85rem 1.4rem}
+body.no-scroll{overflow:hidden}
+
+.hero{position:relative;overflow:hidden;background:var(--bg)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:3rem;align-items:center;padding:4.2rem 0 4.4rem}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.hero-badge .pip{width:7px;height:7px;border-radius:50%;background:var(--cta)}
+.hero h1{font-size:clamp(2.1rem,5.2vw,4.4rem);font-weight:600;line-height:1.02;letter-spacing:-.035em;margin:1.1rem 0 1.15rem;max-width:14ch}
+.hero-sub{color:var(--muted);font-size:1.12rem;line-height:1.6;max-width:46ch;text-wrap:pretty}
+.hero-cta{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.6rem}
+.hero-note{margin-top:1rem;font-family:var(--mono);font-size:.75rem;letter-spacing:.06em;color:var(--faint)}
+
+.dome-wrap{position:relative}
+.dome-card{background:var(--dome);color:var(--dome-ink);border-radius:var(--r-lg);padding:1rem 1rem 0;overflow:hidden}
+.dome-svg{width:100%;height:auto}
+.star{transform-origin:center;animation:twinkle 3.6s var(--ease) infinite}
+.star:nth-child(odd){animation-duration:4.4s;animation-delay:.6s}
+.star:nth-child(3n){animation-duration:5.2s;animation-delay:1.2s}
+@keyframes twinkle{0%,100%{opacity:.45}50%{opacity:1}}
+.constel{stroke-dasharray:280;stroke-dashoffset:280;animation:drawLine 1.4s var(--ease) .3s forwards}
+@keyframes drawLine{to{stroke-dashoffset:0}}
+.az-ring{transform-origin:200px 210px;animation:spinSlow 80s linear infinite}
+@keyframes spinSlow{to{transform:rotate(360deg)}}
+.dome-card figcaption{display:flex;gap:.6rem;align-items:baseline;justify-content:space-between;padding:.85rem 1rem 1rem;color:var(--dome-muted)}
+.dome-card figcaption > span:first-child{min-width:0;flex:1 1 auto;white-space:normal;font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase}
+.dome-card figcaption > span:last-child{flex:none;white-space:nowrap;font-family:var(--mono);font-size:.7rem}
+
+.ticker{background:var(--dome);color:var(--dome-ink);overflow:hidden;padding:.85rem 0}
+.ticker-track{display:flex;gap:2.4rem;width:max-content;animation:marquee 36s linear infinite;font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--dome-muted)}
+.ticker-track b{color:var(--star);font-weight:500}
+@keyframes marquee{to{transform:translateX(-50%)}}
+
+.section{padding:5.2rem 0}
+.section-head{max-width:40rem;margin-bottom:2.2rem}
+.kicker{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-text);margin:0 0 .85rem;font-weight:600}
+.section-head h2{font-size:clamp(1.7rem,3.4vw,2.75rem);margin-bottom:.85rem}
+.section-head p{color:var(--muted);max-width:62ch;text-wrap:pretty}
+
+.tonight{background:var(--paper)}
+.sess{display:grid;gap:0;border:1px solid var(--line-strong);background:var(--card);border-radius:var(--r-lg);overflow:hidden}
+.sess-head,.sess-row{display:grid;grid-template-columns:5.5rem 1.4fr .7fr 5.2rem auto;gap:1rem;align-items:center;padding:.85rem 1.15rem}
+.sess-head{background:var(--dome);color:var(--dome-muted);font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase}
+.sess-row{border-top:1px solid var(--line)}
+.sess-row:hover{background:var(--paper)}
+.sess-time{font-family:var(--mono);font-size:.9rem;color:var(--accent-text);font-weight:600}
+.sess-name{font-weight:700}
+.sess-lang,.sess-seats{font-family:var(--mono);font-size:.78rem;color:var(--muted)}
+.hold{border:1px solid var(--line-strong);background:transparent;color:var(--ink);border-radius:var(--r);padding:.45rem .85rem;font-size:.82rem;font-weight:700;cursor:pointer}
+.hold:hover{border-color:var(--ink)}
+.hold[aria-pressed="true"]{background:var(--cta);color:var(--cta-ink);border-color:var(--cta)}
+
+.how-rail{display:grid;grid-template-columns:auto 1fr;gap:0 2.2rem;margin-top:.4rem;counter-reset:paso}
+.how-step{display:contents}
+.how-step .num{counter-increment:paso;font-family:var(--mono);font-size:.8rem;color:var(--accent-text);padding-top:.15rem}
+.how-step .num::before{content:counter(paso, decimal-leading-zero)}
+.how-step h3{font-size:1.35rem;margin-bottom:.4rem}
+.how-step p{color:var(--muted);max-width:58ch;padding-bottom:1.8rem;border-bottom:1px solid var(--line);margin-bottom:1.6rem}
+.how-step:last-child p{border-bottom:0;margin-bottom:0}
+
+.pass-table{width:100%;border-collapse:collapse;font-size:.95rem}
+.pass-table th,.pass-table td{text-align:left;padding:1rem 1.1rem;border-bottom:1px solid var(--line);vertical-align:top}
+.pass-table th{font-family:var(--disp);font-size:1.2rem;font-weight:600;letter-spacing:-.02em}
+.pass-table th.hot{background:var(--cta);color:var(--cta-ink)}
+.pass-table td.hot{background:var(--accent-soft)}
+.pass-table .who{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600;display:block;margin-bottom:.35rem}
+.pass-table th.hot .who{color:#5C3A08}
+.pass-table .price{display:block;font-family:var(--mono);font-size:.85rem;margin-top:.45rem;color:var(--muted);font-weight:500}
+.pass-table th.hot .price{color:#5C3A08}
+.pass-table td{color:var(--muted)}
+.pass-table td b{color:var(--ink);font-weight:650}
+
+.sky-split{display:grid;grid-template-columns:1.35fr .65fr;gap:1.2rem;align-items:stretch}
+.feat{background:var(--dome);color:var(--dome-ink);border-radius:var(--r-lg);padding:2rem 2.1rem;min-height:280px;display:flex;flex-direction:column;justify-content:flex-end}
+.feat .tag{font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--star)}
+.feat h3{font-size:clamp(1.6rem,3vw,2.3rem);color:var(--dome-ink);margin:.6rem 0 .7rem;max-width:16ch}
+.feat p{color:var(--dome-muted);max-width:46ch}
+.side-list{display:flex;flex-direction:column;gap:.6rem}
+.side-item{flex:1;background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:1.15rem 1.2rem}
+.side-item h3{font-size:1.15rem;margin:.2rem 0 .35rem}
+.side-item p{color:var(--muted);font-size:.92rem}
+
+.faq-grid{max-width:44rem}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-q{width:100%;display:flex;align-items:center;gap:1rem;padding:1.2rem 0;background:none;border:0;text-align:left;cursor:pointer;font-size:1.05rem;font-weight:700;color:var(--ink)}
+.faq-q .ic{margin-left:auto;flex:none;color:var(--accent-text);font-family:var(--mono);font-size:1.2rem;line-height:1}
+.faq-item.open .faq-q .ic{color:var(--accent-text)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s var(--ease)}
+.faq-a p{padding:0 0 1.25rem;color:var(--muted);max-width:62ch;text-wrap:pretty}
+
+.visit{background:var(--cta);color:var(--cta-ink);border-radius:var(--r-lg);padding:2.6rem 2.8rem}
+.visit h2{color:var(--cta-ink);font-size:clamp(1.5rem,3vw,2.2rem);margin-bottom:.7rem}
+.visit p{color:#5C3A08;max-width:50ch}
+.visit-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:2rem;align-items:center}
+.nl-form{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1.2rem}
+.nl-form input{flex:1 1 210px;border:1.5px solid rgba(26,16,8,.25);background:#FBF3DC;color:var(--cta-ink);border-radius:var(--r);padding:.8rem 1.1rem;font-size:1rem}
+.nl-form input::placeholder{color:#7A5A22}
+.nl-form input:focus{outline:none;border-color:var(--cta-ink)}
+.nl-form .btn{background:var(--cta-ink);color:var(--cta);flex:none}
+.nl-form .btn:hover{background:#000;color:var(--cta)}
+.news-msg{margin-top:.75rem;font-weight:700;font-size:.92rem;display:none}
+.news-msg.ok{display:block;color:#1A1008}
+.news-msg.err{display:block;color:#7A1F14}
+
+.footer{background:var(--dome);color:var(--dome-muted)}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2.4rem;padding:3.6rem 0 2.2rem}
+.footer .brand{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--disp);font-size:1.15rem;color:var(--dome-ink);text-decoration:none;margin-bottom:.9rem}
+.footer-tag{max-width:36ch;font-size:.95rem;line-height:1.6}
+.footer h3{font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--star);margin-bottom:.9rem}
+.footer-col ul{display:grid;gap:.5rem}
+.footer-col a{color:var(--dome-muted);text-decoration:none;font-size:.95rem}
+.footer-col a:hover{color:var(--dome-ink)}
+.footer-bottom{border-top:1px solid #2A3140;padding:1.2rem 0;display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;font-family:var(--mono);font-size:.72rem;letter-spacing:.05em}
+.footer .email{color:var(--dome-muted)}
+.footer .email:hover{color:var(--dome-ink)}
+
+.cookie{position:fixed;right:12px;bottom:12px;z-index:var(--z-toast);max-width:min(340px,calc(100vw - 24px));display:flex;flex-direction:column;gap:.65rem;background:var(--dome);color:var(--dome-ink);border:1px solid #2A3140;border-radius:var(--r-lg);padding:1rem 1.1rem;transform:translateY(calc(100% + 2rem));opacity:0;pointer-events:none;transition:transform .45s var(--ease),opacity .45s var(--ease)}
+.cookie.show{transform:none;opacity:1;pointer-events:auto}
+.cookie p{font-size:.84rem;line-height:1.5;color:var(--dome-muted)}
+.cookie .btn{padding:.5rem 1.1rem;font-size:.85rem;align-self:flex-start;background:var(--cta);color:var(--cta-ink)}
+
+.fab{position:fixed;right:16px;bottom:16px;z-index:var(--z-fab);width:44px;height:44px;border-radius:var(--r);border:1px solid var(--line-strong);background:var(--card);color:var(--ink);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;visibility:hidden;transform:translateY(10px);transition:opacity .3s var(--ease),transform .3s var(--ease),visibility .3s}
+.fab.show{opacity:1;visibility:visible;transform:none}
+
+.rv{opacity:0;transform:translateY(16px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.rv.in{opacity:1;transform:none}
+html.no-js .rv{opacity:1;transform:none}
+
+@media print{
+  .rv{opacity:1;transform:none}
+  .cookie,.fab,.mobile-menu{display:none}
+}
+
+@media (max-width: 980px){
+  .hero-grid{grid-template-columns:1fr;gap:2rem;padding:3rem 0}
+  .sky-split{grid-template-columns:1fr}
+  .visit-grid{grid-template-columns:1fr}
+  .nav-links,.nav-desktop-only{display:none}
+  .menu-toggle{display:inline-flex}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .sess-head{display:none}
+  .sess-row{grid-template-columns:5rem 1fr auto;gap:.55rem .8rem}
+  .sess-lang{display:none}
+  .hold{grid-column:1 / -1}
+}
+@media (max-width: 640px){
+  .section{padding:3.6rem 0}
+  .how-rail{grid-template-columns:1fr}
+  .how-step .num{padding-bottom:.2rem}
+  .pass-table, .pass-table tbody, .pass-table tr, .pass-table th, .pass-table td{display:block;width:100%}
+  .pass-table thead{display:none}
+  .pass-table th{margin-top:1rem}
+  .visit{padding:1.8rem 1.3rem}
+  .footer-grid{grid-template-columns:1fr}
+  .hero h1{max-width:12ch}
+}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.001s !important;animation-iteration-count:1 !important;transition-duration:.001s !important}
+  html{scroll-behavior:auto}
+  .rv{opacity:1;transform:none}
+  .star,.constel,.az-ring,.ticker-track{animation:none !important;opacity:1;stroke-dashoffset:0}
+  .ticker-track{width:auto;flex-wrap:wrap;gap:1rem}
+}
+[data-theme="dark"] .faq-q .ic,
+[data-theme="dark"] .lang-select__opt[aria-selected="true"],
+[data-theme="dark"] .sess-time{color:var(--link)}
+
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main" data-i18n="skip.goto">Saltar al contenido</a>
+<header class="nav" id="nav">
+  <div class="container nav-inner">
+    <a class="nav-logo" href="#hero">
+      <svg class="az" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M16 4v24M4 16h24" stroke="currentColor" stroke-width="1"/><circle cx="16" cy="16" r="3" fill="#E8A317"/></svg>
+      <span class="word">AZIMUT</span>
+    </a>
+    <nav class="nav-links" aria-label="Secciones">
+      <a href="#tonight" data-i18n="nav.tonight">Esta noche</a>
+      <a href="#how" data-i18n="nav.how">La sesión</a>
+      <a href="#sky" data-i18n="nav.sky">Cielo</a>
+      <a href="#passes" data-i18n="nav.pass">Pases</a>
+      <a href="#faq" data-i18n="nav.faq">Preguntas</a>
+    </nav>
+    <div class="nav-actions">
+      <div class="lang-select nav-desktop-only">
+        <button class="lang-select__btn" type="button" aria-haspopup="listbox" aria-expanded="false" data-i18n-aria="lang.aria">
+          <span class="lang-select__cur">ES</span>
+          <svg class="lang-select__chev" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </button>
+        <div class="lang-select__menu" role="listbox">
+          <button class="lang-select__opt" role="option" data-lang="es" aria-selected="false">Español</button>
+          <button class="lang-select__opt" role="option" data-lang="en" aria-selected="false">English</button>
+          <button class="lang-select__opt" role="option" data-lang="fr" aria-selected="false">Français</button>
+          <button class="lang-select__opt" role="option" data-lang="de" aria-selected="false">Deutsch</button>
+          <button class="lang-select__opt" role="option" data-lang="it" aria-selected="false">Italiano</button>
+          <button class="lang-select__opt" role="option" data-lang="pt" aria-selected="false">Português</button>
+        </div>
+      </div>
+      <button class="theme-toggle nav-desktop-only" type="button" data-i18n-aria="theme.toggle">
+        <svg class="ico-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="ico-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 14.5A8.5 8.5 0 1 1 9.5 3 7 7 0 0 0 21 14.5z"/></svg>
+      </button>
+      <a class="btn btn-primary nav-desktop-only" href="#visit" data-i18n="nav.book">Reservar asiento</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobileMenu" data-i18n-aria="menu.open">
+        <svg width="18" height="14" viewBox="0 0 18 14" fill="none" aria-hidden="true"><path d="M0 1h18M0 7h18M0 13h18" stroke="currentColor" stroke-width="1.6"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <nav>
+    <a href="#tonight" data-i18n="nav.tonight">Esta noche</a>
+    <a href="#how" data-i18n="nav.how">La sesión</a>
+    <a href="#sky" data-i18n="nav.sky">Cielo</a>
+    <a href="#passes" data-i18n="nav.pass">Pases</a>
+    <a href="#faq" data-i18n="nav.faq">Preguntas</a>
+  </nav>
+  <div class="m-utils">
+    <div class="lang-select">
+      <button class="lang-select__btn" type="button" aria-haspopup="listbox" aria-expanded="false" data-i18n-aria="lang.aria">
+        <span class="lang-select__cur">ES</span>
+        <svg class="lang-select__chev" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </button>
+      <div class="lang-select__menu" role="listbox">
+        <button class="lang-select__opt" role="option" data-lang="es">Español</button>
+        <button class="lang-select__opt" role="option" data-lang="en">English</button>
+        <button class="lang-select__opt" role="option" data-lang="fr">Français</button>
+        <button class="lang-select__opt" role="option" data-lang="de">Deutsch</button>
+        <button class="lang-select__opt" role="option" data-lang="it">Italiano</button>
+        <button class="lang-select__opt" role="option" data-lang="pt">Português</button>
+      </div>
+    </div>
+    <button class="theme-toggle" type="button" data-i18n-aria="theme.toggle">
+      <svg class="ico-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      <svg class="ico-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 14.5A8.5 8.5 0 1 1 9.5 3 7 7 0 0 0 21 14.5z"/></svg>
+    </button>
+    <a class="btn btn-primary" href="#visit" data-i18n="nav.book">Reservar asiento</a>
+  </div>
+</div>
+<main id="main">
+<section class="hero" id="hero">
+  <div class="container hero-grid">
+    <div>
+      <p class="hero-badge"><span class="pip" aria-hidden="true"></span><span data-i18n="hero.badge">Planetario · Parque del Oeste · Madrid</span></p>
+      <h1 data-i18n-html="hero.title">El cielo de Madrid <br>se lee en la cúpula.</h1>
+      <p class="hero-sub" data-i18n="hero.sub">AZIMUT es el planetario de barrio del Parque del Oeste. Cuarenta y cinco minutos sentado bajo un cielo proyectado: no un espectáculo de feria, una carta celeste leída en voz alta.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#tonight" data-i18n="hero.cta1">Ver esta noche</a>
+        <a class="btn btn-ghost" href="#how" data-i18n="hero.cta2">Cómo es una sesión</a>
+      </div>
+      <p class="hero-note" data-i18n="hero.note">Cúpula 12 m · 64 asientos · sin pantallas en la butaca</p>
+    </div>
+    <figure class="dome-wrap">
+      <div class="dome-card">
+        <svg class="dome-svg" viewBox="0 0 400 320" role="img" aria-labelledby="domeTitle">
+          <title id="domeTitle">Carta de Cygnus sobre la cúpula</title>
+          <rect width="400" height="320" fill="#12161F"/>
+          <circle class="az-ring" cx="200" cy="210" r="118" fill="none" stroke="#2A3140" stroke-width="1"/>
+          <circle cx="200" cy="210" r="86" fill="none" stroke="#1E2533" stroke-width="1"/>
+          <path d="M40 250 Q200 90 360 250" fill="none" stroke="#3A4254" stroke-width="1.2"/>
+          <path d="M20 268 H380" stroke="#C9C3B6" stroke-width=".6" opacity=".4"/>
+          <g fill="#E8A317">
+            <circle class="star" cx="168" cy="96" r="2.4"/>
+            <circle class="star" cx="198" cy="118" r="1.6"/>
+            <circle class="star" cx="226" cy="142" r="2.1"/>
+            <circle class="star" cx="248" cy="168" r="1.4"/>
+            <circle class="star" cx="210" cy="88" r="1.2"/>
+            <circle class="star" cx="142" cy="128" r="1.3"/>
+            <circle class="star" cx="292" cy="120" r="1.1"/>
+            <circle class="star" cx="110" cy="170" r="1"/>
+            <circle class="star" cx="318" cy="188" r="1.5"/>
+            <circle class="star" cx="80" cy="90" r=".9"/>
+            <circle class="star" cx="340" cy="70" r="1.1"/>
+            <circle class="star" cx="60" cy="210" r=".8"/>
+            <circle class="star" cx="200" cy="58" r="1.8"/>
+          </g>
+          <polyline class="constel" points="168,96 198,118 226,142 248,168" fill="none" stroke="#E8A317" stroke-width="1.1"/>
+          <polyline class="constel" points="198,118 210,88 200,58" fill="none" stroke="#E8A317" stroke-width="1.1"/>
+          <polyline class="constel" points="198,118 142,128" fill="none" stroke="#E8A317" stroke-width="1.1"/>
+          <text x="200" y="292" text-anchor="middle" fill="#C9C3B6" font-size="10" font-family="ui-monospace,monospace" letter-spacing="2">N  ·  312°  ·  CYG</text>
+        </svg>
+        <figcaption>
+          <span data-i18n="dome.lane">Cúpula · carta de Cygnus</span>
+          <span data-i18n="dome.meta">Azimut 312° · 22:10</span>
+        </figcaption>
+      </div>
+    </figure>
+  </div>
+</section>
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span><b>AZIMUT</b> · <span data-i18n="tick.1">Sin teléfonos en la cúpula</span></span>
+    <span data-i18n="tick.2">Carta leída en voz alta</span>
+    <span data-i18n="tick.3">64 asientos, ninguno en fila extra</span>
+    <span data-i18n="tick.4">Aire a 18 °C, no a 24</span>
+    <span data-i18n="tick.5">Salida a oscuras, no con aplauso</span>
+    <span><b>AZIMUT</b> · <span data-i18n="tick.1">Sin teléfonos en la cúpula</span></span>
+    <span data-i18n="tick.2">Carta leída en voz alta</span>
+    <span data-i18n="tick.3">64 asientos, ninguno en fila extra</span>
+    <span data-i18n="tick.4">Aire a 18 °C, no a 24</span>
+    <span data-i18n="tick.5">Salida a oscuras, no con aplauso</span>
+  </div>
+</div>
+<section class="section tonight" id="tonight">
+  <div class="container">
+    <header class="section-head rv">
+      <p class="kicker" data-i18n="tonight.kicker">Cartelera · hoy</p>
+      <h2 data-i18n-html="tonight.title">Lo que se proyecta <br>esta noche.</h2>
+      <p data-i18n="tonight.lead">Cuatro pases. El asiento se reserva por correo.</p>
+    </header>
+    <div class="sess rv" role="table" aria-label="Cartelera">
+      <div class="sess-head" role="row">
+        <span data-i18n="sess.h1">Hora</span>
+        <span data-i18n="sess.h2">Pase</span>
+        <span data-i18n="sess.h3">Idioma</span>
+        <span data-i18n="sess.h4">Asientos</span>
+        <span></span>
+      </div>
+      <div class="sess-row" role="row">
+        <span class="sess-time" data-i18n="s1.time">19:00</span>
+        <span class="sess-name" data-i18n="s1.name">Cisne sobre el Manzanares</span>
+        <span class="sess-lang" data-i18n="s1.lang">ES</span>
+        <span class="sess-seats" data-i18n="s1.seats">18 libres</span>
+        <button class="hold" type="button" aria-pressed="false" data-i18n="sess.hold">Guardar</button>
+      </div>
+      <div class="sess-row" role="row">
+        <span class="sess-time" data-i18n="s2.time">20:00</span>
+        <span class="sess-name" data-i18n="s2.name">Orión, todavía de día</span>
+        <span class="sess-lang" data-i18n="s2.lang">ES / EN</span>
+        <span class="sess-seats" data-i18n="s2.seats">9 libres</span>
+        <button class="hold" type="button" aria-pressed="false" data-i18n="sess.hold">Guardar</button>
+      </div>
+      <div class="sess-row" role="row">
+        <span class="sess-time" data-i18n="s3.time">21:15</span>
+        <span class="sess-name" data-i18n="s3.name">La eclíptica a ras de tejado</span>
+        <span class="sess-lang" data-i18n="s3.lang">ES</span>
+        <span class="sess-seats" data-i18n="s3.seats">31 libres</span>
+        <button class="hold" type="button" aria-pressed="false" data-i18n="sess.hold">Guardar</button>
+      </div>
+      <div class="sess-row" role="row">
+        <span class="sess-time" data-i18n="s4.time">22:30</span>
+        <span class="sess-name" data-i18n="s4.name">Cielo oscuro · sin narración</span>
+        <span class="sess-lang" data-i18n="s4.lang">—</span>
+        <span class="sess-seats" data-i18n="s4.seats">12 libres</span>
+        <button class="hold" type="button" aria-pressed="false" data-i18n="sess.hold">Guardar</button>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" id="how">
+  <div class="container">
+    <header class="section-head rv">
+      <p class="kicker" data-i18n="how.kicker">Tres pasos · la sesión</p>
+      <h2 data-i18n-html="how.title">Entras con luz. <br>Sales sin ella.</h2>
+      <p data-i18n="how.lead">No hay cola de palomitas.</p>
+    </header>
+    <div class="how-rail rv">
+      <article class="how-step"><span class="num" aria-hidden="true"></span><div><h3 data-i18n="how.s1.t">Umbral</h3><p data-i18n="how.s1.d">Dejas el teléfono en una caja numerada.</p></div></article>
+      <article class="how-step"><span class="num" aria-hidden="true"></span><div><h3 data-i18n="how.s2.t">Cúpula</h3><p data-i18n="how.s2.d">Cuarenta y cinco minutos.</p></div></article>
+      <article class="how-step"><span class="num" aria-hidden="true"></span><div><h3 data-i18n="how.s3.t">Terraza</h3><p data-i18n="how.s3.d">Sales a la terraza oeste.</p></div></article>
+    </div>
+  </div>
+</section>
+<section class="section tonight" id="sky">
+  <div class="container">
+    <header class="section-head rv">
+      <p class="kicker" data-i18n="sky.kicker">Temporada · septiembre</p>
+      <h2 data-i18n-html="sky.title">Tres cartas, <br>no un catálogo.</h2>
+      <p data-i18n="sky.lead">No rotamos doce experiencias.</p>
+    </header>
+    <div class="sky-split rv">
+      <article class="feat">
+        <p class="tag" data-i18n="feat.tag">Carta mayor · septiembre</p>
+        <h3 data-i18n="feat.title">Cygnus cruza el Manzanares.</h3>
+        <p data-i18n="feat.p">El cisne entra por el suroeste a las 21:10.</p>
+      </article>
+      <div class="side-list">
+        <article class="side-item"><h3 data-i18n="side1.t">Orión de tarde</h3><p data-i18n="side1.p">Pase de las 20:00.</p></article>
+        <article class="side-item"><h3 data-i18n="side2.t">Sin narración</h3><p data-i18n="side2.p">A las 22:30 la cúpula se enciende y no se habla.</p></article>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" id="passes">
+  <div class="container">
+    <header class="section-head rv">
+      <p class="kicker" data-i18n="pass.kicker">Pases · cómo se paga</p>
+      <h2 data-i18n-html="pass.title">Tres maneras <br>de sentarse.</h2>
+      <p data-i18n="pass.lead">Público, escuela y noche oscura.</p>
+    </header>
+    <div class="rv" style="overflow-x:auto">
+      <table class="pass-table">
+        <caption class="visually-hidden">Comparativa de pases</caption>
+        <thead>
+          <tr>
+            <th><span class="who" data-i18n="pass.p1.who">Público</span><span data-i18n="pass.p1.name">Butaca suelta</span><span class="price" data-i18n="pass.p1.price">8 €</span></th>
+            <th class="hot"><span class="who" data-i18n="pass.p2.who">Escuela</span><span data-i18n="pass.p2.name">Grupo de aula</span><span class="price" data-i18n="pass.p2.price">5 € / alumno</span></th>
+            <th><span class="who" data-i18n="pass.p3.who">Noche</span><span data-i18n="pass.p3.name">Cielo oscuro</span><span class="price" data-i18n="pass.p3.price">6 €</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td data-i18n="pass.r1.c1">45 minutos bajo la cúpula</td><td class="hot" data-i18n="pass.r1.c2">50 minutos, con preguntas al final</td><td data-i18n="pass.r1.c3">45 minutos, sin voz</td></tr>
+          <tr><td data-i18n="pass.r2.c1">Narración en el idioma del pase</td><td class="hot" data-i18n="pass.r2.c2">Ficha para el aula el día anterior</td><td data-i18n="pass.r2.c3">Sin ficha, sin guía</td></tr>
+          <tr><td data-i18n="pass.r3.c1">Terraza al salir, si el cielo deja</td><td class="hot" data-i18n="pass.r3.c2">Terraza solo si el profesor lo pide</td><td data-i18n="pass.r3.c3">Terraza siempre, aunque nuble</td></tr>
+          <tr><td data-i18n="pass.r4.c1">Hasta 2 menores con un adulto</td><td class="hot" data-i18n="pass.r4.c2">Máximo 30 por pase, dos adultos</td><td data-i18n="pass.r4.c3">Mayores de 16</td></tr>
+          <tr><td data-i18n="pass.r5.c1">Reserva por correo, 24 h antes</td><td class="hot" data-i18n="pass.r5.c2">Reserva con 7 días, factura a centro</td><td data-i18n="pass.r5.c3">Reserva el mismo día si queda asiento</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+<section class="section" id="faq">
+  <div class="container">
+    <header class="section-head rv">
+      <p class="kicker" data-i18n="faq.kicker">Preguntas que llegan</p>
+      <h2 data-i18n-html="faq.title">Antes de sentarte <br>en la oscuridad.</h2>
+    </header>
+    <div class="faq-grid rv">
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false"><span data-i18n="faq.q1">¿Hay que saber astronomía?</span><span class="ic" aria-hidden="true">+</span></button>
+        <div class="faq-a"><p data-i18n="faq.a1">No. La narradora nombra lo justo.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false"><span data-i18n="faq.q2">¿Puedo llevar el teléfono en silencio?</span><span class="ic" aria-hidden="true">+</span></button>
+        <div class="faq-a"><p data-i18n="faq.a2">No. La caja numerada está en el umbral.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false"><span data-i18n="faq.q3">¿Los niños entran?</span><span class="ic" aria-hidden="true">+</span></button>
+        <div class="faq-a"><p data-i18n="faq.a3">Desde los 8 años en el pase público.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false"><span data-i18n="faq.q4">¿Dónde estáis exactamente?</span><span class="ic" aria-hidden="true">+</span></button>
+        <div class="faq-a"><p data-i18n="faq.a4">En el pabellón oeste del Parque del Oeste.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" id="visit">
+  <div class="container">
+    <div class="visit rv">
+      <div class="visit-grid">
+        <div>
+          <h2 data-i18n="news.title">El cartel de la semana, un lunes.</h2>
+          <p data-i18n="news.p">Un correo cuando cambia la carta.</p>
+        </div>
+        <form class="nl-form" id="newsForm" novalidate>
+          <label class="visually-hidden" for="newsEmail" data-i18n="news.emailLabel">Tu correo</label>
+          <input id="newsEmail" type="email" required autocomplete="email" data-i18n-ph="news.placeholder" placeholder="tu@correo.es">
+          <button class="btn" type="submit" data-i18n="news.btn">Escribir para la lista</button>
+          <p class="news-msg" id="newsMsg" role="status"></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="#hero">
+          <svg class="az" width="22" height="22" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M16 4v24M4 16h24" stroke="currentColor" stroke-width="1"/><circle cx="16" cy="16" r="3" fill="#E8A317"/></svg>
+          AZIMUT
+        </a>
+        <p class="footer-tag" data-i18n="footer.tag">Planetario de barrio en el Parque del Oeste.</p>
+      </div>
+      <div class="footer-col">
+        <h3 data-i18n="footer.col1">Venir</h3>
+        <ul>
+          <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Paseo+de+Moret+Parque+del+Oeste+Madrid" target="_blank" rel="noopener"> <span data-i18n="footer.addr">Paseo de Moret · Parque del Oeste</span></a></li>
+          <li data-i18n="footer.addr2">Pabellón oeste · Moncloa</li>
+          <li><a class="email" href="mailto:hola@cristiancode.dev" id="visitMail" data-i18n="footer.mail">hola@cristiancode.dev</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3 data-i18n="footer.col2">En la página</h3>
+        <ul>
+          <li><a href="#tonight" data-i18n="footer.l1">Cartelera de esta noche</a></li>
+          <li><a href="#how" data-i18n="footer.l2">Cómo es una sesión</a></li>
+          <li><a href="#passes" data-i18n="footer.l3">Pases</a></li>
+          <li><a href="#faq" data-i18n="footer.l4">Preguntas</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span data-i18n="footer.cr">© 2026 AZIMUT · Parque del Oeste, Madrid</span>
+      <span data-i18n="footer.made">Carta celeste, no feria</span>
+    </div>
+  </div>
+</footer>
+<div class="cookie" id="cookieBanner" role="dialog" aria-live="polite" aria-label="Cookies">
+  <p data-i18n="cookie.msg">Guardamos un dato para idioma y tema.</p>
+  <button class="btn" type="button" id="cookieOk" data-i18n="cookie.ok">Entendido</button>
+</div>
+<button class="fab" type="button" id="fab" aria-label="Arriba">
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 13V3M3 8l5-5 5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+
+<script>
+var I18N = {
+  es: {
+  "meta.title": "AZIMUT · Planetario del Parque del Oeste · Madrid",
+  "meta.desc": "Planetario de barrio en el Parque del Oeste: sesiones de 45 minutos bajo la cúpula, pases de escuela y noches de cielo oscuro. Reserva asiento por correo.",
+  "skip.goto": "Saltar al contenido",
+  "nav.tonight": "Esta noche",
+  "nav.how": "La sesión",
+  "nav.sky": "Cielo",
+  "nav.pass": "Pases",
+  "nav.faq": "Preguntas",
+  "nav.book": "Reservar asiento",
+  "lang.aria": "Elegir idioma",
+  "theme.toggle": "Cambiar tema claro u oscuro",
+  "menu.open": "Abrir menú",
+  "menu.close": "Cerrar menú",
+  "hero.badge": "Planetario · Parque del Oeste · Madrid",
+  "hero.title": "El cielo de Madrid <br>se lee en la cúpula.",
+  "hero.sub": "AZIMUT es el planetario de barrio del Parque del Oeste. Cuarenta y cinco minutos sentado bajo un cielo proyectado: no un espectáculo de feria, una carta celeste leída en voz alta.",
+  "hero.cta1": "Ver esta noche",
+  "hero.cta2": "Cómo es una sesión",
+  "hero.note": "Cúpula 12 m · 64 asientos · sin pantallas en la butaca",
+  "dome.lane": "Cúpula · carta de Cygnus",
+  "dome.meta": "Azimut 312° · 22:10",
+  "tick.1": "Sin teléfonos en la cúpula",
+  "tick.2": "Carta leída en voz alta",
+  "tick.3": "64 asientos, ninguno en fila extra",
+  "tick.4": "Aire a 18 °C, no a 24",
+  "tick.5": "Salida a oscuras, no con aplauso",
+  "tonight.kicker": "Cartelera · hoy",
+  "tonight.title": "Lo que se proyecta <br>esta noche.",
+  "tonight.lead": "Cuatro pases. El asiento se reserva por correo, no con un botón que finge una cola. Pulsa «guardar» solo para marcar el que te interesa; luego escribe.",
+  "sess.h1": "Hora",
+  "sess.h2": "Pase",
+  "sess.h3": "Idioma",
+  "sess.h4": "Asientos",
+  "sess.h5": "",
+  "sess.hold": "Guardar",
+  "sess.held": "Guardado",
+  "s1.time": "19:00",
+  "s1.name": "Cisne sobre el Manzanares",
+  "s1.lang": "ES",
+  "s1.seats": "18 libres",
+  "s2.time": "20:00",
+  "s2.name": "Orión, todavía de día",
+  "s2.lang": "ES / EN",
+  "s2.seats": "9 libres",
+  "s3.time": "21:15",
+  "s3.name": "La eclíptica a ras de tejado",
+  "s3.lang": "ES",
+  "s3.seats": "31 libres",
+  "s4.time": "22:30",
+  "s4.name": "Cielo oscuro · sin narración",
+  "s4.lang": "—",
+  "s4.seats": "12 libres",
+  "how.kicker": "Tres pasos · la sesión",
+  "how.title": "Entras con luz. <br>Sales sin ella.",
+  "how.lead": "No hay cola de palomitas. Hay un umbral, una cúpula y una salida a la terraza para mirar el cielo de verdad, si la noche lo permite.",
+  "how.s1.t": "Umbral",
+  "how.s1.d": "Dejas el teléfono en una caja numerada. Te sientas. La narradora nombra el azimut del primer astro antes de apagar la sala.",
+  "how.s2.t": "Cúpula",
+  "how.s2.d": "Cuarenta y cinco minutos. La carta se dibuja sobre tu cabeza, no en una pared. Si alguien habla, se para el proyector: el silencio es parte del instrumento.",
+  "how.s3.t": "Terraza",
+  "how.s3.d": "Sales a la terraza oeste. Si el cielo real está limpio, se señala a ojo lo que acaba de verse dentro. Si no, se cierra sin discurso.",
+  "sky.kicker": "Temporada · septiembre",
+  "sky.title": "Tres cartas, <br>no un catálogo.",
+  "sky.lead": "No rotamos doce «experiencias». Trabajamos tres cartas por temporada y las leemos hasta que se gastan.",
+  "feat.tag": "Carta mayor · septiembre",
+  "feat.title": "Cygnus cruza el Manzanares.",
+  "feat.p": "El cisne entra por el suroeste a las 21:10. Se nombra Deneb, Sadr y Albireo, y se deja el resto sin etiquetar: para que el ojo aprenda a buscar, no a leer un menú.",
+  "side1.t": "Orión de tarde",
+  "side1.p": "Pase de las 20:00. El cazador todavía no ha salido del todo: se enseña a esperarlo.",
+  "side2.t": "Sin narración",
+  "side2.p": "A las 22:30 la cúpula se enciende y no se habla. Para quien ya conoce la carta.",
+  "pass.kicker": "Pases · cómo se paga",
+  "pass.title": "Tres maneras <br>de sentarse.",
+  "pass.lead": "Público, escuela y noche oscura. El precio cubre la narradora, el proyector y la caja de teléfonos. No hay palomitas.",
+  "pass.p1.who": "Público",
+  "pass.p1.name": "Butaca suelta",
+  "pass.p1.price": "8 €",
+  "pass.p2.who": "Escuela",
+  "pass.p2.name": "Grupo de aula",
+  "pass.p2.price": "5 € / alumno",
+  "pass.p3.who": "Noche",
+  "pass.p3.name": "Cielo oscuro",
+  "pass.p3.price": "6 €",
+  "pass.r1.c1": "45 minutos bajo la cúpula",
+  "pass.r1.c2": "50 minutos, con preguntas al final",
+  "pass.r1.c3": "45 minutos, sin voz",
+  "pass.r2.c1": "Narración en el idioma del pase",
+  "pass.r2.c2": "Ficha para el aula el día anterior",
+  "pass.r2.c3": "Sin ficha, sin guía",
+  "pass.r3.c1": "Terraza al salir, si el cielo deja",
+  "pass.r3.c2": "Terraza solo si el profesor lo pide",
+  "pass.r3.c3": "Terraza siempre, aunque nuble",
+  "pass.r4.c1": "Hasta 2 menores con un adulto",
+  "pass.r4.c2": "Máximo 30 por pase, dos adultos",
+  "pass.r4.c3": "Mayores de 16",
+  "pass.r5.c1": "Reserva por correo, 24 h antes",
+  "pass.r5.c2": "Reserva con 7 días, factura a centro",
+  "pass.r5.c3": "Reserva el mismo día si queda asiento",
+  "faq.kicker": "Preguntas que llegan",
+  "faq.title": "Antes de sentarte <br>en la oscuridad.",
+  "faq.q1": "¿Hay que saber astronomía?",
+  "faq.a1": "No. La narradora nombra lo justo. Si ya sabes, el pase de las 22:30 es el tuyo: ahí no se habla.",
+  "faq.q2": "¿Puedo llevar el teléfono en silencio?",
+  "faq.a2": "No. La caja numerada está en el umbral. La cúpula es un instrumento; una pantalla la rompe.",
+  "faq.q3": "¿Los niños entran?",
+  "faq.a3": "Desde los 8 años en el pase público, sentados con un adulto. Los grupos escolares tienen su propio horario de mañana.",
+  "faq.q4": "¿Dónde estáis exactamente?",
+  "faq.a4": "En el pabellón oeste del Parque del Oeste, entrada por Paseo de Moret. El mapa está en el pie. No hay web de venta: se escribe a hola@cristiancode.dev.",
+  "news.title": "El cartel de la semana, un lunes.",
+  "news.p": "Un correo cuando cambia la carta. Nada más. Se abre tu programa de correo; no fingimos una lista mágica.",
+  "news.emailLabel": "Tu correo",
+  "news.placeholder": "tu@correo.es",
+  "news.btn": "Escribir para la lista",
+  "news.ok": "Se abre tu correo. Si no, escribe a hola@cristiancode.dev.",
+  "news.err": "Necesitamos un correo válido.",
+  "news.mail_subject": "Lista de AZIMUT — cartel semanal",
+  "news.mail_body": "Hola, quiero apuntarme a la lista de AZIMUT. Mi correo es {email}.",
+  "visit.mail_subject": "Reserva de asiento — AZIMUT",
+  "footer.tag": "Planetario de barrio en el Parque del Oeste. El cielo de Madrid se lee aquí, no en una app.",
+  "footer.col1": "Venir",
+  "footer.addr": "Paseo de Moret · Parque del Oeste",
+  "footer.addr2": "Pabellón oeste · Moncloa",
+  "footer.mail": "hola@cristiancode.dev",
+  "footer.col2": "En la página",
+  "footer.l1": "Cartelera de esta noche",
+  "footer.l2": "Cómo es una sesión",
+  "footer.l3": "Pases",
+  "footer.l4": "Preguntas",
+  "footer.cr": "© 2026 AZIMUT · Parque del Oeste, Madrid",
+  "footer.made": "Carta celeste, no feria",
+  "cookie.msg": "Guardamos un dato para idioma y tema. No rastreamos visitas ni vendemos nada.",
+  "cookie.ok": "Entendido"
+},
+  en: {
+  "meta.title": "AZIMUT · Parque del Oeste planetarium · Madrid",
+  "meta.desc": "A neighbourhood planetarium in Parque del Oeste: 45-minute sessions under the dome, school passes and dark-sky nights. Seats are booked by email.",
+  "skip.goto": "Skip to content",
+  "nav.tonight": "Tonight",
+  "nav.how": "The session",
+  "nav.sky": "Sky",
+  "nav.pass": "Passes",
+  "nav.faq": "Questions",
+  "nav.book": "Book a seat",
+  "lang.aria": "Choose language",
+  "theme.toggle": "Switch light or dark theme",
+  "menu.open": "Open menu",
+  "menu.close": "Close menu",
+  "hero.badge": "Planetarium · Parque del Oeste · Madrid",
+  "hero.title": "Madrid’s sky is <br>read inside the dome.",
+  "hero.sub": "AZIMUT is the neighbourhood planetarium in Parque del Oeste. Forty-five minutes under a projected sky: not a fairground show, a star chart read aloud.",
+  "hero.cta1": "See tonight",
+  "hero.cta2": "How a session works",
+  "hero.note": "12 m dome · 64 seats · no screens on the chair",
+  "dome.lane": "Dome · Cygnus chart",
+  "dome.meta": "Azimuth 312° · 22:10",
+  "tick.1": "No phones under the dome",
+  "tick.2": "Chart read aloud",
+  "tick.3": "64 seats, no extra row",
+  "tick.4": "Air at 18 °C, not 24",
+  "tick.5": "You leave in the dark, not to applause",
+  "tonight.kicker": "Bill · today",
+  "tonight.title": "What is projected <br>tonight.",
+  "tonight.lead": "Four passes. A seat is booked by email, not with a fake queue button. Tap Save only to mark the one you want; then write.",
+  "sess.h1": "Time",
+  "sess.h2": "Pass",
+  "sess.h3": "Language",
+  "sess.h4": "Seats",
+  "sess.h5": "",
+  "sess.hold": "Save",
+  "sess.held": "Saved",
+  "s1.time": "19:00",
+  "s1.name": "Cygnus over the Manzanares",
+  "s1.lang": "ES",
+  "s1.seats": "18 left",
+  "s2.time": "20:00",
+  "s2.name": "Orion, still daylight",
+  "s2.lang": "ES / EN",
+  "s2.seats": "9 left",
+  "s3.time": "21:15",
+  "s3.name": "The ecliptic at rooftop height",
+  "s3.lang": "ES",
+  "s3.seats": "31 left",
+  "s4.time": "22:30",
+  "s4.name": "Dark sky · no narration",
+  "s4.lang": "—",
+  "s4.seats": "12 left",
+  "how.kicker": "Three steps · the session",
+  "how.title": "You enter with light. <br>You leave without it.",
+  "how.lead": "There is no popcorn queue. There is a threshold, a dome, and a terrace to look at the real sky if the night allows.",
+  "how.s1.t": "Threshold",
+  "how.s1.d": "You leave the phone in a numbered box. You sit. The narrator names the azimuth of the first star before the room goes dark.",
+  "how.s2.t": "Dome",
+  "how.s2.d": "Forty-five minutes. The chart is drawn over your head, not on a wall. If someone talks, the projector stops: silence is part of the instrument.",
+  "how.s3.t": "Terrace",
+  "how.s3.d": "You step onto the west terrace. If the real sky is clean, we point at what was just seen inside. If not, we close without a speech.",
+  "sky.kicker": "Season · September",
+  "sky.title": "Three charts, <br>not a catalogue.",
+  "sky.lead": "We do not rotate twelve “experiences”. We work three charts a season and read them until they wear out.",
+  "feat.tag": "Main chart · September",
+  "feat.title": "Cygnus crosses the Manzanares.",
+  "feat.p": "The swan comes in from the southwest at 21:10. We name Deneb, Sadr and Albireo, and leave the rest unlabelled — so the eye learns to look, not to read a menu.",
+  "side1.t": "Afternoon Orion",
+  "side1.p": "The 20:00 pass. The hunter is not fully up yet: we teach how to wait for him.",
+  "side2.t": "No narration",
+  "side2.p": "At 22:30 the dome lights and nobody speaks. For people who already know the chart.",
+  "pass.kicker": "Passes · how you pay",
+  "pass.title": "Three ways <br>to sit down.",
+  "pass.lead": "Public, school and dark night. The price covers the narrator, the projector and the phone box. No popcorn.",
+  "pass.p1.who": "Public",
+  "pass.p1.name": "Single seat",
+  "pass.p1.price": "€8",
+  "pass.p2.who": "School",
+  "pass.p2.name": "Class group",
+  "pass.p2.price": "€5 / pupil",
+  "pass.p3.who": "Night",
+  "pass.p3.name": "Dark sky",
+  "pass.p3.price": "€6",
+  "pass.r1.c1": "45 minutes under the dome",
+  "pass.r1.c2": "50 minutes, questions at the end",
+  "pass.r1.c3": "45 minutes, no voice",
+  "pass.r2.c1": "Narration in the pass language",
+  "pass.r2.c2": "Classroom sheet the day before",
+  "pass.r2.c3": "No sheet, no guide",
+  "pass.r3.c1": "Terrace on the way out, if the sky allows",
+  "pass.r3.c2": "Terrace only if the teacher asks",
+  "pass.r3.c3": "Terrace always, even if cloudy",
+  "pass.r4.c1": "Up to 2 minors with one adult",
+  "pass.r4.c2": "Max 30 per pass, two adults",
+  "pass.r4.c3": "Age 16 and over",
+  "pass.r5.c1": "Book by email, 24 h ahead",
+  "pass.r5.c2": "Book 7 days ahead, invoice to school",
+  "pass.r5.c3": "Same-day booking if a seat remains",
+  "faq.kicker": "Questions that arrive",
+  "faq.title": "Before you sit <br>in the dark.",
+  "faq.q1": "Do I need to know astronomy?",
+  "faq.a1": "No. The narrator names just enough. If you already know, the 22:30 pass is yours: nobody talks there.",
+  "faq.q2": "Can I keep the phone on silent?",
+  "faq.a2": "No. The numbered box is at the threshold. The dome is an instrument; a screen breaks it.",
+  "faq.q3": "Are children allowed?",
+  "faq.a3": "From age 8 on the public pass, seated with an adult. School groups have their own morning slot.",
+  "faq.q4": "Where exactly are you?",
+  "faq.a4": "In the west pavilion of Parque del Oeste, entrance on Paseo de Moret. The map is in the footer. There is no ticket shop: write to hola@cristiancode.dev.",
+  "news.title": "The week’s bill, on a Monday.",
+  "news.p": "One email when the chart changes. Nothing else. Your mail app opens; we do not fake a magic list.",
+  "news.emailLabel": "Your email",
+  "news.placeholder": "you@email.com",
+  "news.btn": "Write to join the list",
+  "news.ok": "Your mail app will open. If not, write to hola@cristiancode.dev.",
+  "news.err": "We need a valid email.",
+  "news.mail_subject": "AZIMUT list — weekly bill",
+  "news.mail_body": "Hello, I would like to join the AZIMUT list. My email is {email}.",
+  "visit.mail_subject": "Seat booking — AZIMUT",
+  "footer.tag": "Neighbourhood planetarium in Parque del Oeste. Madrid’s sky is read here, not in an app.",
+  "footer.col1": "Visit",
+  "footer.addr": "Paseo de Moret · Parque del Oeste",
+  "footer.addr2": "West pavilion · Moncloa",
+  "footer.mail": "hola@cristiancode.dev",
+  "footer.col2": "On this page",
+  "footer.l1": "Tonight’s bill",
+  "footer.l2": "How a session works",
+  "footer.l3": "Passes",
+  "footer.l4": "Questions",
+  "footer.cr": "© 2026 AZIMUT · Parque del Oeste, Madrid",
+  "footer.made": "A star chart, not a fair",
+  "cookie.msg": "We store one bit for language and theme. We do not track visits or sell data.",
+  "cookie.ok": "Got it"
+},
+  fr: {
+  "meta.title": "AZIMUT · Planétarium du Parque del Oeste · Madrid",
+  "meta.desc": "Planétarium de quartier au Parque del Oeste : séances de 45 minutes sous la coupole, passes scolaires et nuits de ciel sombre. Les places se réservent par e-mail.",
+  "skip.goto": "Aller au contenu",
+  "nav.tonight": "Ce soir",
+  "nav.how": "La séance",
+  "nav.sky": "Ciel",
+  "nav.pass": "Passes",
+  "nav.faq": "Questions",
+  "nav.book": "Réserver une place",
+  "lang.aria": "Choisir la langue",
+  "theme.toggle": "Basculer le thème clair ou sombre",
+  "menu.open": "Ouvrir le menu",
+  "menu.close": "Fermer le menu",
+  "hero.badge": "Planétarium · Parque del Oeste · Madrid",
+  "hero.title": "Le ciel de Madrid <br>se lit sous la coupole.",
+  "hero.sub": "AZIMUT est le planétarium de quartier du Parque del Oeste. Quarante-cinq minutes sous un ciel projeté : pas un spectacle de foire, une carte céleste lue à voix haute.",
+  "hero.cta1": "Voir ce soir",
+  "hero.cta2": "Comment se passe une séance",
+  "hero.note": "Coupole 12 m · 64 sièges · pas d’écran sur le fauteuil",
+  "dome.lane": "Coupole · carte du Cygne",
+  "dome.meta": "Azimut 312° · 22:10",
+  "tick.1": "Pas de téléphone sous la coupole",
+  "tick.2": "Carte lue à voix haute",
+  "tick.3": "64 sièges, pas de rangée en plus",
+  "tick.4": "Air à 18 °C, pas à 24",
+  "tick.5": "On sort dans le noir, pas sous les applaudissements",
+  "tonight.kicker": "Affiche · aujourd’hui",
+  "tonight.title": "Ce qui se projette <br>ce soir.",
+  "tonight.lead": "Quatre passes. La place se réserve par e-mail, pas avec un bouton qui feint une file. Touche « garder » seulement pour marquer celle qui t’intéresse ; ensuite, écris.",
+  "sess.h1": "Heure",
+  "sess.h2": "Passe",
+  "sess.h3": "Langue",
+  "sess.h4": "Places",
+  "sess.h5": "",
+  "sess.hold": "Garder",
+  "sess.held": "Gardé",
+  "s1.time": "19:00",
+  "s1.name": "Cygne au-dessus du Manzanares",
+  "s1.lang": "ES",
+  "s1.seats": "18 libres",
+  "s2.time": "20:00",
+  "s2.name": "Orion, encore de jour",
+  "s2.lang": "ES / EN",
+  "s2.seats": "9 libres",
+  "s3.time": "21:15",
+  "s3.name": "L’écliptique au ras des toits",
+  "s3.lang": "ES",
+  "s3.seats": "31 libres",
+  "s4.time": "22:30",
+  "s4.name": "Ciel sombre · sans narration",
+  "s4.lang": "—",
+  "s4.seats": "12 libres",
+  "how.kicker": "Trois pas · la séance",
+  "how.title": "Tu entres avec la lumière. <br>Tu sors sans elle.",
+  "how.lead": "Pas de file de pop-corn. Un seuil, une coupole, et une terrasse pour regarder le vrai ciel si la nuit le permet.",
+  "how.s1.t": "Seuil",
+  "how.s1.d": "Tu laisses le téléphone dans une boîte numérotée. Tu t’assieds. La narratrice nomme l’azimut du premier astre avant d’éteindre la salle.",
+  "how.s2.t": "Coupole",
+  "how.s2.d": "Quarante-cinq minutes. La carte se dessine au-dessus de ta tête, pas sur un mur. Si quelqu’un parle, le projecteur s’arrête : le silence fait partie de l’instrument.",
+  "how.s3.t": "Terrasse",
+  "how.s3.d": "Tu sors sur la terrasse ouest. Si le ciel réel est net, on montre à l’œil ce qui vient d’être vu dedans. Sinon, on ferme sans discours.",
+  "sky.kicker": "Saison · septembre",
+  "sky.title": "Trois cartes, <br>pas un catalogue.",
+  "sky.lead": "Nous ne faisons pas tourner douze « expériences ». Nous travaillons trois cartes par saison et nous les lisons jusqu’à les user.",
+  "feat.tag": "Carte majeure · septembre",
+  "feat.title": "Le Cygne traverse le Manzanares.",
+  "feat.p": "Le cygne entre par le sud-ouest à 21:10. On nomme Deneb, Sadr et Albireo, et on laisse le reste sans étiquette : pour que l’œil apprenne à chercher, pas à lire un menu.",
+  "side1.t": "Orion de l’après-midi",
+  "side1.p": "Passe de 20:00. Le chasseur n’est pas encore tout à fait levé : on apprend à l’attendre.",
+  "side2.t": "Sans narration",
+  "side2.p": "À 22:30 la coupole s’allume et personne ne parle. Pour qui connaît déjà la carte.",
+  "pass.kicker": "Passes · comment on paie",
+  "pass.title": "Trois façons <br>de s’asseoir.",
+  "pass.lead": "Public, école et nuit sombre. Le prix couvre la narratrice, le projecteur et la boîte à téléphones. Pas de pop-corn.",
+  "pass.p1.who": "Public",
+  "pass.p1.name": "Fauteuil seul",
+  "pass.p1.price": "8 €",
+  "pass.p2.who": "École",
+  "pass.p2.name": "Groupe de classe",
+  "pass.p2.price": "5 € / élève",
+  "pass.p3.who": "Nuit",
+  "pass.p3.name": "Ciel sombre",
+  "pass.p3.price": "6 €",
+  "pass.r1.c1": "45 minutes sous la coupole",
+  "pass.r1.c2": "50 minutes, questions à la fin",
+  "pass.r1.c3": "45 minutes, sans voix",
+  "pass.r2.c1": "Narration dans la langue de la passe",
+  "pass.r2.c2": "Fiche pour la classe la veille",
+  "pass.r2.c3": "Pas de fiche, pas de guide",
+  "pass.r3.c1": "Terrasse en sortant, si le ciel le permet",
+  "pass.r3.c2": "Terrasse seulement si le professeur le demande",
+  "pass.r3.c3": "Terrasse toujours, même couvert",
+  "pass.r4.c1": "Jusqu’à 2 mineurs avec un adulte",
+  "pass.r4.c2": "30 maximum par passe, deux adultes",
+  "pass.r4.c3": "16 ans et plus",
+  "pass.r5.c1": "Réservation par e-mail, 24 h avant",
+  "pass.r5.c2": "Réservation 7 jours avant, facture à l’école",
+  "pass.r5.c3": "Réservation le jour même s’il reste une place",
+  "faq.kicker": "Questions qui arrivent",
+  "faq.title": "Avant de t’asseoir <br>dans le noir.",
+  "faq.q1": "Faut-il connaître l’astronomie ?",
+  "faq.a1": "Non. La narratrice nomme le juste. Si tu sais déjà, la passe de 22:30 est pour toi : on n’y parle pas.",
+  "faq.q2": "Puis-je garder le téléphone en silencieux ?",
+  "faq.a2": "Non. La boîte numérotée est au seuil. La coupole est un instrument ; un écran la casse.",
+  "faq.q3": "Les enfants entrent-ils ?",
+  "faq.a3": "À partir de 8 ans en passe publique, assis avec un adulte. Les groupes scolaires ont leur créneau du matin.",
+  "faq.q4": "Où êtes-vous exactement ?",
+  "faq.a4": "Dans le pavillon ouest du Parque del Oeste, entrée par le Paseo de Moret. La carte est dans le pied de page. Pas de billetterie : écrire à hola@cristiancode.dev.",
+  "news.title": "L’affiche de la semaine, un lundi.",
+  "news.p": "Un e-mail quand la carte change. Rien d’autre. Ton logiciel de courrier s’ouvre ; on ne feint pas une liste magique.",
+  "news.emailLabel": "Ton e-mail",
+  "news.placeholder": "toi@courriel.fr",
+  "news.btn": "Écrire pour la liste",
+  "news.ok": "Ton courrier va s’ouvrir. Sinon, écris à hola@cristiancode.dev.",
+  "news.err": "Il nous faut un e-mail valide.",
+  "news.mail_subject": "Liste AZIMUT — affiche de la semaine",
+  "news.mail_body": "Bonjour, je souhaite m’inscrire à la liste d’AZIMUT. Mon e-mail est {email}.",
+  "visit.mail_subject": "Réservation de place — AZIMUT",
+  "footer.tag": "Planétarium de quartier au Parque del Oeste. Le ciel de Madrid se lit ici, pas dans une appli.",
+  "footer.col1": "Venir",
+  "footer.addr": "Paseo de Moret · Parque del Oeste",
+  "footer.addr2": "Pavillon ouest · Moncloa",
+  "footer.mail": "hola@cristiancode.dev",
+  "footer.col2": "Sur la page",
+  "footer.l1": "Affiche de ce soir",
+  "footer.l2": "Comment se passe une séance",
+  "footer.l3": "Passes",
+  "footer.l4": "Questions",
+  "footer.cr": "© 2026 AZIMUT · Parque del Oeste, Madrid",
+  "footer.made": "Carte céleste, pas une foire",
+  "cookie.msg": "Nous gardons une donnée pour la langue et le thème. Pas de suivi des visites, rien à vendre.",
+  "cookie.ok": "Compris"
+},
+  de: {
+  "meta.title": "AZIMUT · Planetarium im Parque del Oeste · Madrid",
+  "meta.desc": "Stadtteil-Planetarium im Parque del Oeste: 45-Minuten-Sitzungen unter der Kuppel, Schulpässe und Dunkelhimmel-Nächte. Plätze per E-Mail.",
+  "skip.goto": "Zum Inhalt springen",
+  "nav.tonight": "Heute Nacht",
+  "nav.how": "Die Sitzung",
+  "nav.sky": "Himmel",
+  "nav.pass": "Pässe",
+  "nav.faq": "Fragen",
+  "nav.book": "Platz reservieren",
+  "lang.aria": "Sprache wählen",
+  "theme.toggle": "Helles oder dunkles Thema umschalten",
+  "menu.open": "Menü öffnen",
+  "menu.close": "Menü schließen",
+  "hero.badge": "Planetarium · Parque del Oeste · Madrid",
+  "hero.title": "Madrids Himmel <br>wird in der Kuppel gelesen.",
+  "hero.sub": "AZIMUT ist das Stadtteil-Planetarium im Parque del Oeste. Fünfundvierzig Minuten unter einem projizierten Himmel: keine Kirmes, eine Sternkarte, die laut gelesen wird.",
+  "hero.cta1": "Heute Nacht ansehen",
+  "hero.cta2": "So läuft eine Sitzung",
+  "hero.note": "12-m-Kuppel · 64 Sitze · kein Bildschirm am Sessel",
+  "dome.lane": "Kuppel · Schwan-Karte",
+  "dome.meta": "Azimut 312° · 22:10",
+  "tick.1": "Keine Telefone unter der Kuppel",
+  "tick.2": "Karte wird laut gelesen",
+  "tick.3": "64 Sitze, keine Extra-Reihe",
+  "tick.4": "Luft bei 18 °C, nicht 24",
+  "tick.5": "Ausgang im Dunkeln, nicht mit Applaus",
+  "tonight.kicker": "Spielplan · heute",
+  "tonight.title": "Was heute Nacht <br>projiziert wird.",
+  "tonight.lead": "Vier Pässe. Der Platz wird per E-Mail gebucht, nicht mit einem Fake-Warteschlangen-Knopf. Tippe auf Speichern nur, um den gewünschten zu markieren; dann schreiben.",
+  "sess.h1": "Zeit",
+  "sess.h2": "Pass",
+  "sess.h3": "Sprache",
+  "sess.h4": "Sitze",
+  "sess.h5": "",
+  "sess.hold": "Speichern",
+  "sess.held": "Gespeichert",
+  "s1.time": "19:00",
+  "s1.name": "Schwan über dem Manzanares",
+  "s1.lang": "ES",
+  "s1.seats": "18 frei",
+  "s2.time": "20:00",
+  "s2.name": "Orion, noch bei Tag",
+  "s2.lang": "ES / EN",
+  "s2.seats": "9 frei",
+  "s3.time": "21:15",
+  "s3.name": "Die Ekliptik auf Dachhöhe",
+  "s3.lang": "ES",
+  "s3.seats": "31 frei",
+  "s4.time": "22:30",
+  "s4.name": "Dunkler Himmel · ohne Erzählung",
+  "s4.lang": "—",
+  "s4.seats": "12 frei",
+  "how.kicker": "Drei Schritte · die Sitzung",
+  "how.title": "Du kommst mit Licht. <br>Du gehst ohne.",
+  "how.lead": "Keine Popcorn-Schlange. Eine Schwelle, eine Kuppel und eine Terrasse für den echten Himmel, wenn die Nacht es zulässt.",
+  "how.s1.t": "Schwelle",
+  "how.s1.d": "Das Telefon kommt in eine nummerierte Box. Du setzt dich. Die Sprecherin nennt den Azimut des ersten Sterns, bevor der Saal dunkel wird.",
+  "how.s2.t": "Kuppel",
+  "how.s2.d": "Fünfundvierzig Minuten. Die Karte wird über deinem Kopf gezeichnet, nicht an einer Wand. Redet jemand, stoppt der Projektor: Stille gehört zum Instrument.",
+  "how.s3.t": "Terrasse",
+  "how.s3.d": "Du trittst auf die Westterrasse. Ist der echte Himmel klar, zeigen wir, was innen zu sehen war. Wenn nicht, schließen wir ohne Rede.",
+  "sky.kicker": "Saison · September",
+  "sky.title": "Drei Karten, <br>kein Katalog.",
+  "sky.lead": "Wir drehen nicht zwölf Erlebnisse durch. Wir arbeiten drei Karten pro Saison und lesen sie, bis sie sich abnutzen.",
+  "feat.tag": "Hauptkarte · September",
+  "feat.title": "Der Schwan kreuzt den Manzanares.",
+  "feat.p": "Der Schwan kommt um 21:10 aus Südwest. Wir nennen Deneb, Sadr und Albireo und lassen den Rest ohne Etikett — damit das Auge suchen lernt, nicht ein Menü liest.",
+  "side1.t": "Orion am Nachmittag",
+  "side1.p": "Pass um 20:00. Der Jäger ist noch nicht ganz da: wir üben das Warten.",
+  "side2.t": "Ohne Erzählung",
+  "side2.p": "Um 22:30 geht die Kuppel an und niemand spricht. Für alle, die die Karte schon kennen.",
+  "pass.kicker": "Pässe · so wird gezahlt",
+  "pass.title": "Drei Arten, <br>sich zu setzen.",
+  "pass.lead": "Öffentlich, Schule und dunkle Nacht. Der Preis deckt Sprecherin, Projektor und Telefonbox. Kein Popcorn.",
+  "pass.p1.who": "Öffentlich",
+  "pass.p1.name": "Einzelsitz",
+  "pass.p1.price": "8 €",
+  "pass.p2.who": "Schule",
+  "pass.p2.name": "Klassengruppe",
+  "pass.p2.price": "5 € / Schüler",
+  "pass.p3.who": "Nacht",
+  "pass.p3.name": "Dunkler Himmel",
+  "pass.p3.price": "6 €",
+  "pass.r1.c1": "45 Minuten unter der Kuppel",
+  "pass.r1.c2": "50 Minuten, Fragen am Ende",
+  "pass.r1.c3": "45 Minuten, ohne Stimme",
+  "pass.r2.c1": "Erzählung in der Pass-Sprache",
+  "pass.r2.c2": "Klassenblatt am Vortag",
+  "pass.r2.c3": "Kein Blatt, keine Führung",
+  "pass.r3.c1": "Terrasse beim Hinausgehen, wenn der Himmel mitspielt",
+  "pass.r3.c2": "Terrasse nur auf Wunsch der Lehrkraft",
+  "pass.r3.c3": "Terrasse immer, auch bei Wolken",
+  "pass.r4.c1": "Bis 2 Minderjährige mit einer erwachsenen Person",
+  "pass.r4.c2": "Maximal 30 pro Pass, zwei Erwachsene",
+  "pass.r4.c3": "Ab 16 Jahren",
+  "pass.r5.c1": "Buchung per E-Mail, 24 h vorher",
+  "pass.r5.c2": "Buchung 7 Tage vorher, Rechnung an die Schule",
+  "pass.r5.c3": "Buchung am selben Tag, wenn ein Sitz frei ist",
+  "faq.kicker": "Fragen, die ankommen",
+  "faq.title": "Bevor du dich <br>ins Dunkle setzt.",
+  "faq.q1": "Muss ich Astronomie können?",
+  "faq.a1": "Nein. Die Sprecherin nennt nur das Nötige. Wer schon Bescheid weiß, nimmt den Pass um 22:30: dort spricht niemand.",
+  "faq.q2": "Darf das Telefon stumm bleiben?",
+  "faq.a2": "Nein. Die nummerierte Box steht an der Schwelle. Die Kuppel ist ein Instrument; ein Bildschirm zerbricht sie.",
+  "faq.q3": "Dürfen Kinder hinein?",
+  "faq.a3": "Ab 8 Jahren im öffentlichen Pass, mit einer erwachsenen Person. Schulgruppen haben einen eigenen Vormittag.",
+  "faq.q4": "Wo genau seid ihr?",
+  "faq.a4": "Im Westpavillon des Parque del Oeste, Eingang Paseo de Moret. Die Karte steht im Fuß. Kein Ticketshop: schreibt an hola@cristiancode.dev.",
+  "news.title": "Der Wochenplan, an einem Montag.",
+  "news.p": "Eine E-Mail, wenn die Karte wechselt. Sonst nichts. Dein Mailprogramm öffnet sich; wir täuschen keine magische Liste vor.",
+  "news.emailLabel": "Deine E-Mail",
+  "news.placeholder": "du@email.de",
+  "news.btn": "Zur Liste schreiben",
+  "news.ok": "Dein Mailprogramm öffnet sich. Falls nicht: hola@cristiancode.dev.",
+  "news.err": "Wir brauchen eine gültige E-Mail.",
+  "news.mail_subject": "AZIMUT-Liste — Wochenplan",
+  "news.mail_body": "Hallo, ich möchte auf die AZIMUT-Liste. Meine E-Mail ist {email}.",
+  "visit.mail_subject": "Platzreservierung — AZIMUT",
+  "footer.tag": "Stadtteil-Planetarium im Parque del Oeste. Madrids Himmel wird hier gelesen, nicht in einer App.",
+  "footer.col1": "Kommen",
+  "footer.addr": "Paseo de Moret · Parque del Oeste",
+  "footer.addr2": "Westpavillon · Moncloa",
+  "footer.mail": "hola@cristiancode.dev",
+  "footer.col2": "Auf der Seite",
+  "footer.l1": "Spielplan heute Nacht",
+  "footer.l2": "So läuft eine Sitzung",
+  "footer.l3": "Pässe",
+  "footer.l4": "Fragen",
+  "footer.cr": "© 2026 AZIMUT · Parque del Oeste, Madrid",
+  "footer.made": "Sternkarte, keine Kirmes",
+  "cookie.msg": "Wir speichern ein Datum für Sprache und Thema. Keine Besucherverfolgung, kein Verkauf.",
+  "cookie.ok": "Verstanden"
+},
+  it: {
+  "meta.title": "AZIMUT · Planetario del Parque del Oeste · Madrid",
+  "meta.desc": "Planetario di quartiere nel Parque del Oeste: sessioni di 45 minuti sotto la cupola, pass scolastici e notti di cielo scuro. I posti si prenotano per e-mail.",
+  "skip.goto": "Vai al contenuto",
+  "nav.tonight": "Stasera",
+  "nav.how": "La sessione",
+  "nav.sky": "Cielo",
+  "nav.pass": "Pass",
+  "nav.faq": "Domande",
+  "nav.book": "Prenota un posto",
+  "lang.aria": "Scegli la lingua",
+  "theme.toggle": "Passa al tema chiaro o scuro",
+  "menu.open": "Apri il menu",
+  "menu.close": "Chiudi il menu",
+  "hero.badge": "Planetario · Parque del Oeste · Madrid",
+  "hero.title": "Il cielo di Madrid <br>si legge nella cupola.",
+  "hero.sub": "AZIMUT è il planetario di quartiere del Parque del Oeste. Quarantacinque minuti sotto un cielo proiettato: non uno spettacolo da fiera, una carta celeste letta ad alta voce.",
+  "hero.cta1": "Vedi stasera",
+  "hero.cta2": "Com’è una sessione",
+  "hero.note": "Cupola 12 m · 64 posti · niente schermi sulla poltrona",
+  "dome.lane": "Cupola · carta del Cigno",
+  "dome.meta": "Azimut 312° · 22:10",
+  "tick.1": "Niente telefoni sotto la cupola",
+  "tick.2": "Carta letta ad alta voce",
+  "tick.3": "64 posti, nessuna fila extra",
+  "tick.4": "Aria a 18 °C, non a 24",
+  "tick.5": "Si esce al buio, non con l’applauso",
+  "tonight.kicker": "Cartellone · oggi",
+  "tonight.title": "Quello che si proietta <br>stasera.",
+  "tonight.lead": "Quattro pass. Il posto si prenota per e-mail, non con un pulsante che finge una coda. Tocca «salva» solo per segnare quello che ti interessa; poi scrivi.",
+  "sess.h1": "Ora",
+  "sess.h2": "Pass",
+  "sess.h3": "Lingua",
+  "sess.h4": "Posti",
+  "sess.h5": "",
+  "sess.hold": "Salva",
+  "sess.held": "Salvato",
+  "s1.time": "19:00",
+  "s1.name": "Cigno sul Manzanares",
+  "s1.lang": "ES",
+  "s1.seats": "18 liberi",
+  "s2.time": "20:00",
+  "s2.name": "Orione, ancora di giorno",
+  "s2.lang": "ES / EN",
+  "s2.seats": "9 liberi",
+  "s3.time": "21:15",
+  "s3.name": "L’eclittica a filo dei tetti",
+  "s3.lang": "ES",
+  "s3.seats": "31 liberi",
+  "s4.time": "22:30",
+  "s4.name": "Cielo scuro · senza narrazione",
+  "s4.lang": "—",
+  "s4.seats": "12 liberi",
+  "how.kicker": "Tre passi · la sessione",
+  "how.title": "Entri con la luce. <br>Esci senza.",
+  "how.lead": "Niente coda di popcorn. Una soglia, una cupola e un terrazzo per guardare il cielo vero, se la notte lo consente.",
+  "how.s1.t": "Soglia",
+  "how.s1.d": "Lasci il telefono in una scatola numerata. Ti siedi. La narratrice nomina l’azimut del primo astro prima di spegnere la sala.",
+  "how.s2.t": "Cupola",
+  "how.s2.d": "Quarantacinque minuti. La carta si disegna sopra la testa, non su un muro. Se qualcuno parla, il proiettore si ferma: il silenzio fa parte dello strumento.",
+  "how.s3.t": "Terrazzo",
+  "how.s3.d": "Esci sul terrazzo ovest. Se il cielo vero è pulito, si indica a occhio ciò che si è appena visto dentro. Se no, si chiude senza discorso.",
+  "sky.kicker": "Stagione · settembre",
+  "sky.title": "Tre carte, <br>non un catalogo.",
+  "sky.lead": "Non ruotiamo dodici «esperienze». Lavoriamo tre carte a stagione e le leggiamo finché non si consumano.",
+  "feat.tag": "Carta maggiore · settembre",
+  "feat.title": "Il Cigno attraversa il Manzanares.",
+  "feat.p": "Il cigno entra da sud-ovest alle 21:10. Nominiamo Deneb, Sadr e Albireo e lasciamo il resto senza etichetta: perché l’occhio impari a cercare, non a leggere un menu.",
+  "side1.t": "Orione del pomeriggio",
+  "side1.p": "Pass delle 20:00. Il cacciatore non è ancora del tutto uscito: si insegna ad aspettarlo.",
+  "side2.t": "Senza narrazione",
+  "side2.p": "Alle 22:30 la cupola si accende e nessuno parla. Per chi già conosce la carta.",
+  "pass.kicker": "Pass · come si paga",
+  "pass.title": "Tre modi <br>di sedersi.",
+  "pass.lead": "Pubblico, scuola e notte scura. Il prezzo copre la narratrice, il proiettore e la scatola dei telefoni. Niente popcorn.",
+  "pass.p1.who": "Pubblico",
+  "pass.p1.name": "Poltrona singola",
+  "pass.p1.price": "8 €",
+  "pass.p2.who": "Scuola",
+  "pass.p2.name": "Gruppo classe",
+  "pass.p2.price": "5 € / alunno",
+  "pass.p3.who": "Notte",
+  "pass.p3.name": "Cielo scuro",
+  "pass.p3.price": "6 €",
+  "pass.r1.c1": "45 minuti sotto la cupola",
+  "pass.r1.c2": "50 minuti, domande alla fine",
+  "pass.r1.c3": "45 minuti, senza voce",
+  "pass.r2.c1": "Narrazione nella lingua del pass",
+  "pass.r2.c2": "Scheda per la classe il giorno prima",
+  "pass.r2.c3": "Niente scheda, niente guida",
+  "pass.r3.c1": "Terrazzo all’uscita, se il cielo lo permette",
+  "pass.r3.c2": "Terrazzo solo se lo chiede l’insegnante",
+  "pass.r3.c3": "Terrazzo sempre, anche se è nuvoloso",
+  "pass.r4.c1": "Fino a 2 minori con un adulto",
+  "pass.r4.c2": "Massimo 30 per pass, due adulti",
+  "pass.r4.c3": "Dai 16 anni",
+  "pass.r5.c1": "Prenotazione per e-mail, 24 ore prima",
+  "pass.r5.c2": "Prenotazione 7 giorni prima, fattura alla scuola",
+  "pass.r5.c3": "Prenotazione lo stesso giorno se resta un posto",
+  "faq.kicker": "Domande che arrivano",
+  "faq.title": "Prima di sederti <br>al buio.",
+  "faq.q1": "Devo sapere astronomia?",
+  "faq.a1": "No. La narratrice nomina il giusto. Se sai già, il pass delle 22:30 è il tuo: lì non si parla.",
+  "faq.q2": "Posso tenere il telefono in silenzioso?",
+  "faq.a2": "No. La scatola numerata sta sulla soglia. La cupola è uno strumento; uno schermo la rompe.",
+  "faq.q3": "I bambini entrano?",
+  "faq.a3": "Dagli 8 anni nel pass pubblico, seduti con un adulto. I gruppi scolastici hanno il loro orario del mattino.",
+  "faq.q4": "Dove siete esattamente?",
+  "faq.a4": "Nel padiglione ovest del Parque del Oeste, ingresso da Paseo de Moret. La mappa è nel piè di pagina. Niente biglietteria: si scrive a hola@cristiancode.dev.",
+  "news.title": "Il cartellone della settimana, un lunedì.",
+  "news.p": "Una e-mail quando cambia la carta. Nient’altro. Si apre il tuo programma di posta; non fingiamo una lista magica.",
+  "news.emailLabel": "La tua e-mail",
+  "news.placeholder": "tu@email.it",
+  "news.btn": "Scrivi per la lista",
+  "news.ok": "Si apre la posta. Se no, scrivi a hola@cristiancode.dev.",
+  "news.err": "Serve un’e-mail valida.",
+  "news.mail_subject": "Lista AZIMUT — cartellone settimanale",
+  "news.mail_body": "Ciao, voglio iscrivermi alla lista di AZIMUT. La mia e-mail è {email}.",
+  "visit.mail_subject": "Prenotazione posto — AZIMUT",
+  "footer.tag": "Planetario di quartiere nel Parque del Oeste. Il cielo di Madrid si legge qui, non in un’app.",
+  "footer.col1": "Venire",
+  "footer.addr": "Paseo de Moret · Parque del Oeste",
+  "footer.addr2": "Padiglione ovest · Moncloa",
+  "footer.mail": "hola@cristiancode.dev",
+  "footer.col2": "In pagina",
+  "footer.l1": "Cartellone di stasera",
+  "footer.l2": "Com’è una sessione",
+  "footer.l3": "Pass",
+  "footer.l4": "Domande",
+  "footer.cr": "© 2026 AZIMUT · Parque del Oeste, Madrid",
+  "footer.made": "Carta celeste, non fiera",
+  "cookie.msg": "Salviamo un dato per lingua e tema. Non tracciamo visite né vendiamo nulla.",
+  "cookie.ok": "Capito"
+},
+  pt: {
+  "meta.title": "AZIMUT · Planetário do Parque del Oeste · Madrid",
+  "meta.desc": "Planetário de bairro no Parque del Oeste: sessões de 45 minutos sob a cúpula, passes escolares e noites de céu escuro. Os lugares reservam-se por correio.",
+  "skip.goto": "Saltar para o conteúdo",
+  "nav.tonight": "Esta noite",
+  "nav.how": "A sessão",
+  "nav.sky": "Céu",
+  "nav.pass": "Passes",
+  "nav.faq": "Perguntas",
+  "nav.book": "Reservar lugar",
+  "lang.aria": "Escolher idioma",
+  "theme.toggle": "Mudar tema claro ou escuro",
+  "menu.open": "Abrir menu",
+  "menu.close": "Fechar menu",
+  "hero.badge": "Planetário · Parque del Oeste · Madrid",
+  "hero.title": "O céu de Madrid <br>lê-se na cúpula.",
+  "hero.sub": "AZIMUT é o planetário de bairro do Parque del Oeste. Quarenta e cinco minutos debaixo de um céu projetado: não um espetáculo de feira, uma carta celeste lida em voz alta.",
+  "hero.cta1": "Ver esta noite",
+  "hero.cta2": "Como é uma sessão",
+  "hero.note": "Cúpula 12 m · 64 lugares · sem ecrãs na cadeira",
+  "dome.lane": "Cúpula · carta de Cygnus",
+  "dome.meta": "Azimute 312° · 22:10",
+  "tick.1": "Sem telemóveis na cúpula",
+  "tick.2": "Carta lida em voz alta",
+  "tick.3": "64 lugares, nenhuma fila extra",
+  "tick.4": "Ar a 18 °C, não a 24",
+  "tick.5": "Sai-se no escuro, não com aplauso",
+  "tonight.kicker": "Cartaz · hoje",
+  "tonight.title": "O que se projeta <br>esta noite.",
+  "tonight.lead": "Quatro passes. O lugar reserva-se por correio, não com um botão que finge uma fila. Toca em «guardar» só para marcar o que te interessa; depois escreve.",
+  "sess.h1": "Hora",
+  "sess.h2": "Passe",
+  "sess.h3": "Idioma",
+  "sess.h4": "Lugares",
+  "sess.h5": "",
+  "sess.hold": "Guardar",
+  "sess.held": "Guardado",
+  "s1.time": "19:00",
+  "s1.name": "Cisne sobre o Manzanares",
+  "s1.lang": "ES",
+  "s1.seats": "18 livres",
+  "s2.time": "20:00",
+  "s2.name": "Orion, ainda de dia",
+  "s2.lang": "ES / EN",
+  "s2.seats": "9 livres",
+  "s3.time": "21:15",
+  "s3.name": "A eclíptica à altura dos telhados",
+  "s3.lang": "ES",
+  "s3.seats": "31 livres",
+  "s4.time": "22:30",
+  "s4.name": "Céu escuro · sem narração",
+  "s4.lang": "—",
+  "s4.seats": "12 livres",
+  "how.kicker": "Três passos · a sessão",
+  "how.title": "Entras com luz. <br>Sais sem ela.",
+  "how.lead": "Não há fila de pipocas. Há um limiar, uma cúpula e um terraço para olhar o céu a sério, se a noite deixar.",
+  "how.s1.t": "Limiar",
+  "how.s1.d": "Deixas o telemóvel numa caixa numerada. Sentas-te. A narradora nomeia o azimute do primeiro astro antes de apagar a sala.",
+  "how.s2.t": "Cúpula",
+  "how.s2.d": "Quarenta e cinco minutos. A carta desenha-se sobre a cabeça, não numa parede. Se alguém fala, o projetor pára: o silêncio faz parte do instrumento.",
+  "how.s3.t": "Terraço",
+  "how.s3.d": "Sais para o terraço oeste. Se o céu real estiver limpo, aponta-se a olho o que se viu lá dentro. Se não, fecha-se sem discurso.",
+  "sky.kicker": "Época · setembro",
+  "sky.title": "Três cartas, <br>não um catálogo.",
+  "sky.lead": "Não rodamos doze «experiências». Trabalhamos três cartas por época e lemo-las até se gastarem.",
+  "feat.tag": "Carta maior · setembro",
+  "feat.title": "Cygnus atravessa o Manzanares.",
+  "feat.p": "O cisne entra pelo sudoeste às 21:10. Nomeamos Deneb, Sadr e Albireo e deixamos o resto sem etiqueta: para o olho aprender a procurar, não a ler um menu.",
+  "side1.t": "Orion de tarde",
+  "side1.p": "Passe das 20:00. O caçador ainda não saiu de todo: ensina-se a esperá-lo.",
+  "side2.t": "Sem narração",
+  "side2.p": "Às 22:30 a cúpula acende-se e ninguém fala. Para quem já conhece a carta.",
+  "pass.kicker": "Passes · como se paga",
+  "pass.title": "Três maneiras <br>de se sentar.",
+  "pass.lead": "Público, escola e noite escura. O preço cobre a narradora, o projetor e a caixa dos telemóveis. Sem pipocas.",
+  "pass.p1.who": "Público",
+  "pass.p1.name": "Lugar avulso",
+  "pass.p1.price": "8 €",
+  "pass.p2.who": "Escola",
+  "pass.p2.name": "Grupo de turma",
+  "pass.p2.price": "5 € / aluno",
+  "pass.p3.who": "Noite",
+  "pass.p3.name": "Céu escuro",
+  "pass.p3.price": "6 €",
+  "pass.r1.c1": "45 minutos sob a cúpula",
+  "pass.r1.c2": "50 minutos, perguntas no fim",
+  "pass.r1.c3": "45 minutos, sem voz",
+  "pass.r2.c1": "Narração no idioma do passe",
+  "pass.r2.c2": "Ficha para a turma no dia anterior",
+  "pass.r2.c3": "Sem ficha, sem guia",
+  "pass.r3.c1": "Terraço à saída, se o céu deixar",
+  "pass.r3.c2": "Terraço só se o professor pedir",
+  "pass.r3.c3": "Terraço sempre, mesmo nublado",
+  "pass.r4.c1": "Até 2 menores com um adulto",
+  "pass.r4.c2": "Máximo 30 por passe, dois adultos",
+  "pass.r4.c3": "Maiores de 16",
+  "pass.r5.c1": "Reserva por correio, 24 h antes",
+  "pass.r5.c2": "Reserva com 7 dias, fatura à escola",
+  "pass.r5.c3": "Reserva no próprio dia se restar lugar",
+  "faq.kicker": "Perguntas que chegam",
+  "faq.title": "Antes de te sentares <br>no escuro.",
+  "faq.q1": "É preciso saber astronomia?",
+  "faq.a1": "Não. A narradora nomeia o justo. Se já souberes, o passe das 22:30 é o teu: ali não se fala.",
+  "faq.q2": "Posso levar o telemóvel em silêncio?",
+  "faq.a2": "Não. A caixa numerada está no limiar. A cúpula é um instrumento; um ecrã parte-a.",
+  "faq.q3": "As crianças entram?",
+  "faq.a3": "A partir dos 8 anos no passe público, sentadas com um adulto. Os grupos escolares têm horário de manhã.",
+  "faq.q4": "Onde estão exatamente?",
+  "faq.a4": "No pavilhão oeste do Parque del Oeste, entrada pelo Paseo de Moret. O mapa está no rodapé. Não há bilheteira: escreve-se para hola@cristiancode.dev.",
+  "news.title": "O cartaz da semana, numa segunda.",
+  "news.p": "Um correio quando a carta muda. Mais nada. Abre-se o teu programa de correio; não fingimos uma lista mágica.",
+  "news.emailLabel": "O teu correio",
+  "news.placeholder": "tu@email.pt",
+  "news.btn": "Escrever para a lista",
+  "news.ok": "O correio vai abrir. Se não, escreve para hola@cristiancode.dev.",
+  "news.err": "Precisamos de um correio válido.",
+  "news.mail_subject": "Lista AZIMUT — cartaz semanal",
+  "news.mail_body": "Olá, quero inscrever-me na lista do AZIMUT. O meu correio é {email}.",
+  "visit.mail_subject": "Reserva de lugar — AZIMUT",
+  "footer.tag": "Planetário de bairro no Parque del Oeste. O céu de Madrid lê-se aqui, não numa app.",
+  "footer.col1": "Vir",
+  "footer.addr": "Paseo de Moret · Parque del Oeste",
+  "footer.addr2": "Pavilhão oeste · Moncloa",
+  "footer.mail": "hola@cristiancode.dev",
+  "footer.col2": "Nesta página",
+  "footer.l1": "Cartaz desta noite",
+  "footer.l2": "Como é uma sessão",
+  "footer.l3": "Passes",
+  "footer.l4": "Perguntas",
+  "footer.cr": "© 2026 AZIMUT · Parque del Oeste, Madrid",
+  "footer.made": "Carta celeste, não feira",
+  "cookie.msg": "Guardamos um dado para idioma e tema. Não rastreamos visitas nem vendemos nada.",
+  "cookie.ok": "Percebido"
+}
+};
+
+(function () {
+  var LANGS = ['es', 'en', 'fr', 'de', 'it', 'pt'];
+  var LANG_KEY = 'azimut-lang';
+  var COOKIE_KEY = 'azimut-cookie';
+  var HTML_KEYS = {
+    'hero.title': 1, 'tonight.title': 1, 'how.title': 1,
+    'sky.title': 1, 'pass.title': 1, 'faq.title': 1
+  };
+  function $(s, r) { return (r || document).querySelector(s); }
+  function $$(s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); }
+
+  function getLang() {
+    var saved = null;
+    try { saved = localStorage.getItem(LANG_KEY); } catch (e) {}
+    if (saved && LANGS.indexOf(saved) > -1) return saved;
+    var nav = (navigator.languages || [navigator.language || 'es']).map(function (l) {
+      return String(l).split('-')[0].toLowerCase();
+    });
+    for (var i = 0; i < nav.length; i++) { if (LANGS.indexOf(nav[i]) > -1) return nav[i]; }
+    return 'es';
+  }
+  function getTheme() {
+    var t = 'light';
+    try { t = localStorage.getItem('kairos-theme') || 'light'; } catch (e) {}
+    return t === 'dark' ? 'dark' : 'light';
+  }
+  function setTheme(t) {
+    document.documentElement.setAttribute('data-theme', t);
+    try { localStorage.setItem('kairos-theme', t); } catch (e) {}
+    var D = I18N[getLang()] || I18N.es;
+    $$('.theme-toggle').forEach(function (b) {
+      b.setAttribute('aria-label', D['theme.toggle'] || '');
+    });
+  }
+  function applyLang(lang) {
+    if (LANGS.indexOf(lang) === -1) lang = 'es';
+    try { localStorage.setItem(LANG_KEY, lang); } catch (e) {}
+    var D = I18N[lang] || I18N.es;
+    document.documentElement.setAttribute('lang', lang);
+    $$('[data-i18n]').forEach(function (el) {
+      var k = el.getAttribute('data-i18n');
+      if (D[k] !== undefined) el.textContent = D[k];
+    });
+    $$('[data-i18n-html]').forEach(function (el) {
+      var k = el.getAttribute('data-i18n-html');
+      if (D[k] !== undefined && HTML_KEYS[k]) el.innerHTML = D[k];
+    });
+    $$('[data-i18n-ph]').forEach(function (el) {
+      var k = el.getAttribute('data-i18n-ph');
+      if (D[k] !== undefined) el.setAttribute('placeholder', D[k]);
+    });
+    $$('[data-i18n-aria]').forEach(function (el) {
+      var k = el.getAttribute('data-i18n-aria');
+      if (D[k] !== undefined) el.setAttribute('aria-label', D[k]);
+    });
+    $$('.lang-select__cur').forEach(function (el) { el.textContent = lang.toUpperCase(); });
+    $$('.lang-select__opt').forEach(function (opt) {
+      opt.setAttribute('aria-selected', opt.getAttribute('data-lang') === lang ? 'true' : 'false');
+    });
+    $$('.hold').forEach(function (btn) {
+      var on = btn.getAttribute('aria-pressed') === 'true';
+      btn.textContent = on ? (D['sess.held'] || '') : (D['sess.hold'] || '');
+    });
+    var mt = document.getElementById('meta-desc');
+    if (mt) mt.setAttribute('content', D['meta.desc'] || '');
+    var dt = document.getElementById('doc-title');
+    if (dt) dt.textContent = D['meta.title'] || '';
+    var ogt = document.getElementById('og-title');
+    if (ogt) ogt.setAttribute('content', D['meta.title'] || '');
+    var ogd = document.getElementById('og-desc');
+    if (ogd) ogd.setAttribute('content', D['meta.desc'] || '');
+    var twt = document.getElementById('tw-title');
+    if (twt) twt.setAttribute('content', D['meta.title'] || '');
+    var twd = document.getElementById('tw-desc');
+    if (twd) twd.setAttribute('content', D['meta.desc'] || '');
+    var vm = document.getElementById('visitMail');
+    if (vm) vm.setAttribute('href', 'mailto:hola@cristiancode.dev?subject=' + encodeURIComponent(D['visit.mail_subject'] || ''));
+  }
+
+  function closeLangMenus() {
+    $$('.lang-select').forEach(function (sel) {
+      var m = sel.querySelector('.lang-select__menu');
+      var b = sel.querySelector('.lang-select__btn');
+      if (m) m.classList.remove('open');
+      if (b) b.setAttribute('aria-expanded', 'false');
+    });
+  }
+  $$('.lang-select').forEach(function (sel) {
+    var btn = sel.querySelector('.lang-select__btn');
+    var menu = sel.querySelector('.lang-select__menu');
+    if (!btn || !menu) return;
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var open = menu.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    menu.querySelectorAll('.lang-select__opt').forEach(function (opt) {
+      opt.addEventListener('click', function () {
+        applyLang(opt.getAttribute('data-lang'));
+        closeLangMenus();
+      });
+    });
+  });
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('.lang-select')) closeLangMenus();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') { closeLangMenus(); closeMenu(); }
+  });
+
+  var menuToggle = $('.menu-toggle');
+  var mobileMenu = $('#mobileMenu');
+  function menuOpen() {
+    mobileMenu.classList.add('open');
+    mobileMenu.setAttribute('aria-hidden', 'false');
+    menuToggle.setAttribute('aria-expanded', 'true');
+    document.body.classList.add('no-scroll');
+    var D = I18N[getLang()] || I18N.es;
+    menuToggle.setAttribute('aria-label', D['menu.close'] || '');
+  }
+  function closeMenu() {
+    if (!mobileMenu) return;
+    mobileMenu.classList.remove('open');
+    mobileMenu.setAttribute('aria-hidden', 'true');
+    if (menuToggle) {
+      menuToggle.setAttribute('aria-expanded', 'false');
+      var D = I18N[getLang()] || I18N.es;
+      menuToggle.setAttribute('aria-label', D['menu.open'] || '');
+    }
+    document.body.classList.remove('no-scroll');
+  }
+  if (menuToggle) menuToggle.addEventListener('click', function () {
+    if (mobileMenu.classList.contains('open')) closeMenu(); else menuOpen();
+  });
+  $$('#mobileMenu nav a, #mobileMenu a.btn-primary').forEach(function (a) {
+    a.addEventListener('click', closeMenu);
+  });
+
+  $$('.theme-toggle').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      setTheme(getTheme() === 'dark' ? 'light' : 'dark');
+    });
+  });
+
+  $$('.hold').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var on = btn.getAttribute('aria-pressed') === 'true';
+      btn.setAttribute('aria-pressed', on ? 'false' : 'true');
+      var D = I18N[getLang()] || I18N.es;
+      btn.textContent = (!on) ? (D['sess.held'] || '') : (D['sess.hold'] || '');
+    });
+  });
+
+  $$('.faq-item').forEach(function (item) {
+    var q = item.querySelector('.faq-q');
+    var a = item.querySelector('.faq-a');
+    q.addEventListener('click', function () {
+      var open = item.classList.toggle('open');
+      q.setAttribute('aria-expanded', open ? 'true' : 'false');
+      a.style.maxHeight = open ? a.scrollHeight + 'px' : '0px';
+    });
+  });
+
+  function revealTick() {
+    var vh = window.innerHeight || 800;
+    $$('.rv').forEach(function (el) {
+      if (el.classList.contains('in')) return;
+      var r = el.getBoundingClientRect();
+      if (r.top < vh * 0.92) el.classList.add('in');
+    });
+  }
+  function initReveal() {
+    var items = $$('.rv');
+    if (!items.length) return;
+    revealTick();
+    var ticking = false;
+    window.addEventListener('scroll', function () {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () { revealTick(); ticking = false; });
+    }, { passive: true });
+  }
+
+  var newsForm = $('#newsForm');
+  var newsMsg = $('#newsMsg');
+  if (newsForm) newsForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var email = ($('#newsEmail') || {}).value || '';
+    email = email.trim();
+    var D = I18N[getLang()] || I18N.es;
+    var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
+    if (!emailOk) {
+      newsMsg.className = 'news-msg err';
+      newsMsg.textContent = D['news.err'] || '';
+      return;
+    }
+    var body = (D['news.mail_body'] || '').replace('{email}', email);
+    window.location.href = 'mailto:hola@cristiancode.dev?subject=' +
+      encodeURIComponent(D['news.mail_subject'] || '') +
+      '&body=' + encodeURIComponent(body);
+    newsMsg.className = 'news-msg ok';
+    newsMsg.textContent = D['news.ok'] || '';
+  });
+
+  var cookieBanner = $('#cookieBanner');
+  var cookieAccepted = false;
+  try { cookieAccepted = localStorage.getItem(COOKIE_KEY) === 'accepted'; } catch (e) {}
+  if (!cookieAccepted && cookieBanner) {
+    setTimeout(function () { cookieBanner.classList.add('show'); }, 3000);
+  }
+  var cookieOk = $('#cookieOk');
+  if (cookieOk) cookieOk.addEventListener('click', function () {
+    try { localStorage.setItem(COOKIE_KEY, 'accepted'); } catch (e) {}
+    cookieBanner.classList.remove('show');
+  });
+
+  var fab = $('#fab');
+  window.addEventListener('scroll', function () {
+    var y = window.scrollY || document.documentElement.scrollTop;
+    if (y > 480) fab.classList.add('show'); else fab.classList.remove('show');
+  }, { passive: true });
+  if (fab) fab.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  try {
+    document.documentElement.classList.remove('no-js');
+    setTheme(getTheme());
+    applyLang(getLang());
+    initReveal();
+  } catch (err) {
+    $$('.rv').forEach(function (el) { el.classList.add('in'); });
+  }
+})();
+
+</script>
+</body>
+</html>

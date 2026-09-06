@@ -1,0 +1,1592 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lyra Dynamics — Orbital infrastructure, on demand</title>
+<meta name="description" content="Lyra Dynamics designs, launches, and operates satellite systems — precision Earth observation, global connectivity, and secure relay. Published pricing, firm schedules.">
+<link rel="canonical" href="https://proyectos.cristiancode.dev/landings/2026-08-13-lyra-dynamics.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://proyectos.cristiancode.dev/landings/2026-08-13-lyra-dynamics.html">
+<meta property="og:title" content="Lyra Dynamics — Orbital infrastructure, on demand">
+<meta property="og:description" content="Satellites designed, launched, and operated on a firm schedule. Precision Earth observation, global connectivity, secure relay.">
+<meta property="og:image" content="https://proyectos.cristiancode.dev/landings/assets/lyra-og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lyra Dynamics — Orbital infrastructure, on demand">
+<meta name="twitter:description" content="Satellites designed, launched, and operated on a firm schedule.">
+<meta name="theme-color" content="#000000">
+<meta name="color-scheme" content="dark">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?q=80&w=1920&auto=format&fit=crop">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"Lyra Dynamics","description":"Orbital infrastructure — satellite design, launch, and constellation operations.","url":"https://proyectos.cristiancode.dev/landings/2026-08-13-lyra-dynamics.html"}
+</script>
+<style>
+/* ============================================================
+   DESIGN SYSTEM — LYRA DYNAMICS
+   Surface: Decide/Learn (landing; secondary Compare in capabilities)
+   Derived from: SpaceX (popular-web-designs template)
+   Family: Aerospace
+   Style: Stark monochrome, full-bleed photography, stencil uppercase
+   Strategy: Restrained (black + spectral white + one launch-orange accent ≤10%)
+   Type: Space Grotesk (D-DIN substitute) + Space Mono (telemetry)
+   Motion: ease-out-quint reveals, 60-90s orbit loops, countdown tick
+   ============================================================ */
+
+:root {
+  /* Palette — SpaceX monochrome + launch orange */
+  --bg: #000000;
+  --bg-2: #050507;
+  --surface: #0a0a0e;
+  --ink: #f0f0fa;                 /* spectral white */
+  --muted: rgba(240, 240, 250, .62);
+  --dim: rgba(240, 240, 250, .45);
+  --line: rgba(240, 240, 250, .14);
+  --ghost: rgba(240, 240, 250, .10);
+  --ghost-hover: rgba(240, 240, 250, .18);
+  --ghost-border: rgba(240, 240, 250, .35);
+  --accent: #ff4d00;              /* launch orange — graphical */
+  --accent-text: #ff7a3d;         /* launch orange — small text (8.1:1) */
+  --ok: #3ddc84;
+  --warn: #ffc53d;
+
+  /* Type */
+  --font-display: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+  --font-mono: 'Space Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  /* Rhythm */
+  --space-section: clamp(5rem, 12vw, 9rem);
+  --container: 1200px;
+  --track-w: .16em;               /* stencil tracking for micro labels */
+  --track-h: .06em;               /* display tracking */
+
+  /* Z scale (semantic) */
+  --z-nav: 100;
+  --z-menu: 200;
+  --z-cookie: 300;
+
+  /* Motion */
+  --ease-out: cubic-bezier(.22, 1, .36, 1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 1rem;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+ul { list-style: none; }
+
+::selection { background: var(--accent); color: #000; }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.container { max-width: var(--container); margin-inline: auto; padding-inline: clamp(1.25rem, 4vw, 2.5rem); }
+
+/* ---------- Type ---------- */
+.micro {
+  font-family: var(--font-mono);
+  font-size: .6875rem;
+  font-weight: 400;
+  letter-spacing: var(--track-w);
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.mono { font-family: var(--font-mono); }
+
+.h-display {
+  font-size: clamp(2.6rem, 7vw, 5.25rem);
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: .04em;          /* positive — stencil identity */
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+.h-display .hl { color: var(--muted); }
+
+h2 {
+  font-size: clamp(1.75rem, 4.2vw, 2.9rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: var(--track-h);
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.lede {
+  max-width: 65ch;
+  color: var(--muted);
+  font-size: clamp(1rem, 1.4vw, 1.125rem);
+  line-height: 1.75;
+  text-wrap: pretty;
+}
+
+section[id] { scroll-margin-top: 84px; }
+
+/* ---------- Buttons (ghost only — SpaceX) ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  padding: 1rem 1.9rem;
+  border: 1px solid var(--ghost-border);
+  border-radius: 999px;
+  background: var(--ghost);
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: .75rem;
+  letter-spacing: var(--track-w);
+  text-transform: uppercase;
+  transition: background .35s var(--ease-out), border-color .35s var(--ease-out), color .35s var(--ease-out);
+}
+.btn:hover { background: var(--ghost-hover); border-color: rgba(240,240,250,.6); color: #fff; }
+.btn--solid {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #000;
+}
+.btn--solid:hover { background: #ff6b2b; border-color: #ff6b2b; color: #000; }
+
+/* ---------- Nav ---------- */
+.nav {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: var(--z-nav);
+  transition: background .4s var(--ease-out), border-color .4s var(--ease-out);
+  border-bottom: 1px solid transparent;
+}
+.nav-scrolled {
+  background: rgba(0,0,0,.82);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border-bottom-color: var(--line);
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  height: 72px;
+}
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: .65rem;
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+}
+.logo svg { flex: none; }
+.nav-links { display: flex; align-items: center; gap: 1.9rem; }
+.nav-links a {
+  font-family: var(--font-mono);
+  font-size: .75rem;
+  letter-spacing: var(--track-w);
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: color .3s var(--ease-out);
+}
+.nav-links a:hover { color: var(--ink); }
+.nav-actions { display: flex; align-items: center; gap: 1.1rem; }
+
+.lang-select { position: relative; display: inline-block; }
+.lang-select__btn {
+  display: inline-flex; align-items: center; gap: .5rem;
+  height: 36px; padding: 0 .85rem;
+  font-family: var(--font-mono); font-size: .75rem; letter-spacing: .1em;
+  color: var(--ink); background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.22); border-radius: 8px;
+  cursor: pointer;
+  transition: border-color .25s var(--ease-out), background .25s var(--ease-out), color .25s var(--ease-out);
+}
+.lang-select__btn:hover, .lang-select__btn[aria-expanded="true"] { border-color: var(--accent); background: rgba(255,77,0,.08); }
+.lang-select__btn[aria-expanded="true"] { color: var(--accent-text); }
+.lang-select__chev { transition: transform .25s var(--ease-out); }
+.lang-select__btn[aria-expanded="true"] .lang-select__chev { transform: rotate(180deg); }
+.lang-select__menu {
+  position: absolute; top: calc(100% + 8px); right: 0; z-index: 100;
+  min-width: 172px; padding: .4rem;
+  background: var(--bg); border: 1px solid var(--line); border-radius: 10px;
+  box-shadow: 0 12px 32px rgba(0,0,0,.35);
+  opacity: 0; visibility: hidden; transform: translateY(-4px);
+  transition: opacity .2s var(--ease-out), transform .2s var(--ease-out), visibility .2s;
+}
+.lang-select__menu.open { opacity: 1; visibility: visible; transform: translateY(0); }
+.lang-select__opt {
+  display: flex; align-items: center; gap: .5rem; width: 100%;
+  padding: .5rem .65rem; border: none; background: none;
+  font-family: var(--font-mono); font-size: .75rem; letter-spacing: .06em;
+  color: var(--ink); text-align: left; border-radius: 6px; cursor: pointer;
+  transition: background .2s var(--ease-out), color .2s var(--ease-out);
+}
+.lang-select__opt:hover { background: rgba(255,77,0,.1); }
+.lang-select__opt[aria-selected="true"] { color: var(--accent-text); font-weight: 700; }
+.lang-select__opt[aria-selected="true"]::after { content: '✓'; margin-left: auto; }
+
+.nav-cta { padding: .72rem 1.35rem; font-size: .6875rem; }
+
+.burger {
+  display: none;
+  width: 44px; height: 44px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+}
+.burger span { width: 22px; height: 2px; background: var(--ink); transition: transform .35s var(--ease-out), opacity .25s; }
+.burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.burger.open span:nth-child(2) { opacity: 0; }
+.burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Mobile menu */
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-menu);
+  background: rgba(0,0,0,.97);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem clamp(1.5rem, 6vw, 3rem);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .4s var(--ease-out), visibility .4s;
+}
+.mobile-menu.open { opacity: 1; visibility: visible; }
+.mobile-menu a.m-link {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: .8rem 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+}
+.mobile-menu .lang-select { margin-top: 2rem; }
+.mobile-menu .lang-select__btn { height: 40px; padding: 0 1rem; font-size: .8125rem; }
+.mobile-menu .lang-select__menu { right: auto; left: 0; min-width: 180px; }
+.mobile-menu .lang-select__opt { font-size: .8125rem; padding: .6rem .75rem; }
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+}
+.hero-media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: url('https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?q=80&w=1920&auto=format&fit=crop') center 30% / cover no-repeat;
+}
+.hero-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.25) 40%, rgba(0,0,0,.82) 82%, #000 100%);
+}
+.hero-body {
+  position: relative;
+  z-index: 1;
+  padding-block: clamp(6rem, 16vh, 10rem) clamp(2.5rem, 6vh, 4.5rem);
+}
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: .75rem;
+  margin-bottom: 1.4rem;
+  color: var(--muted);
+}
+.hero-eyebrow .pulse-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: pulse 2.6s ease-in-out infinite;
+}
+.hero h1 { margin-bottom: 1.6rem; }
+.hero .lede { margin-bottom: 2.2rem; }
+.hero-ctas { display: flex; flex-wrap: wrap; gap: 1rem; }
+
+/* Hero countdown console */
+.hero-console {
+  position: relative;
+  z-index: 1;
+  margin-top: clamp(2.5rem, 7vh, 4rem);
+  border-top: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1.5rem;
+  align-items: end;
+  padding-block: 1.4rem;
+}
+.console-launch { font-family: var(--font-mono); font-size: .6875rem; letter-spacing: var(--track-w); text-transform: uppercase; color: var(--muted); margin-bottom: .8rem; }
+.countdown { display: flex; align-items: baseline; gap: .4rem; font-family: var(--font-mono); }
+.cd-unit { display: flex; flex-direction: column; gap: .15rem; min-width: 3.2rem; }
+.cd-num {
+  font-size: clamp(1.6rem, 3.4vw, 2.4rem);
+  font-weight: 700;
+  color: var(--accent-text);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.cd-sep { font-size: clamp(1.2rem, 2.4vw, 1.7rem); color: var(--dim); }
+.cd-label { font-size: .5625rem; letter-spacing: .18em; text-transform: uppercase; color: var(--dim); }
+.console-telemetry { display: flex; gap: 1.6rem; flex-wrap: wrap; }
+.tel-cell { display: flex; flex-direction: column; gap: .25rem; }
+.tel-label { font-size: .5625rem; letter-spacing: .18em; text-transform: uppercase; color: var(--dim); }
+.tel-val { font-family: var(--font-mono); font-size: .8125rem; color: var(--ink); letter-spacing: .04em; }
+
+/* ---------- Telemetry strip ---------- */
+.telemetry {
+  border-block: 1px solid var(--line);
+  background: var(--bg-2);
+}
+.telemetry-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.tel-item {
+  padding: 1.5rem 1.5rem 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: .3rem;
+  border-right: 1px solid var(--line);
+}
+.tel-item:last-child { border-right: 0; }
+.tel-item .tel-label { color: var(--muted); }
+
+/* ---------- Section base ---------- */
+.section { padding-block: var(--space-section); }
+.section-head { margin-bottom: clamp(2.5rem, 6vw, 4rem); max-width: 46rem; }
+.section-head .lede { margin-top: 1.1rem; }
+
+/* ---------- Manifest ---------- */
+.manifest { border-top: 1px solid var(--line); }
+.mission {
+  display: grid;
+  grid-template-columns: 4.5rem 1fr auto;
+  gap: 1.25rem 2rem;
+  align-items: baseline;
+  padding-block: 1.9rem;
+  border-bottom: 1px solid var(--line);
+  transition: background .35s var(--ease-out), padding-inline .35s var(--ease-out);
+}
+.mission:hover { background: var(--surface); padding-inline: 1rem; }
+.mission-num { font-family: var(--font-mono); font-size: .8125rem; color: var(--dim); letter-spacing: .1em; }
+.mission-main h3 { font-size: 1.05rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; margin-bottom: .25rem; }
+.mission-main p { color: var(--muted); font-size: .9375rem; }
+.mission-meta { font-family: var(--font-mono); font-size: .75rem; letter-spacing: .08em; color: var(--muted); text-align: right; }
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  font-family: var(--font-mono);
+  font-size: .6875rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  padding: .45rem .9rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  white-space: nowrap;
+}
+.chip::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+.chip--ok { color: var(--ok); }
+.chip--warn { color: var(--warn); }
+
+/* ---------- Full-bleed scenes ---------- */
+.scene {
+  position: relative;
+  min-height: 72vh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+.scene-media {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+}
+.scene-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,.15) 45%, rgba(0,0,0,.85) 100%);
+}
+.scene-body { position: relative; z-index: 1; padding-block: clamp(6rem, 14vh, 9rem) clamp(3rem, 8vh, 5rem); }
+.scene-body .lede { margin-top: 1.2rem; }
+
+/* ---------- Constellation ---------- */
+.constellation-grid {
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  gap: clamp(2.5rem, 6vw, 5rem);
+  align-items: center;
+}
+.check-list { display: flex; flex-direction: column; gap: .95rem; margin-top: 2rem; }
+.check-list li {
+  display: flex;
+  gap: .85rem;
+  align-items: baseline;
+  color: var(--muted);
+  font-size: .975rem;
+}
+.check-list .check {
+  flex: none;
+  font-family: var(--font-mono);
+  color: var(--accent-text);
+  font-size: .875rem;
+}
+.orbit-wrap { position: relative; }
+.orbit-wrap svg { width: 100%; height: auto; display: block; }
+
+/* ---------- Capabilities ---------- */
+.cap-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 6vw, 5rem);
+  padding-block: clamp(2.75rem, 6vw, 4.25rem);
+  border-top: 1px solid var(--line);
+  align-items: start;
+}
+.cap-row:last-child { border-bottom: 1px solid var(--line); }
+.cap-head h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 700; letter-spacing: .1em; text-transform: uppercase; margin-bottom: .75rem; }
+.cap-head p { color: var(--muted); max-width: 52ch; text-wrap: pretty; }
+.spec-table { width: 100%; border-collapse: collapse; }
+.spec-table td {
+  padding: .8rem 0;
+  border-bottom: 1px solid var(--line);
+  font-family: var(--font-mono);
+  font-size: .8125rem;
+  letter-spacing: .06em;
+}
+.spec-table td:last-child { text-align: right; color: var(--ink); }
+.spec-table tr:last-child td { border-bottom: 0; }
+.ops-list { display: flex; flex-direction: column; }
+.ops-list li {
+  display: flex;
+  gap: .85rem;
+  align-items: baseline;
+  padding: .8rem 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  font-size: .9375rem;
+}
+.ops-list li:last-child { border-bottom: 0; }
+.ops-list .check { flex: none; font-family: var(--font-mono); color: var(--accent-text); }
+blockquote.quote {
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  line-height: 1.6;
+  color: var(--ink);
+  border: 0;
+  padding: 0;
+  text-wrap: pretty;
+}
+.quote-meta { margin-top: 1.4rem; display: flex; flex-direction: column; gap: .15rem; }
+.quote-name { font-family: var(--font-mono); font-size: .8125rem; letter-spacing: .12em; text-transform: uppercase; color: var(--ink); }
+.quote-role { font-family: var(--font-mono); font-size: .6875rem; letter-spacing: .14em; text-transform: uppercase; color: var(--dim); }
+
+/* ---------- Process ---------- */
+.process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(2rem, 4vw, 3.5rem); counter-reset: step; }
+.step { border-top: 1px solid var(--line); padding-top: 1.6rem; position: relative; }
+.step-num { font-family: var(--font-mono); font-size: .8125rem; color: var(--accent-text); letter-spacing: .1em; margin-bottom: 1.1rem; display: block; }
+.step h3 { font-size: 1.05rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; margin-bottom: .6rem; }
+.step p { color: var(--muted); font-size: .9375rem; max-width: 40ch; text-wrap: pretty; }
+
+/* ---------- FAQ ---------- */
+.faq-list { border-top: 1px solid var(--line); }
+.faq-item { border-bottom: 1px solid var(--line); }
+.faq-q {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  padding-block: 1.5rem;
+  text-align: left;
+  font-size: 1.02rem;
+  font-weight: 500;
+  letter-spacing: .03em;
+  color: var(--ink);
+  transition: color .3s var(--ease-out);
+}
+.faq-q:hover { color: var(--accent-text); }
+.faq-icon {
+  flex: none;
+  width: 2.1rem; height: 2.1rem;
+  border: 1px solid var(--ghost-border);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-mono);
+  font-size: .9rem;
+  color: var(--muted);
+  transition: transform .45s var(--ease-out), border-color .3s, color .3s;
+}
+.faq-item.open .faq-icon { transform: rotate(45deg); color: var(--accent-text); border-color: rgba(255,122,61,.5); }
+.faq-a {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows .5s var(--ease-out);
+}
+.faq-a-inner { overflow: hidden; }
+.faq-item.open .faq-a { grid-template-rows: 1fr; }
+.faq-a p { padding-bottom: 1.5rem; color: var(--muted); max-width: 62ch; text-wrap: pretty; }
+
+/* ---------- CTA ---------- */
+.cta-scene {
+  position: relative;
+  overflow: hidden;
+}
+.cta-media {
+  position: absolute;
+  inset: 0;
+  background: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1920&auto=format&fit=crop') center / cover no-repeat;
+}
+.cta-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,.6) 0%, rgba(0,0,0,.78) 100%);
+}
+.cta-body { position: relative; z-index: 1; padding-block: clamp(6rem, 14vh, 10rem); max-width: 44rem; }
+.cta-body h2 { margin-bottom: 1.2rem; }
+.cta-body .lede { margin-bottom: 2.4rem; }
+.newsletter { display: flex; gap: .8rem; flex-wrap: wrap; }
+.newsletter input {
+  flex: 1 1 240px;
+  min-height: 52px;
+  padding: .9rem 1.3rem;
+  background: rgba(0,0,0,.55);
+  border: 1px solid var(--ghost-border);
+  border-radius: 999px;
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: .8125rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+.newsletter input::placeholder { color: var(--dim); letter-spacing: .1em; }
+.newsletter input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.newsletter .btn { min-height: 52px; }
+.form-note { margin-top: .9rem; font-family: var(--font-mono); font-size: .6875rem; letter-spacing: .12em; text-transform: uppercase; color: var(--ok); min-height: 1.2em; }
+
+/* ---------- Footer ---------- */
+.footer { border-top: 1px solid var(--line); padding-block: 3rem; }
+.footer-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.footer .micro { letter-spacing: .14em; }
+.footer-links { display: flex; gap: 1.6rem; }
+.footer-links a { font-family: var(--font-mono); font-size: .6875rem; letter-spacing: .14em; text-transform: uppercase; color: var(--dim); transition: color .3s var(--ease-out); }
+.footer-links a:hover { color: var(--ink); }
+
+/* ---------- Cookie ---------- */
+.cookie {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: var(--z-cookie);
+  max-width: 22rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 1.3rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transform: translateY(calc(100% + 1.5rem));
+  opacity: 0;
+  transition: transform .6s var(--ease-out), opacity .5s var(--ease-out);
+}
+.cookie.show { transform: none; opacity: 1; }
+.cookie p { font-size: .8125rem; color: var(--muted); line-height: 1.55; }
+.cookie .btn { align-self: flex-start; padding: .6rem 1.2rem; font-size: .625rem; }
+
+/* ---------- Reveal ---------- */
+.reveal { opacity: 0; transform: translateY(26px); transition: opacity .8s var(--ease-out), transform .8s var(--ease-out); }
+.reveal.in { opacity: 1; transform: none; }
+.reveal[data-delay="1"] { transition-delay: .08s; }
+.reveal[data-delay="2"] { transition-delay: .16s; }
+.reveal[data-delay="3"] { transition-delay: .24s; }
+
+/* ---------- Orbit animation ---------- */
+.orbit-group { animation: spin 90s linear infinite; transform-origin: 260px 260px; }
+.orbit-group--rev { animation-direction: reverse; animation-duration: 58s; }
+.orbit-group--polar { animation-duration: 140s; }
+.sat { fill: var(--ink); }
+.sat--accent { fill: var(--accent); }
+.sat-pulse { animation: pulse 3.2s ease-in-out infinite; transform-origin: 260px 260px; }
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: .55; transform: scale(.78); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .hero-media, .scene-media, .cta-media { background-attachment: scroll !important; }
+  .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .orbit-group, .orbit-group--rev, .orbit-group--polar, .sat-pulse, .hero-eyebrow .pulse-dot { animation: none !important; }
+  .btn, .nav, .lang-select__btn, .faq-a, .faq-icon, .mission, .footer-links a, .cookie { transition: none !important; }
+}
+
+/* ---------- Responsive ---------- */
+@media (min-width: 1025px) {
+  .hero-media, .scene-media, .cta-media { background-attachment: fixed; }
+}
+@media (max-width: 1024px) {
+  .nav-links { display: none; }
+  .nav .lang-select { display: none; }
+  .burger { display: inline-flex; }
+  .constellation-grid { grid-template-columns: 1fr; }
+  .cap-row { grid-template-columns: 1fr; }
+  .process-grid { grid-template-columns: 1fr; gap: 2.75rem; }
+  .mission { grid-template-columns: 3.5rem 1fr; }
+  .mission-meta { grid-column: 2; text-align: left; }
+  .telemetry-grid { grid-template-columns: repeat(2, 1fr); }
+  .tel-item:nth-child(2) { border-right: 0; }
+  .tel-item { padding-block: 1.1rem; }
+}
+@media (max-width: 600px) {
+  .hero-console { grid-template-columns: 1fr; }
+  .h-display { font-size: clamp(2.1rem, 10.5vw, 2.9rem); }
+  .hero-eyebrow { font-size: .6rem; }
+  .cd-num { font-size: 1.5rem; }
+  .cd-unit { min-width: 2.6rem; }
+  .footer-grid { flex-direction: column; align-items: flex-start; gap: 1.2rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ================= NAV ================= -->
+<header class="nav" id="nav">
+  <div class="container nav-inner">
+    <a class="logo" href="#hero" aria-label="Lyra Dynamics — home">
+      <svg width="26" height="26" viewBox="0 0 26 26" fill="none" aria-hidden="true">
+        <circle cx="13" cy="13" r="4.4" fill="none" stroke="#f0f0fa" stroke-width="1.4"/>
+        <circle cx="20.4" cy="7.6" r="2.1" fill="#ff4d00"/>
+        <ellipse cx="13" cy="13" rx="11" ry="4.2" transform="rotate(-22 13 13)" fill="none" stroke="#f0f0fa" stroke-width=".9" stroke-dasharray="2.5 3"/>
+      </svg>
+      <span>Lyra</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#manifest" data-i18n="nav.manifest">Manifest</a>
+      <a href="#constellation" data-i18n="nav.constellation">Constellation</a>
+      <a href="#capabilities" data-i18n="nav.capabilities">Capabilities</a>
+      <a href="#process" data-i18n="nav.process">Process</a>
+      <a href="#faq" data-i18n="nav.faq">FAQ</a>
+    </nav>
+    <div class="nav-actions">
+      <div class="lang-select" id="langSelect">
+        <button class="lang-select__btn" type="button" id="langBtn" aria-haspopup="listbox" aria-expanded="false" aria-label="Select language">
+          <span class="lang-select__cur" id="langCur">EN</span>
+          <svg class="lang-select__chev" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="lang-select__menu" role="listbox" aria-label="Choose language">
+          <button class="lang-select__opt" role="option" data-lang="en" aria-selected="false">English</button>
+          <button class="lang-select__opt" role="option" data-lang="es" aria-selected="false">Español</button>
+          <button class="lang-select__opt" role="option" data-lang="fr" aria-selected="false">Français</button>
+          <button class="lang-select__opt" role="option" data-lang="de" aria-selected="false">Deutsch</button>
+          <button class="lang-select__opt" role="option" data-lang="it" aria-selected="false">Italiano</button>
+          <button class="lang-select__opt" role="option" data-lang="pt" aria-selected="false">Português</button>
+        </div>
+      </div>
+      <a href="#cta" class="btn nav-cta" data-i18n="nav.cta">Book a launch</a>
+      <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <a class="m-link" href="#manifest" data-i18n="nav.manifest">Manifest</a>
+  <a class="m-link" href="#constellation" data-i18n="nav.constellation">Constellation</a>
+  <a class="m-link" href="#capabilities" data-i18n="nav.capabilities">Capabilities</a>
+  <a class="m-link" href="#process" data-i18n="nav.process">Process</a>
+  <a class="m-link" href="#faq" data-i18n="nav.faq">FAQ</a>
+  <div class="lang-select" >
+    <button class="lang-select__btn" type="button"  aria-haspopup="listbox" aria-expanded="false" aria-label="Select language">
+          <span class="lang-select__cur" >EN</span>
+          <svg class="lang-select__chev" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="lang-select__menu" role="listbox" aria-label="Choose language">
+      <button class="lang-select__opt" role="option" data-lang="en" aria-selected="false">English</button>
+      <button class="lang-select__opt" role="option" data-lang="es" aria-selected="false">Español</button>
+      <button class="lang-select__opt" role="option" data-lang="fr" aria-selected="false">Français</button>
+      <button class="lang-select__opt" role="option" data-lang="de" aria-selected="false">Deutsch</button>
+      <button class="lang-select__opt" role="option" data-lang="it" aria-selected="false">Italiano</button>
+      <button class="lang-select__opt" role="option" data-lang="pt" aria-selected="false">Português</button>
+    </div>
+  </div>
+</div>
+
+<main id="main">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero" id="hero">
+    <div class="hero-media" role="img" aria-label="Earth seen from orbit"></div>
+    <div class="container hero-body">
+      <p class="hero-eyebrow micro"><span class="pulse-dot"></span><span data-i18n="hero.eyebrow">Lyra Dynamics · Orbital infrastructure</span></p>
+      <h1 class="h-display">
+        <span data-i18n="hero.h1a">Orbital infrastructure</span><br>
+        <span class="hl" data-i18n="hero.h1b">On demand.</span>
+      </h1>
+      <p class="lede" data-i18n="hero.sub">Lyra designs, launches, and operates satellite systems for the people who keep the planet running — precision Earth observation, global connectivity, and secure relay. Published pricing. Firm schedules.</p>
+      <div class="hero-ctas">
+        <a href="#manifest" class="btn reveal in" data-i18n="hero.cta1">View manifest</a>
+        <a href="#cta" class="btn reveal in" data-i18n="hero.cta2">Book a launch</a>
+      </div>
+
+      <div class="hero-console">
+        <div>
+          <p class="console-launch" data-i18n="hero.launch">Next launch — Lyra-4 · Cobalt</p>
+          <div class="countdown" aria-live="off">
+            <div class="cd-unit"><span class="cd-num" id="cd-d">00</span><span class="cd-label" data-i18n="cd.d">Days</span></div>
+            <span class="cd-sep">:</span>
+            <div class="cd-unit"><span class="cd-num" id="cd-h">00</span><span class="cd-label" data-i18n="cd.h">Hrs</span></div>
+            <span class="cd-sep">:</span>
+            <div class="cd-unit"><span class="cd-num" id="cd-m">00</span><span class="cd-label" data-i18n="cd.m">Min</span></div>
+            <span class="cd-sep">:</span>
+            <div class="cd-unit"><span class="cd-num" id="cd-s">00</span><span class="cd-label" data-i18n="cd.s">Sec</span></div>
+          </div>
+        </div>
+        <div class="console-telemetry">
+          <div class="tel-cell"><span class="tel-label" data-i18n="hero.alt">Alt</span><span class="tel-val">620 km</span></div>
+          <div class="tel-cell"><span class="tel-label" data-i18n="hero.vel">Vel</span><span class="tel-val">7.68 km/s</span></div>
+          <div class="tel-cell"><span class="tel-label" data-i18n="hero.status">Status</span><span class="tel-val" style="color:var(--ok)">● NOMINAL</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TELEMETRY STRIP ================= -->
+  <div class="telemetry">
+    <div class="container telemetry-grid">
+      <div class="tel-item"><span class="tel-label" data-i18n="tel.gsd">Ground resolution</span><span class="tel-val">0.3 m GSD</span></div>
+      <div class="tel-item"><span class="tel-label" data-i18n="tel.revisit">Global revisit</span><span class="tel-val">45 min</span></div>
+      <div class="tel-item"><span class="tel-label" data-i18n="tel.sats">Constellation</span><span class="tel-val">12 sats</span></div>
+      <div class="tel-item"><span class="tel-label" data-i18n="tel.incl">Inclination</span><span class="tel-val">98.6° SSO</span></div>
+    </div>
+  </div>
+
+  <!-- ================= MANIFEST ================= -->
+  <section class="section" id="manifest">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2 data-i18n="man.head">Launch manifest</h2>
+        <p class="lede" data-i18n="man.sub">Four missions this season. Every window published, every deadline real.</p>
+      </div>
+      <ul class="manifest reveal">
+        <li class="mission">
+          <span class="mission-num">01</span>
+          <div class="mission-main">
+            <h3 data-i18n="m1.name">Lyra-1 · Aurora</h3>
+            <p data-i18n="m1.payload">12 Earth-observation satellites</p>
+          </div>
+          <div class="mission-meta">
+            <div data-i18n="m1.orbit">LEO · 620 km</div>
+            <div data-i18n="m1.win">Window: May</div>
+          </div>
+          <span class="chip chip--ok" data-i18n="m1.status">Completed</span>
+        </li>
+        <li class="mission">
+          <span class="mission-num">02</span>
+          <div class="mission-main">
+            <h3 data-i18n="m2.name">Lyra-2 · Meridian</h3>
+            <p data-i18n="m2.payload">Broadband relay demonstrator</p>
+          </div>
+          <div class="mission-meta">
+            <div data-i18n="m2.orbit">LEO · 1,200 km</div>
+            <div data-i18n="m2.win">Window: June</div>
+          </div>
+          <span class="chip chip--ok" data-i18n="m2.status">Completed</span>
+        </li>
+        <li class="mission">
+          <span class="mission-num">03</span>
+          <div class="mission-main">
+            <h3 data-i18n="m3.name">Lyra-3 · Helios</h3>
+            <p data-i18n="m3.payload">Rideshare — 14 customer payloads</p>
+          </div>
+          <div class="mission-meta">
+            <div data-i18n="m3.orbit">SSO · 510 km</div>
+            <div data-i18n="m3.win">Window: Aug 28</div>
+          </div>
+          <span class="chip chip--warn" data-i18n="m3.status">Upcoming</span>
+        </li>
+        <li class="mission">
+          <span class="mission-num">04</span>
+          <div class="mission-main">
+            <h3 data-i18n="m4.name">Lyra-4 · Cobalt</h3>
+            <p data-i18n="m4.payload">Dedicated launch + constellation fill</p>
+          </div>
+          <div class="mission-meta">
+            <div data-i18n="m4.orbit">LEO · 620 km</div>
+            <div data-i18n="m4.win">Window: Sep 19</div>
+          </div>
+          <span class="chip chip--warn" data-i18n="m4.status">Upcoming</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ================= SCENE: CONSTELLATION ================= -->
+  <section class="scene" id="scene-constellation">
+    <div class="scene-media" style="background-image:url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564?q=80&w=1920&auto=format&fit=crop')" role="img" aria-label="Deep-space nebula"></div>
+    <div class="container scene-body">
+      <h2 class="reveal" data-i18n="con.head">The Aurora constellation</h2>
+      <p class="lede reveal" data-delay="1" data-i18n="con.sub">Twelve satellites in a dawn-synchronous orbit, imaging the entire planet every 45 minutes. No clouds, no borders, no blind spots.</p>
+    </div>
+  </section>
+
+  <!-- ================= CONSTELLATION DETAIL ================= -->
+  <section class="section" id="constellation">
+    <div class="container constellation-grid">
+      <div class="reveal">
+        <h2 data-i18n="con.detail">Built to scan, not to drift</h2>
+        <p class="lede" style="margin-top:1.2rem" data-i18n="con.detailSub">Aurora is a working network, not a demonstration. Each satellite carries a multispectral imager with a 0.3 m ground sample distance, cross-linked to its neighbors so a task anywhere becomes an image anywhere.</p>
+        <ul class="check-list">
+          <li><span class="check">✓</span><span data-i18n="con.b1">0.3 m ground resolution — vehicles, vessels, and infrastructure readable from orbit</span></li>
+          <li><span class="check">✓</span><span data-i18n="con.b2">45-minute global revisit via dawn-synchronous phasing</span></li>
+          <li><span class="check">✓</span><span data-i18n="con.b3">98.6° inclination — pole-to-pole coverage, no exclusion zones</span></li>
+        </ul>
+      </div>
+      <div class="orbit-wrap reveal" data-delay="1" aria-hidden="true">
+        <svg viewBox="0 0 520 520" width="520" height="520">
+          <defs>
+            <radialGradient id="earthGrad" cx="42%" cy="36%" r="75%">
+              <stop offset="0%" stop-color="#222a3f"/>
+              <stop offset="62%" stop-color="#0c101c"/>
+              <stop offset="100%" stop-color="#04050a"/>
+            </radialGradient>
+          </defs>
+          <!-- faint polar ring -->
+          <ellipse class="orbit-ring" cx="260" cy="260" rx="240" ry="240" fill="none" stroke="rgba(240,240,250,.07)" stroke-width="1"/>
+          <!-- equatorial ring, dashed -->
+          <ellipse class="orbit-ring" cx="260" cy="260" rx="205" ry="205" fill="none" stroke="rgba(240,240,250,.13)" stroke-width="1" stroke-dasharray="3 9"/>
+          <!-- Earth -->
+          <circle cx="260" cy="260" r="112" fill="url(#earthGrad)" stroke="rgba(240,240,250,.35)" stroke-width="1"/>
+          <!-- orbit 1: satellites -->
+          <g class="orbit-group">
+            <ellipse class="orbit-ring" cx="260" cy="260" rx="196" ry="64" transform="rotate(-24 260 260)" fill="none" stroke="rgba(240,240,250,.22)" stroke-width="1"/>
+            <circle class="sat" cx="456" cy="260" r="4.5"/>
+            <circle class="sat" cx="260" cy="196" r="4"/>
+            <circle class="sat" cx="300" cy="324" r="3.6"/>
+          </g>
+          <!-- orbit 2: reverse -->
+          <g class="orbit-group orbit-group--rev">
+            <ellipse class="orbit-ring" cx="260" cy="260" rx="88" ry="212" transform="rotate(38 260 260)" fill="none" stroke="rgba(240,240,250,.16)" stroke-width="1"/>
+            <circle class="sat" cx="260" cy="48" r="4"/>
+            <circle class="sat" cx="348" cy="260" r="3.6"/>
+            <circle class="sat" cx="260" cy="472" r="4.2"/>
+          </g>
+          <!-- orbit 3: polar slow -->
+          <g class="orbit-group orbit-group--polar">
+            <ellipse class="orbit-ring" cx="260" cy="260" rx="150" ry="150" transform="rotate(55 260 260)" fill="none" stroke="rgba(240,240,250,.1)" stroke-width="1" stroke-dasharray="2 7"/>
+            <circle class="sat sat--accent" cx="410" cy="260" r="5"/>
+          </g>
+          <!-- accent pulse satellite -->
+          <g class="sat-pulse">
+            <circle cx="260" cy="260" r="118" fill="none" stroke="#ff4d00" stroke-width="1" stroke-dasharray="1 5" opacity=".5"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CAPABILITIES ================= -->
+  <section class="section" id="capabilities">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2 data-i18n="cap.head">Capabilities</h2>
+        <p class="lede" data-i18n="cap.sub">Launch and operations with published pricing and firm calendars — no discovery calls required.</p>
+      </div>
+
+      <div class="cap-row reveal">
+        <div class="cap-head">
+          <h3 data-i18n="cap.launch">Launch services</h3>
+          <p data-i18n="cap.launchDesc">Shared and dedicated rides to the orbits that matter. Standardized integration, fixed windows, and a price list that does not move.</p>
+        </div>
+        <table class="spec-table" role="presentation">
+          <tr><td data-i18n="cap.s1">LEO rideshare</td><td>€6,900 / kg</td></tr>
+          <tr><td data-i18n="cap.s2">Dedicated flight</td><td>from €1.2M</td></tr>
+          <tr><td data-i18n="cap.s3">Orbits served</td><td>LEO · SSO · MEO</td></tr>
+          <tr><td data-i18n="cap.s4">Payload integration</td><td>30 days</td></tr>
+        </table>
+      </div>
+
+      <div class="cap-row reveal">
+        <div class="cap-head">
+          <h3 data-i18n="cap.ops">Constellation operations</h3>
+          <p data-i18n="cap.opsDesc">We build the network, fly the network, and hand you clean data — not telemetry homework. One contract, one invoice, one accountable team.</p>
+        </div>
+        <ul class="ops-list">
+          <li><span class="check">✓</span><span data-i18n="cap.o1">Full mission design and licensing, in-house</span></li>
+          <li><span class="check">✓</span><span data-i18n="cap.o2">24/7 ground-station network on four continents</span></li>
+          <li><span class="check">✓</span><span data-i18n="cap.o3">Tasking API with 45-minute turnaround</span></li>
+          <li><span class="check">✓</span><span data-i18n="cap.o4">End-of-life disposal, contractually guaranteed</span></li>
+        </ul>
+      </div>
+
+      <div class="cap-row reveal">
+        <div class="cap-head">
+          <h3 data-i18n="cap.relay">Secure ground relay</h3>
+          <p data-i18n="cap.relayDesc">Encrypted channels between any point on the planet and your control center — ships, rigs, field camps, and fleets.</p>
+        </div>
+        <div>
+          <blockquote class="quote" data-i18n="cap.quote">“Lyra's relay delivered our field data to HQ in under four minutes — from a vessel 800 km offshore. We stopped building our own ground stations.”</blockquote>
+          <div class="quote-meta">
+            <span class="quote-name" data-i18n="cap.author">M. Okafor</span>
+            <span class="quote-role" data-i18n="cap.role">Head of Maritime Operations, Northstar</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PROCESS ================= -->
+  <section class="section" id="process">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2 data-i18n="pro.head">Deployment sequence</h2>
+        <p class="lede" data-i18n="pro.sub">Three phases, one contract, zero surprises.</p>
+      </div>
+      <div class="process-grid">
+        <div class="step reveal">
+          <span class="step-num">01</span>
+          <h3 data-i18n="pro1.t">Survey</h3>
+          <p data-i18n="pro1.d">Mission design, licensing, and a fixed launch window — agreed in writing within 30 days.</p>
+        </div>
+        <div class="step reveal" data-delay="1">
+          <span class="step-num">02</span>
+          <h3 data-i18n="pro2.t">Deploy</h3>
+          <p data-i18n="pro2.d">Integrated, manifested, and launched. Telemetry goes live at first contact.</p>
+        </div>
+        <div class="step reveal" data-delay="2">
+          <span class="step-num">03</span>
+          <h3 data-i18n="pro3.t">Operate</h3>
+          <p data-i18n="pro3.d">Constellation handed over, data flowing, and a single invoice per year.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FAQ ================= -->
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2 data-i18n="faq.head">Questions</h2>
+        <p class="lede" data-i18n="faq.sub">What everyone asks before signing.</p>
+      </div>
+      <div class="faq-list reveal">
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false" aria-controls="faq-a1"><span data-i18n="q1">How do I book a launch?</span><span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a1"><div class="faq-a-inner"><p data-i18n="a1">Reserve a window with a 10% deposit. We confirm mass, orbit, and date in writing before your payload enters integration.</p></div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false" aria-controls="faq-a2"><span data-i18n="q2">Which orbits do you serve?</span><span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a2"><div class="faq-a-inner"><p data-i18n="a2">LEO, SSO, and MEO. For high orbits we work with geostationary-injection partners — one contract, one launch.</p></div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false" aria-controls="faq-a3"><span data-i18n="q3">Who owns the data?</span><span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a3"><div class="faq-a-inner"><p data-i18n="a3">You do. We deliver raw imagery and telemetry; we never claim rights to your data, your analytics, or your customers.</p></div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false" aria-controls="faq-a4"><span data-i18n="q4">How are launches insured?</span><span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a4"><div class="faq-a-inner"><p data-i18n="a4">Every flight is insured against insertion failure and payload loss, with standard market clauses. Premiums are quoted before the deposit clears.</p></div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false" aria-controls="faq-a5"><span data-i18n="q5">What happens at end of life?</span><span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a5"><div class="faq-a-inner"><p data-i18n="a5">De-orbit within 25 years, guaranteed by contract, with disposal maneuvers funded from launch — the bill never lands on you.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CTA ================= -->
+  <section class="cta-scene" id="cta">
+    <div class="cta-media" role="img" aria-label="Earth horizon from orbit"></div>
+    <div class="container cta-body">
+      <h2 class="reveal" data-i18n="cta.head">Ready for lift-off?</h2>
+      <p class="lede reveal" data-delay="1" data-i18n="cta.sub">Tell us about your mission. We reply within one business day — with a price and a window.</p>
+      <form class="newsletter reveal" data-delay="2" id="missionForm" novalidate>
+        <label class="visually-hidden" for="email" data-i18n="cta.ph">Work email</label>
+        <input type="email" id="email" name="email" required placeholder="work@company.com" autocomplete="email" data-i18n-ph="cta.ph">
+        <button type="submit" class="btn btn--solid" data-i18n="cta.btn">Request manifest</button>
+      </form>
+      <p class="form-note" id="formNote" aria-live="polite"></p>
+    </div>
+  </section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="container footer-grid">
+    <div class="micro">
+      <span data-i18n="ft.tag">Orbital infrastructure, on demand</span> — <span data-i18n="ft.rights">© 2026 Lyra Dynamics. All rights reserved.</span>
+    </div>
+    <div class="footer-links">
+      <a href="#manifest" data-i18n="nav.manifest">Manifest</a>
+      <a href="#capabilities" data-i18n="nav.capabilities">Capabilities</a>
+      <a href="#faq" data-i18n="nav.faq">FAQ</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ================= COOKIE ================= -->
+<div class="cookie" id="cookie" role="dialog" aria-label="Cookie notice">
+  <p data-i18n="cookie.msg">This site uses cookies for mission telemetry and analytics.</p>
+  <button class="btn" id="cookieAccept" data-i18n="cookie.accept">Accept</button>
+</div>
+
+<style>
+  .visually-hidden {
+    position: absolute; width: 1px; height: 1px;
+    margin: -1px; padding: 0; border: 0;
+    clip-path: inset(50%); overflow: hidden; white-space: nowrap;
+  }
+</style>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ================= I18N ================= */
+  var I18N = {
+    en: {
+      'nav.manifest': 'Manifest', 'nav.constellation': 'Constellation', 'nav.capabilities': 'Capabilities',
+      'nav.process': 'Process', 'nav.faq': 'FAQ', 'nav.cta': 'Book a launch',
+      'hero.eyebrow': 'Lyra Dynamics · Orbital infrastructure',
+      'hero.h1a': 'Orbital infrastructure', 'hero.h1b': 'On demand.',
+      'hero.sub': 'Lyra designs, launches, and operates satellite systems for the people who keep the planet running — precision Earth observation, global connectivity, and secure relay. Published pricing. Firm schedules.',
+      'hero.cta1': 'View manifest', 'hero.cta2': 'Book a launch',
+      'hero.launch': 'Next launch — Lyra-4 · Cobalt',
+      'cd.d': 'Days', 'cd.h': 'Hrs', 'cd.m': 'Min', 'cd.s': 'Sec',
+      'hero.alt': 'Alt', 'hero.vel': 'Vel', 'hero.status': 'Status',
+      'tel.gsd': 'Ground resolution', 'tel.revisit': 'Global revisit', 'tel.sats': 'Constellation', 'tel.incl': 'Inclination',
+      'man.head': 'Launch manifest', 'man.sub': 'Four missions this season. Every window published, every deadline real.',
+      'm1.name': 'Lyra-1 · Aurora', 'm1.payload': '12 Earth-observation satellites', 'm1.orbit': 'LEO · 620 km', 'm1.win': 'Window: May', 'm1.status': 'Completed',
+      'm2.name': 'Lyra-2 · Meridian', 'm2.payload': 'Broadband relay demonstrator', 'm2.orbit': 'LEO · 1,200 km', 'm2.win': 'Window: June', 'm2.status': 'Completed',
+      'm3.name': 'Lyra-3 · Helios', 'm3.payload': 'Rideshare — 14 customer payloads', 'm3.orbit': 'SSO · 510 km', 'm3.win': 'Window: Aug 28', 'm3.status': 'Upcoming',
+      'm4.name': 'Lyra-4 · Cobalt', 'm4.payload': 'Dedicated launch + constellation fill', 'm4.orbit': 'LEO · 620 km', 'm4.win': 'Window: Sep 19', 'm4.status': 'Upcoming',
+      'con.head': 'The Aurora constellation',
+      'con.sub': 'Twelve satellites in a dawn-synchronous orbit, imaging the entire planet every 45 minutes. No clouds, no borders, no blind spots.',
+      'con.detail': 'Built to scan, not to drift',
+      'con.detailSub': 'Aurora is a working network, not a demonstration. Each satellite carries a multispectral imager with a 0.3 m ground sample distance, cross-linked to its neighbors so a task anywhere becomes an image anywhere.',
+      'con.b1': '0.3 m ground resolution — vehicles, vessels, and infrastructure readable from orbit',
+      'con.b2': '45-minute global revisit via dawn-synchronous phasing',
+      'con.b3': '98.6° inclination — pole-to-pole coverage, no exclusion zones',
+      'cap.head': 'Capabilities', 'cap.sub': 'Launch and operations with published pricing and firm calendars — no discovery calls required.',
+      'cap.launch': 'Launch services', 'cap.launchDesc': 'Shared and dedicated rides to the orbits that matter. Standardized integration, fixed windows, and a price list that does not move.',
+      'cap.s1': 'LEO rideshare', 'cap.s2': 'Dedicated flight', 'cap.s3': 'Orbits served', 'cap.s4': 'Payload integration',
+      'cap.ops': 'Constellation operations', 'cap.opsDesc': 'We build the network, fly the network, and hand you clean data — not telemetry homework. One contract, one invoice, one accountable team.',
+      'cap.o1': 'Full mission design and licensing, in-house',
+      'cap.o2': '24/7 ground-station network on four continents',
+      'cap.o3': 'Tasking API with 45-minute turnaround',
+      'cap.o4': 'End-of-life disposal, contractually guaranteed',
+      'cap.relay': 'Secure ground relay', 'cap.relayDesc': 'Encrypted channels between any point on the planet and your control center — ships, rigs, field camps, and fleets.',
+      'cap.quote': '“Lyra’s relay delivered our field data to HQ in under four minutes — from a vessel 800 km offshore. We stopped building our own ground stations.”',
+      'cap.author': 'M. Okafor', 'cap.role': 'Head of Maritime Operations, Northstar',
+      'pro.head': 'Deployment sequence', 'pro.sub': 'Three phases, one contract, zero surprises.',
+      'pro1.t': 'Survey', 'pro1.d': 'Mission design, licensing, and a fixed launch window — agreed in writing within 30 days.',
+      'pro2.t': 'Deploy', 'pro2.d': 'Integrated, manifested, and launched. Telemetry goes live at first contact.',
+      'pro3.t': 'Operate', 'pro3.d': 'Constellation handed over, data flowing, and a single invoice per year.',
+      'faq.head': 'Questions', 'faq.sub': 'What everyone asks before signing.',
+      'q1': 'How do I book a launch?', 'a1': 'Reserve a window with a 10% deposit. We confirm mass, orbit, and date in writing before your payload enters integration.',
+      'q2': 'Which orbits do you serve?', 'a2': 'LEO, SSO, and MEO. For high orbits we work with geostationary-injection partners — one contract, one launch.',
+      'q3': 'Who owns the data?', 'a3': 'You do. We deliver raw imagery and telemetry; we never claim rights to your data, your analytics, or your customers.',
+      'q4': 'How are launches insured?', 'a4': 'Every flight is insured against insertion failure and payload loss, with standard market clauses. Premiums are quoted before the deposit clears.',
+      'q5': 'What happens at end of life?', 'a5': 'De-orbit within 25 years, guaranteed by contract, with disposal maneuvers funded from launch — the bill never lands on you.',
+      'cta.head': 'Ready for lift-off?', 'cta.sub': 'Tell us about your mission. We reply within one business day — with a price and a window.',
+      'cta.ph': 'Work email', 'cta.btn': 'Request manifest',
+      'ft.tag': 'Orbital infrastructure, on demand', 'ft.rights': '© 2026 Lyra Dynamics. All rights reserved.',
+      'cookie.msg': 'This site uses cookies for mission telemetry and analytics.', 'cookie.accept': 'Accept',
+      'meta.title': 'Lyra Dynamics — Orbital infrastructure, on demand',
+      'meta.desc': 'Lyra Dynamics designs, launches, and operates satellite systems — precision Earth observation, global connectivity, and secure relay. Published pricing, firm schedules.',
+      'form.ok': 'Manifest request received. We reply within one business day.'
+    },
+
+    es: {
+      'nav.manifest': 'Manifiesto', 'nav.constellation': 'Constelación', 'nav.capabilities': 'Capacidades',
+      'nav.process': 'Proceso', 'nav.faq': 'FAQ', 'nav.cta': 'Reservar lanzamiento',
+      'hero.eyebrow': 'Lyra Dynamics · Infraestructura orbital',
+      'hero.h1a': 'Infraestructura orbital', 'hero.h1b': 'Bajo demanda.',
+      'hero.sub': 'Lyra diseña, lanza y opera sistemas de satélites para quienes mantienen el planeta en marcha: observación terrestre de precisión, conectividad global y retransmisión segura. Precios publicados. Plazos firmes.',
+      'hero.cta1': 'Ver manifiesto', 'hero.cta2': 'Reservar lanzamiento',
+      'hero.launch': 'Próximo lanzamiento — Lyra-4 · Cobalto',
+      'cd.d': 'Días', 'cd.h': 'Horas', 'cd.m': 'Min', 'cd.s': 'Seg',
+      'hero.alt': 'Alt', 'hero.vel': 'Vel', 'hero.status': 'Estado',
+      'tel.gsd': 'Resolución de suelo', 'tel.revisit': 'Revisita global', 'tel.sats': 'Constelación', 'tel.incl': 'Inclinación',
+      'man.head': 'Manifiesto de lanzamiento', 'man.sub': 'Cuatro misiones esta temporada. Ventanas publicadas, plazos reales.',
+      'm1.name': 'Lyra-1 · Aurora', 'm1.payload': '12 satélites de observación terrestre', 'm1.orbit': 'LEO · 620 km', 'm1.win': 'Ventana: mayo', 'm1.status': 'Completado',
+      'm2.name': 'Lyra-2 · Meridiano', 'm2.payload': 'Demostrador de retransmisión de banda ancha', 'm2.orbit': 'LEO · 1.200 km', 'm2.win': 'Ventana: junio', 'm2.status': 'Completado',
+      'm3.name': 'Lyra-3 · Helios', 'm3.payload': 'Rideshare: 14 cargas de cliente', 'm3.orbit': 'SSO · 510 km', 'm3.win': 'Ventana: 28 ago', 'm3.status': 'Próximo',
+      'm4.name': 'Lyra-4 · Cobalto', 'm4.payload': 'Lanzamiento dedicado + relleno de constelación', 'm4.orbit': 'LEO · 620 km', 'm4.win': 'Ventana: 19 sep', 'm4.status': 'Próximo',
+      'con.head': 'La constelación Aurora',
+      'con.sub': 'Doce satélites en órbita heliosíncrona que fotografían todo el planeta cada 45 minutos. Sin nubes, sin fronteras, sin puntos ciegos.',
+      'con.detail': 'Hecha para escanear, no para derivar',
+      'con.detailSub': 'Aurora es una red operativa, no una demostración. Cada satélite lleva un generador multiespectral con 0,3 m de resolución sobre el terreno, enlazado con sus vecinos para que una tarea en cualquier lugar se convierta en una imagen en cualquier lugar.',
+      'con.b1': 'Resolución de 0,3 m — vehículos, buques e infraestructura legibles desde órbita',
+      'con.b2': 'Revisita global de 45 minutos con fases heliosíncronas',
+      'con.b3': 'Inclinación de 98,6° — cobertura de polo a polo, sin zonas de exclusión',
+      'cap.head': 'Capacidades', 'cap.sub': 'Lanzamiento y operación con precios publicados y calendarios firmes: sin llamadas de descubrimiento.',
+      'cap.launch': 'Servicios de lanzamiento', 'cap.launchDesc': 'Viajes compartidos y dedicados a las órbitas que importan. Integración estandarizada, ventanas fijas y una tarifa que no se mueve.',
+      'cap.s1': 'Rideshare LEO', 'cap.s2': 'Vuelo dedicado', 'cap.s3': 'Órbitas servidas', 'cap.s4': 'Integración de carga',
+      'cap.ops': 'Operación de constelaciones', 'cap.opsDesc': 'Construimos la red, la volamos y te entregamos datos limpios, no deberes de telemetría. Un contrato, una factura, un equipo responsable.',
+      'cap.o1': 'Diseño de misión y licencias completos, en casa',
+      'cap.o2': 'Red de estaciones terrestres 24/7 en cuatro continentes',
+      'cap.o3': 'API de tareas con respuesta en 45 minutos',
+      'cap.o4': 'Retirada al final de vida, garantizada por contrato',
+      'cap.relay': 'Retransmisión terrestre segura', 'cap.relayDesc': 'Canales cifrados entre cualquier punto del planeta y tu centro de control: buques, plataformas, campamentos y flotas.',
+      'cap.quote': '«La retransmisión de Lyra llevó nuestros datos de campo a la central en menos de cuatro minutos, desde un buque a 800 km de la costa. Dejamos de construir estaciones propias.»',
+      'cap.author': 'M. Okafor', 'cap.role': 'Directora de operaciones marítimas, Northstar',
+      'pro.head': 'Secuencia de despliegue', 'pro.sub': 'Tres fases, un contrato, cero sorpresas.',
+      'pro1.t': 'Estudio', 'pro1.d': 'Diseño de misión, licencias y ventana fija, acordados por escrito en 30 días.',
+      'pro2.t': 'Despliegue', 'pro2.d': 'Integración, manifiesto y lanzamiento. Telemetría en vivo desde el primer contacto.',
+      'pro3.t': 'Operación', 'pro3.d': 'Constelación entregada, datos fluyendo y una sola factura al año.',
+      'faq.head': 'Preguntas', 'faq.sub': 'Lo que todo el mundo pregunta antes de firmar.',
+      'q1': '¿Cómo reservo un lanzamiento?', 'a1': 'Reserva una ventana con un depósito del 10 %. Confirmamos masa, órbita y fecha por escrito antes de integrar la carga.',
+      'q2': '¿Qué órbitas servís?', 'a2': 'LEO, SSO y MEO. Para órbitas altas trabajamos con socios de inyección geoestacionaria: un contrato, un lanzamiento.',
+      'q3': '¿Quién es dueño de los datos?', 'a3': 'Tú. Entregamos imágenes y telemetría crudas; nunca reclamamos derechos sobre tus datos, tu analítica ni tus clientes.',
+      'q4': '¿Cómo se aseguran los lanzamientos?', 'a4': 'Cada vuelo está asegurado contra fallo de inserción y pérdida de carga útil, con cláusulas estándar del mercado. Las primas se cotizan antes de que se liquide el depósito.',
+      'q5': '¿Qué pasa al final de la vida útil?', 'a5': 'Desorbitamos en menos de 25 años, garantizado por contrato, con maniobras de retirada financiadas desde el lanzamiento: la factura nunca te llega a ti.',
+      'cta.head': '¿Listo para el despegue?', 'cta.sub': 'Cuéntanos tu misión. Respondemos en un día laborable, con precio y ventana.',
+      'cta.ph': 'Email de trabajo', 'cta.btn': 'Solicitar manifiesto',
+      'ft.tag': 'Infraestructura orbital, bajo demanda', 'ft.rights': '© 2026 Lyra Dynamics. Todos los derechos reservados.',
+      'cookie.msg': 'Esta web usa cookies para telemetría de misión y analítica.', 'cookie.accept': 'Aceptar',
+      'meta.title': 'Lyra Dynamics — Infraestructura orbital, bajo demanda',
+      'meta.desc': 'Lyra Dynamics diseña, lanza y opera sistemas de satélites: observación terrestre de precisión, conectividad global y retransmisión segura. Precios publicados, plazos firmes.',
+      'form.ok': 'Solicitud de manifiesto recibida. Respondemos en un día laborable.'
+    },
+
+    fr: {
+      'nav.manifest': 'Manifeste', 'nav.constellation': 'Constellation', 'nav.capabilities': 'Capacités',
+      'nav.process': 'Procédure', 'nav.faq': 'FAQ', 'nav.cta': 'Réserver un lancement',
+      'hero.eyebrow': 'Lyra Dynamics · Infrastructure orbitale',
+      'hero.h1a': 'Infrastructure orbitale', 'hero.h1b': 'À la demande.',
+      'hero.sub': 'Lyra conçoit, lance et exploite des systèmes satellitaires pour celles et ceux qui font tourner la planète : observation terrestre de précision, connectivité mondiale et relais sécurisé. Prix publiés. Calendriers fermes.',
+      'hero.cta1': 'Voir le manifeste', 'hero.cta2': 'Réserver un lancement',
+      'hero.launch': 'Prochain lancement — Lyra-4 · Cobalt',
+      'cd.d': 'Jours', 'cd.h': 'Heures', 'cd.m': 'Min', 'cd.s': 'Sec',
+      'hero.alt': 'Alt', 'hero.vel': 'Vit', 'hero.status': 'Statut',
+      'tel.gsd': 'Résolution au sol', 'tel.revisit': 'Revisite globale', 'tel.sats': 'Constellation', 'tel.incl': 'Inclinaison',
+      'man.head': 'Manifeste de lancement', 'man.sub': 'Quatre missions cette saison. Des fenêtres publiées, des délais réels.',
+      'm1.name': 'Lyra-1 · Aurora', 'm1.payload': '12 satellites d’observation terrestre', 'm1.orbit': 'LEO · 620 km', 'm1.win': 'Fenêtre : mai', 'm1.status': 'Terminé',
+      'm2.name': 'Lyra-2 · Méridien', 'm2.payload': 'Démonstrateur de relais large bande', 'm2.orbit': 'LEO · 1 200 km', 'm2.win': 'Fenêtre : juin', 'm2.status': 'Terminé',
+      'm3.name': 'Lyra-3 · Hélios', 'm3.payload': 'Rideshare : 14 charges utiles clients', 'm3.orbit': 'SSO · 510 km', 'm3.win': 'Fenêtre : 28 août', 'm3.status': 'À venir',
+      'm4.name': 'Lyra-4 · Cobalt', 'm4.payload': 'Lancement dédié + complément de constellation', 'm4.orbit': 'LEO · 620 km', 'm4.win': 'Fenêtre : 19 sept.', 'm4.status': 'À venir',
+      'con.head': 'La constellation Aurora',
+      'con.sub': 'Douze satellites en orbite héliosynchrone photographient la planète entière toutes les 45 minutes. Sans nuages, sans frontières, sans angles morts.',
+      'con.detail': 'Conçue pour scanner, pas pour dériver',
+      'con.detailSub': 'Aurora est un réseau opérationnel, pas une démonstration. Chaque satellite porte un imageur multispectral avec une résolution au sol de 0,3 m, relié à ses voisins pour qu’une tâche n’importe où devienne une image n’importe où.',
+      'con.b1': 'Résolution de 0,3 m — véhicules, navires et infrastructures lisibles depuis l’orbite',
+      'con.b2': 'Revisite globale toutes les 45 minutes grâce au phasage héliosynchrone',
+      'con.b3': 'Inclinaison de 98,6° — couverture de pôle à pôle, sans zones d’exclusion',
+      'cap.head': 'Capacités', 'cap.sub': 'Lancement et exploitation avec prix publiés et calendriers fermes — pas d’appels de découverte.',
+      'cap.launch': 'Services de lancement', 'cap.launchDesc': 'Des vols partagés et dédiés vers les orbites qui comptent. Intégration standardisée, fenêtres fixes et une grille tarifaire qui ne bouge pas.',
+      'cap.s1': 'Rideshare LEO', 'cap.s2': 'Vol dédié', 'cap.s3': 'Orbites desservies', 'cap.s4': 'Intégration de charge utile',
+      'cap.ops': 'Opération de constellations', 'cap.opsDesc': 'Nous construisons le réseau, nous le pilotons et nous vous livrons des données propres — pas de devoirs de télémétrie. Un contrat, une facture, une équipe responsable.',
+      'cap.o1': 'Conception de mission et licences complètes, en interne',
+      'cap.o2': 'Réseau de stations sol 24/7 sur quatre continents',
+      'cap.o3': 'API de tâches avec réponse en 45 minutes',
+      'cap.o4': 'Fin de vie gérée, garantie par contrat',
+      'cap.relay': 'Relais terrestre sécurisé', 'cap.relayDesc': 'Des canaux chiffrés entre n’importe quel point de la planète et votre centre de contrôle — navires, plateformes, camps et flottes.',
+      'cap.quote': '« Le relais de Lyra a acheminé nos données terrain au siège en moins de quatre minutes, depuis un navire à 800 km des côtes. Nous avons arrêté de construire nos propres stations. »',
+      'cap.author': 'M. Okafor', 'cap.role': 'Responsable des opérations maritimes, Northstar',
+      'pro.head': 'Séquence de déploiement', 'pro.sub': 'Trois phases, un contrat, zéro surprise.',
+      'pro1.t': 'Étude', 'pro1.d': 'Conception de mission, licences et fenêtre fixe, acceptées par écrit sous 30 jours.',
+      'pro2.t': 'Déploiement', 'pro2.d': 'Intégration, manifeste et lancement. Télémétrie en direct dès le premier contact.',
+      'pro3.t': 'Exploitation', 'pro3.d': 'Constellation livrée, données en flux et une seule facture par an.',
+      'faq.head': 'Questions', 'faq.sub': 'Ce que tout le monde demande avant de signer.',
+      'q1': 'Comment réserver un lancement ?', 'a1': 'Réservez une fenêtre avec un acompte de 10 %. Nous confirmons masse, orbite et date par écrit avant l’intégration de votre charge utile.',
+      'q2': 'Quelles orbites desservez-vous ?', 'a2': 'LEO, SSO et MEO. Pour les orbites hautes, nous travaillons avec des partenaires d’injection géostationnaire — un contrat, un lancement.',
+      'q3': 'À qui appartiennent les données ?', 'a3': 'À vous. Nous livrons des images et une télémétrie brutes ; nous ne revendiquons jamais de droits sur vos données, vos analyses ou vos clients.',
+      'q4': 'Comment les lancements sont-ils assurés ?', 'a4': 'Chaque vol est assuré contre l’échec d’insertion et la perte de charge utile, avec des clauses de marché standard. Les primes sont cotées avant le dépôt.',
+      'q5': 'Que se passe-t-il en fin de vie ?', 'a5': 'Désorbitation sous 25 ans, garantie par contrat, avec des manœuvres de retrait financées dès le lancement — la facture ne vous revient jamais.',
+      'cta.head': 'Prêt pour le décollage ?', 'cta.sub': 'Parlez-nous de votre mission. Réponse sous un jour ouvré, avec un prix et une fenêtre.',
+      'cta.ph': 'Email professionnel', 'cta.btn': 'Demander le manifeste',
+      'ft.tag': 'Infrastructure orbitale à la demande', 'ft.rights': '© 2026 Lyra Dynamics. Tous droits réservés.',
+      'cookie.msg': 'Ce site utilise des cookies pour la télémétrie de mission et l’analyse.', 'cookie.accept': 'Accepter',
+      'meta.title': 'Lyra Dynamics — Infrastructure orbitale, à la demande',
+      'meta.desc': 'Lyra Dynamics conçoit, lance et exploite des systèmes satellitaires : observation terrestre de précision, connectivité mondiale et relais sécurisé. Prix publiés, calendriers fermes.',
+      'form.ok': 'Demande de manifeste reçue. Réponse sous un jour ouvré.'
+    },
+
+    de: {
+      'nav.manifest': 'Manifest', 'nav.constellation': 'Konstellation', 'nav.capabilities': 'Leistungen',
+      'nav.process': 'Ablauf', 'nav.faq': 'FAQ', 'nav.cta': 'Start buchen',
+      'hero.eyebrow': 'Lyra Dynamics · Orbitale Infrastruktur',
+      'hero.h1a': 'Orbitale Infrastruktur', 'hero.h1b': 'Auf Anfrage.',
+      'hero.sub': 'Lyra entwirft, startet und betreibt Satellitensysteme für alle, die den Planeten am Laufen halten – präzise Erdbeobachtung, globale Konnektivität und sichere Relais. Veröffentlichte Preise. Verbindliche Termine.',
+      'hero.cta1': 'Manifest ansehen', 'hero.cta2': 'Start buchen',
+      'hero.launch': 'Nächster Start — Lyra-4 · Cobalt',
+      'cd.d': 'Tage', 'cd.h': 'Std', 'cd.m': 'Min', 'cd.s': 'Sek',
+      'hero.alt': 'Höhe', 'hero.vel': 'Geschw.', 'hero.status': 'Status',
+      'tel.gsd': 'Bodenauflösung', 'tel.revisit': 'Globale Revisit', 'tel.sats': 'Konstellation', 'tel.incl': 'Neigung',
+      'man.head': 'Start-Manifest', 'man.sub': 'Vier Missionen in dieser Saison. Veröffentlichte Fenster, echte Termine.',
+      'm1.name': 'Lyra-1 · Aurora', 'm1.payload': '12 Erdbeobachtungssatelliten', 'm1.orbit': 'LEO · 620 km', 'm1.win': 'Fenster: Mai', 'm1.status': 'Abgeschlossen',
+      'm2.name': 'Lyra-2 · Meridian', 'm2.payload': 'Breitband-Relais-Demonstrator', 'm2.orbit': 'LEO · 1.200 km', 'm2.win': 'Fenster: Juni', 'm2.status': 'Abgeschlossen',
+      'm3.name': 'Lyra-3 · Helios', 'm3.payload': 'Rideshare: 14 Kundennutzlasten', 'm3.orbit': 'SSO · 510 km', 'm3.win': 'Fenster: 28. Aug.', 'm3.status': 'Bevorstehend',
+      'm4.name': 'Lyra-4 · Cobalt', 'm4.payload': 'Dedizierter Start + Konstellationsauffüllung', 'm4.orbit': 'LEO · 620 km', 'm4.win': 'Fenster: 19. Sep.', 'm4.status': 'Bevorstehend',
+      'con.head': 'Die Aurora-Konstellation',
+      'con.sub': 'Zwölf Satelliten in sonnensynchroner Umlaufbahn fotografieren alle 45 Minuten den gesamten Planeten. Keine Wolken, keine Grenzen, keine toten Winkel.',
+      'con.detail': 'Gebaut zum Scannen, nicht zum Driften',
+      'con.detailSub': 'Aurora ist ein arbeitendes Netz, keine Demonstration. Jeder Satellit trägt einen multispektralen Imager mit 0,3 m Bodenauflösung, vernetzt mit seinen Nachbarn, sodass ein Auftrag überall zu einem Bild überall wird.',
+      'con.b1': '0,3 m Bodenauflösung — Fahrzeuge, Schiffe und Infrastruktur aus dem Orbit lesbar',
+      'con.b2': 'Globale Revisit alle 45 Minuten dank sonnensynchroner Phasenlage',
+      'con.b3': '98,6° Neigung — Abdeckung von Pol zu Pol, ohne Ausschlusszonen',
+      'cap.head': 'Leistungen', 'cap.sub': 'Start und Betrieb mit veröffentlichten Preisen und festen Kalendern – keine Discovery-Anrufe nötig.',
+      'cap.launch': 'Startdienste', 'cap.launchDesc': 'Geteilte und dedizierte Flüge in die relevanten Umlaufbahnen. Standardisierte Integration, feste Fenster und eine Preisliste, die sich nicht bewegt.',
+      'cap.s1': 'LEO-Rideshare', 'cap.s2': 'Dedizierter Flug', 'cap.s3': 'Bediente Orbits', 'cap.s4': 'Nutzlastintegration',
+      'cap.ops': 'Konstellationsbetrieb', 'cap.opsDesc': 'Wir bauen das Netz, fliegen es und liefern Ihnen saubere Daten – keine Telemetrie-Hausaufgaben. Ein Vertrag, eine Rechnung, ein verantwortliches Team.',
+      'cap.o1': 'Vollständiges Missionsdesign und Lizenzen, intern',
+      'cap.o2': 'Bodenstationsnetz 24/7 auf vier Kontinenten',
+      'cap.o3': 'Tasking-API mit 45-Minuten-Antwort',
+      'cap.o4': 'Lebensende-Entsorgung, vertraglich garantiert',
+      'cap.relay': 'Sicheres Bodenrelais', 'cap.relayDesc': 'Verschlüsselte Kanäle zwischen jedem Punkt der Erde und Ihrem Kontrollzentrum – Schiffe, Plattformen, Feldlager und Flotten.',
+      'cap.quote': '„Lyras Relais brachte unsere Felddaten in unter vier Minuten zum Hauptquartier – von einem Schiff 800 km vor der Küste. Wir haben aufgehört, eigene Bodenstationen zu bauen.“',
+      'cap.author': 'M. Okafor', 'cap.role': 'Leiterin Maritime Operationen, Northstar',
+      'pro.head': 'Einsatzablauf', 'pro.sub': 'Drei Phasen, ein Vertrag, null Überraschungen.',
+      'pro1.t': 'Studie', 'pro1.d': 'Missionsdesign, Lizenzen und festes Startfenster – schriftlich vereinbart innerhalb von 30 Tagen.',
+      'pro2.t': 'Einsatz', 'pro2.d': 'Integration, Manifest und Start. Live-Telemetrie ab dem ersten Kontakt.',
+      'pro3.t': 'Betrieb', 'pro3.d': 'Konstellation übergeben, Daten fließen, eine Rechnung pro Jahr.',
+      'faq.head': 'Fragen', 'faq.sub': 'Was alle fragen, bevor sie unterschreiben.',
+      'q1': 'Wie buche ich einen Start?', 'a1': 'Reservieren Sie ein Fenster mit einer Anzahlung von 10 %. Wir bestätigen Masse, Orbit und Datum schriftlich, bevor Ihre Nutzlast integriert wird.',
+      'q2': 'Welche Umlaufbahnen bedienen Sie?', 'a2': 'LEO, SSO und MEO. Für hohe Orbits arbeiten wir mit Partnern für geostationäre Injektion – ein Vertrag, ein Start.',
+      'q3': 'Wem gehören die Daten?', 'a3': 'Ihnen. Wir liefern Rohbilder und Telemetrie; wir erheben niemals Anspruch auf Ihre Daten, Ihre Analysen oder Ihre Kunden.',
+      'q4': 'Wie sind Starts versichert?', 'a4': 'Jeder Flug ist gegen Injektionsfehler und Nutzlastverlust versichert, mit marktüblichen Klauseln. Die Prämien werden vor der Anzahlung genannt.',
+      'q5': 'Was passiert am Ende der Lebensdauer?', 'a5': 'Deorbit innerhalb von 25 Jahren, vertraglich garantiert, mit Rückführungsmanövern, die schon beim Start finanziert sind – die Rechnung trifft nie Sie.',
+      'cta.head': 'Bereit für den Start?', 'cta.sub': 'Erzählen Sie uns von Ihrer Mission. Antwort innerhalb eines Werktags, mit Preis und Fenster.',
+      'cta.ph': 'Geschäfts-E-Mail', 'cta.btn': 'Manifest anfordern',
+      'ft.tag': 'Orbitale Infrastruktur auf Anfrage', 'ft.rights': '© 2026 Lyra Dynamics. Alle Rechte vorbehalten.',
+      'cookie.msg': 'Diese Website verwendet Cookies für Missionstelemetrie und Analysen.', 'cookie.accept': 'Akzeptieren',
+      'meta.title': 'Lyra Dynamics — Orbitale Infrastruktur, auf Anfrage',
+      'meta.desc': 'Lyra Dynamics entwirft, startet und betreibt Satellitensysteme: präzise Erdbeobachtung, globale Konnektivität und sichere Relais. Veröffentlichte Preise, feste Termine.',
+      'form.ok': 'Manifest-Anfrage erhalten. Antwort innerhalb eines Werktags.'
+    },
+
+    it: {
+      'nav.manifest': 'Manifesto', 'nav.constellation': 'Costellazione', 'nav.capabilities': 'Capacità',
+      'nav.process': 'Processo', 'nav.faq': 'FAQ', 'nav.cta': 'Prenota un lancio',
+      'hero.eyebrow': 'Lyra Dynamics · Infrastruttura orbitale',
+      'hero.h1a': 'Infrastruttura orbitale', 'hero.h1b': 'Su richiesta.',
+      'hero.sub': 'Lyra progetta, lancia e gestisce sistemi satellitari per chi tiene in moto il pianeta: osservazione terrestre di precisione, connettività globale e relè sicuro. Prezzi pubblicati. Tempi fermi.',
+      'hero.cta1': 'Vedi manifesto', 'hero.cta2': 'Prenota un lancio',
+      'hero.launch': 'Prossimo lancio — Lyra-4 · Cobalt',
+      'cd.d': 'Giorni', 'cd.h': 'Ore', 'cd.m': 'Min', 'cd.s': 'Sec',
+      'hero.alt': 'Quota', 'hero.vel': 'Vel.', 'hero.status': 'Stato',
+      'tel.gsd': 'Risoluzione al suolo', 'tel.revisit': 'Revisit globale', 'tel.sats': 'Costellazione', 'tel.incl': 'Inclinazione',
+      'man.head': 'Manifesto di lancio', 'man.sub': 'Quattro missioni in questa stagione. Finestre pubblicate, scadenze reali.',
+      'm1.name': 'Lyra-1 · Aurora', 'm1.payload': '12 satelliti di osservazione terrestre', 'm1.orbit': 'LEO · 620 km', 'm1.win': 'Finestra: maggio', 'm1.status': 'Completato',
+      'm2.name': 'Lyra-2 · Meridian', 'm2.payload': 'Dimostratore relè a banda larga', 'm2.orbit': 'LEO · 1.200 km', 'm2.win': 'Finestra: giugno', 'm2.status': 'Completato',
+      'm3.name': 'Lyra-3 · Helios', 'm3.payload': 'Rideshare: 14 payload di clienti', 'm3.orbit': 'SSO · 510 km', 'm3.win': 'Finestra: 28 ago', 'm3.status': 'In arrivo',
+      'm4.name': 'Lyra-4 · Cobalt', 'm4.payload': 'Lancio dedicato + riempimento costellazione', 'm4.orbit': 'LEO · 620 km', 'm4.win': 'Finestra: 19 set', 'm4.status': 'In arrivo',
+      'con.head': 'La costellazione Aurora',
+      'con.sub': 'Dodici satelliti in orbita eliosincrona fotografano l’intero pianeta ogni 45 minuti. Niente nuvole, niente confini, niente punti ciechi.',
+      'con.detail': 'Costruita per scansionare, non per derivare',
+      'con.detailSub': 'Aurora è una rete operativa, non una dimostrazione. Ogni satellite porta un imager multispettrale con risoluzione al suolo di 0,3 m, collegato ai vicini perché un task ovunque diventi un’immagine ovunque.',
+      'con.b1': 'Risoluzione di 0,3 m — veicoli, navi e infrastrutture leggibili dall’orbita',
+      'con.b2': 'Revisit globale ogni 45 minuti grazie al phasing eliosincrono',
+      'con.b3': 'Inclinazione di 98,6° — copertura da polo a polo, senza zone di esclusione',
+      'cap.head': 'Capacità', 'cap.sub': 'Lancio e gestione con prezzi pubblicati e calendari fermi: nessuna discovery call.',
+      'cap.launch': 'Servizi di lancio', 'cap.launchDesc': 'Voli condivisi e dedicati verso le orbite che contano. Integrazione standardizzata, finestre fisse e un listino che non si muove.',
+      'cap.s1': 'Rideshare LEO', 'cap.s2': 'Volo dedicato', 'cap.s3': 'Orbite servite', 'cap.s4': 'Integrazione payload',
+      'cap.ops': 'Gestione costellazioni', 'cap.opsDesc': 'Costruiamo la rete, la pilotiamo e ti consegniamo dati puliti — non compiti di telemetria. Un contratto, una fattura, un team responsabile.',
+      'cap.o1': 'Progettazione missione e licenze complete, in-house',
+      'cap.o2': 'Rete di stazioni a terra 24/7 su quattro continenti',
+      'cap.o3': 'API di tasking con risposta in 45 minuti',
+      'cap.o4': 'Ritiro a fine vita, garantito da contratto',
+      'cap.relay': 'Relè terrestre sicuro', 'cap.relayDesc': 'Canali cifrati tra qualsiasi punto del pianeta e il tuo centro di controllo: navi, piattaforme, campi e flotte.',
+      'cap.quote': '«Il relè di Lyra ha portato i nostri dati di campo al quartier generale in meno di quattro minuti, da una nave a 800 km dalla costa. Abbiamo smesso di costruire stazioni nostre.»',
+      'cap.author': 'M. Okafor', 'cap.role': 'Responsabile operazioni marittime, Northstar',
+      'pro.head': 'Sequenza di schieramento', 'pro.sub': 'Tre fasi, un contratto, zero sorprese.',
+      'pro1.t': 'Studio', 'pro1.d': 'Progettazione missione, licenze e finestra fissa, concordate per iscritto entro 30 giorni.',
+      'pro2.t': 'Schieramento', 'pro2.d': 'Integrazione, manifesto e lancio. Telemetria in diretta dal primo contatto.',
+      'pro3.t': 'Operazione', 'pro3.d': 'Costellazione consegnata, dati in flusso e una sola fattura all’anno.',
+      'faq.head': 'Domande', 'faq.sub': 'Quello che tutti chiedono prima di firmare.',
+      'q1': 'Come prenoto un lancio?', 'a1': 'Prenota una finestra con un acconto del 10%. Confermiamo massa, orbita e data per iscritto prima dell’integrazione del payload.',
+      'q2': 'Quali orbite servite?', 'a2': 'LEO, SSO e MEO. Per le orbite alte lavoriamo con partner di iniezione geostazionaria: un contratto, un lancio.',
+      'q3': 'A chi appartengono i dati?', 'a3': 'A te. Consegniamo immagini e telemetria grezze; non rivendichiamo mai diritti sui tuoi dati, le tue analisi o i tuoi clienti.',
+      'q4': 'Come sono assicurati i lanci?', 'a4': 'Ogni volo è assicurato contro il fallimento di inserimento e la perdita del payload, con clausole standard di mercato. I premi sono quotati prima del deposito.',
+      'q5': 'Cosa succede a fine vita?', 'a5': 'Deorbitazione entro 25 anni, garantita da contratto, con manovre di ritiro finanziate dal lancio: la fattura non arriva mai a te.',
+      'cta.head': 'Pronti al decollo?', 'cta.sub': 'Raccontaci la tua missione. Rispondiamo entro un giorno lavorativo, con prezzo e finestra.',
+      'cta.ph': 'Email lavorativa', 'cta.btn': 'Richiedi manifesto',
+      'ft.tag': 'Infrastruttura orbitale su richiesta', 'ft.rights': '© 2026 Lyra Dynamics. Tutti i diritti riservati.',
+      'cookie.msg': 'Questo sito usa cookie per telemetria di missione e analisi.', 'cookie.accept': 'Accetta',
+      'meta.title': 'Lyra Dynamics — Infrastruttura orbitale, su richiesta',
+      'meta.desc': 'Lyra Dynamics progetta, lancia e gestisce sistemi satellitari: osservazione terrestre di precisione, connettività globale e relè sicuro. Prezzi pubblicati, tempi fermi.',
+      'form.ok': 'Richiesta manifesto ricevuta. Rispondiamo entro un giorno lavorativo.'
+    },
+
+    pt: {
+      'nav.manifest': 'Manifesto', 'nav.constellation': 'Constelação', 'nav.capabilities': 'Capacidades',
+      'nav.process': 'Processo', 'nav.faq': 'FAQ', 'nav.cta': 'Reservar lançamento',
+      'hero.eyebrow': 'Lyra Dynamics · Infraestrutura orbital',
+      'hero.h1a': 'Infraestrutura orbital', 'hero.h1b': 'Sob demanda.',
+      'hero.sub': 'A Lyra projeta, lança e opera sistemas de satélites para quem mantém o planeta em funcionamento: observação terrestre de precisão, conectividade global e retransmissão segura. Preços publicados. Prazos firmes.',
+      'hero.cta1': 'Ver manifesto', 'hero.cta2': 'Reservar lançamento',
+      'hero.launch': 'Próximo lançamento — Lyra-4 · Cobalto',
+      'cd.d': 'Dias', 'cd.h': 'Horas', 'cd.m': 'Min', 'cd.s': 'Seg',
+      'hero.alt': 'Alt', 'hero.vel': 'Vel', 'hero.status': 'Estado',
+      'tel.gsd': 'Resolução no solo', 'tel.revisit': 'Revisita global', 'tel.sats': 'Constelação', 'tel.incl': 'Inclinação',
+      'man.head': 'Manifesto de lançamento', 'man.sub': 'Quatro missões nesta temporada. Janelas publicadas, prazos reais.',
+      'm1.name': 'Lyra-1 · Aurora', 'm1.payload': '12 satélites de observação terrestre', 'm1.orbit': 'LEO · 620 km', 'm1.win': 'Janela: maio', 'm1.status': 'Concluído',
+      'm2.name': 'Lyra-2 · Meridian', 'm2.payload': 'Demonstrador de retransmissão de banda larga', 'm2.orbit': 'LEO · 1.200 km', 'm2.win': 'Janela: junho', 'm2.status': 'Concluído',
+      'm3.name': 'Lyra-3 · Helios', 'm3.payload': 'Rideshare: 14 cargas úteis de clientes', 'm3.orbit': 'SSO · 510 km', 'm3.win': 'Janela: 28 ago', 'm3.status': 'Em breve',
+      'm4.name': 'Lyra-4 · Cobalto', 'm4.payload': 'Lançamento dedicado + preenchimento da constelação', 'm4.orbit': 'LEO · 620 km', 'm4.win': 'Janela: 19 set', 'm4.status': 'Em breve',
+      'con.head': 'A constelação Aurora',
+      'con.sub': 'Doze satélites em órbita heliossíncrona fotografam o planeta inteiro a cada 45 minutos. Sem nuvens, sem fronteiras, sem pontos cegos.',
+      'con.detail': 'Feita para escanear, não para derivar',
+      'con.detailSub': 'Aurora é uma rede operacional, não uma demonstração. Cada satélite carrega um imageador multiespectral com resolução de 0,3 m no solo, interligado aos vizinhos para que uma tarefa em qualquer lugar vire uma imagem em qualquer lugar.',
+      'con.b1': 'Resolução de 0,3 m — veículos, embarcações e infraestrutura legíveis da órbita',
+      'con.b2': 'Revisita global a cada 45 minutos com faseamento heliossíncrono',
+      'con.b3': 'Inclinação de 98,6° — cobertura de polo a polo, sem zonas de exclusão',
+      'cap.head': 'Capacidades', 'cap.sub': 'Lançamento e operação com preços publicados e calendários firmes — sem discovery calls.',
+      'cap.launch': 'Serviços de lançamento', 'cap.launchDesc': 'Voos compartilhados e dedicados para as órbitas que importam. Integração padronizada, janelas fixas e uma tabela de preços que não muda.',
+      'cap.s1': 'Rideshare LEO', 'cap.s2': 'Voo dedicado', 'cap.s3': 'Órbitas atendidas', 'cap.s4': 'Integração de carga útil',
+      'cap.ops': 'Operação de constelações', 'cap.opsDesc': 'Construímos a rede, voamos a rede e entregamos dados limpos — não lição de telemetria. Um contrato, uma fatura, um time responsável.',
+      'cap.o1': 'Projeto de missão e licenças completos, internos',
+      'cap.o2': 'Rede de estações terrestres 24/7 em quatro continentes',
+      'cap.o3': 'API de tasking com resposta em 45 minutos',
+      'cap.o4': 'Descarte em fim de vida, garantido por contrato',
+      'cap.relay': 'Retransmissão terrestre segura', 'cap.relayDesc': 'Canais criptografados entre qualquer ponto do planeta e seu centro de controle: navios, plataformas, acampamentos e frotas.',
+      'cap.quote': '“A retransmissão da Lyra levou nossos dados de campo à sede em menos de quatro minutos, de um navio a 800 km da costa. Paramos de construir estações próprias.”',
+      'cap.author': 'M. Okafor', 'cap.role': 'Diretora de operações marítimas, Northstar',
+      'pro.head': 'Sequência de implantação', 'pro.sub': 'Três fases, um contrato, zero surpresas.',
+      'pro1.t': 'Estudo', 'pro1.d': 'Projeto de missão, licenças e janela fixa, acordados por escrito em 30 dias.',
+      'pro2.t': 'Implantação', 'pro2.d': 'Integração, manifesto e lançamento. Telemetria ao vivo desde o primeiro contato.',
+      'pro3.t': 'Operação', 'pro3.d': 'Constelação entregue, dados fluindo e uma única fatura por ano.',
+      'faq.head': 'Perguntas', 'faq.sub': 'O que todo mundo pergunta antes de assinar.',
+      'q1': 'Como reservo um lançamento?', 'a1': 'Reserve uma janela com um depósito de 10%. Confirmamos massa, órbita e data por escrito antes da integração da carga útil.',
+      'q2': 'Quais órbitas vocês atendem?', 'a2': 'LEO, SSO e MEO. Para órbitas altas, trabalhamos com parceiros de injeção geoestacionária: um contrato, um lançamento.',
+      'q3': 'De quem são os dados?', 'a3': 'Seus. Entregamos imagens e telemetria brutas; nunca reivindicamos direitos sobre seus dados, suas análises ou seus clientes.',
+      'q4': 'Como os lançamentos são segurados?', 'a4': 'Cada voo é segurado contra falha de inserção e perda de carga útil, com cláusulas padrão de mercado. Os prêmios são cotados antes do depósito.',
+      'q5': 'O que acontece no fim da vida útil?', 'a5': 'Desorbitação em menos de 25 anos, garantida por contrato, com manobras de retirada financiadas desde o lançamento: a conta nunca chega para você.',
+      'cta.head': 'Pronto para decolar?', 'cta.sub': 'Conte-nos sobre sua missão. Respondemos em um dia útil, com preço e janela.',
+      'cta.ph': 'E-mail de trabalho', 'cta.btn': 'Solicitar manifesto',
+      'ft.tag': 'Infraestrutura orbital sob demanda', 'ft.rights': '© 2026 Lyra Dynamics. Todos os direitos reservados.',
+      'cookie.msg': 'Este site usa cookies para telemetria de missão e análise.', 'cookie.accept': 'Aceitar',
+      'meta.title': 'Lyra Dynamics — Infraestrutura orbital, sob demanda',
+      'meta.desc': 'A Lyra Dynamics projeta, lança e opera sistemas de satélites: observação terrestre de precisão, conectividade global e retransmissão segura. Preços publicados, prazos firmes.',
+      'form.ok': 'Solicitação de manifesto recebida. Respondemos em um dia útil.'
+    }
+  };
+
+  var LANGS = ['en', 'es', 'fr', 'de', 'it', 'pt'];
+
+  function detectLang() {
+    var stored = null;
+    try { stored = localStorage.getItem('kairos-lang'); } catch (e) {}
+    if (stored && LANGS.indexOf(stored) !== -1) return stored;
+    var nav = (navigator.language || 'en').toLowerCase().slice(0, 2);
+    return LANGS.indexOf(nav) !== -1 ? nav : 'en';
+  }
+
+  function applyLang(lang) {
+    var dict = I18N[lang];
+    if (!dict) return;
+    document.documentElement.lang = lang;
+    document.title = dict['meta.title'];
+    var metas = {
+      'meta[name="description"]': 'meta.desc',
+      'meta[property="og:title"]': 'meta.title',
+      'meta[property="og:description"]': 'meta.desc',
+      'meta[name="twitter:title"]': 'meta.title',
+      'meta[name="twitter:description"]': 'meta.desc'
+    };
+    Object.keys(metas).forEach(function (sel) {
+      var el = document.querySelector(sel);
+      if (el) el.setAttribute('content', dict[metas[sel]]);
+    });
+    document.querySelectorAll('[data-i18n]').forEach(function (el) {
+      var key = el.getAttribute('data-i18n');
+      if (dict[key]) el.textContent = dict[key];
+    });
+    document.querySelectorAll('[data-i18n-ph]').forEach(function (el) {
+      var key = el.getAttribute('data-i18n-ph');
+      if (dict[key]) el.setAttribute('placeholder', dict[key]);
+    });
+    document.querySelectorAll('.lang-select__cur').forEach(function (el) {
+      el.textContent = lang.toUpperCase();
+    });
+    document.querySelectorAll('.lang-select__opt').forEach(function (opt) {
+      opt.setAttribute('aria-selected', opt.getAttribute('data-lang') === lang ? 'true' : 'false');
+    });
+    try { localStorage.setItem('kairos-lang', lang); } catch (e) {}
+  }
+
+  var currentLang = detectLang();
+  applyLang(currentLang);
+
+  function closeLangMenu() {
+    document.querySelectorAll('.lang-select').forEach(function (sel) {
+      var menu = sel.querySelector('.lang-select__menu');
+      var btn = sel.querySelector('.lang-select__btn');
+      if (!menu) return;
+      menu.classList.remove('open');
+      if (btn) btn.setAttribute('aria-expanded', 'false');
+    });
+  }
+  document.querySelectorAll('.lang-select').forEach(function (sel) {
+    var langBtn = sel.querySelector('.lang-select__btn');
+    var langMenuBox = sel.querySelector('.lang-select__menu');
+    if (!langBtn || !langMenuBox) return;
+    langBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var open = langMenuBox.classList.toggle('open');
+      langBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    document.addEventListener('click', function (e) {
+      if (!sel.contains(e.target)) closeLangMenu();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeLangMenu();
+    });
+    langMenuBox.querySelectorAll('.lang-select__opt').forEach(function (opt) {
+      opt.addEventListener('click', function () {
+        currentLang = opt.getAttribute('data-lang');
+        applyLang(currentLang);
+        closeLangMenu();
+      });
+    });
+  });
+
+  /* ================= NAV ================= */
+  var nav = document.getElementById('nav');
+  function onScrollNav() {
+    if (window.scrollY > 24) nav.classList.add('nav-scrolled');
+    else nav.classList.remove('nav-scrolled');
+  }
+  window.addEventListener('scroll', onScrollNav, { passive: true });
+  onScrollNav();
+
+  var burger = document.getElementById('burger');
+  var menu = document.getElementById('mobileMenu');
+  burger.addEventListener('click', function () {
+    var open = menu.classList.toggle('open');
+    burger.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    menu.setAttribute('aria-hidden', open ? 'false' : 'true');
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  menu.querySelectorAll('a').forEach(function (a) {
+    a.addEventListener('click', function () {
+      menu.classList.remove('open');
+      burger.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+
+  /* ================= COUNTDOWN ================= */
+  var TARGET = Date.now() + ((13 * 24 + 9) * 3600 + 42 * 60) * 1000; // Lyra-4 window: 13d 9h 42m out
+  function tick() {
+    var diff = Math.max(0, TARGET - Date.now());
+    var d = Math.floor(diff / 86400000);
+    var h = Math.floor((diff % 86400000) / 3600000);
+    var m = Math.floor((diff % 3600000) / 60000);
+    var s = Math.floor((diff % 60000) / 1000);
+    var pad = function (n) { return n < 10 ? '0' + n : '' + n; };
+    document.getElementById('cd-d').textContent = pad(d);
+    document.getElementById('cd-h').textContent = pad(h);
+    document.getElementById('cd-m').textContent = pad(m);
+    document.getElementById('cd-s').textContent = pad(s);
+  }
+  tick();
+  setInterval(tick, 1000);
+
+  /* ================= REVEAL ON SCROLL ================= */
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var revealEls = document.querySelectorAll('.reveal');
+  if (reduceMotion || !('IntersectionObserver' in window)) {
+    revealEls.forEach(function (el) { el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(function (el) { io.observe(el); });
+  }
+
+  /* ================= FAQ ================= */
+  document.querySelectorAll('.faq-q').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var item = btn.closest('.faq-item');
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function (el) {
+        el.classList.remove('open');
+        el.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  /* ================= FORM ================= */
+  var form = document.getElementById('missionForm');
+  var note = document.getElementById('formNote');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var email = document.getElementById('email');
+    if (!email.value || email.value.indexOf('@') === -1) {
+      note.textContent = '';
+      note.style.color = 'var(--warn)';
+      note.textContent = 'ERR';
+      email.focus();
+      return;
+    }
+    note.style.color = '';
+    note.textContent = I18N[currentLang]['form.ok'];
+    form.reset();
+  });
+
+  /* ================= COOKIE ================= */
+  var cookie = document.getElementById('cookie');
+  var cookieAccepted = false;
+  try { cookieAccepted = localStorage.getItem('kairos-cookie') === 'accepted'; } catch (e) {}
+  if (!cookieAccepted) {
+    setTimeout(function () { cookie.classList.add('show'); }, 3000);
+  }
+  document.getElementById('cookieAccept').addEventListener('click', function () {
+    cookie.classList.remove('show');
+    try { localStorage.setItem('kairos-cookie', 'accepted'); } catch (e) {}
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,1420 @@
+<!DOCTYPE html>
+<html lang="es" class="no-js" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="doc-title">FORJA — Herreros y cobre desde 1949 · Madrid</title>
+<meta id="meta-desc" name="description" content="FORJA es un taller familiar de herrería y cobre en Madrid. Puertas, barandillas y piezas únicas forjadas a mano, desde 1949.">
+<link rel="canonical" href="https://proyectos.cristiancode.dev/landings/2026-08-21-forja.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="FORJA — Herreros y cobre desde 1949">
+<meta property="og:description" content="Puertas, barandillas y piezas únicas de hierro y cobre, forjadas a mano en Madrid desde 1949.">
+<meta property="og:url" content="https://proyectos.cristiancode.dev/landings/2026-08-21-forja.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="FORJA — Herreros y cobre desde 1949">
+<meta name="twitter:description" content="Piezas únicas de hierro y cobre, forjadas a mano en Madrid desde 1949.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23161310'/><path d='M28 62 L72 62 L72 54 L28 54 Z' fill='%23B04A1C'/><path d='M50 38 L50 54 M38 38 L38 54 M62 38 L62 54' stroke='%23B04A1C' stroke-width='7' stroke-linecap='round'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   DESIGN SYSTEM — FORJA · Forja y cobre
+   Surface: Decide/Learn (landing; Obra = Explore secundario)
+   Derived from: Original — forge-journal editorial
+   Family: Artesanía / Herrería y cobre
+   Style: Editorial industrial — papel calizo, carbón,
+          cobre forjado, puerta dibujada con stroke-dash
+   Strategy: Committed (carbón 30-40% + cobre ≤12%, papel 50%)
+   Type: Fraunces (display serif óptico) + Figtree (humanist body)
+   ============================================================ */
+:root{
+  --bg:#F4F3F1; --surface:#E8E4DE; --ink:#1C1814; --muted:#5C534A;
+  --line:#D9D2C8; --line-strong:#BDB4A6;
+  --stage:#161310; --stage-2:#0E0C0A; --stage-ink:#F4F3F1; --stage-muted:#BFB3A5;
+  --copper:#8C3814; --cta:#9A3F16; --cta-hover:#B04A1C; --cta-ink:#FFFFFF;
+  --hot:#D7642E; --dust:#7A6F5F;
+  --serif:'Fraunces',Georgia,'Times New Roman',serif;
+  --sans:'Figtree',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --ease:cubic-bezier(.16,1,.3,1); --r:14px; --r-sm:8px;
+  --shadow-card:0 1px 2px rgba(28,24,20,.06),0 10px 30px -14px rgba(28,24,20,.22);
+}
+[data-theme="dark"]{
+  --bg:#161310; --surface:#221E1A; --ink:#F4F3F1; --muted:#BFB3A5;
+  --line:#332D26; --line-strong:#4A4238;
+  --stage:#0E0C0A; --stage-2:#000000; --stage-ink:#F4F3F1; --stage-muted:#C4B8AC;
+  --copper:#E08A5C; --cta:#A3481A; --cta-hover:#B85728; --cta-ink:#FFFFFF;
+  --shadow-card:0 1px 2px rgba(0,0,0,.4),0 14px 34px -16px rgba(0,0,0,.55);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+html.no-js .rv,html.no-js .draw{opacity:1;transform:none}
+@media print{.rv,.draw{opacity:1;transform:none}}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased;text-wrap:pretty}
+h1,h2,h3{font-family:var(--serif);line-height:1.08;letter-spacing:-.02em;text-wrap:balance;font-weight:600}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit}
+img,svg{display:block;max-width:100%}
+.container{width:min(1160px,92%);margin-inline:auto}
+.skip{position:absolute;left:-999px;top:0;background:var(--cta);color:var(--cta-ink);padding:.7rem 1.1rem;z-index:200;border-radius:0 0 var(--r-sm) 0}
+.skip:focus{left:0;top:0}
+.visually-hidden{position:absolute;width:1px;height:1px;margin:-1px;padding:0;border:0;clip:rect(0 0 0 0);overflow:hidden}
+:focus-visible{outline:2px solid var(--copper);outline-offset:3px;border-radius:3px}
+
+/* Nav */
+.nav{position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:1px solid var(--line)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.85rem 0}
+.brand{display:flex;align-items:center;gap:.6rem;font-family:var(--serif);font-weight:700;font-size:1.25rem;letter-spacing:-.02em}
+.brand svg{width:30px;height:30px}
+.brand em{font-style:normal;color:var(--copper)}
+.nav-links{display:flex;align-items:center;gap:1.5rem}
+.nav-links a{font-size:.95rem;font-weight:500;color:var(--muted);transition:color .2s ease}
+.nav-links a:hover{color:var(--ink)}
+.nav-actions{display:flex;align-items:center;gap:.55rem}
+.icon-btn{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--ink);display:grid;place-items:center;cursor:pointer;transition:border-color .2s ease,color .2s ease}
+.icon-btn:hover{border-color:var(--copper);color:var(--copper)}
+.burger{display:none}
+.lang-select{position:relative}
+.lang-select__btn{display:inline-flex;align-items:center;gap:.4rem;height:40px;padding:0 .9rem;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font-size:.85rem;font-weight:600;cursor:pointer;transition:border-color .2s ease}
+.lang-select__btn:hover{border-color:var(--copper)}
+.lang-select__chevr{transition:transform .25s ease}
+.lang-select__btn[aria-expanded="true"] .lang-select__chevr{transform:rotate(180deg)}
+.lang-select__menu{position:absolute;right:0;top:calc(100% + 8px);min-width:176px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-sm);padding:.4rem;box-shadow:var(--shadow-card);opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .2s ease,transform .2s ease,visibility .2s;z-index:120}
+.lang-select__menu.open{opacity:1;visibility:visible;transform:translateY(0)}
+.lang-select__opt{display:flex;align-items:center;gap:.5rem;width:100%;padding:.55rem .75rem;border:none;background:none;border-radius:6px;font-size:.9rem;color:var(--ink);text-align:left;cursor:pointer;transition:background .15s ease}
+.lang-select__opt:hover{background:rgba(140,56,20,.08)}
+.lang-select__opt[aria-selected="true"]{color:var(--copper);font-weight:700}
+.lang-select__opt[aria-selected="true"]::after{content:'\2713';margin-left:auto}
+.mobile-menu{display:none;border-top:1px solid var(--line);padding:1rem 0 1.4rem}
+.mobile-menu.open{display:block}
+.mobile-menu a{display:block;padding:.7rem 0;font-size:1.05rem;font-weight:500;color:var(--ink)}
+.mobile-menu a.btn-primary,.mobile-menu a.btn-cta-mobile{
+  display:inline-flex;align-items:center;justify-content:center;
+  color:#fff;background:var(--cta);
+  padding:.75rem 1.4rem;border-radius:999px;
+}
+.mobile-menu a.btn-primary:hover,.mobile-menu a.btn-cta-mobile:hover{background:var(--cta-hover);color:#fff}
+.mobile-menu .mm-actions{margin-top:.9rem;display:flex;gap:.6rem;flex-wrap:wrap}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:.5rem;border-radius:999px;font-weight:600;font-size:.98rem;padding:.85rem 1.6rem;border:1px solid transparent;cursor:pointer;transition:background .25s ease,color .25s ease,border-color .25s ease,transform .2s ease}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary,.btn-primary:visited{background:var(--cta);color:#fff}
+.btn-primary:hover{background:var(--cta-hover);color:#fff}
+.btn-ghost{border-color:var(--line-strong);color:var(--ink);background:transparent}
+.btn-ghost:hover{border-color:var(--copper);color:var(--copper)}
+.btn-white{background:var(--stage-ink);color:var(--stage)}
+.btn-white:hover{background:#FFFFFF}
+
+/* Hero */
+.hero{position:relative;padding:clamp(3.2rem,7vw,6rem) 0 clamp(3rem,6vw,5.5rem);overflow:hidden;background:
+  radial-gradient(900px 420px at 88% -10%, rgba(140,56,20,.10), transparent 60%),
+  var(--bg)}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
+.hero-kicker{display:inline-flex;align-items:center;gap:.5rem;font-size:.82rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--copper);margin-bottom:1.2rem}
+.hero-kicker::before{content:'';width:26px;height:2px;background:var(--copper)}
+.hero h1{font-size:clamp(2.5rem,5.4vw,4.6rem);font-weight:600;line-height:1.02}
+.hero h1 em{font-style:italic;color:var(--copper)}
+.hero-sub{margin-top:1.3rem;font-size:clamp(1.05rem,1.4vw,1.2rem);color:var(--muted);max-width:46ch}
+.hero-actions{display:flex;gap:.8rem;margin-top:2rem;flex-wrap:wrap}
+.hero-note{margin-top:2.2rem;display:flex;align-items:center;gap:.7rem;font-size:.9rem;color:var(--muted)}
+.hero-note .yr{font-family:var(--serif);font-size:1.25rem;font-weight:700;color:var(--ink)}
+
+/* Forge door SVG */
+.forge{position:relative;width:100%;max-width:480px;margin-inline:auto}
+.forge .frame-caption{position:absolute;bottom:-1.9rem;left:0;right:0;text-align:center;font-size:.82rem;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.draw{stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.1s var(--ease);stroke-linecap:round;stroke-linejoin:round}
+.draw.in{stroke-dashoffset:0}
+.draw-fade{opacity:0;transition:opacity .7s ease}
+.draw-fade.in{opacity:1}
+@media (max-width:760px){.hero-grid{grid-template-columns:1fr}.forge{margin-top:2.6rem}}
+
+/* Marquee ribbon */
+.ribbon{background:var(--stage);color:var(--stage-ink);padding:.9rem 0;overflow:hidden;position:relative}
+.ribbon-track{display:flex;gap:3rem;white-space:nowrap;animation:ribbon 26s linear infinite;width:max-content}
+.ribbon span{font-family:var(--serif);font-style:italic;font-size:1.02rem;color:var(--stage-muted)}
+.ribbon b{font-weight:600;color:var(--stage-ink)}
+@keyframes ribbon{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.ribbon-track{animation:none;flex-wrap:wrap}}
+
+/* Sections */
+.section{padding:clamp(3.6rem,7vw,6rem) 0}
+.section-head{max-width:64ch;margin-bottom:clamp(2.2rem,4vw,3.4rem)}
+.section-title{font-size:clamp(1.9rem,3.6vw,2.9rem)}
+.section-lead{margin-top:.9rem;color:var(--muted);font-size:1.08rem;max-width:58ch}
+.kicker{font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--copper);margin-bottom:.8rem;display:block}
+
+/* Craft process — real sequence, numbers justified */
+.craft{background:var(--surface)}
+.craft-list{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.craft-item{background:var(--bg);border:1px solid var(--line);border-radius:var(--r);padding:1.8rem 1.6rem;position:relative;overflow:hidden}
+.craft-item::after{content:'';position:absolute;top:0;right:0;width:38%;height:100%;background:repeating-linear-gradient(135deg,transparent 0 10px,rgba(140,56,20,.045) 10px 20px);pointer-events:none}
+.craft-num{font-family:var(--serif);font-weight:700;font-size:2rem;color:var(--copper);display:block;line-height:1}
+.craft-item h3{font-size:1.28rem;margin:.7rem 0 .5rem}
+.craft-item p{font-size:.96rem;color:var(--muted)}
+@media (max-width:900px){.craft-list{grid-template-columns:1fr;gap:.8rem}}
+
+/* Works — varied layouts, no identical card grid */
+.works-grid{display:grid;gap:2.2rem}
+.work-card{border:1px solid var(--line);border-radius:calc(var(--r) + 6px);overflow:hidden;background:var(--surface)}
+.work-wide{display:grid;grid-template-columns:1fr 1fr;align-items:stretch}
+.work-wide .work-art{background:#1C1814;min-height:340px;display:grid;place-items:center;padding:2rem}
+.work-wide .work-body{padding:2.4rem}
+.work-tall{display:grid;grid-template-columns:1fr}
+.work-tall .work-art{background:var(--stage);min-height:300px;display:grid;place-items:center;padding:2rem}
+.work-tall .work-body{padding:2.2rem 2.4rem 2.6rem}
+.work-minimal{background:var(--bg);border-style:dashed;border-color:var(--line-strong)}
+.work-minimal .work-body{padding:2.2rem 2.4rem 2.6rem;display:grid;grid-template-columns:1.2fr .8fr;gap:2rem;align-items:center}
+.work-tag{font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--copper)}
+.work-body h3{font-size:1.55rem;margin:.5rem 0 .6rem}
+.work-body p{color:var(--muted);font-size:.99rem}
+.work-meta{margin-top:1.2rem;font-size:.85rem;color:var(--muted);display:flex;gap:.9rem;flex-wrap:wrap}
+.work-meta b{color:var(--ink);font-weight:600}
+@media (max-width:880px){.work-wide{grid-template-columns:1fr}.work-minimal .work-body{grid-template-columns:1fr}}
+
+/* Quote */
+.quote{background:var(--stage);color:var(--stage-ink);position:relative;overflow:hidden}
+.quote::before{content:'\201C';position:absolute;top:-3.2rem;left:2rem;font-family:var(--serif);font-size:17rem;line-height:1;color:rgba(180,74,28,.28);pointer-events:none}
+.quote-inner{max-width:840px;margin-inline:auto;text-align:left;position:relative;z-index:1}
+.quote blockquote{font-family:var(--serif);font-size:clamp(1.5rem,3vw,2.2rem);line-height:1.22;font-style:italic;letter-spacing:-.01em}
+.quote blockquote b{font-style:normal;color:#E08A5C}
+.quote cite{display:block;margin-top:1.6rem;font-style:normal;color:var(--stage-muted);font-size:.95rem}
+.quote cite strong{color:var(--stage-ink)}
+
+/* Pricing / Encargos — Compare with one featured */
+.pricing{background:var(--surface)}
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;align-items:stretch}
+.price-card{background:var(--bg);border:1px solid var(--line);border-radius:var(--r);padding:2rem 1.7rem;display:flex;flex-direction:column}
+.price-card h3{font-size:1.25rem}
+.price-card .desc{margin:.6rem 0 1.2rem;font-size:.95rem;color:var(--muted)}
+.price{font-family:var(--serif);font-size:2.1rem;font-weight:700;color:var(--ink)}
+.price small{font-family:var(--sans);font-size:.85rem;color:var(--muted);font-weight:400}
+.price-feats{list-style:none;margin:1.2rem 0 1.6rem;display:grid;gap:.55rem}
+.price-feats li{font-size:.93rem;color:var(--muted);display:flex;gap:.6rem;align-items:flex-start}
+.price-feats li::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--copper);margin-top:.55rem;flex:none}
+.price-card .btn{margin-top:auto}
+.price-featured{background:var(--stage);color:var(--stage-ink);border-color:var(--stage);position:relative}
+.price-featured h3{color:var(--stage-ink)}
+.price-featured .desc,.price-featured .price small,.price-featured .price-feats li{color:var(--stage-muted)}
+.price-featured .price{color:#E08A5C}
+.price-featured .price-feats li::before{background:#E08A5C}
+.price-featured .tag{position:absolute;top:1.1rem;right:1.1rem;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--stage);background:#E08A5C;border-radius:999px;padding:.3rem .7rem}
+@media (max-width:900px){.price-grid{grid-template-columns:1fr}}
+
+/* FAQ */
+.faq-list{max-width:760px;margin-inline:auto}
+.faq-item{border:1px solid var(--line);border-radius:var(--r-sm);background:var(--surface);margin-bottom:.7rem;overflow:hidden}
+.faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.15rem 1.3rem;background:none;border:none;cursor:pointer;font-size:1.02rem;font-weight:600;color:var(--ink);text-align:left;font-family:var(--serif)}
+.faq-q .faq-icon{flex:none;width:22px;height:22px;position:relative;transition:transform .3s var(--ease)}
+.faq-q .faq-icon::before,.faq-q .faq-icon::after{content:'';position:absolute;background:var(--copper);border-radius:2px}
+.faq-q .faq-icon::before{width:14px;height:2px;top:10px;left:4px}
+.faq-q .faq-icon::after{width:2px;height:14px;top:4px;left:10px;transition:transform .3s var(--ease)}
+.faq-item.open .faq-icon{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .45s var(--ease)}
+.faq-a p{padding:0 1.3rem 1.2rem;color:var(--muted);font-size:.96rem}
+
+/* Newsletter */
+.newsletter{background:var(--stage);color:var(--stage-ink)}
+.newsletter-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(2rem,4vw,4rem);align-items:center}
+.newsletter h2{font-size:clamp(1.7rem,3vw,2.4rem)}
+.newsletter p{color:var(--stage-muted);margin-top:.8rem;max-width:46ch}
+.ns-form{display:flex;gap:.6rem;background:#FFFFFF;border-radius:999px;padding:.4rem;box-shadow:0 6px 24px rgba(0,0,0,.25)}
+.ns-form input{flex:1;border:none;background:none;padding:.65rem 1.1rem;font-size:.97rem;color:#1C1814;min-width:0}
+.ns-form input::placeholder{color:#7A6F5F}
+.ns-form .btn{background:var(--cta);color:var(--cta-ink);padding:.75rem 1.4rem;border:none}
+.ns-form .btn:hover{background:var(--cta-hover)}
+.ns-ok{display:none;margin-top:.8rem;color:#C4B8AC;font-size:.92rem}
+.ns-ok.show{display:block}
+.ns-ok a{color:#E08A5C;text-decoration:underline;text-underline-offset:2px}
+.ns-ok a:hover{color:#F4F3F1}
+@media (max-width:820px){.newsletter-grid{grid-template-columns:1fr}.ns-form{flex-direction:column;border-radius:18px}.ns-form .btn{width:100%}}
+
+/* Footer */
+.footer{background:var(--stage-2);color:var(--stage-ink);padding:3.2rem 0 2.4rem}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:2rem}
+.footer h4{font-size:.82rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--stage-muted);margin-bottom:1rem}
+.footer a{color:var(--stage-muted);font-size:.95rem;display:inline-block;margin-bottom:.55rem;transition:color .2s ease}
+.footer a:hover{color:#E08A5C}
+.footer p{color:var(--stage-muted);font-size:.95rem;max-width:34ch}
+.footer .legal{margin-top:2.4rem;padding-top:1.4rem;border-top:1px solid #332D26;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:.84rem;color:var(--stage-muted)}
+@media (max-width:880px){.footer-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.footer-grid{grid-template-columns:1fr}}
+
+/* Cookie banner */
+.cookie{position:fixed;right:1.2rem;bottom:1.2rem;max-width:340px;background:var(--stage);color:var(--stage-ink);border:1px solid #332D26;border-radius:var(--r);padding:1.2rem 1.3rem;box-shadow:0 18px 50px rgba(0,0,0,.35);z-index:150;transform:translateY(calc(100% + 1.6rem));transition:transform .6s var(--ease),opacity .5s ease;opacity:0;pointer-events:none}
+.cookie.show{transform:translateY(0);opacity:1;pointer-events:auto}
+.cookie p{font-size:.9rem;color:var(--stage-muted);margin-bottom:1rem}
+.cookie-actions{display:flex;gap:.6rem}
+.cookie .btn{padding:.55rem 1.1rem;font-size:.88rem}
+.cookie .btn-ghost{border-color:#4A4238;color:var(--stage-ink)}
+.cookie .btn-ghost:hover{color:#E08A5C;border-color:#E08A5C}
+
+/* Reveal + reduced motion */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .85s var(--ease),transform .85s var(--ease)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+  .rv,.draw{opacity:1;transform:none}
+  .draw{stroke-dashoffset:0!important}
+}
+@media (max-width:760px){
+  .nav-links{display:none}
+  .burger{display:grid}
+  .nav-actions .btn-primary{display:none}
+  .nav-actions .btn-cta-mobile{display:inline-flex}
+  .work-wide .work-art{min-height:300px}
+}
+
+/* Scroll progress — copper filament */
+.scroll-progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--cta);z-index:300;transition:width .12s linear}
+</style>
+</head><body>
+<a class="skip" href="#main" data-i18n="skip">Saltar al contenido</a>
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="#hero" aria-label="FORJA — inicio">
+      <svg viewBox="0 0 30 30" fill="none" aria-hidden="true">
+        <rect width="30" height="30" rx="7" fill="var(--stage)"/>
+        <path d="M8 19 L22 19 L22 17 L8 17 Z" fill="var(--copper)"/>
+        <path d="M15 11 L15 17 M11 11 L11 17 M19 11 L19 17" stroke="var(--copper)" stroke-width="2.4" stroke-linecap="round"/>
+      </svg>
+      <span>FORJA<em>.</em></span>
+    </a>
+    <nav class="nav-links" aria-label="Principal">
+      <a href="#oficio" data-i18n="navOficio">El oficio</a>
+      <a href="#obra" data-i18n="navObra">Obra</a>
+      <a href="#encargos" data-i18n="navEncargos">Encargos</a>
+      <a href="#preguntas" data-i18n="navPreguntas">Preguntas</a>
+    </nav>
+    <div class="nav-actions">
+      <div class="lang-select">
+        <button class="lang-select__btn" type="button" aria-haspopup="listbox" aria-expanded="false" data-i18n-aria="langLabel">
+          <span class="lang-select__cur">ES</span>
+          <svg class="lang-select__chevr" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="lang-select__menu" role="listbox">
+          <button type="button" class="lang-select__opt" role="option" data-lang="es" aria-selected="true">Español</button>
+          <button type="button" class="lang-select__opt" role="option" data-lang="en" aria-selected="false">English</button>
+          <button type="button" class="lang-select__opt" role="option" data-lang="fr" aria-selected="false">Français</button>
+          <button type="button" class="lang-select__opt" role="option" data-lang="de" aria-selected="false">Deutsch</button>
+          <button type="button" class="lang-select__opt" role="option" data-lang="it" aria-selected="false">Italiano</button>
+          <button type="button" class="lang-select__opt" role="option" data-lang="pt" aria-selected="false">Português</button>
+        </div>
+      </div>
+      <button class="icon-btn" type="button" id="themeToggle" data-i18n-aria="themeLabel" aria-label="Cambiar tema">
+        <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M19.1 4.9l-1.8 1.8M6.7 17.3l-1.8 1.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.5 6.5 0 0 0 9.8 9.8Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+      </button>
+      <a class="btn btn-primary" href="#encargos" data-i18n="ctaPresupuesto">Pedir presupuesto</a>
+      <button class="icon-btn burger" type="button" id="burger" aria-expanded="false" aria-controls="mobileMenu" data-i18n-aria="menuLabel" aria-label="Abrir menú">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="container">
+      <nav aria-label="Móvil">
+        <a href="#oficio" data-i18n="navOficio">El oficio</a>
+        <a href="#obra" data-i18n="navObra">Obra</a>
+        <a href="#encargos" data-i18n="navEncargos">Encargos</a>
+        <a href="#preguntas" data-i18n="navPreguntas">Preguntas</a>
+      </nav>
+      <div class="mm-actions">
+        <div class="lang-select">
+          <button class="lang-select__btn" type="button" aria-haspopup="listbox" aria-expanded="false" data-i18n-aria="langLabel">
+            <span class="lang-select__cur">ES</span>
+            <svg class="lang-select__chevr" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="lang-select__menu" role="listbox">
+            <button type="button" class="lang-select__opt" role="option" data-lang="es" aria-selected="true">Español</button>
+            <button type="button" class="lang-select__opt" role="option" data-lang="en" aria-selected="false">English</button>
+            <button type="button" class="lang-select__opt" role="option" data-lang="fr" aria-selected="false">Français</button>
+            <button type="button" class="lang-select__opt" role="option" data-lang="de" aria-selected="false">Deutsch</button>
+            <button type="button" class="lang-select__opt" role="option" data-lang="it" aria-selected="false">Italiano</button>
+            <button type="button" class="lang-select__opt" role="option" data-lang="pt" aria-selected="false">Português</button>
+          </div>
+        </div>
+        <a class="btn btn-primary btn-cta-mobile" href="#encargos" data-i18n="ctaPresupuesto">Pedir presupuesto</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero" id="hero">
+  <div class="container hero-grid">
+    <div>
+      <span class="hero-kicker" data-i18n="heroKicker">Herrería artística · Madrid</span>
+      <h1><span data-i18n="heroH1a">El hierro se forja</span> <em data-i18n="heroH1b">a fuego.</em><br><span data-i18n="heroH1c">Tu casa, a detalle.</span></h1>
+      <p class="hero-sub" data-i18n="heroSub">En FORJA diseñamos y fabricamos puertas, barandillas, escaleras y piezas decorativas de hierro y cobre, pieza a pieza, en nuestro taller del barrio de Lavapiés. Sin stock, sin catálogo genérico: cada encargo nace de una conversación y termina instalada donde vive usted.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#encargos" data-i18n="heroCta1">Cuéntanos tu proyecto</a>
+        <a class="btn btn-ghost" href="#obra" data-i18n="heroCta2">Ver obra reciente</a>
+      </div>
+      <p class="hero-note"><span class="yr">1949</span><span data-i18n="heroNote">— tres generaciones dando forma al hierro en Madrid. Herreros, no soldadores de catálogo.</span></p>
+    </div>
+    <div class="forge" aria-hidden="true">
+      <svg class="forge-door" viewBox="0 0 400 460" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="doorGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#2A241E"/>
+            <stop offset="1" stop-color="#161310"/>
+          </linearGradient>
+          <radialGradient id="ember" cx="0.5" cy="0.5" r="0.5">
+            <stop offset="0" stop-color="#F0B47E"/>
+            <stop offset=".55" stop-color="#D7642E"/>
+            <stop offset="1" stop-color="#8C3814" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <!-- archway frame -->
+        <g class="draw" style="transition-delay:.05s" stroke="#B04A1C" stroke-width="7">
+          <path d="M60 430 L60 170 Q60 40 200 40 Q340 40 340 170 L340 430" stroke-linecap="round"/>
+        </g>
+        <!-- inner arch outline -->
+        <g class="draw" style="transition-delay:.3s" stroke="#E08A5C" stroke-width="3" opacity=".75">
+          <path d="M80 430 L80 180 Q80 66 200 66 Q320 66 320 180 L320 430"/>
+        </g>
+        <!-- door fill -->
+        <path class="draw-fade" style="transition-delay:.9s" d="M80 430 L80 180 Q80 66 200 66 Q320 66 320 180 L320 430 L320 262 L80 262 Z" fill="url(#doorGrad)"/>
+        <!-- arch keystone -->
+        <g class="draw" style="transition-delay:.5s" stroke="#B04A1C" stroke-width="4">
+          <path d="M180 46 L204 46 L204 72 L180 72 Z"/>
+        </g>
+        <!-- vertical bars -->
+        <g class="draw" style="transition-delay:.7s" stroke="#C4B8AC" stroke-width="4">
+          <path d="M125 430 L125 186"/>
+          <path d="M200 430 L200 66"/>
+          <path d="M275 430 L275 186"/>
+        </g>
+        <!-- horizontal guards -->
+        <g class="draw" style="transition-delay:1s" stroke="#C4B8AC" stroke-width="4">
+          <path d="M80 238 L320 238"/>
+          <path d="M80 340 L320 340"/>
+        </g>
+        <!-- decorative volutes -->
+        <path class="draw" style="transition-delay:1.2s" stroke="#E08A5C" stroke-width="3" fill="none" d="M125 300 C118 290 116 278 124 270 C132 262 142 266 143 276 C144 286 133 294 126 288 C121 283 125 274 132 275"/>
+        <path class="draw" style="transition-delay:1.35s" stroke="#E08A5C" stroke-width="3" fill="none" d="M275 300 C282 290 284 278 276 270 C268 262 258 266 257 276 C256 286 267 294 274 288 C279 283 275 274 268 275"/>
+        <!-- lotus anvil emblem -->
+        <g class="draw" style="transition-delay:1.5s" stroke="#F0B47E" stroke-width="4">
+          <circle cx="200" cy="185" r="22" stroke-linecap="round"/>
+          <path d="M190 185 L172 185 M210 185 L228 185" stroke-linecap="round"/>
+        </g>
+        <!-- embers rising -->
+        <circle cx="120" cy="150" r="7" fill="url(#ember)" class="draw-fade" style="transition-delay:1.6s"/>
+        <circle cx="285" cy="120" r="5" fill="url(#ember)" class="draw-fade" style="transition-delay:1.75s"/>
+        <circle cx="150" cy="95" r="4" fill="url(#ember)" class="draw-fade" style="transition-delay:1.9s"/>
+        <!-- ground line -->
+        <g class="draw" style="transition-delay:2s" stroke="#4A4238" stroke-width="3">
+          <path d="M40 440 L360 440"/>
+        </g>
+      </svg>
+      <span class="frame-caption" data-i18n="forgeCaption">Puerta «Lavapiés» — hierro forjado y cobre repujado</span>
+    </div>
+  </div>
+</section>
+
+<div class="ribbon" aria-hidden="true">
+  <div class="ribbon-track" id="ribbonTrack">
+    <span><b>Puertas</b> de cierre y de paso</span>
+    <span><b>Barandillas</b> interiores y exteriores</span>
+    <span><b>Escaleras</b> de caracol y tramos rectos</span>
+    <span><b>Rejas</b> clásicas y contemporáneas</span>
+    <span><b>Mobiliario</b> de hierro y cobre</span>
+    <span><b>Restauración</b> de hierro antiguo</span>
+    <span><b>Puertas</b> de cierre y de paso</span>
+    <span><b>Barandillas</b> interiores y exteriores</span>
+    <span><b>Escaleras</b> de caracol y tramos rectos</span>
+    <span><b>Rejas</b> clásicas y contemporáneas</span>
+    <span><b>Mobiliario</b> de hierro y cobre</span>
+    <span><b>Restauración</b> de hierro antiguo</span>
+  </div>
+</div>
+
+<section class="section craft" id="oficio">
+  <div class="container">
+    <div class="section-head rv">
+      <span class="kicker" data-i18n="k1">El oficio</span>
+      <h2 class="section-title" data-i18n="t1">Del yunque a tu fachada, sin atajos</h2>
+      <p class="section-lead" data-i18n="l1">Cada pieza pasa por tres estaciones. Las llamamos así porque en el taller son, literalmente, tres puestos de trabajo. Y porque resumen una forma de entender el metal.</p>
+    </div>
+    <div class="craft-list">
+      <article class="craft-item rv">
+        <span class="craft-num">01</span>
+        <h3 data-i18n="c1t">Calentar</h3>
+        <p data-i18n="c1p">El hierro se calienta en la fragua hasta 1.100 °C. Es el único momento en que el material es honesto: a esa temperatura, el acero cuenta la verdad de su grano.</p>
+      </article>
+      <article class="craft-item rv" style="transition-delay:.12s">
+        <span class="craft-num">02</span>
+        <h3 data-i18n="c2t">Martillar</h3>
+        <p data-i18n="c2p">Trece golpes de martillo por cada decisión de diseño. La forma no se suelda: se forja. Así el metal conserva su fibra, su resistencia y su brillo propio.</p>
+      </article>
+      <article class="craft-item rv" style="transition-delay:.24s">
+        <span class="craft-num">03</span>
+        <h3 data-i18n="c3t">Templar</h3>
+        <p data-i18n="c3p">La pieza se templa, se pule y se protege con aceites naturales. El cobre, además, se deja envejecer: queremos que la pátina la escriba el tiempo de tu casa.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="obra">
+  <div class="container">
+    <div class="section-head rv">
+      <span class="kicker" data-i18n="k2">Obra reciente</span>
+      <h2 class="section-title" data-i18n="t2">Tres piezas, tres maneras de entender la casa</h2>
+      <p class="section-lead" data-i18n="l2">No repetimos modelos. Estas son tres encargos recientes con planteamientos distintos: la fachada como tarjeta de visita, la circulación como escultura, y la sobremesa como pequeño lujo cotidiano.</p>
+    </div>
+    <div class="works-grid">
+
+      <article class="work-card work-wide rv">
+        <div class="work-art" aria-hidden="true">
+          <svg viewBox="0 0 320 280" width="280" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g class="draw" stroke="#B04A1C" stroke-width="5" stroke-linecap="round">
+              <path d="M40 30 L300 30 M40 30 L40 250 M300 30 L300 250"/>
+            </g>
+            <g class="draw" style="transition-delay:.15s" stroke="#C4B8AC" stroke-width="4">
+              <path d="M100 250 L100 80"/>
+              <path d="M160 250 L160 80"/>
+              <path d="M220 250 L220 80"/>
+            </g>
+            <g class="draw" style="transition-delay:.3s" stroke="#E08A5C" stroke-width="3">
+              <path d="M40 140 Q100 120 160 140 Q220 160 280 140" fill="none"/>
+              <path d="M40 200 Q100 180 160 200 Q220 220 280 200" fill="none"/>
+            </g>
+            <path class="draw-fade" style="transition-delay:.5s" d="M70 95 C95 78 118 92 120 110 C122 126 100 132 92 118 C86 107 96 98 106 100" stroke="#F0B47E" stroke-width="3" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="work-body">
+          <span class="work-tag" data-i18n="w1tag">Barandilla · Tramo curvo</span>
+          <h3 data-i18n="w1t">Escalera de caracol, casa en Chamberí</h3>
+          <p data-i18n="w1p">Ochenta y dos piezas de pletina forjada ensambladas sin un solo tornillo visible. La barandilla dibuja la misma curva que la escalera y el pasamanos se calienta con la mano: cobre, para que el tacto acompañe al paso.</p>
+          <div class="work-meta">
+            <span><b data-i18n="w1m1l">Material</b> — <span data-i18n="w1m1">Hierro forjado + pasamanos de cobre</span></span>
+            <span><b data-i18n="w1m2l">Montaje</b> — <span data-i18n="w1m2">7 semanas, 2 forjadores</span></span>
+          </div>
+        </div>
+      </article>
+
+      <article class="work-card work-tall rv">
+        <div class="work-art" aria-hidden="true">
+          <svg viewBox="0 0 420 220" width="380" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g class="draw" stroke="#B04A1C" stroke-width="6" stroke-linecap="round">
+              <path d="M60 180 L60 60 Q60 20 110 20 L310 20 Q360 20 360 60 L360 180"/>
+            </g>
+            <g class="draw" style="transition-delay:.15s" stroke="#C4B8AC" stroke-width="4">
+              <path d="M140 180 L140 40"/>
+              <path d="M210 180 L210 40"/>
+              <path d="M280 180 L280 40"/>
+            </g>
+            <g class="draw" style="transition-delay:.3s" stroke="#E08A5C" stroke-width="3" fill="none">
+              <circle cx="210" cy="110" r="26"/>
+              <circle cx="210" cy="110" r="10"/>
+              <path d="M210 68 L210 84 M210 136 L210 152 M168 110 L184 110 M236 110 L252 110"/>
+            </g>
+            <path class="draw" style="transition-delay:.45s" stroke="#F0B47E" stroke-width="3" fill="none" d="M60 180 Q210 196 360 180"/>
+          </svg>
+        </div>
+        <div class="work-body">
+          <span class="work-tag" data-i18n="w2tag">Puerta · Acceso principal</span>
+          <h3 data-i18n="w2t">Puerta solariega, finca en la Sierra</h3>
+          <p data-i18n="w2p">Una puerta de 2,90 m que se abre sola con un roce: la hoja pivota sobre cojinetes de bronce y el remate superior se ilumina por la tarde. El óculo central repite el motivo de la fuente del patio, cosiendo casa y jardín en un solo gesto.</p>
+          <div class="work-meta">
+            <span><b data-i18n="w2m1l">Material</b> — <span data-i18n="w2m1">Hierro armado + hojas de cobre</span></span>
+            <span><b data-i18n="w2m2l">Montaje</b> — <span data-i18n="w2m2">12 semanas, 3 forjadores</span></span>
+          </div>
+        </div>
+      </article>
+
+      <article class="work-card work-minimal rv">
+        <div class="work-body">
+          <div>
+            <span class="work-tag" data-i18n="w3tag">Mesa · Comedor</span>
+            <h3 data-i18n="w3t">Mesa de forja con tablero de olivo</h3>
+            <p data-i18n="w3p">Herrería útil, la que vive en casa: la base forjada para una mesa de 2,20 m con tablero de olivo envejecido. El hierro va tratado con cera natural; no hay recubrimiento que se descasque ni esquina que arañe el muslo.</p>
+            <div class="work-meta">
+              <span><b data-i18n="w3m1l">Material</b> — <span data-i18n="w3m1">Hierro al aceite + olivo</span></span>
+              <span><b data-i18n="w3m2l">Montaje</b> — <span data-i18n="w3m2">4 semanas, 1 forjador</span></span>
+            </div>
+          </div>
+          <svg viewBox="0 0 200 150" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+            <g class="draw" stroke="#B04A1C" stroke-width="5" stroke-linecap="round">
+              <path d="M30 120 L60 60 L140 60 L170 120"/>
+              <path d="M30 120 L28 145 M170 120 L172 145"/>
+              <path d="M78 60 L80 90 M122 60 L120 90"/>
+              <path d="M70 88 L130 88"/>
+            </g>
+          </svg>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="section quote">
+  <div class="container quote-inner rv">
+    <blockquote>
+      <span data-i18n="qText1">«No te vendemos una puerta. Te vendemos </span><b data-i18n="qText2">la sensación de llegar a casa</b><span data-i18n="qText3"> — y la puerta para que dure cien años.»</span>
+    </blockquote>
+    <cite><strong data-i18n="qAuthor">Julián Serrano</strong> · <span data-i18n="qRole">maestro herrero, tercera generación, FORJA</span></cite>
+  </div>
+</section>
+
+<section class="section pricing" id="encargos">
+  <div class="container">
+    <div class="section-head rv">
+      <span class="kicker" data-i18n="k3">Encargos</span>
+      <h2 class="section-title" data-i18n="t3">Un presupuesto claro, sin sorpresas</h2>
+      <p class="section-lead" data-i18n="l3">Tres puntos de partida. Todos incluyen visita al taller, medición en obra y un plano de la pieza antes de empezar. El presupuesto final se cierra por escrito y no se mueve.</p>
+    </div>
+    <div class="price-grid">
+      <article class="price-card rv">
+        <h3 data-i18n="p1t">Pieza de taller</h3>
+        <p class="desc" data-i18n="p1d">Para decorar o regalar: marcos de espejo, puertas de armario, apliques, tijeretas de chimenea.</p>
+        <span class="price" data-i18n="p1price">Desde 480 €</span>
+        <ul class="price-feats">
+          <li data-i18n="p1f1">1 visita de asesoría en tienda</li>
+          <li data-i18n="p1f2">Fotos + presupuesto en 5 días</li>
+          <li data-i18n="p1f3">Entrega en 3-4 semanas</li>
+          <li data-i18n="p1f4">Acabados: hierro al aceite / cobre</li>
+        </ul>
+        <a class="btn btn-ghost" href="#preguntas" data-i18n="p1cta">Preguntar por una pieza</a>
+      </article>
+      <article class="price-card price-featured rv" style="transition-delay:.12s">
+        <span class="tag" data-i18n="p2tag">Lo más pedido</span>
+        <h3 data-i18n="p2t">Pieza a medida</h3>
+        <p class="desc" data-i18n="p2d">Puertas, barandillas, rejas y escaleras diseñadas con usted, dibujadas en plano, forjadas y montadas.</p>
+        <span class="price" data-i18n="p2price">Desde 2.400 €</span>
+        <ul class="price-feats">
+          <li data-i18n="p2f1">Visita + medición en obra incluida</li>
+          <li data-i18n="p2f2">Plano y render aprobados antes de forjar</li>
+          <li data-i18n="p2f3">Preparación de obra y montaje</li>
+          <li data-i18n="p2f4">Garantía de 10 años sobre la forja</li>
+          <li data-i18n="p2f5">Patina exclusiva a elección</li>
+        </ul>
+        <a class="btn btn-primary" href="#contacto" data-i18n="p2cta">Solicitar presupuesto</a>
+      </article>
+      <article class="price-card rv" style="transition-delay:.24s">
+        <h3 data-i18n="p3t">Proyecto completo</h3>
+        <p class="desc" data-i18n="p3d">Dirección de hierro para reformas integrales: escaleras, barandillas, rejas y detalles de cobre a juego.</p>
+        <span class="price" data-i18n="p3price">Presupuesto cerrado</span>
+        <ul class="price-feats">
+          <li data-i18n="p3f1">Coordinación con el arquitecto</li>
+          <li data-i18n="p3f2">Fases de obra con calendario</li>
+          <li data-i18n="p3f3">Restauración de piezas originales</li>
+          <li data-i18n="p3f4">Cobre a juego en grifería y detalles</li>
+        </ul>
+        <a class="btn btn-ghost" href="#contacto" data-i18n="p3cta">Hablar del proyecto</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section faq" id="preguntas">
+  <div class="container">
+    <div class="section-head rv" style="margin-inline:auto;text-align:center">
+      <span class="kicker" data-i18n="k4">Preguntas</span>
+      <h2 class="section-title" data-i18n="t4">Lo que siempre nos preguntan en el taller</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item rv">
+        <button class="faq-q" type="button" aria-expanded="false" data-i18n="fq1">¿Trabajáis con forja auténtica o con perfiles soldados?</button>
+        <div class="faq-a"><p data-i18n="fa1">Forja auténtica. Calentamos el metal en la fragua y lo trabajamos con martillo y yunque. Los perfiles soldados son otra técnica, más rápida y barata, y la usamos solo cuando el cliente la pide explícitamente. Un ojo entrenado nota la diferencia por el grosor de la fibra y la ausencia de costuras.</p></div>
+      </div>
+      <div class="faq-item rv">
+        <button class="faq-q" type="button" aria-expanded="false" data-i18n="fq2">¿Cuánto tarda una barandilla o una puerta?</button>
+        <div class="faq-a"><p data-i18n="fa2">Una pieza de taller, de 3 a 4 semanas. Una barandilla de un tramo, de 5 a 7 semanas desde el plano aprobado. Una puerta principal, de 10 a 12 semanas, porque incluye herrajes de bronce y, si la quieren, cobre repujado. Si hay prisa real, lo decimos antes de empezar, no después.</p></div>
+      </div>
+      <div class="faq-item rv">
+        <button class="faq-q" type="button" aria-expanded="false" data-i18n="fq3">¿Podéis restaurar el hierro antiguo de mi casa?</button>
+        <div class="faq-a"><p data-i18n="fa3">Sí, y es uno de nuestros trabajos favoritos. Desmontamos, decapamos pieza a pieza, sustituimos lo que esté roto respetando el patrón original y protegemos con aceite o esmalte según el uso. Restauramos rejas del siglo XVIII, barandillas de 1900 y patios de vecindad con el mismo cuidado.</p></div>
+      </div>
+      <div class="faq-item rv">
+        <button class="faq-q" type="button" aria-expanded="false" data-i18n="fq4">¿El cobre requiere mantenimiento?</button>
+        <div class="faq-a"><p data-i18n="fa4">Depende del acabado que elija. En interior, el cobre lacado apenas requiere cuidados: un paño seco de vez en cuando. En exterior, si lo dejamos al natural, envejece con una pátina verde — muchos clientes la piden expresamente. Si prefiere el tono brillante, pasamos cada dos años una cera especial. Se lo explicamos todo en la entrega.</p></div>
+      </div>
+      <div class="faq-item rv">
+        <button class="faq-q" type="button" aria-expanded="false" data-i18n="fq5">¿Hacéis presupuesto a distancia?</button>
+        <div class="faq-a"><p data-i18n="fa5">Para piezas de taller, sí, con fotos y medidas. Para piezas a medida necesitamos ver la obra: la luz, la escala de la casa y el hueco exacto cambian el diseño. La visita a Madrid capital y alrededores está incluida en el presupuesto; más allá, se acuerda aparte.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section newsletter" id="contacto">
+  <div class="container newsletter-grid">
+    <div class="rv">
+      <h2 data-i18n="nt">El boletín de la fragua</h2>
+      <p data-i18n="np">Una vez al mes, fotos de piezas recién salidas del yunque, un consejo de mantenimiento y las próximas fechas de visita al taller. Sin ruido, sin listas de compra: solo el oficio.</p>
+    </div>
+    <form class="rv" id="newsletterForm" novalidate style="transition-delay:.1s">
+      <div class="ns-form">
+        <label class="visually-hidden" for="nsEmail" data-i18n="nsLabel">Tu correo electrónico</label>
+        <input type="email" id="nsEmail" name="email" required placeholder="tucorreo@ejemplo.es" data-i18n-ph="nsPh" autocomplete="email">
+        <button class="btn" type="submit" data-i18n="nsBtn">Suscribirme</button>
+      </div>
+      <p class="ns-ok" id="nsOk" data-i18n="nsOk" hidden>Esta landing no guarda correos. Escríbenos a <a href="mailto:hola@forja.es">hola@forja.es</a> y te añadimos a mano.</p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="#hero" aria-label="FORJA — inicio">
+          <svg viewBox="0 0 30 30" fill="none" aria-hidden="true">
+            <rect width="30" height="30" rx="7" fill="var(--stage-2)"/>
+            <path d="M8 19 L22 19 L22 17 L8 17 Z" fill="#B04A1C"/>
+            <path d="M15 11 L15 17 M11 11 L11 17 M19 11 L19 17" stroke="#B04A1C" stroke-width="2.4" stroke-linecap="round"/>
+          </svg>
+          <span>FORJA<em style="color:#E08A5C">.</em></span>
+        </a>
+        <p data-i18n="fDesc">Herrería y taller de cobre fundado en 1949. Tres generaciones forjando en el corazón de Lavapiés, Madrid.</p>
+      </div>
+      <div>
+        <h4 data-i18n="fNavTitle">Taller</h4>
+        <a href="#oficio" data-i18n="fNav1">El oficio</a><br>
+        <a href="#obra" data-i18n="fNav2">Obra reciente</a><br>
+        <a href="#encargos" data-i18n="fNav3">Encargos y precios</a><br>
+        <a href="#preguntas" data-i18n="fNav4">Preguntas frecuentes</a>
+      </div>
+      <div>
+        <h4 data-i18n="fHorTitle">Taller</h4>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=Calle+del+Oso+14,+28012+Madrid" target="_blank" rel="noopener noreferrer" data-i18n="fAdr">Calle del Oso 14, Lavapiés<br>28012 Madrid</a><br>
+        <a href="tel:+34910123456">+34 910 123 456</a><br>
+        <a href="mailto:hola@forja.es">hola@forja.es</a>
+      </div>
+      <div>
+        <h4 data-i18n="fVisTitle">Visitas</h4>
+        <p data-i18n="fVis1">Abrimos la fragua los sábados de 11:00 a 14:00. Entre semana, la cita es por teléfono — el martillo no espera.</p>
+      </div>
+    </div>
+    <div class="legal">
+      <span>© 2026 FORJA — <span data-i18n="fLegal1">Herrería artística. Hecho a mano, como debe ser.</span></span>
+      <span><span data-i18n="fLegal2">Madrid</span> · EST. 1949</span>
+    </div>
+  </div>
+</footer>
+
+<div class="cookie" id="cookieBanner" role="dialog" aria-live="polite">
+  <p data-i18n="ckText">Usamos una cookie mínima para recordar tu idioma y tu tema. Nada de rastreo, prometido.</p>
+  <div class="cookie-actions">
+    <button class="btn btn-primary" type="button" id="cookieOk" data-i18n="ckOk">Entendido</button>
+    <button class="btn btn-ghost" type="button" id="cookieNo" data-i18n="ckNo">Solo lo esencial</button>
+  </div>
+</div><script>
+(function () {
+  'use strict';
+  /* ============================================================
+     FORJA — i18n + interacciones (sin dependencias)
+     Claves: ~85 × 6 idiomas. Lengua canónica: es (nativa).
+     ============================================================ */
+  var I18N = {
+    es: {
+      meta_title: "FORJA — Herreros y cobre desde 1949 · Madrid",
+      meta_desc: "FORJA es un taller familiar de herrería y cobre en Madrid. Puertas, barandillas y piezas únicas forjadas a mano, desde 1949.",
+      og_title: "FORJA — Herreros y cobre desde 1949",
+      og_desc: "Puertas, barandillas y piezas únicas de hierro y cobre, forjadas a mano en Madrid desde 1949.",
+      skip: "Saltar al contenido",
+      langLabel: "Elegir idioma",
+      themeLabel: "Cambiar tema",
+      menuLabel: "Abrir menú",
+      navOficio: "El oficio", navObra: "Obra", navEncargos: "Encargos", navPreguntas: "Preguntas",
+      ctaPresupuesto: "Pedir presupuesto",
+      heroKicker: "Herrería artística · Madrid",
+      heroH1a: "El hierro se forja", heroH1b: "a fuego.", heroH1c: "Tu casa, a detalle.",
+      heroSub: "En FORJA diseñamos y fabricamos puertas, barandillas, escaleras y piezas decorativas de hierro y cobre, pieza a pieza, en nuestro taller del barrio de Lavapiés. Sin stock, sin catálogo genérico: cada encargo nace de una conversación y termina instalada donde vive usted.",
+      heroCta1: "Cuéntanos tu proyecto", heroCta2: "Ver obra reciente",
+      heroNote: "— tres generaciones dando forma al hierro en Madrid. Herreros, no soldadores de catálogo.",
+      forgeCaption: "Puerta «Lavapiés» — hierro forjado y cobre repujado",
+      k1: "El oficio",
+      t1: "Del yunque a tu fachada, sin atajos",
+      l1: "Cada pieza pasa por tres estaciones. Las llamamos así porque en el taller son, literalmente, tres puestos de trabajo. Y porque resumen una forma de entender el metal.",
+      c1t: "Calentar", c1p: "El hierro se calienta en la fragua hasta 1.100 °C. Es el único momento en que el material es honesto: a esa temperatura, el acero cuenta la verdad de su grano.",
+      c2t: "Martillar", c2p: "Trece golpes de martillo por cada decisión de diseño. La forma no se suelda: se forja. Así el metal conserva su fibra, su resistencia y su brillo propio.",
+      c3t: "Templar", c3p: "La pieza se templa, se pule y se protege con aceites naturales. El cobre, además, se deja envejecer: queremos que la pátina la escriba el tiempo de tu casa.",
+      k2: "Obra reciente",
+      t2: "Tres piezas, tres maneras de entender la casa",
+      l2: "No repetimos modelos. Estas son tres encargos recientes con planteamientos distintos: la fachada como tarjeta de visita, la circulación como escultura, y la sobremesa como pequeño lujo cotidiano.",
+      w1tag: "Barandilla · Tramo curvo", w1t: "Escalera de caracol, casa en Chamberí",
+      w1p: "Ochenta y dos piezas de pletina forjada ensambladas sin un solo tornillo visible. La barandilla dibuja la misma curva que la escalera y el pasamanos se calienta con la mano: cobre, para que el tacto acompañe al paso.",
+      w1m1l: "Material", w1m1: "Hierro forjado + pasamanos de cobre", w1m2l: "Montaje", w1m2: "7 semanas, 2 forjadores",
+      w2tag: "Puerta · Acceso principal", w2t: "Puerta solariega, finca en la Sierra",
+      w2p: "Una puerta de 2,90 m que se abre sola con un roce: la hoja pivota sobre cojinetes de bronce y el remate superior se ilumina por la tarde. El óculo central repite el motivo de la fuente del patio, cosiendo casa y jardín en un solo gesto.",
+      w2m1l: "Material", w2m1: "Hierro armado + hojas de cobre", w2m2l: "Montaje", w2m2: "12 semanas, 3 forjadores",
+      w3tag: "Mesa · Comedor", w3t: "Mesa de forja con tablero de olivo",
+      w3p: "Herrería útil, la que vive en casa: la base forjada para una mesa de 2,20 m con tablero de olivo envejecido. El hierro va tratado con cera natural; no hay recubrimiento que se descasque ni esquina que arañe el muslo.",
+      w3m1l: "Material", w3m1: "Hierro al aceite + olivo", w3m2l: "Montaje", w3m2: "4 semanas, 1 forjador",
+      qText1: "«No te vendemos una puerta. Te vendemos ", qText2: "la sensación de llegar a casa", qText3: " — y la puerta para que dure cien años.»",
+      qAuthor: "Julián Serrano", qRole: "maestro herrero, tercera generación, FORJA",
+      k3: "Encargos", t3: "Un presupuesto claro, sin sorpresas",
+      l3: "Tres puntos de partida. Todos incluyen visita al taller, medición en obra y un plano de la pieza antes de empezar. El presupuesto final se cierra por escrito y no se mueve.",
+      p1t: "Pieza de taller", p1d: "Para decorar o regalar: marcos de espejo, puertas de armario, apliques, tijeretas de chimenea.",
+      p1price: "Desde 480 €",
+      p1f1: "1 visita de asesoría en tienda", p1f2: "Fotos + presupuesto en 5 días", p1f3: "Entrega en 3-4 semanas", p1f4: "Acabados: hierro al aceite / cobre",
+      p1cta: "Preguntar por una pieza",
+      p2tag: "Lo más pedido", p2t: "Pieza a medida",
+      p2d: "Puertas, barandillas, rejas y escaleras diseñadas con usted, dibujadas en plano, forjadas y montadas.",
+      p2price: "Desde 2.400 €",
+      p2f1: "Visita + medición en obra incluida", p2f2: "Plano y render aprobados antes de forjar", p2f3: "Preparación de obra y montaje", p2f4: "Garantía de 10 años sobre la forja", p2f5: "Patina exclusiva a elección",
+      p2cta: "Solicitar presupuesto",
+      p3t: "Proyecto completo", p3d: "Dirección de hierro para reformas integrales: escaleras, barandillas, rejas y detalles de cobre a juego.",
+      p3price: "Presupuesto cerrado",
+      p3f1: "Coordinación con el arquitecto", p3f2: "Fases de obra con calendario", p3f3: "Restauración de piezas originales", p3f4: "Cobre a juego en grifería y detalles",
+      p3cta: "Hablar del proyecto",
+      k4: "Preguntas", t4: "Lo que siempre nos preguntan en el taller",
+      fq1: "¿Trabajáis con forja auténtica o con perfiles soldados?",
+      fa1: "Forja auténtica. Calentamos el metal en la fragua y lo trabajamos con martillo y yunque. Los perfiles soldados son otra técnica, más rápida y barata, y la usamos solo cuando el cliente la pide explícitamente. Un ojo entrenado nota la diferencia por el grosor de la fibra y la ausencia de costuras.",
+      fq2: "¿Cuánto tarda una barandilla o una puerta?",
+      fa2: "Una pieza de taller, de 3 a 4 semanas. Una barandilla de un tramo, de 5 a 7 semanas desde el plano aprobado. Una puerta principal, de 10 a 12 semanas, porque incluye herrajes de bronce y, si la quieren, cobre repujado. Si hay prisa real, lo decimos antes de empezar, no después.",
+      fq3: "¿Podéis restaurar el hierro antiguo de mi casa?",
+      fa3: "Sí, y es uno de nuestros trabajos favoritos. Desmontamos, decapamos pieza a pieza, sustituimos lo que esté roto respetando el patrón original y protegemos con aceite o esmalte según el uso. Restauramos rejas del siglo XVIII, barandillas de 1900 y patios de vecindad con el mismo cuidado.",
+      fq4: "¿El cobre requiere mantenimiento?",
+      fa4: "Depende del acabado que elija. En interior, el cobre lacado apenas requiere cuidados: un paño seco de vez en cuando. En exterior, si lo dejamos al natural, envejece con una pátina verde — muchos clientes la piden expresamente. Si prefiere el tono brillante, pasamos cada dos años una cera especial. Se lo explicamos todo en la entrega.",
+      fq5: "¿Hacéis presupuesto a distancia?",
+      fa5: "Para piezas de taller, sí, con fotos y medidas. Para piezas a medida necesitamos ver la obra: la luz, la escala de la casa y el hueco exacto cambian el diseño. La visita a Madrid capital y alrededores está incluida en el presupuesto; más allá, se acuerda aparte.",
+      nt: "El boletín de la fragua",
+      np: "Una vez al mes, fotos de piezas recién salidas del yunque, un consejo de mantenimiento y las próximas fechas de visita al taller. Sin ruido, sin listas de compra: solo el oficio.",
+      nsLabel: "Tu correo electrónico", nsPh: "tucorreo@ejemplo.es", nsBtn: "Suscribirme",
+      nsOk: "Esta landing no guarda correos. Escríbenos a <a href=\"mailto:hola@forja.es\">hola@forja.es</a> y te añadimos a mano.",
+      fDesc: "Herrería y taller de cobre fundado en 1949. Tres generaciones forjando en el corazón de Lavapiés, Madrid.",
+      fNavTitle: "Taller", fNav1: "El oficio", fNav2: "Obra reciente", fNav3: "Encargos y precios", fNav4: "Preguntas frecuentes",
+      fHorTitle: "Taller", fAdr: "Calle del Oso 14, Lavapiés<br>28012 Madrid",
+      fVisTitle: "Visitas", fVis1: "Abrimos la fragua los sábados de 11:00 a 14:00. Entre semana, la cita es por teléfono — el martillo no espera.",
+      fLegal1: "Herrería artística. Hecho a mano, como debe ser.", fLegal2: "Madrid",
+      ckText: "Usamos una cookie mínima para recordar tu idioma y tu tema. Nada de rastreo, prometido.", ckOk: "Entendido", ckNo: "Solo lo esencial"
+    },
+    en: {
+      meta_title: "FORJA — Iron & Copper Workshop since 1949 · Madrid",
+      meta_desc: "FORJA is a family iron and copper workshop in Madrid. Doors, railings and one-off pieces, hand-forged since 1949.",
+      og_title: "FORJA — Iron & Copper Workshop since 1949",
+      og_desc: "Doors, railings and one-off pieces in iron and copper, hand-forged in Madrid since 1949.",
+      skip: "Skip to content",
+      langLabel: "Choose language",
+      themeLabel: "Toggle theme",
+      menuLabel: "Open menu",
+      navOficio: "The craft", navObra: "Works", navEncargos: "Commissions", navPreguntas: "FAQ",
+      ctaPresupuesto: "Request a quote",
+      heroKicker: "Artistic ironwork · Madrid",
+      heroH1a: "Iron is forged", heroH1b: "with fire.", heroH1c: "Your home, in detail.",
+      heroSub: "At FORJA we design and make doors, railings, staircases and decorative pieces in iron and copper, one at a time, in our Lavapiés workshop. No stock, no generic catalogue: every commission starts with a conversation and ends installed in your home.",
+      heroCta1: "Tell us about your project", heroCta2: "See recent work",
+      heroNote: "— three generations shaping iron in Madrid. Blacksmiths, not catalogue welders.",
+      forgeCaption: "The \u201CLavapiés\u201D door — forged iron and chased copper",
+      k1: "The craft",
+      t1: "From the anvil to your facade, no shortcuts",
+      l1: "Every piece passes through three stations. We call them that because in the workshop they are, literally, three workbenches. They also sum up how we understand metal.",
+      c1t: "Heat", c1p: "Iron is heated in the forge to 1,100 °C. It is the only moment the material is honest: at that temperature, steel tells the truth of its grain.",
+      c2t: "Hammer", c2p: "Thirteen hammer blows for every design decision. The shape is not welded: it is forged. That is how the metal keeps its fibre, its strength and its own sheen.",
+      c3t: "Temper", c3p: "The piece is tempered, polished and protected with natural oils. The copper is left to age on purpose: we want the patina written by the life of your home.",
+      k2: "Recent work",
+      t2: "Three pieces, three ways of reading a home",
+      l2: "We never repeat models. These are three recent commissions with different approaches: the facade as a calling card, circulation as sculpture, and the dinner table as an everyday luxury.",
+      w1tag: "Railing · Curved flight", w1t: "Spiral staircase, townhouse in Chamberí",
+      w1p: "Eighty-two pieces of forged flat bar assembled without a single visible screw. The railing mirrors the curve of the stairs and the handrail warms to the touch: copper, so that feeling accompanies every step.",
+      w1m1l: "Material", w1m1: "Forged iron + copper handrail", w1m2l: "Build", w1m2: "7 weeks, 2 blacksmiths",
+      w2tag: "Door · Main entrance", w2t: "Manor door, estate in the Sierra",
+      w2p: "A 2.90 m door that swings open at a touch: the leaf pivots on bronze bearings and the top light catches the afternoon sun. The central oculus echoes the patio fountain motif, stitching house and garden into one gesture.",
+      w2m1l: "Material", w2m1: "Reinforced iron + copper leaves", w2m2l: "Build", w2m2: "12 weeks, 3 blacksmiths",
+      w3tag: "Table · Dining room", w3t: "Forged table with olive-wood top",
+      w3p: "Useful ironwork, the kind that lives at home: a forged base for a 2.20 m table with aged olive wood. The iron is finished with natural wax — no coating to peel, no corner to scratch a knee.",
+      w3m1l: "Material", w3m1: "Oiled iron + olive wood", w3m2l: "Build", w3m2: "4 weeks, 1 blacksmith",
+      qText1: "\u201CWe don't sell you a door. We sell you ", qText2: "the feeling of coming home", qText3: " — and the door to make it last a hundred years.\u201D",
+      qAuthor: "Julián Serrano", qRole: "master blacksmith, third generation, FORJA",
+      k3: "Commissions", t3: "A clear quote, no surprises",
+      l3: "Three starting points. All include a workshop visit, on-site measuring and a drawing of the piece before we start. The final quote is confirmed in writing and it does not move.",
+      p1t: "Workshop piece", p1d: "To decorate or gift: mirror frames, cupboard doors, wall lights, fireplace trivets.",
+      p1price: "From €480",
+      p1f1: "1 advisory visit at the shop", p1f2: "Photos + quote in 5 days", p1f3: "Delivery in 3-4 weeks", p1f4: "Finishes: oiled iron / copper",
+      p1cta: "Ask about a piece",
+      p2tag: "Most requested", p2t: "Made to measure",
+      p2d: "Doors, railings, grilles and staircases designed with you, drawn on paper, forged and installed.",
+      p2price: "From €2,400",
+      p2f1: "Visit + on-site measuring included", p2f2: "Drawing and render approved before forging", p2f3: "Site preparation and installation", p2f4: "10-year warranty on the forge work", p2f5: "Exclusive patina of your choice",
+      p2cta: "Request a quote",
+      p3t: "Full project", p3d: "Iron direction for full renovations: staircases, railings, grilles and matching copper details.",
+      p3price: "Closed quote",
+      p3f1: "Coordination with the architect", p3f2: "Work phases with a schedule", p3f3: "Restoration of original pieces", p3f4: "Matching copper in details",
+      p3cta: "Talk about the project",
+      k4: "FAQ", t4: "What people always ask at the workshop",
+      fq1: "Do you work with real forging or welded profiles?",
+      fa1: "Real forging. We heat the metal in the forge and work it with hammer and anvil. Welded profiles are another technique — faster and cheaper — and we only use them when a client asks explicitly. A trained eye spots the difference in the grain and the absence of seams.",
+      fq2: "How long does a railing or a door take?",
+      fa2: "A workshop piece takes 3 to 4 weeks. A single-flight railing, 5 to 7 weeks from the approved drawing. A main door, 10 to 12 weeks, because it includes bronze hardware and, if you want it, chased copper. If there is a real deadline, we say so before we start, not after.",
+      fq3: "Can you restore the old iron in my house?",
+      fa3: "Yes — it is one of our favourite jobs. We dismantle, strip piece by piece, replace anything broken while honouring the original pattern, and protect with oil or enamel depending on use. We restore 18th-century grilles, 1900s railings and neighbourhood patios with the same care.",
+      fq4: "Does copper need maintenance?",
+      fa4: "It depends on the finish you choose. Indoors, lacquered copper needs almost nothing: a dry cloth now and then. Outdoors, left natural, it ages with a green patina — many clients ask for it deliberately. If you prefer the bright tone, every two years we apply a special wax. We explain it all at handover.",
+      fq5: "Can you quote remotely?",
+      fa5: "For workshop pieces, yes — with photos and measurements. For made-to-measure pieces we need to see the site: the light, the scale of the house and the exact opening change the design. Visits within Madrid city and surroundings are included in the quote; beyond that, we agree separately.",
+      nt: "The forge newsletter",
+      np: "Once a month: photos of pieces fresh off the anvil, one maintenance tip, and the next open-workshop dates. No noise, no shopping lists — just the craft.",
+      nsLabel: "Your email address", nsPh: "you@example.com", nsBtn: "Subscribe",
+      nsOk: "This landing does not store emails. Write to <a href=\"mailto:hola@forja.es\">hola@forja.es</a> and we'll add you by hand.",
+      fDesc: "Iron and copper workshop founded in 1949. Three generations forging in the heart of Lavapiés, Madrid.",
+      fNavTitle: "Workshop", fNav1: "The craft", fNav2: "Recent work", fNav3: "Commissions & prices", fNav4: "FAQ",
+      fHorTitle: "Workshop", fAdr: "14 Calle del Oso, Lavapiés<br>28012 Madrid",
+      fVisTitle: "Visits", fVis1: "The forge is open Saturdays 11:00–14:00. On weekdays, book by phone — the hammer doesn't wait.",
+      fLegal1: "Artistic ironwork. Handmade, as it should be.", fLegal2: "Madrid",
+      ckText: "We use one minimal cookie to remember your language and theme. No tracking, promised.", ckOk: "Got it", ckNo: "Essentials only"
+    },
+    fr: {
+      meta_title: "FORJA — Forge et cuivre depuis 1949 · Madrid",
+      meta_desc: "FORJA est un atelier familial de ferronnerie et de cuivre à Madrid. Portes, rampes et pièces uniques forgées à la main depuis 1949.",
+      og_title: "FORJA — Forge et cuivre depuis 1949",
+      og_desc: "Portes, rampes et pièces uniques en fer et en cuivre, forgées à la main à Madrid depuis 1949.",
+      skip: "Aller au contenu",
+      langLabel: "Choisir la langue",
+      themeLabel: "Changer de thème",
+      menuLabel: "Ouvrir le menu",
+      navOficio: "L'artisanat", navObra: "Œuvres", navEncargos: "Commandes", navPreguntas: "FAQ",
+      ctaPresupuesto: "Demander un devis",
+      heroKicker: "Ferronnerie d'art · Madrid",
+      heroH1a: "Le fer se forge", heroH1b: "au feu.", heroH1c: "Votre maison, dans le détail.",
+      heroSub: "Chez FORJA, nous concevons et fabriquons portes, rampes, escaliers et pièces décoratives en fer et en cuivre, une à une, dans notre atelier du quartier de Lavapiés. Pas de stock, pas de catalogue générique : chaque commande naît d'une conversation et finit installée chez vous.",
+      heroCta1: "Parlez-nous de votre projet", heroCta2: "Voir les œuvres récentes",
+      heroNote: "— trois générations à donner forme au fer à Madrid. Forgerons, pas soudeurs de catalogue.",
+      forgeCaption: "La porte « Lavapiés » — fer forgé et cuivre repoussé",
+      k1: "L'artisanat",
+      t1: "De l'enclume à votre façade, sans raccourci",
+      l1: "Chaque pièce passe par trois stations. Nous les appelons ainsi parce que dans l'atelier ce sont, littéralement, trois postes de travail. Et parce qu'elles résument notre rapport au métal.",
+      c1t: "Chauffer", c1p: "Le fer chauffe dans la forge jusqu'à 1 100 °C. C'est le seul moment où le matériau est honnête : à cette température, l'acier dit la vérité de son grain.",
+      c2t: "Marteler", c2p: "Treize coups de marteau pour chaque décision de design. La forme ne se soude pas : elle se forge. Ainsi le métal garde sa fibre, sa résistance et son éclat propre.",
+      c3t: "Tremper", c3p: "La pièce est trempée, polie et protégée aux huiles naturelles. Le cuivre, lui, est laissé à vieillir : nous voulons que la patine soit écrite par le temps de votre maison.",
+      k2: "Œuvres récentes",
+      t2: "Trois pièces, trois manières de lire une maison",
+      l2: "Nous ne répétons jamais de modèles. Voici trois commandes récentes aux approches différentes : la façade comme carte de visite, la circulation comme sculpture, et la table comme petit luxe quotidien.",
+      w1tag: "Rampes · Volée courbe", w1t: "Escalier en colimaçon, maison à Chamberí",
+      w1p: "Quatre-vingt-deux pièces de méplat forgé assemblées sans une seule vis visible. La rampe épouse la courbe de l'escalier et la main courante se réchauffe au toucher : du cuivre, pour que le tactile accompagne chaque pas.",
+      w1m1l: "Matériau", w1m1: "Fer forgé + main courante en cuivre", w1m2l: "Montage", w1m2: "7 semaines, 2 forgerons",
+      w2tag: "Porte · Entrée principale", w2t: "Porte de manoir, domaine dans la Sierra",
+      w2p: "Une porte de 2,90 m qui s'ouvre d'un simple effleurement : le vantail pivote sur des roulements en bronze et le couronnement s'illumine l'après-midi. L'oculus central reprend le motif de la fontaine du patio, reliant maison et jardin d'un seul geste.",
+      w2m1l: "Matériau", w2m1: "Fer armé + vantaux en cuivre", w2m2l: "Montage", w2m2: "12 semaines, 3 forgerons",
+      w3tag: "Table · Salle à manger", w3t: "Table de forge avec plateau en olivier",
+      w3p: "De la ferronnerie utile, celle qui vit à la maison : un piètement forgé pour une table de 2,20 m au plateau d'olivier vieilli. Le fer est traité à la cire naturelle — ni revêtement qui s'écaille, ni angle qui égratigne le genou.",
+      w3m1l: "Matériau", w3m1: "Fer à l'huile + olivier", w3m2l: "Montage", w3m2: "4 semaines, 1 forgeron",
+      qText1: "« Nous ne vous vendons pas une porte. Nous vous vendons ", qText2: "la sensation de rentrer chez soi", qText3: " — et la porte pour qu'elle dure cent ans. »",
+      qAuthor: "Julián Serrano", qRole: "maître forgeron, troisième génération, FORJA",
+      k3: "Commandes", t3: "Un devis clair, sans surprise",
+      l3: "Trois points de départ. Tous incluent la visite de l'atelier, la prise de mesures sur place et un dessin de la pièce avant de commencer. Le devis final est confirmé par écrit et ne bouge pas.",
+      p1t: "Pièce d'atelier", p1d: "Pour décorer ou offrir : cadres de miroir, portes de placard, appliques, trépieds de cheminée.",
+      p1price: "Dès 480 €",
+      p1f1: "1 visite-conseil en boutique", p1f2: "Photos + devis sous 5 jours", p1f3: "Livraison sous 3-4 semaines", p1f4: "Finitions : fer à l'huile / cuivre",
+      p1cta: "Se renseigner sur une pièce",
+      p2tag: "Le plus demandé", p2t: "Sur mesure",
+      p2d: "Portes, rampes, grilles et escaliers conçus avec vous, dessinés sur plan, forgés puis montés.",
+      p2price: "Dès 2 400 €",
+      p2f1: "Visite + mesure sur place incluses", p2f2: "Plan et rendu validés avant de forger", p2f3: "Préparation du chantier et montage", p2f4: "Garantie de 10 ans sur la forge", p2f5: "Patine exclusive au choix",
+      p2cta: "Demander un devis",
+      p3t: "Projet complet", p3d: "Direction du fer pour rénovations globales : escaliers, rampes, grilles et détails en cuivre assortis.",
+      p3price: "Devis fermé",
+      p3f1: "Coordination avec l'architecte", p3f2: "Phases de chantier avec calendrier", p3f3: "Restauration des pièces d'origine", p3f4: "Cuivre assorti dans les détails",
+      p3cta: "Parler du projet",
+      k4: "FAQ", t4: "Ce qu'on nous demande toujours à l'atelier",
+      fq1: "Travaillez-vous en véritable forge ou en profilés soudés ?",
+      fa1: "En véritable forge. Nous chauffons le métal dans la forge et le travaillons au marteau et à l'enclume. Les profilés soudés sont une autre technique, plus rapide et moins chère, que nous n'utilisons que si le client le demande explicitement. Un œil exercé repère la différence au grain et à l'absence de soudures.",
+      fq2: "Combien de temps pour une rampe ou une porte ?",
+      fa2: "Une pièce d'atelier : 3 à 4 semaines. Une rampe d'une volée : 5 à 7 semaines à partir du plan validé. Une porte d'entrée : 10 à 12 semaines, car elle comprend la quincaillerie en bronze et, si vous le souhaitez, du cuivre repoussé. S'il y a une vraie échéance, nous le disons avant de commencer, pas après.",
+      fq3: "Pouvez-vous restaurer le vieux fer de ma maison ?",
+      fa3: "Oui, et c'est l'un de nos travaux favoris. Nous démontons, décapons pièce par pièce, remplaçons ce qui est cassé en respectant le motif d'origine et protégeons à l'huile ou à l'émail selon l'usage. Nous restaurons des grilles du XVIIIe siècle, des rampes de 1900 et des cours d'immeuble avec le même soin.",
+      fq4: "Le cuivre demande-t-il un entretien ?",
+      fa4: "Tout dépend de la finition choisie. En intérieur, le cuivre laqué ne demande presque rien : un chiffon sec de temps en temps. En extérieur, laissé naturel, il vieillit avec une patine verte — beaucoup de clients la demandent expressément. Si vous préférez le ton brillant, nous passons une cire spéciale tous les deux ans. Nous expliquons tout à la livraison.",
+      fq5: "Faites-vous des devis à distance ?",
+      fa5: "Pour les pièces d'atelier, oui, avec photos et mesures. Pour les pièces sur mesure, nous devons voir le chantier : la lumière, l'échelle de la maison et l'ouverture exacte changent le design. La visite à Madrid intra-muros et ses environs est incluse dans le devis ; au-delà, on s'accorde à part.",
+      nt: "La lettre de la forge",
+      np: "Une fois par mois : des photos de pièces sorties de l'enclume, un conseil d'entretien et les prochaines dates de visite de l'atelier. Pas de bruit, pas de listes d'achats — juste l'artisanat.",
+      nsLabel: "Votre e-mail", nsPh: "vous@exemple.fr", nsBtn: "S'abonner",
+      nsOk: "Cette page ne conserve pas les e-mails. Écrivez à <a href=\"mailto:hola@forja.es\">hola@forja.es</a> — on vous ajoute à la main.",
+      fDesc: "Atelier de fer et de cuivre fondé en 1949. Trois générations de forgerons au cœur de Lavapiés, Madrid.",
+      fNavTitle: "Atelier", fNav1: "L'artisanat", fNav2: "Œuvres récentes", fNav3: "Commandes & tarifs", fNav4: "FAQ",
+      fHorTitle: "Atelier", fAdr: "14 rue del Oso, Lavapiés<br>28012 Madrid",
+      fVisTitle: "Visites", fVis1: "La forge est ouverte le samedi de 11 h à 14 h. En semaine, réservez par téléphone — le marteau n'attend pas.",
+      fLegal1: "Ferronnerie d'art. Fait main, comme il se doit.", fLegal2: "Madrid",
+      ckText: "Un seul cookie minimal pour retenir votre langue et votre thème. Aucun pistage, promis.", ckOk: "Compris", ckNo: "Essentiel uniquement"
+    },
+    de: {
+      meta_title: "FORJA — Schmiede und Kupfer seit 1949 · Madrid",
+      meta_desc: "FORJA ist eine Familienwerkstatt für Eisen und Kupfer in Madrid. Türen, Geländer und Einzelstücke, seit 1949 handgeschmiedet.",
+      og_title: "FORJA — Schmiede und Kupfer seit 1949",
+      og_desc: "Türen, Geländer und Einzelstücke aus Eisen und Kupfer, seit 1949 in Madrid handgeschmiedet.",
+      skip: "Zum Inhalt springen",
+      langLabel: "Sprache wählen",
+      themeLabel: "Design wechseln",
+      menuLabel: "Menü öffnen",
+      navOficio: "Das Handwerk", navObra: "Arbeiten", navEncargos: "Aufträge", navPreguntas: "FAQ",
+      ctaPresupuesto: "Angebot anfragen",
+      heroKicker: "Kunstschmiede · Madrid",
+      heroH1a: "Eisen wird", heroH1b: "mit Feuer", heroH1c: "geschmiedet. Ihr Zuhause im Detail.",
+      heroSub: "Bei FORJA entwerfen und fertigen wir Türen, Geländer, Treppen und Deko-Stücke aus Eisen und Kupfer — Stück für Stück, in unserer Werkstatt im Viertel Lavapiés. Kein Lager, kein generischer Katalog: Jeder Auftrag beginnt mit einem Gespräch und endet bei Ihnen zu Hause eingebaut.",
+      heroCta1: "Erzählen Sie uns von Ihrem Projekt", heroCta2: "Aktuelle Arbeiten ansehen",
+      heroNote: "— drei Generationen, die in Madrid dem Eisen Form geben. Schmiede, keine Katalogschweißer.",
+      forgeCaption: "Die Tür „Lavapiés“ — geschmiedetes Eisen und getriebenes Kupfer",
+      k1: "Das Handwerk",
+      t1: "Vom Amboss zu Ihrer Fassade, ohne Abkürzungen",
+      l1: "Jedes Stück durchläuft drei Stationen. So nennen wir sie, weil es in der Werkstatt buchstäblich drei Arbeitsplätze sind. Und weil sie unsere Haltung zum Metall zusammenfassen.",
+      c1t: "Erhitzen", c1p: "Das Eisen wird in der Esse auf 1.100 °C erhitzt. Es ist der einzige Moment, in dem das Material ehrlich ist: Bei dieser Temperatur erzählt der Stahl die Wahrheit seiner Maserung.",
+      c2t: "Hämmern", c2p: "Dreizehn Hammerschläge für jede Designentscheidung. Die Form wird nicht geschweißt, sondern geschmiedet. So behält das Metall seine Faser, seine Festigkeit und seinen eigenen Glanz.",
+      c3t: "Härten", c3p: "Das Stück wird gehärtet, poliert und mit natürlichen Ölen geschützt. Das Kupfer darf absichtlich altern: Die Patina soll die Zeit Ihres Hauses schreiben.",
+      k2: "Aktuelle Arbeiten",
+      t2: "Drei Stücke, drei Arten, ein Zuhause zu lesen",
+      l2: "Wir wiederholen keine Modelle. Drei aktuelle Aufträge mit unterschiedlichen Ansätzen: die Fassade als Visitenkarte, die Zirkulation als Skulptur, der Esstisch als täglicher kleiner Luxus.",
+      w1tag: "Geländer · Gewendelte Treppe", w1t: "Wendeltreppe, Stadthaus in Chamberí",
+      w1p: "Zweiundachtzig Teile aus geschmiedetem Bandstahl, montiert ohne eine einzige sichtbare Schraube. Das Geländer folgt der Kurve der Treppe, und das Handgeländer wird unter der Hand warm: Kupfer, damit der Tastsinn jeden Schritt begleitet.",
+      w1m1l: "Material", w1m1: "Geschmiedetes Eisen + Kupferhandlauf", w1m2l: "Montage", w1m2: "7 Wochen, 2 Schmiede",
+      w2tag: "Tür · Haupteingang", w2t: "Herrenhaustür, Anwesen in der Sierra",
+      w2p: "Eine 2,90 m hohe Tür, die sich mit einer leichten Berührung öffnet: Das Türblatt dreht auf Bronzelagern, und der obere Abschluss leuchtet am Nachmittag auf. Das zentrale Okulus wiederholt das Motiv des Hofbrunnens und verbindet Haus und Garten in einer Geste.",
+      w2m1l: "Material", w2m1: "Armiertes Eisen + Kupferblätter", w2m2l: "Montage", w2m2: "12 Wochen, 3 Schmiede",
+      w3tag: "Tisch · Esszimmer", w3t: "Schmiedetisch mit Olivenholzplatte",
+      w3p: "Nützliche Schmiedearbeit, die im Haus lebt: das geschmiedete Gestell für einen 2,20 m langen Tisch mit gealtertem Olivenholz. Das Eisen ist mit natürlichem Wachs behandelt — kein Überzug, der abblättert, keine Ecke, die das Knie zerkratzt.",
+      w3m1l: "Material", w3m1: "Geöltes Eisen + Olivenholz", w3m2l: "Montage", w3m2: "4 Wochen, 1 Schmied",
+      qText1: "„Wir verkaufen Ihnen keine Tür. Wir verkaufen Ihnen ", qText2: "das Gefühl, nach Hause zu kommen", qText3: " — und die Tür, damit es hundert Jahre hält.“",
+      qAuthor: "Julián Serrano", qRole: "Schmiedemeister, dritte Generation, FORJA",
+      k3: "Aufträge", t3: "Ein klares Angebot, ohne Überraschungen",
+      l3: "Drei Ausgangspunkte. Alle beinhalten einen Werkstattbesuch, das Aufmaß vor Ort und eine Zeichnung des Stücks vor dem Start. Der Endpreis wird schriftlich bestätigt und bleibt unverändert.",
+      p1t: "Werkstattstück", p1d: "Zum Dekorieren oder Verschenken: Spiegelrahmen, Schranktüren, Wandleuchten, Kaminständer.",
+      p1price: "Ab 480 €",
+      p1f1: "1 Beratungsbesuch im Laden", p1f2: "Fotos + Angebot in 5 Tagen", p1f3: "Lieferung in 3-4 Wochen", p1f4: "Oberflächen: geöltes Eisen / Kupfer",
+      p1cta: "Nach einem Stück fragen",
+      p2tag: "Am häufigsten gewählt", p2t: "Maßanfertigung",
+      p2d: "Türen, Geländer, Gitter und Treppen, gemeinsam entworfen, auf Plan gezeichnet, geschmiedet und montiert.",
+      p2price: "Ab 2.400 €",
+      p2f1: "Besuch + Aufmaß vor Ort inklusive", p2f2: "Plan und Render vor dem Schmieden freigegeben", p2f3: "Baustellenvorbereitung und Montage", p2f4: "10 Jahre Garantie auf die Schmiedearbeit", p2f5: "Exklusive Patina nach Wahl",
+      p2cta: "Angebot anfordern",
+      p3t: "Komplettes Projekt", p3d: "Eisenplanung für Gesamtrenovierungen: Treppen, Geländer, Gitter und passende Kupferdetails.",
+      p3price: "Festpreisangebot",
+      p3f1: "Abstimmung mit dem Architekten", p3f2: "Bauphasen mit Zeitplan", p3f3: "Restaurierung von Originalstücken", p3f4: "Passendes Kupfer bis ins Detail",
+      p3cta: "Über das Projekt sprechen",
+      k4: "FAQ", t4: "Was man uns in der Werkstatt immer fragt",
+      fq1: "Arbeiten Sie mit echtem Schmieden oder geschweißten Profilen?",
+      fa1: "Echtem Schmieden. Wir erhitzen das Metall in der Esse und bearbeiten es mit Hammer und Amboss. Geschweißte Profile sind eine andere, schnellere und günstigere Technik, die wir nur verwenden, wenn der Kunde es ausdrücklich wünscht. Ein geübtes Auge erkennt den Unterschied an der Faser und am Fehlen von Nähten.",
+      fq2: "Wie lange dauert ein Geländer oder eine Tür?",
+      fa2: "Ein Werkstattstück dauert 3 bis 4 Wochen. Ein Geländer mit einem Lauf: 5 bis 7 Wochen ab freigegebener Zeichnung. Eine Haustür: 10 bis 12 Wochen, denn sie umfasst Bronzebeschläge und, auf Wunsch, getriebenes Kupfer. Wenn es eine echte Frist gibt, sagen wir es vor dem Start, nicht danach.",
+      fq3: "Können Sie das alte Eisen in meinem Haus restaurieren?",
+      fa3: "Ja, und das ist eine unserer liebsten Arbeiten. Wir demontieren, entrosten Stück für Stück, ersetzen Bruchstellen unter Wahrung des Originalmusters und schützen mit Öl oder Lack je nach Verwendung. Wir restaurieren Gitter aus dem 18. Jahrhundert, Geländer von 1900 und Nachbarhöfe mit derselben Sorgfalt.",
+      fq4: "Braucht Kupfer Pflege?",
+      fa4: "Das hängt von der gewählten Oberfläche ab. Innen braucht lackiertes Kupfer fast nichts: ab und zu ein trockenes Tuch. Außen, naturbelassen, altert es mit grüner Patina — viele Kunden wünschen genau das. Wer den hellen Glanz bevorzugt, bekommt alle zwei Jahre ein Spezialwachs. All das erklären wir bei der Übergabe.",
+      fq5: "Erstellen Sie Angebote aus der Ferne?",
+      fa5: "Für Werkstattstücke ja, mit Fotos und Maßen. Für Maßanfertigungen müssen wir die Baustelle sehen: Licht, Maßstab des Hauses und die exakte Öffnung verändern das Design. Der Besuch in Madrid Stadt und Umgebung ist im Angebot enthalten; darüber hinaus vereinbaren wir das separat.",
+      nt: "Der Schmiede-Newsletter",
+      np: "Einmal im Monat: Fotos frisch vom Amboss, ein Pflegetipp und die nächsten Besuchstermine der Werkstatt. Kein Lärm, keine Kauflisten — nur das Handwerk.",
+      nsLabel: "Ihre E-Mail-Adresse", nsPh: "sie@beispiel.de", nsBtn: "Abonnieren",
+      nsOk: "Diese Seite speichert keine E-Mails. Schreiben Sie an <a href=\"mailto:hola@forja.es\">hola@forja.es</a> — wir tragen Sie von Hand ein.",
+      fDesc: "Werkstatt für Eisen und Kupfer, gegründet 1949. Drei Generationen schmieden im Herzen von Lavapiés, Madrid.",
+      fNavTitle: "Werkstatt", fNav1: "Das Handwerk", fNav2: "Aktuelle Arbeiten", fNav3: "Aufträge & Preise", fNav4: "FAQ",
+      fHorTitle: "Werkstatt", fAdr: "Calle del Oso 14, Lavapiés<br>28012 Madrid",
+      fVisTitle: "Besuche", fVis1: "Die Esse ist samstags von 11 bis 14 Uhr geöffnet. Unter der Woche bitte telefonisch anmelden — der Hammer wartet nicht.",
+      fLegal1: "Kunstschmiede. Handgemacht, wie es sich gehört.", fLegal2: "Madrid",
+      ckText: "Ein einziges Minicookie, um Sprache und Design zu merken. Kein Tracking, versprochen.", ckOk: "Verstanden", ckNo: "Nur das Nötigste"
+    },
+    it: {
+      meta_title: "FORJA — Fabbrica ferri e rame dal 1949 · Madrid",
+      meta_desc: "FORJA è un laboratorio familiare di ferro e rame a Madrid. Porte, ringhiere e pezzi unici forgiati a mano dal 1949.",
+      og_title: "FORJA — Fabbrica ferri e rame dal 1949",
+      og_desc: "Porte, ringhiere e pezzi unici in ferro e rame, forgiati a mano a Madrid dal 1949.",
+      skip: "Salta al contenuto",
+      langLabel: "Scegli la lingua",
+      themeLabel: "Cambia tema",
+      menuLabel: "Apri il menu",
+      navOficio: "Il mestiere", navObra: "Opere", navEncargos: "Committenze", navPreguntas: "FAQ",
+      ctaPresupuesto: "Richiedi un preventivo",
+      heroKicker: "Ferro battuto d'arte · Madrid",
+      heroH1a: "Il ferro si forgia", heroH1b: "col fuoco.", heroH1c: "La tua casa, nel dettaglio.",
+      heroSub: "Da FORJA progettiamo e realizziamo porte, ringhiere, scale e pezzi decorativi in ferro e rame, pezzo per pezzo, nel nostro laboratorio nel quartiere di Lavapiés. Niente stock, niente catalogo generico: ogni committenza nasce da una conversazione e finisce montata a casa vostra.",
+      heroCta1: "Raccontaci il tuo progetto", heroCta2: "Guarda le opere recenti",
+      heroNote: "— tre generazioni che danno forma al ferro a Madrid. Fabbri, non saldatori da catalogo.",
+      forgeCaption: "Porta «Lavapiés» — ferro battuto e rame sbalzato",
+      k1: "Il mestiere",
+      t1: "Dall'incudine alla tua facciata, senza scorciatoie",
+      l1: "Ogni pezzo passa per tre stazioni. Le chiamiamo così perché in laboratorio sono, letteralmente, tre postazioni di lavoro. E perché riassumono il nostro modo di intendere il metallo.",
+      c1t: "Riscaldare", c1p: "Il ferro si scalda nella forgia fino a 1.100 °C. È l'unico momento in cui il materiale è onesto: a quella temperatura, l'acciaio racconta la verità della sua fibra.",
+      c2t: "Martellare", c2p: "Tredici colpi di martello per ogni decisione di design. La forma non si salda: si forgia. Così il metallo conserva la fibra, la resistenza e il suo splendore.",
+      c3t: "Temperare", c3p: "Il pezzo si tempra, si lucida e si protegge con oli naturali. Il rame, inoltre, si lascia invecchiare: vogliamo che la patina la scriva il tempo della vostra casa.",
+      k2: "Opere recenti",
+      t2: "Tre pezzi, tre modi di leggere una casa",
+      l2: "Non ripetiamo mai modelli. Queste sono tre committenze recenti con approcci diversi: la facciata come biglietto da visita, la circolazione come scultura, la tavola come piccolo lusso quotidiano.",
+      w1tag: "Ringhiera · Ramo curvo", w1t: "Scala a chiocciola, casa a Chamberí",
+      w1p: "Ottantadue elementi di piatto forgiato assemblati senza una sola vite visibile. La ringhiera disegna la stessa curva della scala e il corrimano si scalda al tatto: rame, perché il contatto accompagni ogni passo.",
+      w1m1l: "Materiale", w1m1: "Ferro battuto + corrimano in rame", w1m2l: "Montaggio", w1m2: "7 settimane, 2 fabbri",
+      w2tag: "Porta · Ingresso principale", w2t: "Porta padronale, tenuta nella Sierra",
+      w2p: "Una porta di 2,90 m che si apre da sola a un tocco: l'anta ruota su cuscinetti di bronzo e il coronamento si illumina nel pomeriggio. L'oculo centrale riprende il motivo della fontana del patio, unendo casa e giardino in un unico gesto.",
+      w2m1l: "Materiale", w2m1: "Ferro armato + ante in rame", w2m2l: "Montaggio", w2m2: "12 settimane, 3 fabbri",
+      w3tag: "Tavolo · Sala da pranzo", w3t: "Tavolo di forgia con piano in olivo",
+      w3p: "Ferreria utile, quella che vive in casa: la base forgiata per un tavolo di 2,20 m con piano in olivo stagionato. Il ferro è trattato con cera naturale — nessun rivestimento che si scrosta, nessuno spigolo che graffia il ginocchio.",
+      w3m1l: "Materiale", w3m1: "Ferro all'olio + olivo", w3m2l: "Montaggio", w3m2: "4 settimane, 1 fabbro",
+      qText1: "«Non ti vendiamo una porta. Ti vendiamo ", qText2: "la sensazione di tornare a casa", qText3: " — e la porta perché duri cent'anni.»",
+      qAuthor: "Julián Serrano", qRole: "maestro fabbro, terza generazione, FORJA",
+      k3: "Committenze", t3: "Un preventivo chiaro, senza sorprese",
+      l3: "Tre punti di partenza. Tutti includono la visita al laboratorio, il rilievo in opera e un disegno del pezzo prima di iniziare. Il preventivo finale viene confermato per iscritto e non si muove.",
+      p1t: "Pezzo da laboratorio", p1d: "Per decorare o regalare: cornici di specchi, ante di armadio, applique, treppiedi per caminetto.",
+      p1price: "Da 480 €",
+      p1f1: "1 visita di consulenza in bottega", p1f2: "Foto + preventivo in 5 giorni", p1f3: "Consegna in 3-4 settimane", p1f4: "Finiture: ferro all'olio / rame",
+      p1cta: "Chiedere per un pezzo",
+      p2tag: "Il più richiesto", p2t: "Su misura",
+      p2d: "Porte, ringhiere, grate e scale progettate con voi, disegnate su planimetria, forgiate e montate.",
+      p2price: "Da 2.400 €",
+      p2f1: "Visita + rilievo in opera inclusi", p2f2: "Disegno e render approvati prima di forgiare", p2f3: "Preparazione del cantiere e montaggio", p2f4: "Garanzia di 10 anni sulla forgia", p2f5: "Patina esclusiva a scelta",
+      p2cta: "Richiedi un preventivo",
+      p3t: "Progetto completo", p3d: "Direzione del ferro per ristrutturazioni integrali: scale, ringhiere, grate e dettagli in rame coordinati.",
+      p3price: "Preventivo chiuso",
+      p3f1: "Coordinamento con l'architetto", p3f2: "Fasi di cantiere con calendario", p3f3: "Restauro dei pezzi originali", p3f4: "Rame coordinato nei dettagli",
+      p3cta: "Parlare del progetto",
+      k4: "FAQ", t4: "Quello che ci chiedono sempre in laboratorio",
+      fq1: "Lavorate con forgiatura autentica o con profili saldati?",
+      fa1: "Forgiatura autentica. Scaldiamo il metallo nella forgia e lo lavoriamo con martello e incudine. I profili saldati sono un'altra tecnica, più rapida ed economica, che usiamo solo se il cliente la chiede esplicitamente. Un occhio allenato nota la differenza dalla fibra e dall'assenza di giunture.",
+      fq2: "Quanto tempo richiedono una ringhiera o una porta?",
+      fa2: "Un pezzo da laboratorio: dalle 3 alle 4 settimane. Una ringhiera di un ramo: da 5 a 7 settimane dalla planimetria approvata. Una porta d'ingresso: da 10 a 12 settimane, perché comprende ferramenta in bronzo e, se la desiderate, rame sbalzato. Se c'è una scadenza vera, lo diciamo prima di iniziare, non dopo.",
+      fq3: "Potete restaurare il ferro antico della mia casa?",
+      fa3: "Sì, ed è uno dei nostri lavori preferiti. Smontiamo, decapiamo pezzo per pezzo, sostituiamo ciò che è rotto rispettando il motivo originale e proteggiamo con olio o smalto secondo l'uso. Restauriamo grate del Settecento, ringhiere del 1900 e cortili di quartiere con la stessa cura.",
+      fq4: "Il rame richiede manutenzione?",
+      fa4: "Dipende dalla finitura scelta. In interno, il rame laccato richiede quasi nulla: un panno asciutto ogni tanto. In esterno, lasciato al naturale, invecchia con una patina verde — molti clienti la chiedono espressamente. Se preferite il tono brillante, ogni due anni passiamo una cera speciale. Spieghiamo tutto alla consegna.",
+      fq5: "Fate preventivi a distanza?",
+      fa5: "Per i pezzi da laboratorio, sì, con foto e misure. Per i pezzi su misura dobbiamo vedere l'opera: luce, scala della casa e apertura esatta cambiano il progetto. La visita a Madrid città e dintorni è inclusa nel preventivo; oltre, si concorda a parte.",
+      nt: "La newsletter della forgia",
+      np: "Una volta al mese: foto di pezzi appena usciti dall'incudine, un consiglio di manutenzione e le prossime date di visita al laboratorio. Niente rumore, niente liste della spesa — solo il mestiere.",
+      nsLabel: "La tua e-mail", nsPh: "tu@esempio.it", nsBtn: "Iscriviti",
+      nsOk: "Questa landing non salva email. Scrivici a <a href=\"mailto:hola@forja.es\">hola@forja.es</a> e ti aggiungiamo a mano.",
+      fDesc: "Laboratorio di ferro e rame fondato nel 1949. Tre generazioni che forgiano nel cuore di Lavapiés, Madrid.",
+      fNavTitle: "Laboratorio", fNav1: "Il mestiere", fNav2: "Opere recenti", fNav3: "Committenze e prezzi", fNav4: "FAQ",
+      fHorTitle: "Laboratorio", fAdr: "Calle del Oso 14, Lavapiés<br>28012 Madrid",
+      fVisTitle: "Visite", fVis1: "La forgia è aperta il sabato dalle 11 alle 14. In settimana, appuntamento per telefono — il martello non aspetta.",
+      fLegal1: "Ferreria d'arte. Fatto a mano, come deve essere.", fLegal2: "Madrid",
+      ckText: "Usiamo un solo cookie minimale per ricordare lingua e tema. Nessun tracciamento, promesso.", ckOk: "Ok", ckNo: "Solo l'essenziale"
+    },
+    pt: {
+      meta_title: "FORJA — Ferreiros e cobre desde 1949 · Madrid",
+      meta_desc: "A FORJA é uma oficina familiar de ferro e cobre em Madrid. Portas, grades e peças únicas forjadas à mão desde 1949.",
+      og_title: "FORJA — Ferreiros e cobre desde 1949",
+      og_desc: "Portas, grades e peças únicas de ferro e cobre, forjadas à mão em Madrid desde 1949.",
+      skip: "Saltar para o conteúdo",
+      langLabel: "Escolher idioma",
+      themeLabel: "Alterar tema",
+      menuLabel: "Abrir menu",
+      navOficio: "O ofício", navObra: "Obra", navEncargos: "Encomendas", navPreguntas: "Perguntas",
+      ctaPresupuesto: "Pedir orçamento",
+      heroKicker: "Serralharia artística · Madrid",
+      heroH1a: "O ferro forja-se", heroH1b: "a fogo.", heroH1c: "A sua casa, ao pormenor.",
+      heroSub: "Na FORJA desenhamos e fabricamos portas, grades, escadas e peças decorativas em ferro e cobre, peça a peça, na nossa oficina do bairro de Lavapiés. Sem stock, sem catálogo genérico: cada encomenda nasce de uma conversa e acaba instalada onde o senhor vive.",
+      heroCta1: "Conte-nos o seu projeto", heroCta2: "Ver obra recente",
+      heroNote: "— três gerações a dar forma ao ferro em Madrid. Ferreiros, não soldadores de catálogo.",
+      forgeCaption: "Porta «Lavapiés» — ferro forjado e cobre repuxado",
+      k1: "O ofício",
+      t1: "Da bigorna à sua fachada, sem atalhos",
+      l1: "Cada peça passa por três estações. Chamamos-lhes assim porque na oficina são, literalmente, três postos de trabalho. E porque resumem uma forma de entender o metal.",
+      c1t: "Aquecer", c1p: "O ferro aquece na forja até 1.100 °C. É o único momento em que o material é honesto: a essa temperatura, o aço conta a verdade do seu grão.",
+      c2t: "Martelar", c2p: "Treze golpes de martelo por cada decisão de design. A forma não se solda: forja-se. Assim o metal conserva a sua fibra, a sua resistência e o seu brilho próprio.",
+      c3t: "Temperar", c3p: "A peça tempera-se, pule-se e protege-se com óleos naturais. O cobre, além disso, deixa-se envelhecer: queremos que a pátina a escreva o tempo da sua casa.",
+      k2: "Obra recente",
+      t2: "Três peças, três maneiras de ler uma casa",
+      l2: "Não repetimos modelos. Estas são três encomendas recentes com abordagens diferentes: a fachada como cartão de visita, a circulação como escultura, e a sobremesa como pequeno luxo quotidiano.",
+      w1tag: "Grade · Lanço curvo", w1t: "Escada de caracol, casa em Chamberí",
+      w1p: "Oitenta e duas peças de platina forjada montadas sem um único parafuso visível. A grade desenha a mesma curva da escada e o corrimão aquece com a mão: cobre, para que o toque acompanhe cada passo.",
+      w1m1l: "Material", w1m1: "Ferro forjado + corrimão de cobre", w1m2l: "Montagem", w1m2: "7 semanas, 2 ferreiros",
+      w2tag: "Porta · Acesso principal", w2t: "Porta senhorial, quinta na Serra",
+      w2p: "Uma porta de 2,90 m que se abre sozinha a um roçar: a folha pivota sobre rolamentos de bronze e o remate superior ilumina-se ao fim da tarde. O óculo central repete o motivo da fonte do pátio, ligando casa e jardim num só gesto.",
+      w2m1l: "Material", w2m1: "Ferro armado + folhas de cobre", w2m2l: "Montagem", w2m2: "12 semanas, 3 ferreiros",
+      w3tag: "Mesa · Sala de jantar", w3t: "Mesa de forja com tampo de oliveira",
+      w3p: "Serralharia útil, a que vive em casa: a base forjada para uma mesa de 2,20 m com tampo de oliveira envelhecida. O ferro é tratado com cera natural; não há revestimento que descasque nem canto que arranhe o joelho.",
+      w3m1l: "Material", w3m1: "Ferro ao óleo + oliveira", w3m2l: "Montagem", w3m2: "4 semanas, 1 ferreiro",
+      qText1: "«Não vendemos uma porta. Vendemos ", qText2: "a sensação de chegar a casa", qText3: " — e a porta para durar cem anos.»",
+      qAuthor: "Julián Serrano", qRole: "mestre ferreiro, terceira geração, FORJA",
+      k3: "Encomendas", t3: "Um orçamento claro, sem surpresas",
+      l3: "Três pontos de partida. Todos incluem visita à oficina, medição em obra e um desenho da peça antes de começar. O orçamento final é confirmado por escrito e não se altera.",
+      p1t: "Peça de oficina", p1d: "Para decorar ou oferecer: molduras de espelho, portas de armário, arandelas, tripeças de lareira.",
+      p1price: "Desde 480 €",
+      p1f1: "1 visita de consultoria na loja", p1f2: "Fotos + orçamento em 5 dias", p1f3: "Entrega em 3-4 semanas", p1f4: "Acabamentos: ferro ao óleo / cobre",
+      p1cta: "Perguntar por uma peça",
+      p2tag: "O mais pedido", p2t: "Peça à medida",
+      p2d: "Portas, grades, grelhas e escadas desenhadas consigo, traçadas em planta, forjadas e montadas.",
+      p2price: "Desde 2.400 €",
+      p2f1: "Visita + medição em obra incluídas", p2f2: "Planta e render aprovados antes de forjar", p2f3: "Preparação de obra e montagem", p2f4: "Garantia de 10 anos sobre a forja", p2f5: "Pátina exclusiva à escolha",
+      p2cta: "Solicitar orçamento",
+      p3t: "Projeto completo", p3d: "Direção de ferro para remodelações integrais: escadas, grades, grelhas e pormenores de cobre a condizer.",
+      p3price: "Orçamento fechado",
+      p3f1: "Coordenação com o arquiteto", p3f2: "Fases de obra com calendário", p3f3: "Restauro de peças originais", p3f4: "Cobre a condizer nos pormenores",
+      p3cta: "Falar do projeto",
+      k4: "Perguntas", t4: "O que nos perguntam sempre na oficina",
+      fq1: "Trabalham com forja autêntica ou com perfis soldados?",
+      fa1: "Forja autêntica. Aquecemos o metal na forja e trabalhamo-lo com martelo e bigorna. Os perfis soldados são outra técnica, mais rápida e barata, e usamo-la só quando o cliente a pede explicitamente. Um olho treinado nota a diferença pela fibra e pela ausência de costuras.",
+      fq2: "Quanto demora uma grade ou uma porta?",
+      fa2: "Uma peça de oficina, de 3 a 4 semanas. Uma grade de um lanço, de 5 a 7 semanas a partir da planta aprovada. Uma porta principal, de 10 a 12 semanas, porque inclui ferragens de bronze e, se quiserem, cobre repuxado. Se há pressa real, dizemo-lo antes de começar, não depois.",
+      fq3: "Podem restaurar o ferro antigo da minha casa?",
+      fa3: "Sim, e é um dos nossos trabalhos favoritos. Desmontamos, decapamos peça a peça, substituímos o que está partido respeitando o padrão original e protegemos com óleo ou esmalte conforme o uso. Restauramos grelhas do século XVIII, grades de 1900 e pátios de bairro com o mesmo cuidado.",
+      fq4: "O cobre exige manutenção?",
+      fa4: "Depende do acabamento escolhido. Em interior, o cobre laqueado quase não exige cuidados: um pano seco de vez em quando. Em exterior, deixado ao natural, envelhece com uma pátina verde — muitos clientes pedem-na expressamente. Se preferir o tom brilhante, passamos de dois em dois anos uma cera especial. Explicamos tudo na entrega.",
+      fq5: "Fazem orçamento à distância?",
+      fa5: "Para peças de oficina, sim, com fotos e medidas. Para peças à medida precisamos de ver a obra: a luz, a escala da casa e o vão exato mudam o design. A visita a Madrid capital e arredores está incluída no orçamento; além disso, acerta-se à parte.",
+      nt: "O boletim da forja",
+      np: "Uma vez por mês: fotos de peças acabadas de sair da bigorna, um conselho de manutenção e as próximas datas de visita à oficina. Sem ruído, sem listas de compras: só o ofício.",
+      nsLabel: "O seu e-mail", nsPh: "voce@exemplo.pt", nsBtn: "Subscrever",
+      nsOk: "Esta landing não guarda emails. Escreve para <a href=\"mailto:hola@forja.es\">hola@forja.es</a> e adicionamos à mão.",
+      fDesc: "Oficina de ferro e cobre fundada em 1949. Três gerações a forjar no coração de Lavapiés, Madrid.",
+      fNavTitle: "Oficina", fNav1: "O ofício", fNav2: "Obra recente", fNav3: "Encomendas e preços", fNav4: "Perguntas frequentes",
+      fHorTitle: "Oficina", fAdr: "Calle del Oso 14, Lavapiés<br>28012 Madrid",
+      fVisTitle: "Visitas", fVis1: "Abrimos a forja aos sábados das 11h às 14h. Durante a semana, a marcação é por telefone — o martelo não espera.",
+      fLegal1: "Serralharia artística. Feito à mão, como deve ser.", fLegal2: "Madrid",
+      ckText: "Usamos um único cookie mínimo para recordar o idioma e o tema. Sem rastreio, prometido.", ckOk: "Percebido", ckNo: "Só o essencial"
+    }
+  };
+  var LS_KEY = 'forja-lang';
+  var THEME_KEY = 'kairos-theme';
+
+  document.documentElement.classList.remove('no-js');
+
+  function detectLang() {
+    var saved = null;
+    try { saved = localStorage.getItem(LS_KEY); } catch (e) {}
+    if (saved && I18N[saved]) return saved;
+    var nav = (navigator.language || 'es').toLowerCase().slice(0, 2);
+    return I18N[nav] ? nav : 'es';
+  }
+
+  function setLang(lang) {
+    var t = I18N[lang];
+    document.documentElement.lang = lang;
+    var title = document.getElementById('doc-title');
+    if (title) title.textContent = t.meta_title;
+    var desc = document.getElementById('meta-desc');
+    if (desc) desc.setAttribute('content', t.meta_desc);
+    var ogt = document.querySelector('meta[property="og:title"]');
+    if (ogt) ogt.setAttribute('content', t.og_title);
+    var ogd = document.querySelector('meta[property="og:description"]');
+    if (ogd) ogd.setAttribute('content', t.og_desc);
+    document.querySelectorAll('[data-i18n]').forEach(function (el) {
+      var k = el.getAttribute('data-i18n');
+      if (t[k] !== undefined) el.innerHTML = t[k];
+    });
+    document.querySelectorAll('[data-i18n-ph]').forEach(function (el) {
+      var k = el.getAttribute('data-i18n-ph');
+      if (t[k] !== undefined) el.setAttribute('placeholder', t[k]);
+    });
+    document.querySelectorAll('[data-i18n-aria]').forEach(function (el) {
+      var k = el.getAttribute('data-i18n-aria');
+      if (t[k] !== undefined) el.setAttribute('aria-label', t[k]);
+    });
+    document.querySelectorAll('.lang-select__cur').forEach(function (el) {
+      el.textContent = lang.toUpperCase();
+    });
+    document.querySelectorAll('.lang-select__opt').forEach(function (opt) {
+      opt.setAttribute('aria-selected', opt.getAttribute('data-lang') === lang ? 'true' : 'false');
+    });
+    try { localStorage.setItem(LS_KEY, lang); } catch (e) {}
+  }
+
+  /* Language dropdown — BOTH copies via querySelectorAll */
+  function closeLangMenus() {
+    document.querySelectorAll('.lang-select').forEach(function (sel) {
+      var menu = sel.querySelector('.lang-select__menu');
+      var btn = sel.querySelector('.lang-select__btn');
+      if (menu) menu.classList.remove('open');
+      if (btn) btn.setAttribute('aria-expanded', 'false');
+    });
+  }
+  document.querySelectorAll('.lang-select').forEach(function (sel) {
+    var btn = sel.querySelector('.lang-select__btn');
+    var menu = sel.querySelector('.lang-select__menu');
+    if (!btn || !menu) return;
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var open = menu.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    menu.querySelectorAll('.lang-select__opt').forEach(function (opt) {
+      opt.addEventListener('click', function () {
+        setLang(opt.getAttribute('data-lang'));
+        closeLangMenus();
+      });
+    });
+  });
+  document.addEventListener('click', function (e) {
+    var inside = false;
+    document.querySelectorAll('.lang-select').forEach(function (sel) {
+      if (sel.contains(e.target)) inside = true;
+    });
+    if (!inside) closeLangMenus();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeLangMenus();
+  });
+
+  /* Theme */
+  function initTheme() {
+    var saved = null;
+    try { saved = localStorage.getItem(THEME_KEY); } catch (e) {}
+    var theme = saved === 'dark' ? 'dark' : 'light';
+    if (theme === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    } else {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+    var btn = document.getElementById('themeToggle');
+    if (btn) btn.addEventListener('click', function () {
+      var cur = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+      var next = cur === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem(THEME_KEY, next); } catch (e) {}
+    });
+  }
+
+  /* Mobile menu */
+  function initMenu() {
+    var burger = document.getElementById('burger');
+    var menu = document.getElementById('mobileMenu');
+    if (!burger || !menu) return;
+    burger.addEventListener('click', function () {
+      var open = menu.classList.toggle('open');
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    menu.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        menu.classList.remove('open');
+        burger.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
+  /* Reveal on scroll */
+  function initReveal() {
+    var els = document.querySelectorAll('.rv');
+    if (!('IntersectionObserver' in window)) {
+      els.forEach(function (el) { el.classList.add('in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) {
+          en.target.classList.add('in');
+          io.unobserve(en.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+    els.forEach(function (el) { io.observe(el); });
+  }
+
+  /* SVG draw — stroke-dashoffset on .draw elements */
+  function initDraw() {
+    var els = document.querySelectorAll('.draw');
+    if (!('IntersectionObserver' in window)) {
+      els.forEach(function (el) { el.classList.add('in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) {
+          en.target.classList.add('in');
+          io.unobserve(en.target);
+        }
+      });
+    }, { threshold: 0.05 });
+    els.forEach(function (el) { io.observe(el); });
+    var fades = document.querySelectorAll('.draw-fade');
+    if (!('IntersectionObserver' in window)) {
+      fades.forEach(function (el) { el.classList.add('in'); });
+      return;
+    }
+    var fio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) {
+          en.target.classList.add('in');
+          fio.unobserve(en.target);
+        }
+      });
+    }, { threshold: 0.05 });
+    fades.forEach(function (el) { fio.observe(el); });
+  }
+
+  /* FAQ accordion */
+  function initFaq() {
+    document.querySelectorAll('.faq-item').forEach(function (item) {
+      var btn = item.querySelector('.faq-q');
+      var ans = item.querySelector('.faq-a');
+      if (!btn || !ans) return;
+      btn.addEventListener('click', function () {
+        var open = item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(function (other) {
+          other.classList.remove('open');
+          var ob = other.querySelector('.faq-q');
+          var oa = other.querySelector('.faq-a');
+          if (ob) ob.setAttribute('aria-expanded', 'false');
+          if (oa) oa.style.maxHeight = '0px';
+        });
+        if (!open) {
+          item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+          ans.style.maxHeight = ans.scrollHeight + 'px';
+        } else {
+          ans.style.maxHeight = '0px';
+        }
+      });
+    });
+  }
+
+  /* Newsletter — no fake success. Static landing: point to mailto. */
+  function initNewsletter() {
+    var form = document.getElementById('newsletterForm');
+    var ok = document.getElementById('nsOk');
+    if (!form) return;
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var email = form.querySelector('input[type="email"]');
+      if (!email || !email.value || !email.checkValidity()) {
+        email && email.focus();
+        return;
+      }
+      if (ok) {
+        ok.hidden = false;
+        ok.classList.add('show');
+      }
+      email.value = '';
+    });
+  }
+
+  /* Cookie banner — delayed, bottom-right, never blocks hero */
+  function initCookie() {
+    var banner = document.getElementById('cookieBanner');
+    var okBtn = document.getElementById('cookieOk');
+    var noBtn = document.getElementById('cookieNo');
+    if (!banner) return;
+    var accepted = null;
+    try { accepted = localStorage.getItem('forja-cookie'); } catch (e) {}
+    if (accepted) return;
+    setTimeout(function () { banner.classList.add('show'); }, 3000);
+    function dismiss() {
+      banner.classList.remove('show');
+      try { localStorage.setItem('forja-cookie', '1'); } catch (e) {}
+    }
+    if (okBtn) okBtn.addEventListener('click', dismiss);
+    if (noBtn) noBtn.addEventListener('click', dismiss);
+  }
+
+  /* Scroll progress filament */
+  function initProgress() {
+    var bar = document.getElementById('scrollProgress');
+    if (!bar) return;
+    function update() {
+      var h = document.documentElement.scrollHeight - window.innerHeight;
+      var p = h > 0 ? (window.scrollY / h) * 100 : 0;
+      bar.style.width = p + '%';
+    }
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+  }
+
+  /* Boot */
+  initTheme();
+  setLang(detectLang());
+  initMenu();
+  initReveal();
+  initDraw();
+  initFaq();
+  initNewsletter();
+  initCookie();
+  initProgress();
+})();
+</script>
+</body>
+</html>

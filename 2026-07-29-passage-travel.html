@@ -1,0 +1,1898 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="meta-title">Passage — Curated Cultural Journeys, Authentically Local</title>
+  <meta name="description" id="meta-desc" content="Passage connects you with local guides, artisans, and families in the world's most culturally rich destinations. Travel that transforms — not just visits.">
+  <link rel="canonical" href="https://passage.travel/">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23c4563a'/%3E%3Cpath d='M16 6C11 6 7 10 7 15c0 7 9 11 9 11s9-4 9-11c0-5-4-9-9-9zm0 7a2 2 0 110 4 2 2 0 010-4z' fill='%23ffffff'/%3E%3C/svg%3E">
+  <meta name="theme-color" content="#1a1b1a">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Passage">
+  <meta property="og:title" id="og-title" content="Passage — Curated Cultural Journeys, Authentically Local">
+  <meta property="og:description" id="og-desc" content="Connect with local guides, artisans, and families in the world's most culturally rich destinations. Travel that transforms.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=1200&q=80">
+  <meta property="og:url" content="https://passage.travel/">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" id="tw-title" content="Passage — Curated Cultural Journeys, Authentically Local">
+  <meta name="twitter:description" id="tw-desc" content="Connect with local guides, artisans, and families. Travel that transforms — not just visits.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=1200&q=80">
+  <meta name="twitter:site" content="@passagetravel">
+
+  <!-- Fonts: Inter (Notion substitute) — warm humanist reading experience -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,400;1,14..32,500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+
+  <style>
+    /* ================================================================
+       DESIGN SYSTEM — Passage Travel
+       Derived from: Notion (popular-web-designs template)
+       Family: Travel / Cultural Experiences
+       Style: Editorial Minimal — warm Notion-inspired neutrals
+       Surface: Decide/Learn (landing page — hero + one idea per section)
+       Strategy: Restrained (tinted warm neutrals + terracotta accent =9%)
+       Typography: Inter (display with aggr. neg letter-spacing) + Playfair Display (editorial accent)
+       ================================================================ */
+
+    /* ----- CSS Reset & Base ----- */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      /* Notion-inspired warm neutral palette */
+      --color-bg: #ffffff;
+      --color-bg-warm: #f6f5f4;
+      --color-surface: #ffffff;
+      --color-surface-alt: #faf9f8;
+      --color-elevated: #ffffff;
+
+      --color-text-primary: rgba(0,0,0,0.95);
+      --color-text-secondary: #615d59;
+      --color-text-tertiary: #a39e98;
+      --color-text-inverse: #ffffff;
+
+      /* Accent: terracotta — earthy, warm, evokes travel & culture */
+      --color-accent: #c4563a;
+      --color-accent-hover: #a8452c;
+      --color-accent-light: #fcf4f1;
+      --color-accent-ghost: rgba(196,86,58,0.08);
+
+      /* Success / Meta */
+      --color-success: #2a9d99;
+      --color-success-bg: #f0f9f8;
+      --color-focus: #097fe8;
+
+      /* Borders — Notion whisper philosophy */
+      --border-whisper: 1px solid rgba(0,0,0,0.1);
+      --border-whisper-warm: 1px solid rgba(0,0,0,0.07);
+      --radius-micro: 4px;
+      --radius-standard: 8px;
+      --radius-card: 12px;
+      --radius-large: 16px;
+      --radius-pill: 9999px;
+
+      /* Shadows — Notion multi-layer ultra-subtle */
+      --shadow-card: 0px 4px 18px rgba(0,0,0,0.04), 0px 2.025px 7.84688px rgba(0,0,0,0.027), 0px 0.8px 2.925px rgba(0,0,0,0.02), 0px 0.175px 1.04062px rgba(0,0,0,0.01);
+      --shadow-card-hover: 0px 8px 30px rgba(0,0,0,0.06), 0px 4px 12px rgba(0,0,0,0.04), 0px 1.5px 4px rgba(0,0,0,0.02);
+      --shadow-elevated: 0px 1px 3px rgba(0,0,0,0.01), 0px 3px 7px rgba(0,0,0,0.02), 0px 7px 15px rgba(0,0,0,0.02), 0px 14px 28px rgba(0,0,0,0.04), 0px 23px 52px rgba(0,0,0,0.05);
+
+      /* Typography */
+      --font-display: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      --font-editorial: 'Playfair Display', Georgia, 'Times New Roman', serif;
+
+      /* Z-Index Scale */
+      --z-base: 1;
+      --z-dropdown: 100;
+      --z-sticky: 200;
+      --z-overlay: 300;
+      --z-modal: 400;
+      --z-toast: 500;
+      --z-tooltip: 600;
+
+      /* Transitions */
+      --ease-out-quart: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+      --duration-fast: 200ms;
+      --duration-normal: 350ms;
+      --duration-slow: 600ms;
+
+      /* Layout */
+      --max-content: 1200px;
+      --max-narrow: 720px;
+      --section-gap: 80px;
+      --section-gap-mobile: 48px;
+    }
+
+    /* ----- Base Elements ----- */
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      font-weight: 400;
+      color: var(--color-text-primary);
+      background: var(--color-bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: var(--color-accent); text-decoration: none; transition: color var(--duration-fast) var(--ease-out-quart); }
+    a:hover { color: var(--color-accent-hover); }
+    a:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; border-radius: 2px; }
+
+    /* ----- Typography ----- */
+    h1, h2, h3, h4 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      color: var(--color-text-primary);
+      text-wrap: balance;
+      line-height: 1.1;
+    }
+
+    h1 {
+      font-size: clamp(2.25rem, 5vw, 4rem);
+      letter-spacing: clamp(-0.05em, -0.025em, -0.02em);
+      line-height: 1.05;
+    }
+
+    h2 {
+      font-size: clamp(1.75rem, 3.5vw, 3rem);
+      letter-spacing: -0.03em;
+      line-height: 1.08;
+    }
+
+    h3 {
+      font-size: clamp(1.25rem, 2vw, 1.625rem);
+      letter-spacing: -0.015em;
+      line-height: 1.2;
+    }
+
+    p, .body-text {
+      max-width: 65ch;
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+    }
+
+    .body-large {
+      font-size: clamp(1.05rem, 1.2vw, 1.2rem);
+      line-height: 1.55;
+    }
+
+    .text-accent { color: var(--color-accent); }
+
+    /* ----- Container ----- */
+    .container {
+      max-width: var(--max-content);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .container-narrow {
+      max-width: var(--max-narrow);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section {
+      padding: var(--section-gap) 0;
+    }
+
+    .section-warm {
+      background: var(--color-bg-warm);
+    }
+
+    .section-alt {
+      background: var(--color-surface-alt);
+    }
+
+    @media (max-width: 640px) {
+      .section { padding: var(--section-gap-mobile) 0; }
+    }
+
+    /* ----- Buttons ----- */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-display);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      padding: 10px 20px;
+      border-radius: var(--radius-micro);
+      border: var(--border-whisper);
+      cursor: pointer;
+      transition: all var(--duration-fast) var(--ease-out-quart);
+      text-decoration: none;
+      line-height: 1.3;
+    }
+
+    .btn:focus-visible {
+      outline: 2px solid var(--color-focus);
+      outline-offset: 2px;
+    }
+
+    .btn-primary {
+      background: var(--color-accent);
+      color: #ffffff;
+      border-color: var(--color-accent);
+    }
+    .btn-primary:hover {
+      background: var(--color-accent-hover);
+      border-color: var(--color-accent-hover);
+      color: #ffffff;
+    }
+    .btn-primary:active { transform: scale(0.97); }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--color-text-primary);
+      border-color: rgba(0,0,0,0.15);
+    }
+    .btn-secondary:hover {
+      background: var(--color-accent-ghost);
+      border-color: var(--color-accent);
+      color: var(--color-accent);
+    }
+    .btn-secondary:active { transform: scale(0.97); }
+
+    .btn-ghost {
+      background: transparent;
+      border: none;
+      color: var(--color-text-secondary);
+      padding: 8px 4px;
+    }
+    .btn-ghost:hover {
+      color: var(--color-accent);
+      background: transparent;
+    }
+
+    .btn-sm { padding: 6px 14px; font-size: 0.875rem; }
+    .btn-lg { padding: 14px 28px; font-size: 1rem; }
+
+    @media (max-width: 480px) {
+      .btn-lg { padding: 12px 24px; font-size: 0.9375rem; }
+    }
+
+    /* ----- Cards (varied — NOT identical) ----- */
+    .card {
+      background: var(--color-surface);
+      border: var(--border-whisper);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      transition: box-shadow var(--duration-normal) var(--ease-out-quart), transform var(--duration-normal) var(--ease-out-quart);
+    }
+
+    .card:hover {
+      box-shadow: var(--shadow-card-hover);
+      transform: translateY(-2px);
+    }
+
+    /* Card Style 1: Standard — image top, text below */
+    .card-standard { display: flex; flex-direction: column; }
+    .card-standard .card-img { width: 100%; aspect-ratio: 16/10; object-fit: cover; border-radius: var(--radius-card) var(--radius-card) 0 0; }
+    .card-standard .card-body { padding: 24px; flex: 1; display: flex; flex-direction: column; }
+    .card-standard .card-title { font-size: 1.25rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 8px; }
+    .card-standard .card-text { font-size: 0.9375rem; color: var(--color-text-secondary); line-height: 1.55; flex: 1; }
+    .card-standard .card-meta { margin-top: 16px; display: flex; align-items: center; gap: 12px; font-size: 0.875rem; color: var(--color-text-tertiary); }
+
+    /* Card Style 2: Minimal — text only, warm bg */
+    .card-minimal {
+      background: var(--color-bg-warm);
+      border: none;
+      padding: 32px;
+      border-radius: var(--radius-card);
+    }
+    .card-minimal:hover { box-shadow: var(--shadow-card); transform: translateY(-2px); background: var(--color-surface); }
+    .card-minimal .card-icon { width: 40px; height: 40px; border-radius: var(--radius-standard); background: var(--color-accent-light); display: flex; align-items: center; justify-content: center; margin-bottom: 16px; color: var(--color-accent); }
+    .card-minimal .card-title { font-size: 1.125rem; font-weight: 600; letter-spacing: -0.015em; margin-bottom: 8px; }
+    .card-minimal .card-text { font-size: 0.9375rem; color: var(--color-text-secondary); line-height: 1.6; }
+
+    /* Card Style 3: Wide — image left, text right */
+    .card-wide { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+    .card-wide .card-img { width: 100%; height: 100%; min-height: 280px; object-fit: cover; }
+    .card-wide .card-body { padding: 32px; display: flex; flex-direction: column; justify-content: center; }
+    .card-wide .card-tag { display: inline-block; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.02em; text-transform: uppercase; color: var(--color-text-tertiary); margin-bottom: 8px; }
+    .card-wide .card-title { font-size: 1.375rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 12px; }
+    .card-wide .card-text { font-size: 0.9375rem; color: var(--color-text-secondary); line-height: 1.55; }
+    .card-wide .card-cta { margin-top: 20px; }
+
+    @media (max-width: 768px) {
+      .card-wide { grid-template-columns: 1fr; }
+      .card-wide .card-img { min-height: 200px; border-radius: var(--radius-card) var(--radius-card) 0 0; }
+    }
+
+    /* ----- Navigation ----- */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: var(--z-sticky);
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: var(--border-whisper);
+    }
+
+    .nav-inner {
+      max-width: var(--max-content);
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--color-text-primary);
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: -0.03em;
+      font-family: var(--font-display);
+    }
+    .nav-logo:hover { color: var(--color-text-primary); }
+    .nav-logo svg { flex-shrink: 0; }
+    .nav-logo span { color: var(--color-accent); }
+
+    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-links a {
+      font-size: 0.9375rem;
+      font-weight: 500;
+      color: var(--color-text-secondary);
+      text-decoration: none;
+      transition: color var(--duration-fast) var(--ease-out-quart);
+    }
+    .nav-links a:hover { color: var(--color-text-primary); }
+    .nav-links .btn { margin-left: 8px; }
+
+    .nav-hamburger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      color: var(--color-text-primary);
+    }
+    .nav-hamburger svg { width: 24px; height: 24px; }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background: rgba(255,255,255,0.98);
+        backdrop-filter: blur(12px);
+        flex-direction: column;
+        padding: 16px 24px 24px;
+        gap: 16px;
+        border-bottom: var(--border-whisper);
+        align-items: stretch;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links .btn { margin-left: 0; justify-content: center; }
+      .nav-hamburger { display: block; }
+    }
+
+    /* Language Switcher */
+    .lang-select { position: relative; display: inline-block; }
+    .lang-select__btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      height: 36px; padding: 0 0.85rem;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 999px;
+      font-family: var(--font-body);
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--color-text-primary);
+      cursor: pointer;
+      transition: all var(--duration-fast) var(--ease-out-quart);
+    }
+    .lang-select__btn:hover, .lang-select__btn[aria-expanded="true"] { border-color: var(--color-accent); color: var(--color-accent); }
+    .lang-select__chev { transition: transform var(--duration-fast) var(--ease-out-quart); }
+    .lang-select__btn[aria-expanded="true"] .lang-select__chev { transform: rotate(180deg); }
+    .lang-select__menu {
+      position: absolute; top: calc(100% + 8px); right: 0; z-index: 100;
+      min-width: 180px; padding: 0.4rem;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+      opacity: 0; visibility: hidden; transform: translateY(-4px);
+      transition: all var(--duration-fast) var(--ease-out-quart);
+    }
+    .lang-select__menu.open { opacity: 1; visibility: visible; transform: translateY(0); }
+    .lang-select__opt {
+      display: flex; align-items: center; gap: 0.5rem; width: 100%;
+      padding: 0.5rem 0.7rem;
+      background: none; border: none; border-radius: 8px;
+      font-family: var(--font-body);
+      font-size: 0.84375rem;
+      font-weight: 500;
+      color: var(--color-text-primary);
+      cursor: pointer; text-align: left;
+      transition: background var(--duration-fast) var(--ease-out-quart);
+    }
+    .lang-select__opt:hover { background: var(--color-accent-ghost); }
+    .lang-select__opt[aria-selected="true"] { color: var(--color-accent); font-weight: 600; }
+    .lang-select__opt[aria-selected="true"]::after { content: '✓'; margin-left: auto; }
+    .lang-select__opt[aria-selected="true"]::after { content: '\2713'; margin-left: auto; }
+
+    @media (max-width: 768px) {
+      .lang-select.desktop { display: none; }
+      .lang-select.mobile { display: block; margin-top: 12px; padding-top: 12px; border-top: var(--border-whisper); }
+      .lang-select.mobile .lang-select__menu { right: auto; left: 0; }
+    }
+    @media (min-width: 769px) {
+      .lang-select.mobile { display: none; }
+    }
+
+    /* ----- Hero ----- */
+    .hero {
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      margin-top: 64px;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0.2) 100%);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: var(--max-content);
+      margin: 0 auto;
+      padding: 0 24px;
+      width: 100%;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      letter-spacing: -0.05em;
+      line-height: 1.02;
+      color: #ffffff;
+      max-width: 14ch;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: clamp(1rem, 1.3vw, 1.2rem);
+      color: rgba(255,255,255,0.8);
+      max-width: 55ch;
+      line-height: 1.55;
+      margin-bottom: 32px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .hero .btn-primary {
+      background: #ffffff;
+      color: var(--color-text-primary);
+      border-color: transparent;
+    }
+    .hero .btn-primary:hover {
+      background: var(--color-bg-warm);
+      color: var(--color-accent);
+    }
+
+    .hero .btn-secondary {
+      border-color: rgba(255,255,255,0.3);
+      color: #ffffff;
+    }
+    .hero .btn-secondary:hover {
+      border-color: #ffffff;
+      background: rgba(255,255,255,0.1);
+      color: #ffffff;
+    }
+
+    .hero-stat {
+      display: inline-flex;
+      align-items: center;
+      gap: 24px;
+      margin-top: 48px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,0.2);
+    }
+    .hero-stat-item { text-align: left; }
+    .hero-stat-item .num {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+    .hero-stat-item .label {
+      font-size: 0.8125rem;
+      color: rgba(255,255,255,0.65);
+      margin-top: 4px;
+    }
+
+    @media (max-width: 640px) {
+      .hero { min-height: 70vh; }
+      .hero-stat { flex-direction: column; gap: 16px; align-items: flex-start; }
+      .hero h1 { max-width: 100%; }
+    }
+
+    /* ----- Section Heading ----- */
+    .section-heading {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .section-heading h2 {
+      margin-bottom: 12px;
+    }
+    .section-heading p {
+      margin: 0 auto;
+    }
+    .section-heading.left { text-align: left; }
+    .section-heading.left p { margin: 0; }
+
+    /* ----- Featured Journeys Grid (card variety) ----- */
+    .journeys-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .journeys-grid .card-wide { grid-column: 1 / -1; }
+
+    @media (max-width: 768px) {
+      .journeys-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ----- Ethos Section (editorial) ----- */
+    .ethos-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .ethos-text h2 { margin-bottom: 20px; }
+    .ethos-text p + p { margin-top: 16px; }
+    .ethos-image img {
+      width: 100%;
+      border-radius: var(--radius-card);
+      border: var(--border-whisper);
+    }
+    .ethos-values {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-top: 28px;
+    }
+    .ethos-value {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .ethos-value .marker {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--color-accent);
+      margin-top: 10px;
+      flex-shrink: 0;
+    }
+    .ethos-value h4 { font-size: 1rem; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 4px; }
+    .ethos-value p { font-size: 0.9rem; color: var(--color-text-tertiary); }
+
+    @media (max-width: 768px) {
+      .ethos-grid { grid-template-columns: 1fr; }
+      .ethos-image { order: -1; }
+    }
+
+    /* ----- Testimonials ----- */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 24px;
+    }
+    .testimonial-card {
+      background: var(--color-surface);
+      border: var(--border-whisper);
+      border-radius: var(--radius-card);
+      padding: 28px;
+    }
+    .testimonial-card:hover { box-shadow: var(--shadow-card); }
+    .testimonial-card .quote {
+      font-size: 0.9375rem;
+      line-height: 1.6;
+      color: var(--color-text-secondary);
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+    .testimonial-card .author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .testimonial-card .avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: var(--color-bg-warm);
+    }
+    .testimonial-card .name { font-size: 0.875rem; font-weight: 600; color: var(--color-text-primary); }
+    .testimonial-card .role { font-size: 0.8125rem; color: var(--color-text-tertiary); }
+
+    /* Featured testimonial (double width) */
+    .testimonial-card.featured {
+      grid-column: span 1;
+      background: var(--color-bg-warm);
+      border: none;
+    }
+
+    @media (max-width: 768px) {
+      .testimonials-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ----- Features (3 columns, varied content) ----- */
+    .features-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 24px;
+    }
+
+    @media (max-width: 768px) {
+      .features-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ----- Newsletter ----- */
+    .newsletter {
+      text-align: center;
+      padding: 64px 0;
+    }
+    .newsletter h2 { margin-bottom: 12px; }
+    .newsletter p { margin: 0 auto 28px; }
+
+    .newsletter-form {
+      display: flex;
+      gap: 8px;
+      max-width: 440px;
+      margin: 0 auto;
+    }
+    .newsletter-form input {
+      flex: 1;
+      padding: 12px 16px;
+      border: var(--border-whisper);
+      border-radius: var(--radius-micro);
+      font-family: var(--font-body);
+      font-size: 0.9375rem;
+      color: var(--color-text-primary);
+      background: var(--color-surface);
+      transition: border-color var(--duration-fast) var(--ease-out-quart);
+    }
+    .newsletter-form input:focus {
+      outline: none;
+      border-color: var(--color-accent);
+      box-shadow: 0 0 0 3px var(--color-accent-ghost);
+    }
+    .newsletter-form input::placeholder { color: var(--color-text-tertiary); }
+    .newsletter-form .btn { flex-shrink: 0; }
+
+    @media (max-width: 480px) {
+      .newsletter-form { flex-direction: column; }
+    }
+
+    /* ----- Footer ----- */
+    .footer {
+      border-top: var(--border-whisper);
+      padding: 48px 0 32px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+    }
+    .footer-brand p {
+      font-size: 0.875rem;
+      color: var(--color-text-tertiary);
+      margin-top: 12px;
+      max-width: 32ch;
+    }
+    .footer-col h4 {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--color-text-tertiary);
+      margin-bottom: 16px;
+    }
+    .footer-col a {
+      display: block;
+      font-size: 0.875rem;
+      color: var(--color-text-secondary);
+      padding: 4px 0;
+      transition: color var(--duration-fast) var(--ease-out-quart);
+    }
+    .footer-col a:hover { color: var(--color-accent); }
+
+    .footer-bottom {
+      border-top: var(--border-whisper);
+      margin-top: 40px;
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8125rem;
+      color: var(--color-text-tertiary);
+    }
+    .footer-social { display: flex; gap: 16px; }
+    .footer-social a { color: var(--color-text-tertiary); }
+    .footer-social a:hover { color: var(--color-accent); }
+
+    @media (max-width: 768px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .footer-brand { grid-column: 1 / -1; }
+      .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+    }
+    @media (max-width: 480px) {
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ----- Cookie Banner ----- */
+    .cookie-banner {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: var(--z-toast);
+      background: var(--color-text-primary);
+      color: #ffffff;
+      padding: 16px 24px;
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      font-size: 0.875rem;
+      line-height: 1.5;
+    }
+    .cookie-banner.show { display: flex; }
+    .cookie-banner p { color: rgba(255,255,255,0.8); max-width: 600px; }
+    .cookie-banner .btn {
+      background: #ffffff;
+      color: var(--color-text-primary);
+      border: none;
+      white-space: nowrap;
+    }
+    .cookie-banner .btn:hover { background: var(--color-bg-warm); }
+    .cookie-banner .btn-ghost {
+      color: rgba(255,255,255,0.6);
+      background: transparent;
+    }
+    .cookie-banner .btn-ghost:hover { color: #ffffff; }
+
+    @media (max-width: 640px) {
+      .cookie-banner { flex-direction: column; text-align: center; }
+    }
+
+    /* ----- Scroll-triggered animations ----- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s var(--ease-out-expo), transform 0.7s var(--ease-out-expo);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-30px);
+      transition: opacity 0.7s var(--ease-out-expo), transform 0.7s var(--ease-out-expo);
+    }
+    .reveal-left.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(30px);
+      transition: opacity 0.7s var(--ease-out-expo), transform 0.7s var(--ease-out-expo);
+    }
+    .reveal-right.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .reveal-scale {
+      opacity: 0;
+      transform: scale(0.95);
+      transition: opacity 0.7s var(--ease-out-expo), transform 0.7s var(--ease-out-expo);
+    }
+    .reveal-scale.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* Stagger children */
+    .stagger > * { opacity: 0; transform: translateY(20px); transition: opacity 0.6s var(--ease-out-expo), transform 0.6s var(--ease-out-expo); }
+    .stagger.visible > * { opacity: 1; transform: translateY(0); }
+    .stagger.visible > *:nth-child(1) { transition-delay: 0.05s; }
+    .stagger.visible > *:nth-child(2) { transition-delay: 0.12s; }
+    .stagger.visible > *:nth-child(3) { transition-delay: 0.2s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal, .reveal-left, .reveal-right, .reveal-scale,
+      .stagger > *,
+      .card, .testimonial-card, .card-minimal { opacity: 1; transform: none; transition: none; }
+      .stagger > * { opacity: 1; transform: none; transition: none; }
+      .card:hover, .card-minimal:hover { transform: none; }
+      html { scroll-behavior: auto; }
+      .nav { backdrop-filter: none; }
+    }
+
+    /* ----- Utility ----- */
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+    .accent-dot { color: var(--color-accent); }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== Navigation ==================== -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo" data-i18n="nav.logo.html">
+        <svg width="28" height="28" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <rect width="32" height="32" rx="6" fill="#c4563a"/>
+          <path d="M16 6C11 6 7 10 7 15c0 7 9 11 9 11s9-4 9-11c0-5-4-9-9-9zm0 7a2 2 0 110 4 2 2 0 010-4z" fill="#ffffff"/>
+        </svg>
+        Pass<span>age</span>
+      </a>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#journeys" data-i18n="nav.journeys">Journeys</a>
+        <a href="#ethos" data-i18n="nav.ethos">Our Ethos</a>
+        <a href="#testimonials" data-i18n="nav.testimonials">Stories</a>
+        <a href="#features" data-i18n="nav.features">Why Passage</a>
+
+        <div class="lang-select mobile" id="langMobile">
+          <button class="lang-select__btn" type="button" id="langBtn" aria-haspopup="listbox" aria-expanded="false" aria-label="Select language">
+            <span class="lang-select__cur" id="langCur">EN</span>
+            <svg class="lang-select__chev" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="lang-select__menu" role="listbox" aria-label="Choose language">
+            <button class="lang-select__opt" role="option" data-lang="en" aria-selected="false">English</button>
+            <button class="lang-select__opt" role="option" data-lang="es" aria-selected="false">Español</button>
+            <button class="lang-select__opt" role="option" data-lang="fr" aria-selected="false">Français</button>
+            <button class="lang-select__opt" role="option" data-lang="de" aria-selected="false">Deutsch</button>
+            <button class="lang-select__opt" role="option" data-lang="it" aria-selected="false">Italiano</button>
+            <button class="lang-select__opt" role="option" data-lang="pt" aria-selected="false">Português</button>
+          </div>
+        </div>
+
+        <a href="#newsletter" class="btn btn-primary btn-sm" data-i18n="nav.cta">Start Exploring</a>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:12px;">
+        <div class="lang-select desktop" id="langDesktop">
+          <button class="lang-select__btn" type="button" id="langBtn" aria-haspopup="listbox" aria-expanded="false" aria-label="Select language">
+            <span class="lang-select__cur" id="langCur">EN</span>
+            <svg class="lang-select__chev" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="lang-select__menu" role="listbox" aria-label="Choose language">
+            <button class="lang-select__opt" role="option" data-lang="en" aria-selected="false">English</button>
+            <button class="lang-select__opt" role="option" data-lang="es" aria-selected="false">Español</button>
+            <button class="lang-select__opt" role="option" data-lang="fr" aria-selected="false">Français</button>
+            <button class="lang-select__opt" role="option" data-lang="de" aria-selected="false">Deutsch</button>
+            <button class="lang-select__opt" role="option" data-lang="it" aria-selected="false">Italiano</button>
+            <button class="lang-select__opt" role="option" data-lang="pt" aria-selected="false">Português</button>
+          </div>
+        </div>
+        <button class="nav-hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ==================== Hero ==================== -->
+  <section class="hero" id="hero" aria-label="Hero">
+    <div class="hero-bg">
+      <img src="https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=1600&q=85" alt="A winding path through terraced rice fields in a misty mountain valley" loading="eager">
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 data-i18n="hero.title">See the world through<br><span class="text-accent">local eyes</span></h1>
+      <p class="body-large" data-i18n="hero.subtitle">Passage connects you with local guides, artisans, and families in the world's most culturally rich destinations. Not a tour — a genuine exchange.</p>
+      <div class="hero-actions">
+        <a href="#journeys" class="btn btn-primary btn-lg" data-i18n="hero.cta.primary">Explore Journeys</a>
+        <a href="#ethos" class="btn btn-secondary btn-lg" data-i18n="hero.cta.secondary">How It Works</a>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-item">
+          <div class="num">120+</div>
+          <div class="label" data-i18n="hero.stat.destinations">Destinations</div>
+        </div>
+        <div class="hero-stat-item">
+          <div class="num">98%</div>
+          <div class="label" data-i18n="hero.stat.satisfaction">Traveler Satisfaction</div>
+        </div>
+        <div class="hero-stat-item">
+          <div class="num">340</div>
+          <div class="label" data-i18n="hero.stat.hosts">Local Hosts</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== Featured Journeys ==================== -->
+  <section class="section" id="journeys">
+    <div class="container">
+      <div class="section-heading left reveal">
+        <h2 data-i18n="journeys.title">Curated journeys,<br>built with care</h2>
+        <p class="body-large" data-i18n="journeys.subtitle">Each itinerary is co-created by local experts and seasoned travelers — every detail chosen for meaning, not convenience.</p>
+      </div>
+
+      <div class="journeys-grid stagger" id="journeysGrid">
+        <!-- Journey 1: Wide card (image left) -->
+        <div class="card card-wide reveal">
+          <img class="card-img" src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800&q=85" alt="Traditional wooden houses along a canal in Kyoto, Japan" loading="lazy">
+          <div class="card-body">
+            <span class="card-tag" data-i18n="journeys.tag1">Japan</span>
+            <h3 class="card-title" data-i18n="journeys.card1.title">Kyoto: Artisans of the Old Capital</h3>
+            <p class="card-text" data-i18n="journeys.card1.text">Seven days immersed in Kyoto's craft traditions — tea ceremony with a 16th-generation master, indigo dyeing in a family workshop, and sunrise at the golden pavilion before the crowds arrive.</p>
+            <div class="card-cta">
+              <a href="#" class="btn btn-primary btn-sm" data-i18n="journeys.cta">View Journey</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Journey 2: Minimal card (text only, warm bg) -->
+        <div class="card-minimal reveal">
+          <div class="card-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <span class="card-tag" style="font-size:0.75rem;font-weight:600;letter-spacing:0.02em;text-transform:uppercase;color:var(--color-text-tertiary);margin-bottom:4px;display:inline-block;" data-i18n="journeys.tag2">Morocco</span>
+          <h3 class="card-title" data-i18n="journeys.card2.title">Marrakech: The Art of Gathering</h3>
+          <p class="card-text" data-i18n="journeys.card2.text">Learn the rituals of Moroccan hospitality — cooking with a Djemaa el-Fna family, visiting Berber weavers in the Atlas foothills, and sleeping under stars in the Agafay desert.</p>
+          <div style="margin-top:16px;">
+            <a href="#" class="btn btn-ghost btn-sm" style="padding-left:0;" data-i18n="journeys.cta">View Journey →</a>
+          </div>
+        </div>
+
+        <!-- Journey 3: Minimal card (text only, warm bg) -->
+        <div class="card-minimal reveal">
+          <div class="card-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <span class="card-tag" style="font-size:0.75rem;font-weight:600;letter-spacing:0.02em;text-transform:uppercase;color:var(--color-text-tertiary);margin-bottom:4px;display:inline-block;" data-i18n="journeys.tag3">Italy</span>
+          <h3 class="card-title" data-i18n="journeys.card3.title">Tuscany: Vineyards & Ancient Stones</h3>
+          <p class="card-text" data-i18n="journeys.card3.text">Walk Etruscan trails with an archaeologist, harvest olives on a family-run estate, and learn the art of fresco from a Florentine restorer in a medieval village.</p>
+          <div style="margin-top:16px;">
+            <a href="#" class="btn btn-ghost btn-sm" style="padding-left:0;" data-i18n="journeys.cta">View Journey →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== Ethos Section ==================== -->
+  <section class="section section-warm" id="ethos">
+    <div class="container">
+      <div class="ethos-grid">
+        <div class="ethos-text reveal-left">
+          <h2 data-i18n="ethos.title">Travel should<br>change you</h2>
+          <p data-i18n="ethos.p1">We started Passage because we were tired of trips that felt like a checklist — see this, eat that, photograph, move on. Real travel is connection: sharing tea with a family, learning a craft from hands that have done it for generations, waking up somewhere that reshapes how you see the world.</p>
+          <p data-i18n="ethos.p2">Every Passage journey is built around people, not landmarks. We work with local hosts — artisans, cooks, farmers, storytellers — who open their homes and their lives. The itinerary is a frame; the real experience is what happens between the lines.</p>
+          <div class="ethos-values">
+            <div class="ethos-value">
+              <div class="marker"></div>
+              <div>
+                <h4 data-i18n="ethos.v1.title">Locally led, always</h4>
+                <p data-i18n="ethos.v1.text">Every journey is designed and guided by people who live there. The route, the pace, the meals — all chosen by local hosts.</p>
+              </div>
+            </div>
+            <div class="ethos-value">
+              <div class="marker"></div>
+              <div>
+                <h4 data-i18n="ethos.v2.title">Small groups, deep impact</h4>
+                <p data-i18n="ethos.v2.text">Never more than eight travelers. Low impact on places, high impact on you. 60% of fees stay in the local community.</p>
+              </div>
+            </div>
+            <div class="ethos-value">
+              <div class="marker"></div>
+              <div>
+                <h4 data-i18n="ethos.v3.title">Radical authenticity</h4>
+                <p data-i18n="ethos.v3.text">No tourist traps, no curated photo stops. If it's not where locals go, it's not on the itinerary.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ethos-image reveal-right">
+          <img src="https://images.unsplash.com/photo-1503917988258-f87a78e3c995?w=800&q=85" alt="A local artisan demonstrating traditional weaving in a sunlit workshop" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== Testimonials ==================== -->
+  <section class="section" id="testimonials">
+    <div class="container">
+      <div class="section-heading reveal">
+        <h2 data-i18n="testimonials.title">Stories from the road</h2>
+        <p data-i18n="testimonials.subtitle">What our travelers come back with is not a souvenir — it's a new way of seeing.</p>
+      </div>
+      <div class="testimonials-grid stagger">
+        <div class="testimonial-card reveal">
+          <p class="quote" data-i18n="testimonials.q1">"I've been on group tours before, but this was different. We spent an afternoon learning to make pasta with a grandmother in her farmhouse kitchen. No cameras, no rush — just flour, eggs, and stories. I cried when we left."</p>
+          <div class="author">
+            <img class="avatar" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80" alt="" loading="lazy">
+            <div>
+              <div class="name">Sarah Chen</div>
+              <div class="role" data-i18n="testimonials.q1.role">Tuscany, 2025</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal">
+          <p class="quote" data-i18n="testimonials.q2">"Our guide in Kyoto was a Zen priest who runs a small temple. He showed us the garden at dawn and talked about impermanence. It wasn't sightseeing — it was philosophy. I'll never forget that morning."</p>
+          <div class="author">
+            <img class="avatar" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" alt="" loading="lazy">
+            <div>
+              <div class="name">Marcus Rivera</div>
+              <div class="role" data-i18n="testimonials.q2.role">Kyoto, 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal">
+          <p class="quote" data-i18n="testimonials.q3">"Passage introduced me to a family in Marrakech who invited me into their home for a meal. We couldn't speak the same language, but we laughed, we shared food, and somehow understood everything. That's real travel."</p>
+          <div class="author">
+            <img class="avatar" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80" alt="" loading="lazy">
+            <div>
+              <div class="name">Aisha Okafor</div>
+              <div class="role" data-i18n="testimonials.q3.role">Marrakech, 2025</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== Features ==================== -->
+  <section class="section section-warm" id="features">
+    <div class="container">
+      <div class="section-heading reveal">
+        <h2 data-i18n="features.title">What makes Passage different</h2>
+        <p data-i18n="features.subtitle">We stripped away everything that gets between you and the place — and doubled down on what matters.</p>
+      </div>
+      <div class="features-grid stagger">
+        <!-- Feature 1: Standard card with illustration area -->
+        <div class="card card-standard reveal">
+          <div style="background:var(--color-accent-light);padding:32px;display:flex;align-items:center;justify-content:center;min-height:160px;">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title" data-i18n="features.f1.title">Local guides, not tour guides</h3>
+            <p class="card-text" data-i18n="features.f1.text">Our hosts are artisans, farmers, historians, and chefs — people whose knowledge comes from living, not from a script. Each relationship is built over years.</p>
+          </div>
+        </div>
+
+        <!-- Feature 2: Minimal card -->
+        <div class="card-minimal reveal">
+          <div class="card-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h3 class="card-title" data-i18n="features.f2.title">Slow by design</h3>
+          <p class="card-text" data-i18n="features.f2.text">Three destinations minimum per week, not four. Mornings free to wander. We build breathing room into every itinerary so the place can actually reach you.</p>
+        </div>
+
+        <!-- Feature 3: Minimal card -->
+        <div class="card-minimal reveal">
+          <div class="card-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3 class="card-title" data-i18n="features.f3.title">Protected by purpose</h3>
+          <p class="card-text" data-i18n="features.f3.text">We cap every journey at eight travelers to minimize cultural disruption. 60% of trip revenue stays in the host community. Regenerative travel, not extractive.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== Newsletter ==================== -->
+  <section class="section" id="newsletter">
+    <div class="container-narrow newsletter reveal">
+      <h2 data-i18n="newsletter.title">A letter from the road</h2>
+      <p data-i18n="newsletter.subtitle">Monthly dispatches from our hosts — recipes, stories, and journeys that never make it to the website. No spam, just the real thing.</p>
+      <form class="newsletter-form" id="newsletterForm" novalidate>
+        <input type="email" id="newsletterEmail" placeholder="your@email.com" required aria-label="Email address" data-i18n-placeholder="newsletter.placeholder">
+        <button type="submit" class="btn btn-primary" data-i18n="newsletter.cta">Subscribe</button>
+      </form>
+      <p id="newsletterMsg" style="font-size:0.875rem;margin-top:12px;min-height:1.4em;"></p>
+    </div>
+  </section>
+
+  <!-- ==================== Footer ==================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="nav-logo" style="margin-bottom:4px;">
+            <svg width="24" height="24" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+              <rect width="32" height="32" rx="6" fill="#c4563a"/>
+              <path d="M16 6C11 6 7 10 7 15c0 7 9 11 9 11s9-4 9-11c0-5-4-9-9-9zm0 7a2 2 0 110 4 2 2 0 010-4z" fill="#ffffff"/>
+            </svg>
+            Pass<span>age</span>
+          </a>
+          <p data-i18n="footer.tagline">Travel that connects you to places, not just locations. Founded in 2019.</p>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.journeys.heading">Journeys</h4>
+          <a href="#" data-i18n="footer.journeys.all">All Journeys</a>
+          <a href="#" data-i18n="footer.journeys.asia">Asia</a>
+          <a href="#" data-i18n="footer.journeys.europe">Europe</a>
+          <a href="#" data-i18n="footer.journeys.africa">Africa</a>
+          <a href="#" data-i18n="footer.journeys.americas">Americas</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.about.heading">About</h4>
+          <a href="#" data-i18n="footer.about.story">Our Story</a>
+          <a href="#" data-i18n="footer.about.hosts">Local Hosts</a>
+          <a href="#" data-i18n="footer.about.sustainability">Sustainability</a>
+          <a href="#" data-i18n="footer.about.careers">Careers</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.support.heading">Support</h4>
+          <a href="#" data-i18n="footer.support.faq">FAQ</a>
+          <a href="#" data-i18n="footer.support.contact">Contact</a>
+          <a href="#" data-i18n="footer.support.terms">Terms</a>
+          <a href="#" data-i18n="footer.support.privacy">Privacy</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span data-i18n="footer.copyright">© 2026 Passage. All rights reserved.</span>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <a href="#" aria-label="Twitter"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2 0 0-1.1-.7-2.1-1.7C4 13 3.3 10.7 4 9c1.5.9 3.2 1.5 5 1.5C7.1 8.7 7.6 5 10 3c0 0 1.5 2 3 2 1.8-1.4 4.2-2 6-1 0 0 .4 1.2 1 2 .8-.2 1.6-.5 2-1 0 0-.5 1.2-1 2z"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.94 2C5.12 20 12 20 12 20s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== Cookie Banner ==================== -->
+  <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Cookie consent">
+    <p data-i18n="cookie.text">We use essential cookies to keep the site running and analytics cookies to improve your experience. By continuing, you accept our cookie policy.</p>
+    <div style="display:flex;gap:8px;flex-shrink:0;">
+      <button class="btn btn-ghost" id="cookieDecline" data-i18n="cookie.decline">Decline</button>
+      <button class="btn" id="cookieAccept" data-i18n="cookie.accept">Accept</button>
+    </div>
+  </div>
+
+  <!-- ==================== JavaScript ==================== -->
+  <script>
+    /* ==============================================================
+       i18n — Translation system for 6 languages
+       ============================================================== */
+    const TRANSLATIONS = {
+      en: {
+        'nav.journeys': 'Journeys',
+        'nav.ethos': 'Our Ethos',
+        'nav.testimonials': 'Stories',
+        'nav.features': 'Why Passage',
+        'nav.cta': 'Start Exploring',
+        'hero.title': 'See the world through<br><span class="text-accent">local eyes</span>',
+        'hero.subtitle': 'Passage connects you with local guides, artisans, and families in the world\'s most culturally rich destinations. Not a tour — a genuine exchange.',
+        'hero.cta.primary': 'Explore Journeys',
+        'hero.cta.secondary': 'How It Works',
+        'hero.stat.destinations': 'Destinations',
+        'hero.stat.satisfaction': 'Traveler Satisfaction',
+        'hero.stat.hosts': 'Local Hosts',
+        'journeys.title': 'Curated journeys,<br>built with care',
+        'journeys.subtitle': 'Each itinerary is co-created by local experts and seasoned travelers — every detail chosen for meaning, not convenience.',
+        'journeys.tag1': 'Japan',
+        'journeys.card1.title': 'Kyoto: Artisans of the Old Capital',
+        'journeys.card1.text': 'Seven days immersed in Kyoto\'s craft traditions — tea ceremony with a 16th-generation master, indigo dyeing in a family workshop, and sunrise at the golden pavilion before the crowds arrive.',
+        'journeys.cta': 'View Journey',
+        'journeys.tag2': 'Morocco',
+        'journeys.card2.title': 'Marrakech: The Art of Gathering',
+        'journeys.card2.text': 'Learn the rituals of Moroccan hospitality — cooking with a Djemaa el-Fna family, visiting Berber weavers in the Atlas foothills, and sleeping under stars in the Agafay desert.',
+        'journeys.tag3': 'Italy',
+        'journeys.card3.title': 'Tuscany: Vineyards & Ancient Stones',
+        'journeys.card3.text': 'Walk Etruscan trails with an archaeologist, harvest olives on a family-run estate, and learn the art of fresco from a Florentine restorer in a medieval village.',
+        'ethos.title': 'Travel should<br>change you',
+        'ethos.p1': 'We started Passage because we were tired of trips that felt like a checklist — see this, eat that, photograph, move on. Real travel is connection: sharing tea with a family, learning a craft from hands that have done it for generations, waking up somewhere that reshapes how you see the world.',
+        'ethos.p2': 'Every Passage journey is built around people, not landmarks. We work with local hosts — artisans, cooks, farmers, storytellers — who open their homes and their lives. The itinerary is a frame; the real experience is what happens between the lines.',
+        'ethos.v1.title': 'Locally led, always',
+        'ethos.v1.text': 'Every journey is designed and guided by people who live there. The route, the pace, the meals — all chosen by local hosts.',
+        'ethos.v2.title': 'Small groups, deep impact',
+        'ethos.v2.text': 'Never more than eight travelers. Low impact on places, high impact on you. 60% of fees stay in the local community.',
+        'ethos.v3.title': 'Radical authenticity',
+        'ethos.v3.text': 'No tourist traps, no curated photo stops. If it\'s not where locals go, it\'s not on the itinerary.',
+        'testimonials.title': 'Stories from the road',
+        'testimonials.subtitle': 'What our travelers come back with is not a souvenir — it\'s a new way of seeing.',
+        'testimonials.q1': '"I\'ve been on group tours before, but this was different. We spent an afternoon learning to make pasta with a grandmother in her farmhouse kitchen. No cameras, no rush — just flour, eggs, and stories. I cried when we left."',
+        'testimonials.q1.role': 'Tuscany, 2025',
+        'testimonials.q2': '"Our guide in Kyoto was a Zen priest who runs a small temple. He showed us the garden at dawn and talked about impermanence. It wasn\'t sightseeing — it was philosophy. I\'ll never forget that morning."',
+        'testimonials.q2.role': 'Kyoto, 2024',
+        'testimonials.q3': '"Passage introduced me to a family in Marrakech who invited me into their home for a meal. We couldn\'t speak the same language, but we laughed, shared food, and somehow understood everything. That\'s real travel."',
+        'testimonials.q3.role': 'Marrakech, 2025',
+        'features.title': 'What makes Passage different',
+        'features.subtitle': 'We stripped away everything that gets between you and the place — and doubled down on what matters.',
+        'features.f1.title': 'Local guides, not tour guides',
+        'features.f1.text': 'Our hosts are artisans, farmers, historians, and chefs — people whose knowledge comes from living, not from a script. Each relationship is built over years.',
+        'features.f2.title': 'Slow by design',
+        'features.f2.text': 'Three destinations minimum per week, not four. Mornings free to wander. We build breathing room into every itinerary so the place can actually reach you.',
+        'features.f3.title': 'Protected by purpose',
+        'features.f3.text': 'We cap every journey at eight travelers to minimize cultural disruption. 60% of trip revenue stays in the host community. Regenerative travel, not extractive.',
+        'newsletter.title': 'A letter from the road',
+        'newsletter.subtitle': 'Monthly dispatches from our hosts — recipes, stories, and journeys that never make it to the website. No spam, just the real thing.',
+        'newsletter.placeholder': 'your@email.com',
+        'newsletter.cta': 'Subscribe',
+        'newsletter.success': 'Thank you! Check your inbox for a welcome note from our team.',
+        'newsletter.error': 'Please enter a valid email address.',
+        'cookie.text': 'We use essential cookies to keep the site running and analytics cookies to improve your experience. By continuing, you accept our cookie policy.',
+        'cookie.accept': 'Accept',
+        'cookie.decline': 'Decline',
+        'footer.tagline': 'Travel that connects you to places, not just locations. Founded in 2019.',
+        'footer.journeys.heading': 'Journeys',
+        'footer.journeys.all': 'All Journeys',
+        'footer.journeys.asia': 'Asia',
+        'footer.journeys.europe': 'Europe',
+        'footer.journeys.africa': 'Africa',
+        'footer.journeys.americas': 'Americas',
+        'footer.about.heading': 'About',
+        'footer.about.story': 'Our Story',
+        'footer.about.hosts': 'Local Hosts',
+        'footer.about.sustainability': 'Sustainability',
+        'footer.about.careers': 'Careers',
+        'footer.support.heading': 'Support',
+        'footer.support.faq': 'FAQ',
+        'footer.support.contact': 'Contact',
+        'footer.support.terms': 'Terms',
+        'footer.support.privacy': 'Privacy',
+        'footer.copyright': '© 2026 Passage. All rights reserved.',
+        'meta.title': 'Passage — Curated Cultural Journeys, Authentically Local',
+        'meta.desc': 'Passage connects you with local guides, artisans, and families in the world\'s most culturally rich destinations. Travel that transforms — not just visits.',
+      },
+      es: {
+        'nav.journeys': 'Viajes',
+        'nav.ethos': 'Nuestra Filosofía',
+        'nav.testimonials': 'Historias',
+        'nav.features': 'Por qué Passage',
+        'nav.cta': 'Empezar a Explorar',
+        'hero.title': 'Ve el mundo a través<br>de <span class="text-accent">ojos locales</span>',
+        'hero.subtitle': 'Passage te conecta con guías locales, artesanos y familias en los destinos culturalmente más ricos del mundo. No es un tour — es un intercambio genuino.',
+        'hero.cta.primary': 'Explorar Viajes',
+        'hero.cta.secondary': 'Cómo Funciona',
+        'hero.stat.destinations': 'Destinos',
+        'hero.stat.satisfaction': 'Satisfacción del Viajero',
+        'hero.stat.hosts': 'Anfitriones Locales',
+        'journeys.title': 'Viajes seleccionados,<br>hechos con cuidado',
+        'journeys.subtitle': 'Cada itinerario es co-creado por expertos locales y viajeros experimentados — cada detalle elegido por su significado, no por conveniencia.',
+        'journeys.tag1': 'Japón',
+        'journeys.card1.title': 'Kioto: Artesanos de la Antigua Capital',
+        'journeys.card1.text': 'Siete días inmerso en las tradiciones artesanales de Kioto — ceremonia del té con un maestro de 16.ª generación, teñido índigo en un taller familiar y amanecer en el pabellón dorado antes de que lleguen las multitudes.',
+        'journeys.cta': 'Ver Viaje',
+        'journeys.tag2': 'Marruecos',
+        'journeys.card2.title': 'Marrakech: El Arte de la Reunión',
+        'journeys.card2.text': 'Aprende los rituales de la hospitalidad marroquí — cocina con una familia de Djemaa el-Fna, visita tejedores bereberes en las estribaciones del Atlas y duerme bajo las estrellas en el desierto de Agafay.',
+        'journeys.tag3': 'Italia',
+        'journeys.card3.title': 'Toscana: Viñedos y Piedras Antiguas',
+        'journeys.card3.text': 'Camina senderos etruscos con un arqueólogo, cosecha aceitunas en una finca familiar y aprende el arte del fresco con un restaurador florentino en una aldea medieval.',
+        'ethos.title': 'Viajar debería<br>cambiarte',
+        'ethos.p1': 'Creamos Passage porque nos cansamos de los viajes que parecen una lista de verificación — mira esto, come aquello, fotografía, sigue adelante. Viajar de verdad es conexión: compartir té con una familia, aprender un oficio de manos que lo han hecho durante generaciones, despertar en algún lugar que reforma cómo ves el mundo.',
+        'ethos.p2': 'Cada viaje de Passage se construye alrededor de personas, no de monumentos. Trabajamos con anfitriones locales — artesanos, cocineros, agricultores, narradores — que abren sus hogares y sus vidas. El itinerario es un marco; la experiencia real es lo que sucede entre líneas.',
+        'ethos.v1.title': 'Siempre guiado localmente',
+        'ethos.v1.text': 'Cada viaje es diseñado y guiado por personas que viven allí. La ruta, el ritmo, las comidas — todo elegido por anfitriones locales.',
+        'ethos.v2.title': 'Grupos pequeños, impacto profundo',
+        'ethos.v2.text': 'Nunca más de ocho viajeros. Bajo impacto en los lugares, alto impacto en ti. El 60% de las tarifas se queda en la comunidad local.',
+        'ethos.v3.title': 'Autenticidad radical',
+        'ethos.v3.text': 'Sin trampas turísticas, sin paradas fotográficas seleccionadas. Si no es donde van los locales, no está en el itinerario.',
+        'testimonials.title': 'Historias del camino',
+        'testimonials.subtitle': 'Lo que nuestros viajeros traen de vuelta no es un recuerdo — es una nueva forma de ver.',
+        'testimonials.q1': '"Había estado en tours grupales antes, pero esto fue diferente. Pasamos una tarde aprendiendo a hacer pasta con una abuela en su cocina de campo. Sin cámaras, sin prisa — solo harina, huevos e historias. Lloré cuando nos fuimos."',
+        'testimonials.q1.role': 'Toscana, 2025',
+        'testimonials.q2': '"Nuestro guía en Kioto era un sacerdote zen que dirige un pequeño templo. Nos mostró el jardín al amanecer y habló sobre la impermanencia. No era turismo — era filosofía. Nunca olvidaré esa mañana."',
+        'testimonials.q2.role': 'Kioto, 2024',
+        'testimonials.q3': '"Passage me presentó a una familia en Marrakech que me invitó a su casa a comer. No hablábamos el mismo idioma, pero reímos, compartimos comida y de alguna manera lo entendimos todo. Eso es viajar de verdad."',
+        'testimonials.q3.role': 'Marrakech, 2025',
+        'features.title': 'Qué hace diferente a Passage',
+        'features.subtitle': 'Eliminamos todo lo que se interpone entre tú y el lugar — y duplicamos la apuesta en lo que importa.',
+        'features.f1.title': 'Guías locales, no guías turísticos',
+        'features.f1.text': 'Nuestros anfitriones son artesanos, agricultores, historiadores y chefs — personas cuyo conocimiento viene de vivir, no de un guión. Cada relación se construye a lo largo de años.',
+        'features.f2.title': 'Lento por diseño',
+        'features.f2.text': 'Tres destinos mínimo por semana, no cuatro. Mañanas libres para vagar. Creamos espacio para respirar en cada itinerario para que el lugar pueda realmente llegar a ti.',
+        'features.f3.title': 'Protegido por propósito',
+        'features.f3.text': 'Limitamos cada viaje a ocho viajeros para minimizar la disrupción cultural. El 60% de los ingresos del viaje se queda en la comunidad anfitriona. Viaje regenerativo, no extractivo.',
+        'newsletter.title': 'Una carta desde el camino',
+        'newsletter.subtitle': 'Despachos mensuales de nuestros anfitriones — recetas, historias y viajes que nunca llegan al sitio web. Sin spam, solo lo auténtico.',
+        'newsletter.placeholder': 'tu@email.com',
+        'newsletter.cta': 'Suscribirse',
+        'newsletter.success': '¡Gracias! Revisa tu bandeja de entrada para una nota de bienvenida de nuestro equipo.',
+        'newsletter.error': 'Por favor introduce un correo electrónico válido.',
+        'cookie.text': 'Usamos cookies esenciales para mantener el sitio funcionando y cookies analíticas para mejorar tu experiencia. Al continuar, aceptas nuestra política de cookies.',
+        'cookie.accept': 'Aceptar',
+        'cookie.decline': 'Rechazar',
+        'footer.tagline': 'Viajes que te conectan con lugares, no solo con ubicaciones. Fundado en 2019.',
+        'footer.journeys.heading': 'Viajes',
+        'footer.journeys.all': 'Todos los Viajes',
+        'footer.journeys.asia': 'Asia',
+        'footer.journeys.europe': 'Europa',
+        'footer.journeys.africa': 'África',
+        'footer.journeys.americas': 'Américas',
+        'footer.about.heading': 'Acerca de',
+        'footer.about.story': 'Nuestra Historia',
+        'footer.about.hosts': 'Anfitriones Locales',
+        'footer.about.sustainability': 'Sostenibilidad',
+        'footer.about.careers': 'Carreras',
+        'footer.support.heading': 'Soporte',
+        'footer.support.faq': 'FAQ',
+        'footer.support.contact': 'Contacto',
+        'footer.support.terms': 'Términos',
+        'footer.support.privacy': 'Privacidad',
+        'footer.copyright': '© 2026 Passage. Todos los derechos reservados.',
+        'meta.title': 'Passage — Viajes Culturales Seleccionados, Auténticamente Locales',
+        'meta.desc': 'Passage te conecta con guías locales, artesanos y familias en los destinos culturalmente más ricos del mundo. Viajes que transforman.',
+      },
+      fr: {
+        'nav.journeys': 'Voyages',
+        'nav.ethos': 'Notre Philosophie',
+        'nav.testimonials': 'Récits',
+        'nav.features': 'Pourquoi Passage',
+        'nav.cta': 'Commencer l\'Aventure',
+        'hero.title': 'Voyez le monde à travers<br>des <span class="text-accent">yeux locaux</span>',
+        'hero.subtitle': 'Passage vous connecte avec des guides locaux, des artisans et des familles dans les destinations les plus riches culturellement au monde. Pas un tour — un échange authentique.',
+        'hero.cta.primary': 'Explorer les Voyages',
+        'hero.cta.secondary': 'Comment ça Marche',
+        'hero.stat.destinations': 'Destinations',
+        'hero.stat.satisfaction': 'Satisfaction Voyageur',
+        'hero.stat.hosts': 'Hôtes Locaux',
+        'journeys.title': 'Voyages choisis,<br>conçus avec soin',
+        'journeys.subtitle': 'Chaque itinéraire est co-créé par des experts locaux et des voyageurs chevronnés — chaque détail choisi pour son sens, pas pour sa commodité.',
+        'journeys.tag1': 'Japon',
+        'journeys.card1.title': 'Kyoto : Artisans de l\'Ancienne Capitale',
+        'journeys.card1.text': 'Sept jours immergés dans les traditions artisanales de Kyoto — cérémonie du thé avec un maître de 16e génération, teinture indigo dans un atelier familial, et lever de soleil au pavillon d\'or avant l\'arrivée des foules.',
+        'journeys.cta': 'Voir le Voyage',
+        'journeys.tag2': 'Maroc',
+        'journeys.card2.title': 'Marrakech : L\'Art de la Rencontre',
+        'journeys.card2.text': 'Apprenez les rituels de l\'hospitalité marocaine — cuisine avec une famille de Djemaa el-Fna, visite de tisserands berbères dans les contreforts de l\'Atlas, et nuit sous les étoiles dans le désert d\'Agafay.',
+        'journeys.tag3': 'Italie',
+        'journeys.card3.title': 'Toscane : Vignobles et Pierres Antiques',
+        'journeys.card3.text': 'Marchez sur les sentiers étrusques avec un archéologue, récoltez des olives dans un domaine familial, et apprenez l\'art de la fresque avec un restaurateur florentin dans un village médiéval.',
+        'ethos.title': 'Voyager devrait<br>vous changer',
+        'ethos.p1': 'Nous avons créé Passage parce que nous en avions assez des voyages qui ressemblent à une liste de courses — voir ceci, manger cela, photographier, passer à autre chose. Le vrai voyage, c\'est la connexion : partager le thé avec une famille, apprendre un métier de mains qui le pratiquent depuis des générations, se réveiller quelque part qui transforme votre vision du monde.',
+        'ethos.p2': 'Chaque voyage Passage est construit autour des personnes, pas des monuments. Nous travaillons avec des hôtes locaux — artisans, cuisiniers, agriculteurs, conteurs — qui ouvrent leurs foyers et leurs vies. L\'itinéraire est un cadre ; la véritable expérience est ce qui se passe entre les lignes.',
+        'ethos.v1.title': 'Mené localement, toujours',
+        'ethos.v1.text': 'Chaque voyage est conçu et guidé par des gens qui vivent là. L\'itinéraire, le rythme, les repas — tout choisi par des hôtes locaux.',
+        'ethos.v2.title': 'Petits groupes, grand impact',
+        'ethos.v2.text': 'Jamais plus de huit voyageurs. Faible impact sur les lieux, grand impact sur vous. 60 % des frais restent dans la communauté locale.',
+        'ethos.v3.title': 'Authenticité radicale',
+        'ethos.v3.text': 'Pas de pièges à touristes, pas d\'arrêts photos organisés. Si ce n\'est pas là où vont les locaux, ce n\'est pas à l\'itinéraire.',
+        'testimonials.title': 'Récits de la route',
+        'testimonials.subtitle': 'Ce que nos voyageurs rapportent n\'est pas un souvenir — c\'est une nouvelle façon de voir.',
+        'testimonials.q1': '"J\'avais déjà fait des voyages organisés, mais celui-ci était différent. Nous avons passé un après-midi à apprendre à faire des pâtes avec une grand-mère dans sa cuisine de ferme. Pas d\'appareils photo, pas de précipitation — juste de la farine, des œufs et des histoires. J\'ai pleuré en partant."',
+        'testimonials.q1.role': 'Toscane, 2025',
+        'testimonials.q2': '"Notre guide à Kyoto était un prêtre zen qui dirige un petit temple. Il nous a montré le jardin à l\'aube et a parlé d\'impermanence. Ce n\'était pas du tourisme — c\'était de la philosophie. Je n\'oublierai jamais cette matinée."',
+        'testimonials.q2.role': 'Kyoto, 2024',
+        'testimonials.q3': '"Passage m\'a présenté une famille à Marrakech qui m\'a invité chez elle pour un repas. Nous ne parlions pas la même langue, mais nous avons ri, partagé la nourriture, et en quelque sorte tout compris. C\'est ça, le vrai voyage."',
+        'testimonials.q3.role': 'Marrakech, 2025',
+        'features.title': 'Ce qui rend Passage différent',
+        'features.subtitle': 'Nous avons supprimé tout ce qui s\'interpose entre vous et le lieu — et misé sur l\'essentiel.',
+        'features.f1.title': 'Guides locaux, pas guides touristiques',
+        'features.f1.text': 'Nos hôtes sont des artisans, agriculteurs, historiens et chefs — des gens dont la connaissance vient de la vie, pas d\'un script. Chaque relation se construit au fil des années.',
+        'features.f2.title': 'Lent par conception',
+        'features.f2.text': 'Trois destinations minimum par semaine, pas quatre. Matinées libres pour flâner. Nous créons un espace de respiration dans chaque itinéraire pour que le lieu puisse vraiment vous atteindre.',
+        'features.f3.title': 'Protégé par la mission',
+        'features.f3.text': 'Nous limitons chaque voyage à huit voyageurs pour minimiser les perturbations culturelles. 60 % des revenus du voyage restent dans la communauté d\'accueil. Voyage régénératif, non extractif.',
+        'newsletter.title': 'Une lettre du chemin',
+        'newsletter.subtitle': 'Envois mensuels de nos hôtes — recettes, histoires et voyages qui n\'arrivent jamais sur le site. Pas de spam, que de l\'authentique.',
+        'newsletter.placeholder': 'votre@email.com',
+        'newsletter.cta': 'S\'abonner',
+        'newsletter.success': 'Merci ! Vérifiez votre boîte de réception pour un message de bienvenue de notre équipe.',
+        'newsletter.error': 'Veuillez entrer une adresse email valide.',
+        'cookie.text': 'Nous utilisons des cookies essentiels pour faire fonctionner le site et des cookies analytiques pour améliorer votre expérience. En continuant, vous acceptez notre politique de cookies.',
+        'cookie.accept': 'Accepter',
+        'cookie.decline': 'Refuser',
+        'footer.tagline': 'Des voyages qui vous connectent aux lieux, pas seulement aux emplacements. Fondé en 2019.',
+        'footer.journeys.heading': 'Voyages',
+        'footer.journeys.all': 'Tous les Voyages',
+        'footer.journeys.asia': 'Asie',
+        'footer.journeys.europe': 'Europe',
+        'footer.journeys.africa': 'Afrique',
+        'footer.journeys.americas': 'Amériques',
+        'footer.about.heading': 'À Propos',
+        'footer.about.story': 'Notre Histoire',
+        'footer.about.hosts': 'Hôtes Locaux',
+        'footer.about.sustainability': 'Durabilité',
+        'footer.about.careers': 'Carrières',
+        'footer.support.heading': 'Support',
+        'footer.support.faq': 'FAQ',
+        'footer.support.contact': 'Contact',
+        'footer.support.terms': 'Conditions',
+        'footer.support.privacy': 'Confidentialité',
+        'footer.copyright': '© 2026 Passage. Tous droits réservés.',
+        'meta.title': 'Passage — Voyages Culturels Curatés, Authentiquement Locaux',
+        'meta.desc': 'Passage vous connecte avec des guides locaux, des artisans et des familles. Des voyages qui transforment.',
+      },
+      de: {
+        'nav.journeys': 'Reisen',
+        'nav.ethos': 'Unsere Philosophie',
+        'nav.testimonials': 'Geschichten',
+        'nav.features': 'Warum Passage',
+        'nav.cta': 'Entdecken',
+        'hero.title': 'Sieh die Welt mit<br><span class="text-accent">lokalen Augen</span>',
+        'hero.subtitle': 'Passage verbindet dich mit lokalen Guides, Handwerkern und Familien in den kulturell reichsten Reisezielen der Welt. Keine Tour — ein echter Austausch.',
+        'hero.cta.primary': 'Reisen Entdecken',
+        'hero.cta.secondary': 'So Funktioniert\'s',
+        'hero.stat.destinations': 'Reiseziele',
+        'hero.stat.satisfaction': 'Reisezufriedenheit',
+        'hero.stat.hosts': 'Lokale Gastgeber',
+        'journeys.title': 'Kuratierte Reisen,<br>mit Sorgfalt gestaltet',
+        'journeys.subtitle': 'Jede Reiseroute wird gemeinsam von lokalen Experten und erfahrenen Reisenden entwickelt — jedes Detail hat Bedeutung, nicht Bequemlichkeit.',
+        'journeys.tag1': 'Japan',
+        'journeys.card1.title': 'Kyoto: Handwerker der alten Hauptstadt',
+        'journeys.card1.text': 'Sieben Tage eintauchen in Kyotos Handwerkstraditionen — Teezeremonie mit einem Meister der 16. Generation, Indigofärben in einer Familienwerkstatt und Sonnenaufgang am goldenen Pavillon vor den Menschenmassen.',
+        'journeys.cta': 'Reise Ansehen',
+        'journeys.tag2': 'Marokko',
+        'journeys.card2.title': 'Marrakesch: Die Kunst des Zusammenkommens',
+        'journeys.card2.text': 'Lerne die Rituale der marokkanischen Gastfreundschaft — Kochen mit einer Familie aus Djemaa el-Fna, Besuch von Berberwebern am Fuß des Atlas und Schlafen unter Sternen in der Agafay-Wüste.',
+        'journeys.tag3': 'Italien',
+        'journeys.card3.title': 'Toskana: Weinberge & Alte Steine',
+        'journeys.card3.text': 'Wandere auf etruskischen Pfaden mit einem Archäologen, ernte Oliven auf einem Familienweingut und lerne die Kunst des Freskos von einem Florentiner Restaurator in einem mittelalterlichen Dorf.',
+        'ethos.title': 'Reisen sollte<br>dich verändern',
+        'ethos.p1': 'Wir haben Passage gegründet, weil wir müde waren von Reisen, die sich wie eine Checkliste anfühlen — sieh das, iss jenes, fotografier, weiter. Echtes Reisen ist Verbindung: Tee mit einer Familie teilen, ein Handwerk von Händen lernen, die es seit Generationen ausüben, an einem Ort aufwachen, der deine Sicht auf die Welt verändert.',
+        'ethos.p2': 'Jede Passage-Reise ist um Menschen herum aufgebaut, nicht um Sehenswürdigkeiten. Wir arbeiten mit lokalen Gastgebern — Handwerkern, Köchen, Bauern, Geschichtenerzählern — die ihre Häuser und ihr Leben öffnen. Die Reiseroute ist der Rahmen; die eigentliche Erfahrung ist das, was zwischen den Zeilen passiert.',
+        'ethos.v1.title': 'Immer lokal geführt',
+        'ethos.v1.text': 'Jede Reise wird von Menschen entworfen und geführt, die dort leben. Die Route, das Tempo, die Mahlzeiten — alles von lokalen Gastgebern bestimmt.',
+        'ethos.v2.title': 'Kleine Gruppen, tiefe Wirkung',
+        'ethos.v2.text': 'Nie mehr als acht Reisende. Geringe Auswirkungen auf Orte, große Wirkung auf dich. 60 % der Gebühren bleiben in der lokalen Gemeinschaft.',
+        'ethos.v3.title': 'Radikale Authentizität',
+        'ethos.v3.text': 'Keine Touristenfallen, keine inszenierten Fotostopps. Wenn es nicht der Ort ist, den Einheimische besuchen, kommt es nicht auf die Reiseroute.',
+        'testimonials.title': 'Geschichten von unterwegs',
+        'testimonials.subtitle': 'Was unsere Reisenden mitbringen, ist kein Souvenir — es ist eine neue Art zu sehen.',
+        'testimonials.q1': '"Ich war schon auf Gruppenreisen, aber das war anders. Wir verbrachten einen Nachmittag damit, mit einer Großmutter in ihrer Bauernküche Pasta zu machen. Keine Kameras, keine Eile — nur Mehl, Eier und Geschichten. Ich habe geweint, als wir gingen."',
+        'testimonials.q1.role': 'Toskana, 2025',
+        'testimonials.q2': '"Unser Führer in Kyoto war ein Zen-Priester, der einen kleinen Tempel leitet. Er zeigte uns den Garten im Morgengrauen und sprach über Vergänglichkeit. Das war kein Sightseeing — das war Philosophie. Ich werde diesen Morgen nie vergessen."',
+        'testimonials.q2.role': 'Kyoto, 2024',
+        'testimonials.q3': '"Passage hat mich mit einer Familie in Marrakesch bekannt gemacht, die mich zum Essen nach Hause einlud. Wir sprachen nicht dieselbe Sprache, aber wir lachten, teilten Essen und verstanden uns trotzdem. Das ist echtes Reisen."',
+        'testimonials.q3.role': 'Marrakesch, 2025',
+        'features.title': 'Was Passage anders macht',
+        'features.subtitle': 'Wir haben alles entfernt, was zwischen dir und dem Ort steht — und auf das gesetzt, was wirklich zählt.',
+        'features.f1.title': 'Lokale Guides, keine Reiseführer',
+        'features.f1.text': 'Unsere Gastgeber sind Handwerker, Bauern, Historiker und Köche — Menschen, deren Wissen aus dem Leben kommt, nicht aus einem Skript. Jede Beziehung wächst über Jahre.',
+        'features.f2.title': 'Absichtlich langsam',
+        'features.f2.text': 'Mindestens drei Ziele pro Woche, nicht vier. Morgens frei zum Umherstreifen. Wir bauen Atemraum in jede Reiseroute ein, damit der Ort dich wirklich erreichen kann.',
+        'features.f3.title': 'Durch Zweck geschützt',
+        'features.f3.text': 'Wir begrenzen jede Reise auf acht Reisende, um kulturelle Störungen zu minimieren. 60 % der Reiseeinnahmen bleiben in der Gastgemeinde. Regeneratives Reisen, nicht ausbeuterisch.',
+        'newsletter.title': 'Ein Brief von unterwegs',
+        'newsletter.subtitle': 'Monatliche Nachrichten unserer Gastgeber — Rezepte, Geschichten und Reisen, die nie auf die Website kommen. Kein Spam, nur Echtes.',
+        'newsletter.placeholder': 'deine@email.com',
+        'newsletter.cta': 'Abonnieren',
+        'newsletter.success': 'Danke! Sieh in deinem Posteingang nach einer Willkommensnachricht von unserem Team.',
+        'newsletter.error': 'Bitte gib eine gültige E-Mail-Adresse ein.',
+        'cookie.text': 'Wir verwenden essentielle Cookies für den Betrieb der Website und Analyse-Cookies zur Verbesserung deines Erlebnisses. Mit der weiteren Nutzung stimmst du unserer Cookie-Richtlinie zu.',
+        'cookie.accept': 'Akzeptieren',
+        'cookie.decline': 'Ablehnen',
+        'footer.tagline': 'Reisen, die dich mit Orten verbinden, nicht nur mit Koordinaten. Gegründet 2019.',
+        'footer.journeys.heading': 'Reisen',
+        'footer.journeys.all': 'Alle Reisen',
+        'footer.journeys.asia': 'Asien',
+        'footer.journeys.europe': 'Europa',
+        'footer.journeys.africa': 'Afrika',
+        'footer.journeys.americas': 'Amerika',
+        'footer.about.heading': 'Über Uns',
+        'footer.about.story': 'Unsere Geschichte',
+        'footer.about.hosts': 'Lokale Gastgeber',
+        'footer.about.sustainability': 'Nachhaltigkeit',
+        'footer.about.careers': 'Karriere',
+        'footer.support.heading': 'Support',
+        'footer.support.faq': 'FAQ',
+        'footer.support.contact': 'Kontakt',
+        'footer.support.terms': 'AGB',
+        'footer.support.privacy': 'Datenschutz',
+        'footer.copyright': '© 2026 Passage. Alle Rechte vorbehalten.',
+        'meta.title': 'Passage — Kuratierte Kulturreisen, Authentisch Lokal',
+        'meta.desc': 'Passage verbindet dich mit lokalen Guides, Handwerkern und Familien. Reisen, die verändern.',
+      },
+      it: {
+        'nav.journeys': 'Viaggi',
+        'nav.ethos': 'La Nostra Filosofia',
+        'nav.testimonials': 'Storie',
+        'nav.features': 'Perché Passage',
+        'nav.cta': 'Inizia a Esplorare',
+        'hero.title': 'Vedi il mondo attraverso<br><span class="text-accent">occhi locali</span>',
+        'hero.subtitle': 'Passage ti connette con guide locali, artigiani e famiglie nelle destinazioni culturalmente più ricche del mondo. Non un tour — uno scambio autentico.',
+        'hero.cta.primary': 'Esplora Viaggi',
+        'hero.cta.secondary': 'Come Funziona',
+        'hero.stat.destinations': 'Destinazioni',
+        'hero.stat.satisfaction': 'Soddisfazione Viaggiatori',
+        'hero.stat.hosts': 'Ospiti Locali',
+        'journeys.title': 'Viaggi curati,<br>fatti con cura',
+        'journeys.subtitle': 'Ogni itinerario è co-creato da esperti locali e viaggiatori esperti — ogni dettaglio scelto per significato, non per comodità.',
+        'journeys.tag1': 'Giappone',
+        'journeys.card1.title': 'Kyoto: Artigiani dell\'Antica Capitale',
+        'journeys.card1.text': 'Sette giorni immersi nelle tradizioni artigianali di Kyoto — cerimonia del tè con un maestro di 16a generazione, tintura indaco in un laboratorio familiare e alba al padiglione d\'oro prima dell\'arrivo della folla.',
+        'journeys.cta': 'Vedi Viaggio',
+        'journeys.tag2': 'Marocco',
+        'journeys.card2.title': 'Marrakech: L\'Arte dell\'Incontro',
+        'journeys.card2.text': 'Impara i rituali dell\'ospitalità marocchina — cucina con una famiglia di Djemaa el-Fna, visita ai tessitori berberi ai piedi dell\'Atlante e notte sotto le stelle nel deserto di Agafay.',
+        'journeys.tag3': 'Italia',
+        'journeys.card3.title': 'Toscana: Vigneti e Pietre Antiche',
+        'journeys.card3.text': 'Cammina sui sentieri etruschi con un archeologo, raccogli olive in un\'azienda familiare e impara l\'arte dell\'affresco con un restauratore fiorentino in un borgo medievale.',
+        'ethos.title': 'Viaggiare dovrebbe<br>cambiarti',
+        'ethos.p1': 'Abbiamo fondato Passage perché eravamo stanchi di viaggi che sembravano una lista di controllo — guarda questo, mangia quello, fotografa, avanti. Il vero viaggio è connessione: condividere il tè con una famiglia, imparare un mestiere da mani che lo fanno da generazioni, svegliarsi in un posto che rimodella il tuo modo di vedere il mondo.',
+        'ethos.p2': 'Ogni viaggio Passage è costruito intorno alle persone, non ai monumenti. Lavoriamo con ospiti locali — artigiani, cuochi, agricoltori, narratori — che aprono le loro case e le loro vite. L\'itinerario è una cornice; la vera esperienza è ciò che accade tra le righe.',
+        'ethos.v1.title': 'Sempre guidato localmente',
+        'ethos.v1.text': 'Ogni viaggio è progettato e guidato da persone che vivono lì. Il percorso, il ritmo, i pasti — tutto scelto da ospiti locali.',
+        'ethos.v2.title': 'Gruppi piccoli, impatto profondo',
+        'ethos.v2.text': 'Mai più di otto viaggiatori. Basso impatto sui luoghi, alto impatto su di te. Il 60% delle quote rimane nella comunità locale.',
+        'ethos.v3.title': 'Autenticità radicale',
+        'ethos.v3.text': 'Niente trappole per turisti, niente fermate fotografiche organizzate. Se non è dove vanno i locali, non è nell\'itinerario.',
+        'testimonials.title': 'Storie di viaggio',
+        'testimonials.subtitle': 'Ciò che i nostri viaggiatori riportano non è un souvenir — è un nuovo modo di vedere.',
+        'testimonials.q1': '"Ero già stata in viaggi di gruppo, ma questo era diverso. Abbiamo passato un pomeriggio a imparare a fare la pasta con una nonna nella sua cucina di campagna. Niente macchine fotografiche, nessuna fretta — solo farina, uova e storie. Ho pianto quando siamo partiti."',
+        'testimonials.q1.role': 'Toscana, 2025',
+        'testimonials.q2': '"La nostra guida a Kyoto era un sacerdote zen che gestisce un piccolo tempio. Ci ha mostrato il giardino all\'alba e ha parlato dell\'impermanenza. Non era turismo — era filosofia. Non dimenticherò mai quella mattina."',
+        'testimonials.q2.role': 'Kyoto, 2024',
+        'testimonials.q3': '"Passage mi ha presentato una famiglia a Marrakech che mi ha invitato a casa loro per un pasto. Non parlavamo la stessa lingua, ma abbiamo riso, condiviso il cibo e in qualche modo capito tutto. Questo è il vero viaggio."',
+        'testimonials.q3.role': 'Marrakech, 2025',
+        'features.title': 'Cosa rende Passage diverso',
+        'features.subtitle': 'Abbiamo eliminato tutto ciò che si frappone tra te e il luogo — e raddoppiato su ciò che conta.',
+        'features.f1.title': 'Guide locali, non guide turistiche',
+        'features.f1.text': 'I nostri ospiti sono artigiani, agricoltori, storici e chef — persone la cui conoscenza viene dalla vita, non da un copione. Ogni relazione si costruisce negli anni.',
+        'features.f2.title': 'Lento per progetto',
+        'features.f2.text': 'Almeno tre destinazioni a settimana, non quattro. Mattine libere per vagare. Costruiamo spazio per respirare in ogni itinerario, così il luogo può davvero raggiungerti.',
+        'features.f3.title': 'Protetto dallo scopo',
+        'features.f3.text': 'Limitiamo ogni viaggio a otto viaggiatori per minimizzare l\'impatto culturale. Il 60% dei ricavi del viaggio rimane nella comunità ospitante. Viaggio rigenerativo, non estrattivo.',
+        'newsletter.title': 'Una lettera dalla strada',
+        'newsletter.subtitle': 'Messaggi mensili dai nostri ospiti — ricette, storie e viaggi che non arrivano mai sul sito. Niente spam, solo cose vere.',
+        'newsletter.placeholder': 'tua@email.com',
+        'newsletter.cta': 'Iscriviti',
+        'newsletter.success': 'Grazie! Controlla la tua casella di posta per un messaggio di benvenuto dal nostro team.',
+        'newsletter.error': 'Inserisci un indirizzo email valido.',
+        'cookie.text': 'Utilizziamo cookie essenziali per far funzionare il sito e cookie analitici per migliorare la tua esperienza. Continuando, accetti la nostra politica sui cookie.',
+        'cookie.accept': 'Accetta',
+        'cookie.decline': 'Rifiuta',
+        'footer.tagline': 'Viaggi che ti connettono ai luoghi, non solo alle posizioni. Fondato nel 2019.',
+        'footer.journeys.heading': 'Viaggi',
+        'footer.journeys.all': 'Tutti i Viaggi',
+        'footer.journeys.asia': 'Asia',
+        'footer.journeys.europe': 'Europa',
+        'footer.journeys.africa': 'Africa',
+        'footer.journeys.americas': 'Americhe',
+        'footer.about.heading': 'Chi Siamo',
+        'footer.about.story': 'La Nostra Storia',
+        'footer.about.hosts': 'Ospiti Locali',
+        'footer.about.sustainability': 'Sostenibilità',
+        'footer.about.careers': 'Carriere',
+        'footer.support.heading': 'Supporto',
+        'footer.support.faq': 'FAQ',
+        'footer.support.contact': 'Contatti',
+        'footer.support.terms': 'Termini',
+        'footer.support.privacy': 'Privacy',
+        'footer.copyright': '© 2026 Passage. Tutti i diritti riservati.',
+        'meta.title': 'Passage — Viaggi Culturali Curati, Autenticamente Locali',
+        'meta.desc': 'Passage ti connette con guide locali, artigiani e famiglie. Viaggi che trasformano.',
+      },
+      pt: {
+        'nav.journeys': 'Jornadas',
+        'nav.ethos': 'Nossa Filosofia',
+        'nav.testimonials': 'Histórias',
+        'nav.features': 'Por que Passage',
+        'nav.cta': 'Comece a Explorar',
+        'hero.title': 'Veja o mundo através<br>de <span class="text-accent">olhos locais</span>',
+        'hero.subtitle': 'Passage conecta você com guias locais, artesãos e famílias nos destinos culturalmente mais ricos do mundo. Não é um tour — é uma troca genuína.',
+        'hero.cta.primary': 'Explorar Jornadas',
+        'hero.cta.secondary': 'Como Funciona',
+        'hero.stat.destinations': 'Destinos',
+        'hero.stat.satisfaction': 'Satisfação do Viajante',
+        'hero.stat.hosts': 'Anfitriões Locais',
+        'journeys.title': 'Jornadas selecionadas,<br>feitas com cuidado',
+        'journeys.subtitle': 'Cada itinerário é co-criado por especialistas locais e viajantes experientes — cada detalhe escolhido por significado, não por conveniência.',
+        'journeys.tag1': 'Japão',
+        'journeys.card1.title': 'Kyoto: Artesãos da Antiga Capital',
+        'journeys.card1.text': 'Sete dias imerso nas tradições artesanais de Kyoto — cerimônia do chá com um mestre de 16ª geração, tingimento índigo em uma oficina familiar e nascer do sol no pavilhão dourado antes da chegada das multidões.',
+        'journeys.cta': 'Ver Jornada',
+        'journeys.tag2': 'Marrocos',
+        'journeys.card2.title': 'Marrakech: A Arte do Encontro',
+        'journeys.card2.text': 'Aprenda os rituais da hospitalidade marroquina — cozinhando com uma família da Djemaa el-Fna, visitando tecelões berberes no sopé do Atlas e dormindo sob as estrelas no deserto de Agafay.',
+        'journeys.tag3': 'Itália',
+        'journeys.card3.title': 'Toscana: Vinhedos e Pedras Antigas',
+        'journeys.card3.text': 'Caminhe por trilhas etruscas com um arqueólogo, colha azeitonas em uma propriedade familiar e aprenda a arte do afresco com um restaurador florentino em uma vila medieval.',
+        'ethos.title': 'Viajar deveria<br>te transformar',
+        'ethos.p1': 'Criamos a Passage porque estávamos cansados de viagens que pareciam uma lista de verificação — veja isto, coma aquilo, fotografe, siga em frente. Viajar de verdade é conexão: compartilhar chá com uma família, aprender um ofício com mãos que o fazem há gerações, acordar em algum lugar que remodela como você vê o mundo.',
+        'ethos.p2': 'Cada jornada Passage é construída em torno de pessoas, não de pontos turísticos. Trabalhamos com anfitriões locais — artesãos, cozinheiros, agricultores, contadores de histórias — que abrem suas casas e suas vidas. O itinerário é uma moldura; a verdadeira experiência é o que acontece nas entrelinhas.',
+        'ethos.v1.title': 'Sempre guiado localmente',
+        'ethos.v1.text': 'Cada jornada é projetada e guiada por pessoas que vivem lá. A rota, o ritmo, as refeições — tudo escolhido por anfitriões locais.',
+        'ethos.v2.title': 'Grupos pequenos, impacto profundo',
+        'ethos.v2.text': 'Nunca mais de oito viajantes. Baixo impacto nos lugares, alto impacto em você. 60% das taxas permanecem na comunidade local.',
+        'ethos.v3.title': 'Autenticidade radical',
+        'ethos.v3.text': 'Nenhuma armadilha turística, nenhuma parada fotográfica selecionada. Se não é onde os locais vão, não está no itinerário.',
+        'testimonials.title': 'Histórias da estrada',
+        'testimonials.subtitle': 'O que nossos viajantes trazem de volta não é uma lembrança — é uma nova maneira de ver.',
+        'testimonials.q1': '"Já estive em tours em grupo antes, mas este foi diferente. Passamos uma tarde aprendendo a fazer macarrão com uma avó em sua cozinha rural. Sem câmeras, sem pressa — apenas farinha, ovos e histórias. Chorei quando partimos."',
+        'testimonials.q1.role': 'Toscana, 2025',
+        'testimonials.q2': '"Nosso guia em Kyoto era um sacerdote zen que administra um pequeno templo. Ele nos mostrou o jardim ao amanhecer e falou sobre impermanência. Não era turismo — era filosofia. Nunca esquecerei aquela manhã."',
+        'testimonials.q2.role': 'Kyoto, 2024',
+        'testimonials.q3': '"Passage me apresentou a uma família em Marrakech que me convidou para sua casa para uma refeição. Não falávamos a mesma língua, mas rimos, compartilhamos comida e de alguma forma entendemos tudo. Isso é viajar de verdade."',
+        'testimonials.q3.role': 'Marrakech, 2025',
+        'features.title': 'O que torna a Passage diferente',
+        'features.subtitle': 'Removemos tudo que fica entre você e o lugar — e dobramos a aposta no que importa.',
+        'features.f1.title': 'Guias locais, não guias turísticos',
+        'features.f1.text': 'Nossos anfitriões são artesãos, agricultores, historiadores e chefs — pessoas cujo conhecimento vem da vida, não de um roteiro. Cada relacionamento é construído ao longo de anos.',
+        'features.f2.title': 'Lento por design',
+        'features.f2.text': 'Três destinos mínimos por semana, não quatro. Manhãs livres para vagar. Construímos espaço para respirar em cada itinerário para que o lugar possa realmente alcançá-lo.',
+        'features.f3.title': 'Protegido pelo propósito',
+        'features.f3.text': 'Limitamos cada jornada a oito viajantes para minimizar a perturbação cultural. 60% da receita da viagem permanece na comunidade anfitriã. Viagem regenerativa, não extrativa.',
+        'newsletter.title': 'Uma carta da estrada',
+        'newsletter.subtitle': 'Despachos mensais dos nossos anfitriões — receitas, histórias e jornadas que nunca chegam ao site. Sem spam, apenas o verdadeiro.',
+        'newsletter.placeholder': 'seu@email.com',
+        'newsletter.cta': 'Inscrever-se',
+        'newsletter.success': 'Obrigado! Verifique sua caixa de entrada para uma nota de boas-vindas da nossa equipe.',
+        'newsletter.error': 'Por favor, insira um endereço de email válido.',
+        'cookie.text': 'Usamos cookies essenciais para manter o site funcionando e cookies analíticos para melhorar sua experiência. Ao continuar, você aceita nossa política de cookies.',
+        'cookie.accept': 'Aceitar',
+        'cookie.decline': 'Recusar',
+        'footer.tagline': 'Viagens que conectam você a lugares, não apenas a localizações. Fundado em 2019.',
+        'footer.journeys.heading': 'Jornadas',
+        'footer.journeys.all': 'Todas as Jornadas',
+        'footer.journeys.asia': 'Ásia',
+        'footer.journeys.europe': 'Europa',
+        'footer.journeys.africa': 'África',
+        'footer.journeys.americas': 'Américas',
+        'footer.about.heading': 'Sobre',
+        'footer.about.story': 'Nossa História',
+        'footer.about.hosts': 'Anfitriões Locais',
+        'footer.about.sustainability': 'Sustentabilidade',
+        'footer.about.careers': 'Carreiras',
+        'footer.support.heading': 'Suporte',
+        'footer.support.faq': 'FAQ',
+        'footer.support.contact': 'Contato',
+        'footer.support.terms': 'Termos',
+        'footer.support.privacy': 'Privacidade',
+        'footer.copyright': '© 2026 Passage. Todos os direitos reservados.',
+        'meta.title': 'Passage — Jornadas Culturais Selecionadas, Autenticamente Locais',
+        'meta.desc': 'Passage conecta você com guias locais, artesãos e famílias. Viagens que transformam.',
+      }
+    };
+
+    let currentLang = 'en';
+
+    function getBrowserLang() {
+      try {
+        const lang = navigator.language || navigator.userLanguage || '';
+        if (lang.startsWith('es')) return 'es';
+        if (lang.startsWith('fr')) return 'fr';
+        if (lang.startsWith('de')) return 'de';
+        if (lang.startsWith('it')) return 'it';
+        if (lang.startsWith('pt')) return 'pt';
+        return 'en';
+      } catch(e) { return 'en'; }
+    }
+
+    function detectLang() {
+      try {
+        const saved = localStorage.getItem('passage-lang');
+        if (saved && TRANSLATIONS[saved]) return saved;
+      } catch(e) {}
+      return getBrowserLang();
+    }
+
+    function applyLanguage(lang) {
+      if (!TRANSLATIONS[lang]) lang = 'en';
+      currentLang = lang;
+      const t = TRANSLATIONS[lang];
+      try { localStorage.setItem('passage-lang', lang); } catch(e) {}
+
+      // Translate data-i18n elements
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        const val = t[key];
+        if (val !== undefined) {
+          if (key === 'hero.title' || key === 'journeys.title' || key === 'ethos.title') {
+            el.innerHTML = val; // Allow HTML in hero/headings
+          } else {
+            el.textContent = val;
+          }
+        }
+      });
+
+      // Translate placeholders
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        const val = t[key];
+        if (val !== undefined) el.placeholder = val;
+      });
+
+      // Update meta tags
+      const metaTitle = document.getElementById('meta-title');
+      const metaDesc = document.getElementById('meta-desc');
+      const ogTitle = document.getElementById('og-title');
+      const ogDesc = document.getElementById('og-desc');
+      const twTitle = document.getElementById('tw-title');
+      const twDesc = document.getElementById('tw-desc');
+
+      if (metaTitle && t['meta.title']) metaTitle.textContent = t['meta.title'];
+      if (metaDesc && t['meta.desc']) metaDesc.setAttribute('content', t['meta.desc']);
+      if (ogTitle && t['meta.title']) ogTitle.textContent = t['meta.title'];
+      if (ogDesc && t['meta.desc']) ogDesc.setAttribute('content', t['meta.desc']);
+      if (twTitle && t['meta.title']) twTitle.textContent = t['meta.title'];
+      if (twDesc && t['meta.desc']) twDesc.setAttribute('content', t['meta.desc']);
+
+      // Update lang switcher buttons
+      document.querySelectorAll('.lang-select__cur').forEach(el => { el.textContent = lang.toUpperCase(); });
+      document.querySelectorAll('.lang-select__opt').forEach(opt => {
+        opt.setAttribute('aria-selected', opt.dataset.lang === lang ? 'true' : 'false');
+      });
+
+      // Update html lang attribute
+      document.documentElement.lang = lang;
+    }
+
+    /* ==============================================================
+       Navigation
+       ============================================================== */
+    function initLangSelect() {
+      document.querySelectorAll('.lang-select').forEach(function (sel) {
+        const btn = sel.querySelector('.lang-select__btn');
+        const menu = sel.querySelector('.lang-select__menu');
+        if (!btn || !menu) return;
+        function closeMenu() {
+          menu.classList.remove('open');
+          btn.setAttribute('aria-expanded', 'false');
+        }
+        btn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          const open = menu.classList.toggle('open');
+          btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+        document.addEventListener('click', function (e) {
+          if (!sel.contains(e.target)) closeMenu();
+        });
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape') closeMenu();
+        });
+        menu.querySelectorAll('.lang-select__opt').forEach(opt => {
+          opt.addEventListener('click', function () {
+            applyLanguage(opt.getAttribute('data-lang'));
+            closeMenu();
+          });
+        });
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      // Language switchers are static markup (lang-select); wire them up
+      initLangSelect();
+
+      // Detect and apply language
+      const detected = detectLang();
+      applyLanguage(detected);
+
+      // Hamburger menu
+      const hamburger = document.getElementById('hamburger');
+      const navLinks = document.getElementById('navLinks');
+      hamburger.addEventListener('click', function() {
+        const isOpen = navLinks.classList.toggle('open');
+        hamburger.setAttribute('aria-expanded', isOpen);
+      });
+
+      // Close nav on link click (mobile)
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('open');
+          hamburger.setAttribute('aria-expanded', 'false');
+        });
+      });
+
+      /* ==============================================================
+         Intersection Observer — Scroll-triggered reveals
+         ============================================================== */
+      const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -40px 0px' };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .stagger').forEach(el => {
+        observer.observe(el);
+      });
+
+      /* ==============================================================
+         Newsletter form
+         ============================================================== */
+      const newsletterForm = document.getElementById('newsletterForm');
+      const newsletterMsg = document.getElementById('newsletterMsg');
+
+      newsletterForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const email = document.getElementById('newsletterEmail').value.trim();
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!emailRegex.test(email)) {
+          newsletterMsg.textContent = TRANSLATIONS[currentLang]['newsletter.error'];
+          newsletterMsg.style.color = 'var(--color-accent)';
+          return;
+        }
+
+        newsletterMsg.textContent = TRANSLATIONS[currentLang]['newsletter.success'];
+        newsletterMsg.style.color = 'var(--color-success)';
+        newsletterForm.querySelector('input').value = '';
+      });
+
+      /* ==============================================================
+         Cookie Banner
+         ============================================================== */
+      const cookieBanner = document.getElementById('cookieBanner');
+
+      if (!localStorage.getItem('passage-cookie-consent')) {
+        setTimeout(() => {
+          cookieBanner.classList.add('show');
+        }, 800);
+      }
+
+      document.getElementById('cookieAccept').addEventListener('click', function() {
+        localStorage.setItem('passage-cookie-consent', 'accepted');
+        cookieBanner.classList.remove('show');
+      });
+
+      document.getElementById('cookieDecline').addEventListener('click', function() {
+        localStorage.setItem('passage-cookie-consent', 'declined');
+        cookieBanner.classList.remove('show');
+      });
+
+      /* ==============================================================
+         Smooth scroll for anchor links (fallback for prefers-reduced-motion)
+         ============================================================== */
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            e.preventDefault();
+            const navHeight = 64;
+            const targetPos = target.getBoundingClientRect().top + window.scrollY - navHeight;
+            window.scrollTo({ top: targetPos, behavior: 'smooth' });
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

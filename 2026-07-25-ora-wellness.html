@@ -1,0 +1,3856 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="meta-title">Ora — Find Your Center. Mental Wellness, Guided.</title>
+  <meta name="description" id="meta-desc" content="Ora is a digital mental wellness platform connecting you with licensed therapists, guided meditation, mood tracking, and supportive community — all from home.">
+  <link rel="canonical" href="https://ora-wellness.com/">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%231b6b68'/%3E%3Cpath d='M16 9c2.5 3 5.5 5 8 6-2.5 1-5.5 3-8 6-2.5-3-5.5-5-8-6 2.5-1 5.5-3 8-6z' fill='%23f7f3ed'/%3E%3C/svg%3E">
+  <meta name="theme-color" content="#1b6b68">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Ora">
+  <meta property="og:title" id="og-title" content="Ora — Find Your Center. Mental Wellness, Guided.">
+  <meta property="og:description" id="og-desc" content="Digital mental wellness platform. Therapy, meditation, mood tracking, and community. Start your journey today.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=1200&q=80">
+  <meta property="og:url" content="https://ora-wellness.com/">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" id="tw-title" content="Ora — Find Your Center. Mental Wellness, Guided.">
+  <meta name="twitter:description" id="tw-desc" content="Digital mental wellness platform. Therapy, meditation, mood tracking, and community. Start your journey today.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=1200&q=80">
+  <meta name="twitter:site" content="@orawellness">
+
+  <!-- Fonts: Sora (headings) + DM Sans (body) — geometric + humanist contrast -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============================================================
+       DESIGN TOKENS — Ora Wellness
+       Surface: Decide/Learn (landing page — mental wellness platform)
+       Derived from: Original organic wellness theme
+       Family: Wellness / Mental Health
+       Style: Organic — soft curves, gentle contrasts, teal/rose palette
+       Strategy: Committed (teal ~35%, rose accent ~8%)
+       ============================================================ */
+    :root {
+      /* Colors — Light Mode (OKLCH-inspired hex) */
+      --color-primary: #1b6b68;
+      --color-primary-hover: #155553;
+      --color-primary-light: #e4f0ef;
+      --color-primary-ghost: rgba(27, 107, 104, 0.08);
+      --color-accent: #d4737a;
+      --color-accent-hover: #c25e65;
+      --color-accent-light: #fbe8e9;
+      --color-accent-ghost: rgba(212, 115, 122, 0.10);
+      --color-bg: #f8f7f4;
+      --color-surface: #ffffff;
+      --color-surface-alt: #f3f1ee;
+      --color-elevated: #ffffff;
+      --color-text-primary: #1a1c20;
+      --color-text-secondary: #5d636a;
+      --color-text-tertiary: #8e949c;
+      --color-border: #e2dfda;
+      --color-border-light: #ece9e4;
+      --color-overlay: rgba(26, 28, 32, 0.4);
+      --color-overlay-heavy: rgba(26, 28, 32, 0.7);
+      --color-success: #2d7d6a;
+      --color-error: #c7423a;
+      --color-warning: #c9a230;
+
+      /* Colors — Dark Mode */
+      --color-bg-dark: #131517;
+      --color-surface-dark: #1b1d21;
+      --color-surface-alt-dark: #23262b;
+      --color-elevated-dark: #1e2125;
+      --color-text-primary-dark: #ecebe7;
+      --color-text-secondary-dark: #9ea2a7;
+      --color-text-tertiary-dark: #6a6f76;
+      --color-primary-dark: #41afa9;
+      --color-primary-hover-dark: #5cc0ba;
+      --color-primary-light-dark: #1a3534;
+      --color-accent-dark: #e4888e;
+      --color-accent-hover-dark: #eba0a4;
+      --color-accent-light-dark: #3a2023;
+      --color-border-dark: #2d3036;
+      --color-border-light-dark: #373a40;
+
+      /* Typography */
+      --font-heading: 'Sora', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --font-mono: 'SF Mono', 'Fira Code', 'JetBrains Mono', monospace;
+
+      /* Spacing scale — rhythmic, not uniform */
+      --space-3xs: 0.25rem;
+      --space-2xs: 0.375rem;
+      --space-xs: 0.5rem;
+      --space-sm: 0.75rem;
+      --space-md: 1rem;
+      --space-lg: 1.5rem;
+      --space-xl: 2rem;
+      --space-2xl: 3rem;
+      --space-3xl: 4rem;
+      --space-4xl: 5.5rem;
+      --space-5xl: 8rem;
+      --space-6xl: 11rem;
+
+      /* Layout */
+      --content-max: 76rem;
+      --content-narrow: 44rem;
+      --nav-height: 4.25rem;
+      --gutter: clamp(1rem, 4vw, 2.5rem);
+
+      /* Z-index scale — semantic */
+      --z-dropdown: 100;
+      --z-sticky: 200;
+      --z-nav: 300;
+      --z-modal-backdrop: 400;
+      --z-modal: 500;
+      --z-toast: 600;
+      --z-tooltip: 700;
+
+      /* Shadows — soft, natural */
+      --shadow-sm: 0 1px 3px rgba(26, 28, 32, 0.04);
+      --shadow-md: 0 4px 14px rgba(26, 28, 32, 0.06);
+      --shadow-lg: 0 8px 40px rgba(26, 28, 32, 0.08);
+      --shadow-elevated: 0 12px 50px rgba(26, 28, 32, 0.10);
+
+      /* Border radius — organic, rounded */
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      --radius-lg: 20px;
+      --radius-xl: 28px;
+      --radius-full: 9999px;
+
+      /* Transitions */
+      --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+      --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+      --duration-fast: 200ms;
+      --duration-normal: 400ms;
+      --duration-slow: 700ms;
+      --duration-organic: 600ms;
+    }
+
+    /* ============================================================
+       RESET & BASE
+       ============================================================ */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 1.0625rem;
+      line-height: 1.65;
+      color: var(--color-text-primary);
+      background: var(--color-bg);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      transition: background var(--duration-normal) var(--ease-out-quart),
+                  color var(--duration-normal) var(--ease-out-quart);
+      overflow-x: hidden;
+    }
+
+    /* Dark mode body */
+    [data-theme="dark"] body,
+    [data-theme="dark"] {
+      background: var(--color-bg-dark);
+      color: var(--color-text-primary-dark);
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; cursor: pointer; border: none; background: none; }
+    ul, ol { list-style: none; }
+    input, textarea { font: inherit; }
+
+    /* ============================================================
+       TYPOGRAPHY
+       ============================================================ */
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      line-height: 1.2;
+      text-wrap: balance;
+      color: var(--color-text-primary);
+    }
+
+    [data-theme="dark"] h1,
+    [data-theme="dark"] h2,
+    [data-theme="dark"] h3,
+    [data-theme="dark"] h4,
+    [data-theme="dark"] h5,
+    [data-theme="dark"] h6 {
+      color: var(--color-text-primary-dark);
+    }
+
+    h1 {
+      font-size: clamp(2rem, 5.5vw, 4rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+
+    h2 {
+      font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+      letter-spacing: -0.01em;
+    }
+
+    h3 {
+      font-size: clamp(1.125rem, 2vw, 1.5rem);
+      letter-spacing: -0.005em;
+    }
+
+    p, li {
+      max-width: 70ch;
+      text-wrap: pretty;
+    }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      font-family: var(--font-body);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--color-primary);
+      margin-bottom: var(--space-lg);
+    }
+
+    .section-label::before {
+      content: '';
+      width: 2rem;
+      height: 2px;
+      background: var(--color-primary);
+      border-radius: 1px;
+    }
+
+    [data-theme="dark"] .section-label {
+      color: var(--color-primary-dark);
+    }
+
+    [data-theme="dark"] .section-label::before {
+      background: var(--color-primary-dark);
+    }
+
+    .section-label--center {
+      justify-content: center;
+    }
+
+    .section-label--center::before {
+      display: none;
+    }
+
+    .desc {
+      font-size: clamp(1rem, 1.5vw, 1.125rem);
+      color: var(--color-text-secondary);
+      line-height: 1.7;
+      max-width: 60ch;
+    }
+
+    [data-theme="dark"] .desc {
+      color: var(--color-text-secondary-dark);
+    }
+
+    /* ============================================================
+       LAYOUT
+       ============================================================ */
+    .container {
+      max-width: var(--content-max);
+      margin: 0 auto;
+      padding: 0 var(--gutter);
+    }
+
+    .container--narrow {
+      max-width: var(--content-narrow);
+    }
+
+    .section {
+      padding: var(--space-5xl) 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: var(--space-4xl);
+    }
+
+    .section-header p {
+      margin: var(--space-lg) auto 0;
+    }
+
+    /* ============================================================
+       COMPONENT: NAVIGATION
+       ============================================================ */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: var(--z-nav);
+      padding: var(--space-md) 0;
+      transition: background var(--duration-normal) var(--ease-out-quart),
+                  box-shadow var(--duration-normal) var(--ease-out-quart),
+                  padding var(--duration-normal) var(--ease-out-quart);
+    }
+
+    .nav--scrolled {
+      background: var(--color-surface);
+      box-shadow: var(--shadow-sm);
+      padding: var(--space-xs) 0;
+    }
+
+    [data-theme="dark"] .nav--scrolled {
+      background: var(--color-surface-dark);
+    }
+
+    .nav__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: var(--content-max);
+      margin: 0 auto;
+      padding: 0 var(--gutter);
+    }
+
+    .nav__logo {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      letter-spacing: -0.02em;
+    }
+
+    .nav__logo svg {
+      width: 2rem;
+      height: 2rem;
+    }
+
+    [data-theme="dark"] .nav__logo {
+      color: var(--color-primary-dark);
+    }
+
+    .nav__links {
+      display: flex;
+      align-items: center;
+      gap: var(--space-xl);
+    }
+
+    .nav__link {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--color-text-secondary);
+      transition: color var(--duration-fast) var(--ease-out-quart);
+      position: relative;
+    }
+
+    .nav__link::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--color-primary);
+      transition: width var(--duration-normal) var(--ease-out-expo);
+      border-radius: 1px;
+    }
+
+    .nav__link:hover {
+      color: var(--color-primary);
+    }
+
+    .nav__link:hover::after {
+      width: 100%;
+    }
+
+    [data-theme="dark"] .nav__link {
+      color: var(--color-text-secondary-dark);
+    }
+
+    [data-theme="dark"] .nav__link:hover {
+      color: var(--color-primary-dark);
+    }
+
+    [data-theme="dark"] .nav__link::after {
+      background: var(--color-primary-dark);
+    }
+
+    .nav__actions {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+    }
+
+    /* Theme toggle */
+    .theme-toggle {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: var(--radius-full);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--color-surface-alt);
+      color: var(--color-text-secondary);
+      transition: background var(--duration-fast) var(--ease-out-quart),
+                  color var(--duration-fast) var(--ease-out-quart),
+                  transform var(--duration-fast) var(--ease-out-quart);
+    }
+
+    .theme-toggle:hover {
+      background: var(--color-primary-light);
+      color: var(--color-primary);
+      transform: rotate(15deg);
+    }
+
+    [data-theme="dark"] .theme-toggle {
+      background: var(--color-surface-alt-dark);
+      color: var(--color-text-secondary-dark);
+    }
+
+    [data-theme="dark"] .theme-toggle:hover {
+      background: var(--color-primary-light-dark);
+      color: var(--color-primary-dark);
+    }
+
+    /* Language selector */
+    .lang-select {
+      position: relative;
+    }
+
+    .lang-select__btn {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2xs);
+      padding: var(--space-xs) var(--space-sm);
+      border-radius: var(--radius-md);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--color-text-secondary);
+      background: transparent;
+      transition: background var(--duration-fast) var(--ease-out-quart);
+    }
+
+    .lang-select__btn:hover {
+      background: var(--color-surface-alt);
+    }
+
+    [data-theme="dark"] .lang-select__btn:hover {
+      background: var(--color-surface-alt-dark);
+    }
+
+    [data-theme="dark"] .lang-select__btn {
+      color: var(--color-text-secondary-dark);
+    }
+
+    .lang-select__menu {
+      position: absolute;
+      top: calc(100% + var(--space-xs));
+      right: 0;
+      min-width: 10rem;
+      background: var(--color-elevated);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-lg);
+      padding: var(--space-xs);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-4px);
+      transition: opacity var(--duration-fast) var(--ease-out-quart),
+                  visibility var(--duration-fast) var(--ease-out-quart),
+                  transform var(--duration-fast) var(--ease-out-quart);
+      z-index: var(--z-dropdown);
+    }
+
+    .lang-select__menu--open {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    [data-theme="dark"] .lang-select__menu {
+      background: var(--color-elevated-dark);
+      border-color: var(--color-border-dark);
+    }
+
+    .lang-option {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      width: 100%;
+      padding: var(--space-sm) var(--space-md);
+      border-radius: var(--radius-sm);
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--color-text-secondary);
+      transition: background var(--duration-fast) var(--ease-out-quart),
+                  color var(--duration-fast) var(--ease-out-quart);
+    }
+
+    .lang-option:hover {
+      background: var(--color-primary-ghost);
+      color: var(--color-primary);
+    }
+
+    .lang-option--active {
+      color: var(--color-primary);
+      font-weight: 600;
+    }
+
+    .lang-option .flag {
+      font-size: 1.125rem;
+      line-height: 1;
+    }
+
+    [data-theme="dark"] .lang-option {
+      color: var(--color-text-secondary-dark);
+    }
+
+    [data-theme="dark"] .lang-option:hover {
+      color: var(--color-primary-dark);
+    }
+
+    [data-theme="dark"] .lang-option--active {
+      color: var(--color-primary-dark);
+    }
+
+    /* Mobile hamburger */
+    .nav__hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      width: 1.5rem;
+      padding: var(--space-2xs) 0;
+      cursor: pointer;
+    }
+
+    .nav__hamburger span {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: var(--color-text-primary);
+      border-radius: 1px;
+      transition: transform var(--duration-normal) var(--ease-out-quart),
+                  opacity var(--duration-fast) var(--ease-out-quart);
+      transform-origin: center;
+    }
+
+    .nav__hamburger--active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .nav__hamburger--active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav__hamburger--active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    [data-theme="dark"] .nav__hamburger span {
+      background: var(--color-text-primary-dark);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-sm);
+      padding: 0.7rem 1.75rem;
+      border-radius: var(--radius-full);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      transition: all var(--duration-normal) var(--ease-out-quart);
+      white-space: nowrap;
+    }
+
+    .btn--primary {
+      background: var(--color-primary);
+      color: #fff;
+    }
+
+    .btn--primary:hover {
+      background: var(--color-primary-hover);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+
+    [data-theme="dark"] .btn--primary {
+      background: var(--color-primary-dark);
+      color: var(--color-bg-dark);
+    }
+
+    [data-theme="dark"] .btn--primary:hover {
+      background: var(--color-primary-hover-dark);
+    }
+
+    .btn--ghost {
+      background: transparent;
+      color: var(--color-primary);
+      border: 2px solid var(--color-primary);
+    }
+
+    .btn--ghost:hover {
+      background: var(--color-primary);
+      color: #fff;
+      transform: translateY(-1px);
+    }
+
+    [data-theme="dark"] .btn--ghost {
+      color: var(--color-primary-dark);
+      border-color: var(--color-primary-dark);
+    }
+
+    [data-theme="dark"] .btn--ghost:hover {
+      background: var(--color-primary-dark);
+      color: var(--color-bg-dark);
+    }
+
+    .btn--accent {
+      background: var(--color-accent);
+      color: #fff;
+    }
+
+    .btn--accent:hover {
+      background: var(--color-accent-hover);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn--sm {
+      padding: 0.5rem 1.25rem;
+      font-size: 0.8125rem;
+    }
+
+    .btn--lg {
+      padding: 0.9rem 2.25rem;
+      font-size: 1.0625rem;
+    }
+
+    /* ============================================================
+       COMPONENT: HERO
+       ============================================================ */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      padding: var(--nav-height) 0 var(--space-3xl);
+      overflow: hidden;
+    }
+
+    .hero__bg-shape {
+      position: absolute;
+      top: -20%;
+      right: -10%;
+      width: 70vmax;
+      height: 70vmax;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--color-primary-ghost) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    [data-theme="dark"] .hero__bg-shape {
+      background: radial-gradient(circle, rgba(65, 175, 169, 0.08) 0%, transparent 70%);
+    }
+
+    .hero__bg-shape--2 {
+      position: absolute;
+      bottom: -10%;
+      left: -10%;
+      width: 50vmax;
+      height: 50vmax;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--color-accent-ghost) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    [data-theme="dark"] .hero__bg-shape--2 {
+      background: radial-gradient(circle, rgba(228, 136, 142, 0.06) 0%, transparent 70%);
+    }
+
+    .hero__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4xl);
+      align-items: center;
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: var(--content-max);
+      margin: 0 auto;
+      padding: 0 var(--gutter);
+    }
+
+    .hero__content {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xl);
+    }
+
+    .hero__tagline {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      padding: 0.375rem 1rem 0.375rem 0.5rem;
+      background: var(--color-primary-ghost);
+      border-radius: var(--radius-full);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--color-primary);
+      width: fit-content;
+    }
+
+    .hero__tagline-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--color-primary);
+    }
+
+    [data-theme="dark"] .hero__tagline {
+      background: var(--color-primary-light-dark);
+      color: var(--color-primary-dark);
+    }
+
+    [data-theme="dark"] .hero__tagline-dot {
+      background: var(--color-primary-dark);
+    }
+
+    .hero h1 {
+      color: var(--color-text-primary);
+    }
+
+    .hero .desc {
+      font-size: clamp(1.0625rem, 1.8vw, 1.25rem);
+    }
+
+    .hero__cta {
+      display: flex;
+      gap: var(--space-md);
+      flex-wrap: wrap;
+      padding-top: var(--space-sm);
+    }
+
+    .hero__stats {
+      display: flex;
+      gap: var(--space-2xl);
+      margin-top: var(--space-lg);
+      padding-top: var(--space-xl);
+      border-top: 1px solid var(--color-border);
+    }
+
+    [data-theme="dark"] .hero__stats {
+      border-top-color: var(--color-border-dark);
+    }
+
+    .hero__stat-value {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      line-height: 1;
+    }
+
+    [data-theme="dark"] .hero__stat-value {
+      color: var(--color-primary-dark);
+    }
+
+    .hero__stat-label {
+      font-size: 0.8125rem;
+      color: var(--color-text-tertiary);
+      margin-top: var(--space-2xs);
+    }
+
+    .hero__visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .hero__ornament {
+      width: clamp(280px, 30vw, 420px);
+      height: clamp(280px, 30vw, 420px);
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-accent-light) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      animation: float 6s var(--ease-out-quart) infinite alternate;
+    }
+
+    @keyframes float {
+      0%   { transform: translateY(0) scale(1); }
+      100% { transform: translateY(-20px) scale(1.02); }
+    }
+
+    .hero__ornament-inner {
+      width: 75%;
+      height: 75%;
+      border-radius: 50%;
+      background: var(--color-surface);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-elevated);
+    }
+
+    .hero__ornament-icon {
+      width: 55%;
+      height: 55%;
+      color: var(--color-primary);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero__ornament {
+        animation: none;
+      }
+    }
+
+    .hero__floating-card {
+      position: absolute;
+      background: var(--color-elevated);
+      border-radius: var(--radius-lg);
+      padding: var(--space-md) var(--space-lg);
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      font-size: 0.875rem;
+      font-weight: 500;
+      animation: float-card 5s var(--ease-out-quart) infinite alternate;
+    }
+
+    [data-theme="dark"] .hero__floating-card {
+      background: var(--color-elevated-dark);
+    }
+
+    .hero__floating-card--1 {
+      top: 10%;
+      right: -5%;
+      animation-delay: 0.5s;
+    }
+
+    .hero__floating-card--2 {
+      bottom: 15%;
+      left: -5%;
+      animation-delay: 1s;
+    }
+
+    .hero__floating-card .check {
+      width: 1.5rem;
+      height: 1.5rem;
+      border-radius: 50%;
+      background: var(--color-success);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      flex-shrink: 0;
+    }
+
+    @keyframes float-card {
+      0%   { transform: translateY(0); }
+      100% { transform: translateY(-12px); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero__floating-card {
+        animation: none;
+      }
+    }
+
+    /* ============================================================
+       COMPONENT: FEATURES / HOW IT WORKS
+       ============================================================ */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-2xl);
+      counter-reset: step;
+    }
+
+    .step {
+      counter-increment: step;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-lg);
+      padding: var(--space-2xl);
+      background: var(--color-surface);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border-light);
+      position: relative;
+      transition: transform var(--duration-normal) var(--ease-out-quart),
+                  box-shadow var(--duration-normal) var(--ease-out-quart);
+    }
+
+    .step:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    [data-theme="dark"] .step {
+      background: var(--color-surface-dark);
+      border-color: var(--color-border-light-dark);
+    }
+
+    .step__number {
+      font-family: var(--font-heading);
+      font-size: 3rem;
+      font-weight: 700;
+      line-height: 1;
+      color: var(--color-primary);
+      opacity: 0.15;
+      position: absolute;
+      top: var(--space-lg);
+      right: var(--space-lg);
+    }
+
+    [data-theme="dark"] .step__number {
+      color: var(--color-primary-dark);
+    }
+
+    .step__icon {
+      width: 3rem;
+      height: 3rem;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      flex-shrink: 0;
+    }
+
+    .step__icon--1 { background: var(--color-primary); }
+    .step__icon--2 { background: var(--color-accent); }
+    .step__icon--3 { background: #7c9a80; }
+
+    .step h3 {
+      margin-top: var(--space-sm);
+    }
+
+    .step p {
+      font-size: 0.9375rem;
+      color: var(--color-text-secondary);
+      line-height: 1.7;
+    }
+
+    [data-theme="dark"] .step p {
+      color: var(--color-text-secondary-dark);
+    }
+
+    /* ============================================================
+       COMPONENT: FEATURE CARDS (varied layout — no identical grids)
+       ============================================================ */
+    .features-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: var(--space-lg);
+    }
+
+    .features-grid > :nth-child(2) {
+      display: grid;
+      gap: var(--space-lg);
+    }
+
+    .feature-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border-light);
+      border-radius: var(--radius-lg);
+      padding: var(--space-2xl);
+      transition: transform var(--duration-normal) var(--ease-out-quart),
+                  box-shadow var(--duration-normal) var(--ease-out-quart);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-lg);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+
+    [data-theme="dark"] .feature-card {
+      background: var(--color-surface-dark);
+      border-color: var(--color-border-light-dark);
+    }
+
+    .feature-card--hero {
+      background: linear-gradient(135deg, var(--color-primary) 0%, #155553 100%);
+      color: #fff;
+      justify-content: center;
+    }
+
+    .feature-card--hero h3,
+    .feature-card--hero p {
+      color: #fff;
+    }
+
+    .feature-card--hero p {
+      opacity: 0.85;
+    }
+
+    .feature-card__icon {
+      width: 2.75rem;
+      height: 2.75rem;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .feature-card--hero .feature-card__icon {
+      background: rgba(255, 255, 255, 0.2);
+      color: #fff;
+    }
+
+    .feature-card:nth-child(2) .feature-card__icon { background: var(--color-primary-light); color: var(--color-primary); }
+    .feature-card:nth-child(3) .feature-card__icon { background: var(--color-accent-light); color: var(--color-accent); }
+
+    [data-theme="dark"] .feature-card:nth-child(2) .feature-card__icon {
+      background: var(--color-primary-light-dark);
+      color: var(--color-primary-dark);
+    }
+
+    [data-theme="dark"] .feature-card:nth-child(3) .feature-card__icon {
+      background: var(--color-accent-light-dark);
+      color: var(--color-accent-dark);
+    }
+
+    .feature-card h3 {
+      margin-top: var(--space-sm);
+    }
+
+    .feature-card p {
+      font-size: 0.9375rem;
+      color: var(--color-text-secondary);
+      line-height: 1.7;
+    }
+
+    .feature-card--hero p {
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    [data-theme="dark"] .feature-card p {
+      color: var(--color-text-secondary-dark);
+    }
+
+    .feature-card__link {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--color-primary);
+      margin-top: auto;
+      transition: gap var(--duration-fast) var(--ease-out-quart);
+    }
+
+    .feature-card__link:hover {
+      gap: var(--space-sm);
+    }
+
+    .feature-card--hero .feature-card__link {
+      color: #fff;
+    }
+
+    [data-theme="dark"] .feature-card__link {
+      color: var(--color-primary-dark);
+    }
+
+    /* ============================================================
+       COMPONENT: STATS BAR
+       ============================================================ */
+    .stats-bar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-lg);
+      padding: var(--space-3xl) var(--space-2xl);
+      background: var(--color-surface);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border-light);
+    }
+
+    [data-theme="dark"] .stats-bar {
+      background: var(--color-surface-dark);
+      border-color: var(--color-border-light-dark);
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-item__value {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 3vw, 2.75rem);
+      font-weight: 700;
+      color: var(--color-primary);
+      line-height: 1.1;
+    }
+
+    [data-theme="dark"] .stat-item__value {
+      color: var(--color-primary-dark);
+    }
+
+    .stat-item__label {
+      font-size: 0.875rem;
+      color: var(--color-text-tertiary);
+      margin-top: var(--space-xs);
+    }
+
+    [data-theme="dark"] .stat-item__label {
+      color: var(--color-text-tertiary-dark);
+    }
+
+    .stat-item__trend {
+      display: inline-flex;
+      align-items: center;
+      gap: 2px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--color-success);
+      margin-top: var(--space-2xs);
+    }
+
+    /* ============================================================
+       COMPONENT: TESTIMONIALS (carousel)
+       ============================================================ */
+    .testimonials-section {
+      background: var(--color-surface-alt);
+    }
+
+    [data-theme="dark"] .testimonials-section {
+      background: var(--color-surface-alt-dark);
+    }
+
+    .testimonials-track {
+      display: flex;
+      gap: var(--space-xl);
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      padding-bottom: var(--space-md);
+    }
+
+    .testimonials-track::-webkit-scrollbar {
+      display: none;
+    }
+
+    .testimonial {
+      flex: 0 0 380px;
+      scroll-snap-align: start;
+      background: var(--color-elevated);
+      border-radius: var(--radius-lg);
+      padding: var(--space-2xl);
+      border: 1px solid var(--color-border-light);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-lg);
+    }
+
+    [data-theme="dark"] .testimonial {
+      background: var(--color-elevated-dark);
+      border-color: var(--color-border-light-dark);
+    }
+
+    .testimonial__stars {
+      display: flex;
+      gap: 2px;
+      color: #e8a838;
+      font-size: 1rem;
+    }
+
+    .testimonial__text {
+      font-size: 0.9375rem;
+      line-height: 1.75;
+      color: var(--color-text-secondary);
+      font-style: italic;
+      flex: 1;
+    }
+
+    [data-theme="dark"] .testimonial__text {
+      color: var(--color-text-secondary-dark);
+    }
+
+    .testimonial__author {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      padding-top: var(--space-md);
+      border-top: 1px solid var(--color-border-light);
+    }
+
+    [data-theme="dark"] .testimonial__author {
+      border-top-color: var(--color-border-light-dark);
+    }
+
+    .testimonial__avatar {
+      width: 2.75rem;
+      height: 2.75rem;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .testimonial__name {
+      font-weight: 600;
+      font-size: 0.9375rem;
+    }
+
+    .testimonial__role {
+      font-size: 0.8125rem;
+      color: var(--color-text-tertiary);
+    }
+
+    .testimonials-nav {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-sm);
+      margin-top: var(--space-2xl);
+    }
+
+    .testimonials-nav__dot {
+      width: 0.625rem;
+      height: 0.625rem;
+      border-radius: 50%;
+      background: var(--color-border);
+      transition: background var(--duration-fast) var(--ease-out-quart),
+                  transform var(--duration-fast) var(--ease-out-quart);
+      cursor: pointer;
+    }
+
+    .testimonials-nav__dot:hover {
+      background: var(--color-text-tertiary);
+    }
+
+    .testimonials-nav__dot--active {
+      background: var(--color-primary);
+      transform: scale(1.3);
+    }
+
+    [data-theme="dark"] .testimonials-nav__dot {
+      background: var(--color-border-dark);
+    }
+
+    [data-theme="dark"] .testimonials-nav__dot--active {
+      background: var(--color-primary-dark);
+    }
+
+    /* ============================================================
+       COMPONENT: PRICING
+       ============================================================ */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-xl);
+      align-items: start;
+    }
+
+    .pricing-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border-light);
+      border-radius: var(--radius-lg);
+      padding: var(--space-2xl);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xl);
+      position: relative;
+      transition: transform var(--duration-normal) var(--ease-out-quart),
+                  box-shadow var(--duration-normal) var(--ease-out-quart);
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+
+    [data-theme="dark"] .pricing-card {
+      background: var(--color-surface-dark);
+      border-color: var(--color-border-light-dark);
+    }
+
+    .pricing-card--featured {
+      border-color: var(--color-primary);
+      border-width: 2px;
+      transform: translateY(-8px);
+    }
+
+    .pricing-card--featured:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    [data-theme="dark"] .pricing-card--featured {
+      border-color: var(--color-primary-dark);
+    }
+
+    .pricing-card__badge {
+      position: absolute;
+      top: -0.75rem;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 0.25rem 1rem;
+      background: var(--color-primary);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      border-radius: var(--radius-full);
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    [data-theme="dark"] .pricing-card__badge {
+      background: var(--color-primary-dark);
+      color: var(--color-bg-dark);
+    }
+
+    .pricing-card__name {
+      font-family: var(--font-heading);
+      font-size: 1.125rem;
+      font-weight: 600;
+    }
+
+    .pricing-card__price {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 3vw, 2.75rem);
+      font-weight: 700;
+      line-height: 1;
+      color: var(--color-text-primary);
+    }
+
+    [data-theme="dark"] .pricing-card__price {
+      color: var(--color-text-primary-dark);
+    }
+
+    .pricing-card__price span {
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--color-text-tertiary);
+    }
+
+    .pricing-card__features {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+      flex: 1;
+    }
+
+    .pricing-card__feature {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      font-size: 0.9375rem;
+      color: var(--color-text-secondary);
+    }
+
+    [data-theme="dark"] .pricing-card__feature {
+      color: var(--color-text-secondary-dark);
+    }
+
+    .pricing-card__feature svg {
+      flex-shrink: 0;
+      width: 1.125rem;
+      height: 1.125rem;
+      color: var(--color-success);
+    }
+
+    .pricing-card__feature--muted {
+      opacity: 0.4;
+    }
+
+    /* ============================================================
+       COMPONENT: FAQ (accordion)
+       ============================================================ */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+      max-width: 48rem;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      background: var(--color-surface);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-border-light);
+      overflow: hidden;
+      transition: box-shadow var(--duration-normal) var(--ease-out-quart);
+    }
+
+    .faq-item:hover {
+      box-shadow: var(--shadow-sm);
+    }
+
+    [data-theme="dark"] .faq-item {
+      background: var(--color-surface-dark);
+      border-color: var(--color-border-light-dark);
+    }
+
+    .faq-item__trigger {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-lg);
+      width: 100%;
+      padding: var(--space-lg) var(--space-xl);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      text-align: left;
+      transition: color var(--duration-fast) var(--ease-out-quart);
+    }
+
+    [data-theme="dark"] .faq-item__trigger {
+      color: var(--color-text-primary-dark);
+    }
+
+    .faq-item__trigger:hover {
+      color: var(--color-primary);
+    }
+
+    [data-theme="dark"] .faq-item__trigger:hover {
+      color: var(--color-primary-dark);
+    }
+
+    .faq-item__icon {
+      flex-shrink: 0;
+      width: 1.5rem;
+      height: 1.5rem;
+      border-radius: 50%;
+      background: var(--color-primary-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform var(--duration-normal) var(--ease-out-quart),
+                  background var(--duration-normal) var(--ease-out-quart);
+    }
+
+    .faq-item__icon svg {
+      width: 0.75rem;
+      height: 0.75rem;
+      color: var(--color-primary);
+      transition: transform var(--duration-normal) var(--ease-out-quart);
+    }
+
+    [data-theme="dark"] .faq-item__icon {
+      background: var(--color-primary-light-dark);
+    }
+
+    [data-theme="dark"] .faq-item__icon svg {
+      color: var(--color-primary-dark);
+    }
+
+    .faq-item--open .faq-item__icon {
+      background: var(--color-primary);
+    }
+
+    .faq-item--open .faq-item__icon svg {
+      transform: rotate(45deg);
+      color: #fff;
+    }
+
+    [data-theme="dark"] .faq-item--open .faq-item__icon {
+      background: var(--color-primary-dark);
+    }
+
+    .faq-item__content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height var(--duration-slow) var(--ease-out-expo);
+    }
+
+    .faq-item__body {
+      padding: 0 var(--space-xl) var(--space-xl);
+      font-size: 0.9375rem;
+      line-height: 1.75;
+      color: var(--color-text-secondary);
+    }
+
+    [data-theme="dark"] .faq-item__body {
+      color: var(--color-text-secondary-dark);
+    }
+
+    /* ============================================================
+       COMPONENT: NEWSLETTER
+       ============================================================ */
+    .newsletter {
+      background: var(--color-primary);
+      border-radius: var(--radius-xl);
+      padding: var(--space-4xl) var(--space-2xl);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .newsletter::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 40rem;
+      height: 40rem;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.04);
+      pointer-events: none;
+    }
+
+    .newsletter::after {
+      content: '';
+      position: absolute;
+      bottom: -30%;
+      left: -10%;
+      width: 30rem;
+      height: 30rem;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.03);
+      pointer-events: none;
+    }
+
+    .newsletter h2,
+    .newsletter p {
+      color: #fff;
+      position: relative;
+      z-index: 1;
+    }
+
+    .newsletter p {
+      opacity: 0.85;
+      margin: var(--space-lg) auto 0;
+    }
+
+    .newsletter__form {
+      display: flex;
+      gap: var(--space-sm);
+      max-width: 28rem;
+      margin: var(--space-2xl) auto 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .newsletter__input {
+      flex: 1;
+      padding: 0.8rem 1.25rem;
+      border-radius: var(--radius-full);
+      border: none;
+      background: rgba(255, 255, 255, 0.15);
+      color: #fff;
+      font-size: 0.9375rem;
+      outline: none;
+      transition: background var(--duration-fast) var(--ease-out-quart);
+    }
+
+    .newsletter__input::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .newsletter__input:focus {
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    .newsletter__btn {
+      padding: 0.8rem 1.75rem;
+      border-radius: var(--radius-full);
+      background: #fff;
+      color: var(--color-primary);
+      font-weight: 700;
+      font-size: 0.9375rem;
+      transition: transform var(--duration-fast) var(--ease-out-quart),
+                  box-shadow var(--duration-fast) var(--ease-out-quart);
+      white-space: nowrap;
+    }
+
+    .newsletter__btn:hover {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* ============================================================
+       COMPONENT: MOBILE APP CTA
+       ============================================================ */
+    .app-cta {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4xl);
+      align-items: center;
+    }
+
+    .app-cta__visual {
+      display: flex;
+      justify-content: center;
+      position: relative;
+    }
+
+    .app-cta__phone {
+      width: clamp(200px, 25vw, 300px);
+      height: auto;
+      aspect-ratio: 9 / 19;
+      background: var(--color-text-primary);
+      border-radius: 2rem;
+      border: 3px solid var(--color-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    [data-theme="dark"] .app-cta__phone {
+      border-color: var(--color-border-dark);
+    }
+
+    .app-cta__phone-screen {
+      width: calc(100% - 4px);
+      height: calc(100% - 4px);
+      background: linear-gradient(180deg, var(--color-primary-light) 0%, var(--color-accent-light) 100%);
+      border-radius: calc(2rem - 3px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-sm);
+      padding: var(--space-xl);
+      color: var(--color-text-primary);
+      text-align: center;
+    }
+
+    [data-theme="dark"] .app-cta__phone-screen {
+      background: linear-gradient(180deg, var(--color-primary-light-dark) 0%, var(--color-accent-light-dark) 100%);
+    }
+
+    .app-cta__phone-screen .app-icon {
+      width: 2.5rem;
+      height: 2.5rem;
+      background: var(--color-primary);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .app-cta__phone-screen .app-icon svg {
+      width: 1.5rem;
+      height: 1.5rem;
+      color: #fff;
+    }
+
+    .app-cta__phone-screen .time {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      font-weight: 600;
+    }
+
+    .app-cta__phone-screen .date {
+      font-size: 0.75rem;
+      color: var(--color-text-secondary);
+    }
+
+    .app-cta__phone-screen .mood {
+      display: flex;
+      gap: var(--space-2xs);
+      margin-top: var(--space-sm);
+    }
+
+    .app-cta__phone-screen .mood span {
+      font-size: 1.5rem;
+      opacity: 0.3;
+      transition: opacity var(--duration-fast) var(--ease-out-quart);
+    }
+
+    .app-cta__phone-screen .mood span.active {
+      opacity: 1;
+    }
+
+    .app-cta__content {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xl);
+    }
+
+    .app-cta__content .desc {
+      font-size: 1.0625rem;
+    }
+
+    .app-store-badges {
+      display: flex;
+      gap: var(--space-md);
+      flex-wrap: wrap;
+    }
+
+    .app-store-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      padding: 0.6rem 1.25rem;
+      background: var(--color-text-primary);
+      color: #fff;
+      border-radius: var(--radius-md);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      transition: opacity var(--duration-fast) var(--ease-out-quart);
+    }
+
+    .app-store-badge:hover {
+      opacity: 0.85;
+    }
+
+    [data-theme="dark"] .app-store-badge {
+      background: var(--color-surface-alt-dark);
+      color: var(--color-text-primary-dark);
+    }
+
+    /* ============================================================
+       COMPONENT: FOOTER
+       ============================================================ */
+    .footer {
+      padding: var(--space-4xl) 0 var(--space-2xl);
+      border-top: 1px solid var(--color-border);
+    }
+
+    [data-theme="dark"] .footer {
+      border-top-color: var(--color-border-dark);
+    }
+
+    .footer__grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: var(--space-3xl);
+      margin-bottom: var(--space-3xl);
+    }
+
+    .footer__brand {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-lg);
+    }
+
+    .footer__brand p {
+      font-size: 0.9375rem;
+      color: var(--color-text-secondary);
+      line-height: 1.7;
+    }
+
+    [data-theme="dark"] .footer__brand p {
+      color: var(--color-text-secondary-dark);
+    }
+
+    .footer__social {
+      display: flex;
+      gap: var(--space-md);
+    }
+
+    .footer__social a {
+      width: 2.25rem;
+      height: 2.25rem;
+      border-radius: 50%;
+      background: var(--color-surface-alt);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-text-secondary);
+      transition: all var(--duration-fast) var(--ease-out-quart);
+    }
+
+    .footer__social a:hover {
+      background: var(--color-primary);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    [data-theme="dark"] .footer__social a {
+      background: var(--color-surface-alt-dark);
+      color: var(--color-text-secondary-dark);
+    }
+
+    [data-theme="dark"] .footer__social a:hover {
+      background: var(--color-primary-dark);
+      color: var(--color-bg-dark);
+    }
+
+    .footer__col h4 {
+      font-size: 0.8125rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: var(--space-lg);
+      color: var(--color-text-primary);
+    }
+
+    [data-theme="dark"] .footer__col h4 {
+      color: var(--color-text-primary-dark);
+    }
+
+    .footer__col a {
+      display: block;
+      font-size: 0.9375rem;
+      color: var(--color-text-secondary);
+      padding: var(--space-2xs) 0;
+      transition: color var(--duration-fast) var(--ease-out-quart);
+    }
+
+    .footer__col a:hover {
+      color: var(--color-primary);
+    }
+
+    [data-theme="dark"] .footer__col a {
+      color: var(--color-text-secondary-dark);
+    }
+
+    [data-theme="dark"] .footer__col a:hover {
+      color: var(--color-primary-dark);
+    }
+
+    .footer__bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: var(--space-xl);
+      border-top: 1px solid var(--color-border);
+      font-size: 0.8125rem;
+      color: var(--color-text-tertiary);
+    }
+
+    [data-theme="dark"] .footer__bottom {
+      border-top-color: var(--color-border-dark);
+      color: var(--color-text-tertiary-dark);
+    }
+
+    /* ============================================================
+       COMPONENT: COOKIE CONSENT
+       ============================================================ */
+    .cookie-bar {
+      position: fixed;
+      bottom: var(--space-lg);
+      left: 50%;
+      transform: translateX(-50%);
+      max-width: 36rem;
+      width: calc(100% - var(--gutter) * 2);
+      background: var(--color-elevated);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-lg) var(--space-xl);
+      box-shadow: var(--shadow-lg);
+      display: none;
+      align-items: center;
+      gap: var(--space-lg);
+      z-index: var(--z-toast);
+    }
+
+    .cookie-bar--visible {
+      display: flex;
+    }
+
+    [data-theme="dark"] .cookie-bar {
+      background: var(--color-elevated-dark);
+      border-color: var(--color-border-dark);
+    }
+
+    .cookie-bar p {
+      font-size: 0.8125rem;
+      color: var(--color-text-secondary);
+      flex: 1;
+    }
+
+    [data-theme="dark"] .cookie-bar p {
+      color: var(--color-text-secondary-dark);
+    }
+
+    .cookie-bar__actions {
+      display: flex;
+      gap: var(--space-sm);
+      flex-shrink: 0;
+    }
+
+    /* ============================================================
+       SCROLL REVEAL ANIMATIONS
+       ============================================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity var(--duration-slow) var(--ease-out-expo),
+                  transform var(--duration-slow) var(--ease-out-expo);
+    }
+
+    .reveal--visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal--delay-1 { transition-delay: 0.1s; }
+    .reveal--delay-2 { transition-delay: 0.2s; }
+    .reveal--delay-3 { transition-delay: 0.3s; }
+    .reveal--delay-4 { transition-delay: 0.4s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+    }
+
+    /* ============================================================
+       RESPONSIVE
+       ============================================================ */
+    @media (max-width: 1024px) {
+      .hero__inner {
+        grid-template-columns: 1fr;
+        gap: var(--space-3xl);
+        text-align: center;
+      }
+
+      .hero__content {
+        align-items: center;
+        order: 2;
+      }
+
+      .hero__visual {
+        order: 1;
+      }
+
+      .hero__tagline {
+        align-self: center;
+      }
+
+      .hero__cta {
+        justify-content: center;
+      }
+
+      .hero__stats {
+        justify-content: center;
+      }
+
+      .hero__ornament {
+        width: clamp(200px, 40vw, 320px);
+        height: clamp(200px, 40vw, 320px);
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pricing-grid {
+        grid-template-columns: 1fr;
+        max-width: 28rem;
+        margin: 0 auto;
+      }
+
+      .pricing-card--featured {
+        transform: none;
+      }
+
+      .pricing-card--featured:hover {
+        transform: translateY(-3px);
+      }
+
+      .app-cta {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .app-cta__content {
+        align-items: center;
+        order: 1;
+      }
+
+      .app-cta__visual {
+        order: 2;
+      }
+
+      .app-store-badges {
+        justify-content: center;
+      }
+
+      .footer__grid {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-2xl);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .section {
+        padding: var(--space-3xl) 0;
+      }
+
+      .section-header {
+        margin-bottom: var(--space-2xl);
+      }
+
+      .nav__links {
+        display: none;
+        position: fixed;
+        top: var(--nav-height);
+        left: 0;
+        width: 100%;
+        background: var(--color-surface);
+        flex-direction: column;
+        padding: var(--space-xl) var(--gutter);
+        gap: var(--space-lg);
+        box-shadow: var(--shadow-md);
+      }
+
+      .nav__links--open {
+        display: flex;
+      }
+
+      [data-theme="dark"] .nav__links {
+        background: var(--color-surface-dark);
+      }
+
+      .nav__hamburger {
+        display: flex;
+      }
+
+      .nav__actions {
+        gap: var(--space-xs);
+      }
+
+      .lang-select__btn span {
+        display: none;
+      }
+
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      .stats-bar {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-lg);
+      }
+
+      .testimonial {
+        flex: 0 0 280px;
+      }
+
+      .footer__grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-2xl);
+      }
+
+      .footer__bottom {
+        flex-direction: column;
+        gap: var(--space-md);
+        text-align: center;
+      }
+
+      .hero__floating-card {
+        display: none;
+      }
+
+      .cookie-bar {
+        flex-direction: column;
+        text-align: center;
+        bottom: var(--space-md);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero__stats {
+        flex-direction: column;
+        gap: var(--space-md);
+        align-items: center;
+      }
+
+      .newsletter__form {
+        flex-direction: column;
+      }
+
+      .pricing-card {
+        padding: var(--space-xl);
+      }
+    }
+
+    /* ============================================================
+       UTILITY
+       ============================================================ */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
+    }
+
+    .sr-only-focusable:focus {
+      position: static;
+      width: auto;
+      height: auto;
+      overflow: visible;
+      clip: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       SKIP LINK
+       ============================================================ -->
+  <a href="#main" class="sr-only sr-only-focusable">Skip to main content</a>
+
+  <!-- ============================================================
+       NAVIGATION
+       ============================================================ -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="#" class="nav__logo" data-i18n="--">
+        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="16" cy="16" r="15" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M16 10c2 2.5 4.5 4 7 4.5-2.5 0.5-5 2-7 4.5-2-2.5-4.5-4-7-4.5 2.5-0.5 5-2 7-4.5z" fill="currentColor" opacity="0.6"/>
+        </svg>
+        Ora
+      </a>
+
+      <div class="nav__links" id="nav-links" role="menubar">
+        <a href="#how-it-works" class="nav__link" role="menuitem" data-i18n="nav.how">How It Works</a>
+        <a href="#features" class="nav__link" role="menuitem" data-i18n="nav.features">Features</a>
+        <a href="#pricing" class="nav__link" role="menuitem" data-i18n="nav.pricing">Pricing</a>
+        <a href="#faq" class="nav__link" role="menuitem" data-i18n="nav.faq">FAQ</a>
+      </div>
+
+      <div class="nav__actions">
+        <button class="nav__link btn btn--primary btn--sm" data-i18n="nav.cta" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'})">Get Started</button>
+
+        <div class="lang-select" id="lang-select">
+          <button class="lang-select__btn" id="lang-btn" aria-haspopup="true" aria-expanded="false" aria-label="Select language">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            <span id="lang-current">EN</span>
+          </button>
+          <div class="lang-select__menu" id="lang-menu" role="menu">
+            <button class="lang-option lang-option--active" data-lang="en" role="menuitem"><span class="flag">🇬🇧</span> English</button>
+            <button class="lang-option" data-lang="es" role="menuitem"><span class="flag">🇪🇸</span> Español</button>
+            <button class="lang-option" data-lang="fr" role="menuitem"><span class="flag">🇫🇷</span> Français</button>
+            <button class="lang-option" data-lang="de" role="menuitem"><span class="flag">🇩🇪</span> Deutsch</button>
+            <button class="lang-option" data-lang="it" role="menuitem"><span class="flag">🇮🇹</span> Italiano</button>
+            <button class="lang-option" data-lang="pt" role="menuitem"><span class="flag">🇵🇹</span> Português</button>
+          </div>
+        </div>
+
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+          <svg class="theme-toggle__sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </button>
+
+        <div class="nav__hamburger" id="nav-hamburger" aria-label="Toggle menu" role="button" tabindex="0">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       MAIN CONTENT
+       ============================================================ -->
+  <main id="main">
+
+    <!-- ============================================================
+       HERO SECTION
+       ============================================================ -->
+    <section class="hero" id="hero" aria-label="Hero">
+      <div class="hero__bg-shape" aria-hidden="true"></div>
+      <div class="hero__bg-shape--2" aria-hidden="true"></div>
+
+      <div class="hero__inner">
+        <div class="hero__content">
+          <div class="hero__tagline">
+            <span class="hero__tagline-dot" aria-hidden="true"></span>
+            <span data-i18n="hero.tagline">Your wellness journey starts here</span>
+          </div>
+
+          <h1 data-i18n="hero.title">Find your center.<br>Mental wellness, guided.</h1>
+
+          <p class="desc" data-i18n="hero.desc">Ora connects you with licensed therapists, guided meditations, and a supportive community. The tools you need for a healthier mind, all in one place.</p>
+
+          <div class="hero__cta">
+            <a href="#pricing" class="btn btn--primary btn--lg" data-i18n="hero.cta.primary">Start free trial</a>
+            <a href="#how-it-works" class="btn btn--ghost btn--lg" data-i18n="hero.cta.secondary">See how it works</a>
+          </div>
+
+          <div class="hero__stats">
+            <div>
+              <div class="hero__stat-value">50k+</div>
+              <div class="hero__stat-label" data-i18n="hero.stat1">Active users</div>
+            </div>
+            <div>
+              <div class="hero__stat-value">1,200+</div>
+              <div class="hero__stat-label" data-i18n="hero.stat2">Licensed therapists</div>
+            </div>
+            <div>
+              <div class="hero__stat-value">4.9★</div>
+              <div class="hero__stat-label" data-i18n="hero.stat3">Average rating</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero__visual">
+          <div class="hero__ornament" aria-hidden="true">
+            <div class="hero__ornament-inner">
+              <svg class="hero__ornament-icon" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="40" cy="40" r="36" stroke="currentColor" stroke-width="1.5" opacity="0.3"/>
+                <path d="M40 16C46 24 54 29 64 31c-10 2-18 7-24 15-6-8-14-13-24-15 10-2 18-7 24-15z" fill="currentColor" opacity="0.5"/>
+                <circle cx="40" cy="40" r="6" fill="currentColor" opacity="0.7"/>
+              </svg>
+            </div>
+          </div>
+
+          <div class="hero__floating-card hero__floating-card--1" aria-hidden="true">
+            <span class="check">✓</span>
+            <span data-i18n="hero.floating1">Therapist matched</span>
+          </div>
+
+          <div class="hero__floating-card hero__floating-card--2" aria-hidden="true">
+            <span class="check">✓</span>
+            <span data-i18n="hero.floating2">Mood tracked today</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+       HOW IT WORKS SECTION
+       ============================================================ -->
+    <section class="section" id="how-it-works" aria-labelledby="how-title">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-label section-label--center" data-i18n="how.label">Process</span>
+          <h2 id="how-title" data-i18n="how.title">Three steps to a calmer mind</h2>
+          <p class="desc" data-i18n="how.desc">Getting started with Ora is simple. No waiting lists, no complicated forms — just honest care that fits your life.</p>
+        </div>
+
+        <div class="steps">
+          <article class="step reveal reveal--delay-1">
+            <div class="step__icon step__icon--1">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <span class="step__number" aria-hidden="true">01</span>
+            <h3 data-i18n="how.step1.title">Tell us about yourself</h3>
+            <p data-i18n="how.step1.desc">Complete a brief, private assessment of your needs, preferences, and goals. Our matching algorithm finds the perfect therapist for you.</p>
+          </article>
+
+          <article class="step reveal reveal--delay-2">
+            <div class="step__icon step__icon--2">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+            </div>
+            <span class="step__number" aria-hidden="true">02</span>
+            <h3 data-i18n="how.step2.title">Start your sessions</h3>
+            <p data-i18n="how.step2.desc">Connect with your therapist via secure video, voice, or messaging. Access guided meditations and mood tracking tools on your schedule.</p>
+          </article>
+
+          <article class="step reveal reveal--delay-3">
+            <div class="step__icon step__icon--3">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <span class="step__number" aria-hidden="true">03</span>
+            <h3 data-i18n="how.step3.title">Grow at your own pace</h3>
+            <p data-i18n="how.step3.desc">Track your progress with weekly insights, celebrate milestones, and build lasting resilience. Your journey is unique — we honour that.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+       FEATURES SECTION (varied layout)
+       ============================================================ -->
+    <section class="section section-alt" id="features" aria-labelledby="features-title">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-label section-label--center" data-i18n="features.label">Features</span>
+          <h2 id="features-title" data-i18n="features.title">Everything you need to thrive</h2>
+          <p class="desc" data-i18n="features.desc">From one-on-one therapy to daily mindfulness tools, Ora brings together every resource for your mental wellness journey.</p>
+        </div>
+
+        <div class="features-grid">
+          <!-- Hero feature card (spans height) -->
+          <article class="feature-card feature-card--hero reveal reveal--delay-1">
+            <div class="feature-card__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </div>
+            <h3 data-i18n="features.feature1.title">Personalised therapy, your way</h3>
+            <p data-i18n="features.feature1.desc">Whether you prefer video sessions, voice calls, or messaging, Ora adapts to how you communicate best. Our therapists specialise in anxiety, depression, trauma, relationships, and more. Switch therapists anytime at no extra cost.</p>
+            <a href="#pricing" class="feature-card__link" data-i18n="features.feature1.link">Explore plans →</a>
+          </article>
+
+          <div>
+            <article class="feature-card reveal reveal--delay-2">
+              <div class="feature-card__icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+              </div>
+              <h3 data-i18n="features.feature2.title">Guided meditation library</h3>
+              <p data-i18n="features.feature2.desc">Over 500 sessions from 5 to 60 minutes. Sleep stories, breathing exercises, body scans, and focus sessions led by expert instructors.</p>
+              <a href="#pricing" class="feature-card__link" data-i18n="features.feature2.link">Browse library →</a>
+            </article>
+
+            <article class="feature-card reveal reveal--delay-3">
+              <div class="feature-card__icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              </div>
+              <h3 data-i18n="features.feature3.title">Community circles</h3>
+              <p data-i18n="features.feature3.desc">Join small-group sessions led by trained facilitators. Share experiences, learn coping strategies, and build meaningful connections.</p>
+              <a href="#pricing" class="feature-card__link" data-i18n="features.feature3.link">Join a circle →</a>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+       STATS SECTION
+       ============================================================ -->
+    <section class="section" id="stats" aria-label="Platform statistics">
+      <div class="container">
+        <div class="stats-bar reveal">
+          <div class="stat-item">
+            <div class="stat-item__value">50,000+</div>
+            <div class="stat-item__label" data-i18n="stats.stat1">Active users</div>
+            <div class="stat-item__trend">↑ 34%</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-item__value">1,200+</div>
+            <div class="stat-item__label" data-i18n="stats.stat2">Licensed therapists</div>
+            <div class="stat-item__trend">↑ 28%</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-item__value">1M+</div>
+            <div class="stat-item__label" data-i18n="stats.stat3">Sessions completed</div>
+            <div class="stat-item__trend">↑ 52%</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-item__value">94%</div>
+            <div class="stat-item__label" data-i18n="stats.stat4">Report improvement</div>
+            <div class="stat-item__trend">↑ 12%</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+       TESTIMONIALS SECTION
+       ============================================================ -->
+    <section class="section testimonials-section" id="testimonials" aria-labelledby="testimonials-title">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-label section-label--center" data-i18n="testimonials.label">Testimonials</span>
+          <h2 id="testimonials-title" data-i18n="testimonials.title">Stories of real change</h2>
+          <p class="desc" data-i18n="testimonials.desc">Hear from people who transformed their relationship with mental health through Ora.</p>
+        </div>
+
+        <div class="testimonials-track" id="testimonials-track" role="list">
+          <article class="testimonial reveal reveal--delay-1" role="listitem">
+            <div class="testimonial__stars">★★★★★</div>
+            <p class="testimonial__text" data-i18n="testimonials.t1.text">"Ora helped me rebuild my morning routine after months of anxiety. The therapist matching was incredible — I felt understood from the very first session."</p>
+            <div class="testimonial__author">
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=96&q=80&fit=crop" alt="" class="testimonial__avatar" loading="lazy">
+              <div>
+                <div class="testimonial__name">Sarah K.</div>
+                <div class="testimonial__role" data-i18n="testimonials.t1.role">Member since 2024</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="testimonial reveal reveal--delay-2" role="listitem">
+            <div class="testimonial__stars">★★★★★</div>
+            <p class="testimonial__text" data-i18n="testimonials.t2.text">"I was sceptical about online therapy, but Ora made it feel personal and safe. The community circles helped me realise I'm not alone in this journey."</p>
+            <div class="testimonial__author">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=96&q=80&fit=crop" alt="" class="testimonial__avatar" loading="lazy">
+              <div>
+                <div class="testimonial__name">Marcus T.</div>
+                <div class="testimonial__role" data-i18n="testimonials.t2.role">Member since 2023</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="testimonial reveal reveal--delay-3" role="listitem">
+            <div class="testimonial__stars">★★★★★</div>
+            <p class="testimonial__text" data-i18n="testimonials.t3.text">"The meditation library alone is worth it. I finally sleep through the night after years of insomnia. My therapist helped me address the root causes, not just the symptoms."</p>
+            <div class="testimonial__author">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=96&q=80&fit=crop" alt="" class="testimonial__avatar" loading="lazy">
+              <div>
+                <div class="testimonial__name">Priya R.</div>
+                <div class="testimonial__role" data-i18n="testimonials.t3.role">Member since 2024</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="testimonial reveal" role="listitem">
+            <div class="testimonial__stars">★★★★★</div>
+            <p class="testimonial__text" data-i18n="testimonials.t4.text">"Having a therapist who truly understands my cultural background has been transformative. Ora's matching algorithm really works. I recommend it to everyone I know."</p>
+            <div class="testimonial__author">
+              <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=96&q=80&fit=crop" alt="" class="testimonial__avatar" loading="lazy">
+              <div>
+                <div class="testimonial__name">Carlos M.</div>
+                <div class="testimonial__role" data-i18n="testimonials.t4.role">Member since 2023</div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="testimonials-nav" id="testimonials-nav" role="tablist" aria-label="Testimonial navigation">
+          <button class="testimonials-nav__dot testimonials-nav__dot--active" role="tab" aria-selected="true" aria-label="Testimonial 1" data-index="0"></button>
+          <button class="testimonials-nav__dot" role="tab" aria-selected="false" aria-label="Testimonial 2" data-index="1"></button>
+          <button class="testimonials-nav__dot" role="tab" aria-selected="false" aria-label="Testimonial 3" data-index="2"></button>
+          <button class="testimonials-nav__dot" role="tab" aria-selected="false" aria-label="Testimonial 4" data-index="3"></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+       PRICING SECTION
+       ============================================================ -->
+    <section class="section" id="pricing" aria-labelledby="pricing-title">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-label section-label--center" data-i18n="pricing.label">Pricing</span>
+          <h2 id="pricing-title" data-i18n="pricing.title">Simple plans, real care</h2>
+          <p class="desc" data-i18n="pricing.desc">No hidden fees, no long-term contracts. Start with a free trial and upgrade when you're ready.</p>
+        </div>
+
+        <div class="pricing-grid">
+          <article class="pricing-card reveal reveal--delay-1">
+            <div class="pricing-card__name" data-i18n="pricing.plan1.name">Basic</div>
+            <div class="pricing-card__price">
+              $0 <span data-i18n="pricing.plan1.per">/month</span>
+            </div>
+            <ul class="pricing-card__features">
+              <li class="pricing-card__feature">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <span data-i18n="pricing.plan1.f1">Mood tracking</span>
+              </li>
+              <li class="pricing-card__feature">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <span data-i18n="pricing.plan1.f2">5 guided meditations</span>
+              </li>
+              <li class="pricing-card__feature">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <span data-i18n="pricing.plan1.f3">Community forum access</span>
+              </li>
+              <li class="pricing-card__feature">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <span data-i18n="pricing.plan1.f4">Weekly wellness tips</span>
+              </li>
+              <li class="pricing-card__feature pricing-card__feature--muted">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                <span data-i18n="pricing.plan1.f5">Therapy sessions</span>
+              </li>
+            </ul>
+            <button class="btn btn--ghost" data-i18n="pricing.plan1.cta">Get started</button>
+          </article>
+
+          <article class="pricing-card pricing-card--featured reveal reveal--delay-2">
+            <div class="pricing-card__badge" data-i18n="pricing.plan2.badge">Most popular</div>
+            <div class="pricing-card__name" data-i18n="pricing.plan2.name">Plus</div>
+            <div class="pricing-card__price">
+              $29 <span data-i18n="pricing.plan2.per">/month</span>
+            </div>
+            <ul class="pricing-card__features">
+              <li class="pricing-card__feature">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <span data-i18n="pricing.plan2.f1">Everything in Basic</span>
+              </li>
+              <li class="pricing-card__feature">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <span data-i18n="pricing.plan2.f2">Unlimited meditations</span>
+              </li>
+              <li class="pricing-card__feature">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <span data-i18n="pricing.plan2.f3">Weekly mood insights</span>
+              </li>
+              <li class="pricing-card__feature">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <span data-i18n="pricing.plan2.f4">Group circles (up to 4/mo)</span>
+              </li>
+              <li class="pricing-card__feature pricing-card__feature--muted">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                <span data-i18n="pricing.plan2.f5">Individual therapy</span>
+              </li>
+            </ul>
+            <button class="btn btn--primary" data-i18n="pricing.plan2.cta">Start free trial</button>
+          </article>
+
+          <article class="pricing-card reveal reveal--delay-3">
+            <div class="pricing-card__name" data-i18n="pricing.plan3.name">Premium</div>
+            <div class="pricing-card__price">
+              $79 <span data-i18n="pricing.plan3.per">/month</span>
+            </div>
+            <ul class="pricing-card__features">
+              <li class="pricing-card__feature">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <span data-i18n="pricing.plan3.f1">Everything in Plus</span>
+              </li>
+              <li class="pricing-card__feature">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <span data-i18n="pricing.plan3.f2">4 therapy sessions/month</span>
+              </li>
+              <li class="pricing-card__feature">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <span data-i18n="pricing.plan3.f3">Priority scheduling</span>
+              </li>
+              <li class="pricing-card__feature">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <span data-i18n="pricing.plan3.f4">Unlimited group circles</span>
+              </li>
+              <li class="pricing-card__feature">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <span data-i18n="pricing.plan3.f5">Crisis response line</span>
+              </li>
+            </ul>
+            <button class="btn btn--ghost" data-i18n="pricing.plan3.cta">Get started</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+       FAQ SECTION
+       ============================================================ -->
+    <section class="section section-alt" id="faq" aria-labelledby="faq-title">
+      <div class="container container--narrow">
+        <div class="section-header reveal">
+          <span class="section-label section-label--center" data-i18n="faq.label">Support</span>
+          <h2 id="faq-title" data-i18n="faq.title">Questions, answered</h2>
+          <p class="desc" data-i18n="faq.desc">Everything you need to know about Ora. If you don't see your question, reach out to our support team.</p>
+        </div>
+
+        <div class="faq-list" role="list">
+          <div class="faq-item reveal reveal--delay-1" role="listitem">
+            <button class="faq-item__trigger" aria-expanded="false">
+              <span data-i18n="faq.q1">How do I get matched with a therapist?</span>
+              <span class="faq-item__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </span>
+            </button>
+            <div class="faq-item__content">
+              <div class="faq-item__body" data-i18n="faq.a1">After you complete a brief assessment covering your needs, preferences, and goals, our matching algorithm pairs you with a licensed therapist who specialises in your areas of concern. You can review their profile before booking your first session, and switching is always free if it doesn't feel like the right fit.</div>
+            </div>
+          </div>
+
+          <div class="faq-item reveal reveal--delay-2" role="listitem">
+            <button class="faq-item__trigger" aria-expanded="false">
+              <span data-i18n="faq.q2">Is my data private and secure?</span>
+              <span class="faq-item__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </span>
+            </button>
+            <div class="faq-item__content">
+              <div class="faq-item__body" data-i18n="faq.a2">Absolutely. Ora is HIPAA-compliant and uses end-to-end encryption for all communications, including video sessions, messaging, and stored data. Your information is never shared with third parties. We believe privacy is essential to effective care, and we've built our platform around that principle from day one.</div>
+            </div>
+          </div>
+
+          <div class="faq-item reveal reveal--delay-3" role="listitem">
+            <button class="faq-item__trigger" aria-expanded="false">
+              <span data-i18n="faq.q3">Can I switch therapists if it's not a good fit?</span>
+              <span class="faq-item__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </span>
+            </button>
+            <div class="faq-item__content">
+              <div class="faq-item__body" data-i18n="faq.a3">Yes, and it's completely free. We understand that the therapeutic relationship is deeply personal. You can request a new therapist at any time through your dashboard. Your previous sessions remain private, and you can start fresh with a new provider who better matches your needs.</div>
+            </div>
+          </div>
+
+          <div class="faq-item reveal reveal--delay-4" role="listitem">
+            <button class="faq-item__trigger" aria-expanded="false">
+              <span data-i18n="faq.q4">Do you accept insurance?</span>
+              <span class="faq-item__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </span>
+            </button>
+            <div class="faq-item__content">
+              <div class="faq-item__body" data-i18n="faq.a4">We accept a growing number of insurance plans across the United States. During sign-up, you can enter your insurance details to check coverage in real time. We also offer competitive out-of-pocket rates and a financial assistance program for qualifying individuals. No one is turned away due to financial circumstances.</div>
+            </div>
+          </div>
+
+          <div class="faq-item reveal" role="listitem">
+            <button class="faq-item__trigger" aria-expanded="false">
+              <span data-i18n="faq.q5">What if I need immediate help?</span>
+              <span class="faq-item__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </span>
+            </button>
+            <div class="faq-item__content">
+              <div class="faq-item__body" data-i18n="faq.a5">Ora is not a crisis service. If you're experiencing a mental health emergency, please call your local emergency number (988 in the US) or go to your nearest emergency room. Our Premium plan includes a crisis response line for urgent situations, but for immediate danger, always contact emergency services first.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+       NEWSLETTER SECTION
+       ============================================================ -->
+    <section class="section" aria-labelledby="newsletter-title">
+      <div class="container container--narrow">
+        <div class="newsletter reveal">
+          <h2 id="newsletter-title" data-i18n="newsletter.title">Stay grounded with weekly insights</h2>
+          <p class="desc" data-i18n="newsletter.desc">Receive expert mental health tips, guided exercises, and new meditation releases delivered to your inbox every Monday.</p>
+          <form class="newsletter__form" id="newsletter-form" novalidate>
+            <input type="email" class="newsletter__input" placeholder="your@email.com" aria-label="Email address" id="newsletter-email" required>
+            <button type="submit" class="newsletter__btn" data-i18n="newsletter.btn">Subscribe</button>
+          </form>
+          <p style="font-size:0.75rem;color:rgba(255,255,255,0.5);margin-top:var(--space-md);position:relative;z-index:1;" data-i18n="newsletter.disclaimer">No spam, ever. Unsubscribe anytime.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+       MOBILE APP CTA
+       ============================================================ -->
+    <section class="section" aria-labelledby="app-title">
+      <div class="container">
+        <div class="app-cta">
+          <div class="app-cta__visual reveal">
+            <div class="app-cta__phone" aria-hidden="true">
+              <div class="app-cta__phone-screen">
+                <div class="app-icon">
+                  <svg viewBox="0 0 32 32" fill="none">
+                    <circle cx="16" cy="16" r="14" stroke="white" stroke-width="1.5"/>
+                    <path d="M16 10c2 2.5 4.5 4 7 4.5-2.5 0.5-5 2-7 4.5-2-2.5-4.5-4-7-4.5 2.5-0.5 5-2 7-4.5z" fill="white" opacity="0.6"/>
+                  </svg>
+                </div>
+                <div class="time">10:30</div>
+                <div class="date" data-i18n="app.screen.date">Monday, July 25</div>
+                <div class="mood">
+                  <span>😌</span>
+                  <span class="active">🧘</span>
+                  <span>😊</span>
+                  <span>😐</span>
+                  <span>😔</span>
+                </div>
+                <div style="font-size:0.625rem;color:var(--color-text-secondary);margin-top:auto;" data-i18n="app.screen.mood">How are you feeling?</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="app-cta__content reveal reveal--delay-1">
+            <span class="section-label" data-i18n="app.label">Mobile app</span>
+            <h2 id="app-title" data-i18n="app.title">Your wellness, always within reach</h2>
+            <p class="desc" data-i18n="app.desc">Access therapy sessions, guided meditations, and daily mood tracking from your phone. Ora is available on iOS and Android with full cross-device sync.</p>
+            <div class="app-store-badges">
+              <a href="#" class="app-store-badge">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+                <span data-i18n="app.apple">App Store</span>
+              </a>
+              <a href="#" class="app-store-badge">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.807 1.626a1 1 0 0 1 0 1.732l-2.807 1.626L15.206 12l2.492-2.492zM5.864 2.658L16.8 8.99l-2.302 2.302-8.634-8.634z"/></svg>
+                <span data-i18n="app.google">Google Play</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="#" class="nav__logo">
+            <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="16" cy="16" r="15" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M16 10c2 2.5 4.5 4 7 4.5-2.5 0.5-5 2-7 4.5-2-2.5-4.5-4-7-4.5 2.5-0.5 5-2 7-4.5z" fill="currentColor" opacity="0.6"/>
+            </svg>
+            Ora
+          </a>
+          <p data-i18n="footer.tagline">Making mental wellness accessible, personal, and effective for everyone. Your journey matters.</p>
+          <div class="footer__social">
+            <a href="#" aria-label="Twitter"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
+            <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="#" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          </div>
+        </div>
+
+        <div class="footer__col">
+          <h4 data-i18n="footer.product">Product</h4>
+          <a href="#features" data-i18n="footer.features">Features</a>
+          <a href="#pricing" data-i18n="footer.pricing">Pricing</a>
+          <a href="#" data-i18n="footer.therapists">For Therapists</a>
+          <a href="#" data-i18n="footer.enterprise">Enterprise</a>
+        </div>
+
+        <div class="footer__col">
+          <h4 data-i18n="footer.resources">Resources</h4>
+          <a href="#" data-i18n="footer.blog">Blog</a>
+          <a href="#" data-i18n="footer.guides">Wellness Guides</a>
+          <a href="#" data-i18n="footer.research">Research</a>
+          <a href="#faq" data-i18n="footer.faq">FAQ</a>
+        </div>
+
+        <div class="footer__col">
+          <h4 data-i18n="footer.company">Company</h4>
+          <a href="#" data-i18n="footer.about">About Us</a>
+          <a href="#" data-i18n="footer.careers">Careers</a>
+          <a href="#" data-i18n="footer.privacy">Privacy Policy</a>
+          <a href="#" data-i18n="footer.terms">Terms of Service</a>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <span data-i18n="footer.copyright">&copy; 2026 Ora Wellness. All rights reserved.</span>
+        <span data-i18n="footer.made">Made with care for your well-being.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       COOKIE CONSENT BAR
+       ============================================================ -->
+  <div class="cookie-bar" id="cookie-bar" role="dialog" aria-label="Cookie consent">
+    <p data-i18n="cookie.text">We use essential cookies to provide the best experience. By continuing, you agree to our use of cookies.</p>
+    <div class="cookie-bar__actions">
+      <button class="btn btn--sm btn--ghost" data-i18n="cookie.decline" onclick="acceptCookies(false)">Decline</button>
+      <button class="btn btn--sm btn--primary" data-i18n="cookie.accept" onclick="acceptCookies(true)">Accept</button>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       JAVASCRIPT
+       ============================================================ -->
+  <script>
+    /* ============================================================
+       i18n — Internationalization System
+       ============================================================ */
+    const i18n = {
+      en: {
+        'nav.how': 'How It Works',
+        'nav.features': 'Features',
+        'nav.pricing': 'Pricing',
+        'nav.faq': 'FAQ',
+        'nav.cta': 'Get Started',
+        'hero.tagline': 'Your wellness journey starts here',
+        'hero.title': 'Find your center.<br>Mental wellness, guided.',
+        'hero.desc': 'Ora connects you with licensed therapists, guided meditations, and a supportive community. The tools you need for a healthier mind, all in one place.',
+        'hero.cta.primary': 'Start free trial',
+        'hero.cta.secondary': 'See how it works',
+        'hero.stat1': 'Active users',
+        'hero.stat2': 'Licensed therapists',
+        'hero.stat3': 'Average rating',
+        'hero.floating1': 'Therapist matched',
+        'hero.floating2': 'Mood tracked today',
+        'how.label': 'Process',
+        'how.title': 'Three steps to a calmer mind',
+        'how.desc': 'Getting started with Ora is simple. No waiting lists, no complicated forms — just honest care that fits your life.',
+        'how.step1.title': 'Tell us about yourself',
+        'how.step1.desc': 'Complete a brief, private assessment of your needs, preferences, and goals. Our matching algorithm finds the perfect therapist for you.',
+        'how.step2.title': 'Start your sessions',
+        'how.step2.desc': 'Connect with your therapist via secure video, voice, or messaging. Access guided meditations and mood tracking tools on your schedule.',
+        'how.step3.title': 'Grow at your own pace',
+        'how.step3.desc': 'Track your progress with weekly insights, celebrate milestones, and build lasting resilience. Your journey is unique — we honour that.',
+        'features.label': 'Features',
+        'features.title': 'Everything you need to thrive',
+        'features.desc': 'From one-on-one therapy to daily mindfulness tools, Ora brings together every resource for your mental wellness journey.',
+        'features.feature1.title': 'Personalised therapy, your way',
+        'features.feature1.desc': 'Whether you prefer video sessions, voice calls, or messaging, Ora adapts to how you communicate best. Our therapists specialise in anxiety, depression, trauma, relationships, and more. Switch therapists anytime at no extra cost.',
+        'features.feature1.link': 'Explore plans →',
+        'features.feature2.title': 'Guided meditation library',
+        'features.feature2.desc': 'Over 500 sessions from 5 to 60 minutes. Sleep stories, breathing exercises, body scans, and focus sessions led by expert instructors.',
+        'features.feature2.link': 'Browse library →',
+        'features.feature3.title': 'Community circles',
+        'features.feature3.desc': 'Join small-group sessions led by trained facilitators. Share experiences, learn coping strategies, and build meaningful connections.',
+        'features.feature3.link': 'Join a circle →',
+        'stats.stat1': 'Active users',
+        'stats.stat2': 'Licensed therapists',
+        'stats.stat3': 'Sessions completed',
+        'stats.stat4': 'Report improvement',
+        'testimonials.label': 'Testimonials',
+        'testimonials.title': 'Stories of real change',
+        'testimonials.desc': 'Hear from people who transformed their relationship with mental health through Ora.',
+        'testimonials.t1.text': '"Ora helped me rebuild my morning routine after months of anxiety. The therapist matching was incredible — I felt understood from the very first session."',
+        'testimonials.t1.role': 'Member since 2024',
+        'testimonials.t2.text': '"I was sceptical about online therapy, but Ora made it feel personal and safe. The community circles helped me realise I\'m not alone in this journey."',
+        'testimonials.t2.role': 'Member since 2023',
+        'testimonials.t3.text': '"The meditation library alone is worth it. I finally sleep through the night after years of insomnia. My therapist helped me address the root causes, not just the symptoms."',
+        'testimonials.t3.role': 'Member since 2024',
+        'testimonials.t4.text': '"Having a therapist who truly understands my cultural background has been transformative. Ora\'s matching algorithm really works. I recommend it to everyone I know."',
+        'testimonials.t4.role': 'Member since 2023',
+        'pricing.label': 'Pricing',
+        'pricing.title': 'Simple plans, real care',
+        'pricing.desc': 'No hidden fees, no long-term contracts. Start with a free trial and upgrade when you\'re ready.',
+        'pricing.plan1.name': 'Basic',
+        'pricing.plan1.per': '/month',
+        'pricing.plan1.f1': 'Mood tracking',
+        'pricing.plan1.f2': '5 guided meditations',
+        'pricing.plan1.f3': 'Community forum access',
+        'pricing.plan1.f4': 'Weekly wellness tips',
+        'pricing.plan1.f5': 'Therapy sessions',
+        'pricing.plan1.cta': 'Get started',
+        'pricing.plan2.name': 'Plus',
+        'pricing.plan2.per': '/month',
+        'pricing.plan2.badge': 'Most popular',
+        'pricing.plan2.f1': 'Everything in Basic',
+        'pricing.plan2.f2': 'Unlimited meditations',
+        'pricing.plan2.f3': 'Weekly mood insights',
+        'pricing.plan2.f4': 'Group circles (up to 4/mo)',
+        'pricing.plan2.f5': 'Individual therapy',
+        'pricing.plan2.cta': 'Start free trial',
+        'pricing.plan3.name': 'Premium',
+        'pricing.plan3.per': '/month',
+        'pricing.plan3.f1': 'Everything in Plus',
+        'pricing.plan3.f2': '4 therapy sessions/month',
+        'pricing.plan3.f3': 'Priority scheduling',
+        'pricing.plan3.f4': 'Unlimited group circles',
+        'pricing.plan3.f5': 'Crisis response line',
+        'pricing.plan3.cta': 'Get started',
+        'faq.label': 'Support',
+        'faq.title': 'Questions, answered',
+        'faq.desc': 'Everything you need to know about Ora. If you don\'t see your question, reach out to our support team.',
+        'faq.q1': 'How do I get matched with a therapist?',
+        'faq.a1': 'After you complete a brief assessment covering your needs, preferences, and goals, our matching algorithm pairs you with a licensed therapist who specialises in your areas of concern. You can review their profile before booking your first session, and switching is always free if it doesn\'t feel like the right fit.',
+        'faq.q2': 'Is my data private and secure?',
+        'faq.a2': 'Absolutely. Ora is HIPAA-compliant and uses end-to-end encryption for all communications, including video sessions, messaging, and stored data. Your information is never shared with third parties. We believe privacy is essential to effective care, and we\'ve built our platform around that principle from day one.',
+        'faq.q3': 'Can I switch therapists if it\'s not a good fit?',
+        'faq.a3': 'Yes, and it\'s completely free. We understand that the therapeutic relationship is deeply personal. You can request a new therapist at any time through your dashboard. Your previous sessions remain private, and you can start fresh with a new provider who better matches your needs.',
+        'faq.q4': 'Do you accept insurance?',
+        'faq.a4': 'We accept a growing number of insurance plans across the United States. During sign-up, you can enter your insurance details to check coverage in real time. We also offer competitive out-of-pocket rates and a financial assistance program for qualifying individuals. No one is turned away due to financial circumstances.',
+        'faq.q5': 'What if I need immediate help?',
+        'faq.a5': 'Ora is not a crisis service. If you\'re experiencing a mental health emergency, please call your local emergency number (988 in the US) or go to your nearest emergency room. Our Premium plan includes a crisis response line for urgent situations, but for immediate danger, always contact emergency services first.',
+        'newsletter.title': 'Stay grounded with weekly insights',
+        'newsletter.desc': 'Receive expert mental health tips, guided exercises, and new meditation releases delivered to your inbox every Monday.',
+        'newsletter.btn': 'Subscribe',
+        'newsletter.disclaimer': 'No spam, ever. Unsubscribe anytime.',
+        'app.label': 'Mobile app',
+        'app.title': 'Your wellness, always within reach',
+        'app.desc': 'Access therapy sessions, guided meditations, and daily mood tracking from your phone. Ora is available on iOS and Android with full cross-device sync.',
+        'app.apple': 'App Store',
+        'app.google': 'Google Play',
+        'app.screen.date': 'Monday, July 25',
+        'app.screen.mood': 'How are you feeling?',
+        'footer.tagline': 'Making mental wellness accessible, personal, and effective for everyone. Your journey matters.',
+        'footer.product': 'Product',
+        'footer.features': 'Features',
+        'footer.pricing': 'Pricing',
+        'footer.therapists': 'For Therapists',
+        'footer.enterprise': 'Enterprise',
+        'footer.resources': 'Resources',
+        'footer.blog': 'Blog',
+        'footer.guides': 'Wellness Guides',
+        'footer.research': 'Research',
+        'footer.faq': 'FAQ',
+        'footer.company': 'Company',
+        'footer.about': 'About Us',
+        'footer.careers': 'Careers',
+        'footer.privacy': 'Privacy Policy',
+        'footer.terms': 'Terms of Service',
+        'footer.copyright': '© 2026 Ora Wellness. All rights reserved.',
+        'footer.made': 'Made with care for your well-being.',
+        'cookie.text': 'We use essential cookies to provide the best experience. By continuing, you agree to our use of cookies.',
+        'cookie.accept': 'Accept',
+        'cookie.decline': 'Decline',
+        'meta.title': 'Ora — Find Your Center. Mental Wellness, Guided.',
+        'meta.desc': 'Ora is a digital mental wellness platform connecting you with licensed therapists, guided meditation, mood tracking, and supportive community — all from home.',
+        'meta.og.title': 'Ora — Find Your Center. Mental Wellness, Guided.',
+        'meta.og.desc': 'Digital mental wellness platform. Therapy, meditation, mood tracking, and community. Start your journey today.',
+        'meta.tw.title': 'Ora — Find Your Center. Mental Wellness, Guided.',
+        'meta.tw.desc': 'Digital mental wellness platform. Therapy, meditation, mood tracking, and community. Start your journey today.',
+      },
+      es: {
+        'nav.how': 'Cómo Funciona',
+        'nav.features': 'Características',
+        'nav.pricing': 'Precios',
+        'nav.faq': 'Preguntas',
+        'nav.cta': 'Empezar',
+        'hero.tagline': 'Tu viaje de bienestar comienza aquí',
+        'hero.title': 'Encuentra tu centro.<br>Bienestar mental, guiado.',
+        'hero.desc': 'Ora te conecta con terapeutas certificados, meditaciones guiadas y una comunidad de apoyo. Las herramientas para una mente más sana, todo en un solo lugar.',
+        'hero.cta.primary': 'Prueba gratuita',
+        'hero.cta.secondary': 'Ver cómo funciona',
+        'hero.stat1': 'Usuarios activos',
+        'hero.stat2': 'Terapeutas certificados',
+        'hero.stat3': 'Valoración media',
+        'hero.floating1': 'Terapeuta asignado',
+        'hero.floating2': 'Estado de ánimo registrado',
+        'how.label': 'Proceso',
+        'how.title': 'Tres pasos hacia una mente más tranquila',
+        'how.desc': 'Empezar con Ora es sencillo. Sin listas de espera, sin formularios complicados — solo atención honesta que se adapta a tu vida.',
+        'how.step1.title': 'Cuéntanos sobre ti',
+        'how.step1.desc': 'Completa una breve evaluación privada de tus necesidades, preferencias y objetivos. Nuestro algoritmo encuentra al terapeuta perfecto para ti.',
+        'how.step2.title': 'Comienza tus sesiones',
+        'how.step2.desc': 'Conéctate con tu terapeuta mediante videollamada, voz o mensajería segura. Accede a meditaciones guiadas y herramientas de seguimiento en tu horario.',
+        'how.step3.title': 'Crece a tu propio ritmo',
+        'how.step3.desc': 'Sigue tu progreso con perspectivas semanales, celebra hitos y construye resiliencia duradera. Tu viaje es único — lo honramos.',
+        'features.label': 'Características',
+        'features.title': 'Todo lo que necesitas para prosperar',
+        'features.desc': 'Desde terapia individual hasta herramientas diarias de atención plena, Ora reúne todos los recursos para tu viaje de bienestar mental.',
+        'features.feature1.title': 'Terapia personalizada, a tu manera',
+        'features.feature1.desc': 'Ya sea que prefieras sesiones por video, llamadas de voz o mensajería, Ora se adapta a tu forma de comunicarte. Cambia de terapeuta cuando quieras sin costo adicional.',
+        'features.feature1.link': 'Explorar planes →',
+        'features.feature2.title': 'Biblioteca de meditación guiada',
+        'features.feature2.desc': 'Más de 500 sesiones de 5 a 60 minutos. Historias para dormir, ejercicios de respiración, escáneres corporales y sesiones de concentración.',
+        'features.feature2.link': 'Explorar biblioteca →',
+        'features.feature3.title': 'Círculos comunitarios',
+        'features.feature3.desc': 'Únete a sesiones en grupos pequeños dirigidos por facilitadores capacitados. Comparte experiencias y construye conexiones significativas.',
+        'features.feature3.link': 'Unirse a un círculo →',
+        'stats.stat1': 'Usuarios activos',
+        'stats.stat2': 'Terapeutas certificados',
+        'stats.stat3': 'Sesiones completadas',
+        'stats.stat4': 'Reportan mejoría',
+        'testimonials.label': 'Testimonios',
+        'testimonials.title': 'Historias de cambio real',
+        'testimonials.desc': 'Escucha a personas que transformaron su relación con la salud mental a través de Ora.',
+        'testimonials.t1.text': '"Ora me ayudó a reconstruir mi rutina matutina después de meses de ansiedad. La asignación de terapeuta fue increíble — me sentí comprendida desde la primera sesión."',
+        'testimonials.t1.role': 'Miembro desde 2024',
+        'testimonials.t2.text': '"Era escéptico sobre la terapia en línea, pero Ora la hizo sentir personal y segura. Los círculos comunitarios me ayudaron a darme cuenta de que no estoy solo en este viaje."',
+        'testimonials.t2.role': 'Miembro desde 2023',
+        'testimonials.t3.text': '"La biblioteca de meditación ya vale la pena. Finalmente duermo toda la noche después de años de insomnio. Mi terapeuta me ayudó a abordar las causas raíz."',
+        'testimonials.t3.role': 'Miembro desde 2024',
+        'testimonials.t4.text': '"Tener un terapeuta que realmente entiende mi trasfondo cultural ha sido transformador. El algoritmo de Ora realmente funciona. Lo recomiendo a todos."',
+        'testimonials.t4.role': 'Miembro desde 2023',
+        'pricing.label': 'Precios',
+        'pricing.title': 'Planes simples, cuidado real',
+        'pricing.desc': 'Sin cargos ocultos, sin contratos a largo plazo. Comienza con una prueba gratuita y actualiza cuando estés listo.',
+        'pricing.plan1.name': 'Básico',
+        'pricing.plan1.per': '/mes',
+        'pricing.plan1.f1': 'Seguimiento de estado de ánimo',
+        'pricing.plan1.f2': '5 meditaciones guiadas',
+        'pricing.plan1.f3': 'Acceso al foro comunitario',
+        'pricing.plan1.f4': 'Consejos semanales de bienestar',
+        'pricing.plan1.f5': 'Sesiones de terapia',
+        'pricing.plan1.cta': 'Empezar',
+        'pricing.plan2.name': 'Plus',
+        'pricing.plan2.per': '/mes',
+        'pricing.plan2.badge': 'Más popular',
+        'pricing.plan2.f1': 'Todo lo de Básico',
+        'pricing.plan2.f2': 'Meditaciones ilimitadas',
+        'pricing.plan2.f3': 'Informes semanales de ánimo',
+        'pricing.plan2.f4': 'Círculos grupales (hasta 4/mes)',
+        'pricing.plan2.f5': 'Terapia individual',
+        'pricing.plan2.cta': 'Prueba gratuita',
+        'pricing.plan3.name': 'Premium',
+        'pricing.plan3.per': '/mes',
+        'pricing.plan3.f1': 'Todo lo de Plus',
+        'pricing.plan3.f2': '4 sesiones de terapia/mes',
+        'pricing.plan3.f3': 'Agendamiento prioritario',
+        'pricing.plan3.f4': 'Círculos grupales ilimitados',
+        'pricing.plan3.f5': 'Línea de crisis',
+        'pricing.plan3.cta': 'Empezar',
+        'faq.label': 'Soporte',
+        'faq.title': 'Preguntas, respondidas',
+        'faq.desc': 'Todo lo que necesitas saber sobre Ora. Si no ves tu pregunta, contacta a nuestro equipo de soporte.',
+        'faq.q1': '¿Cómo me asignan un terapeuta?',
+        'faq.a1': 'Después de completar una breve evaluación de tus necesidades, preferencias y objetivos, nuestro algoritmo te empareja con un terapeuta certificado especializado en tus áreas de interés. Puedes revisar su perfil antes de reservar y cambiar es siempre gratuito.',
+        'faq.q2': '¿Mis datos son privados y seguros?',
+        'faq.a2': 'Absolutamente. Ora cumple con HIPAA y usa cifrado de extremo a extremo para todas las comunicaciones. Tu información nunca se comparte con terceros. La privacidad es esencial para una atención efectiva.',
+        'faq.q3': '¿Puedo cambiar de terapeuta?',
+        'faq.a3': 'Sí, y es completamente gratis. Entendemos que la relación terapéutica es profundamente personal. Puedes solicitar un nuevo terapeuta en cualquier momento desde tu panel de control.',
+        'faq.q4': '¿Aceptan seguros médicos?',
+        'faq.a4': 'Aceptamos un número creciente de planes de seguro en Estados Unidos. Durante el registro, puedes ingresar los detalles de tu seguro para verificar la cobertura en tiempo real. También ofrecemos tarifas competitivas y asistencia financiera.',
+        'faq.q5': '¿Qué hago si necesito ayuda inmediata?',
+        'faq.a5': 'Ora no es un servicio de crisis. Si estás experimentando una emergencia de salud mental, llama al número de emergencia local (988 en EE. UU.) o ve a la sala de emergencias más cercana.',
+        'newsletter.title': 'Mantente firme con información semanal',
+        'newsletter.desc': 'Recibe consejos de expertos en salud mental, ejercicios guiados y nuevas meditaciones cada lunes.',
+        'newsletter.btn': 'Suscribirse',
+        'newsletter.disclaimer': 'Sin spam, nunca. Cancela cuando quieras.',
+        'app.label': 'App móvil',
+        'app.title': 'Tu bienestar, siempre al alcance',
+        'app.desc': 'Accede a sesiones de terapia, meditaciones guiadas y seguimiento diario desde tu teléfono. Ora está disponible en iOS y Android con sincronización completa.',
+        'app.apple': 'App Store',
+        'app.google': 'Google Play',
+        'app.screen.date': 'Lunes, 25 de julio',
+        'app.screen.mood': '¿Cómo te sientes?',
+        'footer.tagline': 'Haciendo el bienestar mental accesible, personal y efectivo para todos. Tu viaje importa.',
+        'footer.product': 'Producto',
+        'footer.features': 'Características',
+        'footer.pricing': 'Precios',
+        'footer.therapists': 'Para Terapeutas',
+        'footer.enterprise': 'Empresas',
+        'footer.resources': 'Recursos',
+        'footer.blog': 'Blog',
+        'footer.guides': 'Guías de bienestar',
+        'footer.research': 'Investigación',
+        'footer.faq': 'Preguntas',
+        'footer.company': 'Compañía',
+        'footer.about': 'Nosotros',
+        'footer.careers': 'Empleos',
+        'footer.privacy': 'Privacidad',
+        'footer.terms': 'Términos',
+        'footer.copyright': '© 2026 Ora Wellness. Todos los derechos reservados.',
+        'footer.made': 'Hecho con cuidado para tu bienestar.',
+        'cookie.text': 'Usamos cookies esenciales para brindar la mejor experiencia. Al continuar, aceptas nuestro uso de cookies.',
+        'cookie.accept': 'Aceptar',
+        'cookie.decline': 'Rechazar',
+        'meta.title': 'Ora — Encuentra tu centro. Bienestar mental, guiado.',
+        'meta.desc': 'Ora es una plataforma digital de bienestar mental que te conecta con terapeutas certificados, meditación guiada y comunidad de apoyo.',
+        'meta.og.title': 'Ora — Encuentra tu centro. Bienestar mental, guiado.',
+        'meta.og.desc': 'Plataforma digital de bienestar mental. Terapia, meditación, seguimiento y comunidad.',
+        'meta.tw.title': 'Ora — Encuentra tu centro. Bienestar mental, guiado.',
+        'meta.tw.desc': 'Plataforma digital de bienestar mental. Terapia, meditación, seguimiento y comunidad.',
+      },
+      fr: {
+        'nav.how': 'Fonctionnement',
+        'nav.features': 'Fonctionnalités',
+        'nav.pricing': 'Tarifs',
+        'nav.faq': 'FAQ',
+        'nav.cta': 'Commencer',
+        'hero.tagline': 'Votre parcours bien-être commence ici',
+        'hero.title': 'Trouvez votre équilibre.<br>Bien-être mental, guidé.',
+        'hero.desc': 'Ora vous connecte à des thérapeutes agréés, des méditations guidées et une communauté bienveillante. Les outils pour un esprit plus sain, tout en un lieu.',
+        'hero.cta.primary': 'Essai gratuit',
+        'hero.cta.secondary': 'Voir comment ça marche',
+        'hero.stat1': 'Utilisateurs actifs',
+        'hero.stat2': 'Thérapeutes agréés',
+        'hero.stat3': 'Note moyenne',
+        'hero.floating1': 'Thérapeute assigné',
+        'hero.floating2': 'Humeur enregistrée',
+        'how.label': 'Processus',
+        'how.title': 'Trois étapes vers un esprit apaisé',
+        'how.desc': 'Commencer avec Ora est simple. Pas de liste d\'attente, pas de formulaires compliqués — des soins authentiques adaptés à votre vie.',
+        'how.step1.title': 'Parlez-nous de vous',
+        'how.step1.desc': 'Répondez à une brève évaluation privée de vos besoins et objectifs. Notre algorithme trouve le thérapeute idéal pour vous.',
+        'how.step2.title': 'Démarrez vos séances',
+        'how.step2.desc': 'Connectez-vous à votre thérapeute par vidéo, voix ou messagerie sécurisée. Accédez aux méditations et outils de suivi à votre rythme.',
+        'how.step3.title': 'Évoluez à votre rythme',
+        'how.step3.desc': 'Suivez vos progrès avec des bilans hebdomadaires, célébrez vos étapes et développez une résilience durable.',
+        'features.label': 'Fonctionnalités',
+        'features.title': 'Tout ce dont vous avez besoin pour vous épanouir',
+        'features.desc': 'De la thérapie individuelle aux outils de pleine conscience quotidiens, Ora rassemble toutes les ressources pour votre bien-être mental.',
+        'features.feature1.title': 'Thérapie personnalisée, à votre façon',
+        'features.feature1.desc': 'Que vous préfériez les séances vidéo, les appels vocaux ou les messages, Ora s\'adapte à votre mode de communication. Changez de thérapeute sans frais.',
+        'features.feature1.link': 'Explorer les offres →',
+        'features.feature2.title': 'Bibliothèque de méditation guidée',
+        'features.feature2.desc': 'Plus de 500 séances de 5 à 60 minutes. Histoires du soir, exercices de respiration, scans corporels et séances de concentration.',
+        'features.feature2.link': 'Parcourir →',
+        'features.feature3.title': 'Cercles communautaires',
+        'features.feature3.desc': 'Participez à des séances en petits groupes animées par des facilitateurs formés. Partagez, apprenez et créez des liens.',
+        'features.feature3.link': 'Rejoindre →',
+        'stats.stat1': 'Utilisateurs actifs',
+        'stats.stat2': 'Thérapeutes agréés',
+        'stats.stat3': 'Séances complétées',
+        'stats.stat4': 'Signalent une amélioration',
+        'testimonials.label': 'Témoignages',
+        'testimonials.title': 'Des histoires de changement réel',
+        'testimonials.desc': 'Écoutez des personnes qui ont transformé leur rapport à la santé mentale grâce à Ora.',
+        'testimonials.t1.text': '"Ora m\'a aidée à reconstruire ma routine matinale après des mois d\'anxiété. La correspondance avec mon thérapeute était incroyable."',
+        'testimonials.t1.role': 'Membre depuis 2024',
+        'testimonials.t2.text': '"J\'étais sceptique sur la thérapie en ligne, mais Ora l\'a rendue personnelle et sécurisante. Les cercles communautaires m\'ont aidé à me sentir moins seul."',
+        'testimonials.t2.role': 'Membre depuis 2023',
+        'testimonials.t3.text': '"La bibliothèque de méditation vaut déjà le détour. Je dors enfin après des années d\'insomnie. Ma thérapeute m\'a aidée à traiter les causes profondes."',
+        'testimonials.t3.role': 'Membre depuis 2024',
+        'testimonials.t4.text': '"Avoir un thérapeute qui comprend mon origine culturelle a été transformateur. L\'algorithme d\'Ora fonctionne vraiment. Je le recommande à tous."',
+        'testimonials.t4.role': 'Membre depuis 2023',
+        'pricing.label': 'Tarifs',
+        'pricing.title': 'Offres simples, soins réels',
+        'pricing.desc': 'Pas de frais cachés, pas d\'engagement à long terme. Commencez par un essai gratuit.',
+        'pricing.plan1.name': 'Basique',
+        'pricing.plan1.per': '/mois',
+        'pricing.plan1.f1': 'Suivi de l\'humeur',
+        'pricing.plan1.f2': '5 méditations guidées',
+        'pricing.plan1.f3': 'Accès au forum',
+        'pricing.plan1.f4': 'Conseils bien-être hebdo',
+        'pricing.plan1.f5': 'Séances de thérapie',
+        'pricing.plan1.cta': 'Commencer',
+        'pricing.plan2.name': 'Plus',
+        'pricing.plan2.per': '/mois',
+        'pricing.plan2.badge': 'Le plus populaire',
+        'pricing.plan2.f1': 'Tout le Basique',
+        'pricing.plan2.f2': 'Méditations illimitées',
+        'pricing.plan2.f3': 'Analyses d\'humeur hebdo',
+        'pricing.plan2.f4': 'Cercles (jusqu\'à 4/mois)',
+        'pricing.plan2.f5': 'Thérapie individuelle',
+        'pricing.plan2.cta': 'Essai gratuit',
+        'pricing.plan3.name': 'Premium',
+        'pricing.plan3.per': '/mois',
+        'pricing.plan3.f1': 'Tout le Plus',
+        'pricing.plan3.f2': '4 séances thérapie/mois',
+        'pricing.plan3.f3': 'Planification prioritaire',
+        'pricing.plan3.f4': 'Cercles illimités',
+        'pricing.plan3.f5': 'Ligne de crise',
+        'pricing.plan3.cta': 'Commencer',
+        'faq.label': 'Support',
+        'faq.title': 'Des questions ? Des réponses.',
+        'faq.desc': 'Tout ce que vous devez savoir sur Ora. Contactez notre équipe si votre question n\'est pas listée.',
+        'faq.q1': 'Comment suis-je jumelé à un thérapeute ?',
+        'faq.a1': 'Après une brève évaluation de vos besoins et préférences, notre algorithme vous associe à un thérapeute agréé spécialisé dans vos domaines de préoccupation. Le changement est toujours gratuit.',
+        'faq.q2': 'Mes données sont-elles privées et sécurisées ?',
+        'faq.a2': 'Absolument. Ora est conforme HIPAA avec chiffrement de bout en bout pour toutes les communications. Vos informations ne sont jamais partagées avec des tiers.',
+        'faq.q3': 'Puis-je changer de thérapeute ?',
+        'faq.a3': 'Oui, et c\'est entièrement gratuit. La relation thérapeutique est profondément personnelle. Vous pouvez demander un nouveau thérapeute à tout moment.',
+        'faq.q4': 'Acceptez-vous les assurances ?',
+        'faq.a4': 'Nous acceptons un nombre croissant de régimes d\'assurance aux États-Unis. Vérifiez votre couverture en temps réel lors de l\'inscription.',
+        'faq.q5': 'Et si j\'ai besoin d\'aide immédiate ?',
+        'faq.a5': 'Ora n\'est pas un service d\'urgence. En cas d\'urgence de santé mentale, appelez le 988 (aux États-Unis) ou rendez-vous aux urgences.',
+        'newsletter.title': 'Restez centré avec nos conseils hebdo',
+        'newsletter.desc': 'Recevez des conseils d\'experts, des exercices guidés et de nouvelles méditations chaque lundi.',
+        'newsletter.btn': 'S\'abonner',
+        'newsletter.disclaimer': 'Pas de spam. Désabonnez-vous à tout moment.',
+        'app.label': 'App mobile',
+        'app.title': 'Votre bien-être, toujours à portée de main',
+        'app.desc': 'Accédez à la thérapie, aux méditations et au suivi de l\'humeur depuis votre téléphone. Ora est disponible sur iOS et Android.',
+        'app.apple': 'App Store',
+        'app.google': 'Google Play',
+        'app.screen.date': 'Lundi, 25 juillet',
+        'app.screen.mood': 'Comment vous sentez-vous ?',
+        'footer.tagline': 'Rendre le bien-être mental accessible, personnel et efficace pour tous.',
+        'footer.product': 'Produit',
+        'footer.features': 'Fonctionnalités',
+        'footer.pricing': 'Tarifs',
+        'footer.therapists': 'Thérapeutes',
+        'footer.enterprise': 'Entreprise',
+        'footer.resources': 'Ressources',
+        'footer.blog': 'Blog',
+        'footer.guides': 'Guides bien-être',
+        'footer.research': 'Recherche',
+        'footer.faq': 'FAQ',
+        'footer.company': 'Société',
+        'footer.about': 'À propos',
+        'footer.careers': 'Carrières',
+        'footer.privacy': 'Confidentialité',
+        'footer.terms': 'CGU',
+        'footer.copyright': '© 2026 Ora Wellness. Tous droits réservés.',
+        'footer.made': 'Conçu avec soin pour votre bien-être.',
+        'cookie.text': 'Nous utilisons des cookies essentiels pour offrir la meilleure expérience. En continuant, vous acceptez notre utilisation des cookies.',
+        'cookie.accept': 'Accepter',
+        'cookie.decline': 'Refuser',
+        'meta.title': 'Ora — Trouvez votre équilibre. Bien-être mental guidé.',
+        'meta.desc': 'Ora est une plateforme de bien-être mental qui vous connecte à des thérapeutes agréés, des méditations guidées et une communauté.',
+        'meta.og.title': 'Ora — Trouvez votre équilibre. Bien-être mental guidé.',
+        'meta.og.desc': 'Plateforme de bien-être mental. Thérapie, méditation, suivi.',
+        'meta.tw.title': 'Ora — Trouvez votre équilibre. Bien-être mental guidé.',
+        'meta.tw.desc': 'Plateforme de bien-être mental. Thérapie, méditation, suivi.',
+      },
+      de: {
+        'nav.how': 'So it funktioniert',
+        'nav.features': 'Funktionen',
+        'nav.pricing': 'Preise',
+        'nav.faq': 'FAQ',
+        'nav.cta': 'Loslegen',
+        'hero.tagline': 'Deine Wellness-Reise beginnt hier',
+        'hero.title': 'Finde deine Mitte.<br>Mentale Gesundheit, begleitet.',
+        'hero.desc': 'Ora verbindet dich mit lizenzierten Therapeuten, geführten Meditationen und einer unterstützenden Gemeinschaft. Alles für einen gesünderen Geist an einem Ort.',
+        'hero.cta.primary': 'Kostenlos testen',
+        'hero.cta.secondary': 'So funktioniert\'s',
+        'hero.stat1': 'Aktive Nutzer',
+        'hero.stat2': 'Lizenzierte Therapeuten',
+        'hero.stat3': 'Durchschnittsbewertung',
+        'hero.floating1': 'Therapeut zugewiesen',
+        'hero.floating2': 'Stimmung erfasst',
+        'how.label': 'Ablauf',
+        'how.title': 'Drei Schritte zu einem ruhigeren Geist',
+        'how.desc': 'Der Einstieg bei Ora ist einfach. Keine Wartelisten, keine komplizierten Formulare – nur echte Fürsorge, die zu deinem Leben passt.',
+        'how.step1.title': 'Erzähl uns von dir',
+        'how.step1.desc': 'Fülle eine kurze, private Einschätzung deiner Bedürfnisse und Ziele aus. Unser Algorithmus findet den perfekten Therapeuten für dich.',
+        'how.step2.title': 'Starte deine Sitzungen',
+        'how.step2.desc': 'Verbinde dich per Video, Sprach- oder Nachrichtenkanal mit deinem Therapeuten. Nutze Meditationen und Stimmungstracker nach deinem Zeitplan.',
+        'how.step3.title': 'Wachse in deinem Tempo',
+        'how.step3.desc': 'Verfolge deine Fortschritte mit wöchentlichen Einblicken, feiere Erfolge und entwickle dauerhafte Resilienz. Dein Weg ist einzigartig.',
+        'features.label': 'Funktionen',
+        'features.title': 'Alles, was du zum Gedeihen brauchst',
+        'features.desc': 'Von Einzeltherapie bis zu täglichen Achtsamkeitstools – Ora vereint alle Ressourcen für deine mentale Gesundheit.',
+        'features.feature1.title': 'Personalisierte Therapie, ganz wie du magst',
+        'features.feature1.desc': 'Ob Video, Sprachanruf oder Nachrichten – Ora passt sich deiner Kommunikationsweise an. Wechsle jederzeit kostenlos den Therapeuten.',
+        'features.feature1.link': 'Pläne erkunden →',
+        'features.feature2.title': 'Geführte Meditationsbibliothek',
+        'features.feature2.desc': 'Über 500 Sitzungen von 5 bis 60 Minuten. Schlafgeschichten, Atemübungen, Körper-Scans und Konzentrationssitzungen.',
+        'features.feature2.link': 'Bibliothek durchstöbern →',
+        'features.feature3.title': 'Gemeinschaftskreise',
+        'features.feature3.desc': 'Nimm an Kleingruppentreffen mit geschulten Moderatoren teil. Teile Erfahrungen und baue bedeutungsvolle Verbindungen auf.',
+        'features.feature3.link': 'Einem Kreis beitreten →',
+        'stats.stat1': 'Aktive Nutzer',
+        'stats.stat2': 'Lizenzierte Therapeuten',
+        'stats.stat3': 'Abgeschlossene Sitzungen',
+        'stats.stat4': 'Berichten Verbesserung',
+        'testimonials.label': 'Erfahrungen',
+        'testimonials.title': 'Geschichten echter Veränderung',
+        'testimonials.desc': 'Höre von Menschen, die ihre Beziehung zur mentalen Gesundheit durch Ora verändert haben.',
+        'testimonials.t1.text': '"Ora half mir, meine Morgenroutine nach Monaten der Angst wieder aufzubauen. Die Therapeutenzuweisung war unglaublich."',
+        'testimonials.t1.role': 'Mitglied seit 2024',
+        'testimonials.t2.text': '"Ich war skeptisch gegenüber Online-Therapie, aber Ora fühlte sich persönlich und sicher an. Die Gemeinschaftskreise halfen mir zu erkennen, dass ich nicht allein bin."',
+        'testimonials.t2.role': 'Mitglied seit 2023',
+        'testimonials.t3.text': '"Die Meditationsbibliothek allein ist es wert. Nach Jahren der Schlaflosigkeit schlafe ich endlich durch. Meine Therapeutin half mir, die Ursachen zu behandeln."',
+        'testimonials.t3.role': 'Mitglied seit 2024',
+        'testimonials.t4.text': '"Einen Therapeuten zu haben, der meinen kulturellen Hintergrund versteht, war transformativ. Oras Algorithmus funktioniert wirklich."',
+        'testimonials.t4.role': 'Mitglied seit 2023',
+        'pricing.label': 'Preise',
+        'pricing.title': 'Einfache Pläne, echte Fürsorge',
+        'pricing.desc': 'Keine versteckten Gebühren, keine langfristigen Verträge. Starte mit einer kostenlosen Testversion.',
+        'pricing.plan1.name': 'Basic',
+        'pricing.plan1.per': '/Monat',
+        'pricing.plan1.f1': 'Stimmungstracker',
+        'pricing.plan1.f2': '5 geführte Meditationen',
+        'pricing.plan1.f3': 'Community-Forum',
+        'pricing.plan1.f4': 'Wöchentliche Tipps',
+        'pricing.plan1.f5': 'Therapiesitzungen',
+        'pricing.plan1.cta': 'Loslegen',
+        'pricing.plan2.name': 'Plus',
+        'pricing.plan2.per': '/Monat',
+        'pricing.plan2.badge': 'Am beliebtesten',
+        'pricing.plan2.f1': 'Alles aus Basic',
+        'pricing.plan2.f2': 'Unbegrenzte Meditationen',
+        'pricing.plan2.f3': 'Wöchentliche Stimmungseinblicke',
+        'pricing.plan2.f4': 'Gruppenkreise (bis 4/Monat)',
+        'pricing.plan2.f5': 'Einzeltherapie',
+        'pricing.plan2.cta': 'Kostenlos testen',
+        'pricing.plan3.name': 'Premium',
+        'pricing.plan3.per': '/Monat',
+        'pricing.plan3.f1': 'Alles aus Plus',
+        'pricing.plan3.f2': '4 Therapiesitzungen/Monat',
+        'pricing.plan3.f3': 'Prioritätstermine',
+        'pricing.plan3.f4': 'Unbegrenzte Gruppenkreise',
+        'pricing.plan3.f5': 'Krisenhotline',
+        'pricing.plan3.cta': 'Loslegen',
+        'faq.label': 'Support',
+        'faq.title': 'Fragen, beantwortet',
+        'faq.desc': 'Alles, was du über Ora wissen musst. Kontaktiere uns, falls deine Frage nicht dabei ist.',
+        'faq.q1': 'Wie werde ich einem Therapeuten zugewiesen?',
+        'faq.a1': 'Nach einer kurzen Bewertung deiner Bedürfnisse und Ziele unser Algorithmus bringt dich mit einem lizenzierten Therapeuten zusammen. Ein Wechsel ist jederzeit kostenlos.',
+        'faq.q2': 'Sind meine Daten privat und sicher?',
+        'faq.a2': 'Absolut. Ora ist HIPAA-konform und verwendet Ende-zu-Ende-Verschlüsselung. Deine Informationen werden niemals an Dritte weitergegeben.',
+        'faq.q3': 'Kann ich den Therapeuten wechseln?',
+        'faq.a3': 'Ja, und es ist völlig kostenlos. Du kannst jederzeit über dein Dashboard einen neuen Therapeuten anfordern.',
+        'faq.q4': 'Akzeptiert ihr Versicherungen?',
+        'faq.a4': 'Wir akzeptieren eine wachsende Zahl von Versicherungsplänen. Prüfe deinen Versicherungsschutz in Echtzeit während der Anmeldung.',
+        'faq.q5': 'Was, wenn ich sofort Hilfe brauche?',
+        'faq.a5': 'Ora ist kein Krisendienst. Bei einem psychischen Notfall rufe bitte die 112 (europaweit) oder 988 (USA) an.',
+        'newsletter.title': 'Bleib geerdet mit wöchentlichen Einblicken',
+        'newsletter.desc': 'Erhalte jeden Montag Tipps von Experten, geführte Übungen und neue Meditationen.',
+        'newsletter.btn': 'Abonnieren',
+        'newsletter.disclaimer': 'Kein Spam. Jederzeit kündbar.',
+        'app.label': 'Mobile App',
+        'app.title': 'Dein Wohlbefinden, immer griffbereit',
+        'app.desc': 'Nutze Therapie, Meditationen und Stimmungstracking von deinem Handy aus. Ora ist für iOS und Android verfügbar.',
+        'app.apple': 'App Store',
+        'app.google': 'Google Play',
+        'app.screen.date': 'Montag, 25. Juli',
+        'app.screen.mood': 'Wie fühlst du dich?',
+        'footer.tagline': 'Mentale Gesundheit zugänglich, persönlich und effektiv für alle machen.',
+        'footer.product': 'Produkt',
+        'footer.features': 'Funktionen',
+        'footer.pricing': 'Preise',
+        'footer.therapists': 'Für Therapeuten',
+        'footer.enterprise': 'Unternehmen',
+        'footer.resources': 'Ressourcen',
+        'footer.blog': 'Blog',
+        'footer.guides': 'Wellness-Guides',
+        'footer.research': 'Forschung',
+        'footer.faq': 'FAQ',
+        'footer.company': 'Unternehmen',
+        'footer.about': 'Über uns',
+        'footer.careers': 'Karriere',
+        'footer.privacy': 'Datenschutz',
+        'footer.terms': 'AGB',
+        'footer.copyright': '© 2026 Ora Wellness. Alle Rechte vorbehalten.',
+        'footer.made': 'Mit Sorgfalt für dein Wohlbefinden gemacht.',
+        'cookie.text': 'Wir verwenden essentielle Cookies. Mit der Nutzung stimmst du der Cookie-Nutzung zu.',
+        'cookie.accept': 'Akzeptieren',
+        'cookie.decline': 'Ablehnen',
+        'meta.title': 'Ora — Finde deine Mitte. Mentale Gesundheit, begleitet.',
+        'meta.desc': 'Ora ist eine Plattform für mentale Gesundheit mit lizenzierten Therapeuten und Meditationen.',
+        'meta.og.title': 'Ora — Finde deine Mitte. Mentale Gesundheit, begleitet.',
+        'meta.og.desc': 'Plattform für mentale Gesundheit. Therapie, Meditation, Gemeinschaft.',
+        'meta.tw.title': 'Ora — Finde deine Mitte. Mentale Gesundheit, begleitet.',
+        'meta.tw.desc': 'Plattform für mentale Gesundheit. Therapie, Meditation, Gemeinschaft.',
+      },
+      it: {
+        'nav.how': 'Come Funziona',
+        'nav.features': 'Funzionalità',
+        'nav.pricing': 'Prezzi',
+        'nav.faq': 'FAQ',
+        'nav.cta': 'Inizia',
+        'hero.tagline': 'Il tuo percorso di benessere inizia qui',
+        'hero.title': 'Trova il tuo centro.<br>Benessere mentale, guidato.',
+        'hero.desc': 'Ora ti connette a terapeuti autorizzati, meditazioni guidate e una comunità di supporto. Tutto per una mente più sana in un unico posto.',
+        'hero.cta.primary': 'Prova gratuita',
+        'hero.cta.secondary': 'Scopri come funziona',
+        'hero.stat1': 'Utenti attivi',
+        'hero.stat2': 'Terapeuti autorizzati',
+        'hero.stat3': 'Valutazione media',
+        'hero.floating1': 'Terapeuta assegnato',
+        'hero.floating2': 'Umore registrato',
+        'how.label': 'Processo',
+        'how.title': 'Tre passi verso una mente più calma',
+        'how.desc': 'Iniziare con Ora è semplice. Niente liste d\'attesa o moduli complicati — solo cure autentiche che si adattano alla tua vita.',
+        'how.step1.title': 'Parlaci di te',
+        'how.step1.desc': 'Compila una breve valutazione privata delle tue esigenze e obiettivi. Il nostro algoritmo trova il terapeuta perfetto per te.',
+        'how.step2.title': 'Inizia le sessioni',
+        'how.step2.desc': 'Connettiti con il tuo terapeuta via video, voce o messaggistica sicura. Accedi a meditazioni e strumenti di monitoraggio.',
+        'how.step3.title': 'Cresci al tuo ritmo',
+        'how.step3.desc': 'Segui i progressi con approfondimenti settimanali, celebra i traguardi e costruisci resilienza duratura.',
+        'features.label': 'Funzionalità',
+        'features.title': 'Tutto ciò di cui hai bisogno per prosperare',
+        'features.desc': 'Dalla terapia individuale agli strumenti di mindfulness quotidiani, Ora riunisce tutte le risorse per il tuo benessere mentale.',
+        'features.feature1.title': 'Terapia personalizzata, a modo tuo',
+        'features.feature1.desc': 'Che tu preferisca video, chiamate vocali o messaggi, Ora si adatta al tuo modo di comunicare. Cambia terapeuta senza costi aggiuntivi.',
+        'features.feature1.link': 'Esplora piani →',
+        'features.feature2.title': 'Biblioteca di meditazione guidata',
+        'features.feature2.desc': 'Oltre 500 sessioni da 5 a 60 minuti. Storie della buonanotte, esercizi di respirazione, scansioni corporee.',
+        'features.feature2.link': 'Sfoglia biblioteca →',
+        'features.feature3.title': 'Circoli comunitari',
+        'features.feature3.desc': 'Partecipa a sessioni in piccoli gruppi guidate da facilitatori formati. Condividi esperienze e crea connessioni significative.',
+        'features.feature3.link': 'Unisciti a un circolo →',
+        'stats.stat1': 'Utenti attivi',
+        'stats.stat2': 'Terapeuti autorizzati',
+        'stats.stat3': 'Sessioni completate',
+        'stats.stat4': 'Segnalano miglioramento',
+        'testimonials.label': 'Testimonianze',
+        'testimonials.title': 'Storie di cambiamento reale',
+        'testimonials.desc': 'Ascolta persone che hanno trasformato il loro rapporto con la salute mentale grazie a Ora.',
+        'testimonials.t1.text': '"Ora mi ha aiutato a ricostruire la mia routine mattutina dopo mesi di ansia. L\'abbinamento con la terapeuta è stato incredibile."',
+        'testimonials.t1.role': 'Membro dal 2024',
+        'testimonials.t2.text': '"Ero scettico sulla terapia online, ma Ora l\'ha resa personale e sicura. I circoli comunitari mi hanno fatto sentire meno solo."',
+        'testimonials.t2.role': 'Membro dal 2023',
+        'testimonials.t3.text': '"La biblioteca di meditazione vale da sola il prezzo. Finalmente dormo tutta la notte dopo anni di insonnia."',
+        'testimonials.t3.role': 'Membro dal 2024',
+        'testimonials.t4.text': '"Avere un terapeuta che capisce il mio background culturale è stato trasformativo. L\'algoritmo di Ora funziona davvero."',
+        'testimonials.t4.role': 'Membro dal 2023',
+        'pricing.label': 'Prezzi',
+        'pricing.title': 'Piani semplici, cure vere',
+        'pricing.desc': 'Nessun costo nascosto, nessun contratto a lungo termine. Inizia con una prova gratuita.',
+        'pricing.plan1.name': 'Base',
+        'pricing.plan1.per': '/mese',
+        'pricing.plan1.f1': 'Monitoraggio umore',
+        'pricing.plan1.f2': '5 meditazioni guidate',
+        'pricing.plan1.f3': 'Forum comunitario',
+        'pricing.plan1.f4': 'Consigli benessere settimanali',
+        'pricing.plan1.f5': 'Sessioni di terapia',
+        'pricing.plan1.cta': 'Inizia',
+        'pricing.plan2.name': 'Plus',
+        'pricing.plan2.per': '/mese',
+        'pricing.plan2.badge': 'Più popolare',
+        'pricing.plan2.f1': 'Tutto del Base',
+        'pricing.plan2.f2': 'Meditazioni illimitate',
+        'pricing.plan2.f3': 'Analisi umore settimanali',
+        'pricing.plan2.f4': 'Circoli (fino a 4/mese)',
+        'pricing.plan2.f5': 'Terapia individuale',
+        'pricing.plan2.cta': 'Prova gratuita',
+        'pricing.plan3.name': 'Premium',
+        'pricing.plan3.per': '/mese',
+        'pricing.plan3.f1': 'Tutto del Plus',
+        'pricing.plan3.f2': '4 sessioni terapia/mese',
+        'pricing.plan3.f3': 'Prenotazione prioritaria',
+        'pricing.plan3.f4': 'Circoli illimitati',
+        'pricing.plan3.f5': 'Linea di crisi',
+        'pricing.plan3.cta': 'Inizia',
+        'faq.label': 'Supporto',
+        'faq.title': 'Domande, risposte',
+        'faq.desc': 'Tutto ciò che devi sapere su Ora. Contattaci se non trovi la tua domanda.',
+        'faq.q1': 'Come vengo abbinato a un terapeuta?',
+        'faq.a1': 'Dopo una breve valutazione delle tue esigenze, il nostro algoritmo ti abbina a un terapeuta autorizzato. Il cambio è sempre gratuito.',
+        'faq.q2': 'I miei dati sono privati e sicuri?',
+        'faq.a2': 'Assolutamente. Ora è conforme HIPAA con crittografia end-to-end per tutte le comunicazioni. Le tue informazioni non vengono mai condivise con terzi.',
+        'faq.q3': 'Posso cambiare terapeuta?',
+        'faq.a3': 'Sì, ed è completamente gratuito. Puoi richiedere un nuovo terapeuta in qualsiasi momento dalla tua dashboard.',
+        'faq.q4': 'Accettate assicurazioni?',
+        'faq.a4': 'Accettiamo un numero crescente di piani assicurativi. Verifica la copertura in tempo reale durante la registrazione.',
+        'faq.q5': 'Cosa succede se ho bisogno di aiuto immediato?',
+        'faq.a5': 'Ora non è un servizio di crisi. In caso di emergenza chiama il 988 (USA) o il 112 (Europa).',
+        'newsletter.title': 'Rimani centrato con approfondimenti settimanali',
+        'newsletter.desc': 'Ricevi consigli di esperti, esercizi guidati e nuove meditazioni ogni lunedì.',
+        'newsletter.btn': 'Iscriviti',
+        'newsletter.disclaimer': 'Niente spam. Disiscriviti quando vuoi.',
+        'app.label': 'App mobile',
+        'app.title': 'Il tuo benessere, sempre a portata di mano',
+        'app.desc': 'Terapia, meditazioni e monitoraggio dell\'umore dal tuo telefono. Ora è disponibile su iOS e Android.',
+        'app.apple': 'App Store',
+        'app.google': 'Google Play',
+        'app.screen.date': 'Lunedì, 25 luglio',
+        'app.screen.mood': 'Come ti senti?',
+        'footer.tagline': 'Rendere il benessere mentale accessibile, personale ed efficace per tutti.',
+        'footer.product': 'Prodotto',
+        'footer.features': 'Funzionalità',
+        'footer.pricing': 'Prezzi',
+        'footer.therapists': 'Per Terapeuti',
+        'footer.enterprise': 'Aziende',
+        'footer.resources': 'Risorse',
+        'footer.blog': 'Blog',
+        'footer.guides': 'Guide benessere',
+        'footer.research': 'Ricerca',
+        'footer.faq': 'FAQ',
+        'footer.company': 'Azienda',
+        'footer.about': 'Chi siamo',
+        'footer.careers': 'Carriere',
+        'footer.privacy': 'Privacy',
+        'footer.terms': 'Termini',
+        'footer.copyright': '© 2026 Ora Wellness. Tutti i diritti riservati.',
+        'footer.made': 'Fatto con cura per il tuo benessere.',
+        'cookie.text': 'Utilizziamo cookie essenziali per offrirti la migliore esperienza. Continuando accetti l\'uso dei cookie.',
+        'cookie.accept': 'Accetta',
+        'cookie.decline': 'Rifiuta',
+        'meta.title': 'Ora — Trova il tuo centro. Benessere mentale guidato.',
+        'meta.desc': 'Ora è una piattaforma di benessere mentale con terapeuti autorizzati e meditazioni guidate.',
+        'meta.og.title': 'Ora — Trova il tuo centro. Benessere mentale guidato.',
+        'meta.og.desc': 'Piattaforma di benessere mentale. Terapia, meditazione, comunità.',
+        'meta.tw.title': 'Ora — Trova il tuo centro. Benessere mentale guidato.',
+        'meta.tw.desc': 'Piattaforma di benessere mentale. Terapia, meditazione, comunità.',
+      },
+      pt: {
+        'nav.how': 'Como Funciona',
+        'nav.features': 'Recursos',
+        'nav.pricing': 'Preços',
+        'nav.faq': 'Perguntas',
+        'nav.cta': 'Começar',
+        'hero.tagline': 'Sua jornada de bem-estar começa aqui',
+        'hero.title': 'Encontre seu centro.<br>Bem-estar mental, guiado.',
+        'hero.desc': 'Ora conecta você a terapeutas licenciados, meditações guiadas e uma comunidade de apoio. As ferramentas para uma mente mais saudável, tudo em um só lugar.',
+        'hero.cta.primary': 'Teste grátis',
+        'hero.cta.secondary': 'Veja como funciona',
+        'hero.stat1': 'Usuários ativos',
+        'hero.stat2': 'Terapeutas licenciados',
+        'hero.stat3': 'Avaliação média',
+        'hero.floating1': 'Terapeuta atribuído',
+        'hero.floating2': 'Humor registado',
+        'how.label': 'Processo',
+        'how.title': 'Três passos para uma mente mais calma',
+        'how.desc': 'Começar com Ora é simples. Sem filas de espera, sem formulários complicados — apenas cuidados genuínos que se adaptam à sua vida.',
+        'how.step1.title': 'Conte-nos sobre você',
+        'how.step1.desc': 'Complete uma breve avaliação privada das suas necessidades e objetivos. O nosso algoritmo encontra o terapeuta ideal para você.',
+        'how.step2.title': 'Inicie as sessões',
+        'how.step2.desc': 'Conecte-se com seu terapeuta por vídeo, voz ou mensagens seguras. Aceda a meditações guiadas e ferramentas de monitoramento.',
+        'how.step3.title': 'Cresça no seu ritmo',
+        'how.step3.desc': 'Acompanhe seu progresso com insights semanais, celebre conquistas e construa resiliência duradoura.',
+        'features.label': 'Recursos',
+        'features.title': 'Tudo que você precisa para prosperar',
+        'features.desc': 'Da terapia individual às ferramentas diárias de mindfulness, Ora reúne todos os recursos para sua jornada de bem-estar mental.',
+        'features.feature1.title': 'Terapia personalizada, do seu jeito',
+        'features.feature1.desc': 'Seja por vídeo, chamada de voz ou mensagens, Ora se adapta à sua forma de comunicar. Mude de terapeuta sem custos extras.',
+        'features.feature1.link': 'Explorar planos →',
+        'features.feature2.title': 'Biblioteca de meditação guiada',
+        'features.feature2.desc': 'Mais de 500 sessões de 5 a 60 minutos. Histórias para dormir, exercícios respiratórios, varreduras corporais.',
+        'features.feature2.link': 'Explorar biblioteca →',
+        'features.feature3.title': 'Círculos comunitários',
+        'features.feature3.desc': 'Participe de sessões em pequenos grupos lideradas por facilitadores treinados. Compartilhe experiências e crie conexões.',
+        'features.feature3.link': 'Junte-se a um círculo →',
+        'stats.stat1': 'Usuários ativos',
+        'stats.stat2': 'Terapeutas licenciados',
+        'stats.stat3': 'Sessões concluídas',
+        'stats.stat4': 'Relatam melhora',
+        'testimonials.label': 'Depoimentos',
+        'testimonials.title': 'Histórias de mudança real',
+        'testimonials.desc': 'Ouça pessoas que transformaram sua relação com a saúde mental através do Ora.',
+        'testimonials.t1.text': '"Ora me ajudou a reconstruir minha rotina matinal após meses de ansiedade. A correspondência com a terapeuta foi incrível."',
+        'testimonials.t1.role': 'Membro desde 2024',
+        'testimonials.t2.text': '"Eu estava cético sobre terapia online, mas Ora tornou tudo pessoal e seguro. Os círculos comunitários me ajudaram a não me sentir sozinho."',
+        'testimonials.t2.role': 'Membro desde 2023',
+        'testimonials.t3.text': '"A biblioteca de meditação já vale o preço. Finalmente durmo a noite toda após anos de insônia."',
+        'testimonials.t3.role': 'Membro desde 2024',
+        'testimonials.t4.text': '"Ter um terapeuta que entende meu contexto cultural foi transformador. O algoritmo do Ora realmente funciona."',
+        'testimonials.t4.role': 'Membro desde 2023',
+        'pricing.label': 'Preços',
+        'pricing.title': 'Planos simples, cuidado real',
+        'pricing.desc': 'Sem taxas ocultas, sem contratos de longo prazo. Comece com um teste gratuito.',
+        'pricing.plan1.name': 'Básico',
+        'pricing.plan1.per': '/mês',
+        'pricing.plan1.f1': 'Monitoramento de humor',
+        'pricing.plan1.f2': '5 meditações guiadas',
+        'pricing.plan1.f3': 'Fórum comunitário',
+        'pricing.plan1.f4': 'Dicas semanais de bem-estar',
+        'pricing.plan1.f5': 'Sessões de terapia',
+        'pricing.plan1.cta': 'Começar',
+        'pricing.plan2.name': 'Plus',
+        'pricing.plan2.per': '/mês',
+        'pricing.plan2.badge': 'Mais popular',
+        'pricing.plan2.f1': 'Tudo do Básico',
+        'pricing.plan2.f2': 'Meditações ilimitadas',
+        'pricing.plan2.f3': 'Insights semanais de humor',
+        'pricing.plan2.f4': 'Círculos (até 4/mês)',
+        'pricing.plan2.f5': 'Terapia individual',
+        'pricing.plan2.cta': 'Teste grátis',
+        'pricing.plan3.name': 'Premium',
+        'pricing.plan3.per': '/mês',
+        'pricing.plan3.f1': 'Tudo do Plus',
+        'pricing.plan3.f2': '4 sessões de terapia/mês',
+        'pricing.plan3.f3': 'Agendamento prioritário',
+        'pricing.plan3.f4': 'Círculos ilimitados',
+        'pricing.plan3.f5': 'Linha de crise',
+        'pricing.plan3.cta': 'Começar',
+        'faq.label': 'Suporte',
+        'faq.title': 'Perguntas, respondidas',
+        'faq.desc': 'Tudo que você precisa saber sobre o Ora. Contacte-nos se não encontrar sua pergunta.',
+        'faq.q1': 'Como sou combinado com um terapeuta?',
+        'faq.a1': 'Após uma breve avaliação das suas necessidades, nosso algoritmo combina você com um terapeuta licenciado. A troca é sempre gratuita.',
+        'faq.q2': 'Meus dados são privados e seguros?',
+        'faq.a2': 'Absolutamente. Ora está em conformidade HIPAA com criptografia de ponta a ponta. Suas informações nunca são compartilhadas com terceiros.',
+        'faq.q3': 'Posso trocar de terapeuta?',
+        'faq.a3': 'Sim, e é completamente gratuito. Pode solicitar um novo terapeuta a qualquer momento pelo seu painel.',
+        'faq.q4': 'Aceitam seguros?',
+        'faq.a4': 'Aceitamos um número crescente de planos de seguro nos EUA. Verifique a cobertura em tempo real durante o cadastro.',
+        'faq.q5': 'E se eu precisar de ajuda imediata?',
+        'faq.a5': 'Ora não é um serviço de crise. Em caso de emergência, ligue 988 (EUA) ou 112 (Europa).',
+        'newsletter.title': 'Mantenha-se centrado com insights semanais',
+        'newsletter.desc': 'Receba dicas de especialistas, exercícios guiados e novas meditações toda segunda-feira.',
+        'newsletter.btn': 'Inscrever-se',
+        'newsletter.disclaimer': 'Sem spam. Cancele quando quiser.',
+        'app.label': 'App móvel',
+        'app.title': 'Seu bem-estar, sempre ao alcance',
+        'app.desc': 'Aceda a terapia, meditações e monitoramento de humor pelo seu telemóvel. Ora está disponível para iOS e Android.',
+        'app.apple': 'App Store',
+        'app.google': 'Google Play',
+        'app.screen.date': 'Segunda, 25 de julho',
+        'app.screen.mood': 'Como você está se sentindo?',
+        'footer.tagline': 'Tornando o bem-estar mental acessível, pessoal e eficaz para todos.',
+        'footer.product': 'Produto',
+        'footer.features': 'Recursos',
+        'footer.pricing': 'Preços',
+        'footer.therapists': 'Para Terapeutas',
+        'footer.enterprise': 'Empresas',
+        'footer.resources': 'Recursos',
+        'footer.blog': 'Blog',
+        'footer.guides': 'Guias de bem-estar',
+        'footer.research': 'Pesquisa',
+        'footer.faq': 'Perguntas',
+        'footer.company': 'Empresa',
+        'footer.about': 'Sobre nós',
+        'footer.careers': 'Carreiras',
+        'footer.privacy': 'Privacidade',
+        'footer.terms': 'Termos',
+        'footer.copyright': '© 2026 Ora Wellness. Todos os direitos reservados.',
+        'footer.made': 'Feito com cuidado para o seu bem-estar.',
+        'cookie.text': 'Usamos cookies essenciais para oferecer a melhor experiência. Ao continuar, concorda com o uso de cookies.',
+        'cookie.accept': 'Aceitar',
+        'cookie.decline': 'Recusar',
+        'meta.title': 'Ora — Encontre seu centro. Bem-estar mental guiado.',
+        'meta.desc': 'Ora é uma plataforma de bem-estar mental com terapeutas licenciados e meditação guiada.',
+        'meta.og.title': 'Ora — Encontre seu centro. Bem-estar mental guiado.',
+        'meta.og.desc': 'Plataforma de bem-estar mental. Terapia, meditação, comunidade.',
+        'meta.tw.title': 'Ora — Encontre seu centro. Bem-estar mental guiado.',
+        'meta.tw.desc': 'Plataforma de bem-estar mental. Terapia, meditação, comunidade.',
+      }
+    };
+
+    // ============================================================
+    // i18n: apply translations to the page
+    // ============================================================
+    let currentLang = 'en';
+
+    function getBrowserLang() {
+      const lang = navigator.language || navigator.userLanguage || '';
+      const supported = Object.keys(i18n);
+      const base = lang.split('-')[0];
+      if (supported.includes(base)) return base;
+      if (base === 'pt') return 'pt';
+      return 'en';
+    }
+
+    function setLanguage(lang) {
+      if (!i18n[lang]) return;
+      currentLang = lang;
+      localStorage.setItem('ora-lang', lang);
+
+      // Update all data-i18n elements
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (i18n[lang][key]) {
+          el.innerHTML = i18n[lang][key];
+        }
+      });
+
+      // Update meta tags
+      const titleKey = 'meta.title';
+      const descKey = 'meta.desc';
+      const ogTitleKey = 'meta.og.title';
+      const ogDescKey = 'meta.og.desc';
+      const twTitleKey = 'meta.tw.title';
+      const twDescKey = 'meta.tw.desc';
+
+      if (i18n[lang][titleKey]) {
+        document.title = i18n[lang][titleKey];
+        document.getElementById('meta-title').textContent = i18n[lang][titleKey];
+      }
+      if (i18n[lang][descKey]) {
+        document.getElementById('meta-desc').setAttribute('content', i18n[lang][descKey]);
+      }
+      if (i18n[lang][ogTitleKey]) {
+        document.getElementById('og-title').setAttribute('content', i18n[lang][ogTitleKey]);
+        document.getElementById('tw-title').setAttribute('content', i18n[lang][twTitleKey]);
+      }
+      if (i18n[lang][ogDescKey]) {
+        document.getElementById('og-desc').setAttribute('content', i18n[lang][ogDescKey]);
+        document.getElementById('tw-desc').setAttribute('content', i18n[lang][twDescKey]);
+      }
+
+      // Update lang attribute on html
+      document.documentElement.setAttribute('lang', lang);
+
+      // Update language button text
+      const langMap = { en: 'EN', es: 'ES', fr: 'FR', de: 'DE', it: 'IT', pt: 'PT' };
+      document.getElementById('lang-current').textContent = langMap[lang] || 'EN';
+
+      // Update active state in menu
+      document.querySelectorAll('.lang-option').forEach(el => {
+        el.classList.toggle('lang-option--active', el.getAttribute('data-lang') === lang);
+      });
+
+      // Close lang menu
+      document.getElementById('lang-menu').classList.remove('lang-select__menu--open');
+      document.getElementById('lang-btn').setAttribute('aria-expanded', 'false');
+    }
+
+    // ============================================================
+    // THEME TOGGLE (dark / light)
+    // ============================================================
+    function initTheme() {
+      const saved = localStorage.getItem('ora-theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const theme = saved || (prefersDark ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    }
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('ora-theme', next);
+    }
+
+    // ============================================================
+    // NAVIGATION
+    // ============================================================
+    function initNav() {
+      const hamburger = document.getElementById('nav-hamburger');
+      const navLinks = document.getElementById('nav-links');
+
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('nav__hamburger--active');
+        navLinks.classList.toggle('nav__links--open');
+      });
+
+      // Close on link click (mobile)
+      navLinks.querySelectorAll('.nav__link').forEach(link => {
+        link.addEventListener('click', () => {
+          hamburger.classList.remove('nav__hamburger--active');
+          navLinks.classList.remove('nav__links--open');
+        });
+      });
+
+      // Sticky nav shadow on scroll
+      const nav = document.querySelector('.nav');
+      let lastScroll = 0;
+      window.addEventListener('scroll', () => {
+        const scrollY = window.scrollY;
+        if (scrollY > 80) {
+          nav.classList.add('nav--scrolled');
+        } else {
+          nav.classList.remove('nav--scrolled');
+        }
+        lastScroll = scrollY;
+      }, { passive: true });
+    }
+
+    // ============================================================
+    // LANGUAGE SELECTOR
+    // ============================================================
+    function initLangSelector() {
+      const btn = document.getElementById('lang-btn');
+      const menu = document.getElementById('lang-menu');
+
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = menu.classList.contains('lang-select__menu--open');
+        menu.classList.toggle('lang-select__menu--open');
+        btn.setAttribute('aria-expanded', !isOpen);
+      });
+
+      document.querySelectorAll('.lang-option').forEach(opt => {
+        opt.addEventListener('click', () => {
+          setLanguage(opt.getAttribute('data-lang'));
+        });
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!document.getElementById('lang-select').contains(e.target)) {
+          menu.classList.remove('lang-select__menu--open');
+          btn.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+
+    // ============================================================
+    // SCROLL REVEAL (Intersection Observer)
+    // ============================================================
+    function initReveal() {
+      const items = document.querySelectorAll('.reveal');
+      if (items.length === 0) return;
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('reveal--visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      });
+
+      items.forEach(el => observer.observe(el));
+    }
+
+    // ============================================================
+    // FAQ ACCORDION
+    // ============================================================
+    function initFaq() {
+      document.querySelectorAll('.faq-item__trigger').forEach(trigger => {
+        trigger.addEventListener('click', () => {
+          const item = trigger.closest('.faq-item');
+          const content = item.querySelector('.faq-item__content');
+          const isOpen = item.classList.contains('faq-item--open');
+
+          // Close all others
+          document.querySelectorAll('.faq-item').forEach(other => {
+            if (other !== item) {
+              other.classList.remove('faq-item--open');
+              other.querySelector('.faq-item__trigger').setAttribute('aria-expanded', 'false');
+              other.querySelector('.faq-item__content').style.maxHeight = '0';
+            }
+          });
+
+          if (isOpen) {
+            item.classList.remove('faq-item--open');
+            trigger.setAttribute('aria-expanded', 'false');
+            content.style.maxHeight = '0';
+          } else {
+            item.classList.add('faq-item--open');
+            trigger.setAttribute('aria-expanded', 'true');
+            content.style.maxHeight = content.scrollHeight + 'px';
+          }
+        });
+      });
+    }
+
+    // ============================================================
+    // TESTIMONIAL CAROUSEL (dot navigation)
+    // ============================================================
+    function initTestimonials() {
+      const track = document.getElementById('testimonials-track');
+      const dots = document.querySelectorAll('#testimonials-nav .testimonials-nav__dot');
+
+      if (!track || dots.length === 0) return;
+
+      function scrollTo(index) {
+        const cards = track.querySelectorAll('.testimonial');
+        if (cards[index]) {
+          cards[index].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+        }
+        dots.forEach((d, i) => {
+          d.classList.toggle('testimonials-nav__dot--active', i === index);
+          d.setAttribute('aria-selected', i === index);
+        });
+      }
+
+      dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => scrollTo(index));
+      });
+
+      // Update dots on scroll
+      let scrollTimeout;
+      track.addEventListener('scroll', () => {
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+          const cards = track.querySelectorAll('.testimonial');
+          const scrollLeft = track.scrollLeft;
+          let activeIndex = 0;
+          let minOffset = Infinity;
+          cards.forEach((card, i) => {
+            const offset = Math.abs(card.offsetLeft - scrollLeft);
+            if (offset < minOffset) {
+              minOffset = offset;
+              activeIndex = i;
+            }
+          });
+          dots.forEach((d, i) => {
+            d.classList.toggle('testimonials-nav__dot--active', i === activeIndex);
+            d.setAttribute('aria-selected', i === activeIndex);
+          });
+        }, 150);
+      }, { passive: true });
+    }
+
+    // ============================================================
+    // NEWSLETTER FORM
+    // ============================================================
+    function initNewsletter() {
+      const form = document.getElementById('newsletter-form');
+      if (!form) return;
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const input = document.getElementById('newsletter-email');
+        if (input.value && input.value.includes('@')) {
+          input.value = '';
+          const btn = form.querySelector('.newsletter__btn');
+          const original = btn.textContent;
+          btn.textContent = '✓ ' + (i18n[currentLang]['newsletter.btn'] || 'Subscribed!');
+          setTimeout(() => { btn.textContent = original; }, 2500);
+        }
+      });
+    }
+
+    // ============================================================
+    // COOKIE CONSENT
+    // ============================================================
+    function initCookieBar() {
+      if (localStorage.getItem('ora-cookies') !== null) return;
+      const bar = document.getElementById('cookie-bar');
+      bar.classList.add('cookie-bar--visible');
+    }
+
+    function acceptCookies(accepted) {
+      localStorage.setItem('ora-cookies', accepted ? 'accepted' : 'declined');
+      document.getElementById('cookie-bar').classList.remove('cookie-bar--visible');
+    }
+
+    // ============================================================
+    // SMOOTH SCROLL FOR ANCHOR LINKS
+    // ============================================================
+    function initSmoothScroll() {
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', (e) => {
+          const target = document.querySelector(anchor.getAttribute('href'));
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+    }
+
+    // ============================================================
+    // INIT — runs on DOM ready
+    // ============================================================
+    document.addEventListener('DOMContentLoaded', () => {
+      initTheme();
+      setLanguage(localStorage.getItem('ora-lang') || getBrowserLang());
+      initNav();
+      initLangSelector();
+      initReveal();
+      initFaq();
+      initTestimonials();
+      initNewsletter();
+      initCookieBar();
+      initSmoothScroll();
+
+      document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+    });
+  </script>
+</body>
+</html>
