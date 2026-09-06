@@ -6,3 +6,13 @@ _gen_quiebre/
 _qa-puente/
 node_modules/
 .DS_Store
+
+# publish-remaining 2026-09-06
+# Build leftovers
+.build/
+_azimut_build/
+_build_ondaocho/
+_gen_quiebre/
+_qa-puente/
+node_modules/
+.DS_Store
